@@ -314,7 +314,7 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 		EObject obj = eResource() == null ? null : eResource().getEObject(uri);
 		if (obj == null) {
 			obj = RDFFactory.eINSTANCE.createBlankNode();
-			((BlankNode) obj).setNodeID(nodeID);
+			((BlankNode) obj).setNodeID(uri);
 			this.getBlankNodes().add((BlankNode) obj);
 		}
 		return obj instanceof BlankNode ? (BlankNode)obj : null;
@@ -329,6 +329,12 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case RDFPackage.RDF_GRAPH__RESOURCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
+			case RDFPackage.RDF_GRAPH__BLANK_NODES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBlankNodes()).basicAdd(otherEnd, msgs);
+			case RDFPackage.RDF_GRAPH__LITERALS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLiterals()).basicAdd(otherEnd, msgs);
 			case RDFPackage.RDF_GRAPH__TRIPLES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTriples()).basicAdd(otherEnd, msgs);
 		}

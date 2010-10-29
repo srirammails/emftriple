@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.Node;
+import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.RDFPackage;
 import com.emf4sw.rdf.Resource;
 import com.emf4sw.rdf.Triple;
@@ -38,6 +39,7 @@ import com.emf4sw.rdf.vocabulary.RDF;
  *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getSubjectOf <em>Subject Of</em>}</li>
  *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getObjectOf <em>Object Of</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getGraph <em>Graph</em>}</li>
  * </ul>
  * </p>
  *
@@ -192,6 +194,47 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RDFGraph getGraph() {
+		if (eContainerFeatureID() != RDFPackage.RESOURCE__GRAPH) return null;
+		return (RDFGraph)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGraph(RDFGraph newGraph, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newGraph, RDFPackage.RESOURCE__GRAPH, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGraph(RDFGraph newGraph) {
+		if (newGraph != eInternalContainer() || (eContainerFeatureID() != RDFPackage.RESOURCE__GRAPH && newGraph != null)) {
+			if (EcoreUtil.isAncestor(this, newGraph))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newGraph != null)
+				msgs = ((InternalEObject)newGraph).eInverseAdd(this, RDFPackage.RDF_GRAPH__RESOURCES, RDFGraph.class, msgs);
+			msgs = basicSetGraph(newGraph, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.RESOURCE__GRAPH, newGraph, newGraph));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isTypeOf(String uri) {
@@ -304,6 +347,10 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubjectOf()).basicAdd(otherEnd, msgs);
 			case RDFPackage.RESOURCE__OBJECT_OF:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getObjectOf()).basicAdd(otherEnd, msgs);
+			case RDFPackage.RESOURCE__GRAPH:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetGraph((RDFGraph)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -320,8 +367,24 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 				return ((InternalEList<?>)getSubjectOf()).basicRemove(otherEnd, msgs);
 			case RDFPackage.RESOURCE__OBJECT_OF:
 				return ((InternalEList<?>)getObjectOf()).basicRemove(otherEnd, msgs);
+			case RDFPackage.RESOURCE__GRAPH:
+				return basicSetGraph(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case RDFPackage.RESOURCE__GRAPH:
+				return eInternalContainer().eInverseRemove(this, RDFPackage.RDF_GRAPH__RESOURCES, RDFGraph.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -340,6 +403,8 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 				return getSubjectOf();
 			case RDFPackage.RESOURCE__OBJECT_OF:
 				return getObjectOf();
+			case RDFPackage.RESOURCE__GRAPH:
+				return getGraph();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -367,6 +432,9 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 				getObjectOf().clear();
 				getObjectOf().addAll((Collection<? extends Triple>)newValue);
 				return;
+			case RDFPackage.RESOURCE__GRAPH:
+				setGraph((RDFGraph)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -391,6 +459,9 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 			case RDFPackage.RESOURCE__OBJECT_OF:
 				getObjectOf().clear();
 				return;
+			case RDFPackage.RESOURCE__GRAPH:
+				setGraph((RDFGraph)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -411,6 +482,8 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 				return subjectOf != null && !subjectOf.isEmpty();
 			case RDFPackage.RESOURCE__OBJECT_OF:
 				return objectOf != null && !objectOf.isEmpty();
+			case RDFPackage.RESOURCE__GRAPH:
+				return getGraph() != null;
 		}
 		return super.eIsSet(featureID);
 	}
