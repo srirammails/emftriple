@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.emftriple/src"
+    modelPluginID="com.emftriple" modelName="Annotations" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>annotations.ecore</foreignModel>
+  <genPackages prefix="OTM" basePackage="com.emftriple.config" resource="XML" disposableProviderFactory="true"
+      ecorePackage="annotations.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="annotations.ecore#//AccessType">
+      <genEnumLiterals ecoreEnumLiteral="annotations.ecore#//AccessType/PROPERTY"/>
+      <genEnumLiterals ecoreEnumLiteral="annotations.ecore#//AccessType/FIELD"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="annotations.ecore#//VersionType"/>
+    <genClasses ecoreClass="annotations.ecore#//EntityMapping">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//EntityMapping/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotations.ecore#//EntityMapping/persistenceUnitMetadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//EntityMapping/package"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//EntityMapping/schema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//EntityMapping/catalog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//EntityMapping/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotations.ecore#//EntityMapping/namedQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotations.ecore#//EntityMapping/namedNativeQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotations.ecore#//EntityMapping/entity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//EntityMapping/version"/>
+    </genClasses>
+    <genClasses ecoreClass="annotations.ecore#//EntityType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//EntityType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//EntityType/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//EntityType/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="annotations.ecore#//QueryType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//QueryType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="annotations.ecore#//NamedQueryType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//NamedQueryType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//NamedQueryType/query"/>
+    </genClasses>
+    <genClasses ecoreClass="annotations.ecore#//NamedNativeQueryType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//NamedNativeQueryType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//NamedNativeQueryType/query"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//NamedNativeQueryType/resultClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//NamedNativeQueryType/resultSetMapping"/>
+    </genClasses>
+    <genClasses ecoreClass="annotations.ecore#//PersistenceUnitMetadata">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotations.ecore#//PersistenceUnitMetadata/description"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
