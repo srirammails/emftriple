@@ -63,7 +63,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
         eType="#//Resource" volatile="true" transient="true" derived="true" containment="true"
-        resolveProxies="false">
+        resolveProxies="false" eOpposite="#//Resource/graph">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="group" value="#nodes"/>
       </eAnnotations>
@@ -77,7 +77,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blankNodes" upperBound="-1"
         eType="#//BlankNode" volatile="true" transient="true" derived="true" containment="true"
-        resolveProxies="false">
+        resolveProxies="false" eOpposite="#//BlankNode/graph">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="group" value="#nodes"/>
       </eAnnotations>
@@ -91,7 +91,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="literals" upperBound="-1"
         eType="#//Literal" volatile="true" transient="true" derived="true" containment="true"
-        resolveProxies="false">
+        resolveProxies="false" eOpposite="#//Literal/graph">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="group" value="#nodes"/>
       </eAnnotations>
@@ -153,6 +153,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="BlankNode" eSuperTypes="#//Node">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeID" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//RDFGraph"
+        eOpposite="#//RDFGraph/blankNodes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TripleNode" eSuperTypes="#//Node #//URIElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="triple" lowerBound="1"
@@ -162,6 +164,8 @@
     <eOperations name="isTypeOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//RDFGraph"
+        transient="true" eOpposite="#//RDFGraph/resources"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//Resource">
     <eStructuralFeatures xsi:type="ecore:EReference" name="predicateOf" upperBound="-1"
@@ -174,6 +178,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" lowerBound="1"
         eType="#//Datatype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//RDFGraph"
+        eOpposite="#//RDFGraph/literals"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bag" eSuperTypes="#//BlankNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
@@ -191,16 +197,4 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="first" lowerBound="1" eType="#//Node"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rest" lowerBound="1" eType="#//List"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EObject">
-    <eOperations name="eGet" eType="#//EObject">
-      <eParameters name="feature" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
-    </eOperations>
-    <eOperations name="eSet" lowerBound="1">
-      <eParameters name="feature" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
-      <eParameters name="object" eType="#//EObject"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="eClass" lowerBound="1"
-        eType="#//EClass"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EClass"/>
 </ecore:EPackage>

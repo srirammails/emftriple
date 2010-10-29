@@ -52,6 +52,7 @@ public interface RDFGraph extends URIElement {
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
 	 * The list contents are of type {@link com.emf4sw.rdf.Resource}.
+	 * It is bidirectional and its opposite is '{@link com.emf4sw.rdf.Resource#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
@@ -60,7 +61,8 @@ public interface RDFGraph extends URIElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resources</em>' containment reference list.
 	 * @see com.emf4sw.rdf.RDFPackage#getRDFGraph_Resources()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 * @see com.emf4sw.rdf.Resource#getGraph
+	 * @model opposite="graph" containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="group='#nodes'"
 	 * @generated
 	 */
@@ -86,6 +88,7 @@ public interface RDFGraph extends URIElement {
 	/**
 	 * Returns the value of the '<em><b>Blank Nodes</b></em>' containment reference list.
 	 * The list contents are of type {@link com.emf4sw.rdf.BlankNode}.
+	 * It is bidirectional and its opposite is '{@link com.emf4sw.rdf.BlankNode#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Blank Nodes</em>' containment reference list isn't clear,
@@ -94,7 +97,8 @@ public interface RDFGraph extends URIElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Blank Nodes</em>' containment reference list.
 	 * @see com.emf4sw.rdf.RDFPackage#getRDFGraph_BlankNodes()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 * @see com.emf4sw.rdf.BlankNode#getGraph
+	 * @model opposite="graph" containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="group='#nodes'"
 	 * @generated
 	 */
@@ -120,6 +124,7 @@ public interface RDFGraph extends URIElement {
 	/**
 	 * Returns the value of the '<em><b>Literals</b></em>' containment reference list.
 	 * The list contents are of type {@link com.emf4sw.rdf.Literal}.
+	 * It is bidirectional and its opposite is '{@link com.emf4sw.rdf.Literal#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Literals</em>' containment reference list isn't clear,
@@ -128,7 +133,8 @@ public interface RDFGraph extends URIElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Literals</em>' containment reference list.
 	 * @see com.emf4sw.rdf.RDFPackage#getRDFGraph_Literals()
-	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 * @see com.emf4sw.rdf.Literal#getGraph
+	 * @model opposite="graph" containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="group='#nodes'"
 	 * @generated
 	 */

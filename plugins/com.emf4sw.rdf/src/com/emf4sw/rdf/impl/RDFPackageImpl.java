@@ -521,6 +521,15 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBlankNode_Graph() {
+		return (EReference)blankNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTripleNode() {
 		return tripleNodeEClass;
 	}
@@ -541,6 +550,15 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 */
 	public EClass getResource() {
 		return resourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResource_Graph() {
+		return (EReference)resourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -604,6 +622,15 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 */
 	public EReference getLiteral_Datatype() {
 		return (EReference)literalEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLiteral_Graph() {
+		return (EReference)literalEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -755,11 +782,13 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 
 		blankNodeEClass = createEClass(BLANK_NODE);
 		createEAttribute(blankNodeEClass, BLANK_NODE__NODE_ID);
+		createEReference(blankNodeEClass, BLANK_NODE__GRAPH);
 
 		tripleNodeEClass = createEClass(TRIPLE_NODE);
 		createEReference(tripleNodeEClass, TRIPLE_NODE__TRIPLE);
 
 		resourceEClass = createEClass(RESOURCE);
+		createEReference(resourceEClass, RESOURCE__GRAPH);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEReference(propertyEClass, PROPERTY__PREDICATE_OF);
@@ -770,6 +799,7 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		createEAttribute(literalEClass, LITERAL__LEXICAL_FORM);
 		createEAttribute(literalEClass, LITERAL__LANG);
 		createEReference(literalEClass, LITERAL__DATATYPE);
+		createEReference(literalEClass, LITERAL__GRAPH);
 
 		bagEClass = createEClass(BAG);
 		createEReference(bagEClass, BAG__ELEMENTS);
@@ -842,11 +872,11 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 
 		initEClass(rdfGraphEClass, RDFGraph.class, "RDFGraph", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRDFGraph_Nodes(), ecorePackage.getEFeatureMapEntry(), "nodes", null, 0, -1, RDFGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRDFGraph_Resources(), this.getResource(), null, "resources", null, 0, -1, RDFGraph.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRDFGraph_Resources(), this.getResource(), this.getResource_Graph(), "resources", null, 0, -1, RDFGraph.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getRDFGraph_Properties(), this.getProperty(), null, "properties", null, 0, -1, RDFGraph.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getRDFGraph_BlankNodes(), this.getBlankNode(), null, "blankNodes", null, 0, -1, RDFGraph.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRDFGraph_BlankNodes(), this.getBlankNode(), this.getBlankNode_Graph(), "blankNodes", null, 0, -1, RDFGraph.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getRDFGraph_Datatypes(), this.getDatatype(), null, "datatypes", null, 0, -1, RDFGraph.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getRDFGraph_Literals(), this.getLiteral(), null, "literals", null, 0, -1, RDFGraph.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRDFGraph_Literals(), this.getLiteral(), this.getLiteral_Graph(), "literals", null, 0, -1, RDFGraph.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getRDFGraph_Triples(), this.getTriple(), this.getTriple_Graph(), "triples", null, 0, -1, RDFGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(rdfGraphEClass, ecorePackage.getEBoolean(), "isEquivalentTo", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -934,11 +964,13 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 
 		initEClass(blankNodeEClass, BlankNode.class, "BlankNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBlankNode_NodeID(), ecorePackage.getEString(), "nodeID", null, 1, 1, BlankNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBlankNode_Graph(), this.getRDFGraph(), this.getRDFGraph_BlankNodes(), "graph", null, 0, 1, BlankNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tripleNodeEClass, TripleNode.class, "TripleNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTripleNode_Triple(), this.getTriple(), null, "triple", null, 1, 1, TripleNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResource_Graph(), this.getRDFGraph(), this.getRDFGraph_Resources(), "graph", null, 0, 1, Resource.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(resourceEClass, ecorePackage.getEBoolean(), "isTypeOf", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -952,6 +984,7 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		initEAttribute(getLiteral_LexicalForm(), ecorePackage.getEString(), "lexicalForm", null, 1, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLiteral_Lang(), ecorePackage.getEString(), "lang", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLiteral_Datatype(), this.getDatatype(), null, "datatype", null, 1, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLiteral_Graph(), this.getRDFGraph(), this.getRDFGraph_Literals(), "graph", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bagEClass, Bag.class, "Bag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBag_Elements(), this.getNode(), null, "elements", null, 0, -1, Bag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

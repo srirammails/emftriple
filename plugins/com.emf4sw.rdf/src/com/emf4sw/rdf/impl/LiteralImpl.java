@@ -7,12 +7,15 @@
 package com.emf4sw.rdf.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import com.emf4sw.rdf.Datatype;
 import com.emf4sw.rdf.Literal;
+import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.RDFPackage;
 
 /**
@@ -25,6 +28,7 @@ import com.emf4sw.rdf.RDFPackage;
  *   <li>{@link com.emf4sw.rdf.impl.LiteralImpl#getLexicalForm <em>Lexical Form</em>}</li>
  *   <li>{@link com.emf4sw.rdf.impl.LiteralImpl#getLang <em>Lang</em>}</li>
  *   <li>{@link com.emf4sw.rdf.impl.LiteralImpl#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.LiteralImpl#getGraph <em>Graph</em>}</li>
  * </ul>
  * </p>
  *
@@ -185,6 +189,91 @@ public class LiteralImpl extends NodeImpl implements Literal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RDFGraph getGraph() {
+		if (eContainerFeatureID() != RDFPackage.LITERAL__GRAPH) return null;
+		return (RDFGraph)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGraph(RDFGraph newGraph, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newGraph, RDFPackage.LITERAL__GRAPH, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGraph(RDFGraph newGraph) {
+		if (newGraph != eInternalContainer() || (eContainerFeatureID() != RDFPackage.LITERAL__GRAPH && newGraph != null)) {
+			if (EcoreUtil.isAncestor(this, newGraph))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newGraph != null)
+				msgs = ((InternalEObject)newGraph).eInverseAdd(this, RDFPackage.RDF_GRAPH__LITERALS, RDFGraph.class, msgs);
+			msgs = basicSetGraph(newGraph, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.LITERAL__GRAPH, newGraph, newGraph));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RDFPackage.LITERAL__GRAPH:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetGraph((RDFGraph)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RDFPackage.LITERAL__GRAPH:
+				return basicSetGraph(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case RDFPackage.LITERAL__GRAPH:
+				return eInternalContainer().eInverseRemove(this, RDFPackage.RDF_GRAPH__LITERALS, RDFGraph.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -195,6 +284,8 @@ public class LiteralImpl extends NodeImpl implements Literal {
 			case RDFPackage.LITERAL__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
+			case RDFPackage.LITERAL__GRAPH:
+				return getGraph();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,6 +306,9 @@ public class LiteralImpl extends NodeImpl implements Literal {
 				return;
 			case RDFPackage.LITERAL__DATATYPE:
 				setDatatype((Datatype)newValue);
+				return;
+			case RDFPackage.LITERAL__GRAPH:
+				setGraph((RDFGraph)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -237,6 +331,9 @@ public class LiteralImpl extends NodeImpl implements Literal {
 			case RDFPackage.LITERAL__DATATYPE:
 				setDatatype((Datatype)null);
 				return;
+			case RDFPackage.LITERAL__GRAPH:
+				setGraph((RDFGraph)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -255,6 +352,8 @@ public class LiteralImpl extends NodeImpl implements Literal {
 				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
 			case RDFPackage.LITERAL__DATATYPE:
 				return datatype != null;
+			case RDFPackage.LITERAL__GRAPH:
+				return getGraph() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -699,13 +699,22 @@ public interface RDFPackage extends EPackage {
 	int BLANK_NODE__NODE_ID = NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLANK_NODE__GRAPH = NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Blank Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BLANK_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
+	int BLANK_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.TripleNodeImpl <em>Triple Node</em>}' class.
@@ -836,13 +845,22 @@ public interface RDFPackage extends EPackage {
 	int RESOURCE__OBJECT_OF = URI_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__GRAPH = URI_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = URI_ELEMENT_FEATURE_COUNT + 4;
+	int RESOURCE_FEATURE_COUNT = URI_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.PropertyImpl <em>Property</em>}' class.
@@ -898,6 +916,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY__OBJECT_OF = RESOURCE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__GRAPH = RESOURCE__GRAPH;
 
 	/**
 	 * The feature id for the '<em><b>Predicate Of</b></em>' reference list.
@@ -971,6 +998,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATATYPE__OBJECT_OF = RESOURCE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATATYPE__GRAPH = RESOURCE__GRAPH;
 
 	/**
 	 * The number of structural features of the '<em>Datatype</em>' class.
@@ -1055,13 +1091,22 @@ public interface RDFPackage extends EPackage {
 	int LITERAL__DATATYPE = NODE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL__GRAPH = NODE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+	int LITERAL_FEATURE_COUNT = NODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.BagImpl <em>Bag</em>}' class.
@@ -1117,6 +1162,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int BAG__NODE_ID = BLANK_NODE__NODE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAG__GRAPH = BLANK_NODE__GRAPH;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -1192,6 +1246,15 @@ public interface RDFPackage extends EPackage {
 	int ALT__NODE_ID = BLANK_NODE__NODE_ID;
 
 	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALT__GRAPH = BLANK_NODE__GRAPH;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1265,6 +1328,15 @@ public interface RDFPackage extends EPackage {
 	int SEQ__NODE_ID = BLANK_NODE__NODE_ID;
 
 	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQ__GRAPH = BLANK_NODE__GRAPH;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1336,6 +1408,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST__NODE_ID = BLANK_NODE__NODE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__GRAPH = BLANK_NODE__GRAPH;
 
 	/**
 	 * The feature id for the '<em><b>First</b></em>' reference.
@@ -1709,6 +1790,17 @@ public interface RDFPackage extends EPackage {
 	EAttribute getBlankNode_NodeID();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.emf4sw.rdf.BlankNode#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Graph</em>'.
+	 * @see com.emf4sw.rdf.BlankNode#getGraph()
+	 * @see #getBlankNode()
+	 * @generated
+	 */
+	EReference getBlankNode_Graph();
+
+	/**
 	 * Returns the meta object for class '{@link com.emf4sw.rdf.TripleNode <em>Triple Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1738,6 +1830,17 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getResource();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.emf4sw.rdf.Resource#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Graph</em>'.
+	 * @see com.emf4sw.rdf.Resource#getGraph()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EReference getResource_Graph();
 
 	/**
 	 * Returns the meta object for class '{@link com.emf4sw.rdf.Property <em>Property</em>}'.
@@ -1812,6 +1915,17 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLiteral_Datatype();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.emf4sw.rdf.Literal#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Graph</em>'.
+	 * @see com.emf4sw.rdf.Literal#getGraph()
+	 * @see #getLiteral()
+	 * @generated
+	 */
+	EReference getLiteral_Graph();
 
 	/**
 	 * Returns the meta object for class '{@link com.emf4sw.rdf.Bag <em>Bag</em>}'.
@@ -2205,6 +2319,14 @@ public interface RDFPackage extends EPackage {
 		EAttribute BLANK_NODE__NODE_ID = eINSTANCE.getBlankNode_NodeID();
 
 		/**
+		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BLANK_NODE__GRAPH = eINSTANCE.getBlankNode_Graph();
+
+		/**
 		 * The meta object literal for the '{@link com.emf4sw.rdf.impl.TripleNodeImpl <em>Triple Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2231,6 +2353,14 @@ public interface RDFPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RESOURCE = eINSTANCE.getResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE__GRAPH = eINSTANCE.getResource_Graph();
 
 		/**
 		 * The meta object literal for the '{@link com.emf4sw.rdf.impl.PropertyImpl <em>Property</em>}' class.
@@ -2293,6 +2423,14 @@ public interface RDFPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LITERAL__DATATYPE = eINSTANCE.getLiteral_Datatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LITERAL__GRAPH = eINSTANCE.getLiteral_Graph();
 
 		/**
 		 * The meta object literal for the '{@link com.emf4sw.rdf.impl.BagImpl <em>Bag</em>}' class.
