@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.emftriple.query.mquery.feature"
+      label="EMF Triple Model Query"
+      version="0.6.1.qualifier"
+      provider-name="googlecode">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="Eclipse Modeling for Semantic Web" url="http://emftriple.googlecode.com/svn/trunk/emftriple/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.xtext" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.util" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.antlr.runtime" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="com.emftriple.query.mquery" version="0.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui.shared" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.xtext.builder" version="1.0.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.emftriple.query.mquery"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.emftriple.query.mquery.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

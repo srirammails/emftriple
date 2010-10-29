@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.emf4sw.rdfizer.feature"
+      label="EMF4SW RDFizer"
+      version="0.6.2.qualifier"
+      provider-name="eclipselabs">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="Eclipse Modeling for Semantic Web" url="http://emftriple.googlecode.com/svn/trunk/emftriple/"/>
+   </url>
+
+   <includes
+         id="com.emf4sw.rdf.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="com.emf4sw.owl.feature"
+         version="0.0.0"/>
+
+   <requires>
+      <import plugin="com.atl.common"/>
+      <import plugin="com.emf4sw.jena" version="2.6.2" match="greaterOrEqual"/>
+      <import plugin="com.emf4sw.rdf" version="0.6.0" match="greaterOrEqual"/>
+      <import plugin="com.emf4sw.owl" version="0.6.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.emf4sw.rdfizer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
