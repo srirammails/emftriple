@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+ <extension
+        point="org.eclipse.ui.popupMenus">
+      <objectContribution
+         id="com.emf4sw.ui.contribution"
+         objectClass="org.eclipse.core.resources.IFile">
+    <menu
+          icon="icons/SW.gif"
+          id="com.emf4sw.ui.menu"
+          label="Modeling for Semantic Web"
+          path="additions">
+       <groupMarker
+             name="group1">
+       </groupMarker>
+       <groupMarker
+             name="group2">
+       </groupMarker>
+    </menu>
+   </objectContribution> 
+    
+      <objectContribution
+            id="com.emf4sw.ui.ecore2owl.ecore.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ecore">
+       	<action
+              class="com.emf4sw.ui.ecore2owl.Ecore2OWLModelAction"
+              enablesFor="1"
+              icon="icons/Ecore2OWL.gif"
+              id="com.emf4sw.ui.ecore2owl.Ecore2OWLModelAction"
+              label="Ecore to OWL Model (.xmi)"
+              menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+         <action
+               class="com.emf4sw.ui.ecore2owl.Ecore2OWLFileAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.ecore2owl.Ecore2OWLFileAction"
+               label="Ecore to OWL RDF/XML Syntax (.owl)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+         <action
+               class="com.emf4sw.ui.ecore2owl.Ecore2TurtleAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.ecore2owl.Ecore2TurtleAction"
+               label="Ecore to OWL Turtle Syntax (.ttl)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+       <!--  <action
+               class="com.emf4sw.ui.ecore2owl.Ecore2FunctionalAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.ecore2owl.Ecore2FunctionalAction"
+               label="Ecore to OWL Functional Syntax (.ofn)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action> -->
+         <action
+               class="com.emf4sw.ui.owl2ecore.OWLModel2EcoreAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl2ecore.OWLModel2EcoreAction"
+               label="OWL Model to Ecore (.ecore)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+      </objectContribution>
+                    
+      <objectContribution
+            id="com.emf4sw.ui.owl2ecore.model.xmi.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.xmi">
+         <action
+               class="com.emf4sw.ui.owl2ecore.OWLModel2EcoreAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl2ecore.OWLModel2EcoreAction"
+               label="OWL Model to Ecore"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+         <action
+               class="com.emf4sw.ui.owl.OWLModel2OWLFileAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl.OWLModel2OWLFileAction"
+               label="OWL Model to OWL RDF/XML Syntax (.owl)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+         <action
+               class="com.emf4sw.ui.owl.OWLModel2TurtleAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl.OWLModel2TurtleAction"
+               label="OWL Model to OWL Turtle Syntax (.ttl)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+       <!--  <action
+               class="com.emf4sw.ui.owl.OWLModel2FunctionalAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl.OWLModel2FunctionalAction"
+               label="OWL Model to OWL Functional Syntax (.ofn)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action> -->
+      </objectContribution>
+          
+      <objectContribution
+            id="com.emf4sw.ui.owl.owlFile.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.owl">
+         <action
+               class="com.emf4sw.ui.owl2ecore.OWLFile2EcoreAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl2ecore.OWLFile2EcoreAction"
+               label="OWL RDF/XML to Ecore"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+         <action
+               class="com.emf4sw.ui.owl.OWLFile2OWLModelAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl.OWLFile2OWLModelAction"
+               label="OWL RDF/XML to OWL Model (.xmi)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+         <action
+               class="com.emf4sw.ui.owl.OWLFile2TurtleAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl.OWLFile2TurtleAction"
+               label="OWL RDF/XML to OWL Turtle Syntax"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+      </objectContribution>
+      
+      <objectContribution
+            id="com.emf4sw.ui.rdf.turtle2rdfModel.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ttl">
+         <action
+               class="com.emf4sw.ui.rdf.Turtle2RDFModelAction"
+               enablesFor="1"
+               icon="icons/Ecore2RDF.gif"
+               id="com.emf4sw.ui.rdf.Turtle2RDFModelAction"
+               label="RDF (Turtle Syntax) to RDF Model (.xmi)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+         <action
+               class="com.emf4sw.ui.owl.Turtle2OWLModelAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl.Turtle2OWLModelAction"
+               label="OWL (Turtle Syntax) to OWL Model (.xmi)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+	     <action
+            class="com.emf4sw.ui.owl2ecore.OWLTurtle2EcoreAction"
+            enablesFor="1"
+            icon="icons/Ecore2OWL.gif"
+            id="com.emf4sw.ui.owl2ecore.OWLTurtle2EcoreAction"
+            label="OWL (Turtle Syntax) to Ecore (.ecore)"
+            menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+      </objectContribution>
+      <!--
+      <objectContribution
+            id="com.emf4sw.ui.owl.OWLFunc2OWLFile.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.rdf">
+         <action
+               class="com.emf4sw.ui.owl.OWLFunctional2OWLFileAction"
+               enablesFor="1"
+               icon="icons/Ecore2OWL.gif"
+               id="com.emf4sw.ui.owl.OWLFunctional2OWLFileAction"
+               label="OWL Functional to OWL File (.owl)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+      </objectContribution>
+      -->
+      <objectContribution
+            id="com.emf4sw.ui.rdf.rdf2RDFModel.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.rdf">
+         <action
+               class="com.emf4sw.ui.rdf.RDFXML2RDFModelAction"
+               enablesFor="1"
+               icon="icons/Ecore2RDF.gif"
+               id="com.emf4sw.ui.rdf.RDFXML2RDFModelAction"
+               label="RDF (rdf/xml) to RDF Model (.xmi)"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+      </objectContribution>
+      
+      <objectContribution
+            id="com.emf4sw.ui.rdfizer.xmi.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.xmi">
+         <action
+               class="com.emf4sw.ui.rdfizer.Model2RDFTTLAction"
+               enablesFor="1"
+               icon="icons/Ecore2RDF.gif"
+               id="com.emf4sw.ui.rdfizer.xmi.Model2RDFTTLAction"
+               label="Model (xmi) to RDF (.ttl)"
+               menubarPath="com.emf4sw.ui.menu/group2">
+         </action>
+         <action
+               class="com.emf4sw.ui.rdfizer.Model2RDFXMLAction"
+               enablesFor="1"
+               icon="icons/Ecore2RDF.gif"
+               id="com.emf4sw.ui.rdfizer.xmi.Model2RDFXMLAction"
+               label="Model (xmi) to RDF (.rdf)"
+               menubarPath="com.emf4sw.ui.menu/group2">
+         </action>
+      </objectContribution>
+      
+      <objectContribution
+            id="com.emf4sw.ui.rdfizer.ecore.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ecore">
+         <action
+               class="com.emf4sw.ui.rdfizer.Model2RDFXMLAction"
+               enablesFor="1"
+               icon="icons/Ecore2RDF.gif"
+               id="com.emf4sw.ui.rdfizer.ecore.Model2RDFXMLAction"
+               label="Model (ecore) to RDF (.rdf)"
+               menubarPath="com.emf4sw.ui.menu/group2">
+         </action>
+		 <action
+         class="com.emf4sw.ui.rdfizer.Model2RDFTTLAction"
+         enablesFor="1"
+         icon="icons/Ecore2RDF.gif"
+         id="com.emf4sw.ui.rdfizer.ecore.Model2RDFTTLAction"
+         label="Model (ecore) to RDF (.ttl)"
+         menubarPath="com.emf4sw.ui.menu/group2">
+         </action>
+      </objectContribution>
+      
+     </extension>
+ <extension
+       point="org.eclipse.ui.newWizards">
+    <category
+          id="com.emf4sw.ui.wizards"
+          name="EMF Semantic Web Tools">
+    </category>
+ </extension>
+     
+</plugin>
