@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse Modeling for Semantic Web - RDFIzer
+Bundle-SymbolicName: com.emf4sw.rdfizer;singleton:=true
+Bundle-Version: 0.6.2.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: com.atl.common,
+ com.emf4sw.jena;bundle-version="2.6.2",
+ com.emf4sw.rdf;bundle-version="0.6.0",
+ com.emf4sw.owl;bundle-version="0.6.0"
+Export-Package: com.emf4sw.rdfizer,
+ com.emf4sw.rdfizer.atl,
+ com.emf4sw.rdfizer.impl
+Bundle-Vendor: googlecode
