@@ -1,0 +1,275 @@
+-- @atlcompiler atl2006
+
+-- @path RDF=/com.emf4sw.rdf/model/rdf.ecore
+
+module Model2Rdf;
+create OUT:RDF from IN:Model;
+
+
+helper def: RDF: String = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
+
+helper def: set(any : OclAny) : Set(OclAny) =
+ Set{ any }->flatten()->reject(e | e.oclIsUndefined());
+ 
+helper context OclAny def: isAnonymous(): Boolean = 
+	not self.eAnnotations->any(e | e.source = 'Anonymous').oclIsUndefined();
+
+helper def: namespaces: Map(String, String) =  
+	let 
+		packages: Set(OclAny) = 
+			Model!EObject.allInstances()->collect(e | e.eClass())->flatten()->collect(e | e.ePackage)->flatten()->asSet()
+	in 
+		packages->iterate(it; res: Map(String, String) = Map{} |
+			res->including(it.nsPrefix, it.nsURI)
+		);
+
+helper def: Graph: String = 'http://default';
+ 
+helper context OclAny def: getGraph(): String = 
+	let annotation: ecore!EAnnotation = 
+		self.eAnnotations->any(e | e.source = 'NamedGraph')
+	in if (annotation.oclIsUndefined()) then
+		thisModule.Graph
+	else 
+		if annotation.details.containsKey('uri') then
+			annotation.details.get('uri')
+		else thisModule.Graph endif
+	endif;
+
+helper context OclAny def: getEAnnotation() : OclAny =
+	if (self.eAnnotations->any(e | e.source = 'DataProperty').oclIsUndefined()) then
+		self.eAnnotations->any(e | e.source = 'ObjectProperty')
+	else self.eAnnotations->any(e | e.source ='DataProperty') endif;
+
+helper context OclAny def: getClassURI(): String =
+	let annotation: OclAny = self.eAnnotations->any(e | e.source = 'OWLClass')
+	in if (annotation.oclIsUndefined()) then 
+		self.ePackage.nsURI + '#' + self.name
+	else 
+	if (annotation.details.containsKey('uri')) then
+			annotation.details.get('uri')
+		else 
+			self.ePackage.nsURI + '#' + self.name 
+		endif
+	endif;
+
+helper context OclAny def: getURI(): String =
+	let annotation: OclAny = self.getEAnnotation()
+	in if (annotation.oclIsUndefined()) then 
+		self.eContainingClass.ePackage.nsURI + '#' + self.name
+	else 
+	if (annotation.details.containsKey('uri')) then
+			annotation.details.get('uri')
+		else 
+			self.eContainingClass.ePackage.nsURI + '#' + self.name 
+		endif
+	endif;
+
+helper context OclAny def: getType(): String =  
+	let val: String = 
+		thisModule.datatypes.get(self.eType.name) 
+	in
+		if (val.oclIsUndefined()) then 
+			thisModule.datatypes.get('Literal') 
+		else val endif;
+
+helper context OclAny def: getFeatures(): Sequence(OclAny) = 
+	self.eClass().getEAllStructuralFeatures()->reject(f | f.isVolatile() or f.isUnsettable() or f.isTransient() or f.isDerived());
+
+abstract rule EObject2Node {
+	from e: Model!EObject
+	using {
+		features: Sequence(OclAny) = e.getFeatures();
+		g: String = e.eClass().getGraph();
+	}
+	to	
+		r: RDF!Node (
+			graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif,
+			subjectOf <- Sequence {
+				thisModule.MakeTripleWithURI(e, thisModule.RDF + 'type', e.eClass().getClassURI(), e.eClass().getGraph()),
+				features->collect(f |
+					let 
+						val: Sequence(OclAny) = thisModule.set( e.eGet(f) ) 
+					in
+					if (f.oclIsKindOf(Model!EReference)) then
+						val->collect(v | 
+							if (v.oclIsKindOf(Model!EDataType)) then
+								thisModule.MakeTripleWithURI(e, f.getURI(), v.getRdfId(), e.eClass().getGraph())
+							else
+								thisModule.MakeTriple(e, f.getURI(), v, e.eClass().getGraph()) 
+							endif)
+								
+					else 
+						val->collect(v | thisModule.MakeTripleWithLiteral(e, f.getURI(), v, f.getType(), e.eClass().getGraph()))
+					endif
+				) 
+			}->flatten()
+		)
+}
+
+rule EObject2Resource extends EObject2Node {
+	from e: Model!EObject (not e.eClass().isAnonymous())
+	to
+		r: RDF!Resource (
+			URI <- e.getRdfId()
+		)
+}
+
+helper def: ID: Integer = 1;
+
+rule EObject2BlankNode extends EObject2Node {
+	from e: Model!EObject (e.eClass().isAnonymous())
+	using {
+		features: Sequence(OclAny) = e.eClass().getEAllStructuralFeatures()->reject(f | f.isUnsettable() or f.isTransient() or f.isDerived());
+		g: String = e.eClass().getGraph();
+	}
+	to
+		r: RDF!BlankNode (
+			nodeID <- thisModule.ID.toString()
+		)
+	do {
+		thisModule.ID <- thisModule.ID + 1; 
+	}
+}
+
+unique lazy rule DocumentGraph {
+	from s: String
+	to
+		r: RDF!DocumentGraph (
+			URI <- s,
+			namespaces <- thisModule.namespaces.getKeys()->collect(e | thisModule.addNamespace(e))
+		)
+}
+
+unique lazy rule NamedGraph {
+ 	from s: String
+ 	to
+  		r : RDF!NamedGraph (
+  			URI <- s,
+  			graph <- thisModule.DocumentGraph(thisModule.Graph),
+			document <- thisModule.DocumentGraph(thisModule.Graph)
+  		)
+}
+
+lazy rule addNamespace {
+ from
+  ns : String
+ using {
+  	uri: String = thisModule.namespaces.get(ns);
+  }
+ to
+  r : RDF!Namespace (
+   prefix <- ns,
+   URI <- if (uri.endsWith('#') or uri.endsWith('/')) then uri else uri + '#' endif 
+  )
+}
+
+lazy rule MakeTriple {
+ from
+  s : OclAny,
+  p : String,
+  o : OclAny,
+  g : String
+ to
+  r : RDF!Triple (
+   subject <- s,
+   predicate <- predicate,
+   object <- o,
+   graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+  ),
+  predicate : RDF!Property (
+   URI <- p,
+   graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+  )
+}
+
+lazy rule MakeTripleWithLiteral {
+ from
+  s : OclAny,
+  p : String,
+  o : OclAny,
+  t : String,
+  g : String
+ to
+  r : RDF!Triple (
+   	subject <- s,
+   	predicate <- predicate,
+   	object <- object,
+	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+  ),
+  predicate : RDF!Property (
+   	URI <- p,
+   	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+  ),
+  object : RDF!Literal (
+   	lexicalForm <- o.asString(o.getClass().getSimpleName()), 
+   	datatype <- datatype,
+   	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+  ),
+  datatype : RDF!Datatype (
+   	URI <- t,
+   	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+  )
+}
+
+lazy rule MakeTripleWithURI {
+ from
+  s : OclAny,
+  p : String,
+  o : OclAny,
+  g : String
+ to
+  r : RDF!Triple (
+   	subject <- s,
+   	predicate <- predicate,
+   	object <- object_,
+   	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+  ),
+  predicate : RDF!Property (
+   	URI <- p,
+   	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+  ),
+  object_ : RDF!Resource (
+   	URI <- o,
+   	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+  )
+}
+
+helper def: datatypes: Map(String, String) = Map {
+	('Literal', 'http://www.w3.org/2000/01/rdf-schema#Literal'),
+	('String', 'http://www.w3.org/2001/XMLSchema#string'),
+	('Integer', 'http://www.w3.org/2001/XMLSchema#int'),
+	('Boolean', 'http://www.w3.org/2001/XMLSchema#boolean'),
+	('UnlimitedNatural', 'http://www.w3.org/2001/XMLSchema#integer' ),
+	('Byte', 'http://www.w3.org/2001/XMLSchema#byte'),
+	('Currency', 'http://www.w3.org/2001/XMLSchema#decimal'),
+	('Date', 'http://www.w3.org/2001/XMLSchema#date'),
+	('Double', 'http://www.w3.org/2001/XMLSchema#double'),
+	('Float', 'http://www.w3.org/2001/XMLSchema#float'),
+	('Long', 'http://www.w3.org/2001/XMLSchema#long'),
+	('Short', 'http://www.w3.org/2001/XMLSchema#short'),
+	('Single', 'http://www.w3.org/2001/XMLSchema#short'),
+	('Variant', 'http://www.w3.org/2001/XMLSchema#string'),
+	('EString', 'http://www.w3.org/2001/XMLSchema#string'),
+	('EInteger', 'http://www.w3.org/2001/XMLSchema#int'),
+	('EBoolean', 'http://www.w3.org/2001/XMLSchema#boolean'),
+	('EBooleanObject', 'http://www.w3.org/2001/XMLSchema#boolean'),
+	('EByte', 'http://www.w3.org/2001/XMLSchema#byte'),
+	('EByteArray', 'http://www.w3.org/2001/XMLSchema#hexBinary'),
+	('EByteObject', 'http://www.w3.org/2001/XMLSchema#byte'),
+	('EChar', 'http://www.w3.org/2001/XMLSchema#string'),
+	('ECharacterObject', 'http://www.w3.org/2001/XMLSchema#string'),
+	('EDate', 'http://www.w3.org/2001/XMLSchema#date'),
+	('EDouble', 'http://www.w3.org/2001/XMLSchema#double'),
+	('EDoubleObject', 'http://www.w3.org/2001/XMLSchema#double'),
+	('EFloat', 'http://www.w3.org/2001/XMLSchema#float'),
+	('EFloatObject', 'http://www.w3.org/2001/XMLSchema#float'),
+	('EInt', 'http://www.w3.org/2001/XMLSchema#int'),
+	('EIntegerObject', 'http://www.w3.org/2001/XMLSchema#int'),
+	('ELong', 'http://www.w3.org/2001/XMLSchema#long'),
+	('ELongObject', 'http://www.w3.org/2001/XMLSchema#long'),
+	('EShort', 'http://www.w3.org/2001/XMLSchema#short'),
+	('EShortObject', 'http://www.w3.org/2001/XMLSchema#short'),
+	('EBigDecimal', 'http://www.w3.org/2001/XMLSchema#decimal'),
+	('EBigInteger', 'http://www.w3.org/2001/XMLSchema#integer')	
+};
