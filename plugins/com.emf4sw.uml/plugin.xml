@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="com.emf4sw.uml2owl.actions.uml2owl.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.uml">
+         <action
+               class="com.emf4sw.uml.actions.UML2OWLModelAction"
+               enablesFor="1"
+               icon="icons/UML2OWL.gif"
+               id="com.emf4sw.uml.actions.UML2OWLModelAction"
+               label="UML Model 2 OWL Model"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+         <action
+               class="com.emf4sw.uml.actions.UML2OWLFileAction"
+               enablesFor="1"
+               icon="icons/UML2OWL.gif"
+               id="com.emf4sw.uml.actions.UML2OWLFileAction"
+               label="UML Model 2 OWL File"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+         <action
+               class="com.emf4sw.uml.actions.UML2TurtleAction"
+               enablesFor="1"
+               icon="icons/UML2OWL.gif"
+               id="com.emf4sw.uml.actions.UML2TurtleAction"
+               label="UML Model 2 Turtle"
+               menubarPath="com.emf4sw.ui.menu/group1">
+         </action>
+      </objectContribution>
+      <objectContribution
+            id="com.emf4sw.uml2owl.actions.owl2uml.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ecore">
+         <action
+               class="com.emf4sw.uml.actions.OWLModel2UMLAction"
+               enablesFor="1"
+               icon="icons/UML2OWL.gif"
+               id="com.emf4sw.uml2owl.OWL2UMLAction"
+               label="OWL Model 2 UML Model"
+               menubarPath="com.emf4sw.ui.menu/group3">
+         </action>
+      </objectContribution>
+      <objectContribution
+            id="com.emf4sw.uml2owl.actions.owlFile2uml.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.owl">
+         <action
+               class="com.emf4sw.uml.actions.OWLFile2UMLAction"
+               enablesFor="1"
+               icon="icons/UML2OWL.gif"
+               id="com.emf4sw.uml2owl.OWLFile2UMLAction"
+               label="OWL File 2 UML Model"
+               menubarPath="com.emf4sw.ui.menu/group3">
+         </action>
+      </objectContribution>
+      <objectContribution
+            id="com.emf4sw.uml2owl.actions.turtle2uml.contribution"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ttl">
+         <action
+               class="com.emf4sw.uml.actions.OWLTurtleFile2UMLAction"
+               enablesFor="1"
+               icon="icons/UML2OWL.gif"
+               id="com.emf4sw.uml.actions.OWLTurtleFile2UMLAction"
+               label="OWL (Turtle Syntax) to UML Model"
+               menubarPath="com.emf4sw.ui.menu/group3">
+         </action>
+      </objectContribution>
+   </extension>
+   
+</plugin>
