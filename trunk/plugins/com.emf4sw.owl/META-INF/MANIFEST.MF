@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.emf4sw.owl;singleton:=true
+Bundle-Version: 0.6.1.qualifier
+Require-Bundle: com.atl.common,
+ com.emf4sw.jena;bundle-version="2.6.2",
+ com.emf4sw.pellet;bundle-version="2.1.1";resolution:=optional,
+ com.emf4sw.rdf;bundle-version="0.6.0"
+Bundle-ClassPath: .
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Name: Eclipse Modeling for Semantic Web - OWL
+Export-Package: 
+ com.emf4sw.owl,
+ com.emf4sw.owl.atl,
+ com.emf4sw.owl.consistency,
+ com.emf4sw.owl.impl,
+ com.emf4sw.owl.jena.utils,
+ com.emf4sw.owl.resource,
+ com.emf4sw.owl.resource.extractor,
+ com.emf4sw.owl.resource.injector,
+ com.emf4sw.owl.util,
+ com.emf4sw.owl.vocabulary
+Bundle-Vendor: googlecode
+
