@@ -72,7 +72,7 @@ Installation from source can be done once the following dependencies are install
  * ATL 3.1 via update site: http://download.eclipse.org/modeling/m2m/updates/milestones/ (only for EMF4SW)
  * ATL Commons via update site: https://atl-commons.eclipselabs.org.codespot.com/hg/atl-commons/ (only for EMF4SW)
  
-Once all those dependencies are satisfied you can checkout the source code via the googlecode SVN repository. If you have a SVN client installed under your Eclipse environment, go to SVN Repository perspective, and add a new repository location with for url https://emftriple.googlecode.com/svn/trunk/ and username anonymous.
+Once all those dependencies are satisfied you can checkout the source code via the googlecode SVN repository. If you have a SVN client installed under your Eclipse environment, go to SVN Repository perspective, and add a new repository location with for url http://svn.codespot.com/a/eclipselabs.org/emftriple/trunk/update-site/ and username anonymous.
 
 <img src="http://emftriple.googlecode.com/svn/wiki/img/svn.jpg" height="640"/>
 
