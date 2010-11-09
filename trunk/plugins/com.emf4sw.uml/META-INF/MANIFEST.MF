@@ -15,4 +15,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.emf4sw.uml;uses:="org.eclipse.emf.ecore.resource,l3i.sido.emf4sw.core.atl.impl",
  com.emf4sw.uml.actions;uses:="org.eclipse.jface.action,org.eclipse.ui,org.eclipse.jface.viewers",
  com.emf4sw.uml.resources
-Bundle-Vendor: googlecode
+Bundle-Vendor: eclipselabs

@@ -22,3 +22,4 @@ Export-Package: javassist,
  javassist.util,
  javassist.util.proxy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: eclipselabs
