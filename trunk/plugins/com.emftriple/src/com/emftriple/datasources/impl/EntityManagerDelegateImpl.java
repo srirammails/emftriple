@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.DataSources;
-import com.emftriple.datasources.DataSourceManager;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.resource.ETripleResource;
 import com.emftriple.transform.GetObject;
@@ -227,7 +226,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	}
 
 	@Override 
-	public void flush(DataSourceManager manager) {
+	public void flush() {
 		final List<Object> removed = Lists.newArrayList();
 		for (Object obj: getAllEntities().values()) 
 		{

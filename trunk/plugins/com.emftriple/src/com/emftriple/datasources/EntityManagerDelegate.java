@@ -100,7 +100,6 @@ public interface EntityManagerDelegate {
 	/**
 	 * Flush the current persistence context to the corresponding {@link DataSource}
 	 * 
-	 * @param manager currently holding the data sources
 	 */
-	void flush(DataSourceManager manager);
+	void flush();
 }
