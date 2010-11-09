@@ -163,16 +163,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 
 			if (!result.getTriples().isEmpty())
 			{
-				synchronized (dataSource) {
-
-					new Runnable() {
-						@Override
-						public void run() {
-							((MutableDataSource) dataSource).add(result);
-						}
-					}.run();
-					
-				}
+				((MutableDataSource) dataSource).add(result);
 			}
 		}
 	}
@@ -263,18 +254,8 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 					SparqlBuilder.getConstructQuery("CONSTRUCT {?s ?p <" + id + ">} WHERE {?s ?p <" + id + ">}"));
 
 			final MutableDataSource dataSource = (MutableDataSource) getDefaultDataSource();
-
-			synchronized (dataSource) {
-				if (objectGraph != null) {
-
-					new Runnable() {
-						@Override
-						public void run() {
-							dataSource.remove(objectGraph);	
-						}
-					}.run();
-
-				}
+			if (objectGraph != null) {
+				dataSource.remove(objectGraph);	
 			}
 		} 
 		else 

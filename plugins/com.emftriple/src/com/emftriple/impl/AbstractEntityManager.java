@@ -100,7 +100,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 		}
 		
 		try {
-			getDelegate().flush(getDelegate());
+			getDelegate().flush();
 		} catch (Exception e) {
 			throw new PersistenceException(e);
 		}
