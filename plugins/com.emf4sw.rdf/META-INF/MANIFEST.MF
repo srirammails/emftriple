@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse Modeling for Semantic Web - RDF
 Bundle-SymbolicName: com.emf4sw.rdf;singleton:=true
-Bundle-Version: 0.6.2.qualifier
+Bundle-Version: 0.6.1.qualifier
 Bundle-ClassPath: .
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.emf4sw.rdf,
@@ -17,4 +17,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.5.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
  com.emf4sw.jena;bundle-version="2.6.2"
-Bundle-Vendor: googlecode
+Bundle-Vendor: eclipselabs

@@ -194,7 +194,7 @@
         eType="#//Node"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//BlankNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="first" lowerBound="1" eType="#//Node"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rest" lowerBound="1" eType="#//List"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Node"/>
   </eClassifiers>
 </ecore:EPackage>

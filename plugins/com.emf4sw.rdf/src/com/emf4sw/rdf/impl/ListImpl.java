@@ -6,10 +6,11 @@
  */
 package com.emf4sw.rdf.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import com.emf4sw.rdf.List;
 import com.emf4sw.rdf.Node;
@@ -22,8 +23,7 @@ import com.emf4sw.rdf.RDFPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.emf4sw.rdf.impl.ListImpl#getFirst <em>First</em>}</li>
- *   <li>{@link com.emf4sw.rdf.impl.ListImpl#getRest <em>Rest</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.ListImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,24 +31,14 @@ import com.emf4sw.rdf.RDFPackage;
  */
 public class ListImpl extends BlankNodeImpl implements List {
 	/**
-	 * The cached value of the '{@link #getFirst() <em>First</em>}' reference.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFirst()
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node first;
-
-	/**
-	 * The cached value of the '{@link #getRest() <em>Rest</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRest()
-	 * @generated
-	 * @ordered
-	 */
-	protected List rest;
+	protected EList<Node> elements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,75 +64,11 @@ public class ListImpl extends BlankNodeImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getFirst() {
-		if (first != null && first.eIsProxy()) {
-			InternalEObject oldFirst = (InternalEObject)first;
-			first = (Node)eResolveProxy(oldFirst);
-			if (first != oldFirst) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RDFPackage.LIST__FIRST, oldFirst, first));
-			}
+	public EList<Node> getElements() {
+		if (elements == null) {
+			elements = new EObjectResolvingEList<Node>(Node.class, this, RDFPackage.LIST__ELEMENTS);
 		}
-		return first;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Node basicGetFirst() {
-		return first;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFirst(Node newFirst) {
-		Node oldFirst = first;
-		first = newFirst;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.LIST__FIRST, oldFirst, first));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public List getRest() {
-		if (rest != null && rest.eIsProxy()) {
-			InternalEObject oldRest = (InternalEObject)rest;
-			rest = (List)eResolveProxy(oldRest);
-			if (rest != oldRest) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RDFPackage.LIST__REST, oldRest, rest));
-			}
-		}
-		return rest;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public List basicGetRest() {
-		return rest;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRest(List newRest) {
-		List oldRest = rest;
-		rest = newRest;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.LIST__REST, oldRest, rest));
+		return elements;
 	}
 
 	/**
@@ -153,12 +79,8 @@ public class ListImpl extends BlankNodeImpl implements List {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RDFPackage.LIST__FIRST:
-				if (resolve) return getFirst();
-				return basicGetFirst();
-			case RDFPackage.LIST__REST:
-				if (resolve) return getRest();
-				return basicGetRest();
+			case RDFPackage.LIST__ELEMENTS:
+				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,14 +90,13 @@ public class ListImpl extends BlankNodeImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RDFPackage.LIST__FIRST:
-				setFirst((Node)newValue);
-				return;
-			case RDFPackage.LIST__REST:
-				setRest((List)newValue);
+			case RDFPackage.LIST__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends Node>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,11 +110,8 @@ public class ListImpl extends BlankNodeImpl implements List {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RDFPackage.LIST__FIRST:
-				setFirst((Node)null);
-				return;
-			case RDFPackage.LIST__REST:
-				setRest((List)null);
+			case RDFPackage.LIST__ELEMENTS:
+				getElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -207,10 +125,8 @@ public class ListImpl extends BlankNodeImpl implements List {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RDFPackage.LIST__FIRST:
-				return first != null;
-			case RDFPackage.LIST__REST:
-				return rest != null;
+			case RDFPackage.LIST__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
