@@ -28,4 +28,4 @@ Export-Package: com.emftriple.query,
  com.emftriple.query.parser.antlr.internal,
  com.emftriple.query.validation,
  com.emftriple.query.parser.antlr.lexer
-Bundle-Vendor: googlecode
+Bundle-Vendor: eclipselabs
