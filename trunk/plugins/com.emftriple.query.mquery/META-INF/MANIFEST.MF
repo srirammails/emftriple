@@ -28,4 +28,4 @@ Export-Package: com.emftriple.query,
  com.emftriple.query.mql.impl,
  com.emftriple.query.mql.util,
  com.emftriple.query.parser.antlr.lexer
-Bundle-Vendor: googlecode
+Bundle-Vendor: eclipselabs

@@ -16,4 +16,4 @@ Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.emftriple.query.ui.contentassist.antlr
 Bundle-Activator: com.emftriple.query.ui.internal.MQueryActivator
-Bundle-Vendor: googlecode
+Bundle-Vendor: eclipselabs
