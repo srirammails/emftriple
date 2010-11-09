@@ -3,7 +3,7 @@
       id="com.emf4sw.ui.feature"
       label="EMF4SW UI"
       version="0.6.1.qualifier"
-      provider-name="googlecode">
+      provider-name="eclipselabs">
 
    <description url="http://emftriple.googlecode.com">
       EMFTriple provides a set of Eclipse plugins to help you bridge the Eclipse Modeling Framework (EMF) and Semantic Web (SW) technologies such as OWL  and RDF.

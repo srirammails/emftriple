@@ -3,7 +3,7 @@
       id="com.emftriple.query.mquery.feature"
       label="EMF Triple Model Query"
       version="0.6.1.qualifier"
-      provider-name="googlecode">
+      provider-name="eclipselabs">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
