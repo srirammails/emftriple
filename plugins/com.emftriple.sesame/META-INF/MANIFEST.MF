@@ -4,7 +4,7 @@ Bundle-Name: EMF Triple Sesame Adapter
 Bundle-SymbolicName: com.emftriple.sesame;singleton:=true
 Bundle-Version: 0.6.1.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: googlecode
+Bundle-Vendor: eclipselabs
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.emftriple.sesame,

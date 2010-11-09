@@ -38,7 +38,7 @@ Require-Bundle: org.aopalliance;bundle-version="1.0.0";visibility:=reexport,
  com.emftriple.query.sparql;bundle-version="0.6.0";visibility:=reexport,
  com.emftriple.javassist;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Bundle-Vendor: googlecode
+Bundle-Vendor: eclipselabs
 Import-Package: javax.persistence,
  javax.persistence.spi,
  javax.transaction
