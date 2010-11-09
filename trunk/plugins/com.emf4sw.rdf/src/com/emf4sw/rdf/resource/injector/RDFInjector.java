@@ -9,7 +9,6 @@
  */
 package com.emf4sw.rdf.resource.injector;
 
-import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.resource.RDFResource;
 import com.emf4sw.rdf.resource.RDFXMLResource;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -21,23 +20,23 @@ import com.hp.hpl.jena.rdf.model.Model;
  * @since 0.5.5
  */
 public class RDFInjector {
-
-	private final Model model;
+	
+	private final DocumentGraphInjector injector;
 	
 	public RDFInjector(Model model) {
-		this.model = model;
+		this.injector = new DocumentGraphInjector(model);
 	}
 	
 	public RDFResource inject() {
 		final RDFResource resource = new RDFXMLResource();
-		final RDFGraph aGraph = new DocumentGraphInjector(model).inject();
-		resource.getContents().add(aGraph);
+		injector.inject(resource);
 		
 		return resource;
 	}
 	
 	public RDFResource inject(final RDFResource resource) {
-		resource.getContents().add( new DocumentGraphInjector(model).inject() );
+		injector.inject( resource );
+		
 		return resource; 
 	}
 

@@ -11,6 +11,7 @@ import com.emf4sw.rdf.DocumentGraph;
 import com.emf4sw.rdf.Namespace;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.resource.RDFResource;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
@@ -33,9 +34,10 @@ public class DocumentGraphInjector {
 		this.aTripleInjector = new TripleInjector();
 	}
 
-	public RDFGraph inject() {
+	public RDFGraph inject(RDFResource resource) {
 		final DocumentGraph aGraph = factory.createDocumentGraph();
-
+		resource.getContents().add(aGraph);
+		
 		for (StmtIterator it = aModel.listStatements(); it.hasNext(); ) {
 			aTripleInjector.inject(it.next(), aGraph);
 		}
@@ -45,6 +47,7 @@ public class DocumentGraphInjector {
 			ns.setURI( aModel.getNsPrefixMap().get( namespace ) );
 			ns.setGraph(aGraph);
 		}
+		
 		return aGraph;
 	}
 

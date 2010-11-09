@@ -40,10 +40,12 @@ public class NamedGraphInjector {
 	public NamedGraph inject() {
 		final Resource aResource = getResource();
 		final NamedGraph aGraph = RDFFactory.eINSTANCE.createNamedGraph();
+		aResource.getContents().add(aGraph);
+		
 		for (ExtendedIterator<Statement> it = aModel.listStatements(); it.hasNext(); ) {
 			aTripleInjector.inject(it.next(), aGraph);
 		}
-		aResource.getContents().add(aGraph);
+		
 		return aGraph;
 	}
 	
