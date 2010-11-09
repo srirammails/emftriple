@@ -1,0 +1,68 @@
+-- @atlcompiler atl2006
+
+-- @path RDF=/com.emf4sw.rdf/model/rdf.ecore
+-- @nsURI Model=http://www.eclipse.org/emf/2002/Ecore
+
+library RDFHelpers;
+
+
+helper def: RDF: String = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
+helper def: RDFS: String = 'http://www.w3.org/2000/01/rdf-schema#';
+helper def: OWL: String = 'http://www.w3.org/2002/07/owl#';
+
+helper def: set(any : OclAny) : Set(OclAny) =
+ Set{ any }->flatten()->reject(e | e.oclIsUndefined());
+ 
+helper context OclAny def: isAnonymous(): Boolean = 
+	not self.eAnnotations->any(e | e.source = 'Anonymous').oclIsUndefined();
+
+helper def: isOwlElement(uri: String): Boolean = uri.startsWith(thisModule.OWL);
+
+helper context OclAny def: getTypes(): Set(String) =
+	let 
+		annotations: Set(Model!EAnnotation) = self.eAnnotations->select(e | e.source.endsWith('OWLClass'))
+	in 
+--	if (annotations.isEmpty()) 
+--	then 
+		Set{self.getURI(),
+--	else
+		annotations->collect(a |if a.details.containsKey('uri') then a.details.get('uri') else Set{} endif)
+--	endif
+		}->flatten();
+
+-- Returns well formed URI for an EPackage
+helper context Model!EPackage def: getNamespace(): String = 
+	if self.nsURI.endsWith('/') or self.nsURI.endsWith('#') 
+	then 
+		self.nsURI 
+	else 
+		self.nsURI + '#' 
+	endif;
+
+helper context Model!EPackage def: getURI(): String = self.nsURI;
+helper context Model!EClass def: getURI(): String = self.ePackage.getNamespace() + self.name;
+helper context Model!EStructuralFeature def: getURI(): String = self.eContainingClass.ePackage.getNamespace() + self.name;
+
+helper context OclAny def: getURI(): String =
+	let 
+		annotation: OclAny = self.getEAnnotation()
+	in if (annotation.oclIsUndefined()) then 
+		self.eContainingClass.ePackage.nsURI + '#' + self.name
+	else
+	if (annotation.details.containsKey('uri')) then
+			annotation.details.get('uri')
+		else 	
+			self.eContainingClass.ePackage.nsURI + '#' + self.name 
+		endif
+	endif;
+
+helper context OclAny def: getType(): String =  
+	let val: String = 
+		thisModule.datatypes.get(self.eType.name) 
+	in
+		if (val.oclIsUndefined()) then 
+			thisModule.datatypes.get('Literal') 
+		else val endif;
+
+helper context OclAny def: getFeatures(): Sequence(OclAny) = 
+	self.eClass().getEAllStructuralFeatures()->reject(f | f.isVolatile() or f.isUnsettable() or f.isTransient() or f.isDerived());

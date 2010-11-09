@@ -281,13 +281,9 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	 * @generated
 	 */
 	public Property getProperty(String uri) {
-		EObject obj = eResource() == null ? null : eResource().getEObject(uri);
-		if (obj == null) {
-			obj = RDFFactory.eINSTANCE.createProperty();
-			((Property) obj).setURI(uri);
-			this.getProperties().add((Property) obj);
-		}
-		return obj instanceof Property ? (Property)obj : null;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -296,13 +292,9 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	 * @generated
 	 */
 	public Datatype getDatatype(String uri) {
-		EObject obj = eResource() == null ? null : eResource().getEObject(uri);
-		if (obj == null) {
-			obj = RDFFactory.eINSTANCE.createDatatype();
-			((Datatype) obj).setURI(uri);
-			this.getDatatypes().add((Datatype) obj);
-		}
-		return obj instanceof Datatype ? (Datatype)obj : null;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -311,13 +303,9 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	 * @generated
 	 */
 	public BlankNode getBlankNode(String nodeID) {
-		EObject obj = eResource() == null ? null : eResource().getEObject(uri);
-		if (obj == null) {
-			obj = RDFFactory.eINSTANCE.createBlankNode();
-			((BlankNode) obj).setNodeID(uri);
-			this.getBlankNodes().add((BlankNode) obj);
-		}
-		return obj instanceof BlankNode ? (BlankNode)obj : null;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

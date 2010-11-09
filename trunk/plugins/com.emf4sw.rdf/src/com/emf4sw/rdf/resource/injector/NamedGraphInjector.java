@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFFactory;
-import com.emf4sw.rdf.resource.RDFXMLResource;
 import com.emf4sw.rdf.resource.RDFTurtleResource;
+import com.emf4sw.rdf.resource.RDFXMLResource;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;

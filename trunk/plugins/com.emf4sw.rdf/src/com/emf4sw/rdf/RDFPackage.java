@@ -1419,22 +1419,13 @@ public interface RDFPackage extends EPackage {
 	int LIST__GRAPH = BLANK_NODE__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>First</b></em>' reference.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__FIRST = BLANK_NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Rest</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST__REST = BLANK_NODE_FEATURE_COUNT + 1;
+	int LIST__ELEMENTS = BLANK_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>List</em>' class.
@@ -1443,7 +1434,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FEATURE_COUNT = BLANK_NODE_FEATURE_COUNT + 2;
+	int LIST_FEATURE_COUNT = BLANK_NODE_FEATURE_COUNT + 1;
 
 
 	/**
@@ -2001,26 +1992,15 @@ public interface RDFPackage extends EPackage {
 	EClass getList();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.emf4sw.rdf.List#getFirst <em>First</em>}'.
+	 * Returns the meta object for the reference list '{@link com.emf4sw.rdf.List#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>First</em>'.
-	 * @see com.emf4sw.rdf.List#getFirst()
+	 * @return the meta object for the reference list '<em>Elements</em>'.
+	 * @see com.emf4sw.rdf.List#getElements()
 	 * @see #getList()
 	 * @generated
 	 */
-	EReference getList_First();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.emf4sw.rdf.List#getRest <em>Rest</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Rest</em>'.
-	 * @see com.emf4sw.rdf.List#getRest()
-	 * @see #getList()
-	 * @generated
-	 */
-	EReference getList_Rest();
+	EReference getList_Elements();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2497,20 +2477,12 @@ public interface RDFPackage extends EPackage {
 		EClass LIST = eINSTANCE.getList();
 
 		/**
-		 * The meta object literal for the '<em><b>First</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LIST__FIRST = eINSTANCE.getList_First();
-
-		/**
-		 * The meta object literal for the '<em><b>Rest</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LIST__REST = eINSTANCE.getList_Rest();
+		EReference LIST__ELEMENTS = eINSTANCE.getList_Elements();
 
 	}
 

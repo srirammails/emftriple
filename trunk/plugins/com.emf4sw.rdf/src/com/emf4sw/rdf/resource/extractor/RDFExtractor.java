@@ -10,14 +10,17 @@
 package com.emf4sw.rdf.resource.extractor;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.emf4sw.rdf.Bag;
 import com.emf4sw.rdf.BlankNode;
 import com.emf4sw.rdf.Datatype;
 import com.emf4sw.rdf.DocumentGraph;
+import com.emf4sw.rdf.List;
 import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.Namespace;
@@ -25,18 +28,23 @@ import com.emf4sw.rdf.Property;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.RDFPackage;
+import com.emf4sw.rdf.Seq;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.TripleNode;
 import com.emf4sw.rdf.util.RDFSwitch;
+import com.emf4sw.rdf.vocabulary.RDF;
 import com.emf4sw.rdf.vocabulary.RDFS;
+import com.emf4sw.rdf.vocabulary.XSD;
 import com.hp.hpl.jena.datatypes.RDFDatatype;
 import com.hp.hpl.jena.datatypes.TypeMapper;
 import com.hp.hpl.jena.graph.NodeVisitor;
 import com.hp.hpl.jena.rdf.model.AnonId;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.RDFList;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.vocabulary.OWL;
 
 /**
  * {@link RDFExtractor}
@@ -48,26 +56,34 @@ public class RDFExtractor {
 
 	private final RDFGraph graph;
 
+	private static final Map<String, RDFNode> b = new HashMap<String, RDFNode>();
+	
 	public RDFExtractor(DocumentGraph graph) {
 		this.graph = graph;
 	}
 
 	public RDFExtractor(Resource resource) {
-		if (resource.getContents().size() == 1) {
+		if (resource.getContents().size() == 1) 
+		{
 			EObject eObject = resource.getContents().get(0);
-			if (eObject instanceof RDFGraph) {
+			if (eObject instanceof RDFGraph) 
+			{
 				graph = (RDFGraph) eObject;
-			} else {
+			} else 
+			{
 				throw new IllegalArgumentException();
 			}
 		} else {
 			DocumentGraph aGraph = 
 				(DocumentGraph) EcoreUtil.getObjectByType(resource.getContents(), RDFPackage.eINSTANCE.getDocumentGraph());
-			if (aGraph == null) {
+			if (aGraph == null) 
+			{
 				aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
 			}
-			for (EObject eObject: resource.getContents()) {
-				if (eObject instanceof NamedGraph) {
+			for (EObject eObject: resource.getContents()) 
+			{
+				if (eObject instanceof NamedGraph) 
+				{
 					aGraph.add((NamedGraph) eObject);
 				}
 			}
@@ -113,6 +129,10 @@ public class RDFExtractor {
 		for(Namespace namespace: graph.getNamespaces()) {
 			model.setNsPrefix(namespace.getPrefix(), namespace.getURI());
 		}
+		model.setNsPrefix("rdf", RDF.NS);
+		model.setNsPrefix("rdfs", RDFS.NS);
+		model.setNsPrefix("owl", OWL.NS);
+		model.setNsPrefix("xsd", XSD.NS);
 		for(com.emf4sw.rdf.Triple triple : graph.listAllTriples()) {
 			if (!(triple.getSubject() instanceof NamedGraph)) {
 				Statement stmt = extract( triple, model );
@@ -163,11 +183,13 @@ public class RDFExtractor {
 
 		@Override
 		public RDFNode caseBlankNode(BlankNode object) {
-			return model.createResource(
+			if (!b.containsKey(object.getNodeID())) {
+				b.put(object.getNodeID(), model.createResource(
 					object.getNodeID() != null ?
 							AnonId.create(object.getNodeID()) :
-								AnonId.create() 
-			);
+								AnonId.create()));
+			}
+			return b.get(object.getNodeID());
 		}
 		
 		@Override
@@ -183,6 +205,14 @@ public class RDFExtractor {
 			} else {
 				resultinNode = model.createResource(AnonId.create());
 			}
+			if (object.getLabel() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.label), model.createLiteral(object.getLabel()));
+			}
+			if (object.getComment() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.comment), model.createLiteral(object.getComment()));
+			}
 			return resultinNode;
 		}
 
@@ -197,6 +227,14 @@ public class RDFExtractor {
 					resultinNode = model.createProperty( uri );
 				}
 			}
+			if (object.getLabel() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.label), model.createLiteral(object.getLabel()));
+			}
+			if (object.getComment() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.comment), model.createLiteral(object.getComment()));
+			}
 			return resultinNode;
 		}
 
@@ -210,7 +248,15 @@ public class RDFExtractor {
 				{
 					resultinNode = model.createResource( uri );
 				}
-			}		
+			}	
+			if (object.getLabel() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.label), model.createLiteral(object.getLabel()));
+			}
+			if (object.getComment() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.comment), model.createLiteral(object.getComment()));
+			}
 			return resultinNode;
 		}
 		
@@ -224,7 +270,15 @@ public class RDFExtractor {
 				{
 					resultinNode = model.createResource( uri );
 				}
-			}		
+			}
+			if (object.getLabel() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.label), model.createLiteral(object.getLabel()));
+			}
+			if (object.getComment() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.comment), model.createLiteral(object.getComment()));
+			}
 			return resultinNode;
 		}
 
@@ -239,6 +293,14 @@ public class RDFExtractor {
 					resultinNode = model.createResource( uri );
 				}
 			}		
+			if (object.getLabel() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.label), model.createLiteral(object.getLabel()));
+			}
+			if (object.getComment() != null)
+			{
+				model.add(resultinNode.asResource(), model.getProperty(RDFS.comment), model.createLiteral(object.getComment()));
+			}
 			return resultinNode;
 		}
 
@@ -259,6 +321,35 @@ public class RDFExtractor {
 
 			return resultinNode;
 		}
+		
+		@Override
+		public RDFNode caseList(List object) {
+			RDFList list = model.createList();
+			for (EObject obj: object.getElements()) {
+				list = list.cons(doSwitch(obj));
+			}
+			
+			return list;
+		}
+		
+		@Override
+		public RDFNode caseSeq(Seq object) {
+			com.hp.hpl.jena.rdf.model.Seq seq = model.createSeq();
+			for (EObject obj: object.getElements()) {
+				seq.add(doSwitch(obj));
+			}
+			
+			return seq;
+		}
 
+		@Override
+		public RDFNode caseBag(Bag object) {
+			com.hp.hpl.jena.rdf.model.Bag bag = model.createBag();
+			for (EObject obj: object.getElements()) {
+				bag.add(doSwitch(obj));
+			}
+			
+			return bag;
+		}
 	}
 }

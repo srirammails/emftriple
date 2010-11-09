@@ -701,17 +701,8 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getList_First() {
+	public EReference getList_Elements() {
 		return (EReference)listEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getList_Rest() {
-		return (EReference)listEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -811,8 +802,7 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		createEReference(seqEClass, SEQ__ELEMENTS);
 
 		listEClass = createEClass(LIST);
-		createEReference(listEClass, LIST__FIRST);
-		createEReference(listEClass, LIST__REST);
+		createEReference(listEClass, LIST__ELEMENTS);
 	}
 
 	/**
@@ -996,8 +986,7 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		initEReference(getSeq_Elements(), this.getNode(), null, "elements", null, 0, -1, Seq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(listEClass, List.class, "List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getList_First(), this.getNode(), null, "first", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getList_Rest(), this.getList(), null, "rest", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getList_Elements(), this.getNode(), null, "elements", null, 0, -1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
