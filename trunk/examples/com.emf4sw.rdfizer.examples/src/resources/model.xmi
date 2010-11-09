@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<employee:Directory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:employee="http://www.example.com/Employee" name="default">
+  <projects xsi:type="employee:SmallProject" name="realistic project" description="a small example project" teamLeader="//@employees.0"/>
+  <employees firstName="John" lastName="Smith" salary="60000.0" jobTitle="//@jobs.0" managedEmployees="//@employees.1" degrees="//@degrees.0 //@degrees.1" projects="//@projects.0">
+    <responsibilities>Manager</responsibilities>
+    <period startDate="0007-06-19T00:00:00.000+0000"/>
+    <phoneNumbers type="mobile" areaCode="345" number="1432675"/>
+    <emailAddresses address="john.smith@acme.com"/>
+  </employees>
+  <employees firstName="Peter" lastName="Griffin" salary="35000.0" jobTitle="//@jobs.1" manager="//@employees.0" degrees="//@degrees.1" projects="//@projects.0">
+    <period startDate="0016-07-24T00:00:00.000+0000"/>
+    <phoneNumbers type="home" areaCode="453" number="3456782"/>
+    <emailAddresses address="peter.griffin@acme.com"/>
+  </employees>
+  <jobs title="Project Manager"/>
+  <jobs title="Software Developer"/>
+  <degrees name="Phd"/>
+  <degrees name="Master"/>
+</employee:Directory>
