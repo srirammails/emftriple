@@ -18,4 +18,4 @@ Export-Package: com.emf4sw.ui,
  com.emf4sw.ui.owl2ecore,
  com.emf4sw.ui.rdf,
  com.emf4sw.ui.rdfizer
-Bundle-Vendor: googlecode
+Bundle-Vendor: eclipselabs
