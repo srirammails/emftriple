@@ -20,7 +20,7 @@ EMF Triple requires the following dependencies:
 = Install for Eclipse 3.6 =
 
 Installation for Eclipse 3.6 can be easily done via the update manager. Go to Help -> Install New Software... menu and add this 
-update site http://emftriple.googlecode.com/svn/trunk/emftriple/. Select this site in the menu list, and you should see the available 
+update site http://svn.codespot.com/a/eclipselabs.org/emftriple/trunk/update-site/. Select this site in the menu list, and you should see the available 
 plugins just as in the following picture. You can now select the plugins you want. If you are interested by model transformations from Ecore/UML to 
 OWL/RDF then select Eclipse Modeling for Semantic Web. If you are interested by the RDF Storage and Querying solution for the Eclipse Modeling Framework then select EMF Triple. 
 
@@ -43,10 +43,10 @@ update sites can be done via the Add button in the update manager. Like depicted
 
 The update sites that needs to be added are the following ones:
  * http://download.eclipse.org/modeling/m2m/updates/milestones/ => for ATL 3.1.0
- * http://download.itemis.com/updates/milestones => for Xtext 1.0.0
+ * http://download.eclipse.org/modeling/tmf/updates/releases/ => for Xtext 1.0.0
  * http://download.eclipse.org/rt/eclipselink/milestone-updates => JPA 2.0
  
- * http://emftriple.googlecode.com/svn/trunk/emftriple/ => EMF4SW and EMF Triple
+ * http://svn.codespot.com/a/eclipselabs.org/emftriple/trunk/update-site/ => EMF4SW and EMF Triple
  
 Once you have added those update sites you can proceed to the installation procedure explained in previous section. Select EMF Triple update site from the menu list, and choose the desired plugins.
 
@@ -67,10 +67,10 @@ Once tou have install the marketplace client you can try to search for EMF Tripl
 
 Installation from source can be done once the following dependencies are installed:
  * EMF SDK see http://wiki.eclipse.org/EMF/Installation
- * Xtext 1.0.0 via update site: http://download.itemis.com/updates/milestones (only for EMF Triple)
+ * Xtext 1.0.0 via update site: http://download.eclipse.org/modeling/tmf/updates/releases/ (only for EMF Triple)
  * JPA 2.0 via update site: http://download.eclipse.org/rt/eclipselink/milestone-updates (only for EMF Triple)
  * ATL 3.1 via update site: http://download.eclipse.org/modeling/m2m/updates/milestones/ (only for EMF4SW)
- * ATL Commons via update site: http://atl-commons.googlecode.com/hg/atl-commons/ (only for EMF4SW)
+ * ATL Commons via update site: https://atl-commons.eclipselabs.org.codespot.com/hg/atl-commons/ (only for EMF4SW)
  
 Once all those dependencies are satisfied you can checkout the source code via the googlecode SVN repository. If you have a SVN client installed under your Eclipse environment, go to SVN Repository perspective, and add a new repository location with for url https://emftriple.googlecode.com/svn/trunk/ and username anonymous.
 
