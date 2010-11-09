@@ -1,0 +1,47 @@
+#summary RDF & OWL Metamodels.
+
+<wiki:toc max_depth="1" />
+
+= Introduction =
+
+This section presents the RDF and OWL metamodels available in EMF4SW.
+
+= RDF metamodel =
+
+The RDF metamodel available in EMF4SW is a slighly different version than the RDF metamodel proposed in the [http://www.omg.org/ontology ODM] sepcification. This metamodel proposes a clear representation of graphs by distinguishing Document graphs and contained named graphs.
+  
+<img src="http://emftriple.googlecode.com/svn/wiki/img/rdf1.jpg" height="640"/>
+
+In this metamodel, an RDFGraph is the container of Nodes and Triples. A Node can be a BlankNode (no URI), a named node (Resource, NamedGraph, TripleNode) or a Literal.
+ 
+<img src="http://emftriple.googlecode.com/svn/wiki/img/rdf2.jpg" height="640"/>
+
+= OWL metamodel =
+
+The OWL metamodel available in EMF4SW covers all features proposed in the [http://www.w3.org/TR/owl2-primer/ OWL 2] specification.
+
+<img src="http://emftriple.googlecode.com/svn/wiki/img/owl1.jpg" height="480"/>
+
+Axioms in OWL 2.
+
+<img src="http://emftriple.googlecode.com/svn/wiki/img/owl2.jpg" height="340"/>
+
+Entities in OWL 2.
+
+<img src="http://emftriple.googlecode.com/svn/wiki/img/owl3.jpg" height="340"/>
+
+Class expressions in OWL 2.
+
+<img src="http://emftriple.googlecode.com/svn/wiki/img/owl4.jpg" height="340"/>
+
+Data Range
+
+<img src="http://emftriple.googlecode.com/svn/wiki/img/owl5.jpg" height="340"/>
+
+Individuals
+
+<img src="http://emftriple.googlecode.com/svn/wiki/img/owl6.jpg" height="340"/>
+
+
+<img src="http://emftriple.googlecode.com/svn/wiki/img/owl7.jpg" height="340"/>
+

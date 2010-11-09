@@ -1,0 +1,124 @@
+#summary Adapters available.
+#labels Phase-Implementation
+
+<wiki:toc max_depth="3" />
+
+EMF Triple provides diverse adapters to some of the most used RDF stores. 
+
+= Jena =
+[http://openjena.org Jena] is an open source Java framework to build Semantic Web applications. Jena is heavily used in EMF Triple for RDF documents parsing and SPARQL query. The Jena adapters are the default adpaters provided by EMF Triple. These adapters allow to store and query RDF data from RDF files, SPARQL endpoints and the two Jena Stores named SDB and TDB.
+
+== File ==
+The simplest way to RDF data is via a RDF file. The Jena adapter [http://code.google.com/p/emftriple/source/browse/trunk/plugins/com.emftriple.jena/src/com/emftriple/jena/JenaFile.java JenaFile] provides the facility for store and query data from a single document. The RDF file can be in various formats including RDF/XML, Turtle, N-TRIPLES. 
+
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://www.emftriple.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	
+	<persistence-unit name="example">
+
+		<package>http://www.example.com/Ex</package>
+
+		<datasources>
+			<datasource name="example-db">
+				<factory> com.emftriple.jena.JenaDataSourceFactory </factory>
+				<class> com.emftriple.jena.JenaFile </class>
+				<url> filename.ext </url>
+			</datasource>
+		</datasources>
+		
+	</persistence-unit>
+</persistence>
+}}}
+
+== TDB ==
+[http://openjena.org/wiki/TDB TDB] is a component of [http://openjena.org Jena] for RDF storage and query. It provides for large scale storage and query of RDF datasets using a pure Java engine.
+
+{{{
+<datasources>
+	<datasource name="example-db">
+		<factory> com.emftriple.jena.JenaDataSourceFactory </factory>
+		<class> com.emftriple.jena.JenaTDB </class>
+		<url> foldername </url>
+	</datasource>
+</datasources>
+}}}
+
+== SDB == 
+[http://openjena.org/wiki/SDB SDB ]is a component of [http://openjena.org Jena] for the RDF storage and query specifically to support SPARQL. The storage is provided by an SQL database and many databases are supported, both Open Source and proprietary.
+
+{{{
+<datasources>
+	<datasource name="example-db">
+		<factory> com.emftriple.jena.JenaDataSourceFactory </factory>
+		<class> com.emftriple.jena.JenaSDB </class>
+		<properties>
+			<property name="emftriple.jena.sdb.jdbcurl" value="jdbc:derby:DB/SDB2" />
+			<property name="emftriple.jena.sdb.type" value="Derby" />
+			<property name="emftriple.jena.sdb.user" value="" />
+			<property name="emftriple.jena.sdb.password" value="" />
+		</properties>
+	</datasource>
+</datasources>
+}}}
+
+== SPARQL endpoints ==
+
+{{{
+<datasources>
+	<datasource name="example-db">
+		<factory> com.emftriple.jena.JenaDataSourceFactory </factory>
+		<class> com.emftriple.jena.JenaService </class>
+		<url> service url </url>
+	</datasource>
+</datasources>
+}}}
+
+
+= Sesame =
+[http://www.openrdf.org/ Sesame] is an open source RDF framework with support for RDF Schema inferencing and querying. EMF Triple provides adapters for the three main types of  Sesame repositories: i.e. the in-memory repository, the native repository and the HTTP repository. More information about these repositories can be found [http://www.openrdf.org/doc/sesame2/users/ here].
+
+==Memory Store==
+
+{{{
+<datasources>
+	<datasource name="example-db">
+		<factory> com.emftriple.sesame.SesameDataSourceFactory </factory>
+		<class> com.emftriple.sesame.SesameMem </class>
+	</datasource>
+</datasources>
+}}}
+
+==Native Store==
+
+{{{
+<datasources>
+	<datasource name="example-db">
+		<factory> com.emftriple.sesame.SesameDataSourceFactory </factory>
+		<class> com.emftriple.sesame.SesameNative </class>
+                <url> foldername </url>
+	</datasource>
+</datasources>
+}}}
+
+==HTTP Repository==
+
+{{{
+<datasources>
+	<datasource name="example-db">
+		<factory> com.emftriple.sesame.SesameDataSourceFactory </factory>
+		<class> com.emftriple.sesame.SesameHTTP </class>
+                <url> repository url </url>
+	</datasource>
+</datasources>
+}}}
+
+= 4Store =
+
+TODO
+
+= Bigdata =
+
+TODO

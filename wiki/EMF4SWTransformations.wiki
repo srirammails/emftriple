@@ -1,0 +1,106 @@
+#summary Model Transformations Guide.
+
+<wiki:toc max_depth="3" />
+
+= Introduction =
+
+This section presents the model transformations available in EMF4SW. 
+
+
+== Ecore to OWL ==
+
+The Ecore to OWL model transformation takes as input any valid Ecore models to produce the equivalent OWL ontology. The model transformations rules are an adaptation of rules found in the ODM specification.
+
+===Understand Rules===
+
+This section describes the main rules that are implemented in the Ecore to OWL transformation.
+
+|| Ecore || OWL ||
+|| EClass || OWLClass ||
+|| EAttribute || DataProperty ||
+|| EReference || ObjectProperty ||
+
+===Execute from Java===
+
+The following code excerpt shows how to execute this model transformation from Java code. 
+
+{{{
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import com.atl.common.trans.Transformations;
+import com.emf4sw.owl.atl.Ecore2OWLOptions;
+import com.emf4sw.owl.atl.Ecore2OWLResource;
+import com.emf4sw.owl.resource.OWLFormats;
+import com.emf4sw.owl.resource.OWLResourceSet;
+import com.emf4sw.owl.resource.OWLXMLResource.OWLResourceFactory;
+
+...
+
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("owl", new OWLResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
+		
+ResourceSet resourceSet = new OWLResourceSet();
+Resource inModel = resourceSet.createResource(URI.createURI("src/Entities.ecore"));
+try {
+	inModel.load(Collections.EMPTY_MAP);
+} catch (IOException e) {
+	e.printStackTrace();
+}
+		
+Map<String, Object> options = new HashMap<String, Object>();
+options.put(Ecore2OWLOptions.ECORE2OWL_NO_DOMAIN_NO_RANGE, Boolean.TRUE);
+		
+Resource outModel = Transformations.transform(inModel, new Ecore2OWLResource(OWLFormats.TURTLE, options ));
+		
+outModel.setURI(URI.createURI("src/Entities.ttl"));
+try {
+	outModel.save(Collections.EMPTY_MAP);
+} catch (IOException e) {
+	e.printStackTrace();
+}
+}}}
+
+== UML to OWL ==
+
+== OWL to Ecore ==
+
+{{{
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import com.emf4sw.owl.atl.OWL2EcoreOptions;
+import com.emf4sw.owl.resource.OWLResource;
+import com.emf4sw.owl.resource.OWLResourceSet;
+import com.emf4sw.owl.resource.OWLXMLResource.OWLResourceFactory;
+
+...
+
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("owl", new OWLResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
+		
+Map<String, Object> options = new HashMap<String, Object>();
+options.put(OWL2EcoreOptions.OWL2ECORE_REFINE_METAMODEL, Boolean.FALSE);
+options.put(OWLResource.OPTION_REASONER, Boolean.TRUE);
+		
+ResourceSet resourceSet = new OWLResourceSet();
+Resource inModel = resourceSet.createResource(URI.createURI("src/goodrelations.owl"));
+try {
+	inModel.load(options);
+} catch (IOException e) {
+	e.printStackTrace();
+}
+	
+Resource outModel = transform(inModel, new OWLResource2Ecore(options));
+	
+outModel.setURI(URI.createURI("src/goodrelations.ecore"));
+try {
+	outModel.save(Collections.EMPTY_MAP);
+} catch (IOException e) {
+	e.printStackTrace();
+}
+}}}

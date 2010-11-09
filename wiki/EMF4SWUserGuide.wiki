@@ -1,0 +1,19 @@
+#summary Eclipse Modeling for Semantic Web Toolkit
+
+= Introduction =
+
+The Eclipse Modeling for Semantic Web (EMF4SW) Toolkit provides metamodels for Semantic Web modeling languages such as RDF and OWL 2.
+
+Metamodels provided are :
+ * [http://code.google.com/p/emftriple/wiki/EMF4SWMetamodels#RDF_metamodel RDF] (com.emf4sw.rdf)
+ * [http://code.google.com/p/emftriple/wiki/EMF4SWMetamodels#OWL_metamodel OWL] 2 (com.emf4sw.owl)
+
+Model Transformations available are :
+ * Ecore to OWL (com.emf4sw.owl)
+ * OWL to Ecore (com.emf4sw.owl)
+ * UML to OWL (com.emf4sw.uml)
+ * OWL to UML (com.emf4sw.uml)
+ * Model to RDF (com.emf4sw.rdfizer)
+ * RDF to Model (com.emf4sw.rdfizer)
+
+RDF/OWL Models and Model Transformations can be accessed throw a Java API or via an eclipse menu:

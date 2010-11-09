@@ -1,0 +1,99 @@
+#summary EMF Resource for OWL and RDF documents.
+#labels Featured
+
+<wiki:toc max_depth="1" />
+
+EMF provides a special container for dealing for various kind of documents, named Resource. Default implementation of Resource are provided by XMLResource and XMIResource that can read and write XML or XMI files to store or load EMF based models. 
+
+The Eclipse Modeling for Semantic Web toolkit provides  implementations of Resource and related interfaces such as [http://publib.boulder.ibm.com/infocenter/wasinfo/v6r0/index.jsp?topic=/org.eclipse.emf.doc/references/javadoc/org/eclipse/emf/ecore/resource/Resource.Factory.html Resource.Factory] and [http://help.eclipse.org/help32/index.jsp?topic=/org.eclipse.emf.doc/references/javadoc/org/eclipse/emf/ecore/resource/ResourceSet.html ResourceSet] that are specific to the various RDF formats, i.e. RDF/XML, N3, N-TRIPLES, Turtle. These implementations are made possible thanks to the [http://openjena.org Jena] framework used for parsing and serialization of OWL/RDF models.   
+By doing this, any legal RDF documents provided in such formats can be loaded transparently as an RDF model or as an OWL model, depending of its content. Implementation of these facilities is done via the classes OWLResourceSet and RDFResourceSet and various Resource.Factory, one for each kind of RDF formats.
+The usage of these Resource is depicted in the following document.
+
+=RDF Resource and RDF Resource Factory=
+RDF documents can be loaded thanks to various implementation of RDFResource. To do so, you need to register the factories in the main 
+resource factory register as depicted in the following code snippet.
+Each file extension will have its corresponding RDF resource factory. For example a file named example.ttl must be a valid Turtle document and so will be loaded as a RDFTurtleResource thanks to the factory RDFTurtleResourceFactory. The default RDF format which is RDF/XML is managed by the RDFResourceFactory. 
+
+{{{
+import com.emf4sw.rdf.resource.RDFXMLResource.RDFResourceFactory;
+import com.emf4sw.rdf.resource.RDFTurtleResource.RDFTurtleResourceFactory;
+import com.emf4sw.rdf.resource.RDFTriplesResource.RDFTriplesResourceFactory;
+
+...
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("rdf", new RDFResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new RDFTurtleResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("nt", new RDFTriplesResourceFactory());
+}}}
+
+Once the factories are registered, you can create and load RDF documents as RDF models. This is done via a ResourceSet. A special kind of ResourceSet is provided, RDFResourceSet, but ResourceSetImpl can also be used.
+
+{{{
+Resource.Factory.Registry.INSTANCE.getContentTypeToFactoryMap().put("ttl", new RDFTurtleResourceFactory());
+...
+ResourceSet resourceSet = new RDFResourceSet();
+Resource aResource = resourceSet.createResource(URI.createURI("example.ttl"));
+aResource.load(Collections.EMPTY_MAP);
+}}}
+
+The root object of a valid RDF document is a DocumentGraph that inherits RDFGraph interface (see RDF Metamodel reference). A DocumentGraph can be access in the following way. Once you have access to the graph, you can navigate throw the triples, nodes and properties and add new nodes and triples.  
+
+{{{
+RDFGraph graph = (RDFGraph) aResource.getContents().get(0);
+for (Triple aTriple: graph.getTriples()) {
+	Node aSubject = aTriple.getSubject();
+}
+}}}
+
+Saving a RDF model is done via the save method. If you want to save your RDF model in another syntax than the one it is originated then you have to create a new Resource with a file extension that reflect the targeted format. Then copy the contents of the resource in the new resource as depicted in the following code snippet.
+ 
+{{{
+Resource rdfxml = resourceSet.createResource(URI.createURI("example.rdf"));
+rdfxml.getContents().addAll(aResource.getContents());
+rdfxml.save(Collections.EMPTY_MAP);
+}}}
+
+=OWL Resource and OWL Resource Factory=
+OWL documents are loaded via the OWLResource interface and OWLResource factories. Like for RDF documents, you need to register the required factories according to the OWL file extensions.
+
+{{{
+import com.emf4sw.owl.resource.OWLXMLResource.OWLResourceFactory;
+import com.emf4sw.owl.resource.OWLTurtleResource.OWLTurtleResourceFactory;
+...
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("owl", new OWLResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new OWLTurtleResourceFactory());
+}}}
+
+Creation of OWLResource is done via a ResourceSet. Here we use OWLResourceSet, but ResourceSetImpl can be used instead.
+
+{{{
+ResourceSet resourceSet = new OWLResourceSet();
+Resource resource = resourceSet.createResource(URI.createURI("file.owl"));
+resource.load(null);
+}}}
+
+The Eclipse Modeling for Semantic Web is delivered with Pellet reasoning engine. The reasoner can be used at loading time. This is done by setting a particular option. The option is available from the interface OWLResource and is set in a Map which is used as a parameter for the load method. By doing this, the reasoner is executed during the loading of the OWL document. The loaded OWL model then contain all the inferred triples. 
+ 
+{{{
+Map<String, Object> options = new HashMap<String, Object>();
+options.put(OWLResource.OPTION_REASONER, Boolean.TRUE);
+		
+		
+ResourceSet resourceSet = new OWLResourceSet();
+Resource resource = resourceSet.createResource(URI.createURI("file.owl"));
+resource.load(options);
+}}}
+
+The root object of an OWL model is an Ontology. The Ontology object can be accessed as depicted in the following code snippet. Various ontology elements can then be accessed.
+
+{{{
+Resource resource = resourceSet.createResource(URI.createURI("file.owl"));
+resource.load(options);
+
+Ontology ontology = (Ontology) resource.getContents().get(0);
+
+OWLClass entityClass = ontology.getOWLClass("http://www.example.org/Entity");
+
+for (OWLClass aClass: ontology.listClasses()) {
+	EList<ClassExpression> superClasses = aClass.listSuperClasses();
+}
+}}}

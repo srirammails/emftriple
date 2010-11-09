@@ -1,0 +1,13 @@
+#summary UserGuide
+
+= Introduction = 
+
+The EMF4SW toolkit provides a set of Eclipse plugins to help you bridge the Eclipse Modeling Framework Eclipse Modeling Framework (EMF) and Semantic Web (SW) technologies such as OWL, RDF and SPARQL.
+
+EMFTriple provides an Object Triple Mapping solution for EMF Models. EMF Triple lets you store and retrieve your models from RDF stores like Jena (TDB, SDB), Sesame or any SPARQL endpoints.
+
+= Contents =
+
+[http://code.google.com/p/emftriple/wiki/EMF4SWUserGuide Eclipse Modeling for Semantic Web ToolKit]
+
+[http://code.google.com/p/emftriple/wiki/EMFTripleGuide EMF Model RDF Mapper]

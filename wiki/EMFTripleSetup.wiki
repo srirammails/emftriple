@@ -1,0 +1,231 @@
+#summary EMF Triple Setup and Quick start.
+#labels Featured,Phase-Implementation
+
+<wiki:toc max_depth="3" />
+
+=Quick Start=
+<p align="justify">
+This tutorial presents the main features of the EMF Triple solution for storing and retrieving EMF into/from RDF data sources. The source 
+of this example can be found in the [http://code.google.com/p/emftriple/downloads/ downloads] section ([http://code.google.com/p/emftriple/downloads/detail?name=emftriple-example-0.6.1.zip&can=2&q= source]).
+</p>
+
+==Prerequisites==
+<p align="justify">
+EMF Triple works in a standard EMF project. If you are unfamiliar with EMF concepts, then you should first get your hands on the EMF [http://www.vogella.de/articles/EclipseEMF/article.html tutorials] and [http://www.eclipse.org/modeling/emf/docs/ documentation].
+</p>
+<p align="justify">
+In the following example, we will use [http://wiki.eclipse.org/Emfatic Emfatic] to demonstrate the use of annotations in EMF Triple. 
+While it is not mandatory to use Emfatic to define annotations over EMF models, it really simplifies this step. It is then recommend 
+to install Emfatic via eclipse update manager.
+</p>
+==Project Setup==
+<p align="justify">
+The first step consists of creating the eclipse project. 
+</p>
+<p align="justify">
+<img src="http://emftriple.googlecode.com/svn/wiki/img/emftriple-setup.jpg" height="480"/>
+</p>
+==Create your Model==
+<p align="justify">
+In this example, we will use a data model that represents the concept of employees and projects. In this model, an employee participates in one 
+or more projects, a project is managed by a project leader, etc. The data model is given in the figure below. We will use this model to create 
+instances of employees and projects to store them in a RDF store. 
+</p>
+
+<img src="http://emftriple.googlecode.com/svn/wiki/img/datamodel.jpg" height="440"/>
+
+<p align="justify">
+In order to be use by EMF Triple, the model has to contain some necessary information that can be added thanks to annotations. EMF models support 
+annotations in a similar way Java does. Nevertheless, EMF annotations are not as advanced as Java ones. We will use Emfatic to define the required 
+annotations. Emfatic can be used to create the model as well, or an Emfatic file can be generated from an existing ecore file. See this [http://wiki.eclipse.org/Emfatic wiki] 
+for more details about Emfatic. The Emfatic file used in this example can be found [http://code.google.com/p/emftriple/source/browse/trunk/examples/com.emftriple.example/model/employee.emf here]. 
+
+The first part of our Emfatic file contains the package declaration. The namespace, composed of a uri and a prefix needs to be set. The namespace is used by EMF Triple to 
+generate RDF uris.
+</p>
+
+{{{
+@namespace(uri="http://www.example.com/Employee", prefix="employee")
+package employee;
+}}}
+ 
+<p align="justify">
+The next code excerpt shows definition of the Project classes. This includes the abstract class Project and its subclasses SmallProject and LargeProject. Note that 
+we define in class Project an Id via the annotation @etriple.Id. The attribute mark by this annotation will be used to generated the URI of RDF resources generated 
+from objects instance of the class Project. The annotation Id contains one property named base. This property holds the base namespace that will be used as a URI. For example, a 
+project named "foo" will have for URI, once translated in RDF, "http://www.example.com/projects/foo". 
+</p>
+<p align="justify">
+Here we also show how to define named queries on model classes. A named query is defined via the annotation @etriple.NamedQuery. A named query is identified by a name and 
+a string that contains the query itself. The language used to define the query is JPQL. Note that query parameters are suppported as well. During runtime, JPQL queries will be 
+translated into SPARQL queries and executed against the RDF store. 
+</p>
+
+{{{
+abstract class Project {
+  @etriple.Id(base="http://www.example.com/projects/")
+  attr String name;
+  attr String description;
+  ref Employee teamLeader;
+}
+
+@etriple.NamedQuery(
+	name="findSmallProjectByName", 
+	queryString="SELECT p FROM SmallProject p WHERE p.name = :name")
+class SmallProject extends Project {
+}
+
+@etriple.NamedQuery(
+	name="findLargeProjectByName", 
+	queryString="SELECT p FROM LargeProject p WHERE p.name = :name")
+class LargeProject extends Project {
+  attr double budget;
+  attr EDate milestone;
+}
+}}}
+
+
+{{{
+@etriple.CompositeId(base="http://www.example.com/employees/[firstname]_[lastname]")
+@etriple.NamedQuery(
+	name="findEmployeeByName", 
+	queryString="SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last")
+class Employee {
+  attr String firstName;
+  attr String lastName;
+  attr Gender gender;
+  attr double salary;
+  attr long version;
+  attr String[*] responsibilities;
+  
+  val EmploymentPeriod period;
+  val Address address;
+  ref JobTitle jobTitle;
+  ref Employee#managedEmployees manager;
+  ref Employee[*]#manager managedEmployees;
+  val PhoneNumber[*]#owner phoneNumbers;
+  ref Degree[*] degrees;
+  ref Project[*] projects;
+  val EmailAddress[*] emailAddresses;
+}
+}}}
+
+A model that contains no annotations can be processed by EMF Triple. In this case, RDF types will be generated from the model types. Nevertheless, EMF Triple 
+requires that each class contains at least one id. In EMF, an id is an attribute marked with the property ID set to true.
+
+==Persistence configuration==
+
+<img src="http://emftriple.googlecode.com/svn/wiki/img/config.jpg" height="540"/>
+
+==Runtime==
+
+
+===Entity Manager===
+
+{{{
+
+public class Example {
+
+	static {
+		EPackage.Registry.INSTANCE.put(EmployeePackage.eNS_URI, EmployeePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(PersistencePackage.eNS_URI, PersistencePackage.eINSTANCE);
+	}
+
+	public static void main(String[] args) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("employee");
+		EntityManager em = emf.createEntityManager();
+		
+		...		
+	}
+}
+}}}
+
+===Persisting Objects===
+
+{{{
+EntityManager em = emf.createEntityManager();
+...
+Employee employee = EmployeeFactory.eINSTANCE.createEmployee();
+employee.setFirstName("Bob");
+employee.setLastName("Smith");
+employee.setGender(Gender.MALE);
+employee.setSalary(35000);
+...	
+em.getTransaction().begin();
+
+em.persist(employee);
+em.flush();
+		
+em.getTransaction().commit();
+}}}
+
+===Loading Objects===
+
+{{{
+EntityManager em = emf.createEntityManager();
+em.getTransaction().begin();
+		
+Employee emp = em.find(Employee.class, URI.createURI("http://www.example.com/employees/john_smith"));
+...
+Employee emp2 = em.merge(emp);
+...
+
+em.flush();
+em.getTransaction().commit();
+}}}
+
+===EMF Resources===
+
+{{{
+Resource res = new ETripleResource(
+			URI.createURI("emftriple://unit=employee&?query=SELECT p FROM SmallProject p WHERE p.name = 'Enterprise'"));
+
+try {
+		res.load(null);
+} catch (IOException e) {
+	e.printStackTrace();
+}
+}}}
+
+==Queries==
+
+
+===JPQL Queries===
+
+{{{
+EntityManager em = emf.createEntityManager();
+em.getTransaction().begin();
+
+List<Employee> allEmployee = em.createQuery("SELECT e FROM Employee e", Employee.class)
+	.setMaxResults(10)
+	.getResultList();
+...
+em.getTransaction().commit();
+}}}
+
+===Named Queries===
+{{{
+EntityManager em = emf.createEntityManager();
+em.getTransaction().begin();
+
+TypedQuery<Employee> q = em.createNamedQuery("findEmployeeByName", Employee.class)
+	.setParameter("first", "Betty")
+	.setParameter("last", "Jones");
+
+List<Employee> list = q.getResultList();
+...
+em.getTransaction().commit();
+}}}
+
+===SPARQL Queries===
+
+{{{
+EntityManager em = emf.createEntityManager();
+em.getTransaction().begin();
+
+Query q = em.createNativeQuery("CONSTRUCT { ?s ?p ?o } WHERE { ?s ?p ?o }");
+	
+List<?> list = q.getResultList();
+...
+em.getTransaction().commit();
+}}}
