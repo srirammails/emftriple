@@ -535,7 +535,7 @@ lazy rule ObjectSomeValuesFrom {
 	from e: ecore!EReference, c: ecore!EClass
 	to
 		o : owl!SubClassOf (
-			subClass <- thisModule.CreatePrefixEntityExpression(c),
+			subClass <- thisModule.CreatePrefixEntityExpression(e.eContainingClass),
 			superClass <- rest
 		),		
 		rest : owl!ObjectSomeValuesFrom (
