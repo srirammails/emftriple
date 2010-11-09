@@ -62,14 +62,14 @@ public class RDFIzerExec {
 			if (options == null) {
 				options = new HashMap<String, Object>();
 			}
-			long start = System.currentTimeMillis();
+			options.put(OPTION_INCLUDE_ECORE_TYPES, Boolean.TRUE);
+			
 			final RDFIzerExec exec = new RDFIzerExec(options);
 			final RDFFormats format = 
 				options.containsKey(OPTION_RDF_FORMAT) ? (RDFFormats) options.get(OPTION_RDF_FORMAT) : RDFFormats.RDF_XML_FORMAT;
 
 			Resource rdf = format.factory().createResource(null);
 			exec.transform(resource, rdf);
-			System.out.println((System.currentTimeMillis() - start)/1000.);
 			
 			return rdf;
 		}
@@ -112,7 +112,7 @@ public class RDFIzerExec {
 	}
 
 	private com.emf4sw.rdf.Resource convert(EObject obj, RDFGraph aGraph) {
-		EObjectConverter oc = new EObjectConverter(obj, options);
+		final EObjectConverter oc = new EObjectConverter(obj, options);
 		final com.emf4sw.rdf.Resource subject = oc.convert(aGraph);
 		cache.put(obj, subject);
 
