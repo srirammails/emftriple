@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse Sesame
+Bundle-Name: open-rdf sesame
 Bundle-SymbolicName: com.emf4sw.sesame
 Bundle-Version: 2.3.02
 Bundle-ClassPath: openrdf-sesame.jar,
@@ -27,35 +27,6 @@ Export-Package: info.aduna.collections,
  info.aduna.webapp.filters,
  info.aduna.webapp.util,
  info.aduna.xml,
- org.apache.commons.httpclient,
- org.apache.commons.httpclient.auth,
- org.apache.commons.httpclient.cookie,
- org.apache.commons.httpclient.methods,
- org.apache.commons.httpclient.methods.multipart,
- org.apache.commons.httpclient.params,
- org.apache.commons.httpclient.protocol,
- org.apache.commons.httpclient.util,
- org.apache.commons.logging,
- org.apache.commons.logging.impl,
- org.apache.log4j,
- org.apache.log4j.chainsaw,
- org.apache.log4j.config,
- org.apache.log4j.helpers,
- org.apache.log4j.jdbc,
- org.apache.log4j.jmx,
- org.apache.log4j.lf5,
- org.apache.log4j.lf5.util,
- org.apache.log4j.lf5.viewer,
- org.apache.log4j.lf5.viewer.categoryexplorer,
- org.apache.log4j.lf5.viewer.configure,
- org.apache.log4j.net,
- org.apache.log4j.nt,
- org.apache.log4j.or,
- org.apache.log4j.or.jms,
- org.apache.log4j.or.sax,
- org.apache.log4j.spi,
- org.apache.log4j.varia,
- org.apache.log4j.xml,
  org.openrdf,
  org.openrdf.console,
  org.openrdf.http.client,
@@ -152,9 +123,6 @@ Export-Package: info.aduna.collections,
  org.openrdf.sail.rdbms.optimizers,
  org.openrdf.sail.rdbms.postgresql,
  org.openrdf.sail.rdbms.schema,
- org.openrdf.sail.rdbms.util,
- org.slf4j,
- org.slf4j.helpers,
- org.slf4j.impl,
- org.slf4j.spi
+ org.openrdf.sail.rdbms.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: eclipselabs

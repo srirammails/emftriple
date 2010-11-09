@@ -11,4 +11,4 @@ Export-Package:
  com.emftriple.jena,
  com.emftriple.jena.util
 Bundle-ClassPath: .
-Bundle-Vendor: googlecode
+Bundle-Vendor: eclipselabs
