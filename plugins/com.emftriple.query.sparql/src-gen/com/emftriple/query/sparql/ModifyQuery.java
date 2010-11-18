@@ -6,7 +6,6 @@
  */
 package com.emftriple.query.sparql;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.emftriple.query.sparql.ModifyQuery#getWithGraph <em>With Graph</em>}</li>
- *   <li>{@link com.emftriple.query.sparql.ModifyQuery#getQuery <em>Query</em>}</li>
+ *   <li>{@link com.emftriple.query.sparql.ModifyQuery#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,29 +53,29 @@ public interface ModifyQuery extends UpdateOperation
   void setWithGraph(String value);
 
   /**
-   * Returns the value of the '<em><b>Query</b></em>' containment reference.
+   * Returns the value of the '<em><b>Pattern</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Query</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Pattern</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Query</em>' containment reference.
-   * @see #setQuery(EObject)
-   * @see com.emftriple.query.sparql.SparqlPackage#getModifyQuery_Query()
+   * @return the value of the '<em>Pattern</em>' containment reference.
+   * @see #setPattern(GroupGraphPattern)
+   * @see com.emftriple.query.sparql.SparqlPackage#getModifyQuery_Pattern()
    * @model containment="true"
    * @generated
    */
-  EObject getQuery();
+  GroupGraphPattern getPattern();
 
   /**
-   * Sets the value of the '{@link com.emftriple.query.sparql.ModifyQuery#getQuery <em>Query</em>}' containment reference.
+   * Sets the value of the '{@link com.emftriple.query.sparql.ModifyQuery#getPattern <em>Pattern</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Query</em>' containment reference.
-   * @see #getQuery()
+   * @param value the new value of the '<em>Pattern</em>' containment reference.
+   * @see #getPattern()
    * @generated
    */
-  void setQuery(EObject value);
+  void setPattern(GroupGraphPattern value);
 
 } // ModifyQuery

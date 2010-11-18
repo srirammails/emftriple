@@ -98,8 +98,8 @@ ruleSPARQLQuery returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getSPARQLQueryAccess().getSelectionQueryParserRuleCall_0(), currentNode); 
     }
     this_SelectionQuery_0=ruleSelectionQuery
-    { 
-        $current = $this_SelectionQuery_0.current; 
+    {
+        $current = $this_SelectionQuery_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -111,8 +111,8 @@ ruleSPARQLQuery returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getSPARQLQueryAccess().getUpdateQueryParserRuleCall_1(), currentNode); 
     }
     this_UpdateQuery_1=ruleUpdateQuery
-    { 
-        $current = $this_UpdateQuery_1.current; 
+    {
+        $current = $this_UpdateQuery_1.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -205,8 +205,8 @@ rulePrefix returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getPrefixAccess().getUnNamedPrefixParserRuleCall_1(), currentNode); 
     }
     this_UnNamedPrefix_4=ruleUnNamedPrefix
-    { 
-        $current = $this_UnNamedPrefix_4.current; 
+    {
+        $current = $this_UnNamedPrefix_4.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -349,8 +349,8 @@ ruleSelectionQuery returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getSelectionQueryAccess().getConstructQueryParserRuleCall_0(), currentNode); 
     }
     this_ConstructQuery_0=ruleConstructQuery
-    { 
-        $current = $this_ConstructQuery_0.current; 
+    {
+        $current = $this_ConstructQuery_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -362,8 +362,8 @@ ruleSelectionQuery returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getSelectionQueryAccess().getSelectQueryParserRuleCall_1(), currentNode); 
     }
     this_SelectQuery_1=ruleSelectQuery
-    { 
-        $current = $this_SelectQuery_1.current; 
+    {
+        $current = $this_SelectQuery_1.current;
         currentNode = currentNode.getParent();
     }
 
@@ -375,8 +375,8 @@ ruleSelectionQuery returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getSelectionQueryAccess().getAskQueryParserRuleCall_2(), currentNode); 
     }
     this_AskQuery_2=ruleAskQuery
-    { 
-        $current = $this_AskQuery_2.current; 
+    {
+        $current = $this_AskQuery_2.current;
         currentNode = currentNode.getParent();
     }
 
@@ -388,8 +388,8 @@ ruleSelectionQuery returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getSelectionQueryAccess().getDescribeQueryParserRuleCall_3(), currentNode); 
     }
     this_DescribeQuery_3=ruleDescribeQuery
-    { 
-        $current = $this_DescribeQuery_3.current; 
+    {
+        $current = $this_DescribeQuery_3.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -423,8 +423,8 @@ ruleSelectQuery returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getSelectQueryAccess().getSelectAllQueryParserRuleCall_0(), currentNode); 
     }
     this_SelectAllQuery_0=ruleSelectAllQuery
-    { 
-        $current = $this_SelectAllQuery_0.current; 
+    {
+        $current = $this_SelectAllQuery_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -436,8 +436,8 @@ ruleSelectQuery returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getSelectQueryAccess().getSelectVariablesQueryParserRuleCall_1(), currentNode); 
     }
     this_SelectVariablesQuery_1=ruleSelectVariablesQuery
-    { 
-        $current = $this_SelectVariablesQuery_1.current; 
+    {
+        $current = $this_SelectVariablesQuery_1.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -1768,8 +1768,8 @@ ruleUpdateOperation returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getUpdateOperationAccess().getModifyQueryParserRuleCall_0(), currentNode); 
     }
     this_ModifyQuery_0=ruleModifyQuery
-    { 
-        $current = $this_ModifyQuery_0.current; 
+    {
+        $current = $this_ModifyQuery_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -1781,8 +1781,8 @@ ruleUpdateOperation returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getUpdateOperationAccess().getCreateGraphQueryParserRuleCall_1(), currentNode); 
     }
     this_CreateGraphQuery_1=ruleCreateGraphQuery
-    { 
-        $current = $this_CreateGraphQuery_1.current; 
+    {
+        $current = $this_CreateGraphQuery_1.current;
         currentNode = currentNode.getParent();
     }
 
@@ -1794,8 +1794,8 @@ ruleUpdateOperation returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getUpdateOperationAccess().getDropGraphQueryParserRuleCall_2(), currentNode); 
     }
     this_DropGraphQuery_2=ruleDropGraphQuery
-    { 
-        $current = $this_DropGraphQuery_2.current; 
+    {
+        $current = $this_DropGraphQuery_2.current;
         currentNode = currentNode.getParent();
     }
 
@@ -1807,8 +1807,8 @@ ruleUpdateOperation returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getUpdateOperationAccess().getLoadGraphQueryParserRuleCall_3(), currentNode); 
     }
     this_LoadGraphQuery_3=ruleLoadGraphQuery
-    { 
-        $current = $this_LoadGraphQuery_3.current; 
+    {
+        $current = $this_LoadGraphQuery_3.current;
         currentNode = currentNode.getParent();
     }
 
@@ -1820,8 +1820,8 @@ ruleUpdateOperation returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getUpdateOperationAccess().getClearGraphQueryParserRuleCall_4(), currentNode); 
     }
     this_ClearGraphQuery_4=ruleClearGraphQuery
-    { 
-        $current = $this_ClearGraphQuery_4.current; 
+    {
+        $current = $this_ClearGraphQuery_4.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -1847,276 +1847,71 @@ ruleModifyQuery returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(((
-	KEYWORD_44 
-    {
-        createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_0_0_0(), null); 
+(
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getInsertQueryParserRuleCall_0(), currentNode); 
     }
-(
-(
-		lv_withGraph_1_0=RULE_IRI_TERMINAL
-		{
-			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_0_1_0(), "withGraph"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"withGraph",
-	        		lv_withGraph_1_0, 
-	        		"IRI_TERMINAL", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryInsertQueryParserRuleCall_0_1_0(), currentNode); 
-	    }
-		lv_query_2_0=ruleInsertQuery		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"query",
-	        		lv_query_2_0, 
-	        		"InsertQuery", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-))
-    |((
-	KEYWORD_44 
+    this_InsertQuery_0=ruleInsertQuery
     {
-        createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_1_0_0(), null); 
+        $current = $this_InsertQuery_0.current;
+        currentNode = currentNode.getParent();
     }
-(
-(
-		lv_withGraph_4_0=RULE_IRI_TERMINAL
-		{
-			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_1_0_1_0(), "withGraph"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"withGraph",
-	        		lv_withGraph_4_0, 
-	        		"IRI_TERMINAL", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
 
-)
-))?(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryInsertDataQueryParserRuleCall_1_1_0(), currentNode); 
-	    }
-		lv_query_5_0=ruleInsertDataQuery		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"query",
-	        		lv_query_5_0, 
-	        		"InsertDataQuery", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-))
-    |((
-	KEYWORD_44 
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getInsertDataQueryParserRuleCall_1(), currentNode); 
+    }
+    this_InsertDataQuery_1=ruleInsertDataQuery
     {
-        createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_2_0_0(), null); 
+        $current = $this_InsertDataQuery_1.current;
+        currentNode = currentNode.getParent();
     }
-(
-(
-		lv_withGraph_7_0=RULE_IRI_TERMINAL
-		{
-			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_2_0_1_0(), "withGraph"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"withGraph",
-	        		lv_withGraph_7_0, 
-	        		"IRI_TERMINAL", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
 
-)
-))?(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryDeleteQueryParserRuleCall_2_1_0(), currentNode); 
-	    }
-		lv_query_8_0=ruleDeleteQuery		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"query",
-	        		lv_query_8_0, 
-	        		"DeleteQuery", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-))
-    |((
-	KEYWORD_44 
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getDeleteQueryParserRuleCall_2(), currentNode); 
+    }
+    this_DeleteQuery_2=ruleDeleteQuery
     {
-        createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_3_0_0(), null); 
+        $current = $this_DeleteQuery_2.current;
+        currentNode = currentNode.getParent();
     }
-(
-(
-		lv_withGraph_10_0=RULE_IRI_TERMINAL
-		{
-			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_3_0_1_0(), "withGraph"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"withGraph",
-	        		lv_withGraph_10_0, 
-	        		"IRI_TERMINAL", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
 
-)
-))?(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryDeleteDataQueryParserRuleCall_3_1_0(), currentNode); 
-	    }
-		lv_query_11_0=ruleDeleteDataQuery		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"query",
-	        		lv_query_11_0, 
-	        		"DeleteDataQuery", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-))
-    |((
-	KEYWORD_44 
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getDeleteDataQueryParserRuleCall_3(), currentNode); 
+    }
+    this_DeleteDataQuery_3=ruleDeleteDataQuery
     {
-        createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_4_0_0(), null); 
+        $current = $this_DeleteDataQuery_3.current;
+        currentNode = currentNode.getParent();
     }
-(
-(
-		lv_withGraph_13_0=RULE_IRI_TERMINAL
-		{
-			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_4_0_1_0(), "withGraph"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"withGraph",
-	        		lv_withGraph_13_0, 
-	        		"IRI_TERMINAL", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
 
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getDeleteWhereQueryParserRuleCall_4(), currentNode); 
+    }
+    this_DeleteWhereQuery_4=ruleDeleteWhereQuery
+    {
+        $current = $this_DeleteWhereQuery_4.current;
+        currentNode = currentNode.getParent();
+    }
 )
-))?(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryDeleteWhereQueryParserRuleCall_4_1_0(), currentNode); 
-	    }
-		lv_query_14_0=ruleDeleteWhereQuery		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"query",
-	        		lv_query_14_0, 
-	        		"DeleteWhereQuery", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)))
 ;
 
 
@@ -2465,21 +2260,50 @@ ruleInsertQuery returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
+((
+	KEYWORD_44 
+    {
+        createLeafNode(grammarAccess.getInsertQueryAccess().getWITHKeyword_0_0(), null); 
+    }
 (
+(
+		lv_withGraph_1_0=RULE_IRI_TERMINAL
+		{
+			createLeafNode(grammarAccess.getInsertQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getInsertQueryRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"withGraph",
+	        		lv_withGraph_1_0, 
+	        		"IRI_TERMINAL", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?
 	KEYWORD_65 
     {
-        createLeafNode(grammarAccess.getInsertQueryAccess().getINSERTKeyword_0(), null); 
+        createLeafNode(grammarAccess.getInsertQueryAccess().getINSERTKeyword_1(), null); 
     }
 (
 	KEYWORD_41 
     {
-        createLeafNode(grammarAccess.getInsertQueryAccess().getINTOKeyword_1_0(), null); 
+        createLeafNode(grammarAccess.getInsertQueryAccess().getINTOKeyword_2_0(), null); 
     }
 (
 (
-		lv_graph_2_0=RULE_IRI_TERMINAL
+		lv_graph_4_0=RULE_IRI_TERMINAL
 		{
-			createLeafNode(grammarAccess.getInsertQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_1_1_0(), "graph"); 
+			createLeafNode(grammarAccess.getInsertQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), "graph"); 
 		}
 		{
 	        if ($current==null) {
@@ -2490,7 +2314,7 @@ ruleInsertQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"graph",
-	        		lv_graph_2_0, 
+	        		lv_graph_4_0, 
 	        		"IRI_TERMINAL", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -2502,9 +2326,9 @@ ruleInsertQuery returns [EObject current=null]
 ))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getInsertQueryAccess().getPatternGroupGraphPatternParserRuleCall_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getInsertQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
 	    }
-		lv_pattern_3_0=ruleGroupGraphPattern		{
+		lv_pattern_5_0=ruleGroupGraphPattern		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getInsertQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2513,7 +2337,7 @@ ruleInsertQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"pattern",
-	        		lv_pattern_3_0, 
+	        		lv_pattern_5_0, 
 	        		"GroupGraphPattern", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2526,9 +2350,9 @@ ruleInsertQuery returns [EObject current=null]
 )(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getInsertQueryAccess().getWhereClauseWhereClauseParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getInsertQueryAccess().getWhereClauseWhereClauseParserRuleCall_4_0(), currentNode); 
 	    }
-		lv_whereClause_4_0=ruleWhereClause		{
+		lv_whereClause_6_0=ruleWhereClause		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getInsertQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2537,7 +2361,7 @@ ruleInsertQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"whereClause",
-	        		lv_whereClause_4_0, 
+	        		lv_whereClause_6_0, 
 	        		"WhereClause", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2570,26 +2394,55 @@ ruleInsertDataQuery returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
+((
+	KEYWORD_44 
+    {
+        createLeafNode(grammarAccess.getInsertDataQueryAccess().getWITHKeyword_0_0(), null); 
+    }
 (
+(
+		lv_withGraph_1_0=RULE_IRI_TERMINAL
+		{
+			createLeafNode(grammarAccess.getInsertDataQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getInsertDataQueryRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"withGraph",
+	        		lv_withGraph_1_0, 
+	        		"IRI_TERMINAL", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?
 	KEYWORD_65 
     {
-        createLeafNode(grammarAccess.getInsertDataQueryAccess().getINSERTKeyword_0(), null); 
+        createLeafNode(grammarAccess.getInsertDataQueryAccess().getINSERTKeyword_1(), null); 
     }
 
 	KEYWORD_38 
     {
-        createLeafNode(grammarAccess.getInsertDataQueryAccess().getDATAKeyword_1(), null); 
+        createLeafNode(grammarAccess.getInsertDataQueryAccess().getDATAKeyword_2(), null); 
     }
 (
 	KEYWORD_41 
     {
-        createLeafNode(grammarAccess.getInsertDataQueryAccess().getINTOKeyword_2_0(), null); 
+        createLeafNode(grammarAccess.getInsertDataQueryAccess().getINTOKeyword_3_0(), null); 
     }
 (
 (
-		lv_graph_3_0=RULE_IRI_TERMINAL
+		lv_graph_5_0=RULE_IRI_TERMINAL
 		{
-			createLeafNode(grammarAccess.getInsertDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), "graph"); 
+			createLeafNode(grammarAccess.getInsertDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_1_0(), "graph"); 
 		}
 		{
 	        if ($current==null) {
@@ -2600,7 +2453,7 @@ ruleInsertDataQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"graph",
-	        		lv_graph_3_0, 
+	        		lv_graph_5_0, 
 	        		"IRI_TERMINAL", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -2612,9 +2465,9 @@ ruleInsertDataQuery returns [EObject current=null]
 ))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getInsertDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getInsertDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_4_0(), currentNode); 
 	    }
-		lv_pattern_4_0=ruleGroupGraphPattern		{
+		lv_pattern_6_0=ruleGroupGraphPattern		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getInsertDataQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2623,7 +2476,7 @@ ruleInsertDataQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"pattern",
-	        		lv_pattern_4_0, 
+	        		lv_pattern_6_0, 
 	        		"GroupGraphPattern", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2656,21 +2509,50 @@ ruleDeleteQuery returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
+((
+	KEYWORD_44 
+    {
+        createLeafNode(grammarAccess.getDeleteQueryAccess().getWITHKeyword_0_0(), null); 
+    }
 (
+(
+		lv_withGraph_1_0=RULE_IRI_TERMINAL
+		{
+			createLeafNode(grammarAccess.getDeleteQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"withGraph",
+	        		lv_withGraph_1_0, 
+	        		"IRI_TERMINAL", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?
 	KEYWORD_61 
     {
-        createLeafNode(grammarAccess.getDeleteQueryAccess().getDELETEKeyword_0(), null); 
+        createLeafNode(grammarAccess.getDeleteQueryAccess().getDELETEKeyword_1(), null); 
     }
 (
 	KEYWORD_40 
     {
-        createLeafNode(grammarAccess.getDeleteQueryAccess().getFROMKeyword_1_0(), null); 
+        createLeafNode(grammarAccess.getDeleteQueryAccess().getFROMKeyword_2_0(), null); 
     }
 (
 (
-		lv_graph_2_0=RULE_IRI_TERMINAL
+		lv_graph_4_0=RULE_IRI_TERMINAL
 		{
-			createLeafNode(grammarAccess.getDeleteQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_1_1_0(), "graph"); 
+			createLeafNode(grammarAccess.getDeleteQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), "graph"); 
 		}
 		{
 	        if ($current==null) {
@@ -2681,7 +2563,7 @@ ruleDeleteQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"graph",
-	        		lv_graph_2_0, 
+	        		lv_graph_4_0, 
 	        		"IRI_TERMINAL", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -2693,9 +2575,9 @@ ruleDeleteQuery returns [EObject current=null]
 ))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getPatternGroupGraphPatternParserRuleCall_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
 	    }
-		lv_pattern_3_0=ruleGroupGraphPattern		{
+		lv_pattern_5_0=ruleGroupGraphPattern		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2704,7 +2586,7 @@ ruleDeleteQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"pattern",
-	        		lv_pattern_3_0, 
+	        		lv_pattern_5_0, 
 	        		"GroupGraphPattern", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2717,14 +2599,14 @@ ruleDeleteQuery returns [EObject current=null]
 )(
 	KEYWORD_65 
     {
-        createLeafNode(grammarAccess.getDeleteQueryAccess().getINSERTKeyword_3_0(), null); 
+        createLeafNode(grammarAccess.getDeleteQueryAccess().getINSERTKeyword_4_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getInsertPatternGroupGraphPatternParserRuleCall_3_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getInsertPatternGroupGraphPatternParserRuleCall_4_1_0(), currentNode); 
 	    }
-		lv_insertPattern_5_0=ruleGroupGraphPattern		{
+		lv_insertPattern_7_0=ruleGroupGraphPattern		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2733,7 +2615,7 @@ ruleDeleteQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"insertPattern",
-	        		lv_insertPattern_5_0, 
+	        		lv_insertPattern_7_0, 
 	        		"GroupGraphPattern", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2746,9 +2628,9 @@ ruleDeleteQuery returns [EObject current=null]
 ))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getWhereClauseWhereClauseParserRuleCall_4_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getWhereClauseWhereClauseParserRuleCall_5_0(), currentNode); 
 	    }
-		lv_whereClause_6_0=ruleWhereClause		{
+		lv_whereClause_8_0=ruleWhereClause		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2757,7 +2639,7 @@ ruleDeleteQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"whereClause",
-	        		lv_whereClause_6_0, 
+	        		lv_whereClause_8_0, 
 	        		"WhereClause", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2790,26 +2672,55 @@ ruleDeleteDataQuery returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
+((
+	KEYWORD_44 
+    {
+        createLeafNode(grammarAccess.getDeleteDataQueryAccess().getWITHKeyword_0_0(), null); 
+    }
 (
+(
+		lv_withGraph_1_0=RULE_IRI_TERMINAL
+		{
+			createLeafNode(grammarAccess.getDeleteDataQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getDeleteDataQueryRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"withGraph",
+	        		lv_withGraph_1_0, 
+	        		"IRI_TERMINAL", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?
 	KEYWORD_61 
     {
-        createLeafNode(grammarAccess.getDeleteDataQueryAccess().getDELETEKeyword_0(), null); 
+        createLeafNode(grammarAccess.getDeleteDataQueryAccess().getDELETEKeyword_1(), null); 
     }
 
 	KEYWORD_38 
     {
-        createLeafNode(grammarAccess.getDeleteDataQueryAccess().getDATAKeyword_1(), null); 
+        createLeafNode(grammarAccess.getDeleteDataQueryAccess().getDATAKeyword_2(), null); 
     }
 (
 	KEYWORD_40 
     {
-        createLeafNode(grammarAccess.getDeleteDataQueryAccess().getFROMKeyword_2_0(), null); 
+        createLeafNode(grammarAccess.getDeleteDataQueryAccess().getFROMKeyword_3_0(), null); 
     }
 (
 (
-		lv_graph_3_0=RULE_IRI_TERMINAL
+		lv_graph_5_0=RULE_IRI_TERMINAL
 		{
-			createLeafNode(grammarAccess.getDeleteDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), "graph"); 
+			createLeafNode(grammarAccess.getDeleteDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_1_0(), "graph"); 
 		}
 		{
 	        if ($current==null) {
@@ -2820,7 +2731,7 @@ ruleDeleteDataQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"graph",
-	        		lv_graph_3_0, 
+	        		lv_graph_5_0, 
 	        		"IRI_TERMINAL", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -2832,9 +2743,9 @@ ruleDeleteDataQuery returns [EObject current=null]
 ))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getDeleteDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getDeleteDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_4_0(), currentNode); 
 	    }
-		lv_pattern_4_0=ruleGroupGraphPattern		{
+		lv_pattern_6_0=ruleGroupGraphPattern		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getDeleteDataQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2843,7 +2754,7 @@ ruleDeleteDataQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"pattern",
-	        		lv_pattern_4_0, 
+	        		lv_pattern_6_0, 
 	        		"GroupGraphPattern", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2876,27 +2787,56 @@ ruleDeleteWhereQuery returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
+((
+	KEYWORD_44 
+    {
+        createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getWITHKeyword_0_0(), null); 
+    }
 (
+(
+		lv_withGraph_1_0=RULE_IRI_TERMINAL
+		{
+			createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getDeleteWhereQueryRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"withGraph",
+	        		lv_withGraph_1_0, 
+	        		"IRI_TERMINAL", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?
 	KEYWORD_61 
     {
-        createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getDELETEKeyword_0(), null); 
+        createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getDELETEKeyword_1(), null); 
     }
 
 	KEYWORD_57 
     {
-        createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getWHEREKeyword_1(), null); 
+        createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getWHEREKeyword_2(), null); 
     }
 
 	KEYWORD_16 
     {
-        createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getLeftCurlyBracketKeyword_2(), null); 
+        createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getLeftCurlyBracketKeyword_3(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getDeleteWhereQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getDeleteWhereQueryAccess().getPatternGroupGraphPatternParserRuleCall_4_0(), currentNode); 
 	    }
-		lv_pattern_3_0=ruleGroupGraphPattern		{
+		lv_pattern_5_0=ruleGroupGraphPattern		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getDeleteWhereQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2905,7 +2845,7 @@ ruleDeleteWhereQuery returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"pattern",
-	        		lv_pattern_3_0, 
+	        		lv_pattern_5_0, 
 	        		"GroupGraphPattern", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2918,7 +2858,7 @@ ruleDeleteWhereQuery returns [EObject current=null]
 )
 	KEYWORD_17 
     {
-        createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getRightCurlyBracketKeyword_4(), null); 
+        createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getRightCurlyBracketKeyword_5(), null); 
     }
 )
 ;
@@ -2951,8 +2891,8 @@ ruleDatasetClause returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getDatasetClauseAccess().getDefaultDataSetParserRuleCall_0(), currentNode); 
     }
     this_DefaultDataSet_0=ruleDefaultDataSet
-    { 
-        $current = $this_DefaultDataSet_0.current; 
+    {
+        $current = $this_DefaultDataSet_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -2964,8 +2904,8 @@ ruleDatasetClause returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getDatasetClauseAccess().getNamedDataSetParserRuleCall_1(), currentNode); 
     }
     this_NamedDataSet_1=ruleNamedDataSet
-    { 
-        $current = $this_NamedDataSet_1.current; 
+    {
+        $current = $this_NamedDataSet_1.current;
         currentNode = currentNode.getParent();
     }
 
@@ -2977,8 +2917,8 @@ ruleDatasetClause returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getDatasetClauseAccess().getServiceDataSetParserRuleCall_2(), currentNode); 
     }
     this_ServiceDataSet_2=ruleServiceDataSet
-    { 
-        $current = $this_ServiceDataSet_2.current; 
+    {
+        $current = $this_ServiceDataSet_2.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -3287,8 +3227,8 @@ ruleGroupCondition returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGroupConditionAccess().getBuiltInCallParserRuleCall_0(), currentNode); 
     }
     this_BuiltInCall_0=ruleBuiltInCall
-    { 
-        $current = $this_BuiltInCall_0.current; 
+    {
+        $current = $this_BuiltInCall_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3300,8 +3240,8 @@ ruleGroupCondition returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGroupConditionAccess().getFunctionParserRuleCall_1(), currentNode); 
     }
     this_Function_1=ruleFunction
-    { 
-        $current = $this_Function_1.current; 
+    {
+        $current = $this_Function_1.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3313,8 +3253,8 @@ ruleGroupCondition returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGroupConditionAccess().getVariableParserRuleCall_2(), currentNode); 
     }
     this_Variable_2=ruleVariable
-    { 
-        $current = $this_Variable_2.current; 
+    {
+        $current = $this_Variable_2.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -3400,8 +3340,8 @@ ruleConstraint returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getConstraintAccess().getParFilterExpressionParserRuleCall_0(), currentNode); 
     }
     this_ParFilterExpression_0=ruleParFilterExpression
-    { 
-        $current = $this_ParFilterExpression_0.current; 
+    {
+        $current = $this_ParFilterExpression_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3413,8 +3353,8 @@ ruleConstraint returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getConstraintAccess().getBuiltInCallParserRuleCall_1(), currentNode); 
     }
     this_BuiltInCall_1=ruleBuiltInCall
-    { 
-        $current = $this_BuiltInCall_1.current; 
+    {
+        $current = $this_BuiltInCall_1.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3426,8 +3366,8 @@ ruleConstraint returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getConstraintAccess().getFunctionParserRuleCall_2(), currentNode); 
     }
     this_Function_2=ruleFunction
-    { 
-        $current = $this_Function_2.current; 
+    {
+        $current = $this_Function_2.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -3513,8 +3453,8 @@ ruleGroupGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGroupGraphPatternAccess().getSubSelectQueryParserRuleCall_0(), currentNode); 
     }
     this_SubSelectQuery_0=ruleSubSelectQuery
-    { 
-        $current = $this_SubSelectQuery_0.current; 
+    {
+        $current = $this_SubSelectQuery_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3526,8 +3466,8 @@ ruleGroupGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGroupGraphPatternAccess().getGroupGraphPatternSubParserRuleCall_1(), currentNode); 
     }
     this_GroupGraphPatternSub_1=ruleGroupGraphPatternSub
-    { 
-        $current = $this_GroupGraphPatternSub_1.current; 
+    {
+        $current = $this_GroupGraphPatternSub_1.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -3810,8 +3750,8 @@ ruleGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getTriplesSameSubjectParserRuleCall_0(), currentNode); 
     }
     this_TriplesSameSubject_0=ruleTriplesSameSubject
-    { 
-        $current = $this_TriplesSameSubject_0.current; 
+    {
+        $current = $this_TriplesSameSubject_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3823,8 +3763,8 @@ ruleGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getGroupOrUnionGraphPatternParserRuleCall_1(), currentNode); 
     }
     this_GroupOrUnionGraphPattern_1=ruleGroupOrUnionGraphPattern
-    { 
-        $current = $this_GroupOrUnionGraphPattern_1.current; 
+    {
+        $current = $this_GroupOrUnionGraphPattern_1.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3836,8 +3776,8 @@ ruleGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getOptionalGraphPatternParserRuleCall_2(), currentNode); 
     }
     this_OptionalGraphPattern_2=ruleOptionalGraphPattern
-    { 
-        $current = $this_OptionalGraphPattern_2.current; 
+    {
+        $current = $this_OptionalGraphPattern_2.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3849,8 +3789,8 @@ ruleGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getGraphGraphPatternParserRuleCall_3(), currentNode); 
     }
     this_GraphGraphPattern_3=ruleGraphGraphPattern
-    { 
-        $current = $this_GraphGraphPattern_3.current; 
+    {
+        $current = $this_GraphGraphPattern_3.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3862,8 +3802,8 @@ ruleGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getServiceGraphPatternParserRuleCall_4(), currentNode); 
     }
     this_ServiceGraphPattern_4=ruleServiceGraphPattern
-    { 
-        $current = $this_ServiceGraphPattern_4.current; 
+    {
+        $current = $this_ServiceGraphPattern_4.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3875,8 +3815,8 @@ ruleGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getFilterPatternParserRuleCall_5(), currentNode); 
     }
     this_FilterPattern_5=ruleFilterPattern
-    { 
-        $current = $this_FilterPattern_5.current; 
+    {
+        $current = $this_FilterPattern_5.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3888,8 +3828,8 @@ ruleGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getExistsPatternParserRuleCall_6(), currentNode); 
     }
     this_ExistsPattern_6=ruleExistsPattern
-    { 
-        $current = $this_ExistsPattern_6.current; 
+    {
+        $current = $this_ExistsPattern_6.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3901,8 +3841,8 @@ ruleGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getNotExistsPatternParserRuleCall_7(), currentNode); 
     }
     this_NotExistsPattern_7=ruleNotExistsPattern
-    { 
-        $current = $this_NotExistsPattern_7.current; 
+    {
+        $current = $this_NotExistsPattern_7.current;
         currentNode = currentNode.getParent();
     }
 
@@ -3914,8 +3854,8 @@ ruleGraphPattern returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getMinusPatternParserRuleCall_8(), currentNode); 
     }
     this_MinusPattern_8=ruleMinusPattern
-    { 
-        $current = $this_MinusPattern_8.current; 
+    {
+        $current = $this_MinusPattern_8.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -4633,8 +4573,8 @@ ruleExpression returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getAndFilterExpressionParserRuleCall_0(), currentNode); 
     }
     this_AndFilterExpression_0=ruleAndFilterExpression
-    { 
-        $current = $this_AndFilterExpression_0.current; 
+    {
+        $current = $this_AndFilterExpression_0.current;
         currentNode = currentNode.getParent();
     }
 ((
@@ -4716,8 +4656,8 @@ ruleAndFilterExpression returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getAndFilterExpressionAccess().getConcreteFilterExpressionParserRuleCall_0(), currentNode); 
     }
     this_ConcreteFilterExpression_0=ruleConcreteFilterExpression
-    { 
-        $current = $this_ConcreteFilterExpression_0.current; 
+    {
+        $current = $this_ConcreteFilterExpression_0.current;
         currentNode = currentNode.getParent();
     }
 ((
@@ -4799,8 +4739,8 @@ ruleConcreteFilterExpression returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getConcreteFilterExpressionAccess().getParFilterExpressionParserRuleCall_0(), currentNode); 
     }
     this_ParFilterExpression_0=ruleParFilterExpression
-    { 
-        $current = $this_ParFilterExpression_0.current; 
+    {
+        $current = $this_ParFilterExpression_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -4812,8 +4752,8 @@ ruleConcreteFilterExpression returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getConcreteFilterExpressionAccess().getExpressionFilterExpressionParserRuleCall_1(), currentNode); 
     }
     this_ExpressionFilterExpression_1=ruleExpressionFilterExpression
-    { 
-        $current = $this_ExpressionFilterExpression_1.current; 
+    {
+        $current = $this_ExpressionFilterExpression_1.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -4852,8 +4792,8 @@ ruleParFilterExpression returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getParFilterExpressionAccess().getExpressionParserRuleCall_1(), currentNode); 
     }
     this_Expression_1=ruleExpression
-    { 
-        $current = $this_Expression_1.current; 
+    {
+        $current = $this_Expression_1.current;
         currentNode = currentNode.getParent();
     }
 
@@ -4987,8 +4927,8 @@ ruleFilterNode returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getFilterNodeAccess().getGraphNodeParserRuleCall_0(), currentNode); 
     }
     this_GraphNode_0=ruleGraphNode
-    { 
-        $current = $this_GraphNode_0.current; 
+    {
+        $current = $this_GraphNode_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -5000,8 +4940,8 @@ ruleFilterNode returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getFilterNodeAccess().getFunctionParserRuleCall_1(), currentNode); 
     }
     this_Function_1=ruleFunction
-    { 
-        $current = $this_Function_1.current; 
+    {
+        $current = $this_Function_1.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -5035,8 +4975,8 @@ ruleFunction returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getFunctionAccess().getNamedFunctionParserRuleCall_0(), currentNode); 
     }
     this_NamedFunction_0=ruleNamedFunction
-    { 
-        $current = $this_NamedFunction_0.current; 
+    {
+        $current = $this_NamedFunction_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -5048,8 +4988,8 @@ ruleFunction returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getFunctionAccess().getSparqlFunctionParserRuleCall_1(), currentNode); 
     }
     this_SparqlFunction_1=ruleSparqlFunction
-    { 
-        $current = $this_SparqlFunction_1.current; 
+    {
+        $current = $this_SparqlFunction_1.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -6252,8 +6192,8 @@ ruleGraphNode returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getVariableParserRuleCall_0(), currentNode); 
     }
     this_Variable_0=ruleVariable
-    { 
-        $current = $this_Variable_0.current; 
+    {
+        $current = $this_Variable_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -6265,8 +6205,8 @@ ruleGraphNode returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getValueParserRuleCall_1(), currentNode); 
     }
     this_Value_1=ruleValue
-    { 
-        $current = $this_Value_1.current; 
+    {
+        $current = $this_Value_1.current;
         currentNode = currentNode.getParent();
     }
 
@@ -6278,8 +6218,8 @@ ruleGraphNode returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getIRIParserRuleCall_2(), currentNode); 
     }
     this_IRI_2=ruleIRI
-    { 
-        $current = $this_IRI_2.current; 
+    {
+        $current = $this_IRI_2.current;
         currentNode = currentNode.getParent();
     }
 
@@ -6291,8 +6231,8 @@ ruleGraphNode returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getBlankNodeParserRuleCall_3(), currentNode); 
     }
     this_BlankNode_3=ruleBlankNode
-    { 
-        $current = $this_BlankNode_3.current; 
+    {
+        $current = $this_BlankNode_3.current;
         currentNode = currentNode.getParent();
     }
 
@@ -6304,8 +6244,8 @@ ruleGraphNode returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getParameterParserRuleCall_4(), currentNode); 
     }
     this_Parameter_4=ruleParameter
-    { 
-        $current = $this_Parameter_4.current; 
+    {
+        $current = $this_Parameter_4.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -6339,8 +6279,8 @@ ruleVariable returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getVariableAccess().getUnNamedVariableParserRuleCall_0(), currentNode); 
     }
     this_UnNamedVariable_0=ruleUnNamedVariable
-    { 
-        $current = $this_UnNamedVariable_0.current; 
+    {
+        $current = $this_UnNamedVariable_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -6352,8 +6292,8 @@ ruleVariable returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getVariableAccess().getNamedVariableParserRuleCall_1(), currentNode); 
     }
     this_NamedVariable_1=ruleNamedVariable
-    { 
-        $current = $this_NamedVariable_1.current; 
+    {
+        $current = $this_NamedVariable_1.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -6632,8 +6572,8 @@ ruleValue returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getValueAccess().getStringValueParserRuleCall_0(), currentNode); 
     }
     this_StringValue_0=ruleStringValue
-    { 
-        $current = $this_StringValue_0.current; 
+    {
+        $current = $this_StringValue_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -6645,8 +6585,8 @@ ruleValue returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getValueAccess().getIntegerValueParserRuleCall_1(), currentNode); 
     }
     this_IntegerValue_1=ruleIntegerValue
-    { 
-        $current = $this_IntegerValue_1.current; 
+    {
+        $current = $this_IntegerValue_1.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -6883,8 +6823,8 @@ ruleRDFTag returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getRDFTagAccess().getTypeTagParserRuleCall_0(), currentNode); 
     }
     this_TypeTag_0=ruleTypeTag
-    { 
-        $current = $this_TypeTag_0.current; 
+    {
+        $current = $this_TypeTag_0.current;
         currentNode = currentNode.getParent();
     }
 
@@ -6896,8 +6836,8 @@ ruleRDFTag returns [EObject current=null]
         currentNode=createCompositeNode(grammarAccess.getRDFTagAccess().getLangTagParserRuleCall_1(), currentNode); 
     }
     this_LangTag_1=ruleLangTag
-    { 
-        $current = $this_LangTag_1.current; 
+    {
+        $current = $this_LangTag_1.current;
         currentNode = currentNode.getParent();
     }
 )

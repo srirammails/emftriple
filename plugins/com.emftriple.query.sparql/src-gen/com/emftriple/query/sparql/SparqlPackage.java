@@ -694,13 +694,13 @@ public interface SparqlPackage extends EPackage
   int MODIFY_QUERY__WITH_GRAPH = UPDATE_OPERATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Query</b></em>' containment reference.
+   * The feature id for the '<em><b>Pattern</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFY_QUERY__QUERY = UPDATE_OPERATION_FEATURE_COUNT + 1;
+  int MODIFY_QUERY__PATTERN = UPDATE_OPERATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Modify Query</em>' class.
@@ -907,13 +907,13 @@ public interface SparqlPackage extends EPackage
   int INSERT_QUERY = 16;
 
   /**
-   * The feature id for the '<em><b>Graph</b></em>' attribute.
+   * The feature id for the '<em><b>With Graph</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_QUERY__GRAPH = 0;
+  int INSERT_QUERY__WITH_GRAPH = MODIFY_QUERY__WITH_GRAPH;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' containment reference.
@@ -922,7 +922,16 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSERT_QUERY__PATTERN = 1;
+  int INSERT_QUERY__PATTERN = MODIFY_QUERY__PATTERN;
+
+  /**
+   * The feature id for the '<em><b>Graph</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_QUERY__GRAPH = MODIFY_QUERY_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Where Clause</b></em>' containment reference.
@@ -931,7 +940,7 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSERT_QUERY__WHERE_CLAUSE = 2;
+  int INSERT_QUERY__WHERE_CLAUSE = MODIFY_QUERY_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Insert Query</em>' class.
@@ -940,7 +949,7 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSERT_QUERY_FEATURE_COUNT = 3;
+  int INSERT_QUERY_FEATURE_COUNT = MODIFY_QUERY_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.emftriple.query.sparql.impl.InsertDataQueryImpl <em>Insert Data Query</em>}' class.
@@ -953,13 +962,13 @@ public interface SparqlPackage extends EPackage
   int INSERT_DATA_QUERY = 17;
 
   /**
-   * The feature id for the '<em><b>Graph</b></em>' attribute.
+   * The feature id for the '<em><b>With Graph</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_DATA_QUERY__GRAPH = 0;
+  int INSERT_DATA_QUERY__WITH_GRAPH = MODIFY_QUERY__WITH_GRAPH;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' containment reference.
@@ -968,7 +977,16 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSERT_DATA_QUERY__PATTERN = 1;
+  int INSERT_DATA_QUERY__PATTERN = MODIFY_QUERY__PATTERN;
+
+  /**
+   * The feature id for the '<em><b>Graph</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_DATA_QUERY__GRAPH = MODIFY_QUERY_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Insert Data Query</em>' class.
@@ -977,7 +995,7 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSERT_DATA_QUERY_FEATURE_COUNT = 2;
+  int INSERT_DATA_QUERY_FEATURE_COUNT = MODIFY_QUERY_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.emftriple.query.sparql.impl.DeleteQueryImpl <em>Delete Query</em>}' class.
@@ -990,13 +1008,13 @@ public interface SparqlPackage extends EPackage
   int DELETE_QUERY = 18;
 
   /**
-   * The feature id for the '<em><b>Graph</b></em>' attribute.
+   * The feature id for the '<em><b>With Graph</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELETE_QUERY__GRAPH = 0;
+  int DELETE_QUERY__WITH_GRAPH = MODIFY_QUERY__WITH_GRAPH;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' containment reference.
@@ -1005,7 +1023,16 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_QUERY__PATTERN = 1;
+  int DELETE_QUERY__PATTERN = MODIFY_QUERY__PATTERN;
+
+  /**
+   * The feature id for the '<em><b>Graph</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_QUERY__GRAPH = MODIFY_QUERY_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Insert Pattern</b></em>' containment reference.
@@ -1014,7 +1041,7 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_QUERY__INSERT_PATTERN = 2;
+  int DELETE_QUERY__INSERT_PATTERN = MODIFY_QUERY_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Where Clause</b></em>' containment reference.
@@ -1023,7 +1050,7 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_QUERY__WHERE_CLAUSE = 3;
+  int DELETE_QUERY__WHERE_CLAUSE = MODIFY_QUERY_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Delete Query</em>' class.
@@ -1032,7 +1059,7 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_QUERY_FEATURE_COUNT = 4;
+  int DELETE_QUERY_FEATURE_COUNT = MODIFY_QUERY_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.emftriple.query.sparql.impl.DeleteDataQueryImpl <em>Delete Data Query</em>}' class.
@@ -1045,13 +1072,13 @@ public interface SparqlPackage extends EPackage
   int DELETE_DATA_QUERY = 19;
 
   /**
-   * The feature id for the '<em><b>Graph</b></em>' attribute.
+   * The feature id for the '<em><b>With Graph</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELETE_DATA_QUERY__GRAPH = 0;
+  int DELETE_DATA_QUERY__WITH_GRAPH = MODIFY_QUERY__WITH_GRAPH;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' containment reference.
@@ -1060,7 +1087,16 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_DATA_QUERY__PATTERN = 1;
+  int DELETE_DATA_QUERY__PATTERN = MODIFY_QUERY__PATTERN;
+
+  /**
+   * The feature id for the '<em><b>Graph</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_DATA_QUERY__GRAPH = MODIFY_QUERY_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Delete Data Query</em>' class.
@@ -1069,7 +1105,7 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_DATA_QUERY_FEATURE_COUNT = 2;
+  int DELETE_DATA_QUERY_FEATURE_COUNT = MODIFY_QUERY_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.emftriple.query.sparql.impl.DeleteWhereQueryImpl <em>Delete Where Query</em>}' class.
@@ -1082,13 +1118,22 @@ public interface SparqlPackage extends EPackage
   int DELETE_WHERE_QUERY = 20;
 
   /**
+   * The feature id for the '<em><b>With Graph</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_WHERE_QUERY__WITH_GRAPH = MODIFY_QUERY__WITH_GRAPH;
+
+  /**
    * The feature id for the '<em><b>Pattern</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELETE_WHERE_QUERY__PATTERN = 0;
+  int DELETE_WHERE_QUERY__PATTERN = MODIFY_QUERY__PATTERN;
 
   /**
    * The number of structural features of the '<em>Delete Where Query</em>' class.
@@ -1097,7 +1142,7 @@ public interface SparqlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELETE_WHERE_QUERY_FEATURE_COUNT = 1;
+  int DELETE_WHERE_QUERY_FEATURE_COUNT = MODIFY_QUERY_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link com.emftriple.query.sparql.impl.DatasetClauseImpl <em>Dataset Clause</em>}' class.
@@ -3121,15 +3166,15 @@ public interface SparqlPackage extends EPackage
   EAttribute getModifyQuery_WithGraph();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.emftriple.query.sparql.ModifyQuery#getQuery <em>Query</em>}'.
+   * Returns the meta object for the containment reference '{@link com.emftriple.query.sparql.ModifyQuery#getPattern <em>Pattern</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Query</em>'.
-   * @see com.emftriple.query.sparql.ModifyQuery#getQuery()
+   * @return the meta object for the containment reference '<em>Pattern</em>'.
+   * @see com.emftriple.query.sparql.ModifyQuery#getPattern()
    * @see #getModifyQuery()
    * @generated
    */
-  EReference getModifyQuery_Query();
+  EReference getModifyQuery_Pattern();
 
   /**
    * Returns the meta object for class '{@link com.emftriple.query.sparql.CreateGraphQuery <em>Create Graph Query</em>}'.
@@ -3313,17 +3358,6 @@ public interface SparqlPackage extends EPackage
   EAttribute getInsertQuery_Graph();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.emftriple.query.sparql.InsertQuery#getPattern <em>Pattern</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Pattern</em>'.
-   * @see com.emftriple.query.sparql.InsertQuery#getPattern()
-   * @see #getInsertQuery()
-   * @generated
-   */
-  EReference getInsertQuery_Pattern();
-
-  /**
    * Returns the meta object for the containment reference '{@link com.emftriple.query.sparql.InsertQuery#getWhereClause <em>Where Clause</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3356,17 +3390,6 @@ public interface SparqlPackage extends EPackage
   EAttribute getInsertDataQuery_Graph();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.emftriple.query.sparql.InsertDataQuery#getPattern <em>Pattern</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Pattern</em>'.
-   * @see com.emftriple.query.sparql.InsertDataQuery#getPattern()
-   * @see #getInsertDataQuery()
-   * @generated
-   */
-  EReference getInsertDataQuery_Pattern();
-
-  /**
    * Returns the meta object for class '{@link com.emftriple.query.sparql.DeleteQuery <em>Delete Query</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3386,17 +3409,6 @@ public interface SparqlPackage extends EPackage
    * @generated
    */
   EAttribute getDeleteQuery_Graph();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.emftriple.query.sparql.DeleteQuery#getPattern <em>Pattern</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Pattern</em>'.
-   * @see com.emftriple.query.sparql.DeleteQuery#getPattern()
-   * @see #getDeleteQuery()
-   * @generated
-   */
-  EReference getDeleteQuery_Pattern();
 
   /**
    * Returns the meta object for the containment reference '{@link com.emftriple.query.sparql.DeleteQuery#getInsertPattern <em>Insert Pattern</em>}'.
@@ -3442,17 +3454,6 @@ public interface SparqlPackage extends EPackage
   EAttribute getDeleteDataQuery_Graph();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.emftriple.query.sparql.DeleteDataQuery#getPattern <em>Pattern</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Pattern</em>'.
-   * @see com.emftriple.query.sparql.DeleteDataQuery#getPattern()
-   * @see #getDeleteDataQuery()
-   * @generated
-   */
-  EReference getDeleteDataQuery_Pattern();
-
-  /**
    * Returns the meta object for class '{@link com.emftriple.query.sparql.DeleteWhereQuery <em>Delete Where Query</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3461,17 +3462,6 @@ public interface SparqlPackage extends EPackage
    * @generated
    */
   EClass getDeleteWhereQuery();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.emftriple.query.sparql.DeleteWhereQuery#getPattern <em>Pattern</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Pattern</em>'.
-   * @see com.emftriple.query.sparql.DeleteWhereQuery#getPattern()
-   * @see #getDeleteWhereQuery()
-   * @generated
-   */
-  EReference getDeleteWhereQuery_Pattern();
 
   /**
    * Returns the meta object for class '{@link com.emftriple.query.sparql.DatasetClause <em>Dataset Clause</em>}'.
@@ -4993,12 +4983,12 @@ public interface SparqlPackage extends EPackage
     EAttribute MODIFY_QUERY__WITH_GRAPH = eINSTANCE.getModifyQuery_WithGraph();
 
     /**
-     * The meta object literal for the '<em><b>Query</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODIFY_QUERY__QUERY = eINSTANCE.getModifyQuery_Query();
+    EReference MODIFY_QUERY__PATTERN = eINSTANCE.getModifyQuery_Pattern();
 
     /**
      * The meta object literal for the '{@link com.emftriple.query.sparql.impl.CreateGraphQueryImpl <em>Create Graph Query</em>}' class.
@@ -5149,14 +5139,6 @@ public interface SparqlPackage extends EPackage
     EAttribute INSERT_QUERY__GRAPH = eINSTANCE.getInsertQuery_Graph();
 
     /**
-     * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INSERT_QUERY__PATTERN = eINSTANCE.getInsertQuery_Pattern();
-
-    /**
      * The meta object literal for the '<em><b>Where Clause</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5183,14 +5165,6 @@ public interface SparqlPackage extends EPackage
     EAttribute INSERT_DATA_QUERY__GRAPH = eINSTANCE.getInsertDataQuery_Graph();
 
     /**
-     * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INSERT_DATA_QUERY__PATTERN = eINSTANCE.getInsertDataQuery_Pattern();
-
-    /**
      * The meta object literal for the '{@link com.emftriple.query.sparql.impl.DeleteQueryImpl <em>Delete Query</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5207,14 +5181,6 @@ public interface SparqlPackage extends EPackage
      * @generated
      */
     EAttribute DELETE_QUERY__GRAPH = eINSTANCE.getDeleteQuery_Graph();
-
-    /**
-     * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DELETE_QUERY__PATTERN = eINSTANCE.getDeleteQuery_Pattern();
 
     /**
      * The meta object literal for the '<em><b>Insert Pattern</b></em>' containment reference feature.
@@ -5251,14 +5217,6 @@ public interface SparqlPackage extends EPackage
     EAttribute DELETE_DATA_QUERY__GRAPH = eINSTANCE.getDeleteDataQuery_Graph();
 
     /**
-     * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DELETE_DATA_QUERY__PATTERN = eINSTANCE.getDeleteDataQuery_Pattern();
-
-    /**
      * The meta object literal for the '{@link com.emftriple.query.sparql.impl.DeleteWhereQueryImpl <em>Delete Where Query</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5267,14 +5225,6 @@ public interface SparqlPackage extends EPackage
      * @generated
      */
     EClass DELETE_WHERE_QUERY = eINSTANCE.getDeleteWhereQuery();
-
-    /**
-     * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DELETE_WHERE_QUERY__PATTERN = eINSTANCE.getDeleteWhereQuery_Pattern();
 
     /**
      * The meta object literal for the '{@link com.emftriple.query.sparql.impl.DatasetClauseImpl <em>Dataset Clause</em>}' class.

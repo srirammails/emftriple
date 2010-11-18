@@ -24,14 +24,14 @@ T25 : 'SELECT' ;
 T26 : 'ASK' ;
 T27 : 'DESCRIBE' ;
 T28 : 'CONSTRUCT' ;
-T29 : 'WITH' ;
-T30 : 'CREATE' ;
-T31 : 'GRAPH' ;
-T32 : 'DROP' ;
-T33 : 'LOAD' ;
-T34 : 'INTO' ;
-T35 : 'CLEAR' ;
-T36 : 'INSERT' ;
+T29 : 'CREATE' ;
+T30 : 'GRAPH' ;
+T31 : 'DROP' ;
+T32 : 'LOAD' ;
+T33 : 'INTO' ;
+T34 : 'CLEAR' ;
+T35 : 'INSERT' ;
+T36 : 'WITH' ;
 T37 : 'DATA' ;
 T38 : 'DELETE' ;
 T39 : 'FROM' ;
@@ -83,28 +83,28 @@ T84 : 'REDUCED' ;
 T85 : 'SILENT' ;
 T86 : 'DEFAULT' ;
 
-// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15709
-RULE_IRI_TERMINAL : '<' ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9'|'/'|':'|'.'|'#'|'?')* '>';
+// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15484
+RULE_IRI_TERMINAL : '<' ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9'|'/'|':'|'.'|'#'|'?'|'@'|'$'|'&'|'=')* '>';
 
-// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15711
+// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15486
 RULE_STRING : '"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"';
 
-// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15713
+// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15488
 RULE_ID : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9'|'/'|'.'|'#'|'?')*;
 
-// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15715
+// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15490
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15717
+// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15492
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15719
+// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15494
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15721
+// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15496
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15723
+// $ANTLR src "../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g" 15498
 RULE_ANY_OTHER : .;
 
 

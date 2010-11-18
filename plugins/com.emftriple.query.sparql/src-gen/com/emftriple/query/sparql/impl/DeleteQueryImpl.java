@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.emftriple.query.sparql.impl.DeleteQueryImpl#getGraph <em>Graph</em>}</li>
- *   <li>{@link com.emftriple.query.sparql.impl.DeleteQueryImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link com.emftriple.query.sparql.impl.DeleteQueryImpl#getInsertPattern <em>Insert Pattern</em>}</li>
  *   <li>{@link com.emftriple.query.sparql.impl.DeleteQueryImpl#getWhereClause <em>Where Clause</em>}</li>
  * </ul>
@@ -36,7 +34,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class DeleteQueryImpl extends MinimalEObjectImpl.Container implements DeleteQuery
+public class DeleteQueryImpl extends ModifyQueryImpl implements DeleteQuery
 {
   /**
    * The default value of the '{@link #getGraph() <em>Graph</em>}' attribute.
@@ -57,16 +55,6 @@ public class DeleteQueryImpl extends MinimalEObjectImpl.Container implements Del
    * @ordered
    */
   protected String graph = GRAPH_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getPattern() <em>Pattern</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPattern()
-   * @generated
-   * @ordered
-   */
-  protected GroupGraphPattern pattern;
 
   /**
    * The cached value of the '{@link #getInsertPattern() <em>Insert Pattern</em>}' containment reference.
@@ -130,54 +118,6 @@ public class DeleteQueryImpl extends MinimalEObjectImpl.Container implements Del
     graph = newGraph;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, SparqlPackage.DELETE_QUERY__GRAPH, oldGraph, graph));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GroupGraphPattern getPattern()
-  {
-    return pattern;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPattern(GroupGraphPattern newPattern, NotificationChain msgs)
-  {
-    GroupGraphPattern oldPattern = pattern;
-    pattern = newPattern;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SparqlPackage.DELETE_QUERY__PATTERN, oldPattern, newPattern);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPattern(GroupGraphPattern newPattern)
-  {
-    if (newPattern != pattern)
-    {
-      NotificationChain msgs = null;
-      if (pattern != null)
-        msgs = ((InternalEObject)pattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SparqlPackage.DELETE_QUERY__PATTERN, null, msgs);
-      if (newPattern != null)
-        msgs = ((InternalEObject)newPattern).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SparqlPackage.DELETE_QUERY__PATTERN, null, msgs);
-      msgs = basicSetPattern(newPattern, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SparqlPackage.DELETE_QUERY__PATTERN, newPattern, newPattern));
   }
 
   /**
@@ -286,8 +226,6 @@ public class DeleteQueryImpl extends MinimalEObjectImpl.Container implements Del
   {
     switch (featureID)
     {
-      case SparqlPackage.DELETE_QUERY__PATTERN:
-        return basicSetPattern(null, msgs);
       case SparqlPackage.DELETE_QUERY__INSERT_PATTERN:
         return basicSetInsertPattern(null, msgs);
       case SparqlPackage.DELETE_QUERY__WHERE_CLAUSE:
@@ -308,8 +246,6 @@ public class DeleteQueryImpl extends MinimalEObjectImpl.Container implements Del
     {
       case SparqlPackage.DELETE_QUERY__GRAPH:
         return getGraph();
-      case SparqlPackage.DELETE_QUERY__PATTERN:
-        return getPattern();
       case SparqlPackage.DELETE_QUERY__INSERT_PATTERN:
         return getInsertPattern();
       case SparqlPackage.DELETE_QUERY__WHERE_CLAUSE:
@@ -330,9 +266,6 @@ public class DeleteQueryImpl extends MinimalEObjectImpl.Container implements Del
     {
       case SparqlPackage.DELETE_QUERY__GRAPH:
         setGraph((String)newValue);
-        return;
-      case SparqlPackage.DELETE_QUERY__PATTERN:
-        setPattern((GroupGraphPattern)newValue);
         return;
       case SparqlPackage.DELETE_QUERY__INSERT_PATTERN:
         setInsertPattern((GroupGraphPattern)newValue);
@@ -357,9 +290,6 @@ public class DeleteQueryImpl extends MinimalEObjectImpl.Container implements Del
       case SparqlPackage.DELETE_QUERY__GRAPH:
         setGraph(GRAPH_EDEFAULT);
         return;
-      case SparqlPackage.DELETE_QUERY__PATTERN:
-        setPattern((GroupGraphPattern)null);
-        return;
       case SparqlPackage.DELETE_QUERY__INSERT_PATTERN:
         setInsertPattern((GroupGraphPattern)null);
         return;
@@ -382,8 +312,6 @@ public class DeleteQueryImpl extends MinimalEObjectImpl.Container implements Del
     {
       case SparqlPackage.DELETE_QUERY__GRAPH:
         return GRAPH_EDEFAULT == null ? graph != null : !GRAPH_EDEFAULT.equals(graph);
-      case SparqlPackage.DELETE_QUERY__PATTERN:
-        return pattern != null;
       case SparqlPackage.DELETE_QUERY__INSERT_PATTERN:
         return insertPattern != null;
       case SparqlPackage.DELETE_QUERY__WHERE_CLAUSE:

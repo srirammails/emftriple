@@ -6,6 +6,7 @@
  */
 package com.emftriple.query.sparql.impl;
 
+import com.emftriple.query.sparql.GroupGraphPattern;
 import com.emftriple.query.sparql.ModifyQuery;
 import com.emftriple.query.sparql.SparqlPackage;
 
@@ -13,7 +14,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.emftriple.query.sparql.impl.ModifyQueryImpl#getWithGraph <em>With Graph</em>}</li>
- *   <li>{@link com.emftriple.query.sparql.impl.ModifyQueryImpl#getQuery <em>Query</em>}</li>
+ *   <li>{@link com.emftriple.query.sparql.impl.ModifyQueryImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,14 +55,14 @@ public class ModifyQueryImpl extends UpdateOperationImpl implements ModifyQuery
   protected String withGraph = WITH_GRAPH_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference.
+   * The cached value of the '{@link #getPattern() <em>Pattern</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getQuery()
+   * @see #getPattern()
    * @generated
    * @ordered
    */
-  protected EObject query;
+  protected GroupGraphPattern pattern;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,9 +113,9 @@ public class ModifyQueryImpl extends UpdateOperationImpl implements ModifyQuery
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getQuery()
+  public GroupGraphPattern getPattern()
   {
-    return query;
+    return pattern;
   }
 
   /**
@@ -123,13 +123,13 @@ public class ModifyQueryImpl extends UpdateOperationImpl implements ModifyQuery
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetQuery(EObject newQuery, NotificationChain msgs)
+  public NotificationChain basicSetPattern(GroupGraphPattern newPattern, NotificationChain msgs)
   {
-    EObject oldQuery = query;
-    query = newQuery;
+    GroupGraphPattern oldPattern = pattern;
+    pattern = newPattern;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SparqlPackage.MODIFY_QUERY__QUERY, oldQuery, newQuery);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SparqlPackage.MODIFY_QUERY__PATTERN, oldPattern, newPattern);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -140,20 +140,20 @@ public class ModifyQueryImpl extends UpdateOperationImpl implements ModifyQuery
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setQuery(EObject newQuery)
+  public void setPattern(GroupGraphPattern newPattern)
   {
-    if (newQuery != query)
+    if (newPattern != pattern)
     {
       NotificationChain msgs = null;
-      if (query != null)
-        msgs = ((InternalEObject)query).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SparqlPackage.MODIFY_QUERY__QUERY, null, msgs);
-      if (newQuery != null)
-        msgs = ((InternalEObject)newQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SparqlPackage.MODIFY_QUERY__QUERY, null, msgs);
-      msgs = basicSetQuery(newQuery, msgs);
+      if (pattern != null)
+        msgs = ((InternalEObject)pattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SparqlPackage.MODIFY_QUERY__PATTERN, null, msgs);
+      if (newPattern != null)
+        msgs = ((InternalEObject)newPattern).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SparqlPackage.MODIFY_QUERY__PATTERN, null, msgs);
+      msgs = basicSetPattern(newPattern, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SparqlPackage.MODIFY_QUERY__QUERY, newQuery, newQuery));
+      eNotify(new ENotificationImpl(this, Notification.SET, SparqlPackage.MODIFY_QUERY__PATTERN, newPattern, newPattern));
   }
 
   /**
@@ -166,8 +166,8 @@ public class ModifyQueryImpl extends UpdateOperationImpl implements ModifyQuery
   {
     switch (featureID)
     {
-      case SparqlPackage.MODIFY_QUERY__QUERY:
-        return basicSetQuery(null, msgs);
+      case SparqlPackage.MODIFY_QUERY__PATTERN:
+        return basicSetPattern(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -184,8 +184,8 @@ public class ModifyQueryImpl extends UpdateOperationImpl implements ModifyQuery
     {
       case SparqlPackage.MODIFY_QUERY__WITH_GRAPH:
         return getWithGraph();
-      case SparqlPackage.MODIFY_QUERY__QUERY:
-        return getQuery();
+      case SparqlPackage.MODIFY_QUERY__PATTERN:
+        return getPattern();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -203,8 +203,8 @@ public class ModifyQueryImpl extends UpdateOperationImpl implements ModifyQuery
       case SparqlPackage.MODIFY_QUERY__WITH_GRAPH:
         setWithGraph((String)newValue);
         return;
-      case SparqlPackage.MODIFY_QUERY__QUERY:
-        setQuery((EObject)newValue);
+      case SparqlPackage.MODIFY_QUERY__PATTERN:
+        setPattern((GroupGraphPattern)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -223,8 +223,8 @@ public class ModifyQueryImpl extends UpdateOperationImpl implements ModifyQuery
       case SparqlPackage.MODIFY_QUERY__WITH_GRAPH:
         setWithGraph(WITH_GRAPH_EDEFAULT);
         return;
-      case SparqlPackage.MODIFY_QUERY__QUERY:
-        setQuery((EObject)null);
+      case SparqlPackage.MODIFY_QUERY__PATTERN:
+        setPattern((GroupGraphPattern)null);
         return;
     }
     super.eUnset(featureID);
@@ -242,8 +242,8 @@ public class ModifyQueryImpl extends UpdateOperationImpl implements ModifyQuery
     {
       case SparqlPackage.MODIFY_QUERY__WITH_GRAPH:
         return WITH_GRAPH_EDEFAULT == null ? withGraph != null : !WITH_GRAPH_EDEFAULT.equals(withGraph);
-      case SparqlPackage.MODIFY_QUERY__QUERY:
-        return query != null;
+      case SparqlPackage.MODIFY_QUERY__PATTERN:
+        return pattern != null;
     }
     return super.eIsSet(featureID);
   }

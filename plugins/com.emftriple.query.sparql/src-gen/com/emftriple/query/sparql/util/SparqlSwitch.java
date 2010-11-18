@@ -227,6 +227,8 @@ public class SparqlSwitch<T>
       {
         InsertQuery insertQuery = (InsertQuery)theEObject;
         T result = caseInsertQuery(insertQuery);
+        if (result == null) result = caseModifyQuery(insertQuery);
+        if (result == null) result = caseUpdateOperation(insertQuery);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -234,6 +236,8 @@ public class SparqlSwitch<T>
       {
         InsertDataQuery insertDataQuery = (InsertDataQuery)theEObject;
         T result = caseInsertDataQuery(insertDataQuery);
+        if (result == null) result = caseModifyQuery(insertDataQuery);
+        if (result == null) result = caseUpdateOperation(insertDataQuery);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -241,6 +245,8 @@ public class SparqlSwitch<T>
       {
         DeleteQuery deleteQuery = (DeleteQuery)theEObject;
         T result = caseDeleteQuery(deleteQuery);
+        if (result == null) result = caseModifyQuery(deleteQuery);
+        if (result == null) result = caseUpdateOperation(deleteQuery);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -248,6 +254,8 @@ public class SparqlSwitch<T>
       {
         DeleteDataQuery deleteDataQuery = (DeleteDataQuery)theEObject;
         T result = caseDeleteDataQuery(deleteDataQuery);
+        if (result == null) result = caseModifyQuery(deleteDataQuery);
+        if (result == null) result = caseUpdateOperation(deleteDataQuery);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -255,6 +263,8 @@ public class SparqlSwitch<T>
       {
         DeleteWhereQuery deleteWhereQuery = (DeleteWhereQuery)theEObject;
         T result = caseDeleteWhereQuery(deleteWhereQuery);
+        if (result == null) result = caseModifyQuery(deleteWhereQuery);
+        if (result == null) result = caseUpdateOperation(deleteWhereQuery);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

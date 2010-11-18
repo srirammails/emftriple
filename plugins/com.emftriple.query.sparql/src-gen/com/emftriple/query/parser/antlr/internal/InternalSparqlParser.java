@@ -244,8 +244,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_SelectionQuery_0; 
+
+                              current = this_SelectionQuery_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -270,8 +270,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_UpdateQuery_1; 
+
+                              current = this_UpdateQuery_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -502,8 +502,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_UnNamedPrefix_4; 
+
+                              current = this_UnNamedPrefix_4;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -869,8 +869,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_ConstructQuery_0; 
+
+                              current = this_ConstructQuery_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -895,8 +895,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_SelectQuery_1; 
+
+                              current = this_SelectQuery_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -921,8 +921,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_AskQuery_2; 
+
+                              current = this_AskQuery_2;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -947,8 +947,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_DescribeQuery_3; 
+
+                              current = this_DescribeQuery_3;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -1056,8 +1056,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_SelectAllQuery_0; 
+
+                              current = this_SelectAllQuery_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -1082,8 +1082,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_SelectVariablesQuery_1; 
+
+                              current = this_SelectVariablesQuery_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -4228,8 +4228,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_ModifyQuery_0; 
+
+                              current = this_ModifyQuery_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -4254,8 +4254,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_CreateGraphQuery_1; 
+
+                              current = this_CreateGraphQuery_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -4280,8 +4280,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_DropGraphQuery_2; 
+
+                              current = this_DropGraphQuery_2;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -4306,8 +4306,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_LoadGraphQuery_3; 
+
+                              current = this_LoadGraphQuery_3;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -4332,8 +4332,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_ClearGraphQuery_4; 
+
+                              current = this_ClearGraphQuery_4;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -4404,82 +4404,77 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleModifyQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1844:1: ruleModifyQuery returns [EObject current=null] : ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1844:1: ruleModifyQuery returns [EObject current=null] : (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery ) ;
     public final EObject ruleModifyQuery() throws RecognitionException {
         EObject current = null;
 
-        Token lv_withGraph_1_0=null;
-        Token lv_withGraph_4_0=null;
-        Token lv_withGraph_7_0=null;
-        Token lv_withGraph_10_0=null;
-        Token lv_withGraph_13_0=null;
-        EObject lv_query_2_0 = null;
+        EObject this_InsertQuery_0 = null;
 
-        EObject lv_query_5_0 = null;
+        EObject this_InsertDataQuery_1 = null;
 
-        EObject lv_query_8_0 = null;
+        EObject this_DeleteQuery_2 = null;
 
-        EObject lv_query_11_0 = null;
+        EObject this_DeleteDataQuery_3 = null;
 
-        EObject lv_query_14_0 = null;
+        EObject this_DeleteWhereQuery_4 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1849:6: ( ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1850:1: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1849:6: ( (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1850:1: (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1850:1: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) )
-            int alt48=5;
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1850:1: (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery )
+            int alt43=5;
             switch ( input.LA(1) ) {
             case KEYWORD_44:
                 {
-                int LA48_1 = input.LA(2);
+                int LA43_1 = input.LA(2);
 
-                if ( (LA48_1==RULE_IRI_TERMINAL) ) {
-                    int LA48_4 = input.LA(3);
+                if ( (LA43_1==RULE_IRI_TERMINAL) ) {
+                    int LA43_4 = input.LA(3);
 
-                    if ( (LA48_4==KEYWORD_61) ) {
+                    if ( (LA43_4==KEYWORD_61) ) {
                         switch ( input.LA(4) ) {
-                        case KEYWORD_57:
-                            {
-                            alt48=5;
-                            }
-                            break;
                         case KEYWORD_38:
                             {
-                            alt48=4;
+                            alt43=4;
+                            }
+                            break;
+                        case KEYWORD_57:
+                            {
+                            alt43=5;
                             }
                             break;
                         case KEYWORD_40:
                         case KEYWORD_16:
                             {
-                            alt48=3;
+                            alt43=3;
                             }
                             break;
                         default:
                             if (backtracking>0) {failed=true; return current;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1850:1: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) )", 48, 3, input);
+                                new NoViableAltException("1850:1: (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery )", 43, 3, input);
 
                             throw nvae;
                         }
 
                     }
-                    else if ( (LA48_4==KEYWORD_65) ) {
-                        int LA48_2 = input.LA(4);
+                    else if ( (LA43_4==KEYWORD_65) ) {
+                        int LA43_2 = input.LA(4);
 
-                        if ( (LA48_2==KEYWORD_38) ) {
-                            alt48=2;
+                        if ( (LA43_2==KEYWORD_38) ) {
+                            alt43=2;
                         }
-                        else if ( (LA48_2==KEYWORD_41||LA48_2==KEYWORD_16) ) {
-                            alt48=1;
+                        else if ( (LA43_2==KEYWORD_41||LA43_2==KEYWORD_16) ) {
+                            alt43=1;
                         }
                         else {
                             if (backtracking>0) {failed=true; return current;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1850:1: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) )", 48, 2, input);
+                                new NoViableAltException("1850:1: (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery )", 43, 2, input);
 
                             throw nvae;
                         }
@@ -4487,7 +4482,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1850:1: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) )", 48, 4, input);
+                            new NoViableAltException("1850:1: (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery )", 43, 4, input);
 
                         throw nvae;
                     }
@@ -4495,7 +4490,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1850:1: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) )", 48, 1, input);
+                        new NoViableAltException("1850:1: (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery )", 43, 1, input);
 
                     throw nvae;
                 }
@@ -4503,18 +4498,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                 break;
             case KEYWORD_65:
                 {
-                int LA48_2 = input.LA(2);
+                int LA43_2 = input.LA(2);
 
-                if ( (LA48_2==KEYWORD_38) ) {
-                    alt48=2;
+                if ( (LA43_2==KEYWORD_38) ) {
+                    alt43=2;
                 }
-                else if ( (LA48_2==KEYWORD_41||LA48_2==KEYWORD_16) ) {
-                    alt48=1;
+                else if ( (LA43_2==KEYWORD_41||LA43_2==KEYWORD_16) ) {
+                    alt43=1;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1850:1: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) )", 48, 2, input);
+                        new NoViableAltException("1850:1: (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery )", 43, 2, input);
 
                     throw nvae;
                 }
@@ -4523,26 +4518,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             case KEYWORD_61:
                 {
                 switch ( input.LA(2) ) {
-                case KEYWORD_57:
-                    {
-                    alt48=5;
-                    }
-                    break;
                 case KEYWORD_38:
                     {
-                    alt48=4;
+                    alt43=4;
+                    }
+                    break;
+                case KEYWORD_57:
+                    {
+                    alt43=5;
                     }
                     break;
                 case KEYWORD_40:
                 case KEYWORD_16:
                     {
-                    alt48=3;
+                    alt43=3;
                     }
                     break;
                 default:
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1850:1: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) )", 48, 3, input);
+                        new NoViableAltException("1850:1: (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery )", 43, 3, input);
 
                     throw nvae;
                 }
@@ -4552,569 +4547,139 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1850:1: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) ) | ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) ) )", 48, 0, input);
+                    new NoViableAltException("1850:1: (this_InsertQuery_0= ruleInsertQuery | this_InsertDataQuery_1= ruleInsertDataQuery | this_DeleteQuery_2= ruleDeleteQuery | this_DeleteDataQuery_3= ruleDeleteDataQuery | this_DeleteWhereQuery_4= ruleDeleteWhereQuery )", 43, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt48) {
+            switch (alt43) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1850:2: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1850:2: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1850:3: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_2_0= ruleInsertQuery ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1850:3: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )?
-                    int alt43=2;
-                    int LA43_0 = input.LA(1);
-
-                    if ( (LA43_0==KEYWORD_44) ) {
-                        alt43=1;
-                    }
-                    switch (alt43) {
-                        case 1 :
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1851:2: KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
-                            {
-                            match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleModifyQuery2733); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                                      createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_0_0_0(), null); 
-                                  
-                            }
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1855:1: ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1856:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
-                            {
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1856:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1857:3: lv_withGraph_1_0= RULE_IRI_TERMINAL
-                            {
-                            lv_withGraph_1_0=(Token)input.LT(1);
-                            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery2750); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                              			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_0_1_0(), "withGraph"); 
-                              		
-                            }
-                            if ( backtracking==0 ) {
-
-                              	        if (current==null) {
-                              	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                              	            associateNodeWithAstElement(currentNode, current);
-                              	        }
-                              	        try {
-                              	       		set(
-                              	       			current, 
-                              	       			"withGraph",
-                              	        		lv_withGraph_1_0, 
-                              	        		"IRI_TERMINAL", 
-                              	        		lastConsumedNode);
-                              	        } catch (ValueConverterException vce) {
-                              				handleValueConverterException(vce);
-                              	        }
-                              	    
-                            }
-
-                            }
-
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1879:4: ( (lv_query_2_0= ruleInsertQuery ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1880:1: (lv_query_2_0= ruleInsertQuery )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1880:1: (lv_query_2_0= ruleInsertQuery )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1881:3: lv_query_2_0= ruleInsertQuery
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1851:2: this_InsertQuery_0= ruleInsertQuery
                     {
                     if ( backtracking==0 ) {
                        
-                      	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryInsertQueryParserRuleCall_0_1_0(), currentNode); 
-                      	    
+                      	  /* */ 
+                      	
                     }
-                    pushFollow(FOLLOW_ruleInsertQuery_in_ruleModifyQuery2778);
-                    lv_query_2_0=ruleInsertQuery();
+                    if ( backtracking==0 ) {
+                       
+                              currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getInsertQueryParserRuleCall_0(), currentNode); 
+                          
+                    }
+                    pushFollow(FOLLOW_ruleInsertQuery_in_ruleModifyQuery2745);
+                    this_InsertQuery_0=ruleInsertQuery();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"query",
-                      	        		lv_query_2_0, 
-                      	        		"InsertQuery", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
+                              current = this_InsertQuery_0;
+                              currentNode = currentNode.getParent();
+                          
                     }
-
-                    }
-
-
-                    }
-
-
-                    }
-
 
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1904:6: ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1904:6: ( ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1904:7: ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_5_0= ruleInsertDataQuery ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1904:7: ( KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) ) )?
-                    int alt44=2;
-                    int LA44_0 = input.LA(1);
-
-                    if ( (LA44_0==KEYWORD_44) ) {
-                        alt44=1;
-                    }
-                    switch (alt44) {
-                        case 1 :
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1905:2: KEYWORD_44 ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) )
-                            {
-                            match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleModifyQuery2798); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                                      createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_1_0_0(), null); 
-                                  
-                            }
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1909:1: ( (lv_withGraph_4_0= RULE_IRI_TERMINAL ) )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1910:1: (lv_withGraph_4_0= RULE_IRI_TERMINAL )
-                            {
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1910:1: (lv_withGraph_4_0= RULE_IRI_TERMINAL )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1911:3: lv_withGraph_4_0= RULE_IRI_TERMINAL
-                            {
-                            lv_withGraph_4_0=(Token)input.LT(1);
-                            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery2815); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                              			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_1_0_1_0(), "withGraph"); 
-                              		
-                            }
-                            if ( backtracking==0 ) {
-
-                              	        if (current==null) {
-                              	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                              	            associateNodeWithAstElement(currentNode, current);
-                              	        }
-                              	        try {
-                              	       		set(
-                              	       			current, 
-                              	       			"withGraph",
-                              	        		lv_withGraph_4_0, 
-                              	        		"IRI_TERMINAL", 
-                              	        		lastConsumedNode);
-                              	        } catch (ValueConverterException vce) {
-                              				handleValueConverterException(vce);
-                              	        }
-                              	    
-                            }
-
-                            }
-
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1933:4: ( (lv_query_5_0= ruleInsertDataQuery ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1934:1: (lv_query_5_0= ruleInsertDataQuery )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1934:1: (lv_query_5_0= ruleInsertDataQuery )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1935:3: lv_query_5_0= ruleInsertDataQuery
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1864:2: this_InsertDataQuery_1= ruleInsertDataQuery
                     {
                     if ( backtracking==0 ) {
                        
-                      	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryInsertDataQueryParserRuleCall_1_1_0(), currentNode); 
-                      	    
+                      	  /* */ 
+                      	
                     }
-                    pushFollow(FOLLOW_ruleInsertDataQuery_in_ruleModifyQuery2843);
-                    lv_query_5_0=ruleInsertDataQuery();
+                    if ( backtracking==0 ) {
+                       
+                              currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getInsertDataQueryParserRuleCall_1(), currentNode); 
+                          
+                    }
+                    pushFollow(FOLLOW_ruleInsertDataQuery_in_ruleModifyQuery2775);
+                    this_InsertDataQuery_1=ruleInsertDataQuery();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"query",
-                      	        		lv_query_5_0, 
-                      	        		"InsertDataQuery", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
+                              current = this_InsertDataQuery_1;
+                              currentNode = currentNode.getParent();
+                          
                     }
-
-                    }
-
-
-                    }
-
-
-                    }
-
 
                     }
                     break;
                 case 3 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1958:6: ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1958:6: ( ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1958:7: ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_8_0= ruleDeleteQuery ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1958:7: ( KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) ) )?
-                    int alt45=2;
-                    int LA45_0 = input.LA(1);
-
-                    if ( (LA45_0==KEYWORD_44) ) {
-                        alt45=1;
-                    }
-                    switch (alt45) {
-                        case 1 :
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1959:2: KEYWORD_44 ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) )
-                            {
-                            match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleModifyQuery2863); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                                      createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_2_0_0(), null); 
-                                  
-                            }
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1963:1: ( (lv_withGraph_7_0= RULE_IRI_TERMINAL ) )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1964:1: (lv_withGraph_7_0= RULE_IRI_TERMINAL )
-                            {
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1964:1: (lv_withGraph_7_0= RULE_IRI_TERMINAL )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1965:3: lv_withGraph_7_0= RULE_IRI_TERMINAL
-                            {
-                            lv_withGraph_7_0=(Token)input.LT(1);
-                            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery2880); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                              			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_2_0_1_0(), "withGraph"); 
-                              		
-                            }
-                            if ( backtracking==0 ) {
-
-                              	        if (current==null) {
-                              	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                              	            associateNodeWithAstElement(currentNode, current);
-                              	        }
-                              	        try {
-                              	       		set(
-                              	       			current, 
-                              	       			"withGraph",
-                              	        		lv_withGraph_7_0, 
-                              	        		"IRI_TERMINAL", 
-                              	        		lastConsumedNode);
-                              	        } catch (ValueConverterException vce) {
-                              				handleValueConverterException(vce);
-                              	        }
-                              	    
-                            }
-
-                            }
-
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1987:4: ( (lv_query_8_0= ruleDeleteQuery ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1988:1: (lv_query_8_0= ruleDeleteQuery )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1988:1: (lv_query_8_0= ruleDeleteQuery )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1989:3: lv_query_8_0= ruleDeleteQuery
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1877:2: this_DeleteQuery_2= ruleDeleteQuery
                     {
                     if ( backtracking==0 ) {
                        
-                      	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryDeleteQueryParserRuleCall_2_1_0(), currentNode); 
-                      	    
+                      	  /* */ 
+                      	
                     }
-                    pushFollow(FOLLOW_ruleDeleteQuery_in_ruleModifyQuery2908);
-                    lv_query_8_0=ruleDeleteQuery();
+                    if ( backtracking==0 ) {
+                       
+                              currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getDeleteQueryParserRuleCall_2(), currentNode); 
+                          
+                    }
+                    pushFollow(FOLLOW_ruleDeleteQuery_in_ruleModifyQuery2805);
+                    this_DeleteQuery_2=ruleDeleteQuery();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"query",
-                      	        		lv_query_8_0, 
-                      	        		"DeleteQuery", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
+                              current = this_DeleteQuery_2;
+                              currentNode = currentNode.getParent();
+                          
                     }
-
-                    }
-
-
-                    }
-
-
-                    }
-
 
                     }
                     break;
                 case 4 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2012:6: ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2012:6: ( ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2012:7: ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_11_0= ruleDeleteDataQuery ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2012:7: ( KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) ) )?
-                    int alt46=2;
-                    int LA46_0 = input.LA(1);
-
-                    if ( (LA46_0==KEYWORD_44) ) {
-                        alt46=1;
-                    }
-                    switch (alt46) {
-                        case 1 :
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2013:2: KEYWORD_44 ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) )
-                            {
-                            match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleModifyQuery2928); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                                      createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_3_0_0(), null); 
-                                  
-                            }
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2017:1: ( (lv_withGraph_10_0= RULE_IRI_TERMINAL ) )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2018:1: (lv_withGraph_10_0= RULE_IRI_TERMINAL )
-                            {
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2018:1: (lv_withGraph_10_0= RULE_IRI_TERMINAL )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2019:3: lv_withGraph_10_0= RULE_IRI_TERMINAL
-                            {
-                            lv_withGraph_10_0=(Token)input.LT(1);
-                            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery2945); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                              			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_3_0_1_0(), "withGraph"); 
-                              		
-                            }
-                            if ( backtracking==0 ) {
-
-                              	        if (current==null) {
-                              	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                              	            associateNodeWithAstElement(currentNode, current);
-                              	        }
-                              	        try {
-                              	       		set(
-                              	       			current, 
-                              	       			"withGraph",
-                              	        		lv_withGraph_10_0, 
-                              	        		"IRI_TERMINAL", 
-                              	        		lastConsumedNode);
-                              	        } catch (ValueConverterException vce) {
-                              				handleValueConverterException(vce);
-                              	        }
-                              	    
-                            }
-
-                            }
-
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2041:4: ( (lv_query_11_0= ruleDeleteDataQuery ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2042:1: (lv_query_11_0= ruleDeleteDataQuery )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2042:1: (lv_query_11_0= ruleDeleteDataQuery )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2043:3: lv_query_11_0= ruleDeleteDataQuery
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1890:2: this_DeleteDataQuery_3= ruleDeleteDataQuery
                     {
                     if ( backtracking==0 ) {
                        
-                      	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryDeleteDataQueryParserRuleCall_3_1_0(), currentNode); 
-                      	    
+                      	  /* */ 
+                      	
                     }
-                    pushFollow(FOLLOW_ruleDeleteDataQuery_in_ruleModifyQuery2973);
-                    lv_query_11_0=ruleDeleteDataQuery();
+                    if ( backtracking==0 ) {
+                       
+                              currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getDeleteDataQueryParserRuleCall_3(), currentNode); 
+                          
+                    }
+                    pushFollow(FOLLOW_ruleDeleteDataQuery_in_ruleModifyQuery2835);
+                    this_DeleteDataQuery_3=ruleDeleteDataQuery();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"query",
-                      	        		lv_query_11_0, 
-                      	        		"DeleteDataQuery", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
+                              current = this_DeleteDataQuery_3;
+                              currentNode = currentNode.getParent();
+                          
                     }
-
-                    }
-
-
-                    }
-
-
-                    }
-
 
                     }
                     break;
                 case 5 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2066:6: ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2066:6: ( ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2066:7: ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )? ( (lv_query_14_0= ruleDeleteWhereQuery ) )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2066:7: ( KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) ) )?
-                    int alt47=2;
-                    int LA47_0 = input.LA(1);
-
-                    if ( (LA47_0==KEYWORD_44) ) {
-                        alt47=1;
-                    }
-                    switch (alt47) {
-                        case 1 :
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2067:2: KEYWORD_44 ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) )
-                            {
-                            match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleModifyQuery2993); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                                      createLeafNode(grammarAccess.getModifyQueryAccess().getWITHKeyword_4_0_0(), null); 
-                                  
-                            }
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2071:1: ( (lv_withGraph_13_0= RULE_IRI_TERMINAL ) )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2072:1: (lv_withGraph_13_0= RULE_IRI_TERMINAL )
-                            {
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2072:1: (lv_withGraph_13_0= RULE_IRI_TERMINAL )
-                            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2073:3: lv_withGraph_13_0= RULE_IRI_TERMINAL
-                            {
-                            lv_withGraph_13_0=(Token)input.LT(1);
-                            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery3010); if (failed) return current;
-                            if ( backtracking==0 ) {
-
-                              			createLeafNode(grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_4_0_1_0(), "withGraph"); 
-                              		
-                            }
-                            if ( backtracking==0 ) {
-
-                              	        if (current==null) {
-                              	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                              	            associateNodeWithAstElement(currentNode, current);
-                              	        }
-                              	        try {
-                              	       		set(
-                              	       			current, 
-                              	       			"withGraph",
-                              	        		lv_withGraph_13_0, 
-                              	        		"IRI_TERMINAL", 
-                              	        		lastConsumedNode);
-                              	        } catch (ValueConverterException vce) {
-                              				handleValueConverterException(vce);
-                              	        }
-                              	    
-                            }
-
-                            }
-
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2095:4: ( (lv_query_14_0= ruleDeleteWhereQuery ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2096:1: (lv_query_14_0= ruleDeleteWhereQuery )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2096:1: (lv_query_14_0= ruleDeleteWhereQuery )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2097:3: lv_query_14_0= ruleDeleteWhereQuery
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1903:2: this_DeleteWhereQuery_4= ruleDeleteWhereQuery
                     {
                     if ( backtracking==0 ) {
                        
-                      	        currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getQueryDeleteWhereQueryParserRuleCall_4_1_0(), currentNode); 
-                      	    
+                      	  /* */ 
+                      	
                     }
-                    pushFollow(FOLLOW_ruleDeleteWhereQuery_in_ruleModifyQuery3038);
-                    lv_query_14_0=ruleDeleteWhereQuery();
+                    if ( backtracking==0 ) {
+                       
+                              currentNode=createCompositeNode(grammarAccess.getModifyQueryAccess().getDeleteWhereQueryParserRuleCall_4(), currentNode); 
+                          
+                    }
+                    pushFollow(FOLLOW_ruleDeleteWhereQuery_in_ruleModifyQuery2865);
+                    this_DeleteWhereQuery_4=ruleDeleteWhereQuery();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getModifyQueryRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"query",
-                      	        		lv_query_14_0, 
-                      	        		"DeleteWhereQuery", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
+                              current = this_DeleteWhereQuery_4;
+                              currentNode = currentNode.getParent();
+                          
                     }
-
-                    }
-
-
-                    }
-
-
-                    }
-
 
                     }
                     break;
@@ -5143,7 +4708,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleCreateGraphQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2127:1: entryRuleCreateGraphQuery returns [EObject current=null] : iv_ruleCreateGraphQuery= ruleCreateGraphQuery EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1922:1: entryRuleCreateGraphQuery returns [EObject current=null] : iv_ruleCreateGraphQuery= ruleCreateGraphQuery EOF ;
     public final EObject entryRuleCreateGraphQuery() throws RecognitionException {
         EObject current = null;
 
@@ -5151,20 +4716,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2128:2: (iv_ruleCreateGraphQuery= ruleCreateGraphQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2129:2: iv_ruleCreateGraphQuery= ruleCreateGraphQuery EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1923:2: (iv_ruleCreateGraphQuery= ruleCreateGraphQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1924:2: iv_ruleCreateGraphQuery= ruleCreateGraphQuery EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCreateGraphQueryRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleCreateGraphQuery_in_entryRuleCreateGraphQuery3074);
+            pushFollow(FOLLOW_ruleCreateGraphQuery_in_entryRuleCreateGraphQuery2899);
             iv_ruleCreateGraphQuery=ruleCreateGraphQuery();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleCreateGraphQuery; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCreateGraphQuery3084); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCreateGraphQuery2909); if (failed) return current;
 
             }
 
@@ -5182,7 +4747,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCreateGraphQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2136:1: ruleCreateGraphQuery returns [EObject current=null] : ( KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1931:1: ruleCreateGraphQuery returns [EObject current=null] : ( KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) ) ;
     public final EObject ruleCreateGraphQuery() throws RecognitionException {
         EObject current = null;
 
@@ -5192,34 +4757,34 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2141:6: ( ( KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2142:1: ( KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1936:6: ( ( KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1937:1: ( KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2142:1: ( KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2143:2: KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1937:1: ( KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1938:2: KEYWORD_60 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
             {
-            match(input,KEYWORD_60,FOLLOW_KEYWORD_60_in_ruleCreateGraphQuery3120); if (failed) return current;
+            match(input,KEYWORD_60,FOLLOW_KEYWORD_60_in_ruleCreateGraphQuery2945); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getCreateGraphQueryAccess().getCREATEKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2147:1: ( (lv_isSilent_1_0= KEYWORD_69 ) )?
-            int alt49=2;
-            int LA49_0 = input.LA(1);
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1942:1: ( (lv_isSilent_1_0= KEYWORD_69 ) )?
+            int alt44=2;
+            int LA44_0 = input.LA(1);
 
-            if ( (LA49_0==KEYWORD_69) ) {
-                alt49=1;
+            if ( (LA44_0==KEYWORD_69) ) {
+                alt44=1;
             }
-            switch (alt49) {
+            switch (alt44) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2148:1: (lv_isSilent_1_0= KEYWORD_69 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1943:1: (lv_isSilent_1_0= KEYWORD_69 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2148:1: (lv_isSilent_1_0= KEYWORD_69 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2149:3: lv_isSilent_1_0= KEYWORD_69
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1943:1: (lv_isSilent_1_0= KEYWORD_69 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1944:3: lv_isSilent_1_0= KEYWORD_69
                     {
                     lv_isSilent_1_0=(Token)input.LT(1);
-                    match(input,KEYWORD_69,FOLLOW_KEYWORD_69_in_ruleCreateGraphQuery3139); if (failed) return current;
+                    match(input,KEYWORD_69,FOLLOW_KEYWORD_69_in_ruleCreateGraphQuery2964); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCreateGraphQueryAccess().getIsSilentSILENTKeyword_1_0(), "isSilent"); 
@@ -5248,20 +4813,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleCreateGraphQuery3164); if (failed) return current;
+            match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleCreateGraphQuery2989); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getCreateGraphQueryAccess().getGRAPHKeyword_2(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2174:1: ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2175:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1969:1: ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1970:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2175:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2176:3: lv_graph_3_0= RULE_IRI_TERMINAL
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1970:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:1971:3: lv_graph_3_0= RULE_IRI_TERMINAL
             {
             lv_graph_3_0=(Token)input.LT(1);
-            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleCreateGraphQuery3181); if (failed) return current;
+            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleCreateGraphQuery3006); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getCreateGraphQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_0(), "graph"); 
@@ -5316,7 +4881,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDropGraphQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2206:1: entryRuleDropGraphQuery returns [EObject current=null] : iv_ruleDropGraphQuery= ruleDropGraphQuery EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2001:1: entryRuleDropGraphQuery returns [EObject current=null] : iv_ruleDropGraphQuery= ruleDropGraphQuery EOF ;
     public final EObject entryRuleDropGraphQuery() throws RecognitionException {
         EObject current = null;
 
@@ -5324,20 +4889,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2207:2: (iv_ruleDropGraphQuery= ruleDropGraphQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2208:2: iv_ruleDropGraphQuery= ruleDropGraphQuery EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2002:2: (iv_ruleDropGraphQuery= ruleDropGraphQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2003:2: iv_ruleDropGraphQuery= ruleDropGraphQuery EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDropGraphQueryRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleDropGraphQuery_in_entryRuleDropGraphQuery3221);
+            pushFollow(FOLLOW_ruleDropGraphQuery_in_entryRuleDropGraphQuery3046);
             iv_ruleDropGraphQuery=ruleDropGraphQuery();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleDropGraphQuery; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDropGraphQuery3231); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDropGraphQuery3056); if (failed) return current;
 
             }
 
@@ -5355,7 +4920,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDropGraphQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2215:1: ruleDropGraphQuery returns [EObject current=null] : ( KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2010:1: ruleDropGraphQuery returns [EObject current=null] : ( KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) ) ;
     public final EObject ruleDropGraphQuery() throws RecognitionException {
         EObject current = null;
 
@@ -5365,34 +4930,34 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2220:6: ( ( KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2221:1: ( KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2015:6: ( ( KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2016:1: ( KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2221:1: ( KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2222:2: KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2016:1: ( KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2017:2: KEYWORD_39 ( (lv_isSilent_1_0= KEYWORD_69 ) )? KEYWORD_49 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
             {
-            match(input,KEYWORD_39,FOLLOW_KEYWORD_39_in_ruleDropGraphQuery3267); if (failed) return current;
+            match(input,KEYWORD_39,FOLLOW_KEYWORD_39_in_ruleDropGraphQuery3092); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getDropGraphQueryAccess().getDROPKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2226:1: ( (lv_isSilent_1_0= KEYWORD_69 ) )?
-            int alt50=2;
-            int LA50_0 = input.LA(1);
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2021:1: ( (lv_isSilent_1_0= KEYWORD_69 ) )?
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-            if ( (LA50_0==KEYWORD_69) ) {
-                alt50=1;
+            if ( (LA45_0==KEYWORD_69) ) {
+                alt45=1;
             }
-            switch (alt50) {
+            switch (alt45) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2227:1: (lv_isSilent_1_0= KEYWORD_69 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2022:1: (lv_isSilent_1_0= KEYWORD_69 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2227:1: (lv_isSilent_1_0= KEYWORD_69 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2228:3: lv_isSilent_1_0= KEYWORD_69
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2022:1: (lv_isSilent_1_0= KEYWORD_69 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2023:3: lv_isSilent_1_0= KEYWORD_69
                     {
                     lv_isSilent_1_0=(Token)input.LT(1);
-                    match(input,KEYWORD_69,FOLLOW_KEYWORD_69_in_ruleDropGraphQuery3286); if (failed) return current;
+                    match(input,KEYWORD_69,FOLLOW_KEYWORD_69_in_ruleDropGraphQuery3111); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getDropGraphQueryAccess().getIsSilentSILENTKeyword_1_0(), "isSilent"); 
@@ -5421,20 +4986,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleDropGraphQuery3311); if (failed) return current;
+            match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleDropGraphQuery3136); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getDropGraphQueryAccess().getGRAPHKeyword_2(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2253:1: ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2254:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2048:1: ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2049:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2254:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2255:3: lv_graph_3_0= RULE_IRI_TERMINAL
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2049:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2050:3: lv_graph_3_0= RULE_IRI_TERMINAL
             {
             lv_graph_3_0=(Token)input.LT(1);
-            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleDropGraphQuery3328); if (failed) return current;
+            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleDropGraphQuery3153); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getDropGraphQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_0(), "graph"); 
@@ -5489,7 +5054,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLoadGraphQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2285:1: entryRuleLoadGraphQuery returns [EObject current=null] : iv_ruleLoadGraphQuery= ruleLoadGraphQuery EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2080:1: entryRuleLoadGraphQuery returns [EObject current=null] : iv_ruleLoadGraphQuery= ruleLoadGraphQuery EOF ;
     public final EObject entryRuleLoadGraphQuery() throws RecognitionException {
         EObject current = null;
 
@@ -5497,20 +5062,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2286:2: (iv_ruleLoadGraphQuery= ruleLoadGraphQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2287:2: iv_ruleLoadGraphQuery= ruleLoadGraphQuery EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2081:2: (iv_ruleLoadGraphQuery= ruleLoadGraphQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2082:2: iv_ruleLoadGraphQuery= ruleLoadGraphQuery EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLoadGraphQueryRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleLoadGraphQuery_in_entryRuleLoadGraphQuery3368);
+            pushFollow(FOLLOW_ruleLoadGraphQuery_in_entryRuleLoadGraphQuery3193);
             iv_ruleLoadGraphQuery=ruleLoadGraphQuery();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleLoadGraphQuery; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLoadGraphQuery3378); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLoadGraphQuery3203); if (failed) return current;
 
             }
 
@@ -5528,7 +5093,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLoadGraphQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2294:1: ruleLoadGraphQuery returns [EObject current=null] : ( KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )? ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2089:1: ruleLoadGraphQuery returns [EObject current=null] : ( KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )? ) ;
     public final EObject ruleLoadGraphQuery() throws RecognitionException {
         EObject current = null;
 
@@ -5538,26 +5103,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2299:6: ( ( KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )? ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2300:1: ( KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2094:6: ( ( KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )? ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2095:1: ( KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )? )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2300:1: ( KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )? )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2301:2: KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2095:1: ( KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2096:2: KEYWORD_43 ( (lv_graph_1_0= RULE_IRI_TERMINAL ) ) ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )?
             {
-            match(input,KEYWORD_43,FOLLOW_KEYWORD_43_in_ruleLoadGraphQuery3414); if (failed) return current;
+            match(input,KEYWORD_43,FOLLOW_KEYWORD_43_in_ruleLoadGraphQuery3239); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getLoadGraphQueryAccess().getLOADKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2305:1: ( (lv_graph_1_0= RULE_IRI_TERMINAL ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2306:1: (lv_graph_1_0= RULE_IRI_TERMINAL )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2100:1: ( (lv_graph_1_0= RULE_IRI_TERMINAL ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2101:1: (lv_graph_1_0= RULE_IRI_TERMINAL )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2306:1: (lv_graph_1_0= RULE_IRI_TERMINAL )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2307:3: lv_graph_1_0= RULE_IRI_TERMINAL
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2101:1: (lv_graph_1_0= RULE_IRI_TERMINAL )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2102:3: lv_graph_1_0= RULE_IRI_TERMINAL
             {
             lv_graph_1_0=(Token)input.LT(1);
-            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleLoadGraphQuery3431); if (failed) return current;
+            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleLoadGraphQuery3256); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getLoadGraphQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_1_0(), "graph"); 
@@ -5587,37 +5152,37 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2329:2: ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )?
-            int alt51=2;
-            int LA51_0 = input.LA(1);
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2124:2: ( KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) ) )?
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( (LA51_0==KEYWORD_41) ) {
-                alt51=1;
+            if ( (LA46_0==KEYWORD_41) ) {
+                alt46=1;
             }
-            switch (alt51) {
+            switch (alt46) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2330:2: KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2125:2: KEYWORD_41 KEYWORD_49 ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) )
                     {
-                    match(input,KEYWORD_41,FOLLOW_KEYWORD_41_in_ruleLoadGraphQuery3448); if (failed) return current;
+                    match(input,KEYWORD_41,FOLLOW_KEYWORD_41_in_ruleLoadGraphQuery3273); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getLoadGraphQueryAccess().getINTOKeyword_2_0(), null); 
                           
                     }
-                    match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleLoadGraphQuery3459); if (failed) return current;
+                    match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleLoadGraphQuery3284); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getLoadGraphQueryAccess().getGRAPHKeyword_2_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2339:1: ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2340:1: (lv_intoGraph_4_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2134:1: ( (lv_intoGraph_4_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2135:1: (lv_intoGraph_4_0= RULE_IRI_TERMINAL )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2340:1: (lv_intoGraph_4_0= RULE_IRI_TERMINAL )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2341:3: lv_intoGraph_4_0= RULE_IRI_TERMINAL
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2135:1: (lv_intoGraph_4_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2136:3: lv_intoGraph_4_0= RULE_IRI_TERMINAL
                     {
                     lv_intoGraph_4_0=(Token)input.LT(1);
-                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleLoadGraphQuery3476); if (failed) return current;
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleLoadGraphQuery3301); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getLoadGraphQueryAccess().getIntoGraphIRI_TERMINALTerminalRuleCall_2_2_0(), "intoGraph"); 
@@ -5678,7 +5243,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleClearGraphQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2371:1: entryRuleClearGraphQuery returns [EObject current=null] : iv_ruleClearGraphQuery= ruleClearGraphQuery EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2166:1: entryRuleClearGraphQuery returns [EObject current=null] : iv_ruleClearGraphQuery= ruleClearGraphQuery EOF ;
     public final EObject entryRuleClearGraphQuery() throws RecognitionException {
         EObject current = null;
 
@@ -5686,20 +5251,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2372:2: (iv_ruleClearGraphQuery= ruleClearGraphQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2373:2: iv_ruleClearGraphQuery= ruleClearGraphQuery EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2167:2: (iv_ruleClearGraphQuery= ruleClearGraphQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2168:2: iv_ruleClearGraphQuery= ruleClearGraphQuery EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getClearGraphQueryRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleClearGraphQuery_in_entryRuleClearGraphQuery3518);
+            pushFollow(FOLLOW_ruleClearGraphQuery_in_entryRuleClearGraphQuery3343);
             iv_ruleClearGraphQuery=ruleClearGraphQuery();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleClearGraphQuery; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleClearGraphQuery3528); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleClearGraphQuery3353); if (failed) return current;
 
             }
 
@@ -5717,7 +5282,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleClearGraphQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2380:1: ruleClearGraphQuery returns [EObject current=null] : ( KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2175:1: ruleClearGraphQuery returns [EObject current=null] : ( KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) ) ) ;
     public final EObject ruleClearGraphQuery() throws RecognitionException {
         EObject current = null;
 
@@ -5727,53 +5292,53 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2385:6: ( ( KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2386:1: ( KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2180:6: ( ( KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2181:1: ( KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2386:1: ( KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2387:2: KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2181:1: ( KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2182:2: KEYWORD_47 KEYWORD_49 ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) )
             {
-            match(input,KEYWORD_47,FOLLOW_KEYWORD_47_in_ruleClearGraphQuery3564); if (failed) return current;
+            match(input,KEYWORD_47,FOLLOW_KEYWORD_47_in_ruleClearGraphQuery3389); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getClearGraphQueryAccess().getCLEARKeyword_0(), null); 
                   
             }
-            match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleClearGraphQuery3575); if (failed) return current;
+            match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleClearGraphQuery3400); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getClearGraphQueryAccess().getGRAPHKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2396:1: ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) )
-            int alt52=2;
-            int LA52_0 = input.LA(1);
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2191:1: ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) )
+            int alt47=2;
+            int LA47_0 = input.LA(1);
 
-            if ( (LA52_0==RULE_IRI_TERMINAL) ) {
-                alt52=1;
+            if ( (LA47_0==RULE_IRI_TERMINAL) ) {
+                alt47=1;
             }
-            else if ( (LA52_0==KEYWORD_70) ) {
-                alt52=2;
+            else if ( (LA47_0==KEYWORD_70) ) {
+                alt47=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("2396:1: ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) )", 52, 0, input);
+                    new NoViableAltException("2191:1: ( ( (lv_uri_2_0= RULE_IRI_TERMINAL ) ) | ( (lv_isDefault_3_0= KEYWORD_70 ) ) )", 47, 0, input);
 
                 throw nvae;
             }
-            switch (alt52) {
+            switch (alt47) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2396:2: ( (lv_uri_2_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2191:2: ( (lv_uri_2_0= RULE_IRI_TERMINAL ) )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2396:2: ( (lv_uri_2_0= RULE_IRI_TERMINAL ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2397:1: (lv_uri_2_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2191:2: ( (lv_uri_2_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2192:1: (lv_uri_2_0= RULE_IRI_TERMINAL )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2397:1: (lv_uri_2_0= RULE_IRI_TERMINAL )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2398:3: lv_uri_2_0= RULE_IRI_TERMINAL
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2192:1: (lv_uri_2_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2193:3: lv_uri_2_0= RULE_IRI_TERMINAL
                     {
                     lv_uri_2_0=(Token)input.LT(1);
-                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleClearGraphQuery3593); if (failed) return current;
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleClearGraphQuery3418); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getClearGraphQueryAccess().getUriIRI_TERMINALTerminalRuleCall_2_0_0(), "uri"); 
@@ -5807,16 +5372,16 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2421:6: ( (lv_isDefault_3_0= KEYWORD_70 ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2216:6: ( (lv_isDefault_3_0= KEYWORD_70 ) )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2421:6: ( (lv_isDefault_3_0= KEYWORD_70 ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2422:1: (lv_isDefault_3_0= KEYWORD_70 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2216:6: ( (lv_isDefault_3_0= KEYWORD_70 ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2217:1: (lv_isDefault_3_0= KEYWORD_70 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2422:1: (lv_isDefault_3_0= KEYWORD_70 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2423:3: lv_isDefault_3_0= KEYWORD_70
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2217:1: (lv_isDefault_3_0= KEYWORD_70 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2218:3: lv_isDefault_3_0= KEYWORD_70
                     {
                     lv_isDefault_3_0=(Token)input.LT(1);
-                    match(input,KEYWORD_70,FOLLOW_KEYWORD_70_in_ruleClearGraphQuery3623); if (failed) return current;
+                    match(input,KEYWORD_70,FOLLOW_KEYWORD_70_in_ruleClearGraphQuery3448); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getClearGraphQueryAccess().getIsDefaultDEFAULTKeyword_2_1_0(), "isDefault"); 
@@ -5873,7 +5438,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleInsertQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2453:1: entryRuleInsertQuery returns [EObject current=null] : iv_ruleInsertQuery= ruleInsertQuery EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2248:1: entryRuleInsertQuery returns [EObject current=null] : iv_ruleInsertQuery= ruleInsertQuery EOF ;
     public final EObject entryRuleInsertQuery() throws RecognitionException {
         EObject current = null;
 
@@ -5881,20 +5446,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2454:2: (iv_ruleInsertQuery= ruleInsertQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2455:2: iv_ruleInsertQuery= ruleInsertQuery EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2249:2: (iv_ruleInsertQuery= ruleInsertQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2250:2: iv_ruleInsertQuery= ruleInsertQuery EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getInsertQueryRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleInsertQuery_in_entryRuleInsertQuery3674);
+            pushFollow(FOLLOW_ruleInsertQuery_in_entryRuleInsertQuery3499);
             iv_ruleInsertQuery=ruleInsertQuery();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleInsertQuery; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInsertQuery3684); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInsertQuery3509); if (failed) return current;
 
             }
 
@@ -5912,59 +5477,54 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleInsertQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2462:1: ruleInsertQuery returns [EObject current=null] : ( KEYWORD_65 ( KEYWORD_41 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_4_0= ruleWhereClause ) )? ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2257:1: ruleInsertQuery returns [EObject current=null] : ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 ( KEYWORD_41 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_6_0= ruleWhereClause ) )? ) ;
     public final EObject ruleInsertQuery() throws RecognitionException {
         EObject current = null;
 
-        Token lv_graph_2_0=null;
-        EObject lv_pattern_3_0 = null;
+        Token lv_withGraph_1_0=null;
+        Token lv_graph_4_0=null;
+        EObject lv_pattern_5_0 = null;
 
-        EObject lv_whereClause_4_0 = null;
+        EObject lv_whereClause_6_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2467:6: ( ( KEYWORD_65 ( KEYWORD_41 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_4_0= ruleWhereClause ) )? ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2468:1: ( KEYWORD_65 ( KEYWORD_41 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_4_0= ruleWhereClause ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2262:6: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 ( KEYWORD_41 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_6_0= ruleWhereClause ) )? ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2263:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 ( KEYWORD_41 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_6_0= ruleWhereClause ) )? )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2468:1: ( KEYWORD_65 ( KEYWORD_41 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_4_0= ruleWhereClause ) )? )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2469:2: KEYWORD_65 ( KEYWORD_41 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_4_0= ruleWhereClause ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2263:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 ( KEYWORD_41 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_6_0= ruleWhereClause ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2263:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 ( KEYWORD_41 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( (lv_whereClause_6_0= ruleWhereClause ) )?
             {
-            match(input,KEYWORD_65,FOLLOW_KEYWORD_65_in_ruleInsertQuery3720); if (failed) return current;
-            if ( backtracking==0 ) {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2263:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )?
+            int alt48=2;
+            int LA48_0 = input.LA(1);
 
-                      createLeafNode(grammarAccess.getInsertQueryAccess().getINSERTKeyword_0(), null); 
-                  
+            if ( (LA48_0==KEYWORD_44) ) {
+                alt48=1;
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2473:1: ( KEYWORD_41 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )?
-            int alt53=2;
-            int LA53_0 = input.LA(1);
-
-            if ( (LA53_0==KEYWORD_41) ) {
-                alt53=1;
-            }
-            switch (alt53) {
+            switch (alt48) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2474:2: KEYWORD_41 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2264:2: KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
                     {
-                    match(input,KEYWORD_41,FOLLOW_KEYWORD_41_in_ruleInsertQuery3732); if (failed) return current;
+                    match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleInsertQuery3546); if (failed) return current;
                     if ( backtracking==0 ) {
 
-                              createLeafNode(grammarAccess.getInsertQueryAccess().getINTOKeyword_1_0(), null); 
+                              createLeafNode(grammarAccess.getInsertQueryAccess().getWITHKeyword_0_0(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2478:1: ( (lv_graph_2_0= RULE_IRI_TERMINAL ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2479:1: (lv_graph_2_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2268:1: ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2269:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2479:1: (lv_graph_2_0= RULE_IRI_TERMINAL )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2480:3: lv_graph_2_0= RULE_IRI_TERMINAL
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2269:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2270:3: lv_withGraph_1_0= RULE_IRI_TERMINAL
                     {
-                    lv_graph_2_0=(Token)input.LT(1);
-                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertQuery3749); if (failed) return current;
+                    lv_withGraph_1_0=(Token)input.LT(1);
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertQuery3563); if (failed) return current;
                     if ( backtracking==0 ) {
 
-                      			createLeafNode(grammarAccess.getInsertQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_1_1_0(), "graph"); 
+                      			createLeafNode(grammarAccess.getInsertQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
                       		
                     }
                     if ( backtracking==0 ) {
@@ -5976,8 +5536,8 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                       	        try {
                       	       		set(
                       	       			current, 
-                      	       			"graph",
-                      	        		lv_graph_2_0, 
+                      	       			"withGraph",
+                      	        		lv_withGraph_1_0, 
                       	        		"IRI_TERMINAL", 
                       	        		lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
@@ -5997,19 +5557,85 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2502:4: ( (lv_pattern_3_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2503:1: (lv_pattern_3_0= ruleGroupGraphPattern )
+            match(input,KEYWORD_65,FOLLOW_KEYWORD_65_in_ruleInsertQuery3581); if (failed) return current;
+            if ( backtracking==0 ) {
+
+                      createLeafNode(grammarAccess.getInsertQueryAccess().getINSERTKeyword_1(), null); 
+                  
+            }
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2297:1: ( KEYWORD_41 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )?
+            int alt49=2;
+            int LA49_0 = input.LA(1);
+
+            if ( (LA49_0==KEYWORD_41) ) {
+                alt49=1;
+            }
+            switch (alt49) {
+                case 1 :
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2298:2: KEYWORD_41 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) )
+                    {
+                    match(input,KEYWORD_41,FOLLOW_KEYWORD_41_in_ruleInsertQuery3593); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getInsertQueryAccess().getINTOKeyword_2_0(), null); 
+                          
+                    }
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2302:1: ( (lv_graph_4_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2303:1: (lv_graph_4_0= RULE_IRI_TERMINAL )
+                    {
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2303:1: (lv_graph_4_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2304:3: lv_graph_4_0= RULE_IRI_TERMINAL
+                    {
+                    lv_graph_4_0=(Token)input.LT(1);
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertQuery3610); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      			createLeafNode(grammarAccess.getInsertQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), "graph"); 
+                      		
+                    }
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getInsertQueryRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode, current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"graph",
+                      	        		lv_graph_4_0, 
+                      	        		"IRI_TERMINAL", 
+                      	        		lastConsumedNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2326:4: ( (lv_pattern_5_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2327:1: (lv_pattern_5_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2503:1: (lv_pattern_3_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2504:3: lv_pattern_3_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2327:1: (lv_pattern_5_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2328:3: lv_pattern_5_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
-              	        currentNode=createCompositeNode(grammarAccess.getInsertQueryAccess().getPatternGroupGraphPatternParserRuleCall_2_0(), currentNode); 
+              	        currentNode=createCompositeNode(grammarAccess.getInsertQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleInsertQuery3777);
-            lv_pattern_3_0=ruleGroupGraphPattern();
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleInsertQuery3638);
+            lv_pattern_5_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
@@ -6022,7 +5648,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
               	       		set(
               	       			current, 
               	       			"pattern",
-              	        		lv_pattern_3_0, 
+              	        		lv_pattern_5_0, 
               	        		"GroupGraphPattern", 
               	        		currentNode);
               	        } catch (ValueConverterException vce) {
@@ -6037,539 +5663,33 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2526:2: ( (lv_whereClause_4_0= ruleWhereClause ) )?
-            int alt54=2;
-            int LA54_0 = input.LA(1);
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2350:2: ( (lv_whereClause_6_0= ruleWhereClause ) )?
+            int alt50=2;
+            int LA50_0 = input.LA(1);
 
-            if ( (LA54_0==KEYWORD_57) ) {
-                alt54=1;
+            if ( (LA50_0==KEYWORD_57) ) {
+                alt50=1;
             }
-            switch (alt54) {
+            switch (alt50) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2527:1: (lv_whereClause_4_0= ruleWhereClause )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2351:1: (lv_whereClause_6_0= ruleWhereClause )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2527:1: (lv_whereClause_4_0= ruleWhereClause )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2528:3: lv_whereClause_4_0= ruleWhereClause
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2351:1: (lv_whereClause_6_0= ruleWhereClause )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2352:3: lv_whereClause_6_0= ruleWhereClause
                     {
                     if ( backtracking==0 ) {
                        
-                      	        currentNode=createCompositeNode(grammarAccess.getInsertQueryAccess().getWhereClauseWhereClauseParserRuleCall_3_0(), currentNode); 
+                      	        currentNode=createCompositeNode(grammarAccess.getInsertQueryAccess().getWhereClauseWhereClauseParserRuleCall_4_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleWhereClause_in_ruleInsertQuery3798);
-                    lv_whereClause_4_0=ruleWhereClause();
-                    _fsp--;
-                    if (failed) return current;
-                    if ( backtracking==0 ) {
-
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getInsertQueryRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"whereClause",
-                      	        		lv_whereClause_4_0, 
-                      	        		"WhereClause", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
-                    }
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            }
-
-            if ( backtracking==0 ) {
-               resetLookahead(); 
-                  	lastConsumedNode = currentNode;
-                  
-            }
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end ruleInsertQuery
-
-
-    // $ANTLR start entryRuleInsertDataQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2558:1: entryRuleInsertDataQuery returns [EObject current=null] : iv_ruleInsertDataQuery= ruleInsertDataQuery EOF ;
-    public final EObject entryRuleInsertDataQuery() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleInsertDataQuery = null;
-
-
-        try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2559:2: (iv_ruleInsertDataQuery= ruleInsertDataQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2560:2: iv_ruleInsertDataQuery= ruleInsertDataQuery EOF
-            {
-            if ( backtracking==0 ) {
-               currentNode = createCompositeNode(grammarAccess.getInsertDataQueryRule(), currentNode); 
-            }
-            pushFollow(FOLLOW_ruleInsertDataQuery_in_entryRuleInsertDataQuery3834);
-            iv_ruleInsertDataQuery=ruleInsertDataQuery();
-            _fsp--;
-            if (failed) return current;
-            if ( backtracking==0 ) {
-               current =iv_ruleInsertDataQuery; 
-            }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInsertDataQuery3844); if (failed) return current;
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end entryRuleInsertDataQuery
-
-
-    // $ANTLR start ruleInsertDataQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2567:1: ruleInsertDataQuery returns [EObject current=null] : ( KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) ) ) ;
-    public final EObject ruleInsertDataQuery() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_graph_3_0=null;
-        EObject lv_pattern_4_0 = null;
-
-
-         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-            
-        try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2572:6: ( ( KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2573:1: ( KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) ) )
-            {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2573:1: ( KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2574:2: KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) )
-            {
-            match(input,KEYWORD_65,FOLLOW_KEYWORD_65_in_ruleInsertDataQuery3880); if (failed) return current;
-            if ( backtracking==0 ) {
-
-                      createLeafNode(grammarAccess.getInsertDataQueryAccess().getINSERTKeyword_0(), null); 
-                  
-            }
-            match(input,KEYWORD_38,FOLLOW_KEYWORD_38_in_ruleInsertDataQuery3891); if (failed) return current;
-            if ( backtracking==0 ) {
-
-                      createLeafNode(grammarAccess.getInsertDataQueryAccess().getDATAKeyword_1(), null); 
-                  
-            }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2583:1: ( KEYWORD_41 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )?
-            int alt55=2;
-            int LA55_0 = input.LA(1);
-
-            if ( (LA55_0==KEYWORD_41) ) {
-                alt55=1;
-            }
-            switch (alt55) {
-                case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2584:2: KEYWORD_41 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
-                    {
-                    match(input,KEYWORD_41,FOLLOW_KEYWORD_41_in_ruleInsertDataQuery3903); if (failed) return current;
-                    if ( backtracking==0 ) {
-
-                              createLeafNode(grammarAccess.getInsertDataQueryAccess().getINTOKeyword_2_0(), null); 
-                          
-                    }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2588:1: ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2589:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2589:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2590:3: lv_graph_3_0= RULE_IRI_TERMINAL
-                    {
-                    lv_graph_3_0=(Token)input.LT(1);
-                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertDataQuery3920); if (failed) return current;
-                    if ( backtracking==0 ) {
-
-                      			createLeafNode(grammarAccess.getInsertDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), "graph"); 
-                      		
-                    }
-                    if ( backtracking==0 ) {
-
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getInsertDataQueryRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode, current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"graph",
-                      	        		lv_graph_3_0, 
-                      	        		"IRI_TERMINAL", 
-                      	        		lastConsumedNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	    
-                    }
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2612:4: ( (lv_pattern_4_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2613:1: (lv_pattern_4_0= ruleGroupGraphPattern )
-            {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2613:1: (lv_pattern_4_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2614:3: lv_pattern_4_0= ruleGroupGraphPattern
-            {
-            if ( backtracking==0 ) {
-               
-              	        currentNode=createCompositeNode(grammarAccess.getInsertDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
-              	    
-            }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleInsertDataQuery3948);
-            lv_pattern_4_0=ruleGroupGraphPattern();
-            _fsp--;
-            if (failed) return current;
-            if ( backtracking==0 ) {
-
-              	        if (current==null) {
-              	            current = factory.create(grammarAccess.getInsertDataQueryRule().getType().getClassifier());
-              	            associateNodeWithAstElement(currentNode.getParent(), current);
-              	        }
-              	        try {
-              	       		set(
-              	       			current, 
-              	       			"pattern",
-              	        		lv_pattern_4_0, 
-              	        		"GroupGraphPattern", 
-              	        		currentNode);
-              	        } catch (ValueConverterException vce) {
-              				handleValueConverterException(vce);
-              	        }
-              	        currentNode = currentNode.getParent();
-              	    
-            }
-
-            }
-
-
-            }
-
-
-            }
-
-
-            }
-
-            if ( backtracking==0 ) {
-               resetLookahead(); 
-                  	lastConsumedNode = currentNode;
-                  
-            }
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end ruleInsertDataQuery
-
-
-    // $ANTLR start entryRuleDeleteQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2644:1: entryRuleDeleteQuery returns [EObject current=null] : iv_ruleDeleteQuery= ruleDeleteQuery EOF ;
-    public final EObject entryRuleDeleteQuery() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleDeleteQuery = null;
-
-
-        try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2645:2: (iv_ruleDeleteQuery= ruleDeleteQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2646:2: iv_ruleDeleteQuery= ruleDeleteQuery EOF
-            {
-            if ( backtracking==0 ) {
-               currentNode = createCompositeNode(grammarAccess.getDeleteQueryRule(), currentNode); 
-            }
-            pushFollow(FOLLOW_ruleDeleteQuery_in_entryRuleDeleteQuery3983);
-            iv_ruleDeleteQuery=ruleDeleteQuery();
-            _fsp--;
-            if (failed) return current;
-            if ( backtracking==0 ) {
-               current =iv_ruleDeleteQuery; 
-            }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDeleteQuery3993); if (failed) return current;
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end entryRuleDeleteQuery
-
-
-    // $ANTLR start ruleDeleteQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2653:1: ruleDeleteQuery returns [EObject current=null] : ( KEYWORD_61 ( KEYWORD_40 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_5_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_6_0= ruleWhereClause ) )? ) ;
-    public final EObject ruleDeleteQuery() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_graph_2_0=null;
-        EObject lv_pattern_3_0 = null;
-
-        EObject lv_insertPattern_5_0 = null;
-
-        EObject lv_whereClause_6_0 = null;
-
-
-         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-            
-        try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2658:6: ( ( KEYWORD_61 ( KEYWORD_40 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_5_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_6_0= ruleWhereClause ) )? ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2659:1: ( KEYWORD_61 ( KEYWORD_40 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_5_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_6_0= ruleWhereClause ) )? )
-            {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2659:1: ( KEYWORD_61 ( KEYWORD_40 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_5_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_6_0= ruleWhereClause ) )? )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2660:2: KEYWORD_61 ( KEYWORD_40 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_5_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_6_0= ruleWhereClause ) )?
-            {
-            match(input,KEYWORD_61,FOLLOW_KEYWORD_61_in_ruleDeleteQuery4029); if (failed) return current;
-            if ( backtracking==0 ) {
-
-                      createLeafNode(grammarAccess.getDeleteQueryAccess().getDELETEKeyword_0(), null); 
-                  
-            }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2664:1: ( KEYWORD_40 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) ) )?
-            int alt56=2;
-            int LA56_0 = input.LA(1);
-
-            if ( (LA56_0==KEYWORD_40) ) {
-                alt56=1;
-            }
-            switch (alt56) {
-                case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2665:2: KEYWORD_40 ( (lv_graph_2_0= RULE_IRI_TERMINAL ) )
-                    {
-                    match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleDeleteQuery4041); if (failed) return current;
-                    if ( backtracking==0 ) {
-
-                              createLeafNode(grammarAccess.getDeleteQueryAccess().getFROMKeyword_1_0(), null); 
-                          
-                    }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2669:1: ( (lv_graph_2_0= RULE_IRI_TERMINAL ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2670:1: (lv_graph_2_0= RULE_IRI_TERMINAL )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2670:1: (lv_graph_2_0= RULE_IRI_TERMINAL )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2671:3: lv_graph_2_0= RULE_IRI_TERMINAL
-                    {
-                    lv_graph_2_0=(Token)input.LT(1);
-                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteQuery4058); if (failed) return current;
-                    if ( backtracking==0 ) {
-
-                      			createLeafNode(grammarAccess.getDeleteQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_1_1_0(), "graph"); 
-                      		
-                    }
-                    if ( backtracking==0 ) {
-
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode, current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"graph",
-                      	        		lv_graph_2_0, 
-                      	        		"IRI_TERMINAL", 
-                      	        		lastConsumedNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	    
-                    }
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2693:4: ( (lv_pattern_3_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2694:1: (lv_pattern_3_0= ruleGroupGraphPattern )
-            {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2694:1: (lv_pattern_3_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2695:3: lv_pattern_3_0= ruleGroupGraphPattern
-            {
-            if ( backtracking==0 ) {
-               
-              	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getPatternGroupGraphPatternParserRuleCall_2_0(), currentNode); 
-              	    
-            }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleDeleteQuery4086);
-            lv_pattern_3_0=ruleGroupGraphPattern();
-            _fsp--;
-            if (failed) return current;
-            if ( backtracking==0 ) {
-
-              	        if (current==null) {
-              	            current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
-              	            associateNodeWithAstElement(currentNode.getParent(), current);
-              	        }
-              	        try {
-              	       		set(
-              	       			current, 
-              	       			"pattern",
-              	        		lv_pattern_3_0, 
-              	        		"GroupGraphPattern", 
-              	        		currentNode);
-              	        } catch (ValueConverterException vce) {
-              				handleValueConverterException(vce);
-              	        }
-              	        currentNode = currentNode.getParent();
-              	    
-            }
-
-            }
-
-
-            }
-
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2717:2: ( KEYWORD_65 ( (lv_insertPattern_5_0= ruleGroupGraphPattern ) ) )?
-            int alt57=2;
-            int LA57_0 = input.LA(1);
-
-            if ( (LA57_0==KEYWORD_65) ) {
-                int LA57_1 = input.LA(2);
-
-                if ( (LA57_1==KEYWORD_16) ) {
-                    int LA57_3 = input.LA(3);
-
-                    if ( (synpred67()) ) {
-                        alt57=1;
-                    }
-                }
-            }
-            switch (alt57) {
-                case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2718:2: KEYWORD_65 ( (lv_insertPattern_5_0= ruleGroupGraphPattern ) )
-                    {
-                    match(input,KEYWORD_65,FOLLOW_KEYWORD_65_in_ruleDeleteQuery4098); if (failed) return current;
-                    if ( backtracking==0 ) {
-
-                              createLeafNode(grammarAccess.getDeleteQueryAccess().getINSERTKeyword_3_0(), null); 
-                          
-                    }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2722:1: ( (lv_insertPattern_5_0= ruleGroupGraphPattern ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2723:1: (lv_insertPattern_5_0= ruleGroupGraphPattern )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2723:1: (lv_insertPattern_5_0= ruleGroupGraphPattern )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2724:3: lv_insertPattern_5_0= ruleGroupGraphPattern
-                    {
-                    if ( backtracking==0 ) {
-                       
-                      	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getInsertPatternGroupGraphPatternParserRuleCall_3_1_0(), currentNode); 
-                      	    
-                    }
-                    pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleDeleteQuery4119);
-                    lv_insertPattern_5_0=ruleGroupGraphPattern();
-                    _fsp--;
-                    if (failed) return current;
-                    if ( backtracking==0 ) {
-
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"insertPattern",
-                      	        		lv_insertPattern_5_0, 
-                      	        		"GroupGraphPattern", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
-                    }
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2746:4: ( (lv_whereClause_6_0= ruleWhereClause ) )?
-            int alt58=2;
-            int LA58_0 = input.LA(1);
-
-            if ( (LA58_0==KEYWORD_57) ) {
-                alt58=1;
-            }
-            switch (alt58) {
-                case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2747:1: (lv_whereClause_6_0= ruleWhereClause )
-                    {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2747:1: (lv_whereClause_6_0= ruleWhereClause )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2748:3: lv_whereClause_6_0= ruleWhereClause
-                    {
-                    if ( backtracking==0 ) {
-                       
-                      	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getWhereClauseWhereClauseParserRuleCall_4_0(), currentNode); 
-                      	    
-                    }
-                    pushFollow(FOLLOW_ruleWhereClause_in_ruleDeleteQuery4142);
+                    pushFollow(FOLLOW_ruleWhereClause_in_ruleInsertQuery3659);
                     lv_whereClause_6_0=ruleWhereClause();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
                       	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
+                      	            current = factory.create(grammarAccess.getInsertQueryRule().getType().getClassifier());
                       	            associateNodeWithAstElement(currentNode.getParent(), current);
                       	        }
                       	        try {
@@ -6615,32 +5735,32 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end ruleDeleteQuery
+    // $ANTLR end ruleInsertQuery
 
 
-    // $ANTLR start entryRuleDeleteDataQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2778:1: entryRuleDeleteDataQuery returns [EObject current=null] : iv_ruleDeleteDataQuery= ruleDeleteDataQuery EOF ;
-    public final EObject entryRuleDeleteDataQuery() throws RecognitionException {
+    // $ANTLR start entryRuleInsertDataQuery
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2382:1: entryRuleInsertDataQuery returns [EObject current=null] : iv_ruleInsertDataQuery= ruleInsertDataQuery EOF ;
+    public final EObject entryRuleInsertDataQuery() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDeleteDataQuery = null;
+        EObject iv_ruleInsertDataQuery = null;
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2779:2: (iv_ruleDeleteDataQuery= ruleDeleteDataQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2780:2: iv_ruleDeleteDataQuery= ruleDeleteDataQuery EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2383:2: (iv_ruleInsertDataQuery= ruleInsertDataQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2384:2: iv_ruleInsertDataQuery= ruleInsertDataQuery EOF
             {
             if ( backtracking==0 ) {
-               currentNode = createCompositeNode(grammarAccess.getDeleteDataQueryRule(), currentNode); 
+               currentNode = createCompositeNode(grammarAccess.getInsertDataQueryRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleDeleteDataQuery_in_entryRuleDeleteDataQuery4178);
-            iv_ruleDeleteDataQuery=ruleDeleteDataQuery();
+            pushFollow(FOLLOW_ruleInsertDataQuery_in_entryRuleInsertDataQuery3695);
+            iv_ruleInsertDataQuery=ruleInsertDataQuery();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
-               current =iv_ruleDeleteDataQuery; 
+               current =iv_ruleInsertDataQuery; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDeleteDataQuery4188); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInsertDataQuery3705); if (failed) return current;
 
             }
 
@@ -6654,80 +5774,69 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end entryRuleDeleteDataQuery
+    // $ANTLR end entryRuleInsertDataQuery
 
 
-    // $ANTLR start ruleDeleteDataQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2787:1: ruleDeleteDataQuery returns [EObject current=null] : ( KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) ) ) ;
-    public final EObject ruleDeleteDataQuery() throws RecognitionException {
+    // $ANTLR start ruleInsertDataQuery
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2391:1: ruleInsertDataQuery returns [EObject current=null] : ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) ) ) ;
+    public final EObject ruleInsertDataQuery() throws RecognitionException {
         EObject current = null;
 
-        Token lv_graph_3_0=null;
-        EObject lv_pattern_4_0 = null;
+        Token lv_withGraph_1_0=null;
+        Token lv_graph_5_0=null;
+        EObject lv_pattern_6_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2792:6: ( ( KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2793:1: ( KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2396:6: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2397:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2793:1: ( KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2794:2: KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_4_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2397:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2397:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_65 KEYWORD_38 ( KEYWORD_41 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) )
             {
-            match(input,KEYWORD_61,FOLLOW_KEYWORD_61_in_ruleDeleteDataQuery4224); if (failed) return current;
-            if ( backtracking==0 ) {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2397:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )?
+            int alt51=2;
+            int LA51_0 = input.LA(1);
 
-                      createLeafNode(grammarAccess.getDeleteDataQueryAccess().getDELETEKeyword_0(), null); 
-                  
+            if ( (LA51_0==KEYWORD_44) ) {
+                alt51=1;
             }
-            match(input,KEYWORD_38,FOLLOW_KEYWORD_38_in_ruleDeleteDataQuery4235); if (failed) return current;
-            if ( backtracking==0 ) {
-
-                      createLeafNode(grammarAccess.getDeleteDataQueryAccess().getDATAKeyword_1(), null); 
-                  
-            }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2803:1: ( KEYWORD_40 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) ) )?
-            int alt59=2;
-            int LA59_0 = input.LA(1);
-
-            if ( (LA59_0==KEYWORD_40) ) {
-                alt59=1;
-            }
-            switch (alt59) {
+            switch (alt51) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2804:2: KEYWORD_40 ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2398:2: KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
                     {
-                    match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleDeleteDataQuery4247); if (failed) return current;
+                    match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleInsertDataQuery3742); if (failed) return current;
                     if ( backtracking==0 ) {
 
-                              createLeafNode(grammarAccess.getDeleteDataQueryAccess().getFROMKeyword_2_0(), null); 
+                              createLeafNode(grammarAccess.getInsertDataQueryAccess().getWITHKeyword_0_0(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2808:1: ( (lv_graph_3_0= RULE_IRI_TERMINAL ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2809:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2402:1: ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2403:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2809:1: (lv_graph_3_0= RULE_IRI_TERMINAL )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2810:3: lv_graph_3_0= RULE_IRI_TERMINAL
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2403:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2404:3: lv_withGraph_1_0= RULE_IRI_TERMINAL
                     {
-                    lv_graph_3_0=(Token)input.LT(1);
-                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteDataQuery4264); if (failed) return current;
+                    lv_withGraph_1_0=(Token)input.LT(1);
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertDataQuery3759); if (failed) return current;
                     if ( backtracking==0 ) {
 
-                      			createLeafNode(grammarAccess.getDeleteDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), "graph"); 
+                      			createLeafNode(grammarAccess.getInsertDataQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
                       		
                     }
                     if ( backtracking==0 ) {
 
                       	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getDeleteDataQueryRule().getType().getClassifier());
+                      	            current = factory.create(grammarAccess.getInsertDataQueryRule().getType().getClassifier());
                       	            associateNodeWithAstElement(currentNode, current);
                       	        }
                       	        try {
                       	       		set(
                       	       			current, 
-                      	       			"graph",
-                      	        		lv_graph_3_0, 
+                      	       			"withGraph",
+                      	        		lv_withGraph_1_0, 
                       	        		"IRI_TERMINAL", 
                       	        		lastConsumedNode);
                       	        } catch (ValueConverterException vce) {
@@ -6747,19 +5856,719 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2832:4: ( (lv_pattern_4_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2833:1: (lv_pattern_4_0= ruleGroupGraphPattern )
+            match(input,KEYWORD_65,FOLLOW_KEYWORD_65_in_ruleInsertDataQuery3777); if (failed) return current;
+            if ( backtracking==0 ) {
+
+                      createLeafNode(grammarAccess.getInsertDataQueryAccess().getINSERTKeyword_1(), null); 
+                  
+            }
+            match(input,KEYWORD_38,FOLLOW_KEYWORD_38_in_ruleInsertDataQuery3788); if (failed) return current;
+            if ( backtracking==0 ) {
+
+                      createLeafNode(grammarAccess.getInsertDataQueryAccess().getDATAKeyword_2(), null); 
+                  
+            }
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2436:1: ( KEYWORD_41 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )?
+            int alt52=2;
+            int LA52_0 = input.LA(1);
+
+            if ( (LA52_0==KEYWORD_41) ) {
+                alt52=1;
+            }
+            switch (alt52) {
+                case 1 :
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2437:2: KEYWORD_41 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) )
+                    {
+                    match(input,KEYWORD_41,FOLLOW_KEYWORD_41_in_ruleInsertDataQuery3800); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getInsertDataQueryAccess().getINTOKeyword_3_0(), null); 
+                          
+                    }
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2441:1: ( (lv_graph_5_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2442:1: (lv_graph_5_0= RULE_IRI_TERMINAL )
+                    {
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2442:1: (lv_graph_5_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2443:3: lv_graph_5_0= RULE_IRI_TERMINAL
+                    {
+                    lv_graph_5_0=(Token)input.LT(1);
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertDataQuery3817); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      			createLeafNode(grammarAccess.getInsertDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_1_0(), "graph"); 
+                      		
+                    }
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getInsertDataQueryRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode, current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"graph",
+                      	        		lv_graph_5_0, 
+                      	        		"IRI_TERMINAL", 
+                      	        		lastConsumedNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2465:4: ( (lv_pattern_6_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2466:1: (lv_pattern_6_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2833:1: (lv_pattern_4_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2834:3: lv_pattern_4_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2466:1: (lv_pattern_6_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2467:3: lv_pattern_6_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
-              	        currentNode=createCompositeNode(grammarAccess.getDeleteDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
+              	        currentNode=createCompositeNode(grammarAccess.getInsertDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_4_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleDeleteDataQuery4292);
-            lv_pattern_4_0=ruleGroupGraphPattern();
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleInsertDataQuery3845);
+            lv_pattern_6_0=ruleGroupGraphPattern();
+            _fsp--;
+            if (failed) return current;
+            if ( backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = factory.create(grammarAccess.getInsertDataQueryRule().getType().getClassifier());
+              	            associateNodeWithAstElement(currentNode.getParent(), current);
+              	        }
+              	        try {
+              	       		set(
+              	       			current, 
+              	       			"pattern",
+              	        		lv_pattern_6_0, 
+              	        		"GroupGraphPattern", 
+              	        		currentNode);
+              	        } catch (ValueConverterException vce) {
+              				handleValueConverterException(vce);
+              	        }
+              	        currentNode = currentNode.getParent();
+              	    
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( backtracking==0 ) {
+               resetLookahead(); 
+                  	lastConsumedNode = currentNode;
+                  
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleInsertDataQuery
+
+
+    // $ANTLR start entryRuleDeleteQuery
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2497:1: entryRuleDeleteQuery returns [EObject current=null] : iv_ruleDeleteQuery= ruleDeleteQuery EOF ;
+    public final EObject entryRuleDeleteQuery() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDeleteQuery = null;
+
+
+        try {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2498:2: (iv_ruleDeleteQuery= ruleDeleteQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2499:2: iv_ruleDeleteQuery= ruleDeleteQuery EOF
+            {
+            if ( backtracking==0 ) {
+               currentNode = createCompositeNode(grammarAccess.getDeleteQueryRule(), currentNode); 
+            }
+            pushFollow(FOLLOW_ruleDeleteQuery_in_entryRuleDeleteQuery3880);
+            iv_ruleDeleteQuery=ruleDeleteQuery();
+            _fsp--;
+            if (failed) return current;
+            if ( backtracking==0 ) {
+               current =iv_ruleDeleteQuery; 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDeleteQuery3890); if (failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleDeleteQuery
+
+
+    // $ANTLR start ruleDeleteQuery
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2506:1: ruleDeleteQuery returns [EObject current=null] : ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 ( KEYWORD_40 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_7_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_8_0= ruleWhereClause ) )? ) ;
+    public final EObject ruleDeleteQuery() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_withGraph_1_0=null;
+        Token lv_graph_4_0=null;
+        EObject lv_pattern_5_0 = null;
+
+        EObject lv_insertPattern_7_0 = null;
+
+        EObject lv_whereClause_8_0 = null;
+
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2511:6: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 ( KEYWORD_40 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_7_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_8_0= ruleWhereClause ) )? ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2512:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 ( KEYWORD_40 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_7_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_8_0= ruleWhereClause ) )? )
+            {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2512:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 ( KEYWORD_40 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_7_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_8_0= ruleWhereClause ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2512:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 ( KEYWORD_40 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) ( KEYWORD_65 ( (lv_insertPattern_7_0= ruleGroupGraphPattern ) ) )? ( (lv_whereClause_8_0= ruleWhereClause ) )?
+            {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2512:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )?
+            int alt53=2;
+            int LA53_0 = input.LA(1);
+
+            if ( (LA53_0==KEYWORD_44) ) {
+                alt53=1;
+            }
+            switch (alt53) {
+                case 1 :
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2513:2: KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
+                    {
+                    match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleDeleteQuery3927); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getDeleteQueryAccess().getWITHKeyword_0_0(), null); 
+                          
+                    }
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2517:1: ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2518:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
+                    {
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2518:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2519:3: lv_withGraph_1_0= RULE_IRI_TERMINAL
+                    {
+                    lv_withGraph_1_0=(Token)input.LT(1);
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteQuery3944); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      			createLeafNode(grammarAccess.getDeleteQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
+                      		
+                    }
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode, current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"withGraph",
+                      	        		lv_withGraph_1_0, 
+                      	        		"IRI_TERMINAL", 
+                      	        		lastConsumedNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            match(input,KEYWORD_61,FOLLOW_KEYWORD_61_in_ruleDeleteQuery3962); if (failed) return current;
+            if ( backtracking==0 ) {
+
+                      createLeafNode(grammarAccess.getDeleteQueryAccess().getDELETEKeyword_1(), null); 
+                  
+            }
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2546:1: ( KEYWORD_40 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) ) )?
+            int alt54=2;
+            int LA54_0 = input.LA(1);
+
+            if ( (LA54_0==KEYWORD_40) ) {
+                alt54=1;
+            }
+            switch (alt54) {
+                case 1 :
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2547:2: KEYWORD_40 ( (lv_graph_4_0= RULE_IRI_TERMINAL ) )
+                    {
+                    match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleDeleteQuery3974); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getDeleteQueryAccess().getFROMKeyword_2_0(), null); 
+                          
+                    }
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2551:1: ( (lv_graph_4_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2552:1: (lv_graph_4_0= RULE_IRI_TERMINAL )
+                    {
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2552:1: (lv_graph_4_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2553:3: lv_graph_4_0= RULE_IRI_TERMINAL
+                    {
+                    lv_graph_4_0=(Token)input.LT(1);
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteQuery3991); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      			createLeafNode(grammarAccess.getDeleteQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), "graph"); 
+                      		
+                    }
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode, current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"graph",
+                      	        		lv_graph_4_0, 
+                      	        		"IRI_TERMINAL", 
+                      	        		lastConsumedNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2575:4: ( (lv_pattern_5_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2576:1: (lv_pattern_5_0= ruleGroupGraphPattern )
+            {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2576:1: (lv_pattern_5_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2577:3: lv_pattern_5_0= ruleGroupGraphPattern
+            {
+            if ( backtracking==0 ) {
+               
+              	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleDeleteQuery4019);
+            lv_pattern_5_0=ruleGroupGraphPattern();
+            _fsp--;
+            if (failed) return current;
+            if ( backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
+              	            associateNodeWithAstElement(currentNode.getParent(), current);
+              	        }
+              	        try {
+              	       		set(
+              	       			current, 
+              	       			"pattern",
+              	        		lv_pattern_5_0, 
+              	        		"GroupGraphPattern", 
+              	        		currentNode);
+              	        } catch (ValueConverterException vce) {
+              				handleValueConverterException(vce);
+              	        }
+              	        currentNode = currentNode.getParent();
+              	    
+            }
+
+            }
+
+
+            }
+
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2599:2: ( KEYWORD_65 ( (lv_insertPattern_7_0= ruleGroupGraphPattern ) ) )?
+            int alt55=2;
+            int LA55_0 = input.LA(1);
+
+            if ( (LA55_0==KEYWORD_65) ) {
+                int LA55_1 = input.LA(2);
+
+                if ( (LA55_1==KEYWORD_16) ) {
+                    int LA55_3 = input.LA(3);
+
+                    if ( (synpred65()) ) {
+                        alt55=1;
+                    }
+                }
+            }
+            switch (alt55) {
+                case 1 :
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2600:2: KEYWORD_65 ( (lv_insertPattern_7_0= ruleGroupGraphPattern ) )
+                    {
+                    match(input,KEYWORD_65,FOLLOW_KEYWORD_65_in_ruleDeleteQuery4031); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getDeleteQueryAccess().getINSERTKeyword_4_0(), null); 
+                          
+                    }
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2604:1: ( (lv_insertPattern_7_0= ruleGroupGraphPattern ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2605:1: (lv_insertPattern_7_0= ruleGroupGraphPattern )
+                    {
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2605:1: (lv_insertPattern_7_0= ruleGroupGraphPattern )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2606:3: lv_insertPattern_7_0= ruleGroupGraphPattern
+                    {
+                    if ( backtracking==0 ) {
+                       
+                      	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getInsertPatternGroupGraphPatternParserRuleCall_4_1_0(), currentNode); 
+                      	    
+                    }
+                    pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleDeleteQuery4052);
+                    lv_insertPattern_7_0=ruleGroupGraphPattern();
+                    _fsp--;
+                    if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode.getParent(), current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"insertPattern",
+                      	        		lv_insertPattern_7_0, 
+                      	        		"GroupGraphPattern", 
+                      	        		currentNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	        currentNode = currentNode.getParent();
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2628:4: ( (lv_whereClause_8_0= ruleWhereClause ) )?
+            int alt56=2;
+            int LA56_0 = input.LA(1);
+
+            if ( (LA56_0==KEYWORD_57) ) {
+                alt56=1;
+            }
+            switch (alt56) {
+                case 1 :
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2629:1: (lv_whereClause_8_0= ruleWhereClause )
+                    {
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2629:1: (lv_whereClause_8_0= ruleWhereClause )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2630:3: lv_whereClause_8_0= ruleWhereClause
+                    {
+                    if ( backtracking==0 ) {
+                       
+                      	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getWhereClauseWhereClauseParserRuleCall_5_0(), currentNode); 
+                      	    
+                    }
+                    pushFollow(FOLLOW_ruleWhereClause_in_ruleDeleteQuery4075);
+                    lv_whereClause_8_0=ruleWhereClause();
+                    _fsp--;
+                    if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getDeleteQueryRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode.getParent(), current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"whereClause",
+                      	        		lv_whereClause_8_0, 
+                      	        		"WhereClause", 
+                      	        		currentNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	        currentNode = currentNode.getParent();
+                      	    
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( backtracking==0 ) {
+               resetLookahead(); 
+                  	lastConsumedNode = currentNode;
+                  
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleDeleteQuery
+
+
+    // $ANTLR start entryRuleDeleteDataQuery
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2660:1: entryRuleDeleteDataQuery returns [EObject current=null] : iv_ruleDeleteDataQuery= ruleDeleteDataQuery EOF ;
+    public final EObject entryRuleDeleteDataQuery() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDeleteDataQuery = null;
+
+
+        try {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2661:2: (iv_ruleDeleteDataQuery= ruleDeleteDataQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2662:2: iv_ruleDeleteDataQuery= ruleDeleteDataQuery EOF
+            {
+            if ( backtracking==0 ) {
+               currentNode = createCompositeNode(grammarAccess.getDeleteDataQueryRule(), currentNode); 
+            }
+            pushFollow(FOLLOW_ruleDeleteDataQuery_in_entryRuleDeleteDataQuery4111);
+            iv_ruleDeleteDataQuery=ruleDeleteDataQuery();
+            _fsp--;
+            if (failed) return current;
+            if ( backtracking==0 ) {
+               current =iv_ruleDeleteDataQuery; 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDeleteDataQuery4121); if (failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleDeleteDataQuery
+
+
+    // $ANTLR start ruleDeleteDataQuery
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2669:1: ruleDeleteDataQuery returns [EObject current=null] : ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) ) ) ;
+    public final EObject ruleDeleteDataQuery() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_withGraph_1_0=null;
+        Token lv_graph_5_0=null;
+        EObject lv_pattern_6_0 = null;
+
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2674:6: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2675:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) ) )
+            {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2675:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2675:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_38 ( KEYWORD_40 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )? ( (lv_pattern_6_0= ruleGroupGraphPattern ) )
+            {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2675:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )?
+            int alt57=2;
+            int LA57_0 = input.LA(1);
+
+            if ( (LA57_0==KEYWORD_44) ) {
+                alt57=1;
+            }
+            switch (alt57) {
+                case 1 :
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2676:2: KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
+                    {
+                    match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleDeleteDataQuery4158); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getDeleteDataQueryAccess().getWITHKeyword_0_0(), null); 
+                          
+                    }
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2680:1: ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2681:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
+                    {
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2681:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2682:3: lv_withGraph_1_0= RULE_IRI_TERMINAL
+                    {
+                    lv_withGraph_1_0=(Token)input.LT(1);
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteDataQuery4175); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      			createLeafNode(grammarAccess.getDeleteDataQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
+                      		
+                    }
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getDeleteDataQueryRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode, current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"withGraph",
+                      	        		lv_withGraph_1_0, 
+                      	        		"IRI_TERMINAL", 
+                      	        		lastConsumedNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            match(input,KEYWORD_61,FOLLOW_KEYWORD_61_in_ruleDeleteDataQuery4193); if (failed) return current;
+            if ( backtracking==0 ) {
+
+                      createLeafNode(grammarAccess.getDeleteDataQueryAccess().getDELETEKeyword_1(), null); 
+                  
+            }
+            match(input,KEYWORD_38,FOLLOW_KEYWORD_38_in_ruleDeleteDataQuery4204); if (failed) return current;
+            if ( backtracking==0 ) {
+
+                      createLeafNode(grammarAccess.getDeleteDataQueryAccess().getDATAKeyword_2(), null); 
+                  
+            }
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2714:1: ( KEYWORD_40 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) ) )?
+            int alt58=2;
+            int LA58_0 = input.LA(1);
+
+            if ( (LA58_0==KEYWORD_40) ) {
+                alt58=1;
+            }
+            switch (alt58) {
+                case 1 :
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2715:2: KEYWORD_40 ( (lv_graph_5_0= RULE_IRI_TERMINAL ) )
+                    {
+                    match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleDeleteDataQuery4216); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getDeleteDataQueryAccess().getFROMKeyword_3_0(), null); 
+                          
+                    }
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2719:1: ( (lv_graph_5_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2720:1: (lv_graph_5_0= RULE_IRI_TERMINAL )
+                    {
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2720:1: (lv_graph_5_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2721:3: lv_graph_5_0= RULE_IRI_TERMINAL
+                    {
+                    lv_graph_5_0=(Token)input.LT(1);
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteDataQuery4233); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      			createLeafNode(grammarAccess.getDeleteDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_1_0(), "graph"); 
+                      		
+                    }
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getDeleteDataQueryRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode, current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"graph",
+                      	        		lv_graph_5_0, 
+                      	        		"IRI_TERMINAL", 
+                      	        		lastConsumedNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2743:4: ( (lv_pattern_6_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2744:1: (lv_pattern_6_0= ruleGroupGraphPattern )
+            {
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2744:1: (lv_pattern_6_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2745:3: lv_pattern_6_0= ruleGroupGraphPattern
+            {
+            if ( backtracking==0 ) {
+               
+              	        currentNode=createCompositeNode(grammarAccess.getDeleteDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_4_0(), currentNode); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleDeleteDataQuery4261);
+            lv_pattern_6_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
@@ -6772,7 +6581,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
               	       		set(
               	       			current, 
               	       			"pattern",
-              	        		lv_pattern_4_0, 
+              	        		lv_pattern_6_0, 
               	        		"GroupGraphPattern", 
               	        		currentNode);
               	        } catch (ValueConverterException vce) {
@@ -6812,7 +6621,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDeleteWhereQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2864:1: entryRuleDeleteWhereQuery returns [EObject current=null] : iv_ruleDeleteWhereQuery= ruleDeleteWhereQuery EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2775:1: entryRuleDeleteWhereQuery returns [EObject current=null] : iv_ruleDeleteWhereQuery= ruleDeleteWhereQuery EOF ;
     public final EObject entryRuleDeleteWhereQuery() throws RecognitionException {
         EObject current = null;
 
@@ -6820,20 +6629,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2865:2: (iv_ruleDeleteWhereQuery= ruleDeleteWhereQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2866:2: iv_ruleDeleteWhereQuery= ruleDeleteWhereQuery EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2776:2: (iv_ruleDeleteWhereQuery= ruleDeleteWhereQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2777:2: iv_ruleDeleteWhereQuery= ruleDeleteWhereQuery EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDeleteWhereQueryRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleDeleteWhereQuery_in_entryRuleDeleteWhereQuery4327);
+            pushFollow(FOLLOW_ruleDeleteWhereQuery_in_entryRuleDeleteWhereQuery4296);
             iv_ruleDeleteWhereQuery=ruleDeleteWhereQuery();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleDeleteWhereQuery; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDeleteWhereQuery4337); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDeleteWhereQuery4306); if (failed) return current;
 
             }
 
@@ -6851,53 +6660,114 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDeleteWhereQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2873:1: ruleDeleteWhereQuery returns [EObject current=null] : ( KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) KEYWORD_17 ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2784:1: ruleDeleteWhereQuery returns [EObject current=null] : ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) KEYWORD_17 ) ;
     public final EObject ruleDeleteWhereQuery() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_pattern_3_0 = null;
+        Token lv_withGraph_1_0=null;
+        EObject lv_pattern_5_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2878:6: ( ( KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) KEYWORD_17 ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2879:1: ( KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) KEYWORD_17 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2789:6: ( ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) KEYWORD_17 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2790:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) KEYWORD_17 )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2879:1: ( KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) KEYWORD_17 )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2880:2: KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) KEYWORD_17
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2790:1: ( ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) KEYWORD_17 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2790:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )? KEYWORD_61 KEYWORD_57 KEYWORD_16 ( (lv_pattern_5_0= ruleGroupGraphPattern ) ) KEYWORD_17
             {
-            match(input,KEYWORD_61,FOLLOW_KEYWORD_61_in_ruleDeleteWhereQuery4373); if (failed) return current;
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2790:2: ( KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) ) )?
+            int alt59=2;
+            int LA59_0 = input.LA(1);
+
+            if ( (LA59_0==KEYWORD_44) ) {
+                alt59=1;
+            }
+            switch (alt59) {
+                case 1 :
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2791:2: KEYWORD_44 ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
+                    {
+                    match(input,KEYWORD_44,FOLLOW_KEYWORD_44_in_ruleDeleteWhereQuery4343); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getWITHKeyword_0_0(), null); 
+                          
+                    }
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2795:1: ( (lv_withGraph_1_0= RULE_IRI_TERMINAL ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2796:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
+                    {
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2796:1: (lv_withGraph_1_0= RULE_IRI_TERMINAL )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2797:3: lv_withGraph_1_0= RULE_IRI_TERMINAL
+                    {
+                    lv_withGraph_1_0=(Token)input.LT(1);
+                    match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteWhereQuery4360); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      			createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), "withGraph"); 
+                      		
+                    }
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getDeleteWhereQueryRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode, current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"withGraph",
+                      	        		lv_withGraph_1_0, 
+                      	        		"IRI_TERMINAL", 
+                      	        		lastConsumedNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            match(input,KEYWORD_61,FOLLOW_KEYWORD_61_in_ruleDeleteWhereQuery4378); if (failed) return current;
             if ( backtracking==0 ) {
 
-                      createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getDELETEKeyword_0(), null); 
+                      createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getDELETEKeyword_1(), null); 
                   
             }
-            match(input,KEYWORD_57,FOLLOW_KEYWORD_57_in_ruleDeleteWhereQuery4384); if (failed) return current;
+            match(input,KEYWORD_57,FOLLOW_KEYWORD_57_in_ruleDeleteWhereQuery4389); if (failed) return current;
             if ( backtracking==0 ) {
 
-                      createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getWHEREKeyword_1(), null); 
+                      createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getWHEREKeyword_2(), null); 
                   
             }
-            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_ruleDeleteWhereQuery4395); if (failed) return current;
+            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_ruleDeleteWhereQuery4400); if (failed) return current;
             if ( backtracking==0 ) {
 
-                      createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getLeftCurlyBracketKeyword_2(), null); 
+                      createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getLeftCurlyBracketKeyword_3(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2894:1: ( (lv_pattern_3_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2895:1: (lv_pattern_3_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2834:1: ( (lv_pattern_5_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2835:1: (lv_pattern_5_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2895:1: (lv_pattern_3_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2896:3: lv_pattern_3_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2835:1: (lv_pattern_5_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2836:3: lv_pattern_5_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
-              	        currentNode=createCompositeNode(grammarAccess.getDeleteWhereQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
+              	        currentNode=createCompositeNode(grammarAccess.getDeleteWhereQueryAccess().getPatternGroupGraphPatternParserRuleCall_4_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleDeleteWhereQuery4416);
-            lv_pattern_3_0=ruleGroupGraphPattern();
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleDeleteWhereQuery4421);
+            lv_pattern_5_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
@@ -6910,7 +6780,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
               	       		set(
               	       			current, 
               	       			"pattern",
-              	        		lv_pattern_3_0, 
+              	        		lv_pattern_5_0, 
               	        		"GroupGraphPattern", 
               	        		currentNode);
               	        } catch (ValueConverterException vce) {
@@ -6925,10 +6795,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_17,FOLLOW_KEYWORD_17_in_ruleDeleteWhereQuery4427); if (failed) return current;
+            match(input,KEYWORD_17,FOLLOW_KEYWORD_17_in_ruleDeleteWhereQuery4432); if (failed) return current;
             if ( backtracking==0 ) {
 
-                      createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getRightCurlyBracketKeyword_4(), null); 
+                      createLeafNode(grammarAccess.getDeleteWhereQueryAccess().getRightCurlyBracketKeyword_5(), null); 
                   
             }
 
@@ -6956,7 +6826,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDatasetClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2931:1: entryRuleDatasetClause returns [EObject current=null] : iv_ruleDatasetClause= ruleDatasetClause EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2871:1: entryRuleDatasetClause returns [EObject current=null] : iv_ruleDatasetClause= ruleDatasetClause EOF ;
     public final EObject entryRuleDatasetClause() throws RecognitionException {
         EObject current = null;
 
@@ -6964,20 +6834,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2932:2: (iv_ruleDatasetClause= ruleDatasetClause EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2933:2: iv_ruleDatasetClause= ruleDatasetClause EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2872:2: (iv_ruleDatasetClause= ruleDatasetClause EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2873:2: iv_ruleDatasetClause= ruleDatasetClause EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDatasetClauseRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleDatasetClause_in_entryRuleDatasetClause4462);
+            pushFollow(FOLLOW_ruleDatasetClause_in_entryRuleDatasetClause4467);
             iv_ruleDatasetClause=ruleDatasetClause();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleDatasetClause; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDatasetClause4472); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDatasetClause4477); if (failed) return current;
 
             }
 
@@ -6995,7 +6865,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDatasetClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2940:1: ruleDatasetClause returns [EObject current=null] : (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2880:1: ruleDatasetClause returns [EObject current=null] : (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet ) ;
     public final EObject ruleDatasetClause() throws RecognitionException {
         EObject current = null;
 
@@ -7009,23 +6879,23 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2945:6: ( (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2946:1: (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2885:6: ( (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2886:1: (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2946:1: (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2886:1: (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet )
             int alt60=3;
             int LA60_0 = input.LA(1);
 
             if ( (LA60_0==KEYWORD_40) ) {
                 switch ( input.LA(2) ) {
-                case KEYWORD_72:
-                    {
-                    alt60=3;
-                    }
-                    break;
                 case KEYWORD_53:
                     {
                     alt60=2;
+                    }
+                    break;
+                case KEYWORD_72:
+                    {
+                    alt60=3;
                     }
                     break;
                 case RULE_IRI_TERMINAL:
@@ -7036,7 +6906,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                 default:
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("2946:1: (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet )", 60, 1, input);
+                        new NoViableAltException("2886:1: (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet )", 60, 1, input);
 
                     throw nvae;
                 }
@@ -7045,13 +6915,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("2946:1: (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet )", 60, 0, input);
+                    new NoViableAltException("2886:1: (this_DefaultDataSet_0= ruleDefaultDataSet | this_NamedDataSet_1= ruleNamedDataSet | this_ServiceDataSet_2= ruleServiceDataSet )", 60, 0, input);
 
                 throw nvae;
             }
             switch (alt60) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2947:2: this_DefaultDataSet_0= ruleDefaultDataSet
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2887:2: this_DefaultDataSet_0= ruleDefaultDataSet
                     {
                     if ( backtracking==0 ) {
                        
@@ -7063,13 +6933,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getDatasetClauseAccess().getDefaultDataSetParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleDefaultDataSet_in_ruleDatasetClause4522);
+                    pushFollow(FOLLOW_ruleDefaultDataSet_in_ruleDatasetClause4527);
                     this_DefaultDataSet_0=ruleDefaultDataSet();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_DefaultDataSet_0; 
+
+                              current = this_DefaultDataSet_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -7077,7 +6947,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2960:2: this_NamedDataSet_1= ruleNamedDataSet
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2900:2: this_NamedDataSet_1= ruleNamedDataSet
                     {
                     if ( backtracking==0 ) {
                        
@@ -7089,13 +6959,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getDatasetClauseAccess().getNamedDataSetParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNamedDataSet_in_ruleDatasetClause4552);
+                    pushFollow(FOLLOW_ruleNamedDataSet_in_ruleDatasetClause4557);
                     this_NamedDataSet_1=ruleNamedDataSet();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_NamedDataSet_1; 
+
+                              current = this_NamedDataSet_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -7103,7 +6973,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2973:2: this_ServiceDataSet_2= ruleServiceDataSet
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2913:2: this_ServiceDataSet_2= ruleServiceDataSet
                     {
                     if ( backtracking==0 ) {
                        
@@ -7115,13 +6985,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getDatasetClauseAccess().getServiceDataSetParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleServiceDataSet_in_ruleDatasetClause4582);
+                    pushFollow(FOLLOW_ruleServiceDataSet_in_ruleDatasetClause4587);
                     this_ServiceDataSet_2=ruleServiceDataSet();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_ServiceDataSet_2; 
+
+                              current = this_ServiceDataSet_2;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -7153,7 +7023,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDefaultDataSet
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2992:1: entryRuleDefaultDataSet returns [EObject current=null] : iv_ruleDefaultDataSet= ruleDefaultDataSet EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2932:1: entryRuleDefaultDataSet returns [EObject current=null] : iv_ruleDefaultDataSet= ruleDefaultDataSet EOF ;
     public final EObject entryRuleDefaultDataSet() throws RecognitionException {
         EObject current = null;
 
@@ -7161,20 +7031,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2993:2: (iv_ruleDefaultDataSet= ruleDefaultDataSet EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2994:2: iv_ruleDefaultDataSet= ruleDefaultDataSet EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2933:2: (iv_ruleDefaultDataSet= ruleDefaultDataSet EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2934:2: iv_ruleDefaultDataSet= ruleDefaultDataSet EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDefaultDataSetRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleDefaultDataSet_in_entryRuleDefaultDataSet4616);
+            pushFollow(FOLLOW_ruleDefaultDataSet_in_entryRuleDefaultDataSet4621);
             iv_ruleDefaultDataSet=ruleDefaultDataSet();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleDefaultDataSet; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDefaultDataSet4626); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDefaultDataSet4631); if (failed) return current;
 
             }
 
@@ -7192,7 +7062,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDefaultDataSet
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3001:1: ruleDefaultDataSet returns [EObject current=null] : ( KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2941:1: ruleDefaultDataSet returns [EObject current=null] : ( KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) ) ) ;
     public final EObject ruleDefaultDataSet() throws RecognitionException {
         EObject current = null;
 
@@ -7202,30 +7072,30 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3006:6: ( ( KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3007:1: ( KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2946:6: ( ( KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2947:1: ( KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3007:1: ( KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3008:2: KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2947:1: ( KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2948:2: KEYWORD_40 ( (lv_dataSet_1_0= ruleIRI ) )
             {
-            match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleDefaultDataSet4662); if (failed) return current;
+            match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleDefaultDataSet4667); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getDefaultDataSetAccess().getFROMKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3012:1: ( (lv_dataSet_1_0= ruleIRI ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3013:1: (lv_dataSet_1_0= ruleIRI )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2952:1: ( (lv_dataSet_1_0= ruleIRI ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2953:1: (lv_dataSet_1_0= ruleIRI )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3013:1: (lv_dataSet_1_0= ruleIRI )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3014:3: lv_dataSet_1_0= ruleIRI
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2953:1: (lv_dataSet_1_0= ruleIRI )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2954:3: lv_dataSet_1_0= ruleIRI
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getDefaultDataSetAccess().getDataSetIRIParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleIRI_in_ruleDefaultDataSet4683);
+            pushFollow(FOLLOW_ruleIRI_in_ruleDefaultDataSet4688);
             lv_dataSet_1_0=ruleIRI();
             _fsp--;
             if (failed) return current;
@@ -7279,7 +7149,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleNamedDataSet
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3044:1: entryRuleNamedDataSet returns [EObject current=null] : iv_ruleNamedDataSet= ruleNamedDataSet EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2984:1: entryRuleNamedDataSet returns [EObject current=null] : iv_ruleNamedDataSet= ruleNamedDataSet EOF ;
     public final EObject entryRuleNamedDataSet() throws RecognitionException {
         EObject current = null;
 
@@ -7287,20 +7157,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3045:2: (iv_ruleNamedDataSet= ruleNamedDataSet EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3046:2: iv_ruleNamedDataSet= ruleNamedDataSet EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2985:2: (iv_ruleNamedDataSet= ruleNamedDataSet EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2986:2: iv_ruleNamedDataSet= ruleNamedDataSet EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getNamedDataSetRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleNamedDataSet_in_entryRuleNamedDataSet4718);
+            pushFollow(FOLLOW_ruleNamedDataSet_in_entryRuleNamedDataSet4723);
             iv_ruleNamedDataSet=ruleNamedDataSet();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleNamedDataSet; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNamedDataSet4728); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNamedDataSet4733); if (failed) return current;
 
             }
 
@@ -7318,7 +7188,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleNamedDataSet
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3053:1: ruleNamedDataSet returns [EObject current=null] : ( KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2993:1: ruleNamedDataSet returns [EObject current=null] : ( KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) ) ) ;
     public final EObject ruleNamedDataSet() throws RecognitionException {
         EObject current = null;
 
@@ -7328,36 +7198,36 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3058:6: ( ( KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3059:1: ( KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2998:6: ( ( KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2999:1: ( KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3059:1: ( KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3060:2: KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2999:1: ( KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3000:2: KEYWORD_40 KEYWORD_53 ( (lv_dataSet_2_0= ruleIRI ) )
             {
-            match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleNamedDataSet4764); if (failed) return current;
+            match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleNamedDataSet4769); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getNamedDataSetAccess().getFROMKeyword_0(), null); 
                   
             }
-            match(input,KEYWORD_53,FOLLOW_KEYWORD_53_in_ruleNamedDataSet4775); if (failed) return current;
+            match(input,KEYWORD_53,FOLLOW_KEYWORD_53_in_ruleNamedDataSet4780); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getNamedDataSetAccess().getNAMEDKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3069:1: ( (lv_dataSet_2_0= ruleIRI ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3070:1: (lv_dataSet_2_0= ruleIRI )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3009:1: ( (lv_dataSet_2_0= ruleIRI ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3010:1: (lv_dataSet_2_0= ruleIRI )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3070:1: (lv_dataSet_2_0= ruleIRI )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3071:3: lv_dataSet_2_0= ruleIRI
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3010:1: (lv_dataSet_2_0= ruleIRI )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3011:3: lv_dataSet_2_0= ruleIRI
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getNamedDataSetAccess().getDataSetIRIParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleIRI_in_ruleNamedDataSet4796);
+            pushFollow(FOLLOW_ruleIRI_in_ruleNamedDataSet4801);
             lv_dataSet_2_0=ruleIRI();
             _fsp--;
             if (failed) return current;
@@ -7411,7 +7281,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleServiceDataSet
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3101:1: entryRuleServiceDataSet returns [EObject current=null] : iv_ruleServiceDataSet= ruleServiceDataSet EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3041:1: entryRuleServiceDataSet returns [EObject current=null] : iv_ruleServiceDataSet= ruleServiceDataSet EOF ;
     public final EObject entryRuleServiceDataSet() throws RecognitionException {
         EObject current = null;
 
@@ -7419,20 +7289,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3102:2: (iv_ruleServiceDataSet= ruleServiceDataSet EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3103:2: iv_ruleServiceDataSet= ruleServiceDataSet EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3042:2: (iv_ruleServiceDataSet= ruleServiceDataSet EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3043:2: iv_ruleServiceDataSet= ruleServiceDataSet EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getServiceDataSetRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleServiceDataSet_in_entryRuleServiceDataSet4831);
+            pushFollow(FOLLOW_ruleServiceDataSet_in_entryRuleServiceDataSet4836);
             iv_ruleServiceDataSet=ruleServiceDataSet();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleServiceDataSet; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceDataSet4841); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceDataSet4846); if (failed) return current;
 
             }
 
@@ -7450,7 +7320,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleServiceDataSet
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3110:1: ruleServiceDataSet returns [EObject current=null] : ( KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3050:1: ruleServiceDataSet returns [EObject current=null] : ( KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) ) ) ;
     public final EObject ruleServiceDataSet() throws RecognitionException {
         EObject current = null;
 
@@ -7460,36 +7330,36 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3115:6: ( ( KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3116:1: ( KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3055:6: ( ( KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3056:1: ( KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3116:1: ( KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3117:2: KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3056:1: ( KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3057:2: KEYWORD_40 KEYWORD_72 ( (lv_dataSet_2_0= ruleIRI ) )
             {
-            match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleServiceDataSet4877); if (failed) return current;
+            match(input,KEYWORD_40,FOLLOW_KEYWORD_40_in_ruleServiceDataSet4882); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getServiceDataSetAccess().getFROMKeyword_0(), null); 
                   
             }
-            match(input,KEYWORD_72,FOLLOW_KEYWORD_72_in_ruleServiceDataSet4888); if (failed) return current;
+            match(input,KEYWORD_72,FOLLOW_KEYWORD_72_in_ruleServiceDataSet4893); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getServiceDataSetAccess().getSERVICEKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3126:1: ( (lv_dataSet_2_0= ruleIRI ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3127:1: (lv_dataSet_2_0= ruleIRI )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3066:1: ( (lv_dataSet_2_0= ruleIRI ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3067:1: (lv_dataSet_2_0= ruleIRI )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3127:1: (lv_dataSet_2_0= ruleIRI )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3128:3: lv_dataSet_2_0= ruleIRI
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3067:1: (lv_dataSet_2_0= ruleIRI )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3068:3: lv_dataSet_2_0= ruleIRI
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getServiceDataSetAccess().getDataSetIRIParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleIRI_in_ruleServiceDataSet4909);
+            pushFollow(FOLLOW_ruleIRI_in_ruleServiceDataSet4914);
             lv_dataSet_2_0=ruleIRI();
             _fsp--;
             if (failed) return current;
@@ -7543,7 +7413,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleWhereClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3158:1: entryRuleWhereClause returns [EObject current=null] : iv_ruleWhereClause= ruleWhereClause EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3098:1: entryRuleWhereClause returns [EObject current=null] : iv_ruleWhereClause= ruleWhereClause EOF ;
     public final EObject entryRuleWhereClause() throws RecognitionException {
         EObject current = null;
 
@@ -7551,20 +7421,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3159:2: (iv_ruleWhereClause= ruleWhereClause EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3160:2: iv_ruleWhereClause= ruleWhereClause EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3099:2: (iv_ruleWhereClause= ruleWhereClause EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3100:2: iv_ruleWhereClause= ruleWhereClause EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getWhereClauseRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleWhereClause_in_entryRuleWhereClause4944);
+            pushFollow(FOLLOW_ruleWhereClause_in_entryRuleWhereClause4949);
             iv_ruleWhereClause=ruleWhereClause();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleWhereClause; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWhereClause4954); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWhereClause4959); if (failed) return current;
 
             }
 
@@ -7582,7 +7452,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleWhereClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3167:1: ruleWhereClause returns [EObject current=null] : ( KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3107:1: ruleWhereClause returns [EObject current=null] : ( KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) ) ) ;
     public final EObject ruleWhereClause() throws RecognitionException {
         EObject current = null;
 
@@ -7592,30 +7462,30 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3172:6: ( ( KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3173:1: ( KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3112:6: ( ( KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3113:1: ( KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3173:1: ( KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3174:2: KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3113:1: ( KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3114:2: KEYWORD_57 ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) )
             {
-            match(input,KEYWORD_57,FOLLOW_KEYWORD_57_in_ruleWhereClause4990); if (failed) return current;
+            match(input,KEYWORD_57,FOLLOW_KEYWORD_57_in_ruleWhereClause4995); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getWhereClauseAccess().getWHEREKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3178:1: ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3179:1: (lv_groupGraphPattern_1_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3118:1: ( (lv_groupGraphPattern_1_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3119:1: (lv_groupGraphPattern_1_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3179:1: (lv_groupGraphPattern_1_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3180:3: lv_groupGraphPattern_1_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3119:1: (lv_groupGraphPattern_1_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3120:3: lv_groupGraphPattern_1_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getWhereClauseAccess().getGroupGraphPatternGroupGraphPatternParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleWhereClause5011);
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleWhereClause5016);
             lv_groupGraphPattern_1_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
@@ -7669,7 +7539,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGroupClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3210:1: entryRuleGroupClause returns [EObject current=null] : iv_ruleGroupClause= ruleGroupClause EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3150:1: entryRuleGroupClause returns [EObject current=null] : iv_ruleGroupClause= ruleGroupClause EOF ;
     public final EObject entryRuleGroupClause() throws RecognitionException {
         EObject current = null;
 
@@ -7677,20 +7547,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3211:2: (iv_ruleGroupClause= ruleGroupClause EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3212:2: iv_ruleGroupClause= ruleGroupClause EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3151:2: (iv_ruleGroupClause= ruleGroupClause EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3152:2: iv_ruleGroupClause= ruleGroupClause EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getGroupClauseRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleGroupClause_in_entryRuleGroupClause5046);
+            pushFollow(FOLLOW_ruleGroupClause_in_entryRuleGroupClause5051);
             iv_ruleGroupClause=ruleGroupClause();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleGroupClause; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupClause5056); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupClause5061); if (failed) return current;
 
             }
 
@@ -7708,7 +7578,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGroupClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3219:1: ruleGroupClause returns [EObject current=null] : ( KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3159:1: ruleGroupClause returns [EObject current=null] : ( KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) ) ) ;
     public final EObject ruleGroupClause() throws RecognitionException {
         EObject current = null;
 
@@ -7718,36 +7588,36 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3224:6: ( ( KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3225:1: ( KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3164:6: ( ( KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3165:1: ( KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3225:1: ( KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3226:2: KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3165:1: ( KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3166:2: KEYWORD_50 KEYWORD_23 ( (lv_condition_2_0= ruleGroupCondition ) )
             {
-            match(input,KEYWORD_50,FOLLOW_KEYWORD_50_in_ruleGroupClause5092); if (failed) return current;
+            match(input,KEYWORD_50,FOLLOW_KEYWORD_50_in_ruleGroupClause5097); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getGroupClauseAccess().getGROUPKeyword_0(), null); 
                   
             }
-            match(input,KEYWORD_23,FOLLOW_KEYWORD_23_in_ruleGroupClause5103); if (failed) return current;
+            match(input,KEYWORD_23,FOLLOW_KEYWORD_23_in_ruleGroupClause5108); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getGroupClauseAccess().getBYKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3235:1: ( (lv_condition_2_0= ruleGroupCondition ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3236:1: (lv_condition_2_0= ruleGroupCondition )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3175:1: ( (lv_condition_2_0= ruleGroupCondition ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3176:1: (lv_condition_2_0= ruleGroupCondition )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3236:1: (lv_condition_2_0= ruleGroupCondition )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3237:3: lv_condition_2_0= ruleGroupCondition
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3176:1: (lv_condition_2_0= ruleGroupCondition )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3177:3: lv_condition_2_0= ruleGroupCondition
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getGroupClauseAccess().getConditionGroupConditionParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupCondition_in_ruleGroupClause5124);
+            pushFollow(FOLLOW_ruleGroupCondition_in_ruleGroupClause5129);
             lv_condition_2_0=ruleGroupCondition();
             _fsp--;
             if (failed) return current;
@@ -7801,7 +7671,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGroupCondition
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3267:1: entryRuleGroupCondition returns [EObject current=null] : iv_ruleGroupCondition= ruleGroupCondition EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3207:1: entryRuleGroupCondition returns [EObject current=null] : iv_ruleGroupCondition= ruleGroupCondition EOF ;
     public final EObject entryRuleGroupCondition() throws RecognitionException {
         EObject current = null;
 
@@ -7809,20 +7679,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3268:2: (iv_ruleGroupCondition= ruleGroupCondition EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3269:2: iv_ruleGroupCondition= ruleGroupCondition EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3208:2: (iv_ruleGroupCondition= ruleGroupCondition EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3209:2: iv_ruleGroupCondition= ruleGroupCondition EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getGroupConditionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleGroupCondition_in_entryRuleGroupCondition5159);
+            pushFollow(FOLLOW_ruleGroupCondition_in_entryRuleGroupCondition5164);
             iv_ruleGroupCondition=ruleGroupCondition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleGroupCondition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupCondition5169); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupCondition5174); if (failed) return current;
 
             }
 
@@ -7840,7 +7710,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGroupCondition
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3276:1: ruleGroupCondition returns [EObject current=null] : (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3216:1: ruleGroupCondition returns [EObject current=null] : (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable ) ;
     public final EObject ruleGroupCondition() throws RecognitionException {
         EObject current = null;
 
@@ -7854,10 +7724,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3281:6: ( (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3282:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3221:6: ( (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3222:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3282:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3222:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )
             int alt61=3;
             switch ( input.LA(1) ) {
             case KEYWORD_83:
@@ -7899,7 +7769,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                         else {
                             if (backtracking>0) {failed=true; return current;}
                             NoViableAltException nvae =
-                                new NoViableAltException("3282:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )", 61, 6, input);
+                                new NoViableAltException("3222:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )", 61, 6, input);
 
                             throw nvae;
                         }
@@ -7907,7 +7777,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("3282:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )", 61, 4, input);
+                            new NoViableAltException("3222:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )", 61, 4, input);
 
                         throw nvae;
                     }
@@ -7918,7 +7788,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("3282:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )", 61, 2, input);
+                        new NoViableAltException("3222:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )", 61, 2, input);
 
                     throw nvae;
                 }
@@ -7932,14 +7802,14 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("3282:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )", 61, 0, input);
+                    new NoViableAltException("3222:1: (this_BuiltInCall_0= ruleBuiltInCall | this_Function_1= ruleFunction | this_Variable_2= ruleVariable )", 61, 0, input);
 
                 throw nvae;
             }
 
             switch (alt61) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3283:2: this_BuiltInCall_0= ruleBuiltInCall
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3223:2: this_BuiltInCall_0= ruleBuiltInCall
                     {
                     if ( backtracking==0 ) {
                        
@@ -7951,13 +7821,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGroupConditionAccess().getBuiltInCallParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBuiltInCall_in_ruleGroupCondition5219);
+                    pushFollow(FOLLOW_ruleBuiltInCall_in_ruleGroupCondition5224);
                     this_BuiltInCall_0=ruleBuiltInCall();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_BuiltInCall_0; 
+
+                              current = this_BuiltInCall_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -7965,7 +7835,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3296:2: this_Function_1= ruleFunction
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3236:2: this_Function_1= ruleFunction
                     {
                     if ( backtracking==0 ) {
                        
@@ -7977,13 +7847,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGroupConditionAccess().getFunctionParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFunction_in_ruleGroupCondition5249);
+                    pushFollow(FOLLOW_ruleFunction_in_ruleGroupCondition5254);
                     this_Function_1=ruleFunction();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_Function_1; 
+
+                              current = this_Function_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -7991,7 +7861,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3309:2: this_Variable_2= ruleVariable
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3249:2: this_Variable_2= ruleVariable
                     {
                     if ( backtracking==0 ) {
                        
@@ -8003,13 +7873,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGroupConditionAccess().getVariableParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleVariable_in_ruleGroupCondition5279);
+                    pushFollow(FOLLOW_ruleVariable_in_ruleGroupCondition5284);
                     this_Variable_2=ruleVariable();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_Variable_2; 
+
+                              current = this_Variable_2;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -8041,7 +7911,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleHavingClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3328:1: entryRuleHavingClause returns [EObject current=null] : iv_ruleHavingClause= ruleHavingClause EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3268:1: entryRuleHavingClause returns [EObject current=null] : iv_ruleHavingClause= ruleHavingClause EOF ;
     public final EObject entryRuleHavingClause() throws RecognitionException {
         EObject current = null;
 
@@ -8049,20 +7919,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3329:2: (iv_ruleHavingClause= ruleHavingClause EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3330:2: iv_ruleHavingClause= ruleHavingClause EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3269:2: (iv_ruleHavingClause= ruleHavingClause EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3270:2: iv_ruleHavingClause= ruleHavingClause EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getHavingClauseRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleHavingClause_in_entryRuleHavingClause5313);
+            pushFollow(FOLLOW_ruleHavingClause_in_entryRuleHavingClause5318);
             iv_ruleHavingClause=ruleHavingClause();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleHavingClause; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleHavingClause5323); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleHavingClause5328); if (failed) return current;
 
             }
 
@@ -8080,7 +7950,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleHavingClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3337:1: ruleHavingClause returns [EObject current=null] : ( KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3277:1: ruleHavingClause returns [EObject current=null] : ( KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) ) ) ;
     public final EObject ruleHavingClause() throws RecognitionException {
         EObject current = null;
 
@@ -8090,30 +7960,30 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3342:6: ( ( KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3343:1: ( KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3282:6: ( ( KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3283:1: ( KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3343:1: ( KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3344:2: KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3283:1: ( KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3284:2: KEYWORD_64 ( (lv_constraint_1_0= ruleConstraint ) )
             {
-            match(input,KEYWORD_64,FOLLOW_KEYWORD_64_in_ruleHavingClause5359); if (failed) return current;
+            match(input,KEYWORD_64,FOLLOW_KEYWORD_64_in_ruleHavingClause5364); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getHavingClauseAccess().getHAVINGKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3348:1: ( (lv_constraint_1_0= ruleConstraint ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3349:1: (lv_constraint_1_0= ruleConstraint )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3288:1: ( (lv_constraint_1_0= ruleConstraint ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3289:1: (lv_constraint_1_0= ruleConstraint )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3349:1: (lv_constraint_1_0= ruleConstraint )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3350:3: lv_constraint_1_0= ruleConstraint
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3289:1: (lv_constraint_1_0= ruleConstraint )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3290:3: lv_constraint_1_0= ruleConstraint
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getHavingClauseAccess().getConstraintConstraintParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleConstraint_in_ruleHavingClause5380);
+            pushFollow(FOLLOW_ruleConstraint_in_ruleHavingClause5385);
             lv_constraint_1_0=ruleConstraint();
             _fsp--;
             if (failed) return current;
@@ -8167,7 +8037,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleConstraint
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3380:1: entryRuleConstraint returns [EObject current=null] : iv_ruleConstraint= ruleConstraint EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3320:1: entryRuleConstraint returns [EObject current=null] : iv_ruleConstraint= ruleConstraint EOF ;
     public final EObject entryRuleConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -8175,20 +8045,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3381:2: (iv_ruleConstraint= ruleConstraint EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3382:2: iv_ruleConstraint= ruleConstraint EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3321:2: (iv_ruleConstraint= ruleConstraint EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3322:2: iv_ruleConstraint= ruleConstraint EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getConstraintRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleConstraint_in_entryRuleConstraint5415);
+            pushFollow(FOLLOW_ruleConstraint_in_entryRuleConstraint5420);
             iv_ruleConstraint=ruleConstraint();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleConstraint; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConstraint5425); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConstraint5430); if (failed) return current;
 
             }
 
@@ -8206,7 +8076,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleConstraint
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3389:1: ruleConstraint returns [EObject current=null] : (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3329:1: ruleConstraint returns [EObject current=null] : (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction ) ;
     public final EObject ruleConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -8220,10 +8090,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3394:6: ( (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3395:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3334:6: ( (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3335:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3395:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3335:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction )
             int alt62=3;
             switch ( input.LA(1) ) {
             case KEYWORD_1:
@@ -8259,14 +8129,14 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("3395:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction )", 62, 0, input);
+                    new NoViableAltException("3335:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_BuiltInCall_1= ruleBuiltInCall | this_Function_2= ruleFunction )", 62, 0, input);
 
                 throw nvae;
             }
 
             switch (alt62) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3396:2: this_ParFilterExpression_0= ruleParFilterExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3336:2: this_ParFilterExpression_0= ruleParFilterExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -8278,13 +8148,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getConstraintAccess().getParFilterExpressionParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleParFilterExpression_in_ruleConstraint5475);
+                    pushFollow(FOLLOW_ruleParFilterExpression_in_ruleConstraint5480);
                     this_ParFilterExpression_0=ruleParFilterExpression();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_ParFilterExpression_0; 
+
+                              current = this_ParFilterExpression_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -8292,7 +8162,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3409:2: this_BuiltInCall_1= ruleBuiltInCall
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3349:2: this_BuiltInCall_1= ruleBuiltInCall
                     {
                     if ( backtracking==0 ) {
                        
@@ -8304,13 +8174,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getConstraintAccess().getBuiltInCallParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBuiltInCall_in_ruleConstraint5505);
+                    pushFollow(FOLLOW_ruleBuiltInCall_in_ruleConstraint5510);
                     this_BuiltInCall_1=ruleBuiltInCall();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_BuiltInCall_1; 
+
+                              current = this_BuiltInCall_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -8318,7 +8188,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3422:2: this_Function_2= ruleFunction
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3362:2: this_Function_2= ruleFunction
                     {
                     if ( backtracking==0 ) {
                        
@@ -8330,13 +8200,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getConstraintAccess().getFunctionParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFunction_in_ruleConstraint5535);
+                    pushFollow(FOLLOW_ruleFunction_in_ruleConstraint5540);
                     this_Function_2=ruleFunction();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_Function_2; 
+
+                              current = this_Function_2;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -8368,7 +8238,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLimitClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3441:1: entryRuleLimitClause returns [EObject current=null] : iv_ruleLimitClause= ruleLimitClause EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3381:1: entryRuleLimitClause returns [EObject current=null] : iv_ruleLimitClause= ruleLimitClause EOF ;
     public final EObject entryRuleLimitClause() throws RecognitionException {
         EObject current = null;
 
@@ -8376,20 +8246,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3442:2: (iv_ruleLimitClause= ruleLimitClause EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3443:2: iv_ruleLimitClause= ruleLimitClause EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3382:2: (iv_ruleLimitClause= ruleLimitClause EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3383:2: iv_ruleLimitClause= ruleLimitClause EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLimitClauseRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleLimitClause_in_entryRuleLimitClause5569);
+            pushFollow(FOLLOW_ruleLimitClause_in_entryRuleLimitClause5574);
             iv_ruleLimitClause=ruleLimitClause();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleLimitClause; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLimitClause5579); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLimitClause5584); if (failed) return current;
 
             }
 
@@ -8407,7 +8277,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLimitClause
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3450:1: ruleLimitClause returns [EObject current=null] : ( KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3390:1: ruleLimitClause returns [EObject current=null] : ( KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) ) ) ;
     public final EObject ruleLimitClause() throws RecognitionException {
         EObject current = null;
 
@@ -8416,26 +8286,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3455:6: ( ( KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3456:1: ( KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3395:6: ( ( KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3396:1: ( KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3456:1: ( KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3457:2: KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3396:1: ( KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3397:2: KEYWORD_51 ( (lv_limit_1_0= RULE_INT ) )
             {
-            match(input,KEYWORD_51,FOLLOW_KEYWORD_51_in_ruleLimitClause5615); if (failed) return current;
+            match(input,KEYWORD_51,FOLLOW_KEYWORD_51_in_ruleLimitClause5620); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getLimitClauseAccess().getLIMITKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3461:1: ( (lv_limit_1_0= RULE_INT ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3462:1: (lv_limit_1_0= RULE_INT )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3401:1: ( (lv_limit_1_0= RULE_INT ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3402:1: (lv_limit_1_0= RULE_INT )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3462:1: (lv_limit_1_0= RULE_INT )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3463:3: lv_limit_1_0= RULE_INT
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3402:1: (lv_limit_1_0= RULE_INT )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3403:3: lv_limit_1_0= RULE_INT
             {
             lv_limit_1_0=(Token)input.LT(1);
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleLimitClause5632); if (failed) return current;
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleLimitClause5637); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getLimitClauseAccess().getLimitINTTerminalRuleCall_1_0(), "limit"); 
@@ -8490,7 +8360,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGroupGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3493:1: entryRuleGroupGraphPattern returns [EObject current=null] : iv_ruleGroupGraphPattern= ruleGroupGraphPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3433:1: entryRuleGroupGraphPattern returns [EObject current=null] : iv_ruleGroupGraphPattern= ruleGroupGraphPattern EOF ;
     public final EObject entryRuleGroupGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -8498,20 +8368,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3494:2: (iv_ruleGroupGraphPattern= ruleGroupGraphPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3495:2: iv_ruleGroupGraphPattern= ruleGroupGraphPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3434:2: (iv_ruleGroupGraphPattern= ruleGroupGraphPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3435:2: iv_ruleGroupGraphPattern= ruleGroupGraphPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getGroupGraphPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_entryRuleGroupGraphPattern5672);
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_entryRuleGroupGraphPattern5677);
             iv_ruleGroupGraphPattern=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleGroupGraphPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupGraphPattern5682); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupGraphPattern5687); if (failed) return current;
 
             }
 
@@ -8529,7 +8399,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGroupGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3502:1: ruleGroupGraphPattern returns [EObject current=null] : (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3442:1: ruleGroupGraphPattern returns [EObject current=null] : (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub ) ;
     public final EObject ruleGroupGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -8541,10 +8411,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3507:6: ( (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3508:1: (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3447:6: ( (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3448:1: (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3508:1: (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3448:1: (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub )
             int alt63=2;
             int LA63_0 = input.LA(1);
 
@@ -8560,7 +8430,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("3508:1: (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub )", 63, 1, input);
+                        new NoViableAltException("3448:1: (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub )", 63, 1, input);
 
                     throw nvae;
                 }
@@ -8568,13 +8438,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("3508:1: (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub )", 63, 0, input);
+                    new NoViableAltException("3448:1: (this_SubSelectQuery_0= ruleSubSelectQuery | this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub )", 63, 0, input);
 
                 throw nvae;
             }
             switch (alt63) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3509:2: this_SubSelectQuery_0= ruleSubSelectQuery
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3449:2: this_SubSelectQuery_0= ruleSubSelectQuery
                     {
                     if ( backtracking==0 ) {
                        
@@ -8586,13 +8456,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGroupGraphPatternAccess().getSubSelectQueryParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleSubSelectQuery_in_ruleGroupGraphPattern5732);
+                    pushFollow(FOLLOW_ruleSubSelectQuery_in_ruleGroupGraphPattern5737);
                     this_SubSelectQuery_0=ruleSubSelectQuery();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_SubSelectQuery_0; 
+
+                              current = this_SubSelectQuery_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -8600,7 +8470,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3522:2: this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3462:2: this_GroupGraphPatternSub_1= ruleGroupGraphPatternSub
                     {
                     if ( backtracking==0 ) {
                        
@@ -8612,13 +8482,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGroupGraphPatternAccess().getGroupGraphPatternSubParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGroupGraphPatternSub_in_ruleGroupGraphPattern5762);
+                    pushFollow(FOLLOW_ruleGroupGraphPatternSub_in_ruleGroupGraphPattern5767);
                     this_GroupGraphPatternSub_1=ruleGroupGraphPatternSub();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_GroupGraphPatternSub_1; 
+
+                              current = this_GroupGraphPatternSub_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -8650,7 +8520,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleSubSelectQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3541:1: entryRuleSubSelectQuery returns [EObject current=null] : iv_ruleSubSelectQuery= ruleSubSelectQuery EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3481:1: entryRuleSubSelectQuery returns [EObject current=null] : iv_ruleSubSelectQuery= ruleSubSelectQuery EOF ;
     public final EObject entryRuleSubSelectQuery() throws RecognitionException {
         EObject current = null;
 
@@ -8658,20 +8528,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3542:2: (iv_ruleSubSelectQuery= ruleSubSelectQuery EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3543:2: iv_ruleSubSelectQuery= ruleSubSelectQuery EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3482:2: (iv_ruleSubSelectQuery= ruleSubSelectQuery EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3483:2: iv_ruleSubSelectQuery= ruleSubSelectQuery EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getSubSelectQueryRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleSubSelectQuery_in_entryRuleSubSelectQuery5796);
+            pushFollow(FOLLOW_ruleSubSelectQuery_in_entryRuleSubSelectQuery5801);
             iv_ruleSubSelectQuery=ruleSubSelectQuery();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleSubSelectQuery; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSubSelectQuery5806); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSubSelectQuery5811); if (failed) return current;
 
             }
 
@@ -8689,7 +8559,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSubSelectQuery
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3550:1: ruleSubSelectQuery returns [EObject current=null] : ( KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17 ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3490:1: ruleSubSelectQuery returns [EObject current=null] : ( KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17 ) ;
     public final EObject ruleSubSelectQuery() throws RecognitionException {
         EObject current = null;
 
@@ -8707,36 +8577,36 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3555:6: ( ( KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17 ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3556:1: ( KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3495:6: ( ( KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3496:1: ( KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17 )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3556:1: ( KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17 )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3557:2: KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3496:1: ( KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3497:2: KEYWORD_16 KEYWORD_68 ( (lv_variables_2_0= ruleVariable ) ) ( (lv_variables_3_0= ruleVariable ) )* ( (lv_whereClause_4_0= ruleWhereClause ) ) ( (lv_groupClause_5_0= ruleGroupClause ) )? ( (lv_havingClause_6_0= ruleHavingClause ) )? KEYWORD_17
             {
-            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_ruleSubSelectQuery5842); if (failed) return current;
+            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_ruleSubSelectQuery5847); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getSubSelectQueryAccess().getLeftCurlyBracketKeyword_0(), null); 
                   
             }
-            match(input,KEYWORD_68,FOLLOW_KEYWORD_68_in_ruleSubSelectQuery5853); if (failed) return current;
+            match(input,KEYWORD_68,FOLLOW_KEYWORD_68_in_ruleSubSelectQuery5858); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getSubSelectQueryAccess().getSELECTKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3566:1: ( (lv_variables_2_0= ruleVariable ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3567:1: (lv_variables_2_0= ruleVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3506:1: ( (lv_variables_2_0= ruleVariable ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3507:1: (lv_variables_2_0= ruleVariable )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3567:1: (lv_variables_2_0= ruleVariable )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3568:3: lv_variables_2_0= ruleVariable
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3507:1: (lv_variables_2_0= ruleVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3508:3: lv_variables_2_0= ruleVariable
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getSubSelectQueryAccess().getVariablesVariableParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleVariable_in_ruleSubSelectQuery5874);
+            pushFollow(FOLLOW_ruleVariable_in_ruleSubSelectQuery5879);
             lv_variables_2_0=ruleVariable();
             _fsp--;
             if (failed) return current;
@@ -8765,7 +8635,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3590:2: ( (lv_variables_3_0= ruleVariable ) )*
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3530:2: ( (lv_variables_3_0= ruleVariable ) )*
             loop64:
             do {
                 int alt64=2;
@@ -8778,17 +8648,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                 switch (alt64) {
             	case 1 :
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3591:1: (lv_variables_3_0= ruleVariable )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3531:1: (lv_variables_3_0= ruleVariable )
             	    {
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3591:1: (lv_variables_3_0= ruleVariable )
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3592:3: lv_variables_3_0= ruleVariable
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3531:1: (lv_variables_3_0= ruleVariable )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3532:3: lv_variables_3_0= ruleVariable
             	    {
             	    if ( backtracking==0 ) {
             	       
             	      	        currentNode=createCompositeNode(grammarAccess.getSubSelectQueryAccess().getVariablesVariableParserRuleCall_3_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleVariable_in_ruleSubSelectQuery5895);
+            	    pushFollow(FOLLOW_ruleVariable_in_ruleSubSelectQuery5900);
             	    lv_variables_3_0=ruleVariable();
             	    _fsp--;
             	    if (failed) return current;
@@ -8823,18 +8693,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3614:3: ( (lv_whereClause_4_0= ruleWhereClause ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3615:1: (lv_whereClause_4_0= ruleWhereClause )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3554:3: ( (lv_whereClause_4_0= ruleWhereClause ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3555:1: (lv_whereClause_4_0= ruleWhereClause )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3615:1: (lv_whereClause_4_0= ruleWhereClause )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3616:3: lv_whereClause_4_0= ruleWhereClause
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3555:1: (lv_whereClause_4_0= ruleWhereClause )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3556:3: lv_whereClause_4_0= ruleWhereClause
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getSubSelectQueryAccess().getWhereClauseWhereClauseParserRuleCall_4_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleWhereClause_in_ruleSubSelectQuery5917);
+            pushFollow(FOLLOW_ruleWhereClause_in_ruleSubSelectQuery5922);
             lv_whereClause_4_0=ruleWhereClause();
             _fsp--;
             if (failed) return current;
@@ -8863,7 +8733,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3638:2: ( (lv_groupClause_5_0= ruleGroupClause ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3578:2: ( (lv_groupClause_5_0= ruleGroupClause ) )?
             int alt65=2;
             int LA65_0 = input.LA(1);
 
@@ -8872,17 +8742,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt65) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3639:1: (lv_groupClause_5_0= ruleGroupClause )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3579:1: (lv_groupClause_5_0= ruleGroupClause )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3639:1: (lv_groupClause_5_0= ruleGroupClause )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3640:3: lv_groupClause_5_0= ruleGroupClause
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3579:1: (lv_groupClause_5_0= ruleGroupClause )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3580:3: lv_groupClause_5_0= ruleGroupClause
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getSubSelectQueryAccess().getGroupClauseGroupClauseParserRuleCall_5_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleGroupClause_in_ruleSubSelectQuery5938);
+                    pushFollow(FOLLOW_ruleGroupClause_in_ruleSubSelectQuery5943);
                     lv_groupClause_5_0=ruleGroupClause();
                     _fsp--;
                     if (failed) return current;
@@ -8914,7 +8784,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3662:3: ( (lv_havingClause_6_0= ruleHavingClause ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3602:3: ( (lv_havingClause_6_0= ruleHavingClause ) )?
             int alt66=2;
             int LA66_0 = input.LA(1);
 
@@ -8923,17 +8793,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt66) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3663:1: (lv_havingClause_6_0= ruleHavingClause )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3603:1: (lv_havingClause_6_0= ruleHavingClause )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3663:1: (lv_havingClause_6_0= ruleHavingClause )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3664:3: lv_havingClause_6_0= ruleHavingClause
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3603:1: (lv_havingClause_6_0= ruleHavingClause )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3604:3: lv_havingClause_6_0= ruleHavingClause
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getSubSelectQueryAccess().getHavingClauseHavingClauseParserRuleCall_6_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleHavingClause_in_ruleSubSelectQuery5960);
+                    pushFollow(FOLLOW_ruleHavingClause_in_ruleSubSelectQuery5965);
                     lv_havingClause_6_0=ruleHavingClause();
                     _fsp--;
                     if (failed) return current;
@@ -8965,7 +8835,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_17,FOLLOW_KEYWORD_17_in_ruleSubSelectQuery5972); if (failed) return current;
+            match(input,KEYWORD_17,FOLLOW_KEYWORD_17_in_ruleSubSelectQuery5977); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getSubSelectQueryAccess().getRightCurlyBracketKeyword_7(), null); 
@@ -8996,7 +8866,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGroupGraphPatternSub
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3699:1: entryRuleGroupGraphPatternSub returns [EObject current=null] : iv_ruleGroupGraphPatternSub= ruleGroupGraphPatternSub EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3639:1: entryRuleGroupGraphPatternSub returns [EObject current=null] : iv_ruleGroupGraphPatternSub= ruleGroupGraphPatternSub EOF ;
     public final EObject entryRuleGroupGraphPatternSub() throws RecognitionException {
         EObject current = null;
 
@@ -9004,20 +8874,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3700:2: (iv_ruleGroupGraphPatternSub= ruleGroupGraphPatternSub EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3701:2: iv_ruleGroupGraphPatternSub= ruleGroupGraphPatternSub EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3640:2: (iv_ruleGroupGraphPatternSub= ruleGroupGraphPatternSub EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3641:2: iv_ruleGroupGraphPatternSub= ruleGroupGraphPatternSub EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getGroupGraphPatternSubRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleGroupGraphPatternSub_in_entryRuleGroupGraphPatternSub6007);
+            pushFollow(FOLLOW_ruleGroupGraphPatternSub_in_entryRuleGroupGraphPatternSub6012);
             iv_ruleGroupGraphPatternSub=ruleGroupGraphPatternSub();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleGroupGraphPatternSub; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupGraphPatternSub6017); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupGraphPatternSub6022); if (failed) return current;
 
             }
 
@@ -9035,7 +8905,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGroupGraphPatternSub
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3708:1: ruleGroupGraphPatternSub returns [EObject current=null] : ( KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17 ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3648:1: ruleGroupGraphPatternSub returns [EObject current=null] : ( KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17 ) ;
     public final EObject ruleGroupGraphPatternSub() throws RecognitionException {
         EObject current = null;
 
@@ -9047,30 +8917,30 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3713:6: ( ( KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17 ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3714:1: ( KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3653:6: ( ( KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3654:1: ( KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17 )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3714:1: ( KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17 )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3715:2: KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3654:1: ( KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3655:2: KEYWORD_16 ( (lv_graphPatterns_1_0= ruleGraphPattern ) ) ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )* ( KEYWORD_7 )? KEYWORD_17
             {
-            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_ruleGroupGraphPatternSub6053); if (failed) return current;
+            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_ruleGroupGraphPatternSub6058); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getGroupGraphPatternSubAccess().getLeftCurlyBracketKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3719:1: ( (lv_graphPatterns_1_0= ruleGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3720:1: (lv_graphPatterns_1_0= ruleGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3659:1: ( (lv_graphPatterns_1_0= ruleGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3660:1: (lv_graphPatterns_1_0= ruleGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3720:1: (lv_graphPatterns_1_0= ruleGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3721:3: lv_graphPatterns_1_0= ruleGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3660:1: (lv_graphPatterns_1_0= ruleGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3661:3: lv_graphPatterns_1_0= ruleGraphPattern
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getGroupGraphPatternSubAccess().getGraphPatternsGraphPatternParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGraphPattern_in_ruleGroupGraphPatternSub6074);
+            pushFollow(FOLLOW_ruleGraphPattern_in_ruleGroupGraphPatternSub6079);
             lv_graphPatterns_1_0=ruleGraphPattern();
             _fsp--;
             if (failed) return current;
@@ -9099,7 +8969,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3743:2: ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )*
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3683:2: ( KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) ) )*
             loop67:
             do {
                 int alt67=2;
@@ -9118,26 +8988,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                 switch (alt67) {
             	case 1 :
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3744:2: KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3684:2: KEYWORD_7 ( (lv_graphPatterns_3_0= ruleGraphPattern ) )
             	    {
-            	    match(input,KEYWORD_7,FOLLOW_KEYWORD_7_in_ruleGroupGraphPatternSub6086); if (failed) return current;
+            	    match(input,KEYWORD_7,FOLLOW_KEYWORD_7_in_ruleGroupGraphPatternSub6091); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              createLeafNode(grammarAccess.getGroupGraphPatternSubAccess().getFullStopKeyword_2_0(), null); 
             	          
             	    }
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3748:1: ( (lv_graphPatterns_3_0= ruleGraphPattern ) )
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3749:1: (lv_graphPatterns_3_0= ruleGraphPattern )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3688:1: ( (lv_graphPatterns_3_0= ruleGraphPattern ) )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3689:1: (lv_graphPatterns_3_0= ruleGraphPattern )
             	    {
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3749:1: (lv_graphPatterns_3_0= ruleGraphPattern )
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3750:3: lv_graphPatterns_3_0= ruleGraphPattern
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3689:1: (lv_graphPatterns_3_0= ruleGraphPattern )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3690:3: lv_graphPatterns_3_0= ruleGraphPattern
             	    {
             	    if ( backtracking==0 ) {
             	       
             	      	        currentNode=createCompositeNode(grammarAccess.getGroupGraphPatternSubAccess().getGraphPatternsGraphPatternParserRuleCall_2_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGraphPattern_in_ruleGroupGraphPatternSub6107);
+            	    pushFollow(FOLLOW_ruleGraphPattern_in_ruleGroupGraphPatternSub6112);
             	    lv_graphPatterns_3_0=ruleGraphPattern();
             	    _fsp--;
             	    if (failed) return current;
@@ -9175,7 +9045,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3772:4: ( KEYWORD_7 )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3712:4: ( KEYWORD_7 )?
             int alt68=2;
             int LA68_0 = input.LA(1);
 
@@ -9184,9 +9054,9 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt68) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3773:2: KEYWORD_7
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3713:2: KEYWORD_7
                     {
-                    match(input,KEYWORD_7,FOLLOW_KEYWORD_7_in_ruleGroupGraphPatternSub6121); if (failed) return current;
+                    match(input,KEYWORD_7,FOLLOW_KEYWORD_7_in_ruleGroupGraphPatternSub6126); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getGroupGraphPatternSubAccess().getFullStopKeyword_3(), null); 
@@ -9198,7 +9068,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_17,FOLLOW_KEYWORD_17_in_ruleGroupGraphPatternSub6134); if (failed) return current;
+            match(input,KEYWORD_17,FOLLOW_KEYWORD_17_in_ruleGroupGraphPatternSub6139); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getGroupGraphPatternSubAccess().getRightCurlyBracketKeyword_4(), null); 
@@ -9229,7 +9099,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3790:1: entryRuleGraphPattern returns [EObject current=null] : iv_ruleGraphPattern= ruleGraphPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3730:1: entryRuleGraphPattern returns [EObject current=null] : iv_ruleGraphPattern= ruleGraphPattern EOF ;
     public final EObject entryRuleGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -9237,20 +9107,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3791:2: (iv_ruleGraphPattern= ruleGraphPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3792:2: iv_ruleGraphPattern= ruleGraphPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3731:2: (iv_ruleGraphPattern= ruleGraphPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3732:2: iv_ruleGraphPattern= ruleGraphPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getGraphPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleGraphPattern_in_entryRuleGraphPattern6169);
+            pushFollow(FOLLOW_ruleGraphPattern_in_entryRuleGraphPattern6174);
             iv_ruleGraphPattern=ruleGraphPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleGraphPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGraphPattern6179); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGraphPattern6184); if (failed) return current;
 
             }
 
@@ -9268,7 +9138,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3799:1: ruleGraphPattern returns [EObject current=null] : (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3739:1: ruleGraphPattern returns [EObject current=null] : (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern ) ;
     public final EObject ruleGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -9294,10 +9164,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3804:6: ( (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3805:1: (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3744:6: ( (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3745:1: (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3805:1: (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3745:1: (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern )
             int alt69=9;
             switch ( input.LA(1) ) {
             case KEYWORD_22:
@@ -9334,6 +9204,11 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             case KEYWORD_63:
                 {
                 switch ( input.LA(2) ) {
+                case KEYWORD_33:
+                    {
+                    alt69=8;
+                    }
+                    break;
                 case KEYWORD_62:
                     {
                     alt69=7;
@@ -9344,15 +9219,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     alt69=6;
                     }
                     break;
-                case KEYWORD_33:
-                    {
-                    alt69=8;
-                    }
-                    break;
                 default:
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("3805:1: (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern )", 69, 6, input);
+                        new NoViableAltException("3745:1: (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern )", 69, 6, input);
 
                     throw nvae;
                 }
@@ -9367,14 +9237,14 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("3805:1: (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern )", 69, 0, input);
+                    new NoViableAltException("3745:1: (this_TriplesSameSubject_0= ruleTriplesSameSubject | this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern | this_OptionalGraphPattern_2= ruleOptionalGraphPattern | this_GraphGraphPattern_3= ruleGraphGraphPattern | this_ServiceGraphPattern_4= ruleServiceGraphPattern | this_FilterPattern_5= ruleFilterPattern | this_ExistsPattern_6= ruleExistsPattern | this_NotExistsPattern_7= ruleNotExistsPattern | this_MinusPattern_8= ruleMinusPattern )", 69, 0, input);
 
                 throw nvae;
             }
 
             switch (alt69) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3806:2: this_TriplesSameSubject_0= ruleTriplesSameSubject
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3746:2: this_TriplesSameSubject_0= ruleTriplesSameSubject
                     {
                     if ( backtracking==0 ) {
                        
@@ -9386,13 +9256,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getTriplesSameSubjectParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleTriplesSameSubject_in_ruleGraphPattern6229);
+                    pushFollow(FOLLOW_ruleTriplesSameSubject_in_ruleGraphPattern6234);
                     this_TriplesSameSubject_0=ruleTriplesSameSubject();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_TriplesSameSubject_0; 
+
+                              current = this_TriplesSameSubject_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -9400,7 +9270,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3819:2: this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3759:2: this_GroupOrUnionGraphPattern_1= ruleGroupOrUnionGraphPattern
                     {
                     if ( backtracking==0 ) {
                        
@@ -9412,13 +9282,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getGroupOrUnionGraphPatternParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGroupOrUnionGraphPattern_in_ruleGraphPattern6259);
+                    pushFollow(FOLLOW_ruleGroupOrUnionGraphPattern_in_ruleGraphPattern6264);
                     this_GroupOrUnionGraphPattern_1=ruleGroupOrUnionGraphPattern();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_GroupOrUnionGraphPattern_1; 
+
+                              current = this_GroupOrUnionGraphPattern_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -9426,7 +9296,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3832:2: this_OptionalGraphPattern_2= ruleOptionalGraphPattern
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3772:2: this_OptionalGraphPattern_2= ruleOptionalGraphPattern
                     {
                     if ( backtracking==0 ) {
                        
@@ -9438,13 +9308,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getOptionalGraphPatternParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleOptionalGraphPattern_in_ruleGraphPattern6289);
+                    pushFollow(FOLLOW_ruleOptionalGraphPattern_in_ruleGraphPattern6294);
                     this_OptionalGraphPattern_2=ruleOptionalGraphPattern();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_OptionalGraphPattern_2; 
+
+                              current = this_OptionalGraphPattern_2;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -9452,7 +9322,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3845:2: this_GraphGraphPattern_3= ruleGraphGraphPattern
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3785:2: this_GraphGraphPattern_3= ruleGraphGraphPattern
                     {
                     if ( backtracking==0 ) {
                        
@@ -9464,13 +9334,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getGraphGraphPatternParserRuleCall_3(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGraphGraphPattern_in_ruleGraphPattern6319);
+                    pushFollow(FOLLOW_ruleGraphGraphPattern_in_ruleGraphPattern6324);
                     this_GraphGraphPattern_3=ruleGraphGraphPattern();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_GraphGraphPattern_3; 
+
+                              current = this_GraphGraphPattern_3;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -9478,7 +9348,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3858:2: this_ServiceGraphPattern_4= ruleServiceGraphPattern
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3798:2: this_ServiceGraphPattern_4= ruleServiceGraphPattern
                     {
                     if ( backtracking==0 ) {
                        
@@ -9490,13 +9360,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getServiceGraphPatternParserRuleCall_4(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleServiceGraphPattern_in_ruleGraphPattern6349);
+                    pushFollow(FOLLOW_ruleServiceGraphPattern_in_ruleGraphPattern6354);
                     this_ServiceGraphPattern_4=ruleServiceGraphPattern();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_ServiceGraphPattern_4; 
+
+                              current = this_ServiceGraphPattern_4;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -9504,7 +9374,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3871:2: this_FilterPattern_5= ruleFilterPattern
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3811:2: this_FilterPattern_5= ruleFilterPattern
                     {
                     if ( backtracking==0 ) {
                        
@@ -9516,13 +9386,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getFilterPatternParserRuleCall_5(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFilterPattern_in_ruleGraphPattern6379);
+                    pushFollow(FOLLOW_ruleFilterPattern_in_ruleGraphPattern6384);
                     this_FilterPattern_5=ruleFilterPattern();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_FilterPattern_5; 
+
+                              current = this_FilterPattern_5;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -9530,7 +9400,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3884:2: this_ExistsPattern_6= ruleExistsPattern
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3824:2: this_ExistsPattern_6= ruleExistsPattern
                     {
                     if ( backtracking==0 ) {
                        
@@ -9542,13 +9412,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getExistsPatternParserRuleCall_6(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExistsPattern_in_ruleGraphPattern6409);
+                    pushFollow(FOLLOW_ruleExistsPattern_in_ruleGraphPattern6414);
                     this_ExistsPattern_6=ruleExistsPattern();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_ExistsPattern_6; 
+
+                              current = this_ExistsPattern_6;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -9556,7 +9426,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3897:2: this_NotExistsPattern_7= ruleNotExistsPattern
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3837:2: this_NotExistsPattern_7= ruleNotExistsPattern
                     {
                     if ( backtracking==0 ) {
                        
@@ -9568,13 +9438,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getNotExistsPatternParserRuleCall_7(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNotExistsPattern_in_ruleGraphPattern6439);
+                    pushFollow(FOLLOW_ruleNotExistsPattern_in_ruleGraphPattern6444);
                     this_NotExistsPattern_7=ruleNotExistsPattern();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_NotExistsPattern_7; 
+
+                              current = this_NotExistsPattern_7;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -9582,7 +9452,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3910:2: this_MinusPattern_8= ruleMinusPattern
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3850:2: this_MinusPattern_8= ruleMinusPattern
                     {
                     if ( backtracking==0 ) {
                        
@@ -9594,13 +9464,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphPatternAccess().getMinusPatternParserRuleCall_8(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleMinusPattern_in_ruleGraphPattern6469);
+                    pushFollow(FOLLOW_ruleMinusPattern_in_ruleGraphPattern6474);
                     this_MinusPattern_8=ruleMinusPattern();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_MinusPattern_8; 
+
+                              current = this_MinusPattern_8;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -9632,7 +9502,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleTriplesSameSubject
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3929:1: entryRuleTriplesSameSubject returns [EObject current=null] : iv_ruleTriplesSameSubject= ruleTriplesSameSubject EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3869:1: entryRuleTriplesSameSubject returns [EObject current=null] : iv_ruleTriplesSameSubject= ruleTriplesSameSubject EOF ;
     public final EObject entryRuleTriplesSameSubject() throws RecognitionException {
         EObject current = null;
 
@@ -9640,20 +9510,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3930:2: (iv_ruleTriplesSameSubject= ruleTriplesSameSubject EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3931:2: iv_ruleTriplesSameSubject= ruleTriplesSameSubject EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3870:2: (iv_ruleTriplesSameSubject= ruleTriplesSameSubject EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3871:2: iv_ruleTriplesSameSubject= ruleTriplesSameSubject EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTriplesSameSubjectRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleTriplesSameSubject_in_entryRuleTriplesSameSubject6503);
+            pushFollow(FOLLOW_ruleTriplesSameSubject_in_entryRuleTriplesSameSubject6508);
             iv_ruleTriplesSameSubject=ruleTriplesSameSubject();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleTriplesSameSubject; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTriplesSameSubject6513); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTriplesSameSubject6518); if (failed) return current;
 
             }
 
@@ -9671,7 +9541,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTriplesSameSubject
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3938:1: ruleTriplesSameSubject returns [EObject current=null] : ( ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )* ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3878:1: ruleTriplesSameSubject returns [EObject current=null] : ( ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )* ) ;
     public final EObject ruleTriplesSameSubject() throws RecognitionException {
         EObject current = null;
 
@@ -9685,24 +9555,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3943:6: ( ( ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )* ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3944:1: ( ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )* )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3883:6: ( ( ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )* ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3884:1: ( ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )* )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3944:1: ( ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )* )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3944:2: ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )*
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3884:1: ( ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )* )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3884:2: ( (lv_subject_0_0= ruleGraphNode ) ) ( (lv_propertyList_1_0= rulePropertyList ) ) ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )*
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3944:2: ( (lv_subject_0_0= ruleGraphNode ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3945:1: (lv_subject_0_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3884:2: ( (lv_subject_0_0= ruleGraphNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3885:1: (lv_subject_0_0= ruleGraphNode )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3945:1: (lv_subject_0_0= ruleGraphNode )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3946:3: lv_subject_0_0= ruleGraphNode
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3885:1: (lv_subject_0_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3886:3: lv_subject_0_0= ruleGraphNode
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getTriplesSameSubjectAccess().getSubjectGraphNodeParserRuleCall_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGraphNode_in_ruleTriplesSameSubject6559);
+            pushFollow(FOLLOW_ruleGraphNode_in_ruleTriplesSameSubject6564);
             lv_subject_0_0=ruleGraphNode();
             _fsp--;
             if (failed) return current;
@@ -9731,18 +9601,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3968:2: ( (lv_propertyList_1_0= rulePropertyList ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3969:1: (lv_propertyList_1_0= rulePropertyList )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3908:2: ( (lv_propertyList_1_0= rulePropertyList ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3909:1: (lv_propertyList_1_0= rulePropertyList )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3969:1: (lv_propertyList_1_0= rulePropertyList )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3970:3: lv_propertyList_1_0= rulePropertyList
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3909:1: (lv_propertyList_1_0= rulePropertyList )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3910:3: lv_propertyList_1_0= rulePropertyList
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getTriplesSameSubjectAccess().getPropertyListPropertyListParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_rulePropertyList_in_ruleTriplesSameSubject6580);
+            pushFollow(FOLLOW_rulePropertyList_in_ruleTriplesSameSubject6585);
             lv_propertyList_1_0=rulePropertyList();
             _fsp--;
             if (failed) return current;
@@ -9771,7 +9641,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3992:2: ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )*
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3932:2: ( KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) ) )*
             loop70:
             do {
                 int alt70=2;
@@ -9784,26 +9654,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                 switch (alt70) {
             	case 1 :
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3993:2: KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3933:2: KEYWORD_10 ( (lv_propertyList_3_0= rulePropertyList ) )
             	    {
-            	    match(input,KEYWORD_10,FOLLOW_KEYWORD_10_in_ruleTriplesSameSubject6592); if (failed) return current;
+            	    match(input,KEYWORD_10,FOLLOW_KEYWORD_10_in_ruleTriplesSameSubject6597); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              createLeafNode(grammarAccess.getTriplesSameSubjectAccess().getSemicolonKeyword_2_0(), null); 
             	          
             	    }
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3997:1: ( (lv_propertyList_3_0= rulePropertyList ) )
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3998:1: (lv_propertyList_3_0= rulePropertyList )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3937:1: ( (lv_propertyList_3_0= rulePropertyList ) )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3938:1: (lv_propertyList_3_0= rulePropertyList )
             	    {
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3998:1: (lv_propertyList_3_0= rulePropertyList )
-            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3999:3: lv_propertyList_3_0= rulePropertyList
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3938:1: (lv_propertyList_3_0= rulePropertyList )
+            	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3939:3: lv_propertyList_3_0= rulePropertyList
             	    {
             	    if ( backtracking==0 ) {
             	       
             	      	        currentNode=createCompositeNode(grammarAccess.getTriplesSameSubjectAccess().getPropertyListPropertyListParserRuleCall_2_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_rulePropertyList_in_ruleTriplesSameSubject6613);
+            	    pushFollow(FOLLOW_rulePropertyList_in_ruleTriplesSameSubject6618);
             	    lv_propertyList_3_0=rulePropertyList();
             	    _fsp--;
             	    if (failed) return current;
@@ -9866,7 +9736,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGroupOrUnionGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4029:1: entryRuleGroupOrUnionGraphPattern returns [EObject current=null] : iv_ruleGroupOrUnionGraphPattern= ruleGroupOrUnionGraphPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3969:1: entryRuleGroupOrUnionGraphPattern returns [EObject current=null] : iv_ruleGroupOrUnionGraphPattern= ruleGroupOrUnionGraphPattern EOF ;
     public final EObject entryRuleGroupOrUnionGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -9874,20 +9744,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4030:2: (iv_ruleGroupOrUnionGraphPattern= ruleGroupOrUnionGraphPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4031:2: iv_ruleGroupOrUnionGraphPattern= ruleGroupOrUnionGraphPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3970:2: (iv_ruleGroupOrUnionGraphPattern= ruleGroupOrUnionGraphPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3971:2: iv_ruleGroupOrUnionGraphPattern= ruleGroupOrUnionGraphPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getGroupOrUnionGraphPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleGroupOrUnionGraphPattern_in_entryRuleGroupOrUnionGraphPattern6650);
+            pushFollow(FOLLOW_ruleGroupOrUnionGraphPattern_in_entryRuleGroupOrUnionGraphPattern6655);
             iv_ruleGroupOrUnionGraphPattern=ruleGroupOrUnionGraphPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleGroupOrUnionGraphPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupOrUnionGraphPattern6660); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGroupOrUnionGraphPattern6665); if (failed) return current;
 
             }
 
@@ -9905,7 +9775,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGroupOrUnionGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4038:1: ruleGroupOrUnionGraphPattern returns [EObject current=null] : ( ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )? ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3978:1: ruleGroupOrUnionGraphPattern returns [EObject current=null] : ( ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )? ) ;
     public final EObject ruleGroupOrUnionGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -9917,24 +9787,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4043:6: ( ( ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )? ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4044:1: ( ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3983:6: ( ( ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )? ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3984:1: ( ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )? )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4044:1: ( ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )? )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4044:2: ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3984:1: ( ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3984:2: ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) ) ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )?
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4044:2: ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4045:1: (lv_graphPatterns_0_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3984:2: ( (lv_graphPatterns_0_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3985:1: (lv_graphPatterns_0_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4045:1: (lv_graphPatterns_0_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4046:3: lv_graphPatterns_0_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3985:1: (lv_graphPatterns_0_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:3986:3: lv_graphPatterns_0_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getGroupOrUnionGraphPatternAccess().getGraphPatternsGroupGraphPatternParserRuleCall_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleGroupOrUnionGraphPattern6706);
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleGroupOrUnionGraphPattern6711);
             lv_graphPatterns_0_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
@@ -9963,7 +9833,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4068:2: ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4008:2: ( KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) ) )?
             int alt71=2;
             int LA71_0 = input.LA(1);
 
@@ -9972,26 +9842,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt71) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4069:2: KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4009:2: KEYWORD_55 ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) )
                     {
-                    match(input,KEYWORD_55,FOLLOW_KEYWORD_55_in_ruleGroupOrUnionGraphPattern6718); if (failed) return current;
+                    match(input,KEYWORD_55,FOLLOW_KEYWORD_55_in_ruleGroupOrUnionGraphPattern6723); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getGroupOrUnionGraphPatternAccess().getUNIONKeyword_1_0(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4073:1: ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4074:1: (lv_graphPatterns_2_0= ruleGroupGraphPattern )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4013:1: ( (lv_graphPatterns_2_0= ruleGroupGraphPattern ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4014:1: (lv_graphPatterns_2_0= ruleGroupGraphPattern )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4074:1: (lv_graphPatterns_2_0= ruleGroupGraphPattern )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4075:3: lv_graphPatterns_2_0= ruleGroupGraphPattern
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4014:1: (lv_graphPatterns_2_0= ruleGroupGraphPattern )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4015:3: lv_graphPatterns_2_0= ruleGroupGraphPattern
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getGroupOrUnionGraphPatternAccess().getGraphPatternsGroupGraphPatternParserRuleCall_1_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleGroupOrUnionGraphPattern6739);
+                    pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleGroupOrUnionGraphPattern6744);
                     lv_graphPatterns_2_0=ruleGroupGraphPattern();
                     _fsp--;
                     if (failed) return current;
@@ -10051,7 +9921,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleOptionalGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4105:1: entryRuleOptionalGraphPattern returns [EObject current=null] : iv_ruleOptionalGraphPattern= ruleOptionalGraphPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4045:1: entryRuleOptionalGraphPattern returns [EObject current=null] : iv_ruleOptionalGraphPattern= ruleOptionalGraphPattern EOF ;
     public final EObject entryRuleOptionalGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10059,20 +9929,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4106:2: (iv_ruleOptionalGraphPattern= ruleOptionalGraphPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4107:2: iv_ruleOptionalGraphPattern= ruleOptionalGraphPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4046:2: (iv_ruleOptionalGraphPattern= ruleOptionalGraphPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4047:2: iv_ruleOptionalGraphPattern= ruleOptionalGraphPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getOptionalGraphPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleOptionalGraphPattern_in_entryRuleOptionalGraphPattern6776);
+            pushFollow(FOLLOW_ruleOptionalGraphPattern_in_entryRuleOptionalGraphPattern6781);
             iv_ruleOptionalGraphPattern=ruleOptionalGraphPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleOptionalGraphPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOptionalGraphPattern6786); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOptionalGraphPattern6791); if (failed) return current;
 
             }
 
@@ -10090,7 +9960,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleOptionalGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4114:1: ruleOptionalGraphPattern returns [EObject current=null] : ( KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4054:1: ruleOptionalGraphPattern returns [EObject current=null] : ( KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) ) ) ;
     public final EObject ruleOptionalGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10100,30 +9970,30 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4119:6: ( ( KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4120:1: ( KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4059:6: ( ( KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4060:1: ( KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4120:1: ( KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4121:2: KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4060:1: ( KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4061:2: KEYWORD_78 ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) )
             {
-            match(input,KEYWORD_78,FOLLOW_KEYWORD_78_in_ruleOptionalGraphPattern6822); if (failed) return current;
+            match(input,KEYWORD_78,FOLLOW_KEYWORD_78_in_ruleOptionalGraphPattern6827); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getOptionalGraphPatternAccess().getOPTIONALKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4125:1: ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4126:1: (lv_graphPattern_1_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4065:1: ( (lv_graphPattern_1_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4066:1: (lv_graphPattern_1_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4126:1: (lv_graphPattern_1_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4127:3: lv_graphPattern_1_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4066:1: (lv_graphPattern_1_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4067:3: lv_graphPattern_1_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getOptionalGraphPatternAccess().getGraphPatternGroupGraphPatternParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleOptionalGraphPattern6843);
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleOptionalGraphPattern6848);
             lv_graphPattern_1_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
@@ -10177,7 +10047,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRulePropertyList
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4157:1: entryRulePropertyList returns [EObject current=null] : iv_rulePropertyList= rulePropertyList EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4097:1: entryRulePropertyList returns [EObject current=null] : iv_rulePropertyList= rulePropertyList EOF ;
     public final EObject entryRulePropertyList() throws RecognitionException {
         EObject current = null;
 
@@ -10185,20 +10055,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4158:2: (iv_rulePropertyList= rulePropertyList EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4159:2: iv_rulePropertyList= rulePropertyList EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4098:2: (iv_rulePropertyList= rulePropertyList EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4099:2: iv_rulePropertyList= rulePropertyList EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPropertyListRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePropertyList_in_entryRulePropertyList6878);
+            pushFollow(FOLLOW_rulePropertyList_in_entryRulePropertyList6883);
             iv_rulePropertyList=rulePropertyList();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePropertyList; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyList6888); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyList6893); if (failed) return current;
 
             }
 
@@ -10216,7 +10086,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulePropertyList
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4166:1: rulePropertyList returns [EObject current=null] : ( ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4106:1: rulePropertyList returns [EObject current=null] : ( ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) ) ) ;
     public final EObject rulePropertyList() throws RecognitionException {
         EObject current = null;
 
@@ -10228,24 +10098,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4171:6: ( ( ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4172:1: ( ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4111:6: ( ( ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4112:1: ( ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4172:1: ( ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4172:2: ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4112:1: ( ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4112:2: ( (lv_property_0_0= ruleGraphNode ) ) ( (lv_object_1_0= ruleGraphNode ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4172:2: ( (lv_property_0_0= ruleGraphNode ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4173:1: (lv_property_0_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4112:2: ( (lv_property_0_0= ruleGraphNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4113:1: (lv_property_0_0= ruleGraphNode )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4173:1: (lv_property_0_0= ruleGraphNode )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4174:3: lv_property_0_0= ruleGraphNode
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4113:1: (lv_property_0_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4114:3: lv_property_0_0= ruleGraphNode
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getPropertyListAccess().getPropertyGraphNodeParserRuleCall_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGraphNode_in_rulePropertyList6934);
+            pushFollow(FOLLOW_ruleGraphNode_in_rulePropertyList6939);
             lv_property_0_0=ruleGraphNode();
             _fsp--;
             if (failed) return current;
@@ -10274,18 +10144,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4196:2: ( (lv_object_1_0= ruleGraphNode ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4197:1: (lv_object_1_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4136:2: ( (lv_object_1_0= ruleGraphNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4137:1: (lv_object_1_0= ruleGraphNode )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4197:1: (lv_object_1_0= ruleGraphNode )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4198:3: lv_object_1_0= ruleGraphNode
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4137:1: (lv_object_1_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4138:3: lv_object_1_0= ruleGraphNode
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getPropertyListAccess().getObjectGraphNodeParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGraphNode_in_rulePropertyList6955);
+            pushFollow(FOLLOW_ruleGraphNode_in_rulePropertyList6960);
             lv_object_1_0=ruleGraphNode();
             _fsp--;
             if (failed) return current;
@@ -10339,7 +10209,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGraphGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4228:1: entryRuleGraphGraphPattern returns [EObject current=null] : iv_ruleGraphGraphPattern= ruleGraphGraphPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4168:1: entryRuleGraphGraphPattern returns [EObject current=null] : iv_ruleGraphGraphPattern= ruleGraphGraphPattern EOF ;
     public final EObject entryRuleGraphGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10347,20 +10217,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4229:2: (iv_ruleGraphGraphPattern= ruleGraphGraphPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4230:2: iv_ruleGraphGraphPattern= ruleGraphGraphPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4169:2: (iv_ruleGraphGraphPattern= ruleGraphGraphPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4170:2: iv_ruleGraphGraphPattern= ruleGraphGraphPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getGraphGraphPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleGraphGraphPattern_in_entryRuleGraphGraphPattern6990);
+            pushFollow(FOLLOW_ruleGraphGraphPattern_in_entryRuleGraphGraphPattern6995);
             iv_ruleGraphGraphPattern=ruleGraphGraphPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleGraphGraphPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGraphGraphPattern7000); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGraphGraphPattern7005); if (failed) return current;
 
             }
 
@@ -10378,7 +10248,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGraphGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4237:1: ruleGraphGraphPattern returns [EObject current=null] : ( KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4177:1: ruleGraphGraphPattern returns [EObject current=null] : ( KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) ;
     public final EObject ruleGraphGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10390,30 +10260,30 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4242:6: ( ( KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4243:1: ( KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4182:6: ( ( KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4183:1: ( KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4243:1: ( KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4244:2: KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4183:1: ( KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4184:2: KEYWORD_49 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
             {
-            match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleGraphGraphPattern7036); if (failed) return current;
+            match(input,KEYWORD_49,FOLLOW_KEYWORD_49_in_ruleGraphGraphPattern7041); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getGraphGraphPatternAccess().getGRAPHKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4248:1: ( (lv_var_1_0= ruleGraphNode ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4249:1: (lv_var_1_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4188:1: ( (lv_var_1_0= ruleGraphNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4189:1: (lv_var_1_0= ruleGraphNode )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4249:1: (lv_var_1_0= ruleGraphNode )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4250:3: lv_var_1_0= ruleGraphNode
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4189:1: (lv_var_1_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4190:3: lv_var_1_0= ruleGraphNode
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getGraphGraphPatternAccess().getVarGraphNodeParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGraphNode_in_ruleGraphGraphPattern7057);
+            pushFollow(FOLLOW_ruleGraphNode_in_ruleGraphGraphPattern7062);
             lv_var_1_0=ruleGraphNode();
             _fsp--;
             if (failed) return current;
@@ -10442,18 +10312,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4272:2: ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4273:1: (lv_pattern_2_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4212:2: ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4213:1: (lv_pattern_2_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4273:1: (lv_pattern_2_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4274:3: lv_pattern_2_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4213:1: (lv_pattern_2_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4214:3: lv_pattern_2_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getGraphGraphPatternAccess().getPatternGroupGraphPatternParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleGraphGraphPattern7078);
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleGraphGraphPattern7083);
             lv_pattern_2_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
@@ -10507,7 +10377,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleServiceGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4304:1: entryRuleServiceGraphPattern returns [EObject current=null] : iv_ruleServiceGraphPattern= ruleServiceGraphPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4244:1: entryRuleServiceGraphPattern returns [EObject current=null] : iv_ruleServiceGraphPattern= ruleServiceGraphPattern EOF ;
     public final EObject entryRuleServiceGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10515,20 +10385,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4305:2: (iv_ruleServiceGraphPattern= ruleServiceGraphPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4306:2: iv_ruleServiceGraphPattern= ruleServiceGraphPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4245:2: (iv_ruleServiceGraphPattern= ruleServiceGraphPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4246:2: iv_ruleServiceGraphPattern= ruleServiceGraphPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getServiceGraphPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleServiceGraphPattern_in_entryRuleServiceGraphPattern7113);
+            pushFollow(FOLLOW_ruleServiceGraphPattern_in_entryRuleServiceGraphPattern7118);
             iv_ruleServiceGraphPattern=ruleServiceGraphPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleServiceGraphPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceGraphPattern7123); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceGraphPattern7128); if (failed) return current;
 
             }
 
@@ -10546,7 +10416,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleServiceGraphPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4313:1: ruleServiceGraphPattern returns [EObject current=null] : ( KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4253:1: ruleServiceGraphPattern returns [EObject current=null] : ( KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) ;
     public final EObject ruleServiceGraphPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10558,30 +10428,30 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4318:6: ( ( KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4319:1: ( KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4258:6: ( ( KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4259:1: ( KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4319:1: ( KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4320:2: KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4259:1: ( KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4260:2: KEYWORD_72 ( (lv_var_1_0= ruleGraphNode ) ) ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
             {
-            match(input,KEYWORD_72,FOLLOW_KEYWORD_72_in_ruleServiceGraphPattern7159); if (failed) return current;
+            match(input,KEYWORD_72,FOLLOW_KEYWORD_72_in_ruleServiceGraphPattern7164); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getServiceGraphPatternAccess().getSERVICEKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4324:1: ( (lv_var_1_0= ruleGraphNode ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4325:1: (lv_var_1_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4264:1: ( (lv_var_1_0= ruleGraphNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4265:1: (lv_var_1_0= ruleGraphNode )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4325:1: (lv_var_1_0= ruleGraphNode )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4326:3: lv_var_1_0= ruleGraphNode
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4265:1: (lv_var_1_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4266:3: lv_var_1_0= ruleGraphNode
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getServiceGraphPatternAccess().getVarGraphNodeParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGraphNode_in_ruleServiceGraphPattern7180);
+            pushFollow(FOLLOW_ruleGraphNode_in_ruleServiceGraphPattern7185);
             lv_var_1_0=ruleGraphNode();
             _fsp--;
             if (failed) return current;
@@ -10610,18 +10480,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4348:2: ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4349:1: (lv_pattern_2_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4288:2: ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4289:1: (lv_pattern_2_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4349:1: (lv_pattern_2_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4350:3: lv_pattern_2_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4289:1: (lv_pattern_2_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4290:3: lv_pattern_2_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getServiceGraphPatternAccess().getPatternGroupGraphPatternParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleServiceGraphPattern7201);
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleServiceGraphPattern7206);
             lv_pattern_2_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
@@ -10675,7 +10545,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFilterPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4380:1: entryRuleFilterPattern returns [EObject current=null] : iv_ruleFilterPattern= ruleFilterPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4320:1: entryRuleFilterPattern returns [EObject current=null] : iv_ruleFilterPattern= ruleFilterPattern EOF ;
     public final EObject entryRuleFilterPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10683,20 +10553,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4381:2: (iv_ruleFilterPattern= ruleFilterPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4382:2: iv_ruleFilterPattern= ruleFilterPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4321:2: (iv_ruleFilterPattern= ruleFilterPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4322:2: iv_ruleFilterPattern= ruleFilterPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFilterPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFilterPattern_in_entryRuleFilterPattern7236);
+            pushFollow(FOLLOW_ruleFilterPattern_in_entryRuleFilterPattern7241);
             iv_ruleFilterPattern=ruleFilterPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFilterPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterPattern7246); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterPattern7251); if (failed) return current;
 
             }
 
@@ -10714,7 +10584,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFilterPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4389:1: ruleFilterPattern returns [EObject current=null] : ( KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2 ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4329:1: ruleFilterPattern returns [EObject current=null] : ( KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2 ) ;
     public final EObject ruleFilterPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10724,36 +10594,36 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4394:6: ( ( KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2 ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4395:1: ( KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4334:6: ( ( KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4335:1: ( KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2 )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4395:1: ( KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2 )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4396:2: KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4335:1: ( KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4336:2: KEYWORD_63 KEYWORD_1 ( (lv_expression_2_0= ruleExpression ) ) KEYWORD_2
             {
-            match(input,KEYWORD_63,FOLLOW_KEYWORD_63_in_ruleFilterPattern7282); if (failed) return current;
+            match(input,KEYWORD_63,FOLLOW_KEYWORD_63_in_ruleFilterPattern7287); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getFilterPatternAccess().getFILTERKeyword_0(), null); 
                   
             }
-            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleFilterPattern7293); if (failed) return current;
+            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleFilterPattern7298); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getFilterPatternAccess().getLeftParenthesisKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4405:1: ( (lv_expression_2_0= ruleExpression ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4406:1: (lv_expression_2_0= ruleExpression )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4345:1: ( (lv_expression_2_0= ruleExpression ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4346:1: (lv_expression_2_0= ruleExpression )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4406:1: (lv_expression_2_0= ruleExpression )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4407:3: lv_expression_2_0= ruleExpression
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4346:1: (lv_expression_2_0= ruleExpression )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4347:3: lv_expression_2_0= ruleExpression
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getFilterPatternAccess().getExpressionExpressionParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleFilterPattern7314);
+            pushFollow(FOLLOW_ruleExpression_in_ruleFilterPattern7319);
             lv_expression_2_0=ruleExpression();
             _fsp--;
             if (failed) return current;
@@ -10782,7 +10652,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleFilterPattern7325); if (failed) return current;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleFilterPattern7330); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getFilterPatternAccess().getRightParenthesisKeyword_3(), null); 
@@ -10813,7 +10683,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleExistsPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4442:1: entryRuleExistsPattern returns [EObject current=null] : iv_ruleExistsPattern= ruleExistsPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4382:1: entryRuleExistsPattern returns [EObject current=null] : iv_ruleExistsPattern= ruleExistsPattern EOF ;
     public final EObject entryRuleExistsPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10821,20 +10691,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4443:2: (iv_ruleExistsPattern= ruleExistsPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4444:2: iv_ruleExistsPattern= ruleExistsPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4383:2: (iv_ruleExistsPattern= ruleExistsPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4384:2: iv_ruleExistsPattern= ruleExistsPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getExistsPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleExistsPattern_in_entryRuleExistsPattern7360);
+            pushFollow(FOLLOW_ruleExistsPattern_in_entryRuleExistsPattern7365);
             iv_ruleExistsPattern=ruleExistsPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleExistsPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExistsPattern7370); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExistsPattern7375); if (failed) return current;
 
             }
 
@@ -10852,7 +10722,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExistsPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4451:1: ruleExistsPattern returns [EObject current=null] : ( KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4391:1: ruleExistsPattern returns [EObject current=null] : ( KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) ;
     public final EObject ruleExistsPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10862,36 +10732,36 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4456:6: ( ( KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4457:1: ( KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4396:6: ( ( KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4397:1: ( KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4457:1: ( KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4458:2: KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4397:1: ( KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4398:2: KEYWORD_63 KEYWORD_62 ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
             {
-            match(input,KEYWORD_63,FOLLOW_KEYWORD_63_in_ruleExistsPattern7406); if (failed) return current;
+            match(input,KEYWORD_63,FOLLOW_KEYWORD_63_in_ruleExistsPattern7411); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getExistsPatternAccess().getFILTERKeyword_0(), null); 
                   
             }
-            match(input,KEYWORD_62,FOLLOW_KEYWORD_62_in_ruleExistsPattern7417); if (failed) return current;
+            match(input,KEYWORD_62,FOLLOW_KEYWORD_62_in_ruleExistsPattern7422); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getExistsPatternAccess().getEXISTSKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4467:1: ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4468:1: (lv_pattern_2_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4407:1: ( (lv_pattern_2_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4408:1: (lv_pattern_2_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4468:1: (lv_pattern_2_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4469:3: lv_pattern_2_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4408:1: (lv_pattern_2_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4409:3: lv_pattern_2_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getExistsPatternAccess().getPatternGroupGraphPatternParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleExistsPattern7438);
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleExistsPattern7443);
             lv_pattern_2_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
@@ -10945,7 +10815,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleNotExistsPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4499:1: entryRuleNotExistsPattern returns [EObject current=null] : iv_ruleNotExistsPattern= ruleNotExistsPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4439:1: entryRuleNotExistsPattern returns [EObject current=null] : iv_ruleNotExistsPattern= ruleNotExistsPattern EOF ;
     public final EObject entryRuleNotExistsPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10953,20 +10823,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4500:2: (iv_ruleNotExistsPattern= ruleNotExistsPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4501:2: iv_ruleNotExistsPattern= ruleNotExistsPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4440:2: (iv_ruleNotExistsPattern= ruleNotExistsPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4441:2: iv_ruleNotExistsPattern= ruleNotExistsPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getNotExistsPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleNotExistsPattern_in_entryRuleNotExistsPattern7473);
+            pushFollow(FOLLOW_ruleNotExistsPattern_in_entryRuleNotExistsPattern7478);
             iv_ruleNotExistsPattern=ruleNotExistsPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleNotExistsPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNotExistsPattern7483); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNotExistsPattern7488); if (failed) return current;
 
             }
 
@@ -10984,7 +10854,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleNotExistsPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4508:1: ruleNotExistsPattern returns [EObject current=null] : ( KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4448:1: ruleNotExistsPattern returns [EObject current=null] : ( KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ) ;
     public final EObject ruleNotExistsPattern() throws RecognitionException {
         EObject current = null;
 
@@ -10994,42 +10864,42 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4513:6: ( ( KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4514:1: ( KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4453:6: ( ( KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4454:1: ( KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4514:1: ( KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4515:2: KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4454:1: ( KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4455:2: KEYWORD_63 KEYWORD_33 KEYWORD_62 ( (lv_pattern_3_0= ruleGroupGraphPattern ) )
             {
-            match(input,KEYWORD_63,FOLLOW_KEYWORD_63_in_ruleNotExistsPattern7519); if (failed) return current;
+            match(input,KEYWORD_63,FOLLOW_KEYWORD_63_in_ruleNotExistsPattern7524); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getNotExistsPatternAccess().getFILTERKeyword_0(), null); 
                   
             }
-            match(input,KEYWORD_33,FOLLOW_KEYWORD_33_in_ruleNotExistsPattern7530); if (failed) return current;
+            match(input,KEYWORD_33,FOLLOW_KEYWORD_33_in_ruleNotExistsPattern7535); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getNotExistsPatternAccess().getNOTKeyword_1(), null); 
                   
             }
-            match(input,KEYWORD_62,FOLLOW_KEYWORD_62_in_ruleNotExistsPattern7541); if (failed) return current;
+            match(input,KEYWORD_62,FOLLOW_KEYWORD_62_in_ruleNotExistsPattern7546); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getNotExistsPatternAccess().getEXISTSKeyword_2(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4529:1: ( (lv_pattern_3_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4530:1: (lv_pattern_3_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4469:1: ( (lv_pattern_3_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4470:1: (lv_pattern_3_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4530:1: (lv_pattern_3_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4531:3: lv_pattern_3_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4470:1: (lv_pattern_3_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4471:3: lv_pattern_3_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getNotExistsPatternAccess().getPatternGroupGraphPatternParserRuleCall_3_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleNotExistsPattern7562);
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleNotExistsPattern7567);
             lv_pattern_3_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
@@ -11083,7 +10953,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleMinusPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4561:1: entryRuleMinusPattern returns [EObject current=null] : iv_ruleMinusPattern= ruleMinusPattern EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4501:1: entryRuleMinusPattern returns [EObject current=null] : iv_ruleMinusPattern= ruleMinusPattern EOF ;
     public final EObject entryRuleMinusPattern() throws RecognitionException {
         EObject current = null;
 
@@ -11091,20 +10961,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4562:2: (iv_ruleMinusPattern= ruleMinusPattern EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4563:2: iv_ruleMinusPattern= ruleMinusPattern EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4502:2: (iv_ruleMinusPattern= ruleMinusPattern EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4503:2: iv_ruleMinusPattern= ruleMinusPattern EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getMinusPatternRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleMinusPattern_in_entryRuleMinusPattern7597);
+            pushFollow(FOLLOW_ruleMinusPattern_in_entryRuleMinusPattern7602);
             iv_ruleMinusPattern=ruleMinusPattern();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleMinusPattern; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMinusPattern7607); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMinusPattern7612); if (failed) return current;
 
             }
 
@@ -11122,7 +10992,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleMinusPattern
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4570:1: ruleMinusPattern returns [EObject current=null] : ( KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4510:1: ruleMinusPattern returns [EObject current=null] : ( KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) ) ) ;
     public final EObject ruleMinusPattern() throws RecognitionException {
         EObject current = null;
 
@@ -11132,30 +11002,30 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4575:6: ( ( KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4576:1: ( KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4515:6: ( ( KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4516:1: ( KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4576:1: ( KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4577:2: KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4516:1: ( KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4517:2: KEYWORD_52 ( (lv_pattern_1_0= ruleGroupGraphPattern ) )
             {
-            match(input,KEYWORD_52,FOLLOW_KEYWORD_52_in_ruleMinusPattern7643); if (failed) return current;
+            match(input,KEYWORD_52,FOLLOW_KEYWORD_52_in_ruleMinusPattern7648); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getMinusPatternAccess().getMINUSKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4581:1: ( (lv_pattern_1_0= ruleGroupGraphPattern ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4582:1: (lv_pattern_1_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4521:1: ( (lv_pattern_1_0= ruleGroupGraphPattern ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4522:1: (lv_pattern_1_0= ruleGroupGraphPattern )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4582:1: (lv_pattern_1_0= ruleGroupGraphPattern )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4583:3: lv_pattern_1_0= ruleGroupGraphPattern
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4522:1: (lv_pattern_1_0= ruleGroupGraphPattern )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4523:3: lv_pattern_1_0= ruleGroupGraphPattern
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getMinusPatternAccess().getPatternGroupGraphPatternParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleMinusPattern7664);
+            pushFollow(FOLLOW_ruleGroupGraphPattern_in_ruleMinusPattern7669);
             lv_pattern_1_0=ruleGroupGraphPattern();
             _fsp--;
             if (failed) return current;
@@ -11209,7 +11079,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4613:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4553:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
     public final EObject entryRuleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11217,20 +11087,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4614:2: (iv_ruleExpression= ruleExpression EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4615:2: iv_ruleExpression= ruleExpression EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4554:2: (iv_ruleExpression= ruleExpression EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4555:2: iv_ruleExpression= ruleExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getExpressionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression7699);
+            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression7704);
             iv_ruleExpression=ruleExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression7709); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression7714); if (failed) return current;
 
             }
 
@@ -11248,7 +11118,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4622:1: ruleExpression returns [EObject current=null] : (this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )? ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4562:1: ruleExpression returns [EObject current=null] : (this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )? ) ;
     public final EObject ruleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11260,11 +11130,11 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4627:6: ( (this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )? ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4628:1: (this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4567:6: ( (this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )? ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4568:1: (this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )? )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4628:1: (this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )? )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4629:2: this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4568:1: (this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4569:2: this_AndFilterExpression_0= ruleAndFilterExpression ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )?
             {
             if ( backtracking==0 ) {
                
@@ -11276,17 +11146,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                       currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getAndFilterExpressionParserRuleCall_0(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleAndFilterExpression_in_ruleExpression7759);
+            pushFollow(FOLLOW_ruleAndFilterExpression_in_ruleExpression7764);
             this_AndFilterExpression_0=ruleAndFilterExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
-               
-                      current = this_AndFilterExpression_0; 
+
+                      current = this_AndFilterExpression_0;
                       currentNode = currentNode.getParent();
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4640:1: ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4580:1: ( () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+ )?
             int alt73=2;
             int LA73_0 = input.LA(1);
 
@@ -11295,10 +11165,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt73) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4640:2: () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4580:2: () ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4640:2: ()
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4641:2: 
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4580:2: ()
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4581:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11325,7 +11195,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4659:2: ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4599:2: ( KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) ) )+
                     int cnt72=0;
                     loop72:
                     do {
@@ -11339,26 +11209,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                         switch (alt72) {
                     	case 1 :
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4660:2: KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) )
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4600:2: KEYWORD_27 ( (lv_entries_3_0= ruleAndFilterExpression ) )
                     	    {
-                    	    match(input,KEYWORD_27,FOLLOW_KEYWORD_27_in_ruleExpression7783); if (failed) return current;
+                    	    match(input,KEYWORD_27,FOLLOW_KEYWORD_27_in_ruleExpression7788); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	              createLeafNode(grammarAccess.getExpressionAccess().getVerticalLineVerticalLineKeyword_1_1_0(), null); 
                     	          
                     	    }
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4664:1: ( (lv_entries_3_0= ruleAndFilterExpression ) )
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4665:1: (lv_entries_3_0= ruleAndFilterExpression )
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4604:1: ( (lv_entries_3_0= ruleAndFilterExpression ) )
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4605:1: (lv_entries_3_0= ruleAndFilterExpression )
                     	    {
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4665:1: (lv_entries_3_0= ruleAndFilterExpression )
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4666:3: lv_entries_3_0= ruleAndFilterExpression
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4605:1: (lv_entries_3_0= ruleAndFilterExpression )
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4606:3: lv_entries_3_0= ruleAndFilterExpression
                     	    {
                     	    if ( backtracking==0 ) {
                     	       
                     	      	        currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getEntriesAndFilterExpressionParserRuleCall_1_1_1_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleAndFilterExpression_in_ruleExpression7804);
+                    	    pushFollow(FOLLOW_ruleAndFilterExpression_in_ruleExpression7809);
                     	    lv_entries_3_0=ruleAndFilterExpression();
                     	    _fsp--;
                     	    if (failed) return current;
@@ -11432,7 +11302,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAndFilterExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4696:1: entryRuleAndFilterExpression returns [EObject current=null] : iv_ruleAndFilterExpression= ruleAndFilterExpression EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4636:1: entryRuleAndFilterExpression returns [EObject current=null] : iv_ruleAndFilterExpression= ruleAndFilterExpression EOF ;
     public final EObject entryRuleAndFilterExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11440,20 +11310,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4697:2: (iv_ruleAndFilterExpression= ruleAndFilterExpression EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4698:2: iv_ruleAndFilterExpression= ruleAndFilterExpression EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4637:2: (iv_ruleAndFilterExpression= ruleAndFilterExpression EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4638:2: iv_ruleAndFilterExpression= ruleAndFilterExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAndFilterExpressionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAndFilterExpression_in_entryRuleAndFilterExpression7843);
+            pushFollow(FOLLOW_ruleAndFilterExpression_in_entryRuleAndFilterExpression7848);
             iv_ruleAndFilterExpression=ruleAndFilterExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAndFilterExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAndFilterExpression7853); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAndFilterExpression7858); if (failed) return current;
 
             }
 
@@ -11471,7 +11341,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAndFilterExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4705:1: ruleAndFilterExpression returns [EObject current=null] : (this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )? ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4645:1: ruleAndFilterExpression returns [EObject current=null] : (this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )? ) ;
     public final EObject ruleAndFilterExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11483,11 +11353,11 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4710:6: ( (this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )? ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4711:1: (this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4650:6: ( (this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )? ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4651:1: (this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )? )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4711:1: (this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )? )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4712:2: this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4651:1: (this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4652:2: this_ConcreteFilterExpression_0= ruleConcreteFilterExpression ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )?
             {
             if ( backtracking==0 ) {
                
@@ -11499,17 +11369,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                       currentNode=createCompositeNode(grammarAccess.getAndFilterExpressionAccess().getConcreteFilterExpressionParserRuleCall_0(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleConcreteFilterExpression_in_ruleAndFilterExpression7903);
+            pushFollow(FOLLOW_ruleConcreteFilterExpression_in_ruleAndFilterExpression7908);
             this_ConcreteFilterExpression_0=ruleConcreteFilterExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
-               
-                      current = this_ConcreteFilterExpression_0; 
+
+                      current = this_ConcreteFilterExpression_0;
                       currentNode = currentNode.getParent();
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4723:1: ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4663:1: ( () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+ )?
             int alt75=2;
             int LA75_0 = input.LA(1);
 
@@ -11518,10 +11388,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt75) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4723:2: () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4663:2: () ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4723:2: ()
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4724:2: 
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4663:2: ()
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4664:2: 
                     {
                     if ( backtracking==0 ) {
                        
@@ -11548,7 +11418,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4742:2: ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4682:2: ( KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) ) )+
                     int cnt74=0;
                     loop74:
                     do {
@@ -11562,26 +11432,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                         switch (alt74) {
                     	case 1 :
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4743:2: KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) )
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4683:2: KEYWORD_19 ( (lv_entries_3_0= ruleConcreteFilterExpression ) )
                     	    {
-                    	    match(input,KEYWORD_19,FOLLOW_KEYWORD_19_in_ruleAndFilterExpression7927); if (failed) return current;
+                    	    match(input,KEYWORD_19,FOLLOW_KEYWORD_19_in_ruleAndFilterExpression7932); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	              createLeafNode(grammarAccess.getAndFilterExpressionAccess().getAmpersandAmpersandKeyword_1_1_0(), null); 
                     	          
                     	    }
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4747:1: ( (lv_entries_3_0= ruleConcreteFilterExpression ) )
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4748:1: (lv_entries_3_0= ruleConcreteFilterExpression )
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4687:1: ( (lv_entries_3_0= ruleConcreteFilterExpression ) )
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4688:1: (lv_entries_3_0= ruleConcreteFilterExpression )
                     	    {
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4748:1: (lv_entries_3_0= ruleConcreteFilterExpression )
-                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4749:3: lv_entries_3_0= ruleConcreteFilterExpression
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4688:1: (lv_entries_3_0= ruleConcreteFilterExpression )
+                    	    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4689:3: lv_entries_3_0= ruleConcreteFilterExpression
                     	    {
                     	    if ( backtracking==0 ) {
                     	       
                     	      	        currentNode=createCompositeNode(grammarAccess.getAndFilterExpressionAccess().getEntriesConcreteFilterExpressionParserRuleCall_1_1_1_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleConcreteFilterExpression_in_ruleAndFilterExpression7948);
+                    	    pushFollow(FOLLOW_ruleConcreteFilterExpression_in_ruleAndFilterExpression7953);
                     	    lv_entries_3_0=ruleConcreteFilterExpression();
                     	    _fsp--;
                     	    if (failed) return current;
@@ -11655,7 +11525,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleConcreteFilterExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4779:1: entryRuleConcreteFilterExpression returns [EObject current=null] : iv_ruleConcreteFilterExpression= ruleConcreteFilterExpression EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4719:1: entryRuleConcreteFilterExpression returns [EObject current=null] : iv_ruleConcreteFilterExpression= ruleConcreteFilterExpression EOF ;
     public final EObject entryRuleConcreteFilterExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11663,20 +11533,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4780:2: (iv_ruleConcreteFilterExpression= ruleConcreteFilterExpression EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4781:2: iv_ruleConcreteFilterExpression= ruleConcreteFilterExpression EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4720:2: (iv_ruleConcreteFilterExpression= ruleConcreteFilterExpression EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4721:2: iv_ruleConcreteFilterExpression= ruleConcreteFilterExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getConcreteFilterExpressionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleConcreteFilterExpression_in_entryRuleConcreteFilterExpression7987);
+            pushFollow(FOLLOW_ruleConcreteFilterExpression_in_entryRuleConcreteFilterExpression7992);
             iv_ruleConcreteFilterExpression=ruleConcreteFilterExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleConcreteFilterExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConcreteFilterExpression7997); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConcreteFilterExpression8002); if (failed) return current;
 
             }
 
@@ -11694,7 +11564,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleConcreteFilterExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4788:1: ruleConcreteFilterExpression returns [EObject current=null] : (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4728:1: ruleConcreteFilterExpression returns [EObject current=null] : (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression ) ;
     public final EObject ruleConcreteFilterExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11706,10 +11576,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4793:6: ( (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4794:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4733:6: ( (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4734:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4794:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4734:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression )
             int alt76=2;
             int LA76_0 = input.LA(1);
 
@@ -11722,13 +11592,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4794:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression )", 76, 0, input);
+                    new NoViableAltException("4734:1: (this_ParFilterExpression_0= ruleParFilterExpression | this_ExpressionFilterExpression_1= ruleExpressionFilterExpression )", 76, 0, input);
 
                 throw nvae;
             }
             switch (alt76) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4795:2: this_ParFilterExpression_0= ruleParFilterExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4735:2: this_ParFilterExpression_0= ruleParFilterExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -11740,13 +11610,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getConcreteFilterExpressionAccess().getParFilterExpressionParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleParFilterExpression_in_ruleConcreteFilterExpression8047);
+                    pushFollow(FOLLOW_ruleParFilterExpression_in_ruleConcreteFilterExpression8052);
                     this_ParFilterExpression_0=ruleParFilterExpression();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_ParFilterExpression_0; 
+
+                              current = this_ParFilterExpression_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -11754,7 +11624,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4808:2: this_ExpressionFilterExpression_1= ruleExpressionFilterExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4748:2: this_ExpressionFilterExpression_1= ruleExpressionFilterExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -11766,13 +11636,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getConcreteFilterExpressionAccess().getExpressionFilterExpressionParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExpressionFilterExpression_in_ruleConcreteFilterExpression8077);
+                    pushFollow(FOLLOW_ruleExpressionFilterExpression_in_ruleConcreteFilterExpression8082);
                     this_ExpressionFilterExpression_1=ruleExpressionFilterExpression();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_ExpressionFilterExpression_1; 
+
+                              current = this_ExpressionFilterExpression_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -11804,7 +11674,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleParFilterExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4827:1: entryRuleParFilterExpression returns [EObject current=null] : iv_ruleParFilterExpression= ruleParFilterExpression EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4767:1: entryRuleParFilterExpression returns [EObject current=null] : iv_ruleParFilterExpression= ruleParFilterExpression EOF ;
     public final EObject entryRuleParFilterExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11812,20 +11682,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4828:2: (iv_ruleParFilterExpression= ruleParFilterExpression EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4829:2: iv_ruleParFilterExpression= ruleParFilterExpression EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4768:2: (iv_ruleParFilterExpression= ruleParFilterExpression EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4769:2: iv_ruleParFilterExpression= ruleParFilterExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getParFilterExpressionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleParFilterExpression_in_entryRuleParFilterExpression8111);
+            pushFollow(FOLLOW_ruleParFilterExpression_in_entryRuleParFilterExpression8116);
             iv_ruleParFilterExpression=ruleParFilterExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleParFilterExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParFilterExpression8121); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParFilterExpression8126); if (failed) return current;
 
             }
 
@@ -11843,7 +11713,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleParFilterExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4836:1: ruleParFilterExpression returns [EObject current=null] : ( KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2 ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4776:1: ruleParFilterExpression returns [EObject current=null] : ( KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2 ) ;
     public final EObject ruleParFilterExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11853,13 +11723,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4841:6: ( ( KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2 ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4842:1: ( KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4781:6: ( ( KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4782:1: ( KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2 )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4842:1: ( KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2 )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4843:2: KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4782:1: ( KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4783:2: KEYWORD_1 this_Expression_1= ruleExpression KEYWORD_2
             {
-            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleParFilterExpression8157); if (failed) return current;
+            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleParFilterExpression8162); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getParFilterExpressionAccess().getLeftParenthesisKeyword_0(), null); 
@@ -11875,17 +11745,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                       currentNode=createCompositeNode(grammarAccess.getParFilterExpressionAccess().getExpressionParserRuleCall_1(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleParFilterExpression8182);
+            pushFollow(FOLLOW_ruleExpression_in_ruleParFilterExpression8187);
             this_Expression_1=ruleExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
-               
-                      current = this_Expression_1; 
+
+                      current = this_Expression_1;
                       currentNode = currentNode.getParent();
                   
             }
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleParFilterExpression8192); if (failed) return current;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleParFilterExpression8197); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getParFilterExpressionAccess().getRightParenthesisKeyword_2(), null); 
@@ -11916,7 +11786,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleExpressionFilterExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4872:1: entryRuleExpressionFilterExpression returns [EObject current=null] : iv_ruleExpressionFilterExpression= ruleExpressionFilterExpression EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4812:1: entryRuleExpressionFilterExpression returns [EObject current=null] : iv_ruleExpressionFilterExpression= ruleExpressionFilterExpression EOF ;
     public final EObject entryRuleExpressionFilterExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11924,20 +11794,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4873:2: (iv_ruleExpressionFilterExpression= ruleExpressionFilterExpression EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4874:2: iv_ruleExpressionFilterExpression= ruleExpressionFilterExpression EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4813:2: (iv_ruleExpressionFilterExpression= ruleExpressionFilterExpression EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4814:2: iv_ruleExpressionFilterExpression= ruleExpressionFilterExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getExpressionFilterExpressionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleExpressionFilterExpression_in_entryRuleExpressionFilterExpression8227);
+            pushFollow(FOLLOW_ruleExpressionFilterExpression_in_entryRuleExpressionFilterExpression8232);
             iv_ruleExpressionFilterExpression=ruleExpressionFilterExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleExpressionFilterExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExpressionFilterExpression8237); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpressionFilterExpression8242); if (failed) return current;
 
             }
 
@@ -11955,7 +11825,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExpressionFilterExpression
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4881:1: ruleExpressionFilterExpression returns [EObject current=null] : ( ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4821:1: ruleExpressionFilterExpression returns [EObject current=null] : ( ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) ) ) ;
     public final EObject ruleExpressionFilterExpression() throws RecognitionException {
         EObject current = null;
 
@@ -11969,24 +11839,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4886:6: ( ( ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4887:1: ( ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4826:6: ( ( ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4827:1: ( ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4887:1: ( ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4887:2: ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4827:1: ( ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4827:2: ( (lv_left_0_0= ruleFilterNode ) ) ( (lv_operator_1_0= ruleOperator ) ) ( (lv_right_2_0= ruleFilterNode ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4887:2: ( (lv_left_0_0= ruleFilterNode ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4888:1: (lv_left_0_0= ruleFilterNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4827:2: ( (lv_left_0_0= ruleFilterNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4828:1: (lv_left_0_0= ruleFilterNode )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4888:1: (lv_left_0_0= ruleFilterNode )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4889:3: lv_left_0_0= ruleFilterNode
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4828:1: (lv_left_0_0= ruleFilterNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4829:3: lv_left_0_0= ruleFilterNode
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getExpressionFilterExpressionAccess().getLeftFilterNodeParserRuleCall_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFilterNode_in_ruleExpressionFilterExpression8283);
+            pushFollow(FOLLOW_ruleFilterNode_in_ruleExpressionFilterExpression8288);
             lv_left_0_0=ruleFilterNode();
             _fsp--;
             if (failed) return current;
@@ -12015,18 +11885,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4911:2: ( (lv_operator_1_0= ruleOperator ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4912:1: (lv_operator_1_0= ruleOperator )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4851:2: ( (lv_operator_1_0= ruleOperator ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4852:1: (lv_operator_1_0= ruleOperator )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4912:1: (lv_operator_1_0= ruleOperator )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4913:3: lv_operator_1_0= ruleOperator
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4852:1: (lv_operator_1_0= ruleOperator )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4853:3: lv_operator_1_0= ruleOperator
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getExpressionFilterExpressionAccess().getOperatorOperatorEnumRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleOperator_in_ruleExpressionFilterExpression8304);
+            pushFollow(FOLLOW_ruleOperator_in_ruleExpressionFilterExpression8309);
             lv_operator_1_0=ruleOperator();
             _fsp--;
             if (failed) return current;
@@ -12055,18 +11925,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4935:2: ( (lv_right_2_0= ruleFilterNode ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4936:1: (lv_right_2_0= ruleFilterNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4875:2: ( (lv_right_2_0= ruleFilterNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4876:1: (lv_right_2_0= ruleFilterNode )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4936:1: (lv_right_2_0= ruleFilterNode )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4937:3: lv_right_2_0= ruleFilterNode
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4876:1: (lv_right_2_0= ruleFilterNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4877:3: lv_right_2_0= ruleFilterNode
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getExpressionFilterExpressionAccess().getRightFilterNodeParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFilterNode_in_ruleExpressionFilterExpression8325);
+            pushFollow(FOLLOW_ruleFilterNode_in_ruleExpressionFilterExpression8330);
             lv_right_2_0=ruleFilterNode();
             _fsp--;
             if (failed) return current;
@@ -12120,7 +11990,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFilterNode
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4967:1: entryRuleFilterNode returns [EObject current=null] : iv_ruleFilterNode= ruleFilterNode EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4907:1: entryRuleFilterNode returns [EObject current=null] : iv_ruleFilterNode= ruleFilterNode EOF ;
     public final EObject entryRuleFilterNode() throws RecognitionException {
         EObject current = null;
 
@@ -12128,20 +11998,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4968:2: (iv_ruleFilterNode= ruleFilterNode EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4969:2: iv_ruleFilterNode= ruleFilterNode EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4908:2: (iv_ruleFilterNode= ruleFilterNode EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4909:2: iv_ruleFilterNode= ruleFilterNode EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFilterNodeRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFilterNode_in_entryRuleFilterNode8360);
+            pushFollow(FOLLOW_ruleFilterNode_in_entryRuleFilterNode8365);
             iv_ruleFilterNode=ruleFilterNode();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFilterNode; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterNode8370); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFilterNode8375); if (failed) return current;
 
             }
 
@@ -12159,7 +12029,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFilterNode
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4976:1: ruleFilterNode returns [EObject current=null] : (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4916:1: ruleFilterNode returns [EObject current=null] : (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction ) ;
     public final EObject ruleFilterNode() throws RecognitionException {
         EObject current = null;
 
@@ -12171,10 +12041,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4981:6: ( (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4982:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4921:6: ( (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4922:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4982:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4922:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )
             int alt77=2;
             int LA77_0 = input.LA(1);
 
@@ -12184,13 +12054,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             else if ( (LA77_0==RULE_ID) ) {
                 int LA77_2 = input.LA(2);
 
-                if ( (LA77_2==KEYWORD_1) ) {
-                    alt77=2;
-                }
-                else if ( (LA77_2==KEYWORD_9) ) {
-                    int LA77_4 = input.LA(3);
+                if ( (LA77_2==KEYWORD_9) ) {
+                    int LA77_3 = input.LA(3);
 
-                    if ( (LA77_4==RULE_ID) ) {
+                    if ( (LA77_3==RULE_ID) ) {
                         int LA77_5 = input.LA(4);
 
                         if ( (LA77_5==KEYWORD_1) ) {
@@ -12202,7 +12069,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                         else {
                             if (backtracking>0) {failed=true; return current;}
                             NoViableAltException nvae =
-                                new NoViableAltException("4982:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )", 77, 5, input);
+                                new NoViableAltException("4922:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )", 77, 5, input);
 
                             throw nvae;
                         }
@@ -12210,15 +12077,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("4982:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )", 77, 4, input);
+                            new NoViableAltException("4922:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )", 77, 3, input);
 
                         throw nvae;
                     }
                 }
+                else if ( (LA77_2==KEYWORD_1) ) {
+                    alt77=2;
+                }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("4982:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )", 77, 2, input);
+                        new NoViableAltException("4922:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )", 77, 2, input);
 
                     throw nvae;
                 }
@@ -12226,13 +12096,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4982:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )", 77, 0, input);
+                    new NoViableAltException("4922:1: (this_GraphNode_0= ruleGraphNode | this_Function_1= ruleFunction )", 77, 0, input);
 
                 throw nvae;
             }
             switch (alt77) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4983:2: this_GraphNode_0= ruleGraphNode
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4923:2: this_GraphNode_0= ruleGraphNode
                     {
                     if ( backtracking==0 ) {
                        
@@ -12244,13 +12114,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getFilterNodeAccess().getGraphNodeParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGraphNode_in_ruleFilterNode8420);
+                    pushFollow(FOLLOW_ruleGraphNode_in_ruleFilterNode8425);
                     this_GraphNode_0=ruleGraphNode();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_GraphNode_0; 
+
+                              current = this_GraphNode_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -12258,7 +12128,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4996:2: this_Function_1= ruleFunction
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4936:2: this_Function_1= ruleFunction
                     {
                     if ( backtracking==0 ) {
                        
@@ -12270,13 +12140,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getFilterNodeAccess().getFunctionParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFunction_in_ruleFilterNode8450);
+                    pushFollow(FOLLOW_ruleFunction_in_ruleFilterNode8455);
                     this_Function_1=ruleFunction();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_Function_1; 
+
+                              current = this_Function_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -12308,7 +12178,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFunction
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5015:1: entryRuleFunction returns [EObject current=null] : iv_ruleFunction= ruleFunction EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4955:1: entryRuleFunction returns [EObject current=null] : iv_ruleFunction= ruleFunction EOF ;
     public final EObject entryRuleFunction() throws RecognitionException {
         EObject current = null;
 
@@ -12316,20 +12186,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5016:2: (iv_ruleFunction= ruleFunction EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5017:2: iv_ruleFunction= ruleFunction EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4956:2: (iv_ruleFunction= ruleFunction EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4957:2: iv_ruleFunction= ruleFunction EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFunctionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFunction_in_entryRuleFunction8484);
+            pushFollow(FOLLOW_ruleFunction_in_entryRuleFunction8489);
             iv_ruleFunction=ruleFunction();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFunction8494); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFunction8499); if (failed) return current;
 
             }
 
@@ -12347,7 +12217,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFunction
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5024:1: ruleFunction returns [EObject current=null] : (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4964:1: ruleFunction returns [EObject current=null] : (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction ) ;
     public final EObject ruleFunction() throws RecognitionException {
         EObject current = null;
 
@@ -12359,10 +12229,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5029:6: ( (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5030:1: (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4969:6: ( (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4970:1: (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5030:1: (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4970:1: (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction )
             int alt78=2;
             int LA78_0 = input.LA(1);
 
@@ -12378,7 +12248,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("5030:1: (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction )", 78, 1, input);
+                        new NoViableAltException("4970:1: (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction )", 78, 1, input);
 
                     throw nvae;
                 }
@@ -12386,13 +12256,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("5030:1: (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction )", 78, 0, input);
+                    new NoViableAltException("4970:1: (this_NamedFunction_0= ruleNamedFunction | this_SparqlFunction_1= ruleSparqlFunction )", 78, 0, input);
 
                 throw nvae;
             }
             switch (alt78) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5031:2: this_NamedFunction_0= ruleNamedFunction
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4971:2: this_NamedFunction_0= ruleNamedFunction
                     {
                     if ( backtracking==0 ) {
                        
@@ -12404,13 +12274,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getFunctionAccess().getNamedFunctionParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNamedFunction_in_ruleFunction8544);
+                    pushFollow(FOLLOW_ruleNamedFunction_in_ruleFunction8549);
                     this_NamedFunction_0=ruleNamedFunction();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_NamedFunction_0; 
+
+                              current = this_NamedFunction_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -12418,7 +12288,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5044:2: this_SparqlFunction_1= ruleSparqlFunction
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:4984:2: this_SparqlFunction_1= ruleSparqlFunction
                     {
                     if ( backtracking==0 ) {
                        
@@ -12430,13 +12300,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getFunctionAccess().getSparqlFunctionParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleSparqlFunction_in_ruleFunction8574);
+                    pushFollow(FOLLOW_ruleSparqlFunction_in_ruleFunction8579);
                     this_SparqlFunction_1=ruleSparqlFunction();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_SparqlFunction_1; 
+
+                              current = this_SparqlFunction_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -12468,7 +12338,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleNamedFunction
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5063:1: entryRuleNamedFunction returns [EObject current=null] : iv_ruleNamedFunction= ruleNamedFunction EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5003:1: entryRuleNamedFunction returns [EObject current=null] : iv_ruleNamedFunction= ruleNamedFunction EOF ;
     public final EObject entryRuleNamedFunction() throws RecognitionException {
         EObject current = null;
 
@@ -12479,20 +12349,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
         	
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5067:2: (iv_ruleNamedFunction= ruleNamedFunction EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5068:2: iv_ruleNamedFunction= ruleNamedFunction EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5007:2: (iv_ruleNamedFunction= ruleNamedFunction EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5008:2: iv_ruleNamedFunction= ruleNamedFunction EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getNamedFunctionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleNamedFunction_in_entryRuleNamedFunction8614);
+            pushFollow(FOLLOW_ruleNamedFunction_in_entryRuleNamedFunction8619);
             iv_ruleNamedFunction=ruleNamedFunction();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleNamedFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNamedFunction8624); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNamedFunction8629); if (failed) return current;
 
             }
 
@@ -12513,7 +12383,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleNamedFunction
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5078:1: ruleNamedFunction returns [EObject current=null] : ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2 ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5018:1: ruleNamedFunction returns [EObject current=null] : ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2 ) ;
     public final EObject ruleNamedFunction() throws RecognitionException {
         EObject current = null;
 
@@ -12527,17 +12397,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5084:6: ( ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2 ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5085:1: ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5024:6: ( ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5025:1: ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2 )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5085:1: ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2 )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5085:2: ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5025:1: ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5025:2: ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_4_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )? KEYWORD_2
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5085:2: ( ( RULE_ID ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5086:1: ( RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5025:2: ( ( RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5026:1: ( RULE_ID )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5086:1: ( RULE_ID )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5087:3: RULE_ID
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5026:1: ( RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5027:3: RULE_ID
             {
             if ( backtracking==0 ) {
                
@@ -12552,7 +12422,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamedFunction8675); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamedFunction8680); if (failed) return current;
             if ( backtracking==0 ) {
 
               		createLeafNode(grammarAccess.getNamedFunctionAccess().getPrefixPrefixCrossReference_0_0(), "prefix"); 
@@ -12564,20 +12434,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_9,FOLLOW_KEYWORD_9_in_ruleNamedFunction8686); if (failed) return current;
+            match(input,KEYWORD_9,FOLLOW_KEYWORD_9_in_ruleNamedFunction8691); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getNamedFunctionAccess().getColonKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5107:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5108:1: (lv_name_2_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5047:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5048:1: (lv_name_2_0= RULE_ID )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5108:1: (lv_name_2_0= RULE_ID )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5109:3: lv_name_2_0= RULE_ID
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5048:1: (lv_name_2_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5049:3: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamedFunction8703); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamedFunction8708); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getNamedFunctionAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
@@ -12607,24 +12477,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleNamedFunction8719); if (failed) return current;
+            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleNamedFunction8724); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getNamedFunctionAccess().getLeftParenthesisKeyword_3(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5136:1: ( (lv_parameters_4_0= ruleVariable ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5137:1: (lv_parameters_4_0= ruleVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5076:1: ( (lv_parameters_4_0= ruleVariable ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5077:1: (lv_parameters_4_0= ruleVariable )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5137:1: (lv_parameters_4_0= ruleVariable )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5138:3: lv_parameters_4_0= ruleVariable
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5077:1: (lv_parameters_4_0= ruleVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5078:3: lv_parameters_4_0= ruleVariable
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getNamedFunctionAccess().getParametersVariableParserRuleCall_4_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleVariable_in_ruleNamedFunction8740);
+            pushFollow(FOLLOW_ruleVariable_in_ruleNamedFunction8745);
             lv_parameters_4_0=ruleVariable();
             _fsp--;
             if (failed) return current;
@@ -12653,7 +12523,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5160:2: ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5100:2: ( KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) ) )?
             int alt79=2;
             int LA79_0 = input.LA(1);
 
@@ -12662,26 +12532,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt79) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5161:2: KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5101:2: KEYWORD_5 ( (lv_parameters_6_0= ruleVariable ) )
                     {
-                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleNamedFunction8752); if (failed) return current;
+                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleNamedFunction8757); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getNamedFunctionAccess().getCommaKeyword_5_0(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5165:1: ( (lv_parameters_6_0= ruleVariable ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5166:1: (lv_parameters_6_0= ruleVariable )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5105:1: ( (lv_parameters_6_0= ruleVariable ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5106:1: (lv_parameters_6_0= ruleVariable )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5166:1: (lv_parameters_6_0= ruleVariable )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5167:3: lv_parameters_6_0= ruleVariable
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5106:1: (lv_parameters_6_0= ruleVariable )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5107:3: lv_parameters_6_0= ruleVariable
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getNamedFunctionAccess().getParametersVariableParserRuleCall_5_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleVariable_in_ruleNamedFunction8773);
+                    pushFollow(FOLLOW_ruleVariable_in_ruleNamedFunction8778);
                     lv_parameters_6_0=ruleVariable();
                     _fsp--;
                     if (failed) return current;
@@ -12716,7 +12586,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleNamedFunction8786); if (failed) return current;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleNamedFunction8791); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getNamedFunctionAccess().getRightParenthesisKeyword_6(), null); 
@@ -12750,7 +12620,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleSparqlFunction
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5205:1: entryRuleSparqlFunction returns [EObject current=null] : iv_ruleSparqlFunction= ruleSparqlFunction EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5145:1: entryRuleSparqlFunction returns [EObject current=null] : iv_ruleSparqlFunction= ruleSparqlFunction EOF ;
     public final EObject entryRuleSparqlFunction() throws RecognitionException {
         EObject current = null;
 
@@ -12758,20 +12628,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5206:2: (iv_ruleSparqlFunction= ruleSparqlFunction EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5207:2: iv_ruleSparqlFunction= ruleSparqlFunction EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5146:2: (iv_ruleSparqlFunction= ruleSparqlFunction EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5147:2: iv_ruleSparqlFunction= ruleSparqlFunction EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getSparqlFunctionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleSparqlFunction_in_entryRuleSparqlFunction8825);
+            pushFollow(FOLLOW_ruleSparqlFunction_in_entryRuleSparqlFunction8830);
             iv_ruleSparqlFunction=ruleSparqlFunction();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleSparqlFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSparqlFunction8835); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSparqlFunction8840); if (failed) return current;
 
             }
 
@@ -12789,7 +12659,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSparqlFunction
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5214:1: ruleSparqlFunction returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2 ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5154:1: ruleSparqlFunction returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2 ) ;
     public final EObject ruleSparqlFunction() throws RecognitionException {
         EObject current = null;
 
@@ -12802,20 +12672,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5219:6: ( ( ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2 ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5220:1: ( ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5159:6: ( ( ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5160:1: ( ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2 )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5220:1: ( ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2 )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5220:2: ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5160:1: ( ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5160:2: ( (lv_name_0_0= RULE_ID ) ) KEYWORD_1 ( (lv_parameters_2_0= ruleVariable ) ) ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )? KEYWORD_2
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5220:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5221:1: (lv_name_0_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5160:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5161:1: (lv_name_0_0= RULE_ID )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5221:1: (lv_name_0_0= RULE_ID )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5222:3: lv_name_0_0= RULE_ID
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5161:1: (lv_name_0_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5162:3: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSparqlFunction8877); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSparqlFunction8882); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getSparqlFunctionAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
@@ -12845,24 +12715,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleSparqlFunction8893); if (failed) return current;
+            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleSparqlFunction8898); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getSparqlFunctionAccess().getLeftParenthesisKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5249:1: ( (lv_parameters_2_0= ruleVariable ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5250:1: (lv_parameters_2_0= ruleVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5189:1: ( (lv_parameters_2_0= ruleVariable ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5190:1: (lv_parameters_2_0= ruleVariable )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5250:1: (lv_parameters_2_0= ruleVariable )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5251:3: lv_parameters_2_0= ruleVariable
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5190:1: (lv_parameters_2_0= ruleVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5191:3: lv_parameters_2_0= ruleVariable
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getSparqlFunctionAccess().getParametersVariableParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleVariable_in_ruleSparqlFunction8914);
+            pushFollow(FOLLOW_ruleVariable_in_ruleSparqlFunction8919);
             lv_parameters_2_0=ruleVariable();
             _fsp--;
             if (failed) return current;
@@ -12891,7 +12761,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5273:2: ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5213:2: ( KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) ) )?
             int alt80=2;
             int LA80_0 = input.LA(1);
 
@@ -12900,26 +12770,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt80) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5274:2: KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5214:2: KEYWORD_5 ( (lv_parameters_4_0= ruleVariable ) )
                     {
-                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleSparqlFunction8926); if (failed) return current;
+                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleSparqlFunction8931); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getSparqlFunctionAccess().getCommaKeyword_3_0(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5278:1: ( (lv_parameters_4_0= ruleVariable ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5279:1: (lv_parameters_4_0= ruleVariable )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5218:1: ( (lv_parameters_4_0= ruleVariable ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5219:1: (lv_parameters_4_0= ruleVariable )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5279:1: (lv_parameters_4_0= ruleVariable )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5280:3: lv_parameters_4_0= ruleVariable
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5219:1: (lv_parameters_4_0= ruleVariable )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5220:3: lv_parameters_4_0= ruleVariable
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getSparqlFunctionAccess().getParametersVariableParserRuleCall_3_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleVariable_in_ruleSparqlFunction8947);
+                    pushFollow(FOLLOW_ruleVariable_in_ruleSparqlFunction8952);
                     lv_parameters_4_0=ruleVariable();
                     _fsp--;
                     if (failed) return current;
@@ -12954,7 +12824,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleSparqlFunction8960); if (failed) return current;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleSparqlFunction8965); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getSparqlFunctionAccess().getRightParenthesisKeyword_4(), null); 
@@ -12985,7 +12855,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBuiltInCall
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5315:1: entryRuleBuiltInCall returns [EObject current=null] : iv_ruleBuiltInCall= ruleBuiltInCall EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5255:1: entryRuleBuiltInCall returns [EObject current=null] : iv_ruleBuiltInCall= ruleBuiltInCall EOF ;
     public final EObject entryRuleBuiltInCall() throws RecognitionException {
         EObject current = null;
 
@@ -12993,20 +12863,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5316:2: (iv_ruleBuiltInCall= ruleBuiltInCall EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5317:2: iv_ruleBuiltInCall= ruleBuiltInCall EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5256:2: (iv_ruleBuiltInCall= ruleBuiltInCall EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5257:2: iv_ruleBuiltInCall= ruleBuiltInCall EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getBuiltInCallRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBuiltInCall_in_entryRuleBuiltInCall8995);
+            pushFollow(FOLLOW_ruleBuiltInCall_in_entryRuleBuiltInCall9000);
             iv_ruleBuiltInCall=ruleBuiltInCall();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleBuiltInCall; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBuiltInCall9005); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBuiltInCall9010); if (failed) return current;
 
             }
 
@@ -13024,7 +12894,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBuiltInCall
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5324:1: ruleBuiltInCall returns [EObject current=null] : ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5264:1: ruleBuiltInCall returns [EObject current=null] : ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) ) ;
     public final EObject ruleBuiltInCall() throws RecognitionException {
         EObject current = null;
 
@@ -13076,10 +12946,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5329:6: ( ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5330:1: ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5269:6: ( ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5270:1: ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5330:1: ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5270:1: ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) )
             int alt81=16;
             switch ( input.LA(1) ) {
             case KEYWORD_34:
@@ -13165,42 +13035,42 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("5330:1: ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) )", 81, 0, input);
+                    new NoViableAltException("5270:1: ( ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 ) | ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 ) | ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 ) )", 81, 0, input);
 
                 throw nvae;
             }
 
             switch (alt81) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5330:2: ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5270:2: ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5330:2: ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5331:2: KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5270:2: ( KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5271:2: KEYWORD_34 KEYWORD_1 ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_34,FOLLOW_KEYWORD_34_in_ruleBuiltInCall9042); if (failed) return current;
+                    match(input,KEYWORD_34,FOLLOW_KEYWORD_34_in_ruleBuiltInCall9047); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getSTRKeyword_0_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9053); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9058); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_0_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5340:1: ( (lv_expr_2_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5341:1: (lv_expr_2_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5280:1: ( (lv_expr_2_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5281:1: (lv_expr_2_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5341:1: (lv_expr_2_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5342:3: lv_expr_2_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5281:1: (lv_expr_2_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5282:3: lv_expr_2_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_0_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9074);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9079);
                     lv_expr_2_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13229,7 +13099,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9085); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9090); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_0_3(), null); 
@@ -13242,35 +13112,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5370:6: ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5310:6: ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5370:6: ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5371:2: KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5310:6: ( KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5311:2: KEYWORD_42 KEYWORD_1 ( (lv_expr_6_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_42,FOLLOW_KEYWORD_42_in_ruleBuiltInCall9104); if (failed) return current;
+                    match(input,KEYWORD_42,FOLLOW_KEYWORD_42_in_ruleBuiltInCall9109); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLANGKeyword_1_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9115); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9120); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_1_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5380:1: ( (lv_expr_6_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5381:1: (lv_expr_6_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5320:1: ( (lv_expr_6_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5321:1: (lv_expr_6_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5381:1: (lv_expr_6_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5382:3: lv_expr_6_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5321:1: (lv_expr_6_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5322:3: lv_expr_6_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_1_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9136);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9141);
                     lv_expr_6_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13299,7 +13169,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9147); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9152); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_1_3(), null); 
@@ -13312,35 +13182,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5410:6: ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5350:6: ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5410:6: ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5411:2: KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5350:6: ( KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5351:2: KEYWORD_83 KEYWORD_1 ( (lv_left_10_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_12_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_83,FOLLOW_KEYWORD_83_in_ruleBuiltInCall9166); if (failed) return current;
+                    match(input,KEYWORD_83,FOLLOW_KEYWORD_83_in_ruleBuiltInCall9171); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLANGMATCHESKeyword_2_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9177); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9182); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_2_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5420:1: ( (lv_left_10_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5421:1: (lv_left_10_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5360:1: ( (lv_left_10_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5361:1: (lv_left_10_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5421:1: (lv_left_10_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5422:3: lv_left_10_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5361:1: (lv_left_10_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5362:3: lv_left_10_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getLeftExpressionParserRuleCall_2_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9198);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9203);
                     lv_left_10_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13369,24 +13239,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9209); if (failed) return current;
+                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9214); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getCommaKeyword_2_3(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5449:1: ( (lv_right_12_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5450:1: (lv_right_12_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5389:1: ( (lv_right_12_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5390:1: (lv_right_12_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5450:1: (lv_right_12_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5451:3: lv_right_12_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5390:1: (lv_right_12_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5391:3: lv_right_12_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getRightExpressionParserRuleCall_2_4_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9230);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9235);
                     lv_right_12_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13415,7 +13285,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9241); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9246); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_2_5(), null); 
@@ -13428,35 +13298,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5479:6: ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5419:6: ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5479:6: ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5480:2: KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5419:6: ( KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5420:2: KEYWORD_75 KEYWORD_1 ( (lv_expr_16_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_75,FOLLOW_KEYWORD_75_in_ruleBuiltInCall9260); if (failed) return current;
+                    match(input,KEYWORD_75,FOLLOW_KEYWORD_75_in_ruleBuiltInCall9265); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getDATATYPEKeyword_3_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9271); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9276); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_3_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5489:1: ( (lv_expr_16_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5490:1: (lv_expr_16_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5429:1: ( (lv_expr_16_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5430:1: (lv_expr_16_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5490:1: (lv_expr_16_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5491:3: lv_expr_16_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5430:1: (lv_expr_16_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5431:3: lv_expr_16_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_3_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9292);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9297);
                     lv_expr_16_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13485,7 +13355,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9303); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9308); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_3_3(), null); 
@@ -13498,35 +13368,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5519:6: ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5459:6: ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5519:6: ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5520:2: KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5459:6: ( KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5460:2: KEYWORD_46 KEYWORD_1 ( (lv_var_20_0= ruleVariable ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_46,FOLLOW_KEYWORD_46_in_ruleBuiltInCall9322); if (failed) return current;
+                    match(input,KEYWORD_46,FOLLOW_KEYWORD_46_in_ruleBuiltInCall9327); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getBOUNDKeyword_4_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9333); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9338); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_4_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5529:1: ( (lv_var_20_0= ruleVariable ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5530:1: (lv_var_20_0= ruleVariable )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5469:1: ( (lv_var_20_0= ruleVariable ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5470:1: (lv_var_20_0= ruleVariable )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5530:1: (lv_var_20_0= ruleVariable )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5531:3: lv_var_20_0= ruleVariable
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5470:1: (lv_var_20_0= ruleVariable )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5471:3: lv_var_20_0= ruleVariable
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getVarVariableParserRuleCall_4_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleVariable_in_ruleBuiltInCall9354);
+                    pushFollow(FOLLOW_ruleVariable_in_ruleBuiltInCall9359);
                     lv_var_20_0=ruleVariable();
                     _fsp--;
                     if (failed) return current;
@@ -13555,7 +13425,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9365); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9370); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_4_3(), null); 
@@ -13568,35 +13438,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5559:6: ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5499:6: ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5559:6: ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5560:2: KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5499:6: ( KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5500:2: KEYWORD_30 KEYWORD_1 ( (lv_expr_24_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_30,FOLLOW_KEYWORD_30_in_ruleBuiltInCall9384); if (failed) return current;
+                    match(input,KEYWORD_30,FOLLOW_KEYWORD_30_in_ruleBuiltInCall9389); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getIRIKeyword_5_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9395); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9400); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_5_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5569:1: ( (lv_expr_24_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5570:1: (lv_expr_24_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5509:1: ( (lv_expr_24_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5510:1: (lv_expr_24_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5570:1: (lv_expr_24_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5571:3: lv_expr_24_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5510:1: (lv_expr_24_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5511:3: lv_expr_24_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_5_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9416);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9421);
                     lv_expr_24_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13625,7 +13495,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9427); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9432); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_5_3(), null); 
@@ -13638,35 +13508,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5599:6: ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5539:6: ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5599:6: ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5600:2: KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5539:6: ( KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5540:2: KEYWORD_36 KEYWORD_1 ( (lv_expr_28_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_36,FOLLOW_KEYWORD_36_in_ruleBuiltInCall9446); if (failed) return current;
+                    match(input,KEYWORD_36,FOLLOW_KEYWORD_36_in_ruleBuiltInCall9451); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getURIKeyword_6_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9457); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9462); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_6_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5609:1: ( (lv_expr_28_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5610:1: (lv_expr_28_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5549:1: ( (lv_expr_28_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5550:1: (lv_expr_28_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5610:1: (lv_expr_28_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5611:3: lv_expr_28_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5550:1: (lv_expr_28_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5551:3: lv_expr_28_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_6_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9478);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9483);
                     lv_expr_28_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13695,7 +13565,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9489); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9494); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_6_3(), null); 
@@ -13708,35 +13578,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5639:6: ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5579:6: ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5639:6: ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5640:2: KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5579:6: ( KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5580:2: KEYWORD_45 KEYWORD_1 ( (lv_expr_32_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_45,FOLLOW_KEYWORD_45_in_ruleBuiltInCall9508); if (failed) return current;
+                    match(input,KEYWORD_45,FOLLOW_KEYWORD_45_in_ruleBuiltInCall9513); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getBNODEKeyword_7_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9519); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9524); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_7_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5649:1: ( (lv_expr_32_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5650:1: (lv_expr_32_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5589:1: ( (lv_expr_32_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5590:1: (lv_expr_32_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5650:1: (lv_expr_32_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5651:3: lv_expr_32_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5590:1: (lv_expr_32_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5591:3: lv_expr_32_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_7_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9540);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9545);
                     lv_expr_32_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13765,7 +13635,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9551); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9556); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_7_3(), null); 
@@ -13778,35 +13648,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5679:6: ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5619:6: ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5679:6: ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5680:2: KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5619:6: ( KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5620:2: KEYWORD_24 KEYWORD_1 ( (lv_ifExpr_36_0= ruleExpression ) ) KEYWORD_5 ( (lv_thenExpr_38_0= ruleExpression ) ) KEYWORD_5 ( (lv_elseExpr_40_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_24,FOLLOW_KEYWORD_24_in_ruleBuiltInCall9570); if (failed) return current;
+                    match(input,KEYWORD_24,FOLLOW_KEYWORD_24_in_ruleBuiltInCall9575); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getIFKeyword_8_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9581); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9586); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_8_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5689:1: ( (lv_ifExpr_36_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5690:1: (lv_ifExpr_36_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5629:1: ( (lv_ifExpr_36_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5630:1: (lv_ifExpr_36_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5690:1: (lv_ifExpr_36_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5691:3: lv_ifExpr_36_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5630:1: (lv_ifExpr_36_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5631:3: lv_ifExpr_36_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getIfExprExpressionParserRuleCall_8_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9602);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9607);
                     lv_ifExpr_36_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13835,24 +13705,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9613); if (failed) return current;
+                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9618); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getCommaKeyword_8_3(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5718:1: ( (lv_thenExpr_38_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5719:1: (lv_thenExpr_38_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5658:1: ( (lv_thenExpr_38_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5659:1: (lv_thenExpr_38_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5719:1: (lv_thenExpr_38_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5720:3: lv_thenExpr_38_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5659:1: (lv_thenExpr_38_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5660:3: lv_thenExpr_38_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getThenExprExpressionParserRuleCall_8_4_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9634);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9639);
                     lv_thenExpr_38_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13881,24 +13751,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9645); if (failed) return current;
+                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9650); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getCommaKeyword_8_5(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5747:1: ( (lv_elseExpr_40_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5748:1: (lv_elseExpr_40_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5687:1: ( (lv_elseExpr_40_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5688:1: (lv_elseExpr_40_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5748:1: (lv_elseExpr_40_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5749:3: lv_elseExpr_40_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5688:1: (lv_elseExpr_40_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5689:3: lv_elseExpr_40_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getElseExprExpressionParserRuleCall_8_6_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9666);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9671);
                     lv_elseExpr_40_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13927,7 +13797,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9677); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9682); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_8_7(), null); 
@@ -13940,35 +13810,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5777:6: ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5717:6: ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5777:6: ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5778:2: KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5717:6: ( KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5718:2: KEYWORD_73 KEYWORD_1 ( (lv_left_44_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_46_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_73,FOLLOW_KEYWORD_73_in_ruleBuiltInCall9696); if (failed) return current;
+                    match(input,KEYWORD_73,FOLLOW_KEYWORD_73_in_ruleBuiltInCall9701); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getSTRLANGKeyword_9_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9707); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9712); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_9_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5787:1: ( (lv_left_44_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5788:1: (lv_left_44_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5727:1: ( (lv_left_44_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5728:1: (lv_left_44_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5788:1: (lv_left_44_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5789:3: lv_left_44_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5728:1: (lv_left_44_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5729:3: lv_left_44_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getLeftExpressionParserRuleCall_9_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9728);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9733);
                     lv_left_44_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -13997,24 +13867,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9739); if (failed) return current;
+                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9744); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getCommaKeyword_9_3(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5816:1: ( (lv_right_46_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5817:1: (lv_right_46_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5756:1: ( (lv_right_46_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5757:1: (lv_right_46_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5817:1: (lv_right_46_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5818:3: lv_right_46_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5757:1: (lv_right_46_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5758:3: lv_right_46_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getRightExpressionParserRuleCall_9_4_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9760);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9765);
                     lv_right_46_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14043,7 +13913,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9771); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9776); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_9_5(), null); 
@@ -14056,35 +13926,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5846:6: ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5786:6: ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5846:6: ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5847:2: KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5786:6: ( KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5787:2: KEYWORD_54 KEYWORD_1 ( (lv_left_50_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_52_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_54,FOLLOW_KEYWORD_54_in_ruleBuiltInCall9790); if (failed) return current;
+                    match(input,KEYWORD_54,FOLLOW_KEYWORD_54_in_ruleBuiltInCall9795); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getSTRDTKeyword_10_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9801); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9806); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_10_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5856:1: ( (lv_left_50_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5857:1: (lv_left_50_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5796:1: ( (lv_left_50_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5797:1: (lv_left_50_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5857:1: (lv_left_50_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5858:3: lv_left_50_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5797:1: (lv_left_50_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5798:3: lv_left_50_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getLeftExpressionParserRuleCall_10_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9822);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9827);
                     lv_left_50_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14113,24 +13983,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9833); if (failed) return current;
+                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9838); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getCommaKeyword_10_3(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5885:1: ( (lv_right_52_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5886:1: (lv_right_52_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5825:1: ( (lv_right_52_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5826:1: (lv_right_52_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5886:1: (lv_right_52_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5887:3: lv_right_52_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5826:1: (lv_right_52_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5827:3: lv_right_52_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getRightExpressionParserRuleCall_10_4_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9854);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9859);
                     lv_right_52_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14159,7 +14029,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9865); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9870); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_10_5(), null); 
@@ -14172,35 +14042,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5915:6: ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5855:6: ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5915:6: ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5916:2: KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5855:6: ( KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5856:2: KEYWORD_79 KEYWORD_1 ( (lv_left_56_0= ruleExpression ) ) KEYWORD_5 ( (lv_right_58_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_79,FOLLOW_KEYWORD_79_in_ruleBuiltInCall9884); if (failed) return current;
+                    match(input,KEYWORD_79,FOLLOW_KEYWORD_79_in_ruleBuiltInCall9889); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getSameTermKeyword_11_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9895); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9900); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_11_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5925:1: ( (lv_left_56_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5926:1: (lv_left_56_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5865:1: ( (lv_left_56_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5866:1: (lv_left_56_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5926:1: (lv_left_56_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5927:3: lv_left_56_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5866:1: (lv_left_56_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5867:3: lv_left_56_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getLeftExpressionParserRuleCall_11_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9916);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9921);
                     lv_left_56_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14229,24 +14099,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9927); if (failed) return current;
+                    match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_ruleBuiltInCall9932); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getCommaKeyword_11_3(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5954:1: ( (lv_right_58_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5955:1: (lv_right_58_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5894:1: ( (lv_right_58_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5895:1: (lv_right_58_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5955:1: (lv_right_58_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5956:3: lv_right_58_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5895:1: (lv_right_58_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5896:3: lv_right_58_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getRightExpressionParserRuleCall_11_4_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9948);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall9953);
                     lv_right_58_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14275,7 +14145,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9959); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall9964); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_11_5(), null); 
@@ -14288,35 +14158,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5984:6: ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5924:6: ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5984:6: ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5985:2: KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5924:6: ( KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5925:2: KEYWORD_58 KEYWORD_1 ( (lv_expr_62_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_58,FOLLOW_KEYWORD_58_in_ruleBuiltInCall9978); if (failed) return current;
+                    match(input,KEYWORD_58,FOLLOW_KEYWORD_58_in_ruleBuiltInCall9983); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getIsIRIKeyword_12_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9989); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall9994); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_12_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5994:1: ( (lv_expr_62_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5995:1: (lv_expr_62_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5934:1: ( (lv_expr_62_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5935:1: (lv_expr_62_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5995:1: (lv_expr_62_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5996:3: lv_expr_62_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5935:1: (lv_expr_62_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5936:3: lv_expr_62_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_12_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall10010);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall10015);
                     lv_expr_62_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14345,7 +14215,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall10021); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall10026); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_12_3(), null); 
@@ -14358,35 +14228,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6024:6: ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5964:6: ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6024:6: ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6025:2: KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5964:6: ( KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5965:2: KEYWORD_59 KEYWORD_1 ( (lv_expr_66_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_59,FOLLOW_KEYWORD_59_in_ruleBuiltInCall10040); if (failed) return current;
+                    match(input,KEYWORD_59,FOLLOW_KEYWORD_59_in_ruleBuiltInCall10045); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getIsURIKeyword_13_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall10051); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall10056); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_13_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6034:1: ( (lv_expr_66_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6035:1: (lv_expr_66_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5974:1: ( (lv_expr_66_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5975:1: (lv_expr_66_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6035:1: (lv_expr_66_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6036:3: lv_expr_66_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5975:1: (lv_expr_66_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:5976:3: lv_expr_66_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_13_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall10072);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall10077);
                     lv_expr_66_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14415,7 +14285,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall10083); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall10088); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_13_3(), null); 
@@ -14428,35 +14298,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6064:6: ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6004:6: ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6064:6: ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6065:2: KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6004:6: ( KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6005:2: KEYWORD_74 KEYWORD_1 ( (lv_expr_70_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_74,FOLLOW_KEYWORD_74_in_ruleBuiltInCall10102); if (failed) return current;
+                    match(input,KEYWORD_74,FOLLOW_KEYWORD_74_in_ruleBuiltInCall10107); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getIsBLANKKeyword_14_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall10113); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall10118); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_14_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6074:1: ( (lv_expr_70_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6075:1: (lv_expr_70_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6014:1: ( (lv_expr_70_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6015:1: (lv_expr_70_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6075:1: (lv_expr_70_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6076:3: lv_expr_70_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6015:1: (lv_expr_70_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6016:3: lv_expr_70_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_14_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall10134);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall10139);
                     lv_expr_70_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14485,7 +14355,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall10145); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall10150); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_14_3(), null); 
@@ -14498,35 +14368,35 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6104:6: ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6044:6: ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6104:6: ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6105:2: KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6044:6: ( KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6045:2: KEYWORD_82 KEYWORD_1 ( (lv_expr_74_0= ruleExpression ) ) KEYWORD_2
                     {
-                    match(input,KEYWORD_82,FOLLOW_KEYWORD_82_in_ruleBuiltInCall10164); if (failed) return current;
+                    match(input,KEYWORD_82,FOLLOW_KEYWORD_82_in_ruleBuiltInCall10169); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getIsLITERALKeyword_15_0(), null); 
                           
                     }
-                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall10175); if (failed) return current;
+                    match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleBuiltInCall10180); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getLeftParenthesisKeyword_15_1(), null); 
                           
                     }
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6114:1: ( (lv_expr_74_0= ruleExpression ) )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6115:1: (lv_expr_74_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6054:1: ( (lv_expr_74_0= ruleExpression ) )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6055:1: (lv_expr_74_0= ruleExpression )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6115:1: (lv_expr_74_0= ruleExpression )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6116:3: lv_expr_74_0= ruleExpression
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6055:1: (lv_expr_74_0= ruleExpression )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6056:3: lv_expr_74_0= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getBuiltInCallAccess().getExprExpressionParserRuleCall_15_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall10196);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleBuiltInCall10201);
                     lv_expr_74_0=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -14555,7 +14425,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall10207); if (failed) return current;
+                    match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBuiltInCall10212); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBuiltInCallAccess().getRightParenthesisKeyword_15_3(), null); 
@@ -14592,7 +14462,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleExprAggArg
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6153:1: entryRuleExprAggArg returns [EObject current=null] : iv_ruleExprAggArg= ruleExprAggArg EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6093:1: entryRuleExprAggArg returns [EObject current=null] : iv_ruleExprAggArg= ruleExprAggArg EOF ;
     public final EObject entryRuleExprAggArg() throws RecognitionException {
         EObject current = null;
 
@@ -14600,20 +14470,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6154:2: (iv_ruleExprAggArg= ruleExprAggArg EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6155:2: iv_ruleExprAggArg= ruleExprAggArg EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6094:2: (iv_ruleExprAggArg= ruleExprAggArg EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6095:2: iv_ruleExprAggArg= ruleExprAggArg EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getExprAggArgRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleExprAggArg_in_entryRuleExprAggArg10245);
+            pushFollow(FOLLOW_ruleExprAggArg_in_entryRuleExprAggArg10250);
             iv_ruleExprAggArg=ruleExprAggArg();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleExprAggArg; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExprAggArg10255); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExprAggArg10260); if (failed) return current;
 
             }
 
@@ -14631,7 +14501,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExprAggArg
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6162:1: ruleExprAggArg returns [EObject current=null] : ( KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6102:1: ruleExprAggArg returns [EObject current=null] : ( KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) ;
     public final EObject ruleExprAggArg() throws RecognitionException {
         EObject current = null;
 
@@ -14642,19 +14512,19 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6167:6: ( ( KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6168:1: ( KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6107:6: ( ( KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6108:1: ( KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6168:1: ( KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6169:2: KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6108:1: ( KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2 )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6109:2: KEYWORD_1 ( (lv_isDistinct_1_0= KEYWORD_77 ) )? ( (lv_expr_2_0= ruleExpression ) ) KEYWORD_2
             {
-            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleExprAggArg10291); if (failed) return current;
+            match(input,KEYWORD_1,FOLLOW_KEYWORD_1_in_ruleExprAggArg10296); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getExprAggArgAccess().getLeftParenthesisKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6173:1: ( (lv_isDistinct_1_0= KEYWORD_77 ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6113:1: ( (lv_isDistinct_1_0= KEYWORD_77 ) )?
             int alt82=2;
             int LA82_0 = input.LA(1);
 
@@ -14663,13 +14533,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt82) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6174:1: (lv_isDistinct_1_0= KEYWORD_77 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6114:1: (lv_isDistinct_1_0= KEYWORD_77 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6174:1: (lv_isDistinct_1_0= KEYWORD_77 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6175:3: lv_isDistinct_1_0= KEYWORD_77
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6114:1: (lv_isDistinct_1_0= KEYWORD_77 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6115:3: lv_isDistinct_1_0= KEYWORD_77
                     {
                     lv_isDistinct_1_0=(Token)input.LT(1);
-                    match(input,KEYWORD_77,FOLLOW_KEYWORD_77_in_ruleExprAggArg10310); if (failed) return current;
+                    match(input,KEYWORD_77,FOLLOW_KEYWORD_77_in_ruleExprAggArg10315); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getExprAggArgAccess().getIsDistinctDISTINCTKeyword_1_0(), "isDistinct"); 
@@ -14698,18 +14568,18 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6195:3: ( (lv_expr_2_0= ruleExpression ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6196:1: (lv_expr_2_0= ruleExpression )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6135:3: ( (lv_expr_2_0= ruleExpression ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6136:1: (lv_expr_2_0= ruleExpression )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6196:1: (lv_expr_2_0= ruleExpression )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6197:3: lv_expr_2_0= ruleExpression
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6136:1: (lv_expr_2_0= ruleExpression )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6137:3: lv_expr_2_0= ruleExpression
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getExprAggArgAccess().getExprExpressionParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleExprAggArg10345);
+            pushFollow(FOLLOW_ruleExpression_in_ruleExprAggArg10350);
             lv_expr_2_0=ruleExpression();
             _fsp--;
             if (failed) return current;
@@ -14738,7 +14608,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleExprAggArg10356); if (failed) return current;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleExprAggArg10361); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getExprAggArgAccess().getRightParenthesisKeyword_3(), null); 
@@ -14769,7 +14639,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGraphNode
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6232:1: entryRuleGraphNode returns [EObject current=null] : iv_ruleGraphNode= ruleGraphNode EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6172:1: entryRuleGraphNode returns [EObject current=null] : iv_ruleGraphNode= ruleGraphNode EOF ;
     public final EObject entryRuleGraphNode() throws RecognitionException {
         EObject current = null;
 
@@ -14777,20 +14647,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6233:2: (iv_ruleGraphNode= ruleGraphNode EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6234:2: iv_ruleGraphNode= ruleGraphNode EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6173:2: (iv_ruleGraphNode= ruleGraphNode EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6174:2: iv_ruleGraphNode= ruleGraphNode EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getGraphNodeRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleGraphNode_in_entryRuleGraphNode10391);
+            pushFollow(FOLLOW_ruleGraphNode_in_entryRuleGraphNode10396);
             iv_ruleGraphNode=ruleGraphNode();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleGraphNode; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGraphNode10401); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGraphNode10406); if (failed) return current;
 
             }
 
@@ -14808,7 +14678,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGraphNode
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6241:1: ruleGraphNode returns [EObject current=null] : (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6181:1: ruleGraphNode returns [EObject current=null] : (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter ) ;
     public final EObject ruleGraphNode() throws RecognitionException {
         EObject current = null;
 
@@ -14826,10 +14696,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6246:6: ( (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6247:1: (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6186:6: ( (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6187:1: (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6247:1: (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6187:1: (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter )
             int alt83=5;
             switch ( input.LA(1) ) {
             case KEYWORD_14:
@@ -14862,14 +14732,14 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("6247:1: (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter )", 83, 0, input);
+                    new NoViableAltException("6187:1: (this_Variable_0= ruleVariable | this_Value_1= ruleValue | this_IRI_2= ruleIRI | this_BlankNode_3= ruleBlankNode | this_Parameter_4= ruleParameter )", 83, 0, input);
 
                 throw nvae;
             }
 
             switch (alt83) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6248:2: this_Variable_0= ruleVariable
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6188:2: this_Variable_0= ruleVariable
                     {
                     if ( backtracking==0 ) {
                        
@@ -14881,13 +14751,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getVariableParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleVariable_in_ruleGraphNode10451);
+                    pushFollow(FOLLOW_ruleVariable_in_ruleGraphNode10456);
                     this_Variable_0=ruleVariable();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_Variable_0; 
+
+                              current = this_Variable_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -14895,7 +14765,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6261:2: this_Value_1= ruleValue
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6201:2: this_Value_1= ruleValue
                     {
                     if ( backtracking==0 ) {
                        
@@ -14907,13 +14777,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getValueParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleValue_in_ruleGraphNode10481);
+                    pushFollow(FOLLOW_ruleValue_in_ruleGraphNode10486);
                     this_Value_1=ruleValue();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_Value_1; 
+
+                              current = this_Value_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -14921,7 +14791,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6274:2: this_IRI_2= ruleIRI
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6214:2: this_IRI_2= ruleIRI
                     {
                     if ( backtracking==0 ) {
                        
@@ -14933,13 +14803,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getIRIParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleIRI_in_ruleGraphNode10511);
+                    pushFollow(FOLLOW_ruleIRI_in_ruleGraphNode10516);
                     this_IRI_2=ruleIRI();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_IRI_2; 
+
+                              current = this_IRI_2;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -14947,7 +14817,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6287:2: this_BlankNode_3= ruleBlankNode
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6227:2: this_BlankNode_3= ruleBlankNode
                     {
                     if ( backtracking==0 ) {
                        
@@ -14959,13 +14829,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getBlankNodeParserRuleCall_3(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBlankNode_in_ruleGraphNode10541);
+                    pushFollow(FOLLOW_ruleBlankNode_in_ruleGraphNode10546);
                     this_BlankNode_3=ruleBlankNode();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_BlankNode_3; 
+
+                              current = this_BlankNode_3;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -14973,7 +14843,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6300:2: this_Parameter_4= ruleParameter
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6240:2: this_Parameter_4= ruleParameter
                     {
                     if ( backtracking==0 ) {
                        
@@ -14985,13 +14855,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getGraphNodeAccess().getParameterParserRuleCall_4(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleParameter_in_ruleGraphNode10571);
+                    pushFollow(FOLLOW_ruleParameter_in_ruleGraphNode10576);
                     this_Parameter_4=ruleParameter();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_Parameter_4; 
+
+                              current = this_Parameter_4;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -15023,7 +14893,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleVariable
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6319:1: entryRuleVariable returns [EObject current=null] : iv_ruleVariable= ruleVariable EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6259:1: entryRuleVariable returns [EObject current=null] : iv_ruleVariable= ruleVariable EOF ;
     public final EObject entryRuleVariable() throws RecognitionException {
         EObject current = null;
 
@@ -15031,20 +14901,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6320:2: (iv_ruleVariable= ruleVariable EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6321:2: iv_ruleVariable= ruleVariable EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6260:2: (iv_ruleVariable= ruleVariable EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6261:2: iv_ruleVariable= ruleVariable EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getVariableRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleVariable_in_entryRuleVariable10605);
+            pushFollow(FOLLOW_ruleVariable_in_entryRuleVariable10610);
             iv_ruleVariable=ruleVariable();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleVariable; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVariable10615); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVariable10620); if (failed) return current;
 
             }
 
@@ -15062,7 +14932,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleVariable
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6328:1: ruleVariable returns [EObject current=null] : (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6268:1: ruleVariable returns [EObject current=null] : (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable ) ;
     public final EObject ruleVariable() throws RecognitionException {
         EObject current = null;
 
@@ -15074,10 +14944,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6333:6: ( (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6334:1: (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6273:6: ( (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6274:1: (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6334:1: (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6274:1: (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable )
             int alt84=2;
             int LA84_0 = input.LA(1);
 
@@ -15090,13 +14960,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("6334:1: (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable )", 84, 0, input);
+                    new NoViableAltException("6274:1: (this_UnNamedVariable_0= ruleUnNamedVariable | this_NamedVariable_1= ruleNamedVariable )", 84, 0, input);
 
                 throw nvae;
             }
             switch (alt84) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6335:2: this_UnNamedVariable_0= ruleUnNamedVariable
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6275:2: this_UnNamedVariable_0= ruleUnNamedVariable
                     {
                     if ( backtracking==0 ) {
                        
@@ -15108,13 +14978,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getVariableAccess().getUnNamedVariableParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleUnNamedVariable_in_ruleVariable10665);
+                    pushFollow(FOLLOW_ruleUnNamedVariable_in_ruleVariable10670);
                     this_UnNamedVariable_0=ruleUnNamedVariable();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_UnNamedVariable_0; 
+
+                              current = this_UnNamedVariable_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -15122,7 +14992,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6348:2: this_NamedVariable_1= ruleNamedVariable
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6288:2: this_NamedVariable_1= ruleNamedVariable
                     {
                     if ( backtracking==0 ) {
                        
@@ -15134,13 +15004,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getVariableAccess().getNamedVariableParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNamedVariable_in_ruleVariable10695);
+                    pushFollow(FOLLOW_ruleNamedVariable_in_ruleVariable10700);
                     this_NamedVariable_1=ruleNamedVariable();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_NamedVariable_1; 
+
+                              current = this_NamedVariable_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -15172,7 +15042,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleUnNamedVariable
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6367:1: entryRuleUnNamedVariable returns [EObject current=null] : iv_ruleUnNamedVariable= ruleUnNamedVariable EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6307:1: entryRuleUnNamedVariable returns [EObject current=null] : iv_ruleUnNamedVariable= ruleUnNamedVariable EOF ;
     public final EObject entryRuleUnNamedVariable() throws RecognitionException {
         EObject current = null;
 
@@ -15180,20 +15050,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6368:2: (iv_ruleUnNamedVariable= ruleUnNamedVariable EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6369:2: iv_ruleUnNamedVariable= ruleUnNamedVariable EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6308:2: (iv_ruleUnNamedVariable= ruleUnNamedVariable EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6309:2: iv_ruleUnNamedVariable= ruleUnNamedVariable EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getUnNamedVariableRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleUnNamedVariable_in_entryRuleUnNamedVariable10729);
+            pushFollow(FOLLOW_ruleUnNamedVariable_in_entryRuleUnNamedVariable10734);
             iv_ruleUnNamedVariable=ruleUnNamedVariable();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleUnNamedVariable; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnNamedVariable10739); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnNamedVariable10744); if (failed) return current;
 
             }
 
@@ -15211,7 +15081,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUnNamedVariable
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6376:1: ruleUnNamedVariable returns [EObject current=null] : ( KEYWORD_14 ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6316:1: ruleUnNamedVariable returns [EObject current=null] : ( KEYWORD_14 ( (lv_name_1_0= RULE_ID ) ) ) ;
     public final EObject ruleUnNamedVariable() throws RecognitionException {
         EObject current = null;
 
@@ -15220,26 +15090,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6381:6: ( ( KEYWORD_14 ( (lv_name_1_0= RULE_ID ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6382:1: ( KEYWORD_14 ( (lv_name_1_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6321:6: ( ( KEYWORD_14 ( (lv_name_1_0= RULE_ID ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6322:1: ( KEYWORD_14 ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6382:1: ( KEYWORD_14 ( (lv_name_1_0= RULE_ID ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6383:2: KEYWORD_14 ( (lv_name_1_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6322:1: ( KEYWORD_14 ( (lv_name_1_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6323:2: KEYWORD_14 ( (lv_name_1_0= RULE_ID ) )
             {
-            match(input,KEYWORD_14,FOLLOW_KEYWORD_14_in_ruleUnNamedVariable10775); if (failed) return current;
+            match(input,KEYWORD_14,FOLLOW_KEYWORD_14_in_ruleUnNamedVariable10780); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getUnNamedVariableAccess().getQuestionMarkKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6387:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6388:1: (lv_name_1_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6327:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6328:1: (lv_name_1_0= RULE_ID )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6388:1: (lv_name_1_0= RULE_ID )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6389:3: lv_name_1_0= RULE_ID
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6328:1: (lv_name_1_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6329:3: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleUnNamedVariable10792); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleUnNamedVariable10797); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getUnNamedVariableAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
@@ -15294,7 +15164,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleNamedVariable
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6419:1: entryRuleNamedVariable returns [EObject current=null] : iv_ruleNamedVariable= ruleNamedVariable EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6359:1: entryRuleNamedVariable returns [EObject current=null] : iv_ruleNamedVariable= ruleNamedVariable EOF ;
     public final EObject entryRuleNamedVariable() throws RecognitionException {
         EObject current = null;
 
@@ -15302,20 +15172,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6420:2: (iv_ruleNamedVariable= ruleNamedVariable EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6421:2: iv_ruleNamedVariable= ruleNamedVariable EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6360:2: (iv_ruleNamedVariable= ruleNamedVariable EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6361:2: iv_ruleNamedVariable= ruleNamedVariable EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getNamedVariableRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleNamedVariable_in_entryRuleNamedVariable10832);
+            pushFollow(FOLLOW_ruleNamedVariable_in_entryRuleNamedVariable10837);
             iv_ruleNamedVariable=ruleNamedVariable();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleNamedVariable; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNamedVariable10842); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNamedVariable10847); if (failed) return current;
 
             }
 
@@ -15333,7 +15203,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleNamedVariable
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6428:1: ruleNamedVariable returns [EObject current=null] : ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6368:1: ruleNamedVariable returns [EObject current=null] : ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) ) ;
     public final EObject ruleNamedVariable() throws RecognitionException {
         EObject current = null;
 
@@ -15342,17 +15212,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6433:6: ( ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6434:1: ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6373:6: ( ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6374:1: ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6434:1: ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6434:2: ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6374:1: ( ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6374:2: ( ( RULE_ID ) ) KEYWORD_9 ( (lv_name_2_0= RULE_ID ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6434:2: ( ( RULE_ID ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6435:1: ( RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6374:2: ( ( RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6375:1: ( RULE_ID )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6435:1: ( RULE_ID )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6436:3: RULE_ID
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6375:1: ( RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6376:3: RULE_ID
             {
             if ( backtracking==0 ) {
                
@@ -15367,7 +15237,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamedVariable10889); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamedVariable10894); if (failed) return current;
             if ( backtracking==0 ) {
 
               		createLeafNode(grammarAccess.getNamedVariableAccess().getPrefixPrefixCrossReference_0_0(), "prefix"); 
@@ -15379,20 +15249,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,KEYWORD_9,FOLLOW_KEYWORD_9_in_ruleNamedVariable10900); if (failed) return current;
+            match(input,KEYWORD_9,FOLLOW_KEYWORD_9_in_ruleNamedVariable10905); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getNamedVariableAccess().getColonKeyword_1(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6456:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6457:1: (lv_name_2_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6396:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6397:1: (lv_name_2_0= RULE_ID )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6457:1: (lv_name_2_0= RULE_ID )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6458:3: lv_name_2_0= RULE_ID
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6397:1: (lv_name_2_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6398:3: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamedVariable10917); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNamedVariable10922); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getNamedVariableAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
@@ -15447,7 +15317,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBlankNode
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6488:1: entryRuleBlankNode returns [EObject current=null] : iv_ruleBlankNode= ruleBlankNode EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6428:1: entryRuleBlankNode returns [EObject current=null] : iv_ruleBlankNode= ruleBlankNode EOF ;
     public final EObject entryRuleBlankNode() throws RecognitionException {
         EObject current = null;
 
@@ -15458,20 +15328,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
         	
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6492:2: (iv_ruleBlankNode= ruleBlankNode EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6493:2: iv_ruleBlankNode= ruleBlankNode EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6432:2: (iv_ruleBlankNode= ruleBlankNode EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6433:2: iv_ruleBlankNode= ruleBlankNode EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getBlankNodeRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBlankNode_in_entryRuleBlankNode10963);
+            pushFollow(FOLLOW_ruleBlankNode_in_entryRuleBlankNode10968);
             iv_ruleBlankNode=ruleBlankNode();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleBlankNode; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBlankNode10973); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBlankNode10978); if (failed) return current;
 
             }
 
@@ -15492,7 +15362,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBlankNode
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6503:1: ruleBlankNode returns [EObject current=null] : ( KEYWORD_26 ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6443:1: ruleBlankNode returns [EObject current=null] : ( KEYWORD_26 ( (lv_name_1_0= RULE_ID ) ) ) ;
     public final EObject ruleBlankNode() throws RecognitionException {
         EObject current = null;
 
@@ -15502,26 +15372,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6509:6: ( ( KEYWORD_26 ( (lv_name_1_0= RULE_ID ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6510:1: ( KEYWORD_26 ( (lv_name_1_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6449:6: ( ( KEYWORD_26 ( (lv_name_1_0= RULE_ID ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6450:1: ( KEYWORD_26 ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6510:1: ( KEYWORD_26 ( (lv_name_1_0= RULE_ID ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6511:2: KEYWORD_26 ( (lv_name_1_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6450:1: ( KEYWORD_26 ( (lv_name_1_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6451:2: KEYWORD_26 ( (lv_name_1_0= RULE_ID ) )
             {
-            match(input,KEYWORD_26,FOLLOW_KEYWORD_26_in_ruleBlankNode11013); if (failed) return current;
+            match(input,KEYWORD_26,FOLLOW_KEYWORD_26_in_ruleBlankNode11018); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getBlankNodeAccess().get_Keyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6515:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6516:1: (lv_name_1_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6455:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6456:1: (lv_name_1_0= RULE_ID )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6516:1: (lv_name_1_0= RULE_ID )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6517:3: lv_name_1_0= RULE_ID
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6456:1: (lv_name_1_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6457:3: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBlankNode11030); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBlankNode11035); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getBlankNodeAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
@@ -15579,7 +15449,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleParameter
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6550:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6490:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
     public final EObject entryRuleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -15590,20 +15460,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
         	
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6554:2: (iv_ruleParameter= ruleParameter EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6555:2: iv_ruleParameter= ruleParameter EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6494:2: (iv_ruleParameter= ruleParameter EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6495:2: iv_ruleParameter= ruleParameter EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getParameterRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter11080);
+            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter11085);
             iv_ruleParameter=ruleParameter();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleParameter; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter11090); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter11095); if (failed) return current;
 
             }
 
@@ -15624,7 +15494,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleParameter
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6565:1: ruleParameter returns [EObject current=null] : ( KEYWORD_22 ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6505:1: ruleParameter returns [EObject current=null] : ( KEYWORD_22 ( (lv_name_1_0= RULE_ID ) ) ) ;
     public final EObject ruleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -15634,26 +15504,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6571:6: ( ( KEYWORD_22 ( (lv_name_1_0= RULE_ID ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6572:1: ( KEYWORD_22 ( (lv_name_1_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6511:6: ( ( KEYWORD_22 ( (lv_name_1_0= RULE_ID ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6512:1: ( KEYWORD_22 ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6572:1: ( KEYWORD_22 ( (lv_name_1_0= RULE_ID ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6573:2: KEYWORD_22 ( (lv_name_1_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6512:1: ( KEYWORD_22 ( (lv_name_1_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6513:2: KEYWORD_22 ( (lv_name_1_0= RULE_ID ) )
             {
-            match(input,KEYWORD_22,FOLLOW_KEYWORD_22_in_ruleParameter11130); if (failed) return current;
+            match(input,KEYWORD_22,FOLLOW_KEYWORD_22_in_ruleParameter11135); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getParameterAccess().getQuestionMarkColonKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6577:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6578:1: (lv_name_1_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6517:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6518:1: (lv_name_1_0= RULE_ID )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6578:1: (lv_name_1_0= RULE_ID )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6579:3: lv_name_1_0= RULE_ID
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6518:1: (lv_name_1_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6519:3: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter11147); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter11152); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
@@ -15711,7 +15581,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleValue
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6612:1: entryRuleValue returns [EObject current=null] : iv_ruleValue= ruleValue EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6552:1: entryRuleValue returns [EObject current=null] : iv_ruleValue= ruleValue EOF ;
     public final EObject entryRuleValue() throws RecognitionException {
         EObject current = null;
 
@@ -15719,20 +15589,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6613:2: (iv_ruleValue= ruleValue EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6614:2: iv_ruleValue= ruleValue EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6553:2: (iv_ruleValue= ruleValue EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6554:2: iv_ruleValue= ruleValue EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getValueRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleValue_in_entryRuleValue11191);
+            pushFollow(FOLLOW_ruleValue_in_entryRuleValue11196);
             iv_ruleValue=ruleValue();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleValue; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleValue11201); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleValue11206); if (failed) return current;
 
             }
 
@@ -15750,7 +15620,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleValue
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6621:1: ruleValue returns [EObject current=null] : (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6561:1: ruleValue returns [EObject current=null] : (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue ) ;
     public final EObject ruleValue() throws RecognitionException {
         EObject current = null;
 
@@ -15762,10 +15632,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6626:6: ( (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6627:1: (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6566:6: ( (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6567:1: (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6627:1: (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6567:1: (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue )
             int alt85=2;
             int LA85_0 = input.LA(1);
 
@@ -15778,13 +15648,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("6627:1: (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue )", 85, 0, input);
+                    new NoViableAltException("6567:1: (this_StringValue_0= ruleStringValue | this_IntegerValue_1= ruleIntegerValue )", 85, 0, input);
 
                 throw nvae;
             }
             switch (alt85) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6628:2: this_StringValue_0= ruleStringValue
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6568:2: this_StringValue_0= ruleStringValue
                     {
                     if ( backtracking==0 ) {
                        
@@ -15796,13 +15666,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getValueAccess().getStringValueParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleStringValue_in_ruleValue11251);
+                    pushFollow(FOLLOW_ruleStringValue_in_ruleValue11256);
                     this_StringValue_0=ruleStringValue();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_StringValue_0; 
+
+                              current = this_StringValue_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -15810,7 +15680,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6641:2: this_IntegerValue_1= ruleIntegerValue
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6581:2: this_IntegerValue_1= ruleIntegerValue
                     {
                     if ( backtracking==0 ) {
                        
@@ -15822,13 +15692,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getValueAccess().getIntegerValueParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleIntegerValue_in_ruleValue11281);
+                    pushFollow(FOLLOW_ruleIntegerValue_in_ruleValue11286);
                     this_IntegerValue_1=ruleIntegerValue();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_IntegerValue_1; 
+
+                              current = this_IntegerValue_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -15860,7 +15730,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleIRI
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6660:1: entryRuleIRI returns [EObject current=null] : iv_ruleIRI= ruleIRI EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6600:1: entryRuleIRI returns [EObject current=null] : iv_ruleIRI= ruleIRI EOF ;
     public final EObject entryRuleIRI() throws RecognitionException {
         EObject current = null;
 
@@ -15868,20 +15738,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6661:2: (iv_ruleIRI= ruleIRI EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6662:2: iv_ruleIRI= ruleIRI EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6601:2: (iv_ruleIRI= ruleIRI EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6602:2: iv_ruleIRI= ruleIRI EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getIRIRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleIRI_in_entryRuleIRI11315);
+            pushFollow(FOLLOW_ruleIRI_in_entryRuleIRI11320);
             iv_ruleIRI=ruleIRI();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleIRI; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIRI11325); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIRI11330); if (failed) return current;
 
             }
 
@@ -15899,7 +15769,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleIRI
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6669:1: ruleIRI returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_IRI_TERMINAL ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6609:1: ruleIRI returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_IRI_TERMINAL ) ) ) ;
     public final EObject ruleIRI() throws RecognitionException {
         EObject current = null;
 
@@ -15908,14 +15778,14 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6674:6: ( ( () ( (lv_value_1_0= RULE_IRI_TERMINAL ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6675:1: ( () ( (lv_value_1_0= RULE_IRI_TERMINAL ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6614:6: ( ( () ( (lv_value_1_0= RULE_IRI_TERMINAL ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6615:1: ( () ( (lv_value_1_0= RULE_IRI_TERMINAL ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6675:1: ( () ( (lv_value_1_0= RULE_IRI_TERMINAL ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6675:2: () ( (lv_value_1_0= RULE_IRI_TERMINAL ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6615:1: ( () ( (lv_value_1_0= RULE_IRI_TERMINAL ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6615:2: () ( (lv_value_1_0= RULE_IRI_TERMINAL ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6675:2: ()
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6676:2: 
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6615:2: ()
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6616:2: 
             {
             if ( backtracking==0 ) {
                
@@ -15937,14 +15807,14 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6689:2: ( (lv_value_1_0= RULE_IRI_TERMINAL ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6690:1: (lv_value_1_0= RULE_IRI_TERMINAL )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6629:2: ( (lv_value_1_0= RULE_IRI_TERMINAL ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6630:1: (lv_value_1_0= RULE_IRI_TERMINAL )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6690:1: (lv_value_1_0= RULE_IRI_TERMINAL )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6691:3: lv_value_1_0= RULE_IRI_TERMINAL
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6630:1: (lv_value_1_0= RULE_IRI_TERMINAL )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6631:3: lv_value_1_0= RULE_IRI_TERMINAL
             {
             lv_value_1_0=(Token)input.LT(1);
-            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleIRI11379); if (failed) return current;
+            match(input,RULE_IRI_TERMINAL,FOLLOW_RULE_IRI_TERMINAL_in_ruleIRI11384); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getIRIAccess().getValueIRI_TERMINALTerminalRuleCall_1_0(), "value"); 
@@ -15999,7 +15869,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleStringValue
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6721:1: entryRuleStringValue returns [EObject current=null] : iv_ruleStringValue= ruleStringValue EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6661:1: entryRuleStringValue returns [EObject current=null] : iv_ruleStringValue= ruleStringValue EOF ;
     public final EObject entryRuleStringValue() throws RecognitionException {
         EObject current = null;
 
@@ -16007,20 +15877,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6722:2: (iv_ruleStringValue= ruleStringValue EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6723:2: iv_ruleStringValue= ruleStringValue EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6662:2: (iv_ruleStringValue= ruleStringValue EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6663:2: iv_ruleStringValue= ruleStringValue EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getStringValueRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleStringValue_in_entryRuleStringValue11419);
+            pushFollow(FOLLOW_ruleStringValue_in_entryRuleStringValue11424);
             iv_ruleStringValue=ruleStringValue();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleStringValue; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStringValue11429); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStringValue11434); if (failed) return current;
 
             }
 
@@ -16038,7 +15908,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleStringValue
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6730:1: ruleStringValue returns [EObject current=null] : ( ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )? ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6670:1: ruleStringValue returns [EObject current=null] : ( ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )? ) ;
     public final EObject ruleStringValue() throws RecognitionException {
         EObject current = null;
 
@@ -16049,20 +15919,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6735:6: ( ( ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )? ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6736:1: ( ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6675:6: ( ( ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )? ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6676:1: ( ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )? )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6736:1: ( ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )? )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6736:2: ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6676:1: ( ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6676:2: ( (lv_value_0_0= RULE_STRING ) ) ( (lv_tag_1_0= ruleRDFTag ) )?
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6736:2: ( (lv_value_0_0= RULE_STRING ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6737:1: (lv_value_0_0= RULE_STRING )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6676:2: ( (lv_value_0_0= RULE_STRING ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6677:1: (lv_value_0_0= RULE_STRING )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6737:1: (lv_value_0_0= RULE_STRING )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6738:3: lv_value_0_0= RULE_STRING
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6677:1: (lv_value_0_0= RULE_STRING )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6678:3: lv_value_0_0= RULE_STRING
             {
             lv_value_0_0=(Token)input.LT(1);
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringValue11471); if (failed) return current;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringValue11476); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getStringValueAccess().getValueSTRINGTerminalRuleCall_0_0(), "value"); 
@@ -16092,7 +15962,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6760:2: ( (lv_tag_1_0= ruleRDFTag ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6700:2: ( (lv_tag_1_0= ruleRDFTag ) )?
             int alt86=2;
             int LA86_0 = input.LA(1);
 
@@ -16101,17 +15971,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt86) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6761:1: (lv_tag_1_0= ruleRDFTag )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6701:1: (lv_tag_1_0= ruleRDFTag )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6761:1: (lv_tag_1_0= ruleRDFTag )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6762:3: lv_tag_1_0= ruleRDFTag
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6701:1: (lv_tag_1_0= ruleRDFTag )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6702:3: lv_tag_1_0= ruleRDFTag
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getStringValueAccess().getTagRDFTagParserRuleCall_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleRDFTag_in_ruleStringValue11497);
+                    pushFollow(FOLLOW_ruleRDFTag_in_ruleStringValue11502);
                     lv_tag_1_0=ruleRDFTag();
                     _fsp--;
                     if (failed) return current;
@@ -16168,7 +16038,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleIntegerValue
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6792:1: entryRuleIntegerValue returns [EObject current=null] : iv_ruleIntegerValue= ruleIntegerValue EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6732:1: entryRuleIntegerValue returns [EObject current=null] : iv_ruleIntegerValue= ruleIntegerValue EOF ;
     public final EObject entryRuleIntegerValue() throws RecognitionException {
         EObject current = null;
 
@@ -16176,20 +16046,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6793:2: (iv_ruleIntegerValue= ruleIntegerValue EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6794:2: iv_ruleIntegerValue= ruleIntegerValue EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6733:2: (iv_ruleIntegerValue= ruleIntegerValue EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6734:2: iv_ruleIntegerValue= ruleIntegerValue EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getIntegerValueRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleIntegerValue_in_entryRuleIntegerValue11533);
+            pushFollow(FOLLOW_ruleIntegerValue_in_entryRuleIntegerValue11538);
             iv_ruleIntegerValue=ruleIntegerValue();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleIntegerValue; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerValue11543); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerValue11548); if (failed) return current;
 
             }
 
@@ -16207,7 +16077,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleIntegerValue
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6801:1: ruleIntegerValue returns [EObject current=null] : ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )? ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6741:1: ruleIntegerValue returns [EObject current=null] : ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )? ) ;
     public final EObject ruleIntegerValue() throws RecognitionException {
         EObject current = null;
 
@@ -16218,20 +16088,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6806:6: ( ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )? ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6807:1: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6746:6: ( ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )? ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6747:1: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )? )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6807:1: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )? )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6807:2: ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6747:1: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )? )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6747:2: ( (lv_value_0_0= RULE_INT ) ) ( (lv_tag_1_0= ruleRDFTag ) )?
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6807:2: ( (lv_value_0_0= RULE_INT ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6808:1: (lv_value_0_0= RULE_INT )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6747:2: ( (lv_value_0_0= RULE_INT ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6748:1: (lv_value_0_0= RULE_INT )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6808:1: (lv_value_0_0= RULE_INT )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6809:3: lv_value_0_0= RULE_INT
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6748:1: (lv_value_0_0= RULE_INT )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6749:3: lv_value_0_0= RULE_INT
             {
             lv_value_0_0=(Token)input.LT(1);
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerValue11585); if (failed) return current;
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerValue11590); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getIntegerValueAccess().getValueINTTerminalRuleCall_0_0(), "value"); 
@@ -16261,7 +16131,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6831:2: ( (lv_tag_1_0= ruleRDFTag ) )?
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6771:2: ( (lv_tag_1_0= ruleRDFTag ) )?
             int alt87=2;
             int LA87_0 = input.LA(1);
 
@@ -16270,17 +16140,17 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             }
             switch (alt87) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6832:1: (lv_tag_1_0= ruleRDFTag )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6772:1: (lv_tag_1_0= ruleRDFTag )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6832:1: (lv_tag_1_0= ruleRDFTag )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6833:3: lv_tag_1_0= ruleRDFTag
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6772:1: (lv_tag_1_0= ruleRDFTag )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6773:3: lv_tag_1_0= ruleRDFTag
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getIntegerValueAccess().getTagRDFTagParserRuleCall_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleRDFTag_in_ruleIntegerValue11611);
+                    pushFollow(FOLLOW_ruleRDFTag_in_ruleIntegerValue11616);
                     lv_tag_1_0=ruleRDFTag();
                     _fsp--;
                     if (failed) return current;
@@ -16337,7 +16207,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleRDFTag
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6863:1: entryRuleRDFTag returns [EObject current=null] : iv_ruleRDFTag= ruleRDFTag EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6803:1: entryRuleRDFTag returns [EObject current=null] : iv_ruleRDFTag= ruleRDFTag EOF ;
     public final EObject entryRuleRDFTag() throws RecognitionException {
         EObject current = null;
 
@@ -16345,20 +16215,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6864:2: (iv_ruleRDFTag= ruleRDFTag EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6865:2: iv_ruleRDFTag= ruleRDFTag EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6804:2: (iv_ruleRDFTag= ruleRDFTag EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6805:2: iv_ruleRDFTag= ruleRDFTag EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getRDFTagRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleRDFTag_in_entryRuleRDFTag11647);
+            pushFollow(FOLLOW_ruleRDFTag_in_entryRuleRDFTag11652);
             iv_ruleRDFTag=ruleRDFTag();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleRDFTag; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRDFTag11657); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRDFTag11662); if (failed) return current;
 
             }
 
@@ -16376,7 +16246,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRDFTag
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6872:1: ruleRDFTag returns [EObject current=null] : (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6812:1: ruleRDFTag returns [EObject current=null] : (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag ) ;
     public final EObject ruleRDFTag() throws RecognitionException {
         EObject current = null;
 
@@ -16388,10 +16258,10 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6877:6: ( (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6878:1: (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6817:6: ( (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6818:1: (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6878:1: (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6818:1: (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag )
             int alt88=2;
             int LA88_0 = input.LA(1);
 
@@ -16404,13 +16274,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("6878:1: (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag )", 88, 0, input);
+                    new NoViableAltException("6818:1: (this_TypeTag_0= ruleTypeTag | this_LangTag_1= ruleLangTag )", 88, 0, input);
 
                 throw nvae;
             }
             switch (alt88) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6879:2: this_TypeTag_0= ruleTypeTag
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6819:2: this_TypeTag_0= ruleTypeTag
                     {
                     if ( backtracking==0 ) {
                        
@@ -16422,13 +16292,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getRDFTagAccess().getTypeTagParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleTypeTag_in_ruleRDFTag11707);
+                    pushFollow(FOLLOW_ruleTypeTag_in_ruleRDFTag11712);
                     this_TypeTag_0=ruleTypeTag();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_TypeTag_0; 
+
+                              current = this_TypeTag_0;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -16436,7 +16306,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6892:2: this_LangTag_1= ruleLangTag
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6832:2: this_LangTag_1= ruleLangTag
                     {
                     if ( backtracking==0 ) {
                        
@@ -16448,13 +16318,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getRDFTagAccess().getLangTagParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleLangTag_in_ruleRDFTag11737);
+                    pushFollow(FOLLOW_ruleLangTag_in_ruleRDFTag11742);
                     this_LangTag_1=ruleLangTag();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
-                       
-                              current = this_LangTag_1; 
+
+                              current = this_LangTag_1;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -16486,7 +16356,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleTypeTag
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6911:1: entryRuleTypeTag returns [EObject current=null] : iv_ruleTypeTag= ruleTypeTag EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6851:1: entryRuleTypeTag returns [EObject current=null] : iv_ruleTypeTag= ruleTypeTag EOF ;
     public final EObject entryRuleTypeTag() throws RecognitionException {
         EObject current = null;
 
@@ -16497,20 +16367,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
         	
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6915:2: (iv_ruleTypeTag= ruleTypeTag EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6916:2: iv_ruleTypeTag= ruleTypeTag EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6855:2: (iv_ruleTypeTag= ruleTypeTag EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6856:2: iv_ruleTypeTag= ruleTypeTag EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTypeTagRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleTypeTag_in_entryRuleTypeTag11777);
+            pushFollow(FOLLOW_ruleTypeTag_in_entryRuleTypeTag11782);
             iv_ruleTypeTag=ruleTypeTag();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleTypeTag; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeTag11787); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeTag11792); if (failed) return current;
 
             }
 
@@ -16531,7 +16401,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTypeTag
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6926:1: ruleTypeTag returns [EObject current=null] : ( KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6866:1: ruleTypeTag returns [EObject current=null] : ( KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) ) ) ;
     public final EObject ruleTypeTag() throws RecognitionException {
         EObject current = null;
 
@@ -16542,30 +16412,30 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6932:6: ( ( KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6933:1: ( KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6872:6: ( ( KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6873:1: ( KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6933:1: ( KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6934:2: KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6873:1: ( KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6874:2: KEYWORD_25 ( (lv_type_1_0= ruleGraphNode ) )
             {
-            match(input,KEYWORD_25,FOLLOW_KEYWORD_25_in_ruleTypeTag11827); if (failed) return current;
+            match(input,KEYWORD_25,FOLLOW_KEYWORD_25_in_ruleTypeTag11832); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getTypeTagAccess().getCircumflexAccentCircumflexAccentKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6938:1: ( (lv_type_1_0= ruleGraphNode ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6939:1: (lv_type_1_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6878:1: ( (lv_type_1_0= ruleGraphNode ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6879:1: (lv_type_1_0= ruleGraphNode )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6939:1: (lv_type_1_0= ruleGraphNode )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6940:3: lv_type_1_0= ruleGraphNode
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6879:1: (lv_type_1_0= ruleGraphNode )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6880:3: lv_type_1_0= ruleGraphNode
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getTypeTagAccess().getTypeGraphNodeParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleGraphNode_in_ruleTypeTag11848);
+            pushFollow(FOLLOW_ruleGraphNode_in_ruleTypeTag11853);
             lv_type_1_0=ruleGraphNode();
             _fsp--;
             if (failed) return current;
@@ -16622,7 +16492,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLangTag
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6973:1: entryRuleLangTag returns [EObject current=null] : iv_ruleLangTag= ruleLangTag EOF ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6913:1: entryRuleLangTag returns [EObject current=null] : iv_ruleLangTag= ruleLangTag EOF ;
     public final EObject entryRuleLangTag() throws RecognitionException {
         EObject current = null;
 
@@ -16633,20 +16503,20 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
         	
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6977:2: (iv_ruleLangTag= ruleLangTag EOF )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6978:2: iv_ruleLangTag= ruleLangTag EOF
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6917:2: (iv_ruleLangTag= ruleLangTag EOF )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6918:2: iv_ruleLangTag= ruleLangTag EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLangTagRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleLangTag_in_entryRuleLangTag11893);
+            pushFollow(FOLLOW_ruleLangTag_in_entryRuleLangTag11898);
             iv_ruleLangTag=ruleLangTag();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleLangTag; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLangTag11903); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLangTag11908); if (failed) return current;
 
             }
 
@@ -16667,7 +16537,7 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLangTag
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6988:1: ruleLangTag returns [EObject current=null] : ( KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6928:1: ruleLangTag returns [EObject current=null] : ( KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) ) ) ;
     public final EObject ruleLangTag() throws RecognitionException {
         EObject current = null;
 
@@ -16677,26 +16547,26 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
             
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6994:6: ( ( KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6995:1: ( KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6934:6: ( ( KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6935:1: ( KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6995:1: ( KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6996:2: KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6935:1: ( KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6936:2: KEYWORD_15 ( (lv_lang_1_0= RULE_ID ) )
             {
-            match(input,KEYWORD_15,FOLLOW_KEYWORD_15_in_ruleLangTag11943); if (failed) return current;
+            match(input,KEYWORD_15,FOLLOW_KEYWORD_15_in_ruleLangTag11948); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getLangTagAccess().getCommercialAtKeyword_0(), null); 
                   
             }
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7000:1: ( (lv_lang_1_0= RULE_ID ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7001:1: (lv_lang_1_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6940:1: ( (lv_lang_1_0= RULE_ID ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6941:1: (lv_lang_1_0= RULE_ID )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7001:1: (lv_lang_1_0= RULE_ID )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7002:3: lv_lang_1_0= RULE_ID
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6941:1: (lv_lang_1_0= RULE_ID )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6942:3: lv_lang_1_0= RULE_ID
             {
             lv_lang_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLangTag11960); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLangTag11965); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getLangTagAccess().getLangIDTerminalRuleCall_1_0(), "lang"); 
@@ -16754,16 +16624,16 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleOperator
-    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7035:1: ruleOperator returns [Enumerator current=null] : ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) ) ;
+    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6975:1: ruleOperator returns [Enumerator current=null] : ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) ) ;
     public final Enumerator ruleOperator() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7039:6: ( ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) ) )
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7040:1: ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6979:6: ( ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6980:1: ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) )
             {
-            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7040:1: ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) )
+            // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6980:1: ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) )
             int alt89=10;
             switch ( input.LA(1) ) {
             case KEYWORD_11:
@@ -16819,19 +16689,19 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("7040:1: ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) )", 89, 0, input);
+                    new NoViableAltException("6980:1: ( ( KEYWORD_11 ) | ( KEYWORD_13 ) | ( KEYWORD_20 ) | ( KEYWORD_21 ) | ( KEYWORD_12 ) | ( KEYWORD_18 ) | ( KEYWORD_4 ) | ( KEYWORD_8 ) | ( KEYWORD_6 ) | ( KEYWORD_3 ) )", 89, 0, input);
 
                 throw nvae;
             }
 
             switch (alt89) {
                 case 1 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7040:2: ( KEYWORD_11 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6980:2: ( KEYWORD_11 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7040:2: ( KEYWORD_11 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7040:7: KEYWORD_11
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6980:2: ( KEYWORD_11 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6980:7: KEYWORD_11
                     {
-                    match(input,KEYWORD_11,FOLLOW_KEYWORD_11_in_ruleOperator12020); if (failed) return current;
+                    match(input,KEYWORD_11,FOLLOW_KEYWORD_11_in_ruleOperator12025); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getLessThenEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -16845,12 +16715,12 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7046:6: ( KEYWORD_13 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6986:6: ( KEYWORD_13 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7046:6: ( KEYWORD_13 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7046:11: KEYWORD_13
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6986:6: ( KEYWORD_13 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6986:11: KEYWORD_13
                     {
-                    match(input,KEYWORD_13,FOLLOW_KEYWORD_13_in_ruleOperator12037); if (failed) return current;
+                    match(input,KEYWORD_13,FOLLOW_KEYWORD_13_in_ruleOperator12042); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getGreaterThenEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -16864,12 +16734,12 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7052:6: ( KEYWORD_20 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6992:6: ( KEYWORD_20 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7052:6: ( KEYWORD_20 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7052:11: KEYWORD_20
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6992:6: ( KEYWORD_20 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6992:11: KEYWORD_20
                     {
-                    match(input,KEYWORD_20,FOLLOW_KEYWORD_20_in_ruleOperator12054); if (failed) return current;
+                    match(input,KEYWORD_20,FOLLOW_KEYWORD_20_in_ruleOperator12059); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getLessEqualEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -16883,12 +16753,12 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7058:6: ( KEYWORD_21 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6998:6: ( KEYWORD_21 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7058:6: ( KEYWORD_21 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7058:11: KEYWORD_21
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6998:6: ( KEYWORD_21 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:6998:11: KEYWORD_21
                     {
-                    match(input,KEYWORD_21,FOLLOW_KEYWORD_21_in_ruleOperator12071); if (failed) return current;
+                    match(input,KEYWORD_21,FOLLOW_KEYWORD_21_in_ruleOperator12076); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getGreaterEqualEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -16902,12 +16772,12 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7064:6: ( KEYWORD_12 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7004:6: ( KEYWORD_12 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7064:6: ( KEYWORD_12 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7064:11: KEYWORD_12
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7004:6: ( KEYWORD_12 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7004:11: KEYWORD_12
                     {
-                    match(input,KEYWORD_12,FOLLOW_KEYWORD_12_in_ruleOperator12088); if (failed) return current;
+                    match(input,KEYWORD_12,FOLLOW_KEYWORD_12_in_ruleOperator12093); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getEqualEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -16921,12 +16791,12 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7070:6: ( KEYWORD_18 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7010:6: ( KEYWORD_18 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7070:6: ( KEYWORD_18 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7070:11: KEYWORD_18
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7010:6: ( KEYWORD_18 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7010:11: KEYWORD_18
                     {
-                    match(input,KEYWORD_18,FOLLOW_KEYWORD_18_in_ruleOperator12105); if (failed) return current;
+                    match(input,KEYWORD_18,FOLLOW_KEYWORD_18_in_ruleOperator12110); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getNotEqualEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -16940,12 +16810,12 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7076:6: ( KEYWORD_4 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7016:6: ( KEYWORD_4 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7076:6: ( KEYWORD_4 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7076:11: KEYWORD_4
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7016:6: ( KEYWORD_4 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7016:11: KEYWORD_4
                     {
-                    match(input,KEYWORD_4,FOLLOW_KEYWORD_4_in_ruleOperator12122); if (failed) return current;
+                    match(input,KEYWORD_4,FOLLOW_KEYWORD_4_in_ruleOperator12127); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getSumEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -16959,12 +16829,12 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7082:6: ( KEYWORD_8 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7022:6: ( KEYWORD_8 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7082:6: ( KEYWORD_8 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7082:11: KEYWORD_8
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7022:6: ( KEYWORD_8 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7022:11: KEYWORD_8
                     {
-                    match(input,KEYWORD_8,FOLLOW_KEYWORD_8_in_ruleOperator12139); if (failed) return current;
+                    match(input,KEYWORD_8,FOLLOW_KEYWORD_8_in_ruleOperator12144); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getDivEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -16978,12 +16848,12 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7088:6: ( KEYWORD_6 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7028:6: ( KEYWORD_6 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7088:6: ( KEYWORD_6 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7088:11: KEYWORD_6
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7028:6: ( KEYWORD_6 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7028:11: KEYWORD_6
                     {
-                    match(input,KEYWORD_6,FOLLOW_KEYWORD_6_in_ruleOperator12156); if (failed) return current;
+                    match(input,KEYWORD_6,FOLLOW_KEYWORD_6_in_ruleOperator12161); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getSubEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -16997,12 +16867,12 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7094:6: ( KEYWORD_3 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7034:6: ( KEYWORD_3 )
                     {
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7094:6: ( KEYWORD_3 )
-                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7094:11: KEYWORD_3
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7034:6: ( KEYWORD_3 )
+                    // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:7034:11: KEYWORD_3
                     {
-                    match(input,KEYWORD_3,FOLLOW_KEYWORD_3_in_ruleOperator12173); if (failed) return current;
+                    match(input,KEYWORD_3,FOLLOW_KEYWORD_3_in_ruleOperator12178); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getOperatorAccess().getMultiplicityEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -17038,24 +16908,24 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end ruleOperator
 
-    // $ANTLR start synpred67
-    public final void synpred67_fragment() throws RecognitionException {   
-        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2718:2: ( KEYWORD_65 ( ( ruleGroupGraphPattern ) ) )
-        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2718:2: KEYWORD_65 ( ( ruleGroupGraphPattern ) )
+    // $ANTLR start synpred65
+    public final void synpred65_fragment() throws RecognitionException {   
+        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2600:2: ( KEYWORD_65 ( ( ruleGroupGraphPattern ) ) )
+        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2600:2: KEYWORD_65 ( ( ruleGroupGraphPattern ) )
         {
-        match(input,KEYWORD_65,FOLLOW_KEYWORD_65_in_synpred674098); if (failed) return ;
-        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2722:1: ( ( ruleGroupGraphPattern ) )
-        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2723:1: ( ruleGroupGraphPattern )
+        match(input,KEYWORD_65,FOLLOW_KEYWORD_65_in_synpred654031); if (failed) return ;
+        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2604:1: ( ( ruleGroupGraphPattern ) )
+        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2605:1: ( ruleGroupGraphPattern )
         {
-        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2723:1: ( ruleGroupGraphPattern )
-        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2724:3: ruleGroupGraphPattern
+        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2605:1: ( ruleGroupGraphPattern )
+        // ../com.emftriple.query.sparql/src-gen/com/emftriple/query/parser/antlr/internal/InternalSparql.g:2606:3: ruleGroupGraphPattern
         {
         if ( backtracking==0 ) {
            
-          	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getInsertPatternGroupGraphPatternParserRuleCall_3_1_0(), currentNode); 
+          	        currentNode=createCompositeNode(grammarAccess.getDeleteQueryAccess().getInsertPatternGroupGraphPatternParserRuleCall_4_1_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleGroupGraphPattern_in_synpred674119);
+        pushFollow(FOLLOW_ruleGroupGraphPattern_in_synpred654052);
         ruleGroupGraphPattern();
         _fsp--;
         if (failed) return ;
@@ -17068,13 +16938,13 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred67
+    // $ANTLR end synpred65
 
-    public final boolean synpred67() {
+    public final boolean synpred65() {
         backtracking++;
         int start = input.mark();
         try {
-            synpred67_fragment(); // can never throw exception
+            synpred65_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -17378,412 +17248,412 @@ public class InternalSparqlParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleClearGraphQuery_in_ruleUpdateOperation2651 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleModifyQuery_in_entryRuleModifyQuery2685 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModifyQuery2695 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_44_in_ruleModifyQuery2733 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery2750 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleInsertQuery_in_ruleModifyQuery2778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_44_in_ruleModifyQuery2798 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery2815 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleInsertDataQuery_in_ruleModifyQuery2843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_44_in_ruleModifyQuery2863 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery2880 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_ruleDeleteQuery_in_ruleModifyQuery2908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_44_in_ruleModifyQuery2928 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery2945 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_ruleDeleteDataQuery_in_ruleModifyQuery2973 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_44_in_ruleModifyQuery2993 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleModifyQuery3010 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_ruleDeleteWhereQuery_in_ruleModifyQuery3038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCreateGraphQuery_in_entryRuleCreateGraphQuery3074 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCreateGraphQuery3084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_60_in_ruleCreateGraphQuery3120 = new BitSet(new long[]{0x0000000210000000L});
-    public static final BitSet FOLLOW_KEYWORD_69_in_ruleCreateGraphQuery3139 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_KEYWORD_49_in_ruleCreateGraphQuery3164 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleCreateGraphQuery3181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDropGraphQuery_in_entryRuleDropGraphQuery3221 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDropGraphQuery3231 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_39_in_ruleDropGraphQuery3267 = new BitSet(new long[]{0x0000000210000000L});
-    public static final BitSet FOLLOW_KEYWORD_69_in_ruleDropGraphQuery3286 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_KEYWORD_49_in_ruleDropGraphQuery3311 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleDropGraphQuery3328 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLoadGraphQuery_in_entryRuleLoadGraphQuery3368 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLoadGraphQuery3378 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_43_in_ruleLoadGraphQuery3414 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleLoadGraphQuery3431 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_41_in_ruleLoadGraphQuery3448 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_KEYWORD_49_in_ruleLoadGraphQuery3459 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleLoadGraphQuery3476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleClearGraphQuery_in_entryRuleClearGraphQuery3518 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleClearGraphQuery3528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_47_in_ruleClearGraphQuery3564 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_KEYWORD_49_in_ruleClearGraphQuery3575 = new BitSet(new long[]{0x0000000000004000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleClearGraphQuery3593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_70_in_ruleClearGraphQuery3623 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInsertQuery_in_entryRuleInsertQuery3674 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInsertQuery3684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_65_in_ruleInsertQuery3720 = new BitSet(new long[]{0x0001000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_KEYWORD_41_in_ruleInsertQuery3732 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertQuery3749 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleInsertQuery3777 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_ruleWhereClause_in_ruleInsertQuery3798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInsertDataQuery_in_entryRuleInsertDataQuery3834 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInsertDataQuery3844 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_65_in_ruleInsertDataQuery3880 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_KEYWORD_38_in_ruleInsertDataQuery3891 = new BitSet(new long[]{0x0001000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_KEYWORD_41_in_ruleInsertDataQuery3903 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertDataQuery3920 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleInsertDataQuery3948 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDeleteQuery_in_entryRuleDeleteQuery3983 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDeleteQuery3993 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_61_in_ruleDeleteQuery4029 = new BitSet(new long[]{0x0000800000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_KEYWORD_40_in_ruleDeleteQuery4041 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteQuery4058 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleDeleteQuery4086 = new BitSet(new long[]{0x0000020001000002L});
-    public static final BitSet FOLLOW_KEYWORD_65_in_ruleDeleteQuery4098 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleDeleteQuery4119 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_ruleWhereClause_in_ruleDeleteQuery4142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDeleteDataQuery_in_entryRuleDeleteDataQuery4178 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDeleteDataQuery4188 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_61_in_ruleDeleteDataQuery4224 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_KEYWORD_38_in_ruleDeleteDataQuery4235 = new BitSet(new long[]{0x0000800000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_KEYWORD_40_in_ruleDeleteDataQuery4247 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteDataQuery4264 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleDeleteDataQuery4292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDeleteWhereQuery_in_entryRuleDeleteWhereQuery4327 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDeleteWhereQuery4337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_61_in_ruleDeleteWhereQuery4373 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_KEYWORD_57_in_ruleDeleteWhereQuery4384 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_KEYWORD_16_in_ruleDeleteWhereQuery4395 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleDeleteWhereQuery4416 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_KEYWORD_17_in_ruleDeleteWhereQuery4427 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDatasetClause_in_entryRuleDatasetClause4462 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDatasetClause4472 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefaultDataSet_in_ruleDatasetClause4522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNamedDataSet_in_ruleDatasetClause4552 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceDataSet_in_ruleDatasetClause4582 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefaultDataSet_in_entryRuleDefaultDataSet4616 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDefaultDataSet4626 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_40_in_ruleDefaultDataSet4662 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleIRI_in_ruleDefaultDataSet4683 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNamedDataSet_in_entryRuleNamedDataSet4718 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNamedDataSet4728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_40_in_ruleNamedDataSet4764 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_KEYWORD_53_in_ruleNamedDataSet4775 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleIRI_in_ruleNamedDataSet4796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceDataSet_in_entryRuleServiceDataSet4831 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleServiceDataSet4841 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_40_in_ruleServiceDataSet4877 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_KEYWORD_72_in_ruleServiceDataSet4888 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleIRI_in_ruleServiceDataSet4909 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWhereClause_in_entryRuleWhereClause4944 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWhereClause4954 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_57_in_ruleWhereClause4990 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleWhereClause5011 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroupClause_in_entryRuleGroupClause5046 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGroupClause5056 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_50_in_ruleGroupClause5092 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_KEYWORD_23_in_ruleGroupClause5103 = new BitSet(new long[]{0x14420C4060062320L,0x0000000004100008L});
-    public static final BitSet FOLLOW_ruleGroupCondition_in_ruleGroupClause5124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroupCondition_in_entryRuleGroupCondition5159 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGroupCondition5169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBuiltInCall_in_ruleGroupCondition5219 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunction_in_ruleGroupCondition5249 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleGroupCondition5279 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHavingClause_in_entryRuleHavingClause5313 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleHavingClause5323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_64_in_ruleHavingClause5359 = new BitSet(new long[]{0x14420C4060062320L,0x0000000004000088L});
-    public static final BitSet FOLLOW_ruleConstraint_in_ruleHavingClause5380 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstraint_in_entryRuleConstraint5415 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConstraint5425 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParFilterExpression_in_ruleConstraint5475 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBuiltInCall_in_ruleConstraint5505 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunction_in_ruleConstraint5535 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLimitClause_in_entryRuleLimitClause5569 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLimitClause5579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_51_in_ruleLimitClause5615 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleLimitClause5632 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_entryRuleGroupGraphPattern5672 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGroupGraphPattern5682 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSubSelectQuery_in_ruleGroupGraphPattern5732 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroupGraphPatternSub_in_ruleGroupGraphPattern5762 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSubSelectQuery_in_entryRuleSubSelectQuery5796 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSubSelectQuery5806 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_16_in_ruleSubSelectQuery5842 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_KEYWORD_68_in_ruleSubSelectQuery5853 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleSubSelectQuery5874 = new BitSet(new long[]{0x0000020000000000L,0x0000000004100000L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleSubSelectQuery5895 = new BitSet(new long[]{0x0000020000000000L,0x0000000004100000L});
-    public static final BitSet FOLLOW_ruleWhereClause_in_ruleSubSelectQuery5917 = new BitSet(new long[]{0x0000000400800000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_ruleGroupClause_in_ruleSubSelectQuery5938 = new BitSet(new long[]{0x0000000000800000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_ruleHavingClause_in_ruleSubSelectQuery5960 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_KEYWORD_17_in_ruleSubSelectQuery5972 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroupGraphPatternSub_in_entryRuleGroupGraphPatternSub6007 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGroupGraphPatternSub6017 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_16_in_ruleGroupGraphPatternSub6053 = new BitSet(new long[]{0x0000001200411000L,0x000000000F500022L});
-    public static final BitSet FOLLOW_ruleGraphPattern_in_ruleGroupGraphPatternSub6074 = new BitSet(new long[]{0x0000000000000000L,0x0000000000802000L});
-    public static final BitSet FOLLOW_KEYWORD_7_in_ruleGroupGraphPatternSub6086 = new BitSet(new long[]{0x0000001200411000L,0x000000000F500022L});
-    public static final BitSet FOLLOW_ruleGraphPattern_in_ruleGroupGraphPatternSub6107 = new BitSet(new long[]{0x0000000000000000L,0x0000000000802000L});
-    public static final BitSet FOLLOW_KEYWORD_7_in_ruleGroupGraphPatternSub6121 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_KEYWORD_17_in_ruleGroupGraphPatternSub6134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGraphPattern_in_entryRuleGraphPattern6169 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGraphPattern6179 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTriplesSameSubject_in_ruleGraphPattern6229 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroupOrUnionGraphPattern_in_ruleGraphPattern6259 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOptionalGraphPattern_in_ruleGraphPattern6289 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGraphGraphPattern_in_ruleGraphPattern6319 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceGraphPattern_in_ruleGraphPattern6349 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilterPattern_in_ruleGraphPattern6379 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExistsPattern_in_ruleGraphPattern6409 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotExistsPattern_in_ruleGraphPattern6439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMinusPattern_in_ruleGraphPattern6469 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTriplesSameSubject_in_entryRuleTriplesSameSubject6503 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTriplesSameSubject6513 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGraphNode_in_ruleTriplesSameSubject6559 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
-    public static final BitSet FOLLOW_rulePropertyList_in_ruleTriplesSameSubject6580 = new BitSet(new long[]{0x0000000000000002L,0x0000000000010000L});
-    public static final BitSet FOLLOW_KEYWORD_10_in_ruleTriplesSameSubject6592 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
-    public static final BitSet FOLLOW_rulePropertyList_in_ruleTriplesSameSubject6613 = new BitSet(new long[]{0x0000000000000002L,0x0000000000010000L});
-    public static final BitSet FOLLOW_ruleGroupOrUnionGraphPattern_in_entryRuleGroupOrUnionGraphPattern6650 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGroupOrUnionGraphPattern6660 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleGroupOrUnionGraphPattern6706 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_KEYWORD_55_in_ruleGroupOrUnionGraphPattern6718 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleGroupOrUnionGraphPattern6739 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOptionalGraphPattern_in_entryRuleOptionalGraphPattern6776 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOptionalGraphPattern6786 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_78_in_ruleOptionalGraphPattern6822 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleOptionalGraphPattern6843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyList_in_entryRulePropertyList6878 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePropertyList6888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGraphNode_in_rulePropertyList6934 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
-    public static final BitSet FOLLOW_ruleGraphNode_in_rulePropertyList6955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGraphGraphPattern_in_entryRuleGraphGraphPattern6990 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGraphGraphPattern7000 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_49_in_ruleGraphGraphPattern7036 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
-    public static final BitSet FOLLOW_ruleGraphNode_in_ruleGraphGraphPattern7057 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleGraphGraphPattern7078 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceGraphPattern_in_entryRuleServiceGraphPattern7113 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleServiceGraphPattern7123 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_72_in_ruleServiceGraphPattern7159 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
-    public static final BitSet FOLLOW_ruleGraphNode_in_ruleServiceGraphPattern7180 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleServiceGraphPattern7201 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilterPattern_in_entryRuleFilterPattern7236 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFilterPattern7246 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_63_in_ruleFilterPattern7282 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleFilterPattern7293 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleFilterPattern7314 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleFilterPattern7325 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExistsPattern_in_entryRuleExistsPattern7360 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExistsPattern7370 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_63_in_ruleExistsPattern7406 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_KEYWORD_62_in_ruleExistsPattern7417 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleExistsPattern7438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotExistsPattern_in_entryRuleNotExistsPattern7473 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNotExistsPattern7483 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_63_in_ruleNotExistsPattern7519 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_KEYWORD_33_in_ruleNotExistsPattern7530 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_KEYWORD_62_in_ruleNotExistsPattern7541 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleNotExistsPattern7562 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMinusPattern_in_entryRuleMinusPattern7597 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMinusPattern7607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_52_in_ruleMinusPattern7643 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleMinusPattern7664 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression7699 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExpression7709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAndFilterExpression_in_ruleExpression7759 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000040L});
-    public static final BitSet FOLLOW_KEYWORD_27_in_ruleExpression7783 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleAndFilterExpression_in_ruleExpression7804 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000040L});
-    public static final BitSet FOLLOW_ruleAndFilterExpression_in_entryRuleAndFilterExpression7843 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAndFilterExpression7853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConcreteFilterExpression_in_ruleAndFilterExpression7903 = new BitSet(new long[]{0x4000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_19_in_ruleAndFilterExpression7927 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleConcreteFilterExpression_in_ruleAndFilterExpression7948 = new BitSet(new long[]{0x4000000000000002L});
-    public static final BitSet FOLLOW_ruleConcreteFilterExpression_in_entryRuleConcreteFilterExpression7987 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConcreteFilterExpression7997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParFilterExpression_in_ruleConcreteFilterExpression8047 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpressionFilterExpression_in_ruleConcreteFilterExpression8077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParFilterExpression_in_entryRuleParFilterExpression8111 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParFilterExpression8121 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleParFilterExpression8157 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleParFilterExpression8182 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleParFilterExpression8192 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpressionFilterExpression_in_entryRuleExpressionFilterExpression8227 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExpressionFilterExpression8237 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilterNode_in_ruleExpressionFilterExpression8283 = new BitSet(new long[]{0xA000000000000000L,0x00000000000E5601L});
-    public static final BitSet FOLLOW_ruleOperator_in_ruleExpressionFilterExpression8304 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
-    public static final BitSet FOLLOW_ruleFilterNode_in_ruleExpressionFilterExpression8325 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilterNode_in_entryRuleFilterNode8360 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFilterNode8370 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGraphNode_in_ruleFilterNode8420 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunction_in_ruleFilterNode8450 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunction_in_entryRuleFunction8484 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFunction8494 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNamedFunction_in_ruleFunction8544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSparqlFunction_in_ruleFunction8574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNamedFunction_in_entryRuleNamedFunction8614 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNamedFunction8624 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNamedFunction8675 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_KEYWORD_9_in_ruleNamedFunction8686 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNamedFunction8703 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleNamedFunction8719 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleNamedFunction8740 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000900L});
-    public static final BitSet FOLLOW_KEYWORD_5_in_ruleNamedFunction8752 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleNamedFunction8773 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleNamedFunction8786 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSparqlFunction_in_entryRuleSparqlFunction8825 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSparqlFunction8835 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSparqlFunction8877 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleSparqlFunction8893 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleSparqlFunction8914 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000900L});
-    public static final BitSet FOLLOW_KEYWORD_5_in_ruleSparqlFunction8926 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleSparqlFunction8947 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleSparqlFunction8960 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBuiltInCall_in_entryRuleBuiltInCall8995 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBuiltInCall9005 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_34_in_ruleBuiltInCall9042 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9053 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9074 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_42_in_ruleBuiltInCall9104 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9115 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9136 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9147 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_83_in_ruleBuiltInCall9166 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9177 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9198 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9209 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9230 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9241 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_75_in_ruleBuiltInCall9260 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9271 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9292 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9303 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_46_in_ruleBuiltInCall9322 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9333 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleBuiltInCall9354 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9365 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_30_in_ruleBuiltInCall9384 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9395 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9416 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9427 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_36_in_ruleBuiltInCall9446 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9457 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9478 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9489 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_45_in_ruleBuiltInCall9508 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9519 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9540 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_24_in_ruleBuiltInCall9570 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9581 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9602 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9613 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9634 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9645 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9666 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_73_in_ruleBuiltInCall9696 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9707 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9728 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9739 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9760 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9771 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_54_in_ruleBuiltInCall9790 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9801 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9822 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9833 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9854 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9865 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_79_in_ruleBuiltInCall9884 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9895 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9916 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9927 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9948 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9959 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_58_in_ruleBuiltInCall9978 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9989 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall10010 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall10021 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_59_in_ruleBuiltInCall10040 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall10051 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall10072 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall10083 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_74_in_ruleBuiltInCall10102 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall10113 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall10134 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall10145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_82_in_ruleBuiltInCall10164 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall10175 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall10196 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall10207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExprAggArg_in_entryRuleExprAggArg10245 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExprAggArg10255 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_1_in_ruleExprAggArg10291 = new BitSet(new long[]{0x0000000000000800L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_KEYWORD_77_in_ruleExprAggArg10310 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleExprAggArg10345 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleExprAggArg10356 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGraphNode_in_entryRuleGraphNode10391 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGraphNode10401 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleGraphNode10451 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValue_in_ruleGraphNode10481 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIRI_in_ruleGraphNode10511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBlankNode_in_ruleGraphNode10541 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameter_in_ruleGraphNode10571 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVariable_in_entryRuleVariable10605 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVariable10615 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnNamedVariable_in_ruleVariable10665 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNamedVariable_in_ruleVariable10695 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnNamedVariable_in_entryRuleUnNamedVariable10729 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnNamedVariable10739 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_14_in_ruleUnNamedVariable10775 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleUnNamedVariable10792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNamedVariable_in_entryRuleNamedVariable10832 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNamedVariable10842 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNamedVariable10889 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_KEYWORD_9_in_ruleNamedVariable10900 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNamedVariable10917 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBlankNode_in_entryRuleBlankNode10963 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBlankNode10973 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_26_in_ruleBlankNode11013 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBlankNode11030 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter11080 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParameter11090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_22_in_ruleParameter11130 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter11147 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValue_in_entryRuleValue11191 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleValue11201 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringValue_in_ruleValue11251 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntegerValue_in_ruleValue11281 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIRI_in_entryRuleIRI11315 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIRI11325 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleIRI11379 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringValue_in_entryRuleStringValue11419 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStringValue11429 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringValue11471 = new BitSet(new long[]{0x0000000000000002L,0x0000000000200010L});
-    public static final BitSet FOLLOW_ruleRDFTag_in_ruleStringValue11497 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntegerValue_in_entryRuleIntegerValue11533 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerValue11543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerValue11585 = new BitSet(new long[]{0x0000000000000002L,0x0000000000200010L});
-    public static final BitSet FOLLOW_ruleRDFTag_in_ruleIntegerValue11611 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRDFTag_in_entryRuleRDFTag11647 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRDFTag11657 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeTag_in_ruleRDFTag11707 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLangTag_in_ruleRDFTag11737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeTag_in_entryRuleTypeTag11777 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTypeTag11787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_25_in_ruleTypeTag11827 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
-    public static final BitSet FOLLOW_ruleGraphNode_in_ruleTypeTag11848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLangTag_in_entryRuleLangTag11893 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLangTag11903 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_15_in_ruleLangTag11943 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleLangTag11960 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_11_in_ruleOperator12020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_13_in_ruleOperator12037 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_20_in_ruleOperator12054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_21_in_ruleOperator12071 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_12_in_ruleOperator12088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_18_in_ruleOperator12105 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_4_in_ruleOperator12122 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_8_in_ruleOperator12139 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_6_in_ruleOperator12156 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_3_in_ruleOperator12173 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_65_in_synpred674098 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_synpred674119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInsertQuery_in_ruleModifyQuery2745 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInsertDataQuery_in_ruleModifyQuery2775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDeleteQuery_in_ruleModifyQuery2805 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDeleteDataQuery_in_ruleModifyQuery2835 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDeleteWhereQuery_in_ruleModifyQuery2865 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCreateGraphQuery_in_entryRuleCreateGraphQuery2899 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCreateGraphQuery2909 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_60_in_ruleCreateGraphQuery2945 = new BitSet(new long[]{0x0000000210000000L});
+    public static final BitSet FOLLOW_KEYWORD_69_in_ruleCreateGraphQuery2964 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_KEYWORD_49_in_ruleCreateGraphQuery2989 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleCreateGraphQuery3006 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDropGraphQuery_in_entryRuleDropGraphQuery3046 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDropGraphQuery3056 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_39_in_ruleDropGraphQuery3092 = new BitSet(new long[]{0x0000000210000000L});
+    public static final BitSet FOLLOW_KEYWORD_69_in_ruleDropGraphQuery3111 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_KEYWORD_49_in_ruleDropGraphQuery3136 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleDropGraphQuery3153 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLoadGraphQuery_in_entryRuleLoadGraphQuery3193 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLoadGraphQuery3203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_43_in_ruleLoadGraphQuery3239 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleLoadGraphQuery3256 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_41_in_ruleLoadGraphQuery3273 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_KEYWORD_49_in_ruleLoadGraphQuery3284 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleLoadGraphQuery3301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleClearGraphQuery_in_entryRuleClearGraphQuery3343 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleClearGraphQuery3353 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_47_in_ruleClearGraphQuery3389 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_KEYWORD_49_in_ruleClearGraphQuery3400 = new BitSet(new long[]{0x0000000000004000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleClearGraphQuery3418 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_70_in_ruleClearGraphQuery3448 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInsertQuery_in_entryRuleInsertQuery3499 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInsertQuery3509 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_44_in_ruleInsertQuery3546 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertQuery3563 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_KEYWORD_65_in_ruleInsertQuery3581 = new BitSet(new long[]{0x0001000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_KEYWORD_41_in_ruleInsertQuery3593 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertQuery3610 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleInsertQuery3638 = new BitSet(new long[]{0x0000020000000002L});
+    public static final BitSet FOLLOW_ruleWhereClause_in_ruleInsertQuery3659 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInsertDataQuery_in_entryRuleInsertDataQuery3695 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInsertDataQuery3705 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_44_in_ruleInsertDataQuery3742 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertDataQuery3759 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_KEYWORD_65_in_ruleInsertDataQuery3777 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_KEYWORD_38_in_ruleInsertDataQuery3788 = new BitSet(new long[]{0x0001000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_KEYWORD_41_in_ruleInsertDataQuery3800 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleInsertDataQuery3817 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleInsertDataQuery3845 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDeleteQuery_in_entryRuleDeleteQuery3880 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDeleteQuery3890 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_44_in_ruleDeleteQuery3927 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteQuery3944 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_KEYWORD_61_in_ruleDeleteQuery3962 = new BitSet(new long[]{0x0000800000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_KEYWORD_40_in_ruleDeleteQuery3974 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteQuery3991 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleDeleteQuery4019 = new BitSet(new long[]{0x0000020001000002L});
+    public static final BitSet FOLLOW_KEYWORD_65_in_ruleDeleteQuery4031 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleDeleteQuery4052 = new BitSet(new long[]{0x0000020000000002L});
+    public static final BitSet FOLLOW_ruleWhereClause_in_ruleDeleteQuery4075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDeleteDataQuery_in_entryRuleDeleteDataQuery4111 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDeleteDataQuery4121 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_44_in_ruleDeleteDataQuery4158 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteDataQuery4175 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_KEYWORD_61_in_ruleDeleteDataQuery4193 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_KEYWORD_38_in_ruleDeleteDataQuery4204 = new BitSet(new long[]{0x0000800000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_KEYWORD_40_in_ruleDeleteDataQuery4216 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteDataQuery4233 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleDeleteDataQuery4261 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDeleteWhereQuery_in_entryRuleDeleteWhereQuery4296 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDeleteWhereQuery4306 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_44_in_ruleDeleteWhereQuery4343 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleDeleteWhereQuery4360 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_KEYWORD_61_in_ruleDeleteWhereQuery4378 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_KEYWORD_57_in_ruleDeleteWhereQuery4389 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_KEYWORD_16_in_ruleDeleteWhereQuery4400 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleDeleteWhereQuery4421 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_KEYWORD_17_in_ruleDeleteWhereQuery4432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDatasetClause_in_entryRuleDatasetClause4467 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDatasetClause4477 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefaultDataSet_in_ruleDatasetClause4527 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNamedDataSet_in_ruleDatasetClause4557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceDataSet_in_ruleDatasetClause4587 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefaultDataSet_in_entryRuleDefaultDataSet4621 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDefaultDataSet4631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_40_in_ruleDefaultDataSet4667 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_ruleIRI_in_ruleDefaultDataSet4688 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNamedDataSet_in_entryRuleNamedDataSet4723 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNamedDataSet4733 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_40_in_ruleNamedDataSet4769 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_KEYWORD_53_in_ruleNamedDataSet4780 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_ruleIRI_in_ruleNamedDataSet4801 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceDataSet_in_entryRuleServiceDataSet4836 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleServiceDataSet4846 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_40_in_ruleServiceDataSet4882 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_KEYWORD_72_in_ruleServiceDataSet4893 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_ruleIRI_in_ruleServiceDataSet4914 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWhereClause_in_entryRuleWhereClause4949 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWhereClause4959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_57_in_ruleWhereClause4995 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleWhereClause5016 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupClause_in_entryRuleGroupClause5051 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGroupClause5061 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_50_in_ruleGroupClause5097 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_KEYWORD_23_in_ruleGroupClause5108 = new BitSet(new long[]{0x14420C4060062320L,0x0000000004100008L});
+    public static final BitSet FOLLOW_ruleGroupCondition_in_ruleGroupClause5129 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupCondition_in_entryRuleGroupCondition5164 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGroupCondition5174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBuiltInCall_in_ruleGroupCondition5224 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_ruleGroupCondition5254 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleGroupCondition5284 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleHavingClause_in_entryRuleHavingClause5318 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleHavingClause5328 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_64_in_ruleHavingClause5364 = new BitSet(new long[]{0x14420C4060062320L,0x0000000004000088L});
+    public static final BitSet FOLLOW_ruleConstraint_in_ruleHavingClause5385 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConstraint_in_entryRuleConstraint5420 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConstraint5430 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParFilterExpression_in_ruleConstraint5480 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBuiltInCall_in_ruleConstraint5510 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_ruleConstraint5540 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLimitClause_in_entryRuleLimitClause5574 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLimitClause5584 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_51_in_ruleLimitClause5620 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleLimitClause5637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_entryRuleGroupGraphPattern5677 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGroupGraphPattern5687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSubSelectQuery_in_ruleGroupGraphPattern5737 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupGraphPatternSub_in_ruleGroupGraphPattern5767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSubSelectQuery_in_entryRuleSubSelectQuery5801 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSubSelectQuery5811 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_16_in_ruleSubSelectQuery5847 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_KEYWORD_68_in_ruleSubSelectQuery5858 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleSubSelectQuery5879 = new BitSet(new long[]{0x0000020000000000L,0x0000000004100000L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleSubSelectQuery5900 = new BitSet(new long[]{0x0000020000000000L,0x0000000004100000L});
+    public static final BitSet FOLLOW_ruleWhereClause_in_ruleSubSelectQuery5922 = new BitSet(new long[]{0x0000000400800000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleGroupClause_in_ruleSubSelectQuery5943 = new BitSet(new long[]{0x0000000000800000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleHavingClause_in_ruleSubSelectQuery5965 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_KEYWORD_17_in_ruleSubSelectQuery5977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupGraphPatternSub_in_entryRuleGroupGraphPatternSub6012 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGroupGraphPatternSub6022 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_16_in_ruleGroupGraphPatternSub6058 = new BitSet(new long[]{0x0000001200411000L,0x000000000F500022L});
+    public static final BitSet FOLLOW_ruleGraphPattern_in_ruleGroupGraphPatternSub6079 = new BitSet(new long[]{0x0000000000000000L,0x0000000000802000L});
+    public static final BitSet FOLLOW_KEYWORD_7_in_ruleGroupGraphPatternSub6091 = new BitSet(new long[]{0x0000001200411000L,0x000000000F500022L});
+    public static final BitSet FOLLOW_ruleGraphPattern_in_ruleGroupGraphPatternSub6112 = new BitSet(new long[]{0x0000000000000000L,0x0000000000802000L});
+    public static final BitSet FOLLOW_KEYWORD_7_in_ruleGroupGraphPatternSub6126 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_KEYWORD_17_in_ruleGroupGraphPatternSub6139 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGraphPattern_in_entryRuleGraphPattern6174 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGraphPattern6184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTriplesSameSubject_in_ruleGraphPattern6234 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupOrUnionGraphPattern_in_ruleGraphPattern6264 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOptionalGraphPattern_in_ruleGraphPattern6294 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGraphGraphPattern_in_ruleGraphPattern6324 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceGraphPattern_in_ruleGraphPattern6354 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilterPattern_in_ruleGraphPattern6384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExistsPattern_in_ruleGraphPattern6414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNotExistsPattern_in_ruleGraphPattern6444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMinusPattern_in_ruleGraphPattern6474 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTriplesSameSubject_in_entryRuleTriplesSameSubject6508 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTriplesSameSubject6518 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGraphNode_in_ruleTriplesSameSubject6564 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
+    public static final BitSet FOLLOW_rulePropertyList_in_ruleTriplesSameSubject6585 = new BitSet(new long[]{0x0000000000000002L,0x0000000000010000L});
+    public static final BitSet FOLLOW_KEYWORD_10_in_ruleTriplesSameSubject6597 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
+    public static final BitSet FOLLOW_rulePropertyList_in_ruleTriplesSameSubject6618 = new BitSet(new long[]{0x0000000000000002L,0x0000000000010000L});
+    public static final BitSet FOLLOW_ruleGroupOrUnionGraphPattern_in_entryRuleGroupOrUnionGraphPattern6655 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGroupOrUnionGraphPattern6665 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleGroupOrUnionGraphPattern6711 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_KEYWORD_55_in_ruleGroupOrUnionGraphPattern6723 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleGroupOrUnionGraphPattern6744 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOptionalGraphPattern_in_entryRuleOptionalGraphPattern6781 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOptionalGraphPattern6791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_78_in_ruleOptionalGraphPattern6827 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleOptionalGraphPattern6848 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyList_in_entryRulePropertyList6883 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePropertyList6893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGraphNode_in_rulePropertyList6939 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
+    public static final BitSet FOLLOW_ruleGraphNode_in_rulePropertyList6960 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGraphGraphPattern_in_entryRuleGraphGraphPattern6995 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGraphGraphPattern7005 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_49_in_ruleGraphGraphPattern7041 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
+    public static final BitSet FOLLOW_ruleGraphNode_in_ruleGraphGraphPattern7062 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleGraphGraphPattern7083 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceGraphPattern_in_entryRuleServiceGraphPattern7118 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleServiceGraphPattern7128 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_72_in_ruleServiceGraphPattern7164 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
+    public static final BitSet FOLLOW_ruleGraphNode_in_ruleServiceGraphPattern7185 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleServiceGraphPattern7206 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilterPattern_in_entryRuleFilterPattern7241 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFilterPattern7251 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_63_in_ruleFilterPattern7287 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleFilterPattern7298 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleFilterPattern7319 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleFilterPattern7330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExistsPattern_in_entryRuleExistsPattern7365 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExistsPattern7375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_63_in_ruleExistsPattern7411 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_KEYWORD_62_in_ruleExistsPattern7422 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleExistsPattern7443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNotExistsPattern_in_entryRuleNotExistsPattern7478 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNotExistsPattern7488 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_63_in_ruleNotExistsPattern7524 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_KEYWORD_33_in_ruleNotExistsPattern7535 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_KEYWORD_62_in_ruleNotExistsPattern7546 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleNotExistsPattern7567 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMinusPattern_in_entryRuleMinusPattern7602 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMinusPattern7612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_52_in_ruleMinusPattern7648 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_ruleMinusPattern7669 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression7704 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpression7714 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAndFilterExpression_in_ruleExpression7764 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000040L});
+    public static final BitSet FOLLOW_KEYWORD_27_in_ruleExpression7788 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleAndFilterExpression_in_ruleExpression7809 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000040L});
+    public static final BitSet FOLLOW_ruleAndFilterExpression_in_entryRuleAndFilterExpression7848 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAndFilterExpression7858 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConcreteFilterExpression_in_ruleAndFilterExpression7908 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_19_in_ruleAndFilterExpression7932 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleConcreteFilterExpression_in_ruleAndFilterExpression7953 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_ruleConcreteFilterExpression_in_entryRuleConcreteFilterExpression7992 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConcreteFilterExpression8002 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParFilterExpression_in_ruleConcreteFilterExpression8052 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpressionFilterExpression_in_ruleConcreteFilterExpression8082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParFilterExpression_in_entryRuleParFilterExpression8116 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParFilterExpression8126 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleParFilterExpression8162 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleParFilterExpression8187 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleParFilterExpression8197 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpressionFilterExpression_in_entryRuleExpressionFilterExpression8232 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpressionFilterExpression8242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilterNode_in_ruleExpressionFilterExpression8288 = new BitSet(new long[]{0xA000000000000000L,0x00000000000E5601L});
+    public static final BitSet FOLLOW_ruleOperator_in_ruleExpressionFilterExpression8309 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
+    public static final BitSet FOLLOW_ruleFilterNode_in_ruleExpressionFilterExpression8330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilterNode_in_entryRuleFilterNode8365 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFilterNode8375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGraphNode_in_ruleFilterNode8425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_ruleFilterNode8455 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_entryRuleFunction8489 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFunction8499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNamedFunction_in_ruleFunction8549 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSparqlFunction_in_ruleFunction8579 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNamedFunction_in_entryRuleNamedFunction8619 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNamedFunction8629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNamedFunction8680 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_KEYWORD_9_in_ruleNamedFunction8691 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNamedFunction8708 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleNamedFunction8724 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleNamedFunction8745 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000900L});
+    public static final BitSet FOLLOW_KEYWORD_5_in_ruleNamedFunction8757 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleNamedFunction8778 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleNamedFunction8791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSparqlFunction_in_entryRuleSparqlFunction8830 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSparqlFunction8840 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSparqlFunction8882 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleSparqlFunction8898 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleSparqlFunction8919 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000900L});
+    public static final BitSet FOLLOW_KEYWORD_5_in_ruleSparqlFunction8931 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleSparqlFunction8952 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleSparqlFunction8965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBuiltInCall_in_entryRuleBuiltInCall9000 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBuiltInCall9010 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_34_in_ruleBuiltInCall9047 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9058 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9079 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9090 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_42_in_ruleBuiltInCall9109 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9120 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9141 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9152 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_83_in_ruleBuiltInCall9171 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9182 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9203 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9214 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9235 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9246 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_75_in_ruleBuiltInCall9265 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9276 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9297 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9308 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_46_in_ruleBuiltInCall9327 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9338 = new BitSet(new long[]{0x0000000000000000L,0x0000000004100000L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleBuiltInCall9359 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9370 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_30_in_ruleBuiltInCall9389 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9400 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9421 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_36_in_ruleBuiltInCall9451 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9462 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9483 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9494 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_45_in_ruleBuiltInCall9513 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9524 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9545 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_24_in_ruleBuiltInCall9575 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9586 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9607 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9618 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9639 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9650 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9671 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9682 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_73_in_ruleBuiltInCall9701 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9712 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9733 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9744 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9765 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_54_in_ruleBuiltInCall9795 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9806 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9827 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9838 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9859 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9870 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_79_in_ruleBuiltInCall9889 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9900 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9921 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_KEYWORD_5_in_ruleBuiltInCall9932 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall9953 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall9964 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_58_in_ruleBuiltInCall9983 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall9994 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall10015 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall10026 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_59_in_ruleBuiltInCall10045 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall10056 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall10077 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall10088 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_74_in_ruleBuiltInCall10107 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall10118 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall10139 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall10150 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_82_in_ruleBuiltInCall10169 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleBuiltInCall10180 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBuiltInCall10201 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBuiltInCall10212 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExprAggArg_in_entryRuleExprAggArg10250 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExprAggArg10260 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_1_in_ruleExprAggArg10296 = new BitSet(new long[]{0x0000000000000800L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_KEYWORD_77_in_ruleExprAggArg10315 = new BitSet(new long[]{0x0000000000000000L,0x000000000F1000A2L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleExprAggArg10350 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleExprAggArg10361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGraphNode_in_entryRuleGraphNode10396 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGraphNode10406 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleGraphNode10456 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValue_in_ruleGraphNode10486 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIRI_in_ruleGraphNode10516 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBlankNode_in_ruleGraphNode10546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameter_in_ruleGraphNode10576 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_entryRuleVariable10610 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVariable10620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnNamedVariable_in_ruleVariable10670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNamedVariable_in_ruleVariable10700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnNamedVariable_in_entryRuleUnNamedVariable10734 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnNamedVariable10744 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_14_in_ruleUnNamedVariable10780 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleUnNamedVariable10797 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNamedVariable_in_entryRuleNamedVariable10837 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNamedVariable10847 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNamedVariable10894 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_KEYWORD_9_in_ruleNamedVariable10905 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNamedVariable10922 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBlankNode_in_entryRuleBlankNode10968 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBlankNode10978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_26_in_ruleBlankNode11018 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBlankNode11035 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter11085 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParameter11095 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_22_in_ruleParameter11135 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter11152 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValue_in_entryRuleValue11196 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleValue11206 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringValue_in_ruleValue11256 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerValue_in_ruleValue11286 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIRI_in_entryRuleIRI11320 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIRI11330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_IRI_TERMINAL_in_ruleIRI11384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringValue_in_entryRuleStringValue11424 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStringValue11434 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringValue11476 = new BitSet(new long[]{0x0000000000000002L,0x0000000000200010L});
+    public static final BitSet FOLLOW_ruleRDFTag_in_ruleStringValue11502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerValue_in_entryRuleIntegerValue11538 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerValue11548 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerValue11590 = new BitSet(new long[]{0x0000000000000002L,0x0000000000200010L});
+    public static final BitSet FOLLOW_ruleRDFTag_in_ruleIntegerValue11616 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRDFTag_in_entryRuleRDFTag11652 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRDFTag11662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTypeTag_in_ruleRDFTag11712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLangTag_in_ruleRDFTag11742 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTypeTag_in_entryRuleTypeTag11782 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTypeTag11792 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_25_in_ruleTypeTag11832 = new BitSet(new long[]{0x0000000000000000L,0x000000000F100022L});
+    public static final BitSet FOLLOW_ruleGraphNode_in_ruleTypeTag11853 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLangTag_in_entryRuleLangTag11898 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLangTag11908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_15_in_ruleLangTag11948 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleLangTag11965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_11_in_ruleOperator12025 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_13_in_ruleOperator12042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_20_in_ruleOperator12059 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_21_in_ruleOperator12076 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_12_in_ruleOperator12093 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_18_in_ruleOperator12110 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_4_in_ruleOperator12127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_8_in_ruleOperator12144 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_6_in_ruleOperator12161 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_3_in_ruleOperator12178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_65_in_synpred654031 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleGroupGraphPattern_in_synpred654052 = new BitSet(new long[]{0x0000000000000002L});
 
 }

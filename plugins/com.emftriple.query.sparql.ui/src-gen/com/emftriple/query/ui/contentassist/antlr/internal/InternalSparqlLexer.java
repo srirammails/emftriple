@@ -422,10 +422,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mT29() throws RecognitionException {
         try {
             int _type = T29;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:27:5: ( 'WITH' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:27:7: 'WITH'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:27:5: ( 'CREATE' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:27:7: 'CREATE'
             {
-            match("WITH"); 
+            match("CREATE"); 
 
 
             }
@@ -441,10 +441,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mT30() throws RecognitionException {
         try {
             int _type = T30;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:28:5: ( 'CREATE' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:28:7: 'CREATE'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:28:5: ( 'GRAPH' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:28:7: 'GRAPH'
             {
-            match("CREATE"); 
+            match("GRAPH"); 
 
 
             }
@@ -460,10 +460,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mT31() throws RecognitionException {
         try {
             int _type = T31;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:29:5: ( 'GRAPH' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:29:7: 'GRAPH'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:29:5: ( 'DROP' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:29:7: 'DROP'
             {
-            match("GRAPH"); 
+            match("DROP"); 
 
 
             }
@@ -479,10 +479,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mT32() throws RecognitionException {
         try {
             int _type = T32;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:30:5: ( 'DROP' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:30:7: 'DROP'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:30:5: ( 'LOAD' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:30:7: 'LOAD'
             {
-            match("DROP"); 
+            match("LOAD"); 
 
 
             }
@@ -498,10 +498,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mT33() throws RecognitionException {
         try {
             int _type = T33;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:31:5: ( 'LOAD' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:31:7: 'LOAD'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:31:5: ( 'INTO' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:31:7: 'INTO'
             {
-            match("LOAD"); 
+            match("INTO"); 
 
 
             }
@@ -517,10 +517,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mT34() throws RecognitionException {
         try {
             int _type = T34;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:32:5: ( 'INTO' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:32:7: 'INTO'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:32:5: ( 'CLEAR' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:32:7: 'CLEAR'
             {
-            match("INTO"); 
+            match("CLEAR"); 
 
 
             }
@@ -536,10 +536,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mT35() throws RecognitionException {
         try {
             int _type = T35;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:33:5: ( 'CLEAR' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:33:7: 'CLEAR'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:33:5: ( 'INSERT' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:33:7: 'INSERT'
             {
-            match("CLEAR"); 
+            match("INSERT"); 
 
 
             }
@@ -555,10 +555,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mT36() throws RecognitionException {
         try {
             int _type = T36;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:34:5: ( 'INSERT' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:34:7: 'INSERT'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:34:5: ( 'WITH' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:34:7: 'WITH'
             {
-            match("INSERT"); 
+            match("WITH"); 
 
 
             }
@@ -1515,17 +1515,17 @@ public class InternalSparqlLexer extends Lexer {
     public final void mRULE_IRI_TERMINAL() throws RecognitionException {
         try {
             int _type = RULE_IRI_TERMINAL;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15709:19: ( '<' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | ':' | '.' | '#' | '?' )* '>' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15709:21: '<' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | ':' | '.' | '#' | '?' )* '>'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15484:19: ( '<' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | ':' | '.' | '#' | '?' | '@' | '$' | '&' | '=' )* '>' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15484:21: '<' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | ':' | '.' | '#' | '?' | '@' | '$' | '&' | '=' )* '>'
             {
             match('<'); 
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15709:25: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | ':' | '.' | '#' | '?' )*
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15484:25: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | ':' | '.' | '#' | '?' | '@' | '$' | '&' | '=' )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0=='#'||(LA1_0>='-' && LA1_0<=':')||LA1_0=='?'||(LA1_0>='A' && LA1_0<='Z')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='z')) ) {
+                if ( ((LA1_0>='#' && LA1_0<='$')||LA1_0=='&'||(LA1_0>='-' && LA1_0<=':')||LA1_0=='='||(LA1_0>='?' && LA1_0<='Z')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='z')) ) {
                     alt1=1;
                 }
 
@@ -1534,7 +1534,7 @@ public class InternalSparqlLexer extends Lexer {
             	case 1 :
             	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:
             	    {
-            	    if ( input.LA(1)=='#'||(input.LA(1)>='-' && input.LA(1)<=':')||input.LA(1)=='?'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	    if ( (input.LA(1)>='#' && input.LA(1)<='$')||input.LA(1)=='&'||(input.LA(1)>='-' && input.LA(1)<=':')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
 
             	    }
@@ -1568,11 +1568,11 @@ public class InternalSparqlLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15711:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15711:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15486:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15486:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15711:19: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15486:19: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
             loop2:
             do {
                 int alt2=3;
@@ -1588,7 +1588,7 @@ public class InternalSparqlLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15711:20: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15486:20: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
             	    {
             	    match('\\'); 
             	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1605,7 +1605,7 @@ public class InternalSparqlLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15711:61: ~ ( ( '\\\\' | '\"' ) )
+            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15486:61: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1641,8 +1641,8 @@ public class InternalSparqlLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15713:9: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | '.' | '#' | '?' )* )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15713:11: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | '.' | '#' | '?' )*
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15488:9: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | '.' | '#' | '?' )* )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15488:11: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | '.' | '#' | '?' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1654,7 +1654,7 @@ public class InternalSparqlLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15713:31: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | '.' | '#' | '?' )*
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15488:31: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' | '/' | '.' | '#' | '?' )*
             loop3:
             do {
                 int alt3=2;
@@ -1702,10 +1702,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15715:10: ( ( '0' .. '9' )+ )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15715:12: ( '0' .. '9' )+
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15490:10: ( ( '0' .. '9' )+ )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15490:12: ( '0' .. '9' )+
             {
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15715:12: ( '0' .. '9' )+
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15490:12: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1719,7 +1719,7 @@ public class InternalSparqlLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15715:13: '0' .. '9'
+            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15490:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1749,12 +1749,12 @@ public class InternalSparqlLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15717:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15717:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15492:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15492:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15717:24: ( options {greedy=false; } : . )*
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15492:24: ( options {greedy=false; } : . )*
             loop5:
             do {
                 int alt5=2;
@@ -1779,7 +1779,7 @@ public class InternalSparqlLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15717:52: .
+            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15492:52: .
             	    {
             	    matchAny(); 
 
@@ -1807,12 +1807,12 @@ public class InternalSparqlLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15719:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15719:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15494:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15494:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15719:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15494:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop6:
             do {
                 int alt6=2;
@@ -1825,7 +1825,7 @@ public class InternalSparqlLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15719:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15494:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1846,7 +1846,7 @@ public class InternalSparqlLexer extends Lexer {
                 }
             } while (true);
 
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15719:40: ( ( '\\r' )? '\\n' )?
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15494:40: ( ( '\\r' )? '\\n' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1855,9 +1855,9 @@ public class InternalSparqlLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15719:41: ( '\\r' )? '\\n'
+                    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15494:41: ( '\\r' )? '\\n'
                     {
-                    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15719:41: ( '\\r' )?
+                    // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15494:41: ( '\\r' )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -1866,7 +1866,7 @@ public class InternalSparqlLexer extends Lexer {
                     }
                     switch (alt7) {
                         case 1 :
-                            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15719:41: '\\r'
+                            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15494:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1896,10 +1896,10 @@ public class InternalSparqlLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15721:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15721:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15496:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15496:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15721:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15496:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt9=0;
             loop9:
             do {
@@ -1952,8 +1952,8 @@ public class InternalSparqlLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15723:16: ( . )
-            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15723:18: .
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15498:16: ( . )
+            // ../com.emftriple.query.sparql.ui/src-gen/com/emftriple/query/ui/contentassist/antlr/internal/InternalSparql.g:15498:18: .
             {
             matchAny(); 
 
@@ -1975,10 +1975,18 @@ public class InternalSparqlLexer extends Lexer {
             switch ( input.LA(2) ) {
             case '=':
                 {
-                alt10=3;
+                int LA10_48 = input.LA(3);
+
+                if ( ((LA10_48>='#' && LA10_48<='$')||LA10_48=='&'||(LA10_48>='-' && LA10_48<=':')||(LA10_48>='=' && LA10_48<='Z')||LA10_48=='_'||(LA10_48>='a' && LA10_48<='z')) ) {
+                    alt10=76;
+                }
+                else {
+                    alt10=3;}
                 }
                 break;
             case '#':
+            case '$':
+            case '&':
             case '-':
             case '.':
             case '/':
@@ -1995,6 +2003,7 @@ public class InternalSparqlLexer extends Lexer {
             case ':':
             case '>':
             case '?':
+            case '@':
             case 'A':
             case 'B':
             case 'C':
@@ -2109,18 +2118,18 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_61 = input.LA(3);
 
                 if ( (LA10_61=='E') ) {
-                    int LA10_118 = input.LA(4);
+                    int LA10_119 = input.LA(4);
 
-                    if ( (LA10_118=='F') ) {
-                        int LA10_164 = input.LA(5);
+                    if ( (LA10_119=='F') ) {
+                        int LA10_165 = input.LA(5);
 
-                        if ( (LA10_164=='I') ) {
-                            int LA10_210 = input.LA(6);
+                        if ( (LA10_165=='I') ) {
+                            int LA10_211 = input.LA(6);
 
-                            if ( (LA10_210=='X') ) {
-                                int LA10_253 = input.LA(7);
+                            if ( (LA10_211=='X') ) {
+                                int LA10_254 = input.LA(7);
 
-                                if ( (LA10_253=='#'||(LA10_253>='-' && LA10_253<='9')||LA10_253=='?'||(LA10_253>='A' && LA10_253<='Z')||LA10_253=='_'||(LA10_253>='a' && LA10_253<='z')) ) {
+                                if ( (LA10_254=='#'||(LA10_254>='-' && LA10_254<='9')||LA10_254=='?'||(LA10_254>='A' && LA10_254<='Z')||LA10_254=='_'||(LA10_254>='a' && LA10_254<='z')) ) {
                                     alt10=78;
                                 }
                                 else {
@@ -2162,15 +2171,15 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_65 = input.LA(3);
 
                 if ( (LA10_65=='U') ) {
-                    int LA10_120 = input.LA(4);
+                    int LA10_121 = input.LA(4);
 
-                    if ( (LA10_120=='N') ) {
-                        int LA10_165 = input.LA(5);
+                    if ( (LA10_121=='N') ) {
+                        int LA10_166 = input.LA(5);
 
-                        if ( (LA10_165=='D') ) {
-                            int LA10_211 = input.LA(6);
+                        if ( (LA10_166=='D') ) {
+                            int LA10_212 = input.LA(6);
 
-                            if ( (LA10_211=='#'||(LA10_211>='-' && LA10_211<='9')||LA10_211=='?'||(LA10_211>='A' && LA10_211<='Z')||LA10_211=='_'||(LA10_211>='a' && LA10_211<='z')) ) {
+                            if ( (LA10_212=='#'||(LA10_212>='-' && LA10_212<='9')||LA10_212=='?'||(LA10_212>='A' && LA10_212<='Z')||LA10_212=='_'||(LA10_212>='a' && LA10_212<='z')) ) {
                                 alt10=78;
                             }
                             else {
@@ -2191,15 +2200,15 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_66 = input.LA(3);
 
                 if ( (LA10_66=='O') ) {
-                    int LA10_121 = input.LA(4);
+                    int LA10_122 = input.LA(4);
 
-                    if ( (LA10_121=='D') ) {
-                        int LA10_166 = input.LA(5);
+                    if ( (LA10_122=='D') ) {
+                        int LA10_167 = input.LA(5);
 
-                        if ( (LA10_166=='E') ) {
-                            int LA10_212 = input.LA(6);
+                        if ( (LA10_167=='E') ) {
+                            int LA10_213 = input.LA(6);
 
-                            if ( (LA10_212=='#'||(LA10_212>='-' && LA10_212<='9')||LA10_212=='?'||(LA10_212>='A' && LA10_212<='Z')||LA10_212=='_'||(LA10_212>='a' && LA10_212<='z')) ) {
+                            if ( (LA10_213=='#'||(LA10_213>='-' && LA10_213<='9')||LA10_213=='?'||(LA10_213>='A' && LA10_213<='Z')||LA10_213=='_'||(LA10_213>='a' && LA10_213<='z')) ) {
                                 alt10=78;
                             }
                             else {
@@ -2220,12 +2229,12 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_67 = input.LA(3);
 
                 if ( (LA10_67=='S') ) {
-                    int LA10_122 = input.LA(4);
+                    int LA10_123 = input.LA(4);
 
-                    if ( (LA10_122=='E') ) {
-                        int LA10_167 = input.LA(5);
+                    if ( (LA10_123=='E') ) {
+                        int LA10_168 = input.LA(5);
 
-                        if ( (LA10_167=='#'||(LA10_167>='-' && LA10_167<='9')||LA10_167=='?'||(LA10_167>='A' && LA10_167<='Z')||LA10_167=='_'||(LA10_167>='a' && LA10_167<='z')) ) {
+                        if ( (LA10_168=='#'||(LA10_168>='-' && LA10_168<='9')||LA10_168=='?'||(LA10_168>='A' && LA10_168<='Z')||LA10_168=='_'||(LA10_168>='a' && LA10_168<='z')) ) {
                             alt10=78;
                         }
                         else {
@@ -2249,18 +2258,18 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_68 = input.LA(3);
 
                 if ( (LA10_68=='L') ) {
-                    int LA10_123 = input.LA(4);
+                    int LA10_124 = input.LA(4);
 
-                    if ( (LA10_123=='E') ) {
-                        int LA10_168 = input.LA(5);
+                    if ( (LA10_124=='E') ) {
+                        int LA10_169 = input.LA(5);
 
-                        if ( (LA10_168=='N') ) {
-                            int LA10_214 = input.LA(6);
+                        if ( (LA10_169=='N') ) {
+                            int LA10_215 = input.LA(6);
 
-                            if ( (LA10_214=='T') ) {
-                                int LA10_256 = input.LA(7);
+                            if ( (LA10_215=='T') ) {
+                                int LA10_257 = input.LA(7);
 
-                                if ( (LA10_256=='#'||(LA10_256>='-' && LA10_256<='9')||LA10_256=='?'||(LA10_256>='A' && LA10_256<='Z')||LA10_256=='_'||(LA10_256>='a' && LA10_256<='z')) ) {
+                                if ( (LA10_257=='#'||(LA10_257>='-' && LA10_257<='9')||LA10_257=='?'||(LA10_257>='A' && LA10_257<='Z')||LA10_257=='_'||(LA10_257>='a' && LA10_257<='z')) ) {
                                     alt10=78;
                                 }
                                 else {
@@ -2284,21 +2293,21 @@ public class InternalSparqlLexer extends Lexer {
                 switch ( input.LA(3) ) {
                 case 'R':
                     {
-                    int LA10_124 = input.LA(4);
+                    int LA10_125 = input.LA(4);
 
-                    if ( (LA10_124=='V') ) {
-                        int LA10_169 = input.LA(5);
+                    if ( (LA10_125=='V') ) {
+                        int LA10_170 = input.LA(5);
 
-                        if ( (LA10_169=='I') ) {
-                            int LA10_215 = input.LA(6);
+                        if ( (LA10_170=='I') ) {
+                            int LA10_216 = input.LA(6);
 
-                            if ( (LA10_215=='C') ) {
-                                int LA10_257 = input.LA(7);
+                            if ( (LA10_216=='C') ) {
+                                int LA10_258 = input.LA(7);
 
-                                if ( (LA10_257=='E') ) {
-                                    int LA10_290 = input.LA(8);
+                                if ( (LA10_258=='E') ) {
+                                    int LA10_291 = input.LA(8);
 
-                                    if ( (LA10_290=='#'||(LA10_290>='-' && LA10_290<='9')||LA10_290=='?'||(LA10_290>='A' && LA10_290<='Z')||LA10_290=='_'||(LA10_290>='a' && LA10_290<='z')) ) {
+                                    if ( (LA10_291=='#'||(LA10_291>='-' && LA10_291<='9')||LA10_291=='?'||(LA10_291>='A' && LA10_291<='Z')||LA10_291=='_'||(LA10_291>='a' && LA10_291<='z')) ) {
                                         alt10=78;
                                     }
                                     else {
@@ -2319,18 +2328,18 @@ public class InternalSparqlLexer extends Lexer {
                     break;
                 case 'L':
                     {
-                    int LA10_125 = input.LA(4);
+                    int LA10_126 = input.LA(4);
 
-                    if ( (LA10_125=='E') ) {
-                        int LA10_170 = input.LA(5);
+                    if ( (LA10_126=='E') ) {
+                        int LA10_171 = input.LA(5);
 
-                        if ( (LA10_170=='C') ) {
-                            int LA10_216 = input.LA(6);
+                        if ( (LA10_171=='C') ) {
+                            int LA10_217 = input.LA(6);
 
-                            if ( (LA10_216=='T') ) {
-                                int LA10_258 = input.LA(7);
+                            if ( (LA10_217=='T') ) {
+                                int LA10_259 = input.LA(7);
 
-                                if ( (LA10_258=='#'||(LA10_258>='-' && LA10_258<='9')||LA10_258=='?'||(LA10_258>='A' && LA10_258<='Z')||LA10_258=='_'||(LA10_258>='a' && LA10_258<='z')) ) {
+                                if ( (LA10_259=='#'||(LA10_259>='-' && LA10_259<='9')||LA10_259=='?'||(LA10_259>='A' && LA10_259<='Z')||LA10_259=='_'||(LA10_259>='a' && LA10_259<='z')) ) {
                                     alt10=78;
                                 }
                                 else {
@@ -2359,18 +2368,18 @@ public class InternalSparqlLexer extends Lexer {
                     switch ( input.LA(4) ) {
                     case 'L':
                         {
-                        int LA10_171 = input.LA(5);
+                        int LA10_172 = input.LA(5);
 
-                        if ( (LA10_171=='A') ) {
-                            int LA10_217 = input.LA(6);
+                        if ( (LA10_172=='A') ) {
+                            int LA10_218 = input.LA(6);
 
-                            if ( (LA10_217=='N') ) {
-                                int LA10_259 = input.LA(7);
+                            if ( (LA10_218=='N') ) {
+                                int LA10_260 = input.LA(7);
 
-                                if ( (LA10_259=='G') ) {
-                                    int LA10_292 = input.LA(8);
+                                if ( (LA10_260=='G') ) {
+                                    int LA10_293 = input.LA(8);
 
-                                    if ( (LA10_292=='#'||(LA10_292>='-' && LA10_292<='9')||LA10_292=='?'||(LA10_292>='A' && LA10_292<='Z')||LA10_292=='_'||(LA10_292>='a' && LA10_292<='z')) ) {
+                                    if ( (LA10_293=='#'||(LA10_293>='-' && LA10_293<='9')||LA10_293=='?'||(LA10_293>='A' && LA10_293<='Z')||LA10_293=='_'||(LA10_293>='a' && LA10_293<='z')) ) {
                                         alt10=78;
                                     }
                                     else {
@@ -2388,12 +2397,12 @@ public class InternalSparqlLexer extends Lexer {
                         break;
                     case 'D':
                         {
-                        int LA10_172 = input.LA(5);
+                        int LA10_173 = input.LA(5);
 
-                        if ( (LA10_172=='T') ) {
-                            int LA10_218 = input.LA(6);
+                        if ( (LA10_173=='T') ) {
+                            int LA10_219 = input.LA(6);
 
-                            if ( (LA10_218=='#'||(LA10_218>='-' && LA10_218<='9')||LA10_218=='?'||(LA10_218>='A' && LA10_218<='Z')||LA10_218=='_'||(LA10_218>='a' && LA10_218<='z')) ) {
+                            if ( (LA10_219=='#'||(LA10_219>='-' && LA10_219<='9')||LA10_219=='?'||(LA10_219>='A' && LA10_219<='Z')||LA10_219=='_'||(LA10_219>='a' && LA10_219<='z')) ) {
                                 alt10=78;
                             }
                             else {
@@ -2492,9 +2501,9 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_71 = input.LA(3);
 
                 if ( (LA10_71=='K') ) {
-                    int LA10_127 = input.LA(4);
+                    int LA10_128 = input.LA(4);
 
-                    if ( (LA10_127=='#'||(LA10_127>='-' && LA10_127<='9')||LA10_127=='?'||(LA10_127>='A' && LA10_127<='Z')||LA10_127=='_'||(LA10_127>='a' && LA10_127<='z')) ) {
+                    if ( (LA10_128=='#'||(LA10_128>='-' && LA10_128<='9')||LA10_128=='?'||(LA10_128>='A' && LA10_128<='Z')||LA10_128=='_'||(LA10_128>='a' && LA10_128<='z')) ) {
                         alt10=78;
                     }
                     else {
@@ -2513,24 +2522,24 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_72 = input.LA(3);
 
                 if ( (LA10_72=='T') ) {
-                    int LA10_128 = input.LA(4);
+                    int LA10_129 = input.LA(4);
 
-                    if ( (LA10_128=='A') ) {
+                    if ( (LA10_129=='A') ) {
                         switch ( input.LA(5) ) {
                         case 'T':
                             {
-                            int LA10_219 = input.LA(6);
+                            int LA10_220 = input.LA(6);
 
-                            if ( (LA10_219=='Y') ) {
-                                int LA10_261 = input.LA(7);
+                            if ( (LA10_220=='Y') ) {
+                                int LA10_262 = input.LA(7);
 
-                                if ( (LA10_261=='P') ) {
-                                    int LA10_293 = input.LA(8);
+                                if ( (LA10_262=='P') ) {
+                                    int LA10_294 = input.LA(8);
 
-                                    if ( (LA10_293=='E') ) {
-                                        int LA10_312 = input.LA(9);
+                                    if ( (LA10_294=='E') ) {
+                                        int LA10_313 = input.LA(9);
 
-                                        if ( (LA10_312=='#'||(LA10_312>='-' && LA10_312<='9')||LA10_312=='?'||(LA10_312>='A' && LA10_312<='Z')||LA10_312=='_'||(LA10_312>='a' && LA10_312<='z')) ) {
+                                        if ( (LA10_313=='#'||(LA10_313>='-' && LA10_313<='9')||LA10_313=='?'||(LA10_313>='A' && LA10_313<='Z')||LA10_313=='_'||(LA10_313>='a' && LA10_313<='z')) ) {
                                             alt10=78;
                                         }
                                         else {
@@ -2633,18 +2642,18 @@ public class InternalSparqlLexer extends Lexer {
                 switch ( input.LA(3) ) {
                 case 'L':
                     {
-                    int LA10_129 = input.LA(4);
+                    int LA10_130 = input.LA(4);
 
-                    if ( (LA10_129=='E') ) {
-                        int LA10_176 = input.LA(5);
+                    if ( (LA10_130=='E') ) {
+                        int LA10_177 = input.LA(5);
 
-                        if ( (LA10_176=='T') ) {
-                            int LA10_221 = input.LA(6);
+                        if ( (LA10_177=='T') ) {
+                            int LA10_222 = input.LA(6);
 
-                            if ( (LA10_221=='E') ) {
-                                int LA10_262 = input.LA(7);
+                            if ( (LA10_222=='E') ) {
+                                int LA10_263 = input.LA(7);
 
-                                if ( (LA10_262=='#'||(LA10_262>='-' && LA10_262<='9')||LA10_262=='?'||(LA10_262>='A' && LA10_262<='Z')||LA10_262=='_'||(LA10_262>='a' && LA10_262<='z')) ) {
+                                if ( (LA10_263=='#'||(LA10_263>='-' && LA10_263<='9')||LA10_263=='?'||(LA10_263>='A' && LA10_263<='Z')||LA10_263=='_'||(LA10_263>='a' && LA10_263<='z')) ) {
                                     alt10=78;
                                 }
                                 else {
@@ -2662,21 +2671,21 @@ public class InternalSparqlLexer extends Lexer {
                     break;
                 case 'F':
                     {
-                    int LA10_130 = input.LA(4);
+                    int LA10_131 = input.LA(4);
 
-                    if ( (LA10_130=='A') ) {
-                        int LA10_177 = input.LA(5);
+                    if ( (LA10_131=='A') ) {
+                        int LA10_178 = input.LA(5);
 
-                        if ( (LA10_177=='U') ) {
-                            int LA10_222 = input.LA(6);
+                        if ( (LA10_178=='U') ) {
+                            int LA10_223 = input.LA(6);
 
-                            if ( (LA10_222=='L') ) {
-                                int LA10_263 = input.LA(7);
+                            if ( (LA10_223=='L') ) {
+                                int LA10_264 = input.LA(7);
 
-                                if ( (LA10_263=='T') ) {
-                                    int LA10_295 = input.LA(8);
+                                if ( (LA10_264=='T') ) {
+                                    int LA10_296 = input.LA(8);
 
-                                    if ( (LA10_295=='#'||(LA10_295>='-' && LA10_295<='9')||LA10_295=='?'||(LA10_295>='A' && LA10_295<='Z')||LA10_295=='_'||(LA10_295>='a' && LA10_295<='z')) ) {
+                                    if ( (LA10_296=='#'||(LA10_296>='-' && LA10_296<='9')||LA10_296=='?'||(LA10_296>='A' && LA10_296<='Z')||LA10_296=='_'||(LA10_296>='a' && LA10_296<='z')) ) {
                                         alt10=78;
                                     }
                                     else {
@@ -2697,24 +2706,24 @@ public class InternalSparqlLexer extends Lexer {
                     break;
                 case 'S':
                     {
-                    int LA10_131 = input.LA(4);
+                    int LA10_132 = input.LA(4);
 
-                    if ( (LA10_131=='C') ) {
-                        int LA10_178 = input.LA(5);
+                    if ( (LA10_132=='C') ) {
+                        int LA10_179 = input.LA(5);
 
-                        if ( (LA10_178=='R') ) {
-                            int LA10_223 = input.LA(6);
+                        if ( (LA10_179=='R') ) {
+                            int LA10_224 = input.LA(6);
 
-                            if ( (LA10_223=='I') ) {
-                                int LA10_264 = input.LA(7);
+                            if ( (LA10_224=='I') ) {
+                                int LA10_265 = input.LA(7);
 
-                                if ( (LA10_264=='B') ) {
-                                    int LA10_296 = input.LA(8);
+                                if ( (LA10_265=='B') ) {
+                                    int LA10_297 = input.LA(8);
 
-                                    if ( (LA10_296=='E') ) {
-                                        int LA10_314 = input.LA(9);
+                                    if ( (LA10_297=='E') ) {
+                                        int LA10_315 = input.LA(9);
 
-                                        if ( (LA10_314=='#'||(LA10_314>='-' && LA10_314<='9')||LA10_314=='?'||(LA10_314>='A' && LA10_314<='Z')||LA10_314=='_'||(LA10_314>='a' && LA10_314<='z')) ) {
+                                        if ( (LA10_315=='#'||(LA10_315>='-' && LA10_315<='9')||LA10_315=='?'||(LA10_315>='A' && LA10_315<='Z')||LA10_315=='_'||(LA10_315>='a' && LA10_315<='z')) ) {
                                             alt10=78;
                                         }
                                         else {
@@ -2746,16 +2755,16 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_74 = input.LA(3);
 
                 if ( (LA10_74=='O') ) {
-                    int LA10_132 = input.LA(4);
+                    int LA10_133 = input.LA(4);
 
-                    if ( (LA10_132=='P') ) {
-                        int LA10_179 = input.LA(5);
+                    if ( (LA10_133=='P') ) {
+                        int LA10_180 = input.LA(5);
 
-                        if ( (LA10_179=='#'||(LA10_179>='-' && LA10_179<='9')||LA10_179=='?'||(LA10_179>='A' && LA10_179<='Z')||LA10_179=='_'||(LA10_179>='a' && LA10_179<='z')) ) {
+                        if ( (LA10_180=='#'||(LA10_180>='-' && LA10_180<='9')||LA10_180=='?'||(LA10_180>='A' && LA10_180<='Z')||LA10_180=='_'||(LA10_180>='a' && LA10_180<='z')) ) {
                             alt10=78;
                         }
                         else {
-                            alt10=21;}
+                            alt10=20;}
                     }
                     else {
                         alt10=78;}
@@ -2769,24 +2778,24 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_75 = input.LA(3);
 
                 if ( (LA10_75=='S') ) {
-                    int LA10_133 = input.LA(4);
+                    int LA10_134 = input.LA(4);
 
-                    if ( (LA10_133=='T') ) {
-                        int LA10_180 = input.LA(5);
+                    if ( (LA10_134=='T') ) {
+                        int LA10_181 = input.LA(5);
 
-                        if ( (LA10_180=='I') ) {
-                            int LA10_225 = input.LA(6);
+                        if ( (LA10_181=='I') ) {
+                            int LA10_226 = input.LA(6);
 
-                            if ( (LA10_225=='N') ) {
-                                int LA10_265 = input.LA(7);
+                            if ( (LA10_226=='N') ) {
+                                int LA10_266 = input.LA(7);
 
-                                if ( (LA10_265=='C') ) {
-                                    int LA10_297 = input.LA(8);
+                                if ( (LA10_266=='C') ) {
+                                    int LA10_298 = input.LA(8);
 
-                                    if ( (LA10_297=='T') ) {
-                                        int LA10_315 = input.LA(9);
+                                    if ( (LA10_298=='T') ) {
+                                        int LA10_316 = input.LA(9);
 
-                                        if ( (LA10_315=='#'||(LA10_315>='-' && LA10_315<='9')||LA10_315=='?'||(LA10_315>='A' && LA10_315<='Z')||LA10_315=='_'||(LA10_315>='a' && LA10_315<='z')) ) {
+                                        if ( (LA10_316=='#'||(LA10_316>='-' && LA10_316<='9')||LA10_316=='?'||(LA10_316>='A' && LA10_316<='Z')||LA10_316=='_'||(LA10_316>='a' && LA10_316<='z')) ) {
                                             alt10=78;
                                         }
                                         else {
@@ -2817,46 +2826,11 @@ public class InternalSparqlLexer extends Lexer {
         }
         else if ( (LA10_0=='C') ) {
             switch ( input.LA(2) ) {
-            case 'R':
+            case 'L':
                 {
                 int LA10_76 = input.LA(3);
 
                 if ( (LA10_76=='E') ) {
-                    int LA10_134 = input.LA(4);
-
-                    if ( (LA10_134=='A') ) {
-                        int LA10_181 = input.LA(5);
-
-                        if ( (LA10_181=='T') ) {
-                            int LA10_226 = input.LA(6);
-
-                            if ( (LA10_226=='E') ) {
-                                int LA10_266 = input.LA(7);
-
-                                if ( (LA10_266=='#'||(LA10_266>='-' && LA10_266<='9')||LA10_266=='?'||(LA10_266>='A' && LA10_266<='Z')||LA10_266=='_'||(LA10_266>='a' && LA10_266<='z')) ) {
-                                    alt10=78;
-                                }
-                                else {
-                                    alt10=19;}
-                            }
-                            else {
-                                alt10=78;}
-                        }
-                        else {
-                            alt10=78;}
-                    }
-                    else {
-                        alt10=78;}
-                }
-                else {
-                    alt10=78;}
-                }
-                break;
-            case 'L':
-                {
-                int LA10_77 = input.LA(3);
-
-                if ( (LA10_77=='E') ) {
                     int LA10_135 = input.LA(4);
 
                     if ( (LA10_135=='A') ) {
@@ -2869,7 +2843,42 @@ public class InternalSparqlLexer extends Lexer {
                                 alt10=78;
                             }
                             else {
-                                alt10=24;}
+                                alt10=23;}
+                        }
+                        else {
+                            alt10=78;}
+                    }
+                    else {
+                        alt10=78;}
+                }
+                else {
+                    alt10=78;}
+                }
+                break;
+            case 'R':
+                {
+                int LA10_77 = input.LA(3);
+
+                if ( (LA10_77=='E') ) {
+                    int LA10_136 = input.LA(4);
+
+                    if ( (LA10_136=='A') ) {
+                        int LA10_183 = input.LA(5);
+
+                        if ( (LA10_183=='T') ) {
+                            int LA10_228 = input.LA(6);
+
+                            if ( (LA10_228=='E') ) {
+                                int LA10_268 = input.LA(7);
+
+                                if ( (LA10_268=='#'||(LA10_268>='-' && LA10_268<='9')||LA10_268=='?'||(LA10_268>='A' && LA10_268<='Z')||LA10_268=='_'||(LA10_268>='a' && LA10_268<='z')) ) {
+                                    alt10=78;
+                                }
+                                else {
+                                    alt10=18;}
+                            }
+                            else {
+                                alt10=78;}
                         }
                         else {
                             alt10=78;}
@@ -2886,27 +2895,27 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_78 = input.LA(3);
 
                 if ( (LA10_78=='N') ) {
-                    int LA10_136 = input.LA(4);
+                    int LA10_137 = input.LA(4);
 
-                    if ( (LA10_136=='S') ) {
-                        int LA10_183 = input.LA(5);
+                    if ( (LA10_137=='S') ) {
+                        int LA10_184 = input.LA(5);
 
-                        if ( (LA10_183=='T') ) {
-                            int LA10_228 = input.LA(6);
+                        if ( (LA10_184=='T') ) {
+                            int LA10_229 = input.LA(6);
 
-                            if ( (LA10_228=='R') ) {
-                                int LA10_268 = input.LA(7);
+                            if ( (LA10_229=='R') ) {
+                                int LA10_269 = input.LA(7);
 
-                                if ( (LA10_268=='U') ) {
-                                    int LA10_299 = input.LA(8);
+                                if ( (LA10_269=='U') ) {
+                                    int LA10_300 = input.LA(8);
 
-                                    if ( (LA10_299=='C') ) {
-                                        int LA10_316 = input.LA(9);
+                                    if ( (LA10_300=='C') ) {
+                                        int LA10_317 = input.LA(9);
 
-                                        if ( (LA10_316=='T') ) {
-                                            int LA10_326 = input.LA(10);
+                                        if ( (LA10_317=='T') ) {
+                                            int LA10_327 = input.LA(10);
 
-                                            if ( (LA10_326=='#'||(LA10_326>='-' && LA10_326<='9')||LA10_326=='?'||(LA10_326>='A' && LA10_326<='Z')||LA10_326=='_'||(LA10_326>='a' && LA10_326<='z')) ) {
+                                            if ( (LA10_327=='#'||(LA10_327>='-' && LA10_327<='9')||LA10_327=='?'||(LA10_327>='A' && LA10_327<='Z')||LA10_327=='_'||(LA10_327>='a' && LA10_327<='z')) ) {
                                                 alt10=78;
                                             }
                                             else {
@@ -2938,69 +2947,34 @@ public class InternalSparqlLexer extends Lexer {
                 alt10=78;}
 
         }
-        else if ( (LA10_0=='W') ) {
-            switch ( input.LA(2) ) {
-            case 'H':
-                {
-                int LA10_79 = input.LA(3);
+        else if ( (LA10_0=='G') ) {
+            int LA10_16 = input.LA(2);
 
-                if ( (LA10_79=='E') ) {
-                    int LA10_137 = input.LA(4);
+            if ( (LA10_16=='R') ) {
+                switch ( input.LA(3) ) {
+                case 'A':
+                    {
+                    int LA10_138 = input.LA(4);
 
-                    if ( (LA10_137=='R') ) {
-                        int LA10_184 = input.LA(5);
+                    if ( (LA10_138=='P') ) {
+                        int LA10_185 = input.LA(5);
 
-                        if ( (LA10_184=='E') ) {
-                            int LA10_229 = input.LA(6);
+                        if ( (LA10_185=='H') ) {
+                            int LA10_230 = input.LA(6);
 
-                            if ( (LA10_229=='#'||(LA10_229>='-' && LA10_229<='9')||LA10_229=='?'||(LA10_229>='A' && LA10_229<='Z')||LA10_229=='_'||(LA10_229>='a' && LA10_229<='z')) ) {
+                            if ( (LA10_230=='#'||(LA10_230>='-' && LA10_230<='9')||LA10_230=='?'||(LA10_230>='A' && LA10_230<='Z')||LA10_230=='_'||(LA10_230>='a' && LA10_230<='z')) ) {
                                 alt10=78;
                             }
                             else {
-                                alt10=29;}
+                                alt10=19;}
                         }
                         else {
                             alt10=78;}
                     }
                     else {
                         alt10=78;}
-                }
-                else {
-                    alt10=78;}
-                }
-                break;
-            case 'I':
-                {
-                int LA10_80 = input.LA(3);
-
-                if ( (LA10_80=='T') ) {
-                    int LA10_138 = input.LA(4);
-
-                    if ( (LA10_138=='H') ) {
-                        int LA10_185 = input.LA(5);
-
-                        if ( (LA10_185=='#'||(LA10_185>='-' && LA10_185<='9')||LA10_185=='?'||(LA10_185>='A' && LA10_185<='Z')||LA10_185=='_'||(LA10_185>='a' && LA10_185<='z')) ) {
-                            alt10=78;
-                        }
-                        else {
-                            alt10=18;}
                     }
-                    else {
-                        alt10=78;}
-                }
-                else {
-                    alt10=78;}
-                }
-                break;
-            default:
-                alt10=78;}
-
-        }
-        else if ( (LA10_0=='G') ) {
-            int LA10_17 = input.LA(2);
-
-            if ( (LA10_17=='R') ) {
-                switch ( input.LA(3) ) {
+                    break;
                 case 'O':
                     {
                     int LA10_139 = input.LA(4);
@@ -3024,29 +2998,6 @@ public class InternalSparqlLexer extends Lexer {
                         alt10=78;}
                     }
                     break;
-                case 'A':
-                    {
-                    int LA10_140 = input.LA(4);
-
-                    if ( (LA10_140=='P') ) {
-                        int LA10_187 = input.LA(5);
-
-                        if ( (LA10_187=='H') ) {
-                            int LA10_232 = input.LA(6);
-
-                            if ( (LA10_232=='#'||(LA10_232>='-' && LA10_232<='9')||LA10_232=='?'||(LA10_232>='A' && LA10_232<='Z')||LA10_232=='_'||(LA10_232>='a' && LA10_232<='z')) ) {
-                                alt10=78;
-                            }
-                            else {
-                                alt10=20;}
-                        }
-                        else {
-                            alt10=78;}
-                    }
-                    else {
-                        alt10=78;}
-                    }
-                    break;
                 default:
                     alt10=78;}
 
@@ -3058,19 +3009,19 @@ public class InternalSparqlLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'O':
                 {
-                int LA10_82 = input.LA(3);
+                int LA10_80 = input.LA(3);
 
-                if ( (LA10_82=='A') ) {
-                    int LA10_141 = input.LA(4);
+                if ( (LA10_80=='A') ) {
+                    int LA10_140 = input.LA(4);
 
-                    if ( (LA10_141=='D') ) {
-                        int LA10_188 = input.LA(5);
+                    if ( (LA10_140=='D') ) {
+                        int LA10_187 = input.LA(5);
 
-                        if ( (LA10_188=='#'||(LA10_188>='-' && LA10_188<='9')||LA10_188=='?'||(LA10_188>='A' && LA10_188<='Z')||LA10_188=='_'||(LA10_188>='a' && LA10_188<='z')) ) {
+                        if ( (LA10_187=='#'||(LA10_187>='-' && LA10_187<='9')||LA10_187=='?'||(LA10_187>='A' && LA10_187<='Z')||LA10_187=='_'||(LA10_187>='a' && LA10_187<='z')) ) {
                             alt10=78;
                         }
                         else {
-                            alt10=22;}
+                            alt10=21;}
                     }
                     else {
                         alt10=78;}
@@ -3081,18 +3032,18 @@ public class InternalSparqlLexer extends Lexer {
                 break;
             case 'I':
                 {
-                int LA10_83 = input.LA(3);
+                int LA10_81 = input.LA(3);
 
-                if ( (LA10_83=='M') ) {
-                    int LA10_142 = input.LA(4);
+                if ( (LA10_81=='M') ) {
+                    int LA10_141 = input.LA(4);
 
-                    if ( (LA10_142=='I') ) {
-                        int LA10_189 = input.LA(5);
+                    if ( (LA10_141=='I') ) {
+                        int LA10_188 = input.LA(5);
 
-                        if ( (LA10_189=='T') ) {
-                            int LA10_234 = input.LA(6);
+                        if ( (LA10_188=='T') ) {
+                            int LA10_233 = input.LA(6);
 
-                            if ( (LA10_234=='#'||(LA10_234>='-' && LA10_234<='9')||LA10_234=='?'||(LA10_234>='A' && LA10_234<='Z')||LA10_234=='_'||(LA10_234>='a' && LA10_234<='z')) ) {
+                            if ( (LA10_233=='#'||(LA10_233>='-' && LA10_233<='9')||LA10_233=='?'||(LA10_233>='A' && LA10_233<='Z')||LA10_233=='_'||(LA10_233>='a' && LA10_233<='z')) ) {
                                 alt10=78;
                             }
                             else {
@@ -3110,36 +3061,36 @@ public class InternalSparqlLexer extends Lexer {
                 break;
             case 'A':
                 {
-                int LA10_84 = input.LA(3);
+                int LA10_82 = input.LA(3);
 
-                if ( (LA10_84=='N') ) {
-                    int LA10_143 = input.LA(4);
+                if ( (LA10_82=='N') ) {
+                    int LA10_142 = input.LA(4);
 
-                    if ( (LA10_143=='G') ) {
+                    if ( (LA10_142=='G') ) {
                         switch ( input.LA(5) ) {
                         case 'M':
                             {
-                            int LA10_235 = input.LA(6);
+                            int LA10_234 = input.LA(6);
 
-                            if ( (LA10_235=='A') ) {
+                            if ( (LA10_234=='A') ) {
                                 int LA10_273 = input.LA(7);
 
                                 if ( (LA10_273=='T') ) {
-                                    int LA10_300 = input.LA(8);
+                                    int LA10_301 = input.LA(8);
 
-                                    if ( (LA10_300=='C') ) {
-                                        int LA10_317 = input.LA(9);
+                                    if ( (LA10_301=='C') ) {
+                                        int LA10_318 = input.LA(9);
 
-                                        if ( (LA10_317=='H') ) {
-                                            int LA10_327 = input.LA(10);
+                                        if ( (LA10_318=='H') ) {
+                                            int LA10_328 = input.LA(10);
 
-                                            if ( (LA10_327=='E') ) {
-                                                int LA10_332 = input.LA(11);
+                                            if ( (LA10_328=='E') ) {
+                                                int LA10_333 = input.LA(11);
 
-                                                if ( (LA10_332=='S') ) {
-                                                    int LA10_334 = input.LA(12);
+                                                if ( (LA10_333=='S') ) {
+                                                    int LA10_335 = input.LA(12);
 
-                                                    if ( (LA10_334=='#'||(LA10_334>='-' && LA10_334<='9')||LA10_334=='?'||(LA10_334>='A' && LA10_334<='Z')||LA10_334=='_'||(LA10_334>='a' && LA10_334<='z')) ) {
+                                                    if ( (LA10_335=='#'||(LA10_335>='-' && LA10_335<='9')||LA10_335=='?'||(LA10_335>='A' && LA10_335<='Z')||LA10_335=='_'||(LA10_335>='a' && LA10_335<='z')) ) {
                                                         alt10=78;
                                                     }
                                                     else {
@@ -3257,16 +3208,16 @@ public class InternalSparqlLexer extends Lexer {
                 switch ( input.LA(3) ) {
                 case 'T':
                     {
-                    int LA10_144 = input.LA(4);
+                    int LA10_143 = input.LA(4);
 
-                    if ( (LA10_144=='O') ) {
-                        int LA10_191 = input.LA(5);
+                    if ( (LA10_143=='O') ) {
+                        int LA10_190 = input.LA(5);
 
-                        if ( (LA10_191=='#'||(LA10_191>='-' && LA10_191<='9')||LA10_191=='?'||(LA10_191>='A' && LA10_191<='Z')||LA10_191=='_'||(LA10_191>='a' && LA10_191<='z')) ) {
+                        if ( (LA10_190=='#'||(LA10_190>='-' && LA10_190<='9')||LA10_190=='?'||(LA10_190>='A' && LA10_190<='Z')||LA10_190=='_'||(LA10_190>='a' && LA10_190<='z')) ) {
                             alt10=78;
                         }
                         else {
-                            alt10=23;}
+                            alt10=22;}
                     }
                     else {
                         alt10=78;}
@@ -3274,22 +3225,22 @@ public class InternalSparqlLexer extends Lexer {
                     break;
                 case 'S':
                     {
-                    int LA10_145 = input.LA(4);
+                    int LA10_144 = input.LA(4);
 
-                    if ( (LA10_145=='E') ) {
-                        int LA10_192 = input.LA(5);
+                    if ( (LA10_144=='E') ) {
+                        int LA10_191 = input.LA(5);
 
-                        if ( (LA10_192=='R') ) {
-                            int LA10_238 = input.LA(6);
+                        if ( (LA10_191=='R') ) {
+                            int LA10_237 = input.LA(6);
 
-                            if ( (LA10_238=='T') ) {
+                            if ( (LA10_237=='T') ) {
                                 int LA10_274 = input.LA(7);
 
                                 if ( (LA10_274=='#'||(LA10_274>='-' && LA10_274<='9')||LA10_274=='?'||(LA10_274>='A' && LA10_274<='Z')||LA10_274=='_'||(LA10_274>='a' && LA10_274<='z')) ) {
                                     alt10=78;
                                 }
                                 else {
-                                    alt10=25;}
+                                    alt10=24;}
                             }
                             else {
                                 alt10=78;}
@@ -3308,12 +3259,12 @@ public class InternalSparqlLexer extends Lexer {
                 break;
             case 'R':
                 {
-                int LA10_86 = input.LA(3);
+                int LA10_84 = input.LA(3);
 
-                if ( (LA10_86=='I') ) {
-                    int LA10_146 = input.LA(4);
+                if ( (LA10_84=='I') ) {
+                    int LA10_145 = input.LA(4);
 
-                    if ( (LA10_146=='#'||(LA10_146>='-' && LA10_146<='9')||LA10_146=='?'||(LA10_146>='A' && LA10_146<='Z')||LA10_146=='_'||(LA10_146>='a' && LA10_146<='z')) ) {
+                    if ( (LA10_145=='#'||(LA10_145>='-' && LA10_145<='9')||LA10_145=='?'||(LA10_145>='A' && LA10_145<='Z')||LA10_145=='_'||(LA10_145>='a' && LA10_145<='z')) ) {
                         alt10=78;
                     }
                     else {
@@ -3325,13 +3276,71 @@ public class InternalSparqlLexer extends Lexer {
                 break;
             case 'F':
                 {
-                int LA10_87 = input.LA(3);
+                int LA10_85 = input.LA(3);
 
-                if ( (LA10_87=='#'||(LA10_87>='-' && LA10_87<='9')||LA10_87=='?'||(LA10_87>='A' && LA10_87<='Z')||LA10_87=='_'||(LA10_87>='a' && LA10_87<='z')) ) {
+                if ( (LA10_85=='#'||(LA10_85>='-' && LA10_85<='9')||LA10_85=='?'||(LA10_85>='A' && LA10_85<='Z')||LA10_85=='_'||(LA10_85>='a' && LA10_85<='z')) ) {
                     alt10=78;
                 }
                 else {
                     alt10=59;}
+                }
+                break;
+            default:
+                alt10=78;}
+
+        }
+        else if ( (LA10_0=='W') ) {
+            switch ( input.LA(2) ) {
+            case 'I':
+                {
+                int LA10_86 = input.LA(3);
+
+                if ( (LA10_86=='T') ) {
+                    int LA10_147 = input.LA(4);
+
+                    if ( (LA10_147=='H') ) {
+                        int LA10_193 = input.LA(5);
+
+                        if ( (LA10_193=='#'||(LA10_193>='-' && LA10_193<='9')||LA10_193=='?'||(LA10_193>='A' && LA10_193<='Z')||LA10_193=='_'||(LA10_193>='a' && LA10_193<='z')) ) {
+                            alt10=78;
+                        }
+                        else {
+                            alt10=25;}
+                    }
+                    else {
+                        alt10=78;}
+                }
+                else {
+                    alt10=78;}
+                }
+                break;
+            case 'H':
+                {
+                int LA10_87 = input.LA(3);
+
+                if ( (LA10_87=='E') ) {
+                    int LA10_148 = input.LA(4);
+
+                    if ( (LA10_148=='R') ) {
+                        int LA10_194 = input.LA(5);
+
+                        if ( (LA10_194=='E') ) {
+                            int LA10_239 = input.LA(6);
+
+                            if ( (LA10_239=='#'||(LA10_239>='-' && LA10_239<='9')||LA10_239=='?'||(LA10_239>='A' && LA10_239<='Z')||LA10_239=='_'||(LA10_239>='a' && LA10_239<='z')) ) {
+                                alt10=78;
+                            }
+                            else {
+                                alt10=29;}
+                        }
+                        else {
+                            alt10=78;}
+                    }
+                    else {
+                        alt10=78;}
+                }
+                else {
+                    alt10=78;}
                 }
                 break;
             default:
@@ -3345,12 +3354,12 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_88 = input.LA(3);
 
                 if ( (LA10_88=='O') ) {
-                    int LA10_148 = input.LA(4);
+                    int LA10_149 = input.LA(4);
 
-                    if ( (LA10_148=='M') ) {
-                        int LA10_194 = input.LA(5);
+                    if ( (LA10_149=='M') ) {
+                        int LA10_195 = input.LA(5);
 
-                        if ( (LA10_194=='#'||(LA10_194>='-' && LA10_194<='9')||LA10_194=='?'||(LA10_194>='A' && LA10_194<='Z')||LA10_194=='_'||(LA10_194>='a' && LA10_194<='z')) ) {
+                        if ( (LA10_195=='#'||(LA10_195>='-' && LA10_195<='9')||LA10_195=='?'||(LA10_195>='A' && LA10_195<='Z')||LA10_195=='_'||(LA10_195>='a' && LA10_195<='z')) ) {
                             alt10=78;
                         }
                         else {
@@ -3368,18 +3377,18 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_89 = input.LA(3);
 
                 if ( (LA10_89=='L') ) {
-                    int LA10_149 = input.LA(4);
+                    int LA10_150 = input.LA(4);
 
-                    if ( (LA10_149=='T') ) {
-                        int LA10_195 = input.LA(5);
+                    if ( (LA10_150=='T') ) {
+                        int LA10_196 = input.LA(5);
 
-                        if ( (LA10_195=='E') ) {
-                            int LA10_240 = input.LA(6);
+                        if ( (LA10_196=='E') ) {
+                            int LA10_241 = input.LA(6);
 
-                            if ( (LA10_240=='R') ) {
-                                int LA10_275 = input.LA(7);
+                            if ( (LA10_241=='R') ) {
+                                int LA10_276 = input.LA(7);
 
-                                if ( (LA10_275=='#'||(LA10_275>='-' && LA10_275<='9')||LA10_275=='?'||(LA10_275>='A' && LA10_275<='Z')||LA10_275=='_'||(LA10_275>='a' && LA10_275<='z')) ) {
+                                if ( (LA10_276=='#'||(LA10_276>='-' && LA10_276<='9')||LA10_276=='?'||(LA10_276>='A' && LA10_276<='Z')||LA10_276=='_'||(LA10_276>='a' && LA10_276<='z')) ) {
                                     alt10=78;
                                 }
                                 else {
@@ -3415,15 +3424,15 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_92 = input.LA(3);
 
                 if ( (LA10_92=='M') ) {
-                    int LA10_150 = input.LA(4);
+                    int LA10_151 = input.LA(4);
 
-                    if ( (LA10_150=='E') ) {
-                        int LA10_196 = input.LA(5);
+                    if ( (LA10_151=='E') ) {
+                        int LA10_197 = input.LA(5);
 
-                        if ( (LA10_196=='D') ) {
-                            int LA10_241 = input.LA(6);
+                        if ( (LA10_197=='D') ) {
+                            int LA10_242 = input.LA(6);
 
-                            if ( (LA10_241=='#'||(LA10_241>='-' && LA10_241<='9')||LA10_241=='?'||(LA10_241>='A' && LA10_241<='Z')||LA10_241=='_'||(LA10_241>='a' && LA10_241<='z')) ) {
+                            if ( (LA10_242=='#'||(LA10_242>='-' && LA10_242<='9')||LA10_242=='?'||(LA10_242>='A' && LA10_242<='Z')||LA10_242=='_'||(LA10_242>='a' && LA10_242<='z')) ) {
                                 alt10=78;
                             }
                             else {
@@ -3444,9 +3453,9 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_93 = input.LA(3);
 
                 if ( (LA10_93=='T') ) {
-                    int LA10_151 = input.LA(4);
+                    int LA10_152 = input.LA(4);
 
-                    if ( (LA10_151=='#'||(LA10_151>='-' && LA10_151<='9')||LA10_151=='?'||(LA10_151>='A' && LA10_151<='Z')||LA10_151=='_'||(LA10_151>='a' && LA10_151<='z')) ) {
+                    if ( (LA10_152=='#'||(LA10_152>='-' && LA10_152<='9')||LA10_152=='?'||(LA10_152>='A' && LA10_152<='Z')||LA10_152=='_'||(LA10_152>='a' && LA10_152<='z')) ) {
                         alt10=78;
                     }
                     else {
@@ -3467,18 +3476,18 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_94 = input.LA(3);
 
                 if ( (LA10_94=='V') ) {
-                    int LA10_152 = input.LA(4);
+                    int LA10_153 = input.LA(4);
 
-                    if ( (LA10_152=='I') ) {
-                        int LA10_198 = input.LA(5);
+                    if ( (LA10_153=='I') ) {
+                        int LA10_199 = input.LA(5);
 
-                        if ( (LA10_198=='N') ) {
-                            int LA10_242 = input.LA(6);
+                        if ( (LA10_199=='N') ) {
+                            int LA10_243 = input.LA(6);
 
-                            if ( (LA10_242=='G') ) {
-                                int LA10_277 = input.LA(7);
+                            if ( (LA10_243=='G') ) {
+                                int LA10_278 = input.LA(7);
 
-                                if ( (LA10_277=='#'||(LA10_277>='-' && LA10_277<='9')||LA10_277=='?'||(LA10_277>='A' && LA10_277<='Z')||LA10_277=='_'||(LA10_277>='a' && LA10_277<='z')) ) {
+                                if ( (LA10_278=='#'||(LA10_278>='-' && LA10_278<='9')||LA10_278=='?'||(LA10_278>='A' && LA10_278<='Z')||LA10_278=='_'||(LA10_278>='a' && LA10_278<='z')) ) {
                                     alt10=78;
                                 }
                                 else {
@@ -3512,15 +3521,15 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_97 = input.LA(3);
 
                 if ( (LA10_97=='I') ) {
-                    int LA10_153 = input.LA(4);
+                    int LA10_154 = input.LA(4);
 
-                    if ( (LA10_153=='O') ) {
-                        int LA10_199 = input.LA(5);
+                    if ( (LA10_154=='O') ) {
+                        int LA10_200 = input.LA(5);
 
-                        if ( (LA10_199=='N') ) {
-                            int LA10_243 = input.LA(6);
+                        if ( (LA10_200=='N') ) {
+                            int LA10_244 = input.LA(6);
 
-                            if ( (LA10_243=='#'||(LA10_243>='-' && LA10_243<='9')||LA10_243=='?'||(LA10_243>='A' && LA10_243<='Z')||LA10_243=='_'||(LA10_243>='a' && LA10_243<='z')) ) {
+                            if ( (LA10_244=='#'||(LA10_244>='-' && LA10_244<='9')||LA10_244=='?'||(LA10_244>='A' && LA10_244<='Z')||LA10_244=='_'||(LA10_244>='a' && LA10_244<='z')) ) {
                                 alt10=78;
                             }
                             else {
@@ -3541,9 +3550,9 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_98 = input.LA(3);
 
                 if ( (LA10_98=='I') ) {
-                    int LA10_154 = input.LA(4);
+                    int LA10_155 = input.LA(4);
 
-                    if ( (LA10_154=='#'||(LA10_154>='-' && LA10_154<='9')||LA10_154=='?'||(LA10_154>='A' && LA10_154<='Z')||LA10_154=='_'||(LA10_154>='a' && LA10_154<='z')) ) {
+                    if ( (LA10_155=='#'||(LA10_155>='-' && LA10_155<='9')||LA10_155=='?'||(LA10_155>='A' && LA10_155<='Z')||LA10_155=='_'||(LA10_155>='a' && LA10_155<='z')) ) {
                         alt10=78;
                     }
                     else {
@@ -3564,24 +3573,24 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_99 = input.LA(3);
 
                 if ( (LA10_99=='T') ) {
-                    int LA10_155 = input.LA(4);
+                    int LA10_156 = input.LA(4);
 
-                    if ( (LA10_155=='I') ) {
-                        int LA10_201 = input.LA(5);
+                    if ( (LA10_156=='I') ) {
+                        int LA10_202 = input.LA(5);
 
-                        if ( (LA10_201=='O') ) {
-                            int LA10_244 = input.LA(6);
+                        if ( (LA10_202=='O') ) {
+                            int LA10_245 = input.LA(6);
 
-                            if ( (LA10_244=='N') ) {
-                                int LA10_279 = input.LA(7);
+                            if ( (LA10_245=='N') ) {
+                                int LA10_280 = input.LA(7);
 
-                                if ( (LA10_279=='A') ) {
-                                    int LA10_304 = input.LA(8);
+                                if ( (LA10_280=='A') ) {
+                                    int LA10_305 = input.LA(8);
 
-                                    if ( (LA10_304=='L') ) {
-                                        int LA10_318 = input.LA(9);
+                                    if ( (LA10_305=='L') ) {
+                                        int LA10_319 = input.LA(9);
 
-                                        if ( (LA10_318=='#'||(LA10_318>='-' && LA10_318<='9')||LA10_318=='?'||(LA10_318>='A' && LA10_318<='Z')||LA10_318=='_'||(LA10_318>='a' && LA10_318<='z')) ) {
+                                        if ( (LA10_319=='#'||(LA10_319>='-' && LA10_319<='9')||LA10_319=='?'||(LA10_319>='A' && LA10_319<='Z')||LA10_319=='_'||(LA10_319>='a' && LA10_319<='z')) ) {
                                             alt10=78;
                                         }
                                         else {
@@ -3621,18 +3630,18 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_102 = input.LA(3);
 
                 if ( (LA10_102=='I') ) {
-                    int LA10_156 = input.LA(4);
+                    int LA10_157 = input.LA(4);
 
-                    if ( (LA10_156=='S') ) {
-                        int LA10_202 = input.LA(5);
+                    if ( (LA10_157=='S') ) {
+                        int LA10_203 = input.LA(5);
 
-                        if ( (LA10_202=='T') ) {
-                            int LA10_245 = input.LA(6);
+                        if ( (LA10_203=='T') ) {
+                            int LA10_246 = input.LA(6);
 
-                            if ( (LA10_245=='S') ) {
-                                int LA10_280 = input.LA(7);
+                            if ( (LA10_246=='S') ) {
+                                int LA10_281 = input.LA(7);
 
-                                if ( (LA10_280=='#'||(LA10_280>='-' && LA10_280<='9')||LA10_280=='?'||(LA10_280>='A' && LA10_280<='Z')||LA10_280=='_'||(LA10_280>='a' && LA10_280<='z')) ) {
+                                if ( (LA10_281=='#'||(LA10_281>='-' && LA10_281<='9')||LA10_281=='?'||(LA10_281>='A' && LA10_281<='Z')||LA10_281=='_'||(LA10_281>='a' && LA10_281<='z')) ) {
                                     alt10=78;
                                 }
                                 else {
@@ -3660,15 +3669,15 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_103 = input.LA(3);
 
                 if ( (LA10_103=='N') ) {
-                    int LA10_157 = input.LA(4);
+                    int LA10_158 = input.LA(4);
 
-                    if ( (LA10_157=='U') ) {
-                        int LA10_203 = input.LA(5);
+                    if ( (LA10_158=='U') ) {
+                        int LA10_204 = input.LA(5);
 
-                        if ( (LA10_203=='S') ) {
-                            int LA10_246 = input.LA(6);
+                        if ( (LA10_204=='S') ) {
+                            int LA10_247 = input.LA(6);
 
-                            if ( (LA10_246=='#'||(LA10_246>='-' && LA10_246<='9')||LA10_246=='?'||(LA10_246>='A' && LA10_246<='Z')||LA10_246=='_'||(LA10_246>='a' && LA10_246<='z')) ) {
+                            if ( (LA10_247=='#'||(LA10_247>='-' && LA10_247<='9')||LA10_247=='?'||(LA10_247>='A' && LA10_247<='Z')||LA10_247=='_'||(LA10_247>='a' && LA10_247<='z')) ) {
                                 alt10=78;
                             }
                             else {
@@ -3714,24 +3723,24 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_107 = input.LA(3);
 
                 if ( (LA10_107=='m') ) {
-                    int LA10_158 = input.LA(4);
+                    int LA10_159 = input.LA(4);
 
-                    if ( (LA10_158=='e') ) {
-                        int LA10_204 = input.LA(5);
+                    if ( (LA10_159=='e') ) {
+                        int LA10_205 = input.LA(5);
 
-                        if ( (LA10_204=='T') ) {
-                            int LA10_247 = input.LA(6);
+                        if ( (LA10_205=='T') ) {
+                            int LA10_248 = input.LA(6);
 
-                            if ( (LA10_247=='e') ) {
-                                int LA10_282 = input.LA(7);
+                            if ( (LA10_248=='e') ) {
+                                int LA10_283 = input.LA(7);
 
-                                if ( (LA10_282=='r') ) {
-                                    int LA10_306 = input.LA(8);
+                                if ( (LA10_283=='r') ) {
+                                    int LA10_307 = input.LA(8);
 
-                                    if ( (LA10_306=='m') ) {
-                                        int LA10_319 = input.LA(9);
+                                    if ( (LA10_307=='m') ) {
+                                        int LA10_320 = input.LA(9);
 
-                                        if ( (LA10_319=='#'||(LA10_319>='-' && LA10_319<='9')||LA10_319=='?'||(LA10_319>='A' && LA10_319<='Z')||LA10_319=='_'||(LA10_319>='a' && LA10_319<='z')) ) {
+                                        if ( (LA10_320=='#'||(LA10_320>='-' && LA10_320<='9')||LA10_320=='?'||(LA10_320>='A' && LA10_320<='Z')||LA10_320=='_'||(LA10_320>='a' && LA10_320<='z')) ) {
                                             alt10=78;
                                         }
                                         else {
@@ -3765,21 +3774,21 @@ public class InternalSparqlLexer extends Lexer {
                 switch ( input.LA(3) ) {
                 case 'B':
                     {
-                    int LA10_159 = input.LA(4);
+                    int LA10_160 = input.LA(4);
 
-                    if ( (LA10_159=='L') ) {
-                        int LA10_205 = input.LA(5);
+                    if ( (LA10_160=='L') ) {
+                        int LA10_206 = input.LA(5);
 
-                        if ( (LA10_205=='A') ) {
-                            int LA10_248 = input.LA(6);
+                        if ( (LA10_206=='A') ) {
+                            int LA10_249 = input.LA(6);
 
-                            if ( (LA10_248=='N') ) {
-                                int LA10_283 = input.LA(7);
+                            if ( (LA10_249=='N') ) {
+                                int LA10_284 = input.LA(7);
 
-                                if ( (LA10_283=='K') ) {
-                                    int LA10_307 = input.LA(8);
+                                if ( (LA10_284=='K') ) {
+                                    int LA10_308 = input.LA(8);
 
-                                    if ( (LA10_307=='#'||(LA10_307>='-' && LA10_307<='9')||LA10_307=='?'||(LA10_307>='A' && LA10_307<='Z')||LA10_307=='_'||(LA10_307>='a' && LA10_307<='z')) ) {
+                                    if ( (LA10_308=='#'||(LA10_308>='-' && LA10_308<='9')||LA10_308=='?'||(LA10_308>='A' && LA10_308<='Z')||LA10_308=='_'||(LA10_308>='a' && LA10_308<='z')) ) {
                                         alt10=78;
                                     }
                                     else {
@@ -3800,15 +3809,15 @@ public class InternalSparqlLexer extends Lexer {
                     break;
                 case 'I':
                     {
-                    int LA10_160 = input.LA(4);
+                    int LA10_161 = input.LA(4);
 
-                    if ( (LA10_160=='R') ) {
-                        int LA10_206 = input.LA(5);
+                    if ( (LA10_161=='R') ) {
+                        int LA10_207 = input.LA(5);
 
-                        if ( (LA10_206=='I') ) {
-                            int LA10_249 = input.LA(6);
+                        if ( (LA10_207=='I') ) {
+                            int LA10_250 = input.LA(6);
 
-                            if ( (LA10_249=='#'||(LA10_249>='-' && LA10_249<='9')||LA10_249=='?'||(LA10_249>='A' && LA10_249<='Z')||LA10_249=='_'||(LA10_249>='a' && LA10_249<='z')) ) {
+                            if ( (LA10_250=='#'||(LA10_250>='-' && LA10_250<='9')||LA10_250=='?'||(LA10_250>='A' && LA10_250<='Z')||LA10_250=='_'||(LA10_250>='a' && LA10_250<='z')) ) {
                                 alt10=78;
                             }
                             else {
@@ -3823,27 +3832,27 @@ public class InternalSparqlLexer extends Lexer {
                     break;
                 case 'L':
                     {
-                    int LA10_161 = input.LA(4);
+                    int LA10_162 = input.LA(4);
 
-                    if ( (LA10_161=='I') ) {
-                        int LA10_207 = input.LA(5);
+                    if ( (LA10_162=='I') ) {
+                        int LA10_208 = input.LA(5);
 
-                        if ( (LA10_207=='T') ) {
-                            int LA10_250 = input.LA(6);
+                        if ( (LA10_208=='T') ) {
+                            int LA10_251 = input.LA(6);
 
-                            if ( (LA10_250=='E') ) {
-                                int LA10_285 = input.LA(7);
+                            if ( (LA10_251=='E') ) {
+                                int LA10_286 = input.LA(7);
 
-                                if ( (LA10_285=='R') ) {
-                                    int LA10_308 = input.LA(8);
+                                if ( (LA10_286=='R') ) {
+                                    int LA10_309 = input.LA(8);
 
-                                    if ( (LA10_308=='A') ) {
-                                        int LA10_321 = input.LA(9);
+                                    if ( (LA10_309=='A') ) {
+                                        int LA10_322 = input.LA(9);
 
-                                        if ( (LA10_321=='L') ) {
-                                            int LA10_330 = input.LA(10);
+                                        if ( (LA10_322=='L') ) {
+                                            int LA10_331 = input.LA(10);
 
-                                            if ( (LA10_330=='#'||(LA10_330>='-' && LA10_330<='9')||LA10_330=='?'||(LA10_330>='A' && LA10_330<='Z')||LA10_330=='_'||(LA10_330>='a' && LA10_330<='z')) ) {
+                                            if ( (LA10_331=='#'||(LA10_331>='-' && LA10_331<='9')||LA10_331=='?'||(LA10_331>='A' && LA10_331<='Z')||LA10_331=='_'||(LA10_331>='a' && LA10_331<='z')) ) {
                                                 alt10=78;
                                             }
                                             else {
@@ -3870,15 +3879,15 @@ public class InternalSparqlLexer extends Lexer {
                     break;
                 case 'U':
                     {
-                    int LA10_162 = input.LA(4);
+                    int LA10_163 = input.LA(4);
 
-                    if ( (LA10_162=='R') ) {
-                        int LA10_208 = input.LA(5);
+                    if ( (LA10_163=='R') ) {
+                        int LA10_209 = input.LA(5);
 
-                        if ( (LA10_208=='I') ) {
-                            int LA10_251 = input.LA(6);
+                        if ( (LA10_209=='I') ) {
+                            int LA10_252 = input.LA(6);
 
-                            if ( (LA10_251=='#'||(LA10_251>='-' && LA10_251<='9')||LA10_251=='?'||(LA10_251>='A' && LA10_251<='Z')||LA10_251=='_'||(LA10_251>='a' && LA10_251<='z')) ) {
+                            if ( (LA10_252=='#'||(LA10_252>='-' && LA10_252<='9')||LA10_252=='?'||(LA10_252>='A' && LA10_252<='Z')||LA10_252=='_'||(LA10_252>='a' && LA10_252<='z')) ) {
                                 alt10=78;
                             }
                             else {
@@ -3935,21 +3944,21 @@ public class InternalSparqlLexer extends Lexer {
                 int LA10_114 = input.LA(3);
 
                 if ( (LA10_114=='D') ) {
-                    int LA10_163 = input.LA(4);
+                    int LA10_164 = input.LA(4);
 
-                    if ( (LA10_163=='U') ) {
-                        int LA10_209 = input.LA(5);
+                    if ( (LA10_164=='U') ) {
+                        int LA10_210 = input.LA(5);
 
-                        if ( (LA10_209=='C') ) {
-                            int LA10_252 = input.LA(6);
+                        if ( (LA10_210=='C') ) {
+                            int LA10_253 = input.LA(6);
 
-                            if ( (LA10_252=='E') ) {
-                                int LA10_287 = input.LA(7);
+                            if ( (LA10_253=='E') ) {
+                                int LA10_288 = input.LA(7);
 
-                                if ( (LA10_287=='D') ) {
-                                    int LA10_309 = input.LA(8);
+                                if ( (LA10_288=='D') ) {
+                                    int LA10_310 = input.LA(8);
 
-                                    if ( (LA10_309=='#'||(LA10_309>='-' && LA10_309<='9')||LA10_309=='?'||(LA10_309>='A' && LA10_309<='Z')||LA10_309=='_'||(LA10_309>='a' && LA10_309<='z')) ) {
+                                    if ( (LA10_310=='#'||(LA10_310>='-' && LA10_310<='9')||LA10_310=='?'||(LA10_310>='A' && LA10_310<='Z')||LA10_310=='_'||(LA10_310>='a' && LA10_310<='z')) ) {
                                         alt10=78;
                                     }
                                     else {

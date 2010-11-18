@@ -144,7 +144,7 @@ protected class SPARQLQuery_Alternatives extends AlternativesToken {
 		if(getEObject().eClass() != grammarAccess.getAskQueryRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getConstructQueryRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getDescribeQueryRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSelectAllQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSelectVariablesQueryRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getUpdateQueryAccess().getUpdateQueryAction_0().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -177,7 +177,7 @@ protected class SPARQLQuery_SelectionQueryParserRuleCall_0 extends RuleCallToken
 		if(getEObject().eClass() != grammarAccess.getAskQueryRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getConstructQueryRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getDescribeQueryRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSelectAllQueryRule().getType().getClassifier())
+		   getEObject().eClass() != grammarAccess.getSelectVariablesQueryRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(SelectionQuery_Alternatives.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
@@ -261,7 +261,7 @@ protected class Prefix_Alternatives extends AlternativesToken {
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getPrefixRule().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getUnNamedPrefixRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}
@@ -699,7 +699,7 @@ protected class SelectionQuery_Alternatives extends AlternativesToken {
 		if(getEObject().eClass() != grammarAccess.getAskQueryRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getConstructQueryRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getDescribeQueryRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSelectAllQueryRule().getType().getClassifier())
+		   getEObject().eClass() != grammarAccess.getSelectVariablesQueryRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}
@@ -764,7 +764,7 @@ protected class SelectionQuery_SelectQueryParserRuleCall_1 extends RuleCallToken
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getSelectAllQueryRule().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getSelectVariablesQueryRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(SelectQuery_Alternatives.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
@@ -884,7 +884,7 @@ protected class SelectQuery_Alternatives extends AlternativesToken {
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getSelectAllQueryRule().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getSelectVariablesQueryRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}
@@ -3610,9 +3610,13 @@ protected class UpdateOperation_Alternatives extends AlternativesToken {
 	public IEObjectConsumer tryConsume() {
 		if(getEObject().eClass() != grammarAccess.getClearGraphQueryRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getCreateGraphQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getDeleteDataQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getDeleteQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getDeleteWhereQueryRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getDropGraphQueryRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getLoadGraphQueryRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getModifyQueryRule().getType().getClassifier())
+		   getEObject().eClass() != grammarAccess.getInsertDataQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getInsertQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getLoadGraphQueryRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}
@@ -3641,7 +3645,11 @@ protected class UpdateOperation_ModifyQueryParserRuleCall_0 extends RuleCallToke
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getModifyQueryRule().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getDeleteDataQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getDeleteQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getDeleteWhereQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getInsertDataQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getInsertQueryRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(ModifyQuery_Alternatives.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
@@ -3806,15 +3814,11 @@ protected class UpdateOperation_ClearGraphQueryParserRuleCall_4 extends RuleCall
 /************ begin Rule ModifyQuery ****************
  *
  * ModifyQuery:
- * 	("WITH" withGraph=IRI_TERMINAL)? query=InsertQuery | ("WITH" withGraph=IRI_TERMINAL)? query=InsertDataQuery | ("WITH"
- * 	withGraph=IRI_TERMINAL)? query=DeleteQuery | ("WITH" withGraph=IRI_TERMINAL)? query=DeleteDataQuery | ("WITH"
- * 	withGraph=IRI_TERMINAL)? query=DeleteWhereQuery;
+ * 	InsertQuery | InsertDataQuery | DeleteQuery | DeleteDataQuery | DeleteWhereQuery;
  *
  **/
 
-// ("WITH" withGraph=IRI_TERMINAL)? query=InsertQuery | ("WITH" withGraph=IRI_TERMINAL)? query=InsertDataQuery | ("WITH"
-// withGraph=IRI_TERMINAL)? query=DeleteQuery | ("WITH" withGraph=IRI_TERMINAL)? query=DeleteDataQuery | ("WITH"
-// withGraph=IRI_TERMINAL)? query=DeleteWhereQuery
+// InsertQuery | InsertDataQuery | DeleteQuery | DeleteDataQuery | DeleteWhereQuery
 protected class ModifyQuery_Alternatives extends AlternativesToken {
 
 	public ModifyQuery_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3829,134 +3833,38 @@ protected class ModifyQuery_Alternatives extends AlternativesToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ModifyQuery_Group_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new ModifyQuery_Group_1(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new ModifyQuery_Group_2(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new ModifyQuery_Group_3(lastRuleCallOrigin, this, 3, inst);
-			case 4: return new ModifyQuery_Group_4(lastRuleCallOrigin, this, 4, inst);
+			case 0: return new ModifyQuery_InsertQueryParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new ModifyQuery_InsertDataQueryParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new ModifyQuery_DeleteQueryParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new ModifyQuery_DeleteDataQueryParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
+			case 4: return new ModifyQuery_DeleteWhereQueryParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
 			default: return null;
 		}	
 	}
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getModifyQueryRule().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getDeleteDataQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getDeleteQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getDeleteWhereQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getInsertDataQueryRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getInsertQueryRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}
 
 }
 
-// ("WITH" withGraph=IRI_TERMINAL)? query=InsertQuery
-protected class ModifyQuery_Group_0 extends GroupToken {
+// InsertQuery
+protected class ModifyQuery_InsertQueryParserRuleCall_0 extends RuleCallToken {
 	
-	public ModifyQuery_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ModifyQuery_InsertQueryParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_QueryAssignment_0_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// ("WITH" withGraph=IRI_TERMINAL)?
-protected class ModifyQuery_Group_0_0 extends GroupToken {
-	
-	public ModifyQuery_Group_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WithGraphAssignment_0_0_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// "WITH"
-protected class ModifyQuery_WITHKeyword_0_0_0 extends KeywordToken  {
-	
-	public ModifyQuery_WITHKeyword_0_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWITHKeyword_0_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-}
-
-// withGraph=IRI_TERMINAL
-protected class ModifyQuery_WithGraphAssignment_0_0_1 extends AssignmentToken  {
-	
-	public ModifyQuery_WithGraphAssignment_0_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWithGraphAssignment_0_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WITHKeyword_0_0_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_0_1_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_0_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-
-// query=InsertQuery
-protected class ModifyQuery_QueryAssignment_0_1 extends AssignmentToken  {
-	
-	public ModifyQuery_QueryAssignment_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getQueryAssignment_0_1();
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getModifyQueryAccess().getInsertQueryParserRuleCall_0();
 	}
 
     @Override
@@ -3967,143 +3875,32 @@ protected class ModifyQuery_QueryAssignment_0_1 extends AssignmentToken  {
 		}	
 	}
 
-    @Override	
+    @Override
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("query",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("query");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getInsertQueryRule().getType().getClassifier())) {
-				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getModifyQueryAccess().getQueryInsertQueryParserRuleCall_0_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
+		if(getEObject().eClass() != grammarAccess.getInsertQueryRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(InsertQuery_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
 	}
-
+	
     @Override
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ModifyQuery_Group_0_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index - 1, consumed);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
 		}	
 	}	
 }
 
-
-// ("WITH" withGraph=IRI_TERMINAL)? query=InsertDataQuery
-protected class ModifyQuery_Group_1 extends GroupToken {
+// InsertDataQuery
+protected class ModifyQuery_InsertDataQueryParserRuleCall_1 extends RuleCallToken {
 	
-	public ModifyQuery_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ModifyQuery_InsertDataQueryParserRuleCall_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_QueryAssignment_1_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// ("WITH" withGraph=IRI_TERMINAL)?
-protected class ModifyQuery_Group_1_0 extends GroupToken {
-	
-	public ModifyQuery_Group_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WithGraphAssignment_1_0_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// "WITH"
-protected class ModifyQuery_WITHKeyword_1_0_0 extends KeywordToken  {
-	
-	public ModifyQuery_WITHKeyword_1_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWITHKeyword_1_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-}
-
-// withGraph=IRI_TERMINAL
-protected class ModifyQuery_WithGraphAssignment_1_0_1 extends AssignmentToken  {
-	
-	public ModifyQuery_WithGraphAssignment_1_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWithGraphAssignment_1_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WITHKeyword_1_0_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_1_0_1_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_1_0_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-
-// query=InsertDataQuery
-protected class ModifyQuery_QueryAssignment_1_1 extends AssignmentToken  {
-	
-	public ModifyQuery_QueryAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getQueryAssignment_1_1();
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getModifyQueryAccess().getInsertDataQueryParserRuleCall_1();
 	}
 
     @Override
@@ -4114,143 +3911,32 @@ protected class ModifyQuery_QueryAssignment_1_1 extends AssignmentToken  {
 		}	
 	}
 
-    @Override	
+    @Override
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("query",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("query");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getInsertDataQueryRule().getType().getClassifier())) {
-				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getModifyQueryAccess().getQueryInsertDataQueryParserRuleCall_1_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
+		if(getEObject().eClass() != grammarAccess.getInsertDataQueryRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(InsertDataQuery_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
 	}
-
+	
     @Override
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ModifyQuery_Group_1_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index - 1, consumed);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
 		}	
 	}	
 }
 
-
-// ("WITH" withGraph=IRI_TERMINAL)? query=DeleteQuery
-protected class ModifyQuery_Group_2 extends GroupToken {
+// DeleteQuery
+protected class ModifyQuery_DeleteQueryParserRuleCall_2 extends RuleCallToken {
 	
-	public ModifyQuery_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ModifyQuery_DeleteQueryParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_QueryAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// ("WITH" withGraph=IRI_TERMINAL)?
-protected class ModifyQuery_Group_2_0 extends GroupToken {
-	
-	public ModifyQuery_Group_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_2_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WithGraphAssignment_2_0_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// "WITH"
-protected class ModifyQuery_WITHKeyword_2_0_0 extends KeywordToken  {
-	
-	public ModifyQuery_WITHKeyword_2_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWITHKeyword_2_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-}
-
-// withGraph=IRI_TERMINAL
-protected class ModifyQuery_WithGraphAssignment_2_0_1 extends AssignmentToken  {
-	
-	public ModifyQuery_WithGraphAssignment_2_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWithGraphAssignment_2_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WITHKeyword_2_0_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_2_0_1_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_2_0_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-
-// query=DeleteQuery
-protected class ModifyQuery_QueryAssignment_2_1 extends AssignmentToken  {
-	
-	public ModifyQuery_QueryAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getQueryAssignment_2_1();
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getModifyQueryAccess().getDeleteQueryParserRuleCall_2();
 	}
 
     @Override
@@ -4261,143 +3947,32 @@ protected class ModifyQuery_QueryAssignment_2_1 extends AssignmentToken  {
 		}	
 	}
 
-    @Override	
+    @Override
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("query",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("query");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getDeleteQueryRule().getType().getClassifier())) {
-				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getModifyQueryAccess().getQueryDeleteQueryParserRuleCall_2_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
+		if(getEObject().eClass() != grammarAccess.getDeleteQueryRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(DeleteQuery_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
 	}
-
+	
     @Override
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ModifyQuery_Group_2_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index - 1, consumed);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
 		}	
 	}	
 }
 
-
-// ("WITH" withGraph=IRI_TERMINAL)? query=DeleteDataQuery
-protected class ModifyQuery_Group_3 extends GroupToken {
+// DeleteDataQuery
+protected class ModifyQuery_DeleteDataQueryParserRuleCall_3 extends RuleCallToken {
 	
-	public ModifyQuery_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ModifyQuery_DeleteDataQueryParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_QueryAssignment_3_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// ("WITH" withGraph=IRI_TERMINAL)?
-protected class ModifyQuery_Group_3_0 extends GroupToken {
-	
-	public ModifyQuery_Group_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_3_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WithGraphAssignment_3_0_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// "WITH"
-protected class ModifyQuery_WITHKeyword_3_0_0 extends KeywordToken  {
-	
-	public ModifyQuery_WITHKeyword_3_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWITHKeyword_3_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-}
-
-// withGraph=IRI_TERMINAL
-protected class ModifyQuery_WithGraphAssignment_3_0_1 extends AssignmentToken  {
-	
-	public ModifyQuery_WithGraphAssignment_3_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWithGraphAssignment_3_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WITHKeyword_3_0_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_3_0_1_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_3_0_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-
-// query=DeleteDataQuery
-protected class ModifyQuery_QueryAssignment_3_1 extends AssignmentToken  {
-	
-	public ModifyQuery_QueryAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getQueryAssignment_3_1();
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getModifyQueryAccess().getDeleteDataQueryParserRuleCall_3();
 	}
 
     @Override
@@ -4408,143 +3983,32 @@ protected class ModifyQuery_QueryAssignment_3_1 extends AssignmentToken  {
 		}	
 	}
 
-    @Override	
+    @Override
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("query",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("query");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getDeleteDataQueryRule().getType().getClassifier())) {
-				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getModifyQueryAccess().getQueryDeleteDataQueryParserRuleCall_3_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
+		if(getEObject().eClass() != grammarAccess.getDeleteDataQueryRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(DeleteDataQuery_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
 	}
-
+	
     @Override
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ModifyQuery_Group_3_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index - 1, consumed);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
 		}	
 	}	
 }
 
-
-// ("WITH" withGraph=IRI_TERMINAL)? query=DeleteWhereQuery
-protected class ModifyQuery_Group_4 extends GroupToken {
+// DeleteWhereQuery
+protected class ModifyQuery_DeleteWhereQueryParserRuleCall_4 extends RuleCallToken {
 	
-	public ModifyQuery_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ModifyQuery_DeleteWhereQueryParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_4();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_QueryAssignment_4_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// ("WITH" withGraph=IRI_TERMINAL)?
-protected class ModifyQuery_Group_4_0 extends GroupToken {
-	
-	public ModifyQuery_Group_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getGroup_4_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WithGraphAssignment_4_0_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// "WITH"
-protected class ModifyQuery_WITHKeyword_4_0_0 extends KeywordToken  {
-	
-	public ModifyQuery_WITHKeyword_4_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWITHKeyword_4_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-}
-
-// withGraph=IRI_TERMINAL
-protected class ModifyQuery_WithGraphAssignment_4_0_1 extends AssignmentToken  {
-	
-	public ModifyQuery_WithGraphAssignment_4_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getWithGraphAssignment_4_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ModifyQuery_WITHKeyword_4_0_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_4_0_1_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getModifyQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_4_0_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-
-// query=DeleteWhereQuery
-protected class ModifyQuery_QueryAssignment_4_1 extends AssignmentToken  {
-	
-	public ModifyQuery_QueryAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getModifyQueryAccess().getQueryAssignment_4_1();
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getModifyQueryAccess().getDeleteWhereQueryParserRuleCall_4();
 	}
 
     @Override
@@ -4555,32 +4019,21 @@ protected class ModifyQuery_QueryAssignment_4_1 extends AssignmentToken  {
 		}	
 	}
 
-    @Override	
+    @Override
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("query",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("query");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getDeleteWhereQueryRule().getType().getClassifier())) {
-				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getModifyQueryAccess().getQueryDeleteWhereQueryParserRuleCall_4_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
+		if(getEObject().eClass() != grammarAccess.getDeleteWhereQueryRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(DeleteWhereQuery_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
 	}
-
+	
     @Override
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ModifyQuery_Group_4_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index - 1, consumed);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
 		}	
 	}	
 }
-
 
 
 /************ end Rule ModifyQuery ****************/
@@ -5402,12 +4855,12 @@ protected class UsingGraph_UriAssignment_2 extends AssignmentToken  {
 /************ begin Rule InsertQuery ****************
  *
  * InsertQuery:
- * 	"INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
+ * 	("WITH" withGraph=IRI_TERMINAL)? "INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
  * 	whereClause=WhereClause?;
  *
  **/
 
-// "INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
+// ("WITH" withGraph=IRI_TERMINAL)? "INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
 // whereClause=WhereClause?
 protected class InsertQuery_Group extends GroupToken {
 	
@@ -5423,8 +4876,8 @@ protected class InsertQuery_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InsertQuery_WhereClauseAssignment_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new InsertQuery_PatternAssignment_2(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new InsertQuery_WhereClauseAssignment_4(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new InsertQuery_PatternAssignment_3(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -5438,16 +4891,38 @@ protected class InsertQuery_Group extends GroupToken {
 
 }
 
-// "INSERT"
-protected class InsertQuery_INSERTKeyword_0 extends KeywordToken  {
+// ("WITH" withGraph=IRI_TERMINAL)?
+protected class InsertQuery_Group_0 extends GroupToken {
 	
-	public InsertQuery_INSERTKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertQuery_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getInsertQueryAccess().getGroup_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new InsertQuery_WithGraphAssignment_0_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "WITH"
+protected class InsertQuery_WITHKeyword_0_0 extends KeywordToken  {
+	
+	public InsertQuery_WITHKeyword_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getInsertQueryAccess().getINSERTKeyword_0();
+		return grammarAccess.getInsertQueryAccess().getWITHKeyword_0_0();
 	}
 
     @Override
@@ -5459,22 +4934,79 @@ protected class InsertQuery_INSERTKeyword_0 extends KeywordToken  {
 
 }
 
-// ("INTO" graph=IRI_TERMINAL)?
-protected class InsertQuery_Group_1 extends GroupToken {
+// withGraph=IRI_TERMINAL
+protected class InsertQuery_WithGraphAssignment_0_1 extends AssignmentToken  {
 	
-	public InsertQuery_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertQuery_WithGraphAssignment_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getInsertQueryAccess().getGroup_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getInsertQueryAccess().getWithGraphAssignment_0_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InsertQuery_GraphAssignment_1_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new InsertQuery_WITHKeyword_0_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInsertQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getInsertQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// "INSERT"
+protected class InsertQuery_INSERTKeyword_1 extends KeywordToken  {
+	
+	public InsertQuery_INSERTKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getInsertQueryAccess().getINSERTKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new InsertQuery_Group_0(lastRuleCallOrigin, this, 0, inst);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
+		}	
+	}
+
+}
+
+// ("INTO" graph=IRI_TERMINAL)?
+protected class InsertQuery_Group_2 extends GroupToken {
+	
+	public InsertQuery_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getInsertQueryAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new InsertQuery_GraphAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5482,21 +5014,21 @@ protected class InsertQuery_Group_1 extends GroupToken {
 }
 
 // "INTO"
-protected class InsertQuery_INTOKeyword_1_0 extends KeywordToken  {
+protected class InsertQuery_INTOKeyword_2_0 extends KeywordToken  {
 	
-	public InsertQuery_INTOKeyword_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertQuery_INTOKeyword_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getInsertQueryAccess().getINTOKeyword_1_0();
+		return grammarAccess.getInsertQueryAccess().getINTOKeyword_2_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InsertQuery_INSERTKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new InsertQuery_INSERTKeyword_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5504,21 +5036,21 @@ protected class InsertQuery_INTOKeyword_1_0 extends KeywordToken  {
 }
 
 // graph=IRI_TERMINAL
-protected class InsertQuery_GraphAssignment_1_1 extends AssignmentToken  {
+protected class InsertQuery_GraphAssignment_2_1 extends AssignmentToken  {
 	
-	public InsertQuery_GraphAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertQuery_GraphAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInsertQueryAccess().getGraphAssignment_1_1();
+		return grammarAccess.getInsertQueryAccess().getGraphAssignment_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InsertQuery_INTOKeyword_1_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new InsertQuery_INTOKeyword_2_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5527,9 +5059,9 @@ protected class InsertQuery_GraphAssignment_1_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("graph",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("graph");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInsertQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_1_1_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInsertQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getInsertQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_1_1_0();
+			element = grammarAccess.getInsertQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0();
 			return obj;
 		}
 		return null;
@@ -5539,15 +5071,15 @@ protected class InsertQuery_GraphAssignment_1_1 extends AssignmentToken  {
 
 
 // pattern=GroupGraphPattern
-protected class InsertQuery_PatternAssignment_2 extends AssignmentToken  {
+protected class InsertQuery_PatternAssignment_3 extends AssignmentToken  {
 	
-	public InsertQuery_PatternAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertQuery_PatternAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInsertQueryAccess().getPatternAssignment_2();
+		return grammarAccess.getInsertQueryAccess().getPatternAssignment_3();
 	}
 
     @Override
@@ -5566,7 +5098,7 @@ protected class InsertQuery_PatternAssignment_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getGroupGraphPatternRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getInsertQueryAccess().getPatternGroupGraphPatternParserRuleCall_2_0(); 
+				element = grammarAccess.getInsertQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5578,23 +5110,23 @@ protected class InsertQuery_PatternAssignment_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new InsertQuery_Group_1(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new InsertQuery_INSERTKeyword_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new InsertQuery_Group_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new InsertQuery_INSERTKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // whereClause=WhereClause?
-protected class InsertQuery_WhereClauseAssignment_3 extends AssignmentToken  {
+protected class InsertQuery_WhereClauseAssignment_4 extends AssignmentToken  {
 	
-	public InsertQuery_WhereClauseAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertQuery_WhereClauseAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInsertQueryAccess().getWhereClauseAssignment_3();
+		return grammarAccess.getInsertQueryAccess().getWhereClauseAssignment_4();
 	}
 
     @Override
@@ -5613,7 +5145,7 @@ protected class InsertQuery_WhereClauseAssignment_3 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getWhereClauseRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getInsertQueryAccess().getWhereClauseWhereClauseParserRuleCall_3_0(); 
+				element = grammarAccess.getInsertQueryAccess().getWhereClauseWhereClauseParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5625,7 +5157,7 @@ protected class InsertQuery_WhereClauseAssignment_3 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new InsertQuery_PatternAssignment_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new InsertQuery_PatternAssignment_3(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -5638,11 +5170,11 @@ protected class InsertQuery_WhereClauseAssignment_3 extends AssignmentToken  {
 /************ begin Rule InsertDataQuery ****************
  *
  * InsertDataQuery:
- * 	"INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
+ * 	("WITH" withGraph=IRI_TERMINAL)? "INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
  *
  **/
 
-// "INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern
+// ("WITH" withGraph=IRI_TERMINAL)? "INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern
 protected class InsertDataQuery_Group extends GroupToken {
 	
 	public InsertDataQuery_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5657,7 +5189,7 @@ protected class InsertDataQuery_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InsertDataQuery_PatternAssignment_3(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new InsertDataQuery_PatternAssignment_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5671,16 +5203,38 @@ protected class InsertDataQuery_Group extends GroupToken {
 
 }
 
-// "INSERT"
-protected class InsertDataQuery_INSERTKeyword_0 extends KeywordToken  {
+// ("WITH" withGraph=IRI_TERMINAL)?
+protected class InsertDataQuery_Group_0 extends GroupToken {
 	
-	public InsertDataQuery_INSERTKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertDataQuery_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getInsertDataQueryAccess().getGroup_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new InsertDataQuery_WithGraphAssignment_0_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "WITH"
+protected class InsertDataQuery_WITHKeyword_0_0 extends KeywordToken  {
+	
+	public InsertDataQuery_WITHKeyword_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getInsertDataQueryAccess().getINSERTKeyword_0();
+		return grammarAccess.getInsertDataQueryAccess().getWITHKeyword_0_0();
 	}
 
     @Override
@@ -5692,22 +5246,79 @@ protected class InsertDataQuery_INSERTKeyword_0 extends KeywordToken  {
 
 }
 
-// "DATA"
-protected class InsertDataQuery_DATAKeyword_1 extends KeywordToken  {
+// withGraph=IRI_TERMINAL
+protected class InsertDataQuery_WithGraphAssignment_0_1 extends AssignmentToken  {
 	
-	public InsertDataQuery_DATAKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertDataQuery_WithGraphAssignment_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getInsertDataQueryAccess().getDATAKeyword_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getInsertDataQueryAccess().getWithGraphAssignment_0_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InsertDataQuery_INSERTKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new InsertDataQuery_WITHKeyword_0_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInsertDataQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getInsertDataQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// "INSERT"
+protected class InsertDataQuery_INSERTKeyword_1 extends KeywordToken  {
+	
+	public InsertDataQuery_INSERTKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getInsertDataQueryAccess().getINSERTKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new InsertDataQuery_Group_0(lastRuleCallOrigin, this, 0, inst);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
+		}	
+	}
+
+}
+
+// "DATA"
+protected class InsertDataQuery_DATAKeyword_2 extends KeywordToken  {
+	
+	public InsertDataQuery_DATAKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getInsertDataQueryAccess().getDATAKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new InsertDataQuery_INSERTKeyword_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5715,21 +5326,21 @@ protected class InsertDataQuery_DATAKeyword_1 extends KeywordToken  {
 }
 
 // ("INTO" graph=IRI_TERMINAL)?
-protected class InsertDataQuery_Group_2 extends GroupToken {
+protected class InsertDataQuery_Group_3 extends GroupToken {
 	
-	public InsertDataQuery_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertDataQuery_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getInsertDataQueryAccess().getGroup_2();
+		return grammarAccess.getInsertDataQueryAccess().getGroup_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InsertDataQuery_GraphAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new InsertDataQuery_GraphAssignment_3_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5737,21 +5348,21 @@ protected class InsertDataQuery_Group_2 extends GroupToken {
 }
 
 // "INTO"
-protected class InsertDataQuery_INTOKeyword_2_0 extends KeywordToken  {
+protected class InsertDataQuery_INTOKeyword_3_0 extends KeywordToken  {
 	
-	public InsertDataQuery_INTOKeyword_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertDataQuery_INTOKeyword_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getInsertDataQueryAccess().getINTOKeyword_2_0();
+		return grammarAccess.getInsertDataQueryAccess().getINTOKeyword_3_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InsertDataQuery_DATAKeyword_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new InsertDataQuery_DATAKeyword_2(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5759,21 +5370,21 @@ protected class InsertDataQuery_INTOKeyword_2_0 extends KeywordToken  {
 }
 
 // graph=IRI_TERMINAL
-protected class InsertDataQuery_GraphAssignment_2_1 extends AssignmentToken  {
+protected class InsertDataQuery_GraphAssignment_3_1 extends AssignmentToken  {
 	
-	public InsertDataQuery_GraphAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertDataQuery_GraphAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInsertDataQueryAccess().getGraphAssignment_2_1();
+		return grammarAccess.getInsertDataQueryAccess().getGraphAssignment_3_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InsertDataQuery_INTOKeyword_2_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new InsertDataQuery_INTOKeyword_3_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5782,9 +5393,9 @@ protected class InsertDataQuery_GraphAssignment_2_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("graph",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("graph");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInsertDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInsertDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_1_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getInsertDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0();
+			element = grammarAccess.getInsertDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -5794,15 +5405,15 @@ protected class InsertDataQuery_GraphAssignment_2_1 extends AssignmentToken  {
 
 
 // pattern=GroupGraphPattern
-protected class InsertDataQuery_PatternAssignment_3 extends AssignmentToken  {
+protected class InsertDataQuery_PatternAssignment_4 extends AssignmentToken  {
 	
-	public InsertDataQuery_PatternAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InsertDataQuery_PatternAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInsertDataQueryAccess().getPatternAssignment_3();
+		return grammarAccess.getInsertDataQueryAccess().getPatternAssignment_4();
 	}
 
     @Override
@@ -5821,7 +5432,7 @@ protected class InsertDataQuery_PatternAssignment_3 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getGroupGraphPatternRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getInsertDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(); 
+				element = grammarAccess.getInsertDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5833,8 +5444,8 @@ protected class InsertDataQuery_PatternAssignment_3 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new InsertDataQuery_Group_2(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new InsertDataQuery_DATAKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new InsertDataQuery_Group_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new InsertDataQuery_DATAKeyword_2(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -5847,12 +5458,14 @@ protected class InsertDataQuery_PatternAssignment_3 extends AssignmentToken  {
 /************ begin Rule DeleteQuery ****************
  *
  * DeleteQuery:
- * 	"DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT" insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
+ * 	("WITH" withGraph=IRI_TERMINAL)? "DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT"
+ * 	insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
  * 	whereClause=WhereClause?;
  *
  **/
 
-// "DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT" insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
+// ("WITH" withGraph=IRI_TERMINAL)? "DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT"
+// insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
 // whereClause=WhereClause?
 protected class DeleteQuery_Group extends GroupToken {
 	
@@ -5868,9 +5481,9 @@ protected class DeleteQuery_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteQuery_WhereClauseAssignment_4(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new DeleteQuery_Group_3(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new DeleteQuery_PatternAssignment_2(lastRuleCallOrigin, this, 2, inst);
+			case 0: return new DeleteQuery_WhereClauseAssignment_5(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new DeleteQuery_Group_4(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new DeleteQuery_PatternAssignment_3(lastRuleCallOrigin, this, 2, inst);
 			default: return null;
 		}	
 	}
@@ -5884,16 +5497,38 @@ protected class DeleteQuery_Group extends GroupToken {
 
 }
 
-// "DELETE"
-protected class DeleteQuery_DELETEKeyword_0 extends KeywordToken  {
+// ("WITH" withGraph=IRI_TERMINAL)?
+protected class DeleteQuery_Group_0 extends GroupToken {
 	
-	public DeleteQuery_DELETEKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteQuery_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getDeleteQueryAccess().getGroup_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new DeleteQuery_WithGraphAssignment_0_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "WITH"
+protected class DeleteQuery_WITHKeyword_0_0 extends KeywordToken  {
+	
+	public DeleteQuery_WITHKeyword_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteQueryAccess().getDELETEKeyword_0();
+		return grammarAccess.getDeleteQueryAccess().getWITHKeyword_0_0();
 	}
 
     @Override
@@ -5905,22 +5540,79 @@ protected class DeleteQuery_DELETEKeyword_0 extends KeywordToken  {
 
 }
 
-// ("FROM" graph=IRI_TERMINAL)?
-protected class DeleteQuery_Group_1 extends GroupToken {
+// withGraph=IRI_TERMINAL
+protected class DeleteQuery_WithGraphAssignment_0_1 extends AssignmentToken  {
 	
-	public DeleteQuery_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteQuery_WithGraphAssignment_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getDeleteQueryAccess().getGroup_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getDeleteQueryAccess().getWithGraphAssignment_0_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteQuery_GraphAssignment_1_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteQuery_WITHKeyword_0_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDeleteQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getDeleteQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// "DELETE"
+protected class DeleteQuery_DELETEKeyword_1 extends KeywordToken  {
+	
+	public DeleteQuery_DELETEKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getDeleteQueryAccess().getDELETEKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new DeleteQuery_Group_0(lastRuleCallOrigin, this, 0, inst);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
+		}	
+	}
+
+}
+
+// ("FROM" graph=IRI_TERMINAL)?
+protected class DeleteQuery_Group_2 extends GroupToken {
+	
+	public DeleteQuery_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getDeleteQueryAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new DeleteQuery_GraphAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5928,21 +5620,21 @@ protected class DeleteQuery_Group_1 extends GroupToken {
 }
 
 // "FROM"
-protected class DeleteQuery_FROMKeyword_1_0 extends KeywordToken  {
+protected class DeleteQuery_FROMKeyword_2_0 extends KeywordToken  {
 	
-	public DeleteQuery_FROMKeyword_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteQuery_FROMKeyword_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteQueryAccess().getFROMKeyword_1_0();
+		return grammarAccess.getDeleteQueryAccess().getFROMKeyword_2_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteQuery_DELETEKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteQuery_DELETEKeyword_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5950,21 +5642,21 @@ protected class DeleteQuery_FROMKeyword_1_0 extends KeywordToken  {
 }
 
 // graph=IRI_TERMINAL
-protected class DeleteQuery_GraphAssignment_1_1 extends AssignmentToken  {
+protected class DeleteQuery_GraphAssignment_2_1 extends AssignmentToken  {
 	
-	public DeleteQuery_GraphAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteQuery_GraphAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDeleteQueryAccess().getGraphAssignment_1_1();
+		return grammarAccess.getDeleteQueryAccess().getGraphAssignment_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteQuery_FROMKeyword_1_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteQuery_FROMKeyword_2_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5973,9 +5665,9 @@ protected class DeleteQuery_GraphAssignment_1_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("graph",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("graph");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDeleteQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_1_1_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDeleteQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getDeleteQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_1_1_0();
+			element = grammarAccess.getDeleteQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0();
 			return obj;
 		}
 		return null;
@@ -5985,15 +5677,15 @@ protected class DeleteQuery_GraphAssignment_1_1 extends AssignmentToken  {
 
 
 // pattern=GroupGraphPattern
-protected class DeleteQuery_PatternAssignment_2 extends AssignmentToken  {
+protected class DeleteQuery_PatternAssignment_3 extends AssignmentToken  {
 	
-	public DeleteQuery_PatternAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteQuery_PatternAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDeleteQueryAccess().getPatternAssignment_2();
+		return grammarAccess.getDeleteQueryAccess().getPatternAssignment_3();
 	}
 
     @Override
@@ -6012,7 +5704,7 @@ protected class DeleteQuery_PatternAssignment_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getGroupGraphPatternRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getDeleteQueryAccess().getPatternGroupGraphPatternParserRuleCall_2_0(); 
+				element = grammarAccess.getDeleteQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6024,29 +5716,29 @@ protected class DeleteQuery_PatternAssignment_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DeleteQuery_Group_1(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new DeleteQuery_DELETEKeyword_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new DeleteQuery_Group_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new DeleteQuery_DELETEKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // ("INSERT" insertPattern=GroupGraphPattern)?
-protected class DeleteQuery_Group_3 extends GroupToken {
+protected class DeleteQuery_Group_4 extends GroupToken {
 	
-	public DeleteQuery_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteQuery_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getDeleteQueryAccess().getGroup_3();
+		return grammarAccess.getDeleteQueryAccess().getGroup_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteQuery_InsertPatternAssignment_3_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteQuery_InsertPatternAssignment_4_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6054,21 +5746,21 @@ protected class DeleteQuery_Group_3 extends GroupToken {
 }
 
 // "INSERT"
-protected class DeleteQuery_INSERTKeyword_3_0 extends KeywordToken  {
+protected class DeleteQuery_INSERTKeyword_4_0 extends KeywordToken  {
 	
-	public DeleteQuery_INSERTKeyword_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteQuery_INSERTKeyword_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteQueryAccess().getINSERTKeyword_3_0();
+		return grammarAccess.getDeleteQueryAccess().getINSERTKeyword_4_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteQuery_PatternAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteQuery_PatternAssignment_3(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6076,15 +5768,15 @@ protected class DeleteQuery_INSERTKeyword_3_0 extends KeywordToken  {
 }
 
 // insertPattern=GroupGraphPattern
-protected class DeleteQuery_InsertPatternAssignment_3_1 extends AssignmentToken  {
+protected class DeleteQuery_InsertPatternAssignment_4_1 extends AssignmentToken  {
 	
-	public DeleteQuery_InsertPatternAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteQuery_InsertPatternAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDeleteQueryAccess().getInsertPatternAssignment_3_1();
+		return grammarAccess.getDeleteQueryAccess().getInsertPatternAssignment_4_1();
 	}
 
     @Override
@@ -6103,7 +5795,7 @@ protected class DeleteQuery_InsertPatternAssignment_3_1 extends AssignmentToken 
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getGroupGraphPatternRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getDeleteQueryAccess().getInsertPatternGroupGraphPatternParserRuleCall_3_1_0(); 
+				element = grammarAccess.getDeleteQueryAccess().getInsertPatternGroupGraphPatternParserRuleCall_4_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6115,7 +5807,7 @@ protected class DeleteQuery_InsertPatternAssignment_3_1 extends AssignmentToken 
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DeleteQuery_INSERTKeyword_3_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new DeleteQuery_INSERTKeyword_4_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -6123,15 +5815,15 @@ protected class DeleteQuery_InsertPatternAssignment_3_1 extends AssignmentToken 
 
 
 // whereClause=WhereClause?
-protected class DeleteQuery_WhereClauseAssignment_4 extends AssignmentToken  {
+protected class DeleteQuery_WhereClauseAssignment_5 extends AssignmentToken  {
 	
-	public DeleteQuery_WhereClauseAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteQuery_WhereClauseAssignment_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDeleteQueryAccess().getWhereClauseAssignment_4();
+		return grammarAccess.getDeleteQueryAccess().getWhereClauseAssignment_5();
 	}
 
     @Override
@@ -6150,7 +5842,7 @@ protected class DeleteQuery_WhereClauseAssignment_4 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getWhereClauseRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getDeleteQueryAccess().getWhereClauseWhereClauseParserRuleCall_4_0(); 
+				element = grammarAccess.getDeleteQueryAccess().getWhereClauseWhereClauseParserRuleCall_5_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6162,8 +5854,8 @@ protected class DeleteQuery_WhereClauseAssignment_4 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DeleteQuery_Group_3(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new DeleteQuery_PatternAssignment_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new DeleteQuery_Group_4(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new DeleteQuery_PatternAssignment_3(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -6176,11 +5868,11 @@ protected class DeleteQuery_WhereClauseAssignment_4 extends AssignmentToken  {
 /************ begin Rule DeleteDataQuery ****************
  *
  * DeleteDataQuery:
- * 	"DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
+ * 	("WITH" withGraph=IRI_TERMINAL)? "DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
  *
  **/
 
-// "DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern
+// ("WITH" withGraph=IRI_TERMINAL)? "DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern
 protected class DeleteDataQuery_Group extends GroupToken {
 	
 	public DeleteDataQuery_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6195,7 +5887,7 @@ protected class DeleteDataQuery_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteDataQuery_PatternAssignment_3(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteDataQuery_PatternAssignment_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6209,16 +5901,38 @@ protected class DeleteDataQuery_Group extends GroupToken {
 
 }
 
-// "DELETE"
-protected class DeleteDataQuery_DELETEKeyword_0 extends KeywordToken  {
+// ("WITH" withGraph=IRI_TERMINAL)?
+protected class DeleteDataQuery_Group_0 extends GroupToken {
 	
-	public DeleteDataQuery_DELETEKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteDataQuery_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getDeleteDataQueryAccess().getGroup_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new DeleteDataQuery_WithGraphAssignment_0_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "WITH"
+protected class DeleteDataQuery_WITHKeyword_0_0 extends KeywordToken  {
+	
+	public DeleteDataQuery_WITHKeyword_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteDataQueryAccess().getDELETEKeyword_0();
+		return grammarAccess.getDeleteDataQueryAccess().getWITHKeyword_0_0();
 	}
 
     @Override
@@ -6230,22 +5944,79 @@ protected class DeleteDataQuery_DELETEKeyword_0 extends KeywordToken  {
 
 }
 
-// "DATA"
-protected class DeleteDataQuery_DATAKeyword_1 extends KeywordToken  {
+// withGraph=IRI_TERMINAL
+protected class DeleteDataQuery_WithGraphAssignment_0_1 extends AssignmentToken  {
 	
-	public DeleteDataQuery_DATAKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteDataQuery_WithGraphAssignment_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteDataQueryAccess().getDATAKeyword_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getDeleteDataQueryAccess().getWithGraphAssignment_0_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteDataQuery_DELETEKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteDataQuery_WITHKeyword_0_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDeleteDataQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getDeleteDataQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// "DELETE"
+protected class DeleteDataQuery_DELETEKeyword_1 extends KeywordToken  {
+	
+	public DeleteDataQuery_DELETEKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getDeleteDataQueryAccess().getDELETEKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new DeleteDataQuery_Group_0(lastRuleCallOrigin, this, 0, inst);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
+		}	
+	}
+
+}
+
+// "DATA"
+protected class DeleteDataQuery_DATAKeyword_2 extends KeywordToken  {
+	
+	public DeleteDataQuery_DATAKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getDeleteDataQueryAccess().getDATAKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new DeleteDataQuery_DELETEKeyword_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6253,21 +6024,21 @@ protected class DeleteDataQuery_DATAKeyword_1 extends KeywordToken  {
 }
 
 // ("FROM" graph=IRI_TERMINAL)?
-protected class DeleteDataQuery_Group_2 extends GroupToken {
+protected class DeleteDataQuery_Group_3 extends GroupToken {
 	
-	public DeleteDataQuery_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteDataQuery_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getDeleteDataQueryAccess().getGroup_2();
+		return grammarAccess.getDeleteDataQueryAccess().getGroup_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteDataQuery_GraphAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteDataQuery_GraphAssignment_3_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6275,21 +6046,21 @@ protected class DeleteDataQuery_Group_2 extends GroupToken {
 }
 
 // "FROM"
-protected class DeleteDataQuery_FROMKeyword_2_0 extends KeywordToken  {
+protected class DeleteDataQuery_FROMKeyword_3_0 extends KeywordToken  {
 	
-	public DeleteDataQuery_FROMKeyword_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteDataQuery_FROMKeyword_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteDataQueryAccess().getFROMKeyword_2_0();
+		return grammarAccess.getDeleteDataQueryAccess().getFROMKeyword_3_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteDataQuery_DATAKeyword_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteDataQuery_DATAKeyword_2(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6297,21 +6068,21 @@ protected class DeleteDataQuery_FROMKeyword_2_0 extends KeywordToken  {
 }
 
 // graph=IRI_TERMINAL
-protected class DeleteDataQuery_GraphAssignment_2_1 extends AssignmentToken  {
+protected class DeleteDataQuery_GraphAssignment_3_1 extends AssignmentToken  {
 	
-	public DeleteDataQuery_GraphAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteDataQuery_GraphAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDeleteDataQueryAccess().getGraphAssignment_2_1();
+		return grammarAccess.getDeleteDataQueryAccess().getGraphAssignment_3_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteDataQuery_FROMKeyword_2_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteDataQuery_FROMKeyword_3_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6320,9 +6091,9 @@ protected class DeleteDataQuery_GraphAssignment_2_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("graph",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("graph");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDeleteDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDeleteDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_1_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getDeleteDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_2_1_0();
+			element = grammarAccess.getDeleteDataQueryAccess().getGraphIRI_TERMINALTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -6332,15 +6103,15 @@ protected class DeleteDataQuery_GraphAssignment_2_1 extends AssignmentToken  {
 
 
 // pattern=GroupGraphPattern
-protected class DeleteDataQuery_PatternAssignment_3 extends AssignmentToken  {
+protected class DeleteDataQuery_PatternAssignment_4 extends AssignmentToken  {
 	
-	public DeleteDataQuery_PatternAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteDataQuery_PatternAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDeleteDataQueryAccess().getPatternAssignment_3();
+		return grammarAccess.getDeleteDataQueryAccess().getPatternAssignment_4();
 	}
 
     @Override
@@ -6359,7 +6130,7 @@ protected class DeleteDataQuery_PatternAssignment_3 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getGroupGraphPatternRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getDeleteDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(); 
+				element = grammarAccess.getDeleteDataQueryAccess().getPatternGroupGraphPatternParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6371,8 +6142,8 @@ protected class DeleteDataQuery_PatternAssignment_3 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DeleteDataQuery_Group_2(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new DeleteDataQuery_DATAKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new DeleteDataQuery_Group_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new DeleteDataQuery_DATAKeyword_2(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -6385,11 +6156,11 @@ protected class DeleteDataQuery_PatternAssignment_3 extends AssignmentToken  {
 /************ begin Rule DeleteWhereQuery ****************
  *
  * DeleteWhereQuery:
- * 	"DELETE" "WHERE" "{" pattern=GroupGraphPattern "}";
+ * 	("WITH" withGraph=IRI_TERMINAL)? "DELETE" "WHERE" "{" pattern=GroupGraphPattern "}";
  *
  **/
 
-// "DELETE" "WHERE" "{" pattern=GroupGraphPattern "}"
+// ("WITH" withGraph=IRI_TERMINAL)? "DELETE" "WHERE" "{" pattern=GroupGraphPattern "}"
 protected class DeleteWhereQuery_Group extends GroupToken {
 	
 	public DeleteWhereQuery_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6404,7 +6175,7 @@ protected class DeleteWhereQuery_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteWhereQuery_RightCurlyBracketKeyword_4(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteWhereQuery_RightCurlyBracketKeyword_5(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6418,16 +6189,38 @@ protected class DeleteWhereQuery_Group extends GroupToken {
 
 }
 
-// "DELETE"
-protected class DeleteWhereQuery_DELETEKeyword_0 extends KeywordToken  {
+// ("WITH" withGraph=IRI_TERMINAL)?
+protected class DeleteWhereQuery_Group_0 extends GroupToken {
 	
-	public DeleteWhereQuery_DELETEKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteWhereQuery_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getDeleteWhereQueryAccess().getGroup_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new DeleteWhereQuery_WithGraphAssignment_0_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "WITH"
+protected class DeleteWhereQuery_WITHKeyword_0_0 extends KeywordToken  {
+	
+	public DeleteWhereQuery_WITHKeyword_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteWhereQueryAccess().getDELETEKeyword_0();
+		return grammarAccess.getDeleteWhereQueryAccess().getWITHKeyword_0_0();
 	}
 
     @Override
@@ -6439,22 +6232,79 @@ protected class DeleteWhereQuery_DELETEKeyword_0 extends KeywordToken  {
 
 }
 
-// "WHERE"
-protected class DeleteWhereQuery_WHEREKeyword_1 extends KeywordToken  {
+// withGraph=IRI_TERMINAL
+protected class DeleteWhereQuery_WithGraphAssignment_0_1 extends AssignmentToken  {
 	
-	public DeleteWhereQuery_WHEREKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteWhereQuery_WithGraphAssignment_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteWhereQueryAccess().getWHEREKeyword_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getDeleteWhereQueryAccess().getWithGraphAssignment_0_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteWhereQuery_DELETEKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteWhereQuery_WITHKeyword_0_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("withGraph",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("withGraph");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDeleteWhereQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getDeleteWhereQueryAccess().getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// "DELETE"
+protected class DeleteWhereQuery_DELETEKeyword_1 extends KeywordToken  {
+	
+	public DeleteWhereQuery_DELETEKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getDeleteWhereQueryAccess().getDELETEKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new DeleteWhereQuery_Group_0(lastRuleCallOrigin, this, 0, inst);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
+		}	
+	}
+
+}
+
+// "WHERE"
+protected class DeleteWhereQuery_WHEREKeyword_2 extends KeywordToken  {
+	
+	public DeleteWhereQuery_WHEREKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getDeleteWhereQueryAccess().getWHEREKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new DeleteWhereQuery_DELETEKeyword_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6462,21 +6312,21 @@ protected class DeleteWhereQuery_WHEREKeyword_1 extends KeywordToken  {
 }
 
 // "{"
-protected class DeleteWhereQuery_LeftCurlyBracketKeyword_2 extends KeywordToken  {
+protected class DeleteWhereQuery_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 	
-	public DeleteWhereQuery_LeftCurlyBracketKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteWhereQuery_LeftCurlyBracketKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteWhereQueryAccess().getLeftCurlyBracketKeyword_2();
+		return grammarAccess.getDeleteWhereQueryAccess().getLeftCurlyBracketKeyword_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteWhereQuery_WHEREKeyword_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteWhereQuery_WHEREKeyword_2(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6484,15 +6334,15 @@ protected class DeleteWhereQuery_LeftCurlyBracketKeyword_2 extends KeywordToken 
 }
 
 // pattern=GroupGraphPattern
-protected class DeleteWhereQuery_PatternAssignment_3 extends AssignmentToken  {
+protected class DeleteWhereQuery_PatternAssignment_4 extends AssignmentToken  {
 	
-	public DeleteWhereQuery_PatternAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteWhereQuery_PatternAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDeleteWhereQueryAccess().getPatternAssignment_3();
+		return grammarAccess.getDeleteWhereQueryAccess().getPatternAssignment_4();
 	}
 
     @Override
@@ -6511,7 +6361,7 @@ protected class DeleteWhereQuery_PatternAssignment_3 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getGroupGraphPatternRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getDeleteWhereQueryAccess().getPatternGroupGraphPatternParserRuleCall_3_0(); 
+				element = grammarAccess.getDeleteWhereQueryAccess().getPatternGroupGraphPatternParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6523,28 +6373,28 @@ protected class DeleteWhereQuery_PatternAssignment_3 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DeleteWhereQuery_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new DeleteWhereQuery_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class DeleteWhereQuery_RightCurlyBracketKeyword_4 extends KeywordToken  {
+protected class DeleteWhereQuery_RightCurlyBracketKeyword_5 extends KeywordToken  {
 	
-	public DeleteWhereQuery_RightCurlyBracketKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DeleteWhereQuery_RightCurlyBracketKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDeleteWhereQueryAccess().getRightCurlyBracketKeyword_4();
+		return grammarAccess.getDeleteWhereQueryAccess().getRightCurlyBracketKeyword_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DeleteWhereQuery_PatternAssignment_3(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DeleteWhereQuery_PatternAssignment_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}

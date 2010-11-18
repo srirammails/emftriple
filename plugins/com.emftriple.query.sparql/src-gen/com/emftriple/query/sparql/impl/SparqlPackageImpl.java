@@ -998,7 +998,7 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModifyQuery_Query()
+  public EReference getModifyQuery_Pattern()
   {
     return (EReference)modifyQueryEClass.getEStructuralFeatures().get(1);
   }
@@ -1178,19 +1178,9 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getInsertQuery_Pattern()
-  {
-    return (EReference)insertQueryEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getInsertQuery_WhereClause()
   {
-    return (EReference)insertQueryEClass.getEStructuralFeatures().get(2);
+    return (EReference)insertQueryEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1218,16 +1208,6 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getInsertDataQuery_Pattern()
-  {
-    return (EReference)insertDataQueryEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDeleteQuery()
   {
     return deleteQueryEClass;
@@ -1248,7 +1228,7 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeleteQuery_Pattern()
+  public EReference getDeleteQuery_InsertPattern()
   {
     return (EReference)deleteQueryEClass.getEStructuralFeatures().get(1);
   }
@@ -1258,19 +1238,9 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeleteQuery_InsertPattern()
-  {
-    return (EReference)deleteQueryEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getDeleteQuery_WhereClause()
   {
-    return (EReference)deleteQueryEClass.getEStructuralFeatures().get(3);
+    return (EReference)deleteQueryEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1298,29 +1268,9 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeleteDataQuery_Pattern()
-  {
-    return (EReference)deleteDataQueryEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDeleteWhereQuery()
   {
     return deleteWhereQueryEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDeleteWhereQuery_Pattern()
-  {
-    return (EReference)deleteWhereQueryEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2572,7 +2522,7 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
 
     modifyQueryEClass = createEClass(MODIFY_QUERY);
     createEAttribute(modifyQueryEClass, MODIFY_QUERY__WITH_GRAPH);
-    createEReference(modifyQueryEClass, MODIFY_QUERY__QUERY);
+    createEReference(modifyQueryEClass, MODIFY_QUERY__PATTERN);
 
     createGraphQueryEClass = createEClass(CREATE_GRAPH_QUERY);
     createEAttribute(createGraphQueryEClass, CREATE_GRAPH_QUERY__IS_SILENT);
@@ -2596,25 +2546,20 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
 
     insertQueryEClass = createEClass(INSERT_QUERY);
     createEAttribute(insertQueryEClass, INSERT_QUERY__GRAPH);
-    createEReference(insertQueryEClass, INSERT_QUERY__PATTERN);
     createEReference(insertQueryEClass, INSERT_QUERY__WHERE_CLAUSE);
 
     insertDataQueryEClass = createEClass(INSERT_DATA_QUERY);
     createEAttribute(insertDataQueryEClass, INSERT_DATA_QUERY__GRAPH);
-    createEReference(insertDataQueryEClass, INSERT_DATA_QUERY__PATTERN);
 
     deleteQueryEClass = createEClass(DELETE_QUERY);
     createEAttribute(deleteQueryEClass, DELETE_QUERY__GRAPH);
-    createEReference(deleteQueryEClass, DELETE_QUERY__PATTERN);
     createEReference(deleteQueryEClass, DELETE_QUERY__INSERT_PATTERN);
     createEReference(deleteQueryEClass, DELETE_QUERY__WHERE_CLAUSE);
 
     deleteDataQueryEClass = createEClass(DELETE_DATA_QUERY);
     createEAttribute(deleteDataQueryEClass, DELETE_DATA_QUERY__GRAPH);
-    createEReference(deleteDataQueryEClass, DELETE_DATA_QUERY__PATTERN);
 
     deleteWhereQueryEClass = createEClass(DELETE_WHERE_QUERY);
-    createEReference(deleteWhereQueryEClass, DELETE_WHERE_QUERY__PATTERN);
 
     datasetClauseEClass = createEClass(DATASET_CLAUSE);
     createEReference(datasetClauseEClass, DATASET_CLAUSE__DATA_SET);
@@ -2832,6 +2777,11 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
     dropGraphQueryEClass.getESuperTypes().add(this.getUpdateOperation());
     loadGraphQueryEClass.getESuperTypes().add(this.getUpdateOperation());
     clearGraphQueryEClass.getESuperTypes().add(this.getUpdateOperation());
+    insertQueryEClass.getESuperTypes().add(this.getModifyQuery());
+    insertDataQueryEClass.getESuperTypes().add(this.getModifyQuery());
+    deleteQueryEClass.getESuperTypes().add(this.getModifyQuery());
+    deleteDataQueryEClass.getESuperTypes().add(this.getModifyQuery());
+    deleteWhereQueryEClass.getESuperTypes().add(this.getModifyQuery());
     defaultDataSetEClass.getESuperTypes().add(this.getDatasetClause());
     namedDataSetEClass.getESuperTypes().add(this.getDatasetClause());
     serviceDataSetEClass.getESuperTypes().add(this.getDatasetClause());
@@ -2918,7 +2868,7 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
 
     initEClass(modifyQueryEClass, ModifyQuery.class, "ModifyQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModifyQuery_WithGraph(), ecorePackage.getEString(), "withGraph", null, 0, 1, ModifyQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModifyQuery_Query(), ecorePackage.getEObject(), null, "query", null, 0, 1, ModifyQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModifyQuery_Pattern(), this.getGroupGraphPattern(), null, "pattern", null, 0, 1, ModifyQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createGraphQueryEClass, CreateGraphQuery.class, "CreateGraphQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCreateGraphQuery_IsSilent(), ecorePackage.getEString(), "isSilent", null, 0, 1, CreateGraphQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2942,25 +2892,20 @@ public class SparqlPackageImpl extends EPackageImpl implements SparqlPackage
 
     initEClass(insertQueryEClass, InsertQuery.class, "InsertQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInsertQuery_Graph(), ecorePackage.getEString(), "graph", null, 0, 1, InsertQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInsertQuery_Pattern(), this.getGroupGraphPattern(), null, "pattern", null, 0, 1, InsertQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInsertQuery_WhereClause(), this.getWhereClause(), null, "whereClause", null, 0, 1, InsertQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(insertDataQueryEClass, InsertDataQuery.class, "InsertDataQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInsertDataQuery_Graph(), ecorePackage.getEString(), "graph", null, 0, 1, InsertDataQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInsertDataQuery_Pattern(), this.getGroupGraphPattern(), null, "pattern", null, 0, 1, InsertDataQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deleteQueryEClass, DeleteQuery.class, "DeleteQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDeleteQuery_Graph(), ecorePackage.getEString(), "graph", null, 0, 1, DeleteQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDeleteQuery_Pattern(), this.getGroupGraphPattern(), null, "pattern", null, 0, 1, DeleteQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeleteQuery_InsertPattern(), this.getGroupGraphPattern(), null, "insertPattern", null, 0, 1, DeleteQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeleteQuery_WhereClause(), this.getWhereClause(), null, "whereClause", null, 0, 1, DeleteQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deleteDataQueryEClass, DeleteDataQuery.class, "DeleteDataQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDeleteDataQuery_Graph(), ecorePackage.getEString(), "graph", null, 0, 1, DeleteDataQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDeleteDataQuery_Pattern(), this.getGroupGraphPattern(), null, "pattern", null, 0, 1, DeleteDataQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deleteWhereQueryEClass, DeleteWhereQuery.class, "DeleteWhereQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDeleteWhereQuery_Pattern(), this.getGroupGraphPattern(), null, "pattern", null, 0, 1, DeleteWhereQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(datasetClauseEClass, DatasetClause.class, "DatasetClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDatasetClause_DataSet(), this.getIRI(), null, "dataSet", null, 0, 1, DatasetClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
