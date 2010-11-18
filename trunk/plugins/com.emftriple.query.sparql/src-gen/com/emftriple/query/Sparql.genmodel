@@ -58,7 +58,7 @@
     <genClasses ecoreClass="Sparql.ecore#//UpdateOperation"/>
     <genClasses ecoreClass="Sparql.ecore#//ModifyQuery">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//ModifyQuery/withGraph"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ModifyQuery/query"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ModifyQuery/pattern"/>
     </genClasses>
     <genClasses ecoreClass="Sparql.ecore#//CreateGraphQuery">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//CreateGraphQuery/isSilent"/>
@@ -82,26 +82,20 @@
     </genClasses>
     <genClasses ecoreClass="Sparql.ecore#//InsertQuery">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//InsertQuery/graph"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//InsertQuery/pattern"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//InsertQuery/whereClause"/>
     </genClasses>
     <genClasses ecoreClass="Sparql.ecore#//InsertDataQuery">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//InsertDataQuery/graph"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//InsertDataQuery/pattern"/>
     </genClasses>
     <genClasses ecoreClass="Sparql.ecore#//DeleteQuery">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//DeleteQuery/graph"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DeleteQuery/pattern"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DeleteQuery/insertPattern"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DeleteQuery/whereClause"/>
     </genClasses>
     <genClasses ecoreClass="Sparql.ecore#//DeleteDataQuery">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//DeleteDataQuery/graph"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DeleteDataQuery/pattern"/>
     </genClasses>
-    <genClasses ecoreClass="Sparql.ecore#//DeleteWhereQuery">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DeleteWhereQuery/pattern"/>
-    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//DeleteWhereQuery"/>
     <genClasses ecoreClass="Sparql.ecore#//DatasetClause">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DatasetClause/dataSet"/>
     </genClasses>

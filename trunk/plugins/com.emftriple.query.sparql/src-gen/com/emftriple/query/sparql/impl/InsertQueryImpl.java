@@ -6,7 +6,6 @@
  */
 package com.emftriple.query.sparql.impl;
 
-import com.emftriple.query.sparql.GroupGraphPattern;
 import com.emftriple.query.sparql.InsertQuery;
 import com.emftriple.query.sparql.SparqlPackage;
 import com.emftriple.query.sparql.WhereClause;
@@ -18,7 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,14 +26,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.emftriple.query.sparql.impl.InsertQueryImpl#getGraph <em>Graph</em>}</li>
- *   <li>{@link com.emftriple.query.sparql.impl.InsertQueryImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link com.emftriple.query.sparql.impl.InsertQueryImpl#getWhereClause <em>Where Clause</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class InsertQueryImpl extends MinimalEObjectImpl.Container implements InsertQuery
+public class InsertQueryImpl extends ModifyQueryImpl implements InsertQuery
 {
   /**
    * The default value of the '{@link #getGraph() <em>Graph</em>}' attribute.
@@ -56,16 +53,6 @@ public class InsertQueryImpl extends MinimalEObjectImpl.Container implements Ins
    * @ordered
    */
   protected String graph = GRAPH_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getPattern() <em>Pattern</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPattern()
-   * @generated
-   * @ordered
-   */
-  protected GroupGraphPattern pattern;
 
   /**
    * The cached value of the '{@link #getWhereClause() <em>Where Clause</em>}' containment reference.
@@ -126,54 +113,6 @@ public class InsertQueryImpl extends MinimalEObjectImpl.Container implements Ins
    * <!-- end-user-doc -->
    * @generated
    */
-  public GroupGraphPattern getPattern()
-  {
-    return pattern;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPattern(GroupGraphPattern newPattern, NotificationChain msgs)
-  {
-    GroupGraphPattern oldPattern = pattern;
-    pattern = newPattern;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SparqlPackage.INSERT_QUERY__PATTERN, oldPattern, newPattern);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPattern(GroupGraphPattern newPattern)
-  {
-    if (newPattern != pattern)
-    {
-      NotificationChain msgs = null;
-      if (pattern != null)
-        msgs = ((InternalEObject)pattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SparqlPackage.INSERT_QUERY__PATTERN, null, msgs);
-      if (newPattern != null)
-        msgs = ((InternalEObject)newPattern).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SparqlPackage.INSERT_QUERY__PATTERN, null, msgs);
-      msgs = basicSetPattern(newPattern, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SparqlPackage.INSERT_QUERY__PATTERN, newPattern, newPattern));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public WhereClause getWhereClause()
   {
     return whereClause;
@@ -227,8 +166,6 @@ public class InsertQueryImpl extends MinimalEObjectImpl.Container implements Ins
   {
     switch (featureID)
     {
-      case SparqlPackage.INSERT_QUERY__PATTERN:
-        return basicSetPattern(null, msgs);
       case SparqlPackage.INSERT_QUERY__WHERE_CLAUSE:
         return basicSetWhereClause(null, msgs);
     }
@@ -247,8 +184,6 @@ public class InsertQueryImpl extends MinimalEObjectImpl.Container implements Ins
     {
       case SparqlPackage.INSERT_QUERY__GRAPH:
         return getGraph();
-      case SparqlPackage.INSERT_QUERY__PATTERN:
-        return getPattern();
       case SparqlPackage.INSERT_QUERY__WHERE_CLAUSE:
         return getWhereClause();
     }
@@ -267,9 +202,6 @@ public class InsertQueryImpl extends MinimalEObjectImpl.Container implements Ins
     {
       case SparqlPackage.INSERT_QUERY__GRAPH:
         setGraph((String)newValue);
-        return;
-      case SparqlPackage.INSERT_QUERY__PATTERN:
-        setPattern((GroupGraphPattern)newValue);
         return;
       case SparqlPackage.INSERT_QUERY__WHERE_CLAUSE:
         setWhereClause((WhereClause)newValue);
@@ -291,9 +223,6 @@ public class InsertQueryImpl extends MinimalEObjectImpl.Container implements Ins
       case SparqlPackage.INSERT_QUERY__GRAPH:
         setGraph(GRAPH_EDEFAULT);
         return;
-      case SparqlPackage.INSERT_QUERY__PATTERN:
-        setPattern((GroupGraphPattern)null);
-        return;
       case SparqlPackage.INSERT_QUERY__WHERE_CLAUSE:
         setWhereClause((WhereClause)null);
         return;
@@ -313,8 +242,6 @@ public class InsertQueryImpl extends MinimalEObjectImpl.Container implements Ins
     {
       case SparqlPackage.INSERT_QUERY__GRAPH:
         return GRAPH_EDEFAULT == null ? graph != null : !GRAPH_EDEFAULT.equals(graph);
-      case SparqlPackage.INSERT_QUERY__PATTERN:
-        return pattern != null;
       case SparqlPackage.INSERT_QUERY__WHERE_CLAUSE:
         return whereClause != null;
     }

@@ -50,7 +50,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="UpdateOperation"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModifyQuery" eSuperTypes="#//UpdateOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="withGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="query" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//GroupGraphPattern"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreateGraphQuery" eSuperTypes="#//UpdateOperation">
@@ -73,36 +73,25 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="named" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InsertQuery">
+  <eClassifiers xsi:type="ecore:EClass" name="InsertQuery" eSuperTypes="#//ModifyQuery">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="graph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//GroupGraphPattern"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="whereClause" eType="#//WhereClause"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InsertDataQuery">
+  <eClassifiers xsi:type="ecore:EClass" name="InsertDataQuery" eSuperTypes="#//ModifyQuery">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="graph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//GroupGraphPattern"
-        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeleteQuery">
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteQuery" eSuperTypes="#//ModifyQuery">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="graph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//GroupGraphPattern"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="insertPattern" eType="#//GroupGraphPattern"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="whereClause" eType="#//WhereClause"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeleteDataQuery">
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteDataQuery" eSuperTypes="#//ModifyQuery">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="graph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//GroupGraphPattern"
-        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeleteWhereQuery">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//GroupGraphPattern"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteWhereQuery" eSuperTypes="#//ModifyQuery"/>
   <eClassifiers xsi:type="ecore:EClass" name="DatasetClause">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSet" eType="#//IRI"
         containment="true"/>

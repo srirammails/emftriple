@@ -714,157 +714,33 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 	public class ModifyQueryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModifyQuery");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Group cGroup_0_0 = (Group)cGroup_0.eContents().get(0);
-		private final Keyword cWITHKeyword_0_0_0 = (Keyword)cGroup_0_0.eContents().get(0);
-		private final Assignment cWithGraphAssignment_0_0_1 = (Assignment)cGroup_0_0.eContents().get(1);
-		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_0_0_1_0 = (RuleCall)cWithGraphAssignment_0_0_1.eContents().get(0);
-		private final Assignment cQueryAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cQueryInsertQueryParserRuleCall_0_1_0 = (RuleCall)cQueryAssignment_0_1.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Keyword cWITHKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
-		private final Assignment cWithGraphAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_1_0_1_0 = (RuleCall)cWithGraphAssignment_1_0_1.eContents().get(0);
-		private final Assignment cQueryAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cQueryInsertDataQueryParserRuleCall_1_1_0 = (RuleCall)cQueryAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cGroup_2.eContents().get(0);
-		private final Keyword cWITHKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
-		private final Assignment cWithGraphAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
-		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_2_0_1_0 = (RuleCall)cWithGraphAssignment_2_0_1.eContents().get(0);
-		private final Assignment cQueryAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cQueryDeleteQueryParserRuleCall_2_1_0 = (RuleCall)cQueryAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Group cGroup_3_0 = (Group)cGroup_3.eContents().get(0);
-		private final Keyword cWITHKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
-		private final Assignment cWithGraphAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
-		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_3_0_1_0 = (RuleCall)cWithGraphAssignment_3_0_1.eContents().get(0);
-		private final Assignment cQueryAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cQueryDeleteDataQueryParserRuleCall_3_1_0 = (RuleCall)cQueryAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Group cGroup_4_0 = (Group)cGroup_4.eContents().get(0);
-		private final Keyword cWITHKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
-		private final Assignment cWithGraphAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
-		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_4_0_1_0 = (RuleCall)cWithGraphAssignment_4_0_1.eContents().get(0);
-		private final Assignment cQueryAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cQueryDeleteWhereQueryParserRuleCall_4_1_0 = (RuleCall)cQueryAssignment_4_1.eContents().get(0);
+		private final RuleCall cInsertQueryParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cInsertDataQueryParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDeleteQueryParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDeleteDataQueryParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDeleteWhereQueryParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//ModifyQuery:
-		//	("WITH" withGraph=IRI_TERMINAL)? query=InsertQuery | ("WITH" withGraph=IRI_TERMINAL)? query=InsertDataQuery | ("WITH"
-		//	withGraph=IRI_TERMINAL)? query=DeleteQuery | ("WITH" withGraph=IRI_TERMINAL)? query=DeleteDataQuery | ("WITH"
-		//	withGraph=IRI_TERMINAL)? query=DeleteWhereQuery;
+		//	InsertQuery | InsertDataQuery | DeleteQuery | DeleteDataQuery | DeleteWhereQuery;
 		public ParserRule getRule() { return rule; }
 
-		//("WITH" withGraph=IRI_TERMINAL)? query=InsertQuery | ("WITH" withGraph=IRI_TERMINAL)? query=InsertDataQuery | ("WITH"
-		//withGraph=IRI_TERMINAL)? query=DeleteQuery | ("WITH" withGraph=IRI_TERMINAL)? query=DeleteDataQuery | ("WITH"
-		//withGraph=IRI_TERMINAL)? query=DeleteWhereQuery
+		//InsertQuery | InsertDataQuery | DeleteQuery | DeleteDataQuery | DeleteWhereQuery
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//("WITH" withGraph=IRI_TERMINAL)? query=InsertQuery
-		public Group getGroup_0() { return cGroup_0; }
-
-		//("WITH" withGraph=IRI_TERMINAL)?
-		public Group getGroup_0_0() { return cGroup_0_0; }
-
-		//"WITH"
-		public Keyword getWITHKeyword_0_0_0() { return cWITHKeyword_0_0_0; }
-
-		//withGraph=IRI_TERMINAL
-		public Assignment getWithGraphAssignment_0_0_1() { return cWithGraphAssignment_0_0_1; }
-
-		//IRI_TERMINAL
-		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_0_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_0_0_1_0; }
-
-		//query=InsertQuery
-		public Assignment getQueryAssignment_0_1() { return cQueryAssignment_0_1; }
-
 		//InsertQuery
-		public RuleCall getQueryInsertQueryParserRuleCall_0_1_0() { return cQueryInsertQueryParserRuleCall_0_1_0; }
-
-		//("WITH" withGraph=IRI_TERMINAL)? query=InsertDataQuery
-		public Group getGroup_1() { return cGroup_1; }
-
-		//("WITH" withGraph=IRI_TERMINAL)?
-		public Group getGroup_1_0() { return cGroup_1_0; }
-
-		//"WITH"
-		public Keyword getWITHKeyword_1_0_0() { return cWITHKeyword_1_0_0; }
-
-		//withGraph=IRI_TERMINAL
-		public Assignment getWithGraphAssignment_1_0_1() { return cWithGraphAssignment_1_0_1; }
-
-		//IRI_TERMINAL
-		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_1_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_1_0_1_0; }
-
-		//query=InsertDataQuery
-		public Assignment getQueryAssignment_1_1() { return cQueryAssignment_1_1; }
+		public RuleCall getInsertQueryParserRuleCall_0() { return cInsertQueryParserRuleCall_0; }
 
 		//InsertDataQuery
-		public RuleCall getQueryInsertDataQueryParserRuleCall_1_1_0() { return cQueryInsertDataQueryParserRuleCall_1_1_0; }
-
-		//("WITH" withGraph=IRI_TERMINAL)? query=DeleteQuery
-		public Group getGroup_2() { return cGroup_2; }
-
-		//("WITH" withGraph=IRI_TERMINAL)?
-		public Group getGroup_2_0() { return cGroup_2_0; }
-
-		//"WITH"
-		public Keyword getWITHKeyword_2_0_0() { return cWITHKeyword_2_0_0; }
-
-		//withGraph=IRI_TERMINAL
-		public Assignment getWithGraphAssignment_2_0_1() { return cWithGraphAssignment_2_0_1; }
-
-		//IRI_TERMINAL
-		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_2_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_2_0_1_0; }
-
-		//query=DeleteQuery
-		public Assignment getQueryAssignment_2_1() { return cQueryAssignment_2_1; }
+		public RuleCall getInsertDataQueryParserRuleCall_1() { return cInsertDataQueryParserRuleCall_1; }
 
 		//DeleteQuery
-		public RuleCall getQueryDeleteQueryParserRuleCall_2_1_0() { return cQueryDeleteQueryParserRuleCall_2_1_0; }
-
-		//("WITH" withGraph=IRI_TERMINAL)? query=DeleteDataQuery
-		public Group getGroup_3() { return cGroup_3; }
-
-		//("WITH" withGraph=IRI_TERMINAL)?
-		public Group getGroup_3_0() { return cGroup_3_0; }
-
-		//"WITH"
-		public Keyword getWITHKeyword_3_0_0() { return cWITHKeyword_3_0_0; }
-
-		//withGraph=IRI_TERMINAL
-		public Assignment getWithGraphAssignment_3_0_1() { return cWithGraphAssignment_3_0_1; }
-
-		//IRI_TERMINAL
-		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_3_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_3_0_1_0; }
-
-		//query=DeleteDataQuery
-		public Assignment getQueryAssignment_3_1() { return cQueryAssignment_3_1; }
+		public RuleCall getDeleteQueryParserRuleCall_2() { return cDeleteQueryParserRuleCall_2; }
 
 		//DeleteDataQuery
-		public RuleCall getQueryDeleteDataQueryParserRuleCall_3_1_0() { return cQueryDeleteDataQueryParserRuleCall_3_1_0; }
-
-		//("WITH" withGraph=IRI_TERMINAL)? query=DeleteWhereQuery
-		public Group getGroup_4() { return cGroup_4; }
-
-		//("WITH" withGraph=IRI_TERMINAL)?
-		public Group getGroup_4_0() { return cGroup_4_0; }
-
-		//"WITH"
-		public Keyword getWITHKeyword_4_0_0() { return cWITHKeyword_4_0_0; }
-
-		//withGraph=IRI_TERMINAL
-		public Assignment getWithGraphAssignment_4_0_1() { return cWithGraphAssignment_4_0_1; }
-
-		//IRI_TERMINAL
-		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_4_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_4_0_1_0; }
-
-		//query=DeleteWhereQuery
-		public Assignment getQueryAssignment_4_1() { return cQueryAssignment_4_1; }
+		public RuleCall getDeleteDataQueryParserRuleCall_3() { return cDeleteDataQueryParserRuleCall_3; }
 
 		//DeleteWhereQuery
-		public RuleCall getQueryDeleteWhereQueryParserRuleCall_4_1_0() { return cQueryDeleteWhereQueryParserRuleCall_4_1_0; }
+		public RuleCall getDeleteWhereQueryParserRuleCall_4() { return cDeleteWhereQueryParserRuleCall_4; }
 	}
 
 	public class CreateGraphQueryElements extends AbstractParserRuleElementFinder {
@@ -1065,77 +941,43 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 	public class InsertQueryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InsertQuery");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cINSERTKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cINTOKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cGraphAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cGraphIRI_TERMINALTerminalRuleCall_1_1_0 = (RuleCall)cGraphAssignment_1_1.eContents().get(0);
-		private final Assignment cPatternAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cPatternGroupGraphPatternParserRuleCall_2_0 = (RuleCall)cPatternAssignment_2.eContents().get(0);
-		private final Assignment cWhereClauseAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cWhereClauseWhereClauseParserRuleCall_3_0 = (RuleCall)cWhereClauseAssignment_3.eContents().get(0);
-		
-		//InsertQuery:
-		//	"INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
-		//	whereClause=WhereClause?;
-		public ParserRule getRule() { return rule; }
-
-		//"INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
-		//whereClause=WhereClause?
-		public Group getGroup() { return cGroup; }
-
-		//"INSERT"
-		public Keyword getINSERTKeyword_0() { return cINSERTKeyword_0; }
-
-		//("INTO" graph=IRI_TERMINAL)?
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"INTO"
-		public Keyword getINTOKeyword_1_0() { return cINTOKeyword_1_0; }
-
-		//graph=IRI_TERMINAL
-		public Assignment getGraphAssignment_1_1() { return cGraphAssignment_1_1; }
-
-		//IRI_TERMINAL
-		public RuleCall getGraphIRI_TERMINALTerminalRuleCall_1_1_0() { return cGraphIRI_TERMINALTerminalRuleCall_1_1_0; }
-
-		//pattern=GroupGraphPattern
-		public Assignment getPatternAssignment_2() { return cPatternAssignment_2; }
-
-		//GroupGraphPattern
-		public RuleCall getPatternGroupGraphPatternParserRuleCall_2_0() { return cPatternGroupGraphPatternParserRuleCall_2_0; }
-
-		//whereClause=WhereClause?
-		public Assignment getWhereClauseAssignment_3() { return cWhereClauseAssignment_3; }
-
-		//WhereClause
-		public RuleCall getWhereClauseWhereClauseParserRuleCall_3_0() { return cWhereClauseWhereClauseParserRuleCall_3_0; }
-	}
-
-	public class InsertDataQueryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InsertDataQuery");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cINSERTKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cDATAKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cWITHKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cWithGraphAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0 = (RuleCall)cWithGraphAssignment_0_1.eContents().get(0);
+		private final Keyword cINSERTKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cINTOKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cGraphAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cGraphIRI_TERMINALTerminalRuleCall_2_1_0 = (RuleCall)cGraphAssignment_2_1.eContents().get(0);
 		private final Assignment cPatternAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPatternGroupGraphPatternParserRuleCall_3_0 = (RuleCall)cPatternAssignment_3.eContents().get(0);
+		private final Assignment cWhereClauseAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cWhereClauseWhereClauseParserRuleCall_4_0 = (RuleCall)cWhereClauseAssignment_4.eContents().get(0);
 		
-		//InsertDataQuery:
-		//	"INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
+		//InsertQuery:
+		//	("WITH" withGraph=IRI_TERMINAL)? "INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
+		//	whereClause=WhereClause?;
 		public ParserRule getRule() { return rule; }
 
-		//"INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern
+		//("WITH" withGraph=IRI_TERMINAL)? "INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
+		//whereClause=WhereClause?
 		public Group getGroup() { return cGroup; }
 
-		//"INSERT"
-		public Keyword getINSERTKeyword_0() { return cINSERTKeyword_0; }
+		//("WITH" withGraph=IRI_TERMINAL)?
+		public Group getGroup_0() { return cGroup_0; }
 
-		//"DATA"
-		public Keyword getDATAKeyword_1() { return cDATAKeyword_1; }
+		//"WITH"
+		public Keyword getWITHKeyword_0_0() { return cWITHKeyword_0_0; }
+
+		//withGraph=IRI_TERMINAL
+		public Assignment getWithGraphAssignment_0_1() { return cWithGraphAssignment_0_1; }
+
+		//IRI_TERMINAL
+		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0; }
+
+		//"INSERT"
+		public Keyword getINSERTKeyword_1() { return cINSERTKeyword_1; }
 
 		//("INTO" graph=IRI_TERMINAL)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -1154,66 +996,6 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 
 		//GroupGraphPattern
 		public RuleCall getPatternGroupGraphPatternParserRuleCall_3_0() { return cPatternGroupGraphPatternParserRuleCall_3_0; }
-	}
-
-	public class DeleteQueryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DeleteQuery");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDELETEKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cFROMKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cGraphAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cGraphIRI_TERMINALTerminalRuleCall_1_1_0 = (RuleCall)cGraphAssignment_1_1.eContents().get(0);
-		private final Assignment cPatternAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cPatternGroupGraphPatternParserRuleCall_2_0 = (RuleCall)cPatternAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cINSERTKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cInsertPatternAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cInsertPatternGroupGraphPatternParserRuleCall_3_1_0 = (RuleCall)cInsertPatternAssignment_3_1.eContents().get(0);
-		private final Assignment cWhereClauseAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cWhereClauseWhereClauseParserRuleCall_4_0 = (RuleCall)cWhereClauseAssignment_4.eContents().get(0);
-		
-		//DeleteQuery:
-		//	"DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT" insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
-		//	whereClause=WhereClause?;
-		public ParserRule getRule() { return rule; }
-
-		//"DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT" insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
-		//whereClause=WhereClause?
-		public Group getGroup() { return cGroup; }
-
-		//"DELETE"
-		public Keyword getDELETEKeyword_0() { return cDELETEKeyword_0; }
-
-		//("FROM" graph=IRI_TERMINAL)?
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"FROM"
-		public Keyword getFROMKeyword_1_0() { return cFROMKeyword_1_0; }
-
-		//graph=IRI_TERMINAL
-		public Assignment getGraphAssignment_1_1() { return cGraphAssignment_1_1; }
-
-		//IRI_TERMINAL
-		public RuleCall getGraphIRI_TERMINALTerminalRuleCall_1_1_0() { return cGraphIRI_TERMINALTerminalRuleCall_1_1_0; }
-
-		//pattern=GroupGraphPattern
-		public Assignment getPatternAssignment_2() { return cPatternAssignment_2; }
-
-		//GroupGraphPattern
-		public RuleCall getPatternGroupGraphPatternParserRuleCall_2_0() { return cPatternGroupGraphPatternParserRuleCall_2_0; }
-
-		//("INSERT" insertPattern=GroupGraphPattern)?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"INSERT"
-		public Keyword getINSERTKeyword_3_0() { return cINSERTKeyword_3_0; }
-
-		//insertPattern=GroupGraphPattern
-		public Assignment getInsertPatternAssignment_3_1() { return cInsertPatternAssignment_3_1; }
-
-		//GroupGraphPattern
-		public RuleCall getInsertPatternGroupGraphPatternParserRuleCall_3_1_0() { return cInsertPatternGroupGraphPatternParserRuleCall_3_1_0; }
 
 		//whereClause=WhereClause?
 		public Assignment getWhereClauseAssignment_4() { return cWhereClauseAssignment_4; }
@@ -1222,30 +1004,112 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getWhereClauseWhereClauseParserRuleCall_4_0() { return cWhereClauseWhereClauseParserRuleCall_4_0; }
 	}
 
-	public class DeleteDataQueryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DeleteDataQuery");
+	public class InsertDataQueryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InsertDataQuery");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDELETEKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cDATAKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cWITHKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cWithGraphAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0 = (RuleCall)cWithGraphAssignment_0_1.eContents().get(0);
+		private final Keyword cINSERTKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cDATAKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cINTOKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cGraphAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cGraphIRI_TERMINALTerminalRuleCall_3_1_0 = (RuleCall)cGraphAssignment_3_1.eContents().get(0);
+		private final Assignment cPatternAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPatternGroupGraphPatternParserRuleCall_4_0 = (RuleCall)cPatternAssignment_4.eContents().get(0);
+		
+		//InsertDataQuery:
+		//	("WITH" withGraph=IRI_TERMINAL)? "INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
+		public ParserRule getRule() { return rule; }
+
+		//("WITH" withGraph=IRI_TERMINAL)? "INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern
+		public Group getGroup() { return cGroup; }
+
+		//("WITH" withGraph=IRI_TERMINAL)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"WITH"
+		public Keyword getWITHKeyword_0_0() { return cWITHKeyword_0_0; }
+
+		//withGraph=IRI_TERMINAL
+		public Assignment getWithGraphAssignment_0_1() { return cWithGraphAssignment_0_1; }
+
+		//IRI_TERMINAL
+		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0; }
+
+		//"INSERT"
+		public Keyword getINSERTKeyword_1() { return cINSERTKeyword_1; }
+
+		//"DATA"
+		public Keyword getDATAKeyword_2() { return cDATAKeyword_2; }
+
+		//("INTO" graph=IRI_TERMINAL)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"INTO"
+		public Keyword getINTOKeyword_3_0() { return cINTOKeyword_3_0; }
+
+		//graph=IRI_TERMINAL
+		public Assignment getGraphAssignment_3_1() { return cGraphAssignment_3_1; }
+
+		//IRI_TERMINAL
+		public RuleCall getGraphIRI_TERMINALTerminalRuleCall_3_1_0() { return cGraphIRI_TERMINALTerminalRuleCall_3_1_0; }
+
+		//pattern=GroupGraphPattern
+		public Assignment getPatternAssignment_4() { return cPatternAssignment_4; }
+
+		//GroupGraphPattern
+		public RuleCall getPatternGroupGraphPatternParserRuleCall_4_0() { return cPatternGroupGraphPatternParserRuleCall_4_0; }
+	}
+
+	public class DeleteQueryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DeleteQuery");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cWITHKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cWithGraphAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0 = (RuleCall)cWithGraphAssignment_0_1.eContents().get(0);
+		private final Keyword cDELETEKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cFROMKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cGraphAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cGraphIRI_TERMINALTerminalRuleCall_2_1_0 = (RuleCall)cGraphAssignment_2_1.eContents().get(0);
 		private final Assignment cPatternAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPatternGroupGraphPatternParserRuleCall_3_0 = (RuleCall)cPatternAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cINSERTKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cInsertPatternAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cInsertPatternGroupGraphPatternParserRuleCall_4_1_0 = (RuleCall)cInsertPatternAssignment_4_1.eContents().get(0);
+		private final Assignment cWhereClauseAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cWhereClauseWhereClauseParserRuleCall_5_0 = (RuleCall)cWhereClauseAssignment_5.eContents().get(0);
 		
-		//DeleteDataQuery:
-		//	"DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
+		//DeleteQuery:
+		//	("WITH" withGraph=IRI_TERMINAL)? "DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT"
+		//	insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
+		//	whereClause=WhereClause?;
 		public ParserRule getRule() { return rule; }
 
-		//"DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern
+		//("WITH" withGraph=IRI_TERMINAL)? "DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT"
+		//insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
+		//whereClause=WhereClause?
 		public Group getGroup() { return cGroup; }
 
-		//"DELETE"
-		public Keyword getDELETEKeyword_0() { return cDELETEKeyword_0; }
+		//("WITH" withGraph=IRI_TERMINAL)?
+		public Group getGroup_0() { return cGroup_0; }
 
-		//"DATA"
-		public Keyword getDATAKeyword_1() { return cDATAKeyword_1; }
+		//"WITH"
+		public Keyword getWITHKeyword_0_0() { return cWITHKeyword_0_0; }
+
+		//withGraph=IRI_TERMINAL
+		public Assignment getWithGraphAssignment_0_1() { return cWithGraphAssignment_0_1; }
+
+		//IRI_TERMINAL
+		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0; }
+
+		//"DELETE"
+		public Keyword getDELETEKeyword_1() { return cDELETEKeyword_1; }
 
 		//("FROM" graph=IRI_TERMINAL)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -1264,42 +1128,136 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 
 		//GroupGraphPattern
 		public RuleCall getPatternGroupGraphPatternParserRuleCall_3_0() { return cPatternGroupGraphPatternParserRuleCall_3_0; }
+
+		//("INSERT" insertPattern=GroupGraphPattern)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"INSERT"
+		public Keyword getINSERTKeyword_4_0() { return cINSERTKeyword_4_0; }
+
+		//insertPattern=GroupGraphPattern
+		public Assignment getInsertPatternAssignment_4_1() { return cInsertPatternAssignment_4_1; }
+
+		//GroupGraphPattern
+		public RuleCall getInsertPatternGroupGraphPatternParserRuleCall_4_1_0() { return cInsertPatternGroupGraphPatternParserRuleCall_4_1_0; }
+
+		//whereClause=WhereClause?
+		public Assignment getWhereClauseAssignment_5() { return cWhereClauseAssignment_5; }
+
+		//WhereClause
+		public RuleCall getWhereClauseWhereClauseParserRuleCall_5_0() { return cWhereClauseWhereClauseParserRuleCall_5_0; }
+	}
+
+	public class DeleteDataQueryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DeleteDataQuery");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cWITHKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cWithGraphAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0 = (RuleCall)cWithGraphAssignment_0_1.eContents().get(0);
+		private final Keyword cDELETEKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cDATAKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cFROMKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cGraphAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cGraphIRI_TERMINALTerminalRuleCall_3_1_0 = (RuleCall)cGraphAssignment_3_1.eContents().get(0);
+		private final Assignment cPatternAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPatternGroupGraphPatternParserRuleCall_4_0 = (RuleCall)cPatternAssignment_4.eContents().get(0);
+		
+		//DeleteDataQuery:
+		//	("WITH" withGraph=IRI_TERMINAL)? "DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
+		public ParserRule getRule() { return rule; }
+
+		//("WITH" withGraph=IRI_TERMINAL)? "DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern
+		public Group getGroup() { return cGroup; }
+
+		//("WITH" withGraph=IRI_TERMINAL)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"WITH"
+		public Keyword getWITHKeyword_0_0() { return cWITHKeyword_0_0; }
+
+		//withGraph=IRI_TERMINAL
+		public Assignment getWithGraphAssignment_0_1() { return cWithGraphAssignment_0_1; }
+
+		//IRI_TERMINAL
+		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0; }
+
+		//"DELETE"
+		public Keyword getDELETEKeyword_1() { return cDELETEKeyword_1; }
+
+		//"DATA"
+		public Keyword getDATAKeyword_2() { return cDATAKeyword_2; }
+
+		//("FROM" graph=IRI_TERMINAL)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"FROM"
+		public Keyword getFROMKeyword_3_0() { return cFROMKeyword_3_0; }
+
+		//graph=IRI_TERMINAL
+		public Assignment getGraphAssignment_3_1() { return cGraphAssignment_3_1; }
+
+		//IRI_TERMINAL
+		public RuleCall getGraphIRI_TERMINALTerminalRuleCall_3_1_0() { return cGraphIRI_TERMINALTerminalRuleCall_3_1_0; }
+
+		//pattern=GroupGraphPattern
+		public Assignment getPatternAssignment_4() { return cPatternAssignment_4; }
+
+		//GroupGraphPattern
+		public RuleCall getPatternGroupGraphPatternParserRuleCall_4_0() { return cPatternGroupGraphPatternParserRuleCall_4_0; }
 	}
 
 	public class DeleteWhereQueryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DeleteWhereQuery");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDELETEKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cWHEREKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPatternAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPatternGroupGraphPatternParserRuleCall_3_0 = (RuleCall)cPatternAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cWITHKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cWithGraphAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0 = (RuleCall)cWithGraphAssignment_0_1.eContents().get(0);
+		private final Keyword cDELETEKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cWHEREKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cPatternAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPatternGroupGraphPatternParserRuleCall_4_0 = (RuleCall)cPatternAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//DeleteWhereQuery:
-		//	"DELETE" "WHERE" "{" pattern=GroupGraphPattern "}";
+		//	("WITH" withGraph=IRI_TERMINAL)? "DELETE" "WHERE" "{" pattern=GroupGraphPattern "}";
 		public ParserRule getRule() { return rule; }
 
-		//"DELETE" "WHERE" "{" pattern=GroupGraphPattern "}"
+		//("WITH" withGraph=IRI_TERMINAL)? "DELETE" "WHERE" "{" pattern=GroupGraphPattern "}"
 		public Group getGroup() { return cGroup; }
 
+		//("WITH" withGraph=IRI_TERMINAL)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"WITH"
+		public Keyword getWITHKeyword_0_0() { return cWITHKeyword_0_0; }
+
+		//withGraph=IRI_TERMINAL
+		public Assignment getWithGraphAssignment_0_1() { return cWithGraphAssignment_0_1; }
+
+		//IRI_TERMINAL
+		public RuleCall getWithGraphIRI_TERMINALTerminalRuleCall_0_1_0() { return cWithGraphIRI_TERMINALTerminalRuleCall_0_1_0; }
+
 		//"DELETE"
-		public Keyword getDELETEKeyword_0() { return cDELETEKeyword_0; }
+		public Keyword getDELETEKeyword_1() { return cDELETEKeyword_1; }
 
 		//"WHERE"
-		public Keyword getWHEREKeyword_1() { return cWHEREKeyword_1; }
+		public Keyword getWHEREKeyword_2() { return cWHEREKeyword_2; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
 		//pattern=GroupGraphPattern
-		public Assignment getPatternAssignment_3() { return cPatternAssignment_3; }
+		public Assignment getPatternAssignment_4() { return cPatternAssignment_4; }
 
 		//GroupGraphPattern
-		public RuleCall getPatternGroupGraphPatternParserRuleCall_3_0() { return cPatternGroupGraphPatternParserRuleCall_3_0; }
+		public RuleCall getPatternGroupGraphPatternParserRuleCall_4_0() { return cPatternGroupGraphPatternParserRuleCall_4_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class DatasetClauseElements extends AbstractParserRuleElementFinder {
@@ -3795,9 +3753,7 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ModifyQuery:
-	//	("WITH" withGraph=IRI_TERMINAL)? query=InsertQuery | ("WITH" withGraph=IRI_TERMINAL)? query=InsertDataQuery | ("WITH"
-	//	withGraph=IRI_TERMINAL)? query=DeleteQuery | ("WITH" withGraph=IRI_TERMINAL)? query=DeleteDataQuery | ("WITH"
-	//	withGraph=IRI_TERMINAL)? query=DeleteWhereQuery;
+	//	InsertQuery | InsertDataQuery | DeleteQuery | DeleteDataQuery | DeleteWhereQuery;
 	public ModifyQueryElements getModifyQueryAccess() {
 		return (pModifyQuery != null) ? pModifyQuery : (pModifyQuery = new ModifyQueryElements());
 	}
@@ -3864,7 +3820,7 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//InsertQuery:
-	//	"INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
+	//	("WITH" withGraph=IRI_TERMINAL)? "INSERT" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern //	(usingGraphs+=UsingGraph)*
 	//	whereClause=WhereClause?;
 	public InsertQueryElements getInsertQueryAccess() {
 		return (pInsertQuery != null) ? pInsertQuery : (pInsertQuery = new InsertQueryElements());
@@ -3875,7 +3831,7 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//InsertDataQuery:
-	//	"INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
+	//	("WITH" withGraph=IRI_TERMINAL)? "INSERT" "DATA" ("INTO" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
 	public InsertDataQueryElements getInsertDataQueryAccess() {
 		return (pInsertDataQuery != null) ? pInsertDataQuery : (pInsertDataQuery = new InsertDataQueryElements());
 	}
@@ -3885,7 +3841,8 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DeleteQuery:
-	//	"DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT" insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
+	//	("WITH" withGraph=IRI_TERMINAL)? "DELETE" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern ("INSERT"
+	//	insertPattern=GroupGraphPattern)? //	(usingGraphs+=UsingGraph)*
 	//	whereClause=WhereClause?;
 	public DeleteQueryElements getDeleteQueryAccess() {
 		return (pDeleteQuery != null) ? pDeleteQuery : (pDeleteQuery = new DeleteQueryElements());
@@ -3896,7 +3853,7 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DeleteDataQuery:
-	//	"DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
+	//	("WITH" withGraph=IRI_TERMINAL)? "DELETE" "DATA" ("FROM" graph=IRI_TERMINAL)? pattern=GroupGraphPattern;
 	public DeleteDataQueryElements getDeleteDataQueryAccess() {
 		return (pDeleteDataQuery != null) ? pDeleteDataQuery : (pDeleteDataQuery = new DeleteDataQueryElements());
 	}
@@ -3906,7 +3863,7 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DeleteWhereQuery:
-	//	"DELETE" "WHERE" "{" pattern=GroupGraphPattern "}";
+	//	("WITH" withGraph=IRI_TERMINAL)? "DELETE" "WHERE" "{" pattern=GroupGraphPattern "}";
 	public DeleteWhereQueryElements getDeleteWhereQueryAccess() {
 		return (pDeleteWhereQuery != null) ? pDeleteWhereQuery : (pDeleteWhereQuery = new DeleteWhereQueryElements());
 	}
@@ -4429,7 +4386,7 @@ public class SparqlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal IRI_TERMINAL:
-	//	"<" ("a".."z" | "A".."Z" | "_" | "-" | "0".."9" | "/" | ":" | "." | "#" | "?")* ">";
+	//	"<" ("a".."z" | "A".."Z" | "_" | "-" | "0".."9" | "/" | ":" | "." | "#" | "?" | "@" | "$" | "&" | "=")* ">";
 	public TerminalRule getIRI_TERMINALRule() {
 		return (tIRI_TERMINAL != null) ? tIRI_TERMINAL : (tIRI_TERMINAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "IRI_TERMINAL"));
 	} 
