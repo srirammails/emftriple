@@ -20,6 +20,8 @@ import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Property;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.resource.RDFResource;
+import com.emf4sw.rdf.resource.RDFXMLResource;
 
 /**
  * 
@@ -35,7 +37,10 @@ public class SesameGraphResult2RDFGraph {
 	}
 	
 	public RDFGraph extract() {
-		RDFGraph aGraph = RDFFactory.eINSTANCE.createNamedGraph();
+		final RDFResource aResource = new RDFXMLResource();
+		final RDFGraph aGraph = RDFFactory.eINSTANCE.createNamedGraph();
+		aResource.getContents().add(aGraph);
+		
 		try {
 			for (;graphResult.hasNext();) {
 				Statement stmt = graphResult.next();
