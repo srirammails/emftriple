@@ -1,0 +1,83 @@
+@namespace(uri="http://www.emftriple.com/xml/ns/persistence", prefix="persistence")
+package persistence;
+
+import "http://www.eclipse.org/emf/2003/XMLType";
+
+@ExtendedMetaData(name="persistence", kind="elementOnly")
+class PersistenceMetaData {
+  @ExtendedMetaData(kind="element", name="persistence-unit", namespace="##targetNamespace")
+  !resolve val PersistenceUnit[+] persistenceUnit;
+  @ExtendedMetaData(kind="attribute", name="version")
+  unsettable attr VersionType[1] version = "2.0";
+}
+
+@ExtendedMetaData(name="persistence-unit_._type", kind="elementOnly")
+class PersistenceUnit {
+
+  @ExtendedMetaData(kind="attribute", name="name")
+  attr type.String[1] name;
+  
+  @ExtendedMetaData(kind="element", name="description", namespace="##targetNamespace")
+  attr type.String[?] description;
+
+  @ExtendedMetaData(kind="element", name="provider", namespace="##targetNamespace")
+  attr type.String[?] provider;
+
+  @ExtendedMetaData(kind="element", name="package", namespace="##targetNamespace")
+  !unique attr type.String[*] ~package;
+
+  @ExtendedMetaData(kind="element", name="properties", namespace="##targetNamespace")
+  !resolve val Properties properties;
+  
+  @ExtendedMetaData(kind="element", name="datasources", namespace="##targetNamespace")
+  !resolve val Federation dataSources;
+}
+
+@ExtendedMetaData(name="datasources_._type", kind="elementOnly")
+class Federation {
+    @ExtendedMetaData(kind="element", name="datasource", namespace="##targetNamespace")
+  	!resolve val DataSourceBuilder[*] member;
+}
+
+@ExtendedMetaData(name="datasource_._type", kind="elementOnly")
+class DataSourceBuilder {
+   
+   @ExtendedMetaData(kind="attribute", name="name")
+   attr type.String[1] name;
+
+  @ExtendedMetaData(kind="element", name="factory", namespace="##targetNamespace")
+  attr type.String[1] factory;
+  
+  @ExtendedMetaData(kind="element", name="class", namespace="##targetNamespace")
+  attr type.String[1] ~class;
+
+  @ExtendedMetaData(kind="element", name="url", namespace="##targetNamespace")
+  attr type.String[1] url;
+  
+  @ExtendedMetaData(kind="element", name="graph", namespace="##targetNamespace")
+  attr type.String[*] graphs;
+       
+  @ExtendedMetaData(kind="element", name="properties", namespace="##targetNamespace")
+  val Properties[?] property;
+}
+ 
+@ExtendedMetaData(name="properties_._type", kind="elementOnly")
+class Properties {
+
+  @ExtendedMetaData(kind="element", name="property", namespace="##targetNamespace")
+  !resolve val Property[*] properties;
+}
+
+@ExtendedMetaData(name="property_._type", kind="empty")
+class Property {
+
+  @ExtendedMetaData(kind="attribute", name="name")
+  attr type.String[1] name;
+
+  @ExtendedMetaData(kind="attribute", name="value")
+  attr type.String[1] value;
+}
+
+@ExtendedMetaData(name="versionType", baseType="http://www.eclipse.org/emf/2003/XMLType#token", pattern="[0-9]+(\.[0-9]+)*")
+datatype VersionType : java.lang.String;
+

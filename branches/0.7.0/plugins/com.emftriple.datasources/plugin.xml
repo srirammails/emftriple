@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="com.emftriple.config.persistence.PersistencePackage"
+            uri="http://www.emftriple.com/xml/ns/persistence">
+      </package>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser 
+            type="persistence"
+            class="com.emftriple.config.persistence.util.PersistenceResourceFactoryImpl"/>
+   </extension>
+</plugin>
