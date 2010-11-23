@@ -6,23 +6,19 @@
  */
 package com.emftriple.config.persistence.impl;
 
+import com.emftriple.config.persistence.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-
-import com.emftriple.config.persistence.DataSourceConfig;
-import com.emftriple.config.persistence.DataSources;
-import com.emftriple.config.persistence.PersistenceConfig;
-import com.emftriple.config.persistence.PersistenceFactory;
-import com.emftriple.config.persistence.PersistencePackage;
-import com.emftriple.config.persistence.PersistenceUnit;
-import com.emftriple.config.persistence.Properties;
-import com.emftriple.config.persistence.Property;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,10 +64,10 @@ public class PersistenceFactoryImpl extends EFactoryImpl implements PersistenceF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PersistencePackage.PERSISTENCE_CONFIG: return createPersistenceConfig();
+			case PersistencePackage.PERSISTENCE_META_DATA: return createPersistenceMetaData();
 			case PersistencePackage.PERSISTENCE_UNIT: return createPersistenceUnit();
-			case PersistencePackage.DATA_SOURCES: return createDataSources();
-			case PersistencePackage.DATA_SOURCE_CONFIG: return createDataSourceConfig();
+			case PersistencePackage.FEDERATION: return createFederation();
+			case PersistencePackage.DATA_SOURCE_BUILDER: return createDataSourceBuilder();
 			case PersistencePackage.PROPERTIES: return createProperties();
 			case PersistencePackage.PROPERTY: return createProperty();
 			default:
@@ -114,9 +110,9 @@ public class PersistenceFactoryImpl extends EFactoryImpl implements PersistenceF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PersistenceConfig createPersistenceConfig() {
-		PersistenceConfigImpl persistenceConfig = new PersistenceConfigImpl();
-		return persistenceConfig;
+	public PersistenceMetaData createPersistenceMetaData() {
+		PersistenceMetaDataImpl persistenceMetaData = new PersistenceMetaDataImpl();
+		return persistenceMetaData;
 	}
 
 	/**
@@ -134,9 +130,9 @@ public class PersistenceFactoryImpl extends EFactoryImpl implements PersistenceF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataSources createDataSources() {
-		DataSourcesImpl dataSources = new DataSourcesImpl();
-		return dataSources;
+	public Federation createFederation() {
+		FederationImpl federation = new FederationImpl();
+		return federation;
 	}
 
 	/**
@@ -144,9 +140,9 @@ public class PersistenceFactoryImpl extends EFactoryImpl implements PersistenceF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataSourceConfig createDataSourceConfig() {
-		DataSourceConfigImpl dataSourceConfig = new DataSourceConfigImpl();
-		return dataSourceConfig;
+	public DataSourceBuilder createDataSourceBuilder() {
+		DataSourceBuilderImpl dataSourceBuilder = new DataSourceBuilderImpl();
+		return dataSourceBuilder;
 	}
 
 	/**
