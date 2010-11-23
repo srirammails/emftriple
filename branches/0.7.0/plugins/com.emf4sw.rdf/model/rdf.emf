@@ -1,0 +1,129 @@
+@namespace(uri="http://www.emf4sw.org/2008/RDF", prefix="RDF")
+package rdf;
+
+abstract class URIElement {
+
+  @Id(base="")
+  id attr String[1] URI;
+}
+
+class Namespace extends URIElement {
+  attr String[1] prefix;
+  ref DocumentGraph[1]#namespaces graph;
+}
+
+abstract class RDFGraph extends URIElement {
+  op boolean isEquivalentTo(RDFGraph graph);
+  op void add(RDFGraph graph);
+  op RDFGraph union(RDFGraph graph);
+  op RDFGraph diff(RDFGraph graph);
+  op Triple addTriple(Node subject, Property property, Node object);
+  op Node listSubjectsWithProperty(Property property, Node object);
+  op Node[*] listSubjects();
+  op Resource getResource(String uri);
+  op Property getProperty(String uri);
+  op Datatype getDatatype(String uri);
+  op BlankNode getBlankNode(String nodeID);
+  op Triple[*] listAllTriples();
+  op Resource[*] listAllResources();
+  op Property[*] listAllProperties();
+
+  @ExtendedMetaData(kind="group")
+  attr ecore.EFeatureMapEntry[*] nodes;
+
+  @ExtendedMetaData(group="#nodes")
+  volatile transient derived !resolve val Resource[*]#graph resources;
+
+  @ExtendedMetaData(group="#nodes")
+  volatile transient derived !resolve val Property[*] properties;
+
+  @ExtendedMetaData(group="#nodes")
+  volatile transient derived !resolve val BlankNode[*]#graph blankNodes;
+
+  @ExtendedMetaData(group="#nodes")
+  volatile transient derived !resolve val Datatype[*] datatypes;
+
+  @ExtendedMetaData(group="#nodes")
+  volatile transient derived !resolve val Literal[*]#graph literals;
+  val Triple[*]#graph triples;
+}
+
+class DocumentGraph extends RDFGraph {
+  op NamedGraph[1] getNamedGraph(String uri);
+  val Namespace[*]#graph namespaces;
+  ref NamedGraph[*]#document subGraphs;
+}
+
+class Triple {
+  ref Node[1]#subjectOf subject;
+  ref Property[1]#predicateOf predicate;
+  ref Node[1]#objectOf object;
+  ref RDFGraph[1]#triples graph;
+}
+
+class Quad extends Triple {
+  ref RDFGraph[1] contextGraph;
+}
+
+abstract class Node {
+  op boolean isTypeOf(String uri);
+  op Node[*] getTypes();
+  op String[1] getStringValue(String uri);
+  op Node[*] getValues(String uri);
+  op String[*] getURIValues(String uri);
+  op Node[*] getObject(String uri);
+  
+  attr String[?] label;
+  attr String[?] comment;
+  
+  ref Triple[*]#subject subjectOf;
+  ref Triple[*]#object objectOf;
+}
+
+class NamedGraph extends RDFGraph, Node {
+  ref DocumentGraph[1]#subGraphs document;
+}
+
+class BlankNode extends Node {
+  id attr String[1] nodeID;
+  ref RDFGraph#blankNodes graph;
+}
+
+class TripleNode extends Node, URIElement {
+  ref Triple[1] triple;
+}
+
+class Resource extends URIElement, Node {
+  op boolean isTypeOf(String uri);
+  transient ref RDFGraph#resources graph;
+}
+
+class Property extends Resource {
+  ref Triple[*]#predicate predicateOf;
+}
+
+class Datatype extends Resource {
+}
+
+class Literal extends Node {
+  attr String[1] lexicalForm;
+  attr String lang;
+  ref Datatype[1] ~datatype;
+  ref RDFGraph#literals graph;
+}
+
+class Bag extends BlankNode {
+  ref Node[*] elements;
+}
+
+class Alt extends BlankNode {
+  ref Node[*] elements;
+}
+
+class Seq extends BlankNode {
+  ref Node[*] elements;
+}
+
+class List extends BlankNode {
+  ref Node[*] elements;
+}
