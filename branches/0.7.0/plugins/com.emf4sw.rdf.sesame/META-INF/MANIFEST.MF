@@ -6,7 +6,7 @@ Bundle-Version: 0.7.0.qualifier
 Bundle-Vendor: eclipselabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.openrdf;bundle-version="2.3.2",
- org.eclipse.emf.ecore;bundle-version="2.6.1",
- com.emf4sw.rdf;bundle-version="0.6.5"
+ org.eclipse.emf.ecore;bundle-version="2.5.0",
+ com.emf4sw.rdf;bundle-version="0.7.0"
 Export-Package: com.emf4sw.rdf.resource.impl,
  com.emf4sw.rdf.sesame
