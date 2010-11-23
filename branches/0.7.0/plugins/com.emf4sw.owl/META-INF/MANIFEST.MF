@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.emf4sw.owl;singleton:=true
+Bundle-Version: 0.7.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.5.0",
+ com.emf4sw.rdf;bundle-version="0.7.0"
+Bundle-ClassPath: .
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Name: Eclipse Modeling for Semantic Web - OWL
+Export-Package: 
+ com.emf4sw.owl,
+ com.emf4sw.owl.impl,
+ com.emf4sw.owl.resource,
+ com.emf4sw.owl.util,
+ com.emf4sw.owl.vocabulary
+Bundle-Vendor: eclipselabs
+

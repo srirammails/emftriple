@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMF4SW OWL Transformations
+Bundle-SymbolicName: com.emf4sw.owl.transform
+Bundle-Version: 0.7.0.qualifier
+Bundle-Vendor: eclipseabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.emf4sw.owl.transform,
+ com.emf4sw.owl.transform.ecore2owl,
+ com.emf4sw.owl.transform.owl2ecore,
+ com.emf4sw.owl.transform.utils
+Require-Bundle: com.atl.common;bundle-version="0.6.1";visibility:=reexport,
+ com.emf4sw.owl;bundle-version="0.7.0"
