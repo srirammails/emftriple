@@ -118,7 +118,7 @@ public class OntModelSwitch<T> {
 	public T doSwitch(Resource res) {
 		T result = null;
 		if (res.canAs(OntResource.class)) {
-			OntResource ontRes = (OntResource)res;
+			OntResource ontRes = res.as(OntResource.class);
 			if (ontRes.isProperty()) {
 				if (ontRes.isObjectProperty()) {
 					result = caseObjectProperty(ontRes.asObjectProperty());
