@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="jgrapht-jdk1.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="aterm-java-1.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-datatypes.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-dig.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-el.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-explanation.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-jena.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-modularity.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-pellint.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-query.jar"/>
+	<classpathentry exported="true" kind="lib" path="pellet-rules.jar"/>
+	<classpathentry exported="true" kind="lib" path="relaxngDatatype.jar"/>
+	<classpathentry exported="true" kind="lib" path="servlet.jar"/>
+	<classpathentry exported="true" kind="lib" path="xsdlib.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
