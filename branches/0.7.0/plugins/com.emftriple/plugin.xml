@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.emftriple.com/xml/ns/annotations"
+            class="com.emftriple.config.annotations.OTMPackage"
+            genModel="src/com/emftriple/config/annotations.genmodel"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser 
+            type="annotations"
+            class="com.emftriple.config.annotations.util.OTMResourceFactoryImpl"/>
+   </extension>
+   
+</plugin>
