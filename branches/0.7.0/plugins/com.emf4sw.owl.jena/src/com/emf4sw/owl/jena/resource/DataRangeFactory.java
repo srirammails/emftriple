@@ -10,7 +10,6 @@ import com.emf4sw.owl.FacetRestriction;
 import com.emf4sw.owl.OWLDatatype;
 import com.emf4sw.owl.util.OWLSwitch;
 import com.emf4sw.owl.vocabulary.OWL;
-import com.emf4sw.owl.vocabulary.OWL2;
 import com.emf4sw.rdf.vocabulary.RDF;
 import com.emf4sw.rdf.vocabulary.RDFS;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -45,7 +44,7 @@ class DataRangeFactory {
 //		_:yn Fn ltn
 		final Resource aDatatype = model.createResource();
 		model.add(aDatatype, model.createProperty(RDF.type), model.createResource(RDFS.Datatype));
-		model.add(aDatatype, model.createProperty(OWL2.onDatatype), createDatatype(restriction.getDatatype(), model));
+		model.add(aDatatype, model.createProperty(OWL.onDatatype), createDatatype(restriction.getDatatype(), model));
 		
 		RDFList list = model.createList();
 		for (FacetRestriction facet: restriction.getRestrictions()) {
@@ -57,7 +56,7 @@ class DataRangeFactory {
 					), literal);
 			list = list.cons(aResource);
 		}
-		model.add(aDatatype, model.createProperty(OWL2.withRestrictions), list);
+		model.add(aDatatype, model.createProperty(OWL.withRestrictions), list);
 
 		return aDatatype;
 	}
@@ -85,7 +84,7 @@ class DataRangeFactory {
 
 			final Resource dataRange = createDataRange(range.getDataRange(), model);
 			model.createStatement(aResource, 
-					model.createProperty(OWL2.datatypeComplementOf), 
+					model.createProperty(OWL.datatypeComplementOf), 
 					dataRange);
 
 			return aResource;

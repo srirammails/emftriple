@@ -9,6 +9,8 @@
  */
 package com.emf4sw.owl.vocabulary;
 
+import com.emf4sw.rdf.vocabulary.XSD;
+
 /**
  * OWL vocabulary.
  * 
@@ -38,17 +40,11 @@ public class OWL {
 	
 	final public static String SymmetricProperty = NS + "SymmetricProperty";
 	
-	final public static String AsymmetricProperty = NS + "AsymmetricProperty";
-	
 	final public static String TransitiveProperty = NS + "TransitiveProperty";
 	
 	final public static String FunctionalProperty = NS + "FunctionalProperty";
 	
 	final public static String InverseFunctionalProperty = NS + "InverseFunctionalProperty";
-	
-	final public static String ReflexiveProperty = NS + "ReflexiveProperty";
-	
-	final public static String IrreflexiveProperty = NS + "IrreflexiveProperty";
 	
 	final public static String AnnotationProperty = NS + "AnnotationProperty";
 	
@@ -79,8 +75,6 @@ public class OWL {
 	
 	final public static String equivalentProperty = NS + "equivalentProperty";
 	
-	final public static String propertyDisjointWith = NS + "propertyDisjointWith";
-	
 	final public static String inverseOf = NS + "inverseOf";
 	
 	final public static String allValuesFrom = NS + "allValuesFrom";
@@ -104,5 +98,81 @@ public class OWL {
 	final public static String oneOf = NS + "oneOf";
 	
 	final public static String disjointWith = NS + "disjointWith";
+	
+final public static String AllDisjointClasses = NS + "AllDisjointClasses";
+	
+	final public static String AllDisjointProperties = NS + "AllDisjointProperties";
+	
+	final public static String ReflexiveProperty = NS + "ReflexiveProperty";
+	
+	final public static String IrreflexiveProperty = NS + "IrreflexiveProperty";
+	
+	final public static String AsymmetricProperty = NS + "AsymmetricProperty";
+	
+	final public static String NegativePropertyAssertion = NS + "NegativePropertyAssertion";
+		
+	final public static String NamedIndividual = NS + "NamedIndividual";
+	
+	
+	final public static String versionIRI = NS + "versionIRI";
+	
+	final public static String datatypeComplementOf = NS + "datatypeComplementOf";
+	
+	final public static String onClass  = NS + "onClass";
+	
+	final public static String onDataRange = NS + "onDatarange";
+	
+	final public static String onDatatype = NS + "onDatatype";
+	
+	final public static String withRestrictions = NS + "withRestrictions";
+	
+	final public static String disjointDataProperties = NS + "disjointDataProperties";
+	
+	final public static String minQualifiedCardinality = NS + "minQualifiedCardinality";
+	
+	final public static String maxQualifiedCardinality = NS + "maxQualifiedCardinality";
+	
+	final public static String qualifiedCardinality = NS + "qualifiedCardinality";
+	
+	final public static String disjointUnionOf = NS + "disjointUnionOf";
+	
+	final public static String propertyDisjointWith = NS + "propertyDisjointWith";
+	
+	final public static String propertyChainAxiom = NS + "propertyChainAxiom";
+	
+	final public static String members = NS + "members";
+	
+	final public static String hasKey = NS + "hasKey";
+	
+	final public static String hasSelf = NS + "hasSelf";
+	
+	final public static String sourceIndividual = NS + "sourceIndividual";
+	
+	final public static String assertionProperty = NS + "assertionProperty";
+	
+	final public static String targetIndividual = NS + "targetIndividual";
+	
+	final public static String targetValue = NS + "targetValue";
+	
+	
+	final public static String length = XSD.NS + "length";
+	
+	final public static String maxLength = XSD.NS + "maxLength";
+	
+	final public static String minLength = XSD.NS + "minLength";
+	
+	final public static String totalDigits = XSD.NS + "totalDigits";
+	
+	final public static String fractionDigits = XSD.NS + "fractionDigits";
+	
+	final public static String minInclusive = XSD.NS + "minInclusive";
+	
+	final public static String minExclusive = XSD.NS + "minExclusive";
+	
+	final public static String maxInclusive = XSD.NS + "maxInclusive";
+	
+	final public static String maxExclusive = XSD.NS + "maxExclusive";
+	
+	final public static String pattern = XSD.NS + "pattern";
 
 }

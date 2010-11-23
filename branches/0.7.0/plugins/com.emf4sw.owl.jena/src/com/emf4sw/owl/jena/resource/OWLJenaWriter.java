@@ -34,7 +34,7 @@ import com.emf4sw.owl.resource.OWLFormats;
 import com.emf4sw.owl.resource.OWLResource;
 import com.emf4sw.owl.resource.OWLWriter;
 import com.emf4sw.owl.util.OWLSwitch;
-import com.emf4sw.owl.vocabulary.OWL2;
+import com.emf4sw.owl.vocabulary.OWL;
 import com.emf4sw.rdf.Resource;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.ontology.ComplementClass;
@@ -269,9 +269,9 @@ public class OWLJenaWriter implements OWLWriter {
 			final Property property = model.getProperty(object.getProperty().getURI());
 
 			if (property != null) {
-				model.add(model.createStatement(ret, model.getProperty(OWL2.onProperty), property.getURI()));
+				model.add(model.createStatement(ret, model.getProperty(OWL.onProperty), property.getURI()));
 				Literal lit = model.createTypedLiteral("true", XSDDatatype.XSDboolean);
-				model.add(model.createStatement(ret, model.getProperty(OWL2.hasSelf), lit));
+				model.add(model.createStatement(ret, model.getProperty(OWL.hasSelf), lit));
 				cache.put(object, ret);
 			}
 			return ret;
@@ -293,7 +293,7 @@ public class OWLJenaWriter implements OWLWriter {
 
 				OntResource aClass = doSwitch(object.getOnClass());
 				if (aClass != null) {
-					model.add(model.createStatement(ret, model.getProperty(OWL2.onClass), aClass));
+					model.add(model.createStatement(ret, model.getProperty(OWL.onClass), aClass));
 				}
 			}
 			cache.put(object, ret);
@@ -316,7 +316,7 @@ public class OWLJenaWriter implements OWLWriter {
 
 				OntResource aClass = doSwitch(object.getOnClass());
 				if (aClass != null) {
-					model.add(model.createStatement(ret, model.getProperty(OWL2.onClass), aClass));
+					model.add(model.createStatement(ret, model.getProperty(OWL.onClass), aClass));
 				}
 			}
 			cache.put(object, ret);
@@ -339,7 +339,7 @@ public class OWLJenaWriter implements OWLWriter {
 
 				OntResource aClass = doSwitch(object.getOnClass());
 				if (aClass != null) {
-					model.add(model.createStatement(ret, model.getProperty(OWL2.onClass), aClass));
+					model.add(model.createStatement(ret, model.getProperty(OWL.onClass), aClass));
 				}
 			}
 			cache.put(object, ret);
@@ -422,7 +422,7 @@ public class OWLJenaWriter implements OWLWriter {
 
 				com.hp.hpl.jena.rdf.model.Resource res = DataRangeFactory.createDataRange(object.getDataRange(), model);
 				if (res != null) {
-					model.add(model.createStatement(ret, model.getProperty(OWL2.onDataRange) ,res));
+					model.add(model.createStatement(ret, model.getProperty(OWL.onDataRange) ,res));
 				}
 			}
 			cache.put(object, ret);
@@ -445,7 +445,7 @@ public class OWLJenaWriter implements OWLWriter {
 
 				com.hp.hpl.jena.rdf.model.Resource res = DataRangeFactory.createDataRange(object.getDataRange(), model);
 				if (res != null) {
-					model.add(model.createStatement(ret, model.getProperty(OWL2.onDataRange) ,res));
+					model.add(model.createStatement(ret, model.getProperty(OWL.onDataRange) ,res));
 				}
 			}
 			cache.put(object, ret);
@@ -468,7 +468,7 @@ public class OWLJenaWriter implements OWLWriter {
 
 				com.hp.hpl.jena.rdf.model.Resource res = DataRangeFactory.createDataRange(object.getDataRange(), model);
 				if (res != null) {
-					model.add(model.createStatement(ret, model.getProperty(OWL2.onDataRange) ,res));
+					model.add(model.createStatement(ret, model.getProperty(OWL.onDataRange) ,res));
 				}
 			}
 			cache.put(object, ret);
