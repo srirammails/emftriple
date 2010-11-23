@@ -6,22 +6,19 @@
  */
 package com.emftriple.config.persistence.util;
 
+import com.emftriple.config.persistence.*;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
 import org.eclipse.emf.ecore.xml.type.util.XMLTypeUtil;
 import org.eclipse.emf.ecore.xml.type.util.XMLTypeValidator;
-
-import com.emftriple.config.persistence.DataSourceConfig;
-import com.emftriple.config.persistence.DataSources;
-import com.emftriple.config.persistence.PersistenceConfig;
-import com.emftriple.config.persistence.PersistencePackage;
-import com.emftriple.config.persistence.PersistenceUnit;
-import com.emftriple.config.persistence.Properties;
-import com.emftriple.config.persistence.Property;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,14 +101,14 @@ public class PersistenceValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case PersistencePackage.PERSISTENCE_CONFIG:
-				return validatePersistenceConfig((PersistenceConfig)value, diagnostics, context);
+			case PersistencePackage.PERSISTENCE_META_DATA:
+				return validatePersistenceMetaData((PersistenceMetaData)value, diagnostics, context);
 			case PersistencePackage.PERSISTENCE_UNIT:
 				return validatePersistenceUnit((PersistenceUnit)value, diagnostics, context);
-			case PersistencePackage.DATA_SOURCES:
-				return validateDataSources((DataSources)value, diagnostics, context);
-			case PersistencePackage.DATA_SOURCE_CONFIG:
-				return validateDataSourceConfig((DataSourceConfig)value, diagnostics, context);
+			case PersistencePackage.FEDERATION:
+				return validateFederation((Federation)value, diagnostics, context);
+			case PersistencePackage.DATA_SOURCE_BUILDER:
+				return validateDataSourceBuilder((DataSourceBuilder)value, diagnostics, context);
 			case PersistencePackage.PROPERTIES:
 				return validateProperties((Properties)value, diagnostics, context);
 			case PersistencePackage.PROPERTY:
@@ -128,8 +125,8 @@ public class PersistenceValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePersistenceConfig(PersistenceConfig persistenceConfig, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(persistenceConfig, diagnostics, context);
+	public boolean validatePersistenceMetaData(PersistenceMetaData persistenceMetaData, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(persistenceMetaData, diagnostics, context);
 	}
 
 	/**
@@ -146,8 +143,8 @@ public class PersistenceValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDataSources(DataSources dataSources, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(dataSources, diagnostics, context);
+	public boolean validateFederation(Federation federation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(federation, diagnostics, context);
 	}
 
 	/**
@@ -155,8 +152,8 @@ public class PersistenceValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDataSourceConfig(DataSourceConfig dataSourceConfig, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(dataSourceConfig, diagnostics, context);
+	public boolean validateDataSourceBuilder(DataSourceBuilder dataSourceBuilder, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(dataSourceBuilder, diagnostics, context);
 	}
 
 	/**
