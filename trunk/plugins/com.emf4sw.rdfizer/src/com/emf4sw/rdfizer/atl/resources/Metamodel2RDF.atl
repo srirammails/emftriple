@@ -12,13 +12,22 @@ helper def: elements: Set(Model!EModelElement) = Model!EModelElement.allInstance
 
 rule EPackage2Ontology {
 	from m: Model!EPackage
+	using {
+		imports: Set(Model!EAnnotation) = m.eAnnotations->select(e | e.source.endsWith('OWL'));
+	}
 	to
 		r: RDF!Resource (
 			URI <- m.getURI()
 		,	label <- m.name
 		,	subjectOf <- Sequence {
-				thisModule.MakeTripleWithURI(m, thisModule.RDF + 'type', thisModule.OWL + 'Ontology', thisModule.Graph)
-			}
+				thisModule.MakeTripleWithURI(m, thisModule.RDF + 'type', thisModule.OWL + 'Ontology', thisModule.Graph),
+				thisModule.MakeTripleWithURI(m, 'http://www.emf4sw.org/vocab/origin', m.nsURI, thisModule.Graph),
+				imports->collect(e |
+					if (e.details.containsKey('owlimport')) then
+						thisModule.MakeTripleWithURI(m, thisModule.OWL + 'imports', e.details.get('owlimport'), thisModule.Graph)
+					else Sequence {} endif
+				)
+			}->flatten()
 		)
 }
 
