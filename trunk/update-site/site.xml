@@ -3,37 +3,37 @@
    <description name="Eclipse Modeling for Semantic Web" url="http://emftriple.googlecode.com/svn/trunk/emftriple/">
       EMFTriple provides a set of Eclipse plugins to help you bridge the Eclipse Modeling Framework (EMF) and Semantic Web (SW) technologies such as OWL  and RDF.
    </description>
-   <feature url="features/com.emf4sw.owl.feature_0.6.1.201011181114.jar" id="com.emf4sw.owl.feature" version="0.6.1.201011181114">
+   <feature url="features/com.emf4sw.owl.feature_0.6.1.201011251326.jar" id="com.emf4sw.owl.feature" version="0.6.1.201011251326">
       <category name="Eclipse Modeling for Semantic Web"/>
    </feature>
-   <feature url="features/com.emf4sw.ui.feature_0.6.1.201011181114.jar" id="com.emf4sw.ui.feature" version="0.6.1.201011181114">
+   <feature url="features/com.emf4sw.ui.feature_0.6.1.201011251326.jar" id="com.emf4sw.ui.feature" version="0.6.1.201011251326">
       <category name="Eclipse Modeling for Semantic Web"/>
    </feature>
-   <feature url="features/com.emftriple.feature_0.6.1.201011181114.jar" id="com.emftriple.feature" version="0.6.1.201011181114">
+   <feature url="features/com.emftriple.feature_0.6.1.201011251326.jar" id="com.emftriple.feature" version="0.6.1.201011251326">
       <category name="EMF Triple"/>
    </feature>
-   <feature url="features/com.emftriple.jena.feature_0.6.1.201011181114.jar" id="com.emftriple.jena.feature" version="0.6.1.201011181114">
+   <feature url="features/com.emftriple.jena.feature_0.6.1.201011251326.jar" id="com.emftriple.jena.feature" version="0.6.1.201011251326">
       <category name="EMF Triple"/>
    </feature>
-   <feature url="features/com.emftriple.query.mquery.feature_0.6.1.201011181114.jar" id="com.emftriple.query.mquery.feature" version="0.6.1.201011181114">
+   <feature url="features/com.emftriple.query.mquery.feature_0.6.1.201011251326.jar" id="com.emftriple.query.mquery.feature" version="0.6.1.201011251326">
       <category name="EMF Triple"/>
    </feature>
-   <feature url="features/com.emftriple.query.sparql.feature_0.6.1.201011181114.jar" id="com.emftriple.query.sparql.feature" version="0.6.1.201011181114">
+   <feature url="features/com.emftriple.query.sparql.feature_0.6.1.201011251326.jar" id="com.emftriple.query.sparql.feature" version="0.6.1.201011251326">
       <category name="EMF Triple"/>
    </feature>
-   <feature url="features/com.emftriple.sesame.feature_0.6.1.201011181114.jar" id="com.emftriple.sesame.feature" version="0.6.1.201011181114">
+   <feature url="features/com.emftriple.sesame.feature_0.6.1.201011251326.jar" id="com.emftriple.sesame.feature" version="0.6.1.201011251326">
       <category name="EMF Triple"/>
    </feature>
-   <feature url="features/com.emf4sw.uml.feature_0.6.1.201011181114.jar" id="com.emf4sw.uml.feature" version="0.6.1.201011181114">
+   <feature url="features/com.emf4sw.uml.feature_0.6.1.201011251326.jar" id="com.emf4sw.uml.feature" version="0.6.1.201011251326">
       <category name="Eclipse Modeling for Semantic Web"/>
    </feature>
-   <feature url="features/com.atl.common.feature_0.6.1.201011181114.jar" id="com.atl.common.feature" version="0.6.1.201011181114">
+   <feature url="features/com.atl.common.feature_0.6.1.201011251326.jar" id="com.atl.common.feature" version="0.6.1.201011251326">
       <category name="Eclipse Modeling for Semantic Web"/>
    </feature>
-   <feature url="features/com.emf4sw.rdf.feature_0.6.2.201011181114.jar" id="com.emf4sw.rdf.feature" version="0.6.2.201011181114">
+   <feature url="features/com.emf4sw.rdf.feature_0.6.2.201011251326.jar" id="com.emf4sw.rdf.feature" version="0.6.2.201011251326">
       <category name="Eclipse Modeling for Semantic Web"/>
    </feature>
-   <feature url="features/com.emf4sw.rdfizer.feature_0.6.1.201011181114.jar" id="com.emf4sw.rdfizer.feature" version="0.6.1.201011181114">
+   <feature url="features/com.emf4sw.rdfizer.feature_0.6.1.201011251326.jar" id="com.emf4sw.rdfizer.feature" version="0.6.1.201011251326">
       <category name="Eclipse Modeling for Semantic Web"/>
    </feature>
    <category-def name="Eclipse Modeling for Semantic Web" label="Eclipse Modeling for Semantic Web">
