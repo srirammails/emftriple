@@ -18,6 +18,7 @@ import com.emftriple.example.employee.EmployeePackage;
 import com.emftriple.example.employee.Project;
 import com.emftriple.example.employee.SmallProject;
 import com.emftriple.resource.ETripleResource;
+import com.emftriple.util.EntityUtil;
 
 public class Queries {
 
@@ -35,6 +36,8 @@ public class Queries {
 		queries.readAllEmployees(em);
 		queries.readAllSmallProjects(em);
 		queries.namedQuery(em);
+		
+		queries.loadResource();
 		
 		em.getTransaction().commit();
 		em.close();
@@ -88,7 +91,7 @@ public class Queries {
 
 		for (Employee e: allEmployees) 
 		{
-			System.out.println( e.getFirstName() );
+			System.out.println( EntityUtil.ID.getId(e) );
 			for (Project p: e.getProjects() ) 
 			{
 				System.out.println( "    > " + p.getName() );
