@@ -10,9 +10,7 @@ package com.emf4sw.rdfizer.impl;
 import static com.atl.common.trans.Transformations.transform;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -44,7 +42,7 @@ public class IDGenerator {
 
 	private static final String HTTP = "http://";
 
-	private Map<EClass, Long> generatedIds;
+	private Long id = 0l;
 
 
 	public IDGenerator() {}
@@ -53,12 +51,12 @@ public class IDGenerator {
 		BASE_NAMESPACE = namespace;
 	}
 
-	private Map<EClass, Long> getGeneratedIds() {
-		if (generatedIds == null) {
-			generatedIds = new HashMap<EClass, Long>();
-		}
-		return generatedIds;
-	}
+//	private Map<EClass, Long> getGeneratedIds() {
+//		if (generatedIds == null) {
+//			generatedIds = new HashMap<EClass, Long>();
+//		}
+//		return generatedIds;
+//	}
 
 	/**
 	 * Return the value of object id.
@@ -143,15 +141,9 @@ public class IDGenerator {
 			namespace = BASE_NAMESPACE == null ? namespace(object) : BASE_NAMESPACE;
 		}
 
-		if (getGeneratedIds().containsKey(object.eClass())) {
-			final Long number = getGeneratedIds().get(object.eClass()) + 1;
-			value = namespace + number.toString();
-			getGeneratedIds().put(object.eClass(), number);
-		} else {
-			final Long number = 1l;
-			value = namespace + number.toString();
-			getGeneratedIds().put(object.eClass(), number);
-		}
+		final Long number = id + 1;
+		value = namespace + number.toString();
+		id = number;
 
 		return value;
 	}

@@ -45,6 +45,7 @@ abstract class RDFGraph extends URIElement {
 
   @ExtendedMetaData(group="#nodes")
   volatile transient derived !resolve val Literal[*]#graph literals;
+  
   val Triple[*]#graph triples;
 }
 
@@ -67,13 +68,15 @@ class Quad extends Triple {
 
 abstract class Node {
   op boolean isTypeOf(String uri);
-  op Node[*] getTypes();
   op String[1] getStringValue(String uri);
   op Node[*] getValues(String uri);
   op String[*] getURIValues(String uri);
   op Node[*] getObject(String uri);
+  
   attr String label;
   attr String comment;
+  
+  ref Node[*] types;
   ref Triple[*]#subject subjectOf;
   ref Triple[*]#object objectOf;
 }
@@ -92,7 +95,6 @@ class TripleNode extends Node, URIElement {
 }
 
 class Resource extends URIElement, Node {
-  op boolean isTypeOf(String uri);
   transient ref RDFGraph#resources graph;
 }
 
