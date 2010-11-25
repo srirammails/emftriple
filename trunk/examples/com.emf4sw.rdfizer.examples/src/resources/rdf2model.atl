@@ -10,6 +10,102 @@ helper def: isValid(s : String) : Boolean =
   s.trim().size() > 0
  endif;
 
+rule EmploymentPeriod {
+ from
+  r : RDF!Node
+  (
+   r.isTypeOf('http://www.example.com/Employee#EmploymentPeriod')
+  )
+ to
+  o : MODEL!EmploymentPeriod
+ do {
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#startDate')))
+   o.startDate <- r.getStringValue('http://www.example.com/Employee#startDate').convertTo('EDate');
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#endDate')))
+   o.endDate <- r.getStringValue('http://www.example.com/Employee#endDate').convertTo('EDate');
+  
+ }
+}
+
+rule JobTitle {
+ from
+  r : RDF!Node
+  (
+   r.isTypeOf('http://www.example.com/Employee#JobTitle')
+  )
+ to
+  o : MODEL!JobTitle
+ do {
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#title')))
+   o.title <- r.getStringValue('http://www.example.com/Employee#title').convertTo('EString');
+  
+ }
+}
+
+rule Directory {
+ from
+  r : RDF!Node
+  (
+   r.isTypeOf('http://www.example.com/Employee#Directory')
+  )
+ to
+  o : MODEL!Directory (
+   projects <- r.getValues('http://www.example.com/Employee#projects'),
+   employees <- r.getValues('http://www.example.com/Employee#employees'),
+   jobs <- r.getValues('http://www.example.com/Employee#jobs'),
+   degrees <- r.getValues('http://www.example.com/Employee#degrees')
+  )
+ do {
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#name')))
+   o.name <- r.getStringValue('http://www.example.com/Employee#name').convertTo('EString');
+  
+ }
+}
+
+rule LargeProject {
+ from
+  r : RDF!Node
+  (
+   r.isTypeOf('http://www.example.com/Employee#LargeProject')
+  )
+ to
+  o : MODEL!LargeProject (
+   teamLeader <- r.getValues('http://www.example.com/Employee#teamLeader')->first()
+  )
+ do {
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#name')))
+   o.name <- r.getStringValue('http://www.example.com/Employee#name').convertTo('EString');
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#description')))
+   o.description <- r.getStringValue('http://www.example.com/Employee#description').convertTo('EString');
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#budget')))
+   o.budget <- r.getStringValue('http://www.example.com/Employee#budget').convertTo('EDouble');
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#milestone')))
+   o.milestone <- r.getStringValue('http://www.example.com/Employee#milestone').convertTo('EDate');
+  
+ }
+}
+
+rule PhoneNumber {
+ from
+  r : RDF!Node
+  (
+   r.isTypeOf('http://www.example.com/Employee#PhoneNumber')
+  )
+ to
+  o : MODEL!PhoneNumber (
+   owner <- r.getValues('http://www.example.com/Employee#owner')->first()
+  )
+ do {
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#number')))
+   o.number <- r.getStringValue('http://www.example.com/Employee#number').convertTo('EString');
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#type')))
+   o.type <- r.getStringValue('http://www.example.com/Employee#type').convertTo('EString');
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#areaCode')))
+   o.areaCode <- r.getStringValue('http://www.example.com/Employee#areaCode').convertTo('EString');
+  
+ }
+}
+
 rule Employee {
  from
   r : RDF!Node
@@ -59,44 +155,17 @@ rule EmailAddress {
  }
 }
 
-rule LargeProject {
+rule Degree {
  from
   r : RDF!Node
   (
-   r.isTypeOf('http://www.example.com/Employee#LargeProject')
+   r.isTypeOf('http://www.example.com/Employee#Degree')
   )
  to
-  o : MODEL!LargeProject (
-   teamLeader <- r.getValues('http://www.example.com/Employee#teamLeader')->first()
-  )
+  o : MODEL!Degree
  do {
   if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#name')))
    o.name <- r.getStringValue('http://www.example.com/Employee#name').convertTo('EString');
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#description')))
-   o.description <- r.getStringValue('http://www.example.com/Employee#description').convertTo('EString');
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#budget')))
-   o.budget <- r.getStringValue('http://www.example.com/Employee#budget').convertTo('EDouble');
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#milestone')))
-   o.milestone <- r.getStringValue('http://www.example.com/Employee#milestone').convertTo('EDate');
-  
- }
-}
-
-rule SmallProject {
- from
-  r : RDF!Node
-  (
-   r.isTypeOf('http://www.example.com/Employee#SmallProject')
-  )
- to
-  o : MODEL!SmallProject (
-   teamLeader <- r.getValues('http://www.example.com/Employee#teamLeader')->first()
-  )
- do {
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#name')))
-   o.name <- r.getStringValue('http://www.example.com/Employee#name').convertTo('EString');
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#description')))
-   o.description <- r.getStringValue('http://www.example.com/Employee#description').convertTo('EString');
   
  }
 }
@@ -124,90 +193,21 @@ rule Address {
  }
 }
 
-rule Directory {
+rule SmallProject {
  from
   r : RDF!Node
   (
-   r.isTypeOf('http://www.example.com/Employee#Directory')
+   r.isTypeOf('http://www.example.com/Employee#SmallProject')
   )
  to
-  o : MODEL!Directory (
-   projects <- r.getValues('http://www.example.com/Employee#projects'),
-   employees <- r.getValues('http://www.example.com/Employee#employees'),
-   jobs <- r.getValues('http://www.example.com/Employee#jobs'),
-   degrees <- r.getValues('http://www.example.com/Employee#degrees')
+  o : MODEL!SmallProject (
+   teamLeader <- r.getValues('http://www.example.com/Employee#teamLeader')->first()
   )
  do {
   if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#name')))
    o.name <- r.getStringValue('http://www.example.com/Employee#name').convertTo('EString');
-  
- }
-}
-
-rule PhoneNumber {
- from
-  r : RDF!Node
-  (
-   r.isTypeOf('http://www.example.com/Employee#PhoneNumber')
-  )
- to
-  o : MODEL!PhoneNumber (
-   owner <- r.getValues('http://www.example.com/Employee#owner')->first()
-  )
- do {
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#number')))
-   o.number <- r.getStringValue('http://www.example.com/Employee#number').convertTo('EString');
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#type')))
-   o.type <- r.getStringValue('http://www.example.com/Employee#type').convertTo('EString');
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#areaCode')))
-   o.areaCode <- r.getStringValue('http://www.example.com/Employee#areaCode').convertTo('EString');
-  
- }
-}
-
-rule JobTitle {
- from
-  r : RDF!Node
-  (
-   r.isTypeOf('http://www.example.com/Employee#JobTitle')
-  )
- to
-  o : MODEL!JobTitle
- do {
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#title')))
-   o.title <- r.getStringValue('http://www.example.com/Employee#title').convertTo('EString');
-  
- }
-}
-
-rule Degree {
- from
-  r : RDF!Node
-  (
-   r.isTypeOf('http://www.example.com/Employee#Degree')
-  )
- to
-  o : MODEL!Degree
- do {
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#name')))
-   o.name <- r.getStringValue('http://www.example.com/Employee#name').convertTo('EString');
-  
- }
-}
-
-rule EmploymentPeriod {
- from
-  r : RDF!Node
-  (
-   r.isTypeOf('http://www.example.com/Employee#EmploymentPeriod')
-  )
- to
-  o : MODEL!EmploymentPeriod
- do {
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#startDate')))
-   o.startDate <- r.getStringValue('http://www.example.com/Employee#startDate').convertTo('EDate');
-  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#endDate')))
-   o.endDate <- r.getStringValue('http://www.example.com/Employee#endDate').convertTo('EDate');
+  if(thisModule.isValid(r.getStringValue('http://www.example.com/Employee#description')))
+   o.description <- r.getStringValue('http://www.example.com/Employee#description').convertTo('EString');
   
  }
 }
