@@ -11,10 +11,12 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.RollbackException;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.TransactionEnableDataSource;
 import com.emftriple.resource.ETripleResource;
+import com.emftriple.resource.ETripleResourceSet;
 
 /**
  * {@link ETripleEntityTransaction}
@@ -24,6 +26,8 @@ import com.emftriple.resource.ETripleResource;
  */
 public class ETripleEntityTransaction implements EntityTransaction {
 
+	private static final ResourceSet resourceSet = new ETripleResourceSet();
+	
 	private final TransactionEnableDataSource dataSource;
 	
 	protected ETripleResource transactionResource;
@@ -101,8 +105,13 @@ public class ETripleEntityTransaction implements EntityTransaction {
 	
 	public ETripleResource getTransactionResource() {
 		if (transactionResource == null) {
-			transactionResource = new ETripleResource(URI.createURI(RESOURCE_URI));
+			if (resourceSet.getResource(URI.createURI(RESOURCE_URI), true) == null) {
+				transactionResource = (ETripleResource) resourceSet.createResource(URI.createURI(RESOURCE_URI));
+			} else { 
+				transactionResource = (ETripleResource) resourceSet.getResource(URI.createURI(RESOURCE_URI), true);
+			}
 		}
+		resourceSet.getResources().add(transactionResource);
 		return transactionResource;
 	}
 

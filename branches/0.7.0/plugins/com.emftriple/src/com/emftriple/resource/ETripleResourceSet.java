@@ -18,12 +18,20 @@ public class ETripleResourceSet extends ResourceSetImpl implements ResourceSet {
 		System.out.println("here");
 		if (uri.hasQuery()) {
 			System.out.println("ici");
-			Resource resource = getResources().get(0); 
+			Resource resource = null;
+			try {
+				resource = getResources().get(0);
+				if (!resource.isLoaded()) {
+					resource.load(getLoadOptions());
+				}
 //				getResource(URI.createURI(uri.scheme() + "://" + uri.authority()), loadOnDemand);
 			
-			System.out.println("resource " + resource);
+				System.out.println("resource " + resource);
 			
-			return resource.getEObject(uri.toString());
+				return resource.getEObject(uri.toString());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return super.getEObject(uri, loadOnDemand);
 	}

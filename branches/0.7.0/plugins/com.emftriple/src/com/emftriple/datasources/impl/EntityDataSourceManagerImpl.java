@@ -73,26 +73,29 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	}
 
 	@Override
-	protected GetObject get() {
+	protected GetObject get(boolean getProxy) {
 		return new GetProxyObjectImpl(mapping, this);
 	}
 
 	@Override
-	public Object get(Node node) {
+	public Object get(Node node, boolean getProxy) {
 		if (node instanceof URIElement) 
 		{
 			if (containsKey(((URIElement) node).getURI())) 
 			{
-				return get(((URIElement) node).getURI());
+				final EObject obj = (EObject) get(((URIElement) node).getURI());
+				if (obj.eIsProxy() && getProxy) {
+					return obj;
+				}
 			}
 
-			List<String> types = transform((URIElement)node, new SelectTypes(this));
+			final List<String> types = transform((URIElement)node, new SelectTypes(this));
 			if (types.isEmpty()) 
 			{
 				return null;
 			}
 
-			EClass eClass = mapping.getEClassWithRdfType(types.get(0));
+			final EClass eClass = mapping.getEClassWithRdfType(types.get(0));
 			if (eClass == null) 
 			{
 				return null;
@@ -105,11 +108,11 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	}
 
 	@Override
-	public List<?> get(List<Node> nodes) {
+	public List<?> get(List<Node> nodes, boolean getProxies) {
 		List<Object> list = Lists.newArrayList();
 		for (Node node: nodes) 
 		{
-			list.add( get(node) );
+			list.add( get(node, getProxies) );
 		}
 		return list;
 	}
@@ -125,7 +128,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 
 		if (mapping.isMappedClass(aClass)) 
 		{
-			object = get().get(aClass, key);
+			object = get(false).get(aClass, key);
 		}
 
 		return object;

@@ -45,10 +45,6 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 		super(uri);
 
 		this.persistenceProvider = ETriple.getInstance().getPersistenceProvider();
-		if (getResourceSet() == null)
-			resourceSet = new ETripleResourceSet();
-		
-		getResourceSet().getResources().add(this);
 	}
 
 	@Override
@@ -83,20 +79,23 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 
 	@Override
 	public EObject getEObject(String uriFragment) {
-		System.out.println("get object");
-		if (uriFragment.startsWith(ETripleEntityTransaction.RESOURCE_URI)) {
+		if (uriFragment.startsWith(ETripleEntityTransaction.RESOURCE_URI)) 
+		{
 			final EntityManager em = 
 				ETripleEntityManagerFactory.Registry.INSTANCE.getActiveEntityManager();
 			
-			URI uri = URI.createURI(uriFragment);
-			String query = uri.query();
-			if (query != null && query.startsWith("query=")) {
-//				String key = query.split("=")[1];
-//				if (em.getTransaction().isActive()) {
-//					System.out.println("try it");
-//					return em.find(arg0, key);
-//				}
-			}
+			final URI uri = URI.createURI(uriFragment);
+			final String query = uri.query();
+
+			if (query != null && query.startsWith("query=")) 
+			{
+				Object obj = EObjectFinder.find(query.split("=")[1], em);
+				
+				if (obj != null && obj instanceof EObject)
+				{
+					return (EObject) obj;
+				}
+			}			
 			return null;
 		} else {
 			return super.getEObject(uriFragment);

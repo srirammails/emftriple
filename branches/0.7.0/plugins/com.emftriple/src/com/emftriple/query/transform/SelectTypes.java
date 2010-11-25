@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.URIElement;
-import com.emf4sw.rdf.vocabulary.RDF;
 import com.emftriple.datasources.DataSourceManager;
 import com.emftriple.datasources.ResultSet;
 import com.emftriple.datasources.ResultSet.Solution;
+import com.emftriple.query.Queries;
 import com.emftriple.query.SparqlBuilder;
 import com.emftriple.query.sparql.SelectQuery;
 import com.google.common.base.Function;
@@ -26,7 +26,7 @@ public class SelectTypes implements Function<URIElement, List<String>> {
 		final List<String> types = Lists.newArrayList();
 		if (from != null && from.getURI() != null) 
 		{
-			final SelectQuery query = SparqlBuilder.getSelectQuery("SELECT ?t WHERE { <" + from.getURI() + "> <" + RDF.type + "> ?t }");
+			final SelectQuery query = Queries.typeOf(from.getURI());
 			final ResultSet resultSet = manager.executeSelectQuery(query);
 			SparqlBuilder.clear();
 
@@ -35,7 +35,7 @@ public class SelectTypes implements Function<URIElement, List<String>> {
 			}
 			while (resultSet.hasNext()) {
 				Solution solution = resultSet.next();
-				Node node = solution.get("t");
+				Node node = solution.get("type");
 				if (node instanceof URIElement)
 				{
 					types.add( ((URIElement) node).getURI() );

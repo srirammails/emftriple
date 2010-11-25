@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.resource.ETripleResource;
 import com.emftriple.transform.GetObject;
 import com.emftriple.transform.PutObject;
 import com.emftriple.util.EntityUtil;
@@ -48,8 +47,6 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 	private final List<Object> markAsDetachEntities;
 
-	protected final ETripleResource resource;
-
 	@Inject
 	EntityManagerDelegateImpl(Mapping mapping, @Named("DataSources") Federation dataSources) {
 		super(dataSources);
@@ -59,12 +56,11 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		this.markAsToSaveEntities = new ArrayList<Object>();
 		this.markAsToDeleteEntities = new ArrayList<Object>();
 		this.markAsDetachEntities = new ArrayList<Object>();
-		this.resource = new ETripleResource(URI.createURI("tmp-model"));
 	}
 
 	protected abstract PutObject put();
 
-	protected abstract GetObject get();
+	protected abstract GetObject get(boolean getProxy);
 
 	protected abstract int lastIndexOf(EClass eClass);
 	
@@ -72,7 +68,8 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	public void put(URI uri, EObject eObject) {
 		if ( eObject.eResource() == null )
 		{
-			resource.getContents().add(eObject);
+			((ETripleEntityTransaction)getTransaction())
+				.getTransactionResource().getContents().add(eObject);
 		}		
 		if ( !getAllEntities().containsKey(uri) ) 
 		{

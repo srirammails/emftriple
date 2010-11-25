@@ -20,7 +20,7 @@ public interface ETripleObject extends InternalEObject {
 	void eSetURI(URI uri);
 	
 	/**
-	 * Factory class used to create proxy objects. 
+	 * Factory class for proxy objects. 
 	 * 
 	 * @author ghilla01
 	 *

@@ -45,14 +45,14 @@ public interface EntityDataSourceManager extends TransactionProvider, EntityMana
 	 * @param node
 	 * @return
 	 */
-	Object get(Node node);
+	Object get(Node node, boolean getProxy);
 
 	/**
 	 * 
 	 * @param subjects
 	 * @return
 	 */
-	List<?> get(List<Node> nodes);
+	List<?> get(List<Node> nodes, boolean getProxies);
 	
 	/**
 	 * 

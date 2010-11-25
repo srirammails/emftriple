@@ -31,7 +31,7 @@ public class EStoreDataSourceManagerImpl extends EntityDataSourceManagerImpl imp
 	}
 	
 	@Override
-	protected GetObject get() {
+	protected GetObject get(boolean proxy) {
 		if (get == null) {
 			get = new GetEStoreObjectImpl(mapping, this, eStore);
 		}

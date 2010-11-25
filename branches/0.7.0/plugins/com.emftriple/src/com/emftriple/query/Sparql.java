@@ -109,7 +109,7 @@ public class Sparql implements Query {
 				return null;
 			}
 
-			return getDataSourceManager().get(subjects);			
+			return getDataSourceManager().get(subjects, false);			
 		}
 		else
 		{
