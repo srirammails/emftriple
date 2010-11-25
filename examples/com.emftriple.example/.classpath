@@ -3,19 +3,5 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/unimi/fastutil-5.1.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/dsi-utils-1.0.6-020610.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/bnd-0.0.384.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/ctc_utils-5-4-2005.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/cweb-commons-1.1-b2-dev.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/cweb-extser-0.1-b2-dev.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/cweb-junit-ext-1.1-b3-dev.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/high-scale-lib-v1.1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata-jini/lib/jini/lib/jini-core.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata-jini/lib/jini/lib/jini-ext.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/unimi/colt-1.2.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/junit-3.8.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/lgpl-utils-1.0.6-020610.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ehilgui/Documents/workspaces/dev-emftriple/bigdata/bigdata/lib/lucene/lucene-analyzers-3.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
