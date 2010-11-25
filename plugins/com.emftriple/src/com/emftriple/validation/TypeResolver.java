@@ -59,10 +59,11 @@ public class TypeResolver implements Function<URI, EClass> {
 		@Override
 		public List<Resource> apply(RDFGraph from) {
 			final List<Resource> resources = newArrayList();
-			for (Triple triple: from.getProperty(RDF.type).getPredicateOf()) {
-				if (triple.getObject() instanceof Resource) {
-					resources.add((Resource) triple.getObject());
-				}
+			for (Triple triple: from.getTriples()) {
+				if (triple.getPredicate().getURI().equals(RDF.type))
+					if (triple.getObject() instanceof Resource) {
+						resources.add((Resource) triple.getObject());
+					}
 			}
 			return resources;
 		}

@@ -133,7 +133,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		checkIsOpen();
 		checkHasOWLClassAnnotation(aClass);	
 
-		T returnedObject = (T) getDelegate().get(primarykey);
+		T returnedObject = (T) getDelegate().getKey(primarykey);
 		if (returnedObject == null) {
 			try {
 				returnedObject = (T) getDelegate().get(aClass, URI(primarykey));

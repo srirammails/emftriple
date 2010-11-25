@@ -77,7 +77,8 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 
 	@Override
 	public EObject getEObject(String uriFragment) {
-		// TODO Auto-generated method stub
+		System.out.println("getting " + uriFragment);
+		
 		return super.getEObject(uriFragment);
 	}
 	
@@ -110,4 +111,5 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 
 		return result;
 	}
+	
 }

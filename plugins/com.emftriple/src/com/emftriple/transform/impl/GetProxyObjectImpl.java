@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.Resource;
+import com.emf4sw.rdf.URIElement;
 import com.emf4sw.rdf.operations.DatatypeConverter;
 import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
@@ -196,9 +197,11 @@ public class GetProxyObjectImpl extends AbstractGetObject implements GetObject {
 	}
 
 	private Object createProxy(Node node, EReference reference) {
-		Object proxy =  dataSourceManager.get(node);
-
-		if (proxy == null) 
+		Object proxy = null; 
+		if (dataSourceManager.contains(node)) {
+			proxy = dataSourceManager.getKey(((URIElement) node).getURI());
+		}
+		if (proxy == null)
 		{
 
 			final EClass nodeClass = getClass(getURI(node), (EClass)reference.getEType());
