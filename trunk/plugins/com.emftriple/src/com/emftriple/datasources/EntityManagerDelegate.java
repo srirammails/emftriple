@@ -95,7 +95,7 @@ public interface EntityManagerDelegate {
 	 * 
 	 * @return the Object
 	 */
-	Object get(Object primarykey);
+	Object getKey(Object primarykey);
 	
 	/**
 	 * Flush the current persistence context to the corresponding {@link DataSource}

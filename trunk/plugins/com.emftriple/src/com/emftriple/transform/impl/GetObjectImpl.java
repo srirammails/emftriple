@@ -95,7 +95,7 @@ public class GetObjectImpl extends AbstractGetObject implements GetObject {
 
 	@SuppressWarnings("unchecked")
 	public <T> T transform(Resource source) {
-		Object obj = dataSourceManager.get(getURI(source));
+		Object obj = dataSourceManager.getKey(getURI(source));
 
 		if (obj == null) 
 		{

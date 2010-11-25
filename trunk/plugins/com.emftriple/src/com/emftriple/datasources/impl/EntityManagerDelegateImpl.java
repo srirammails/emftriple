@@ -167,7 +167,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	}
 	
 	@Override 
-	public Object get(Object key) {
+	public Object getKey(Object key) {
 		return getAllEntities().get(key);
 	}
 

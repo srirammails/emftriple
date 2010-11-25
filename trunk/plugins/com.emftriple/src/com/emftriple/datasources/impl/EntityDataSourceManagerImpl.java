@@ -83,7 +83,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		{
 			if (containsKey(((URIElement) node).getURI())) 
 			{
-				return get(((URIElement) node).getURI());
+				return getKey(((URIElement) node).getURI());
 			}
 
 			List<String> types = transform((URIElement)node, new SelectTypes(this));
@@ -117,7 +117,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T get(Class<T> aClass, URI key) {
-		T object = (T) get(key);
+		T object = (T) getKey(key);
 
 		if (object != null) {
 			return object;
