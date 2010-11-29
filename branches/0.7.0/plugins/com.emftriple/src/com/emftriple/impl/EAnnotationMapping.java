@@ -116,9 +116,9 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 
 	@Override
 	public <T> URI getNamedGraph(Class<T> aClass) {
-		String uri = EntityUtil.getNamedGraph(getEClass(aClass));
+		URI uri = EntityUtil.getNamedGraph(getEClass(aClass));
 		
-		return uri == null ? null : URI.createURI(uri);
+		return uri == null ? null : uri;
 	}
 	
 }

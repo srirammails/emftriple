@@ -54,7 +54,8 @@ public class ETriplePersistenceProvider implements PersistenceProvider {
 	}
 
 	@Override
-	public EntityManagerFactory createEntityManagerFactory(String name, @SuppressWarnings("rawtypes") Map options) {
+	public EntityManagerFactory createEntityManagerFactory(String name, @SuppressWarnings("rawtypes") Map options)
+	throws IllegalArgumentException {
 		final PersistenceUnit unit = getUnitByName( name );
 		if (unit == null) {
 			throw new IllegalArgumentException("Found no persistence unit with name " + name);

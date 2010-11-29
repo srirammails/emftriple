@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @since 0.6.1
  */
 public interface EntityManagerDelegate {
-
+	
 	/**
 	 * Adds an Object to the persistence context
 	 * 
@@ -85,7 +85,7 @@ public interface EntityManagerDelegate {
 	 * @param primaryKey corresponding to a persisted object
 	 * @return true if primaryKey corresponds to a persisted object
 	 */
-	boolean containsKey(Object primaryKey);
+	boolean containsKey(URI primaryKey);
 	
 	/**
 	 * Returns the object corresponding to the primary key. The primary key 
@@ -95,7 +95,7 @@ public interface EntityManagerDelegate {
 	 * 
 	 * @return the Object
 	 */
-	Object get(Object primarykey);
+	Object getByKey(URI primarykey);
 	
 	/**
 	 * Flush the current persistence context to the corresponding {@link DataSource}

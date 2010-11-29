@@ -28,18 +28,14 @@ import javax.persistence.criteria.CriteriaBuilder;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import com.emf4sw.rdf.RDFGraph;
 import com.emftriple.Mapping;
 import com.emftriple.criteria.CriteriaBuilderImpl;
 import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.datasources.impl.ETripleEntityTransaction;
 import com.emftriple.query.transform.Describe;
-import com.emftriple.resource.ETripleResource;
 import com.emftriple.util.EntityUtil;
 import com.emftriple.util.EntityUtil.ID;
 
@@ -137,10 +133,10 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		checkIsOpen();
 		checkHasOWLClassAnnotation(aClass);	
 
-		T returnedObject = (T) getDelegate().get(primarykey);
+		T returnedObject = (T) getDelegate().getByKey(EntityUtil.URI(primarykey));
 		if (returnedObject == null) {
 			try {
-				returnedObject = (T) getDelegate().get(aClass, URI(primarykey));
+				returnedObject = (T) getDelegate().find(aClass, URI(primarykey));
 			}
 			catch (IllegalArgumentException e) {
 				throw new IllegalArgumentException(e);
@@ -324,23 +320,13 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	 * @throws EntityNotFoundException if the entity state
 	 * cannot be accessed
 	 */
-	@SuppressWarnings("unchecked")
 	@Override public <T> T getReference(Class<T> aClass, Object primarykey) throws IllegalArgumentException, EntityNotFoundException {
 		EClass eClass = mapping.getEClass(aClass);
 		if (eClass == null) {
 			throw new IllegalArgumentException();
 		}
 		
-		final EFactory aFactory = eClass.getEPackage().getEFactoryInstance();
-		final EObject proxyObject = aFactory.create(eClass);
-		final URI uriFragment = getTransactionResource()
-			.getURI().appendQuery("query=" + EntityUtil.URI(primarykey).toString());
-		((InternalEObject)proxyObject).eSetProxyURI(uriFragment);
-		
-		// Add to current resource
-		getTransactionResource().getContents().add(proxyObject);
-		
-		return (T) proxyObject;
+		return getDelegate().getReference(aClass, URI(primarykey));
 	}
 
 	/**
@@ -358,7 +344,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	 */
 	public <T> T immediateLoad(Class<T> aClass, URI id) {
 		try {
-			return getDelegate().get(aClass, id);
+			return getDelegate().find(aClass, id);
 		} catch (Exception e) {
 			throw new RuntimeException();
 		}
@@ -452,7 +438,4 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		throw new UnsupportedOperationException();
 	}
 
-	protected ETripleResource getTransactionResource() {
-		return ((ETripleEntityTransaction) getTransaction()).getTransactionResource();
-	}
 }

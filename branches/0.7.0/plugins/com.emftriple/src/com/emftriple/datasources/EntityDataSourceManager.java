@@ -38,21 +38,27 @@ public interface EntityDataSourceManager extends TransactionProvider, EntityMana
 	 * 
 	 * @return the object or null
 	 */
-	<T> T get(Class<T> aClass, URI key);
+	<T> T find(Class<T> aClass, URI key);
+	
+	/**
+	 * Return the proxy object
+	 * 
+	 */
+	<T> T getReference(Class<T> aClass, URI key);
 	
 	/**
 	 * 
 	 * @param node
 	 * @return
 	 */
-	Object get(Node node, boolean getProxy);
+	Object findNode(Node node);
 
 	/**
 	 * 
 	 * @param subjects
 	 * @return
 	 */
-	List<?> get(List<Node> nodes, boolean getProxies);
+	List<?> findNodes(List<Node> nodes);
 	
 	/**
 	 * 

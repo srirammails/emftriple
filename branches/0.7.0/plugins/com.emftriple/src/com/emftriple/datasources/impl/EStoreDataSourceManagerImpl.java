@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.InternalEObject.EStore;
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
 import com.emftriple.transform.PutObject;
 import com.emftriple.transform.impl.GetEStoreObjectImpl;
@@ -17,8 +18,8 @@ public class EStoreDataSourceManagerImpl extends EntityDataSourceManagerImpl imp
 	private final EStore eStore;
 
 	@Inject
-	EStoreDataSourceManagerImpl(Mapping mapping, @Named("DataSources") Federation dataSources, @Named("EStore") EStore eStore) {
-		super(mapping, dataSources);
+	EStoreDataSourceManagerImpl(ResourceManager manager, Mapping mapping, @Named("DataSources") Federation dataSources, @Named("EStore") EStore eStore) {
+		super(manager, mapping, dataSources);
 		this.eStore = eStore;
 	}
 
@@ -31,9 +32,9 @@ public class EStoreDataSourceManagerImpl extends EntityDataSourceManagerImpl imp
 	}
 	
 	@Override
-	protected GetObject get(boolean proxy) {
+	protected GetObject get() {
 		if (get == null) {
-			get = new GetEStoreObjectImpl(mapping, this, eStore);
+			get = new GetEStoreObjectImpl(manager, mapping, this, eStore);
 		}
 		return get;
 	}

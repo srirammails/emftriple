@@ -7,7 +7,6 @@
  */
 package com.emftriple.datasources.impl;
 
-import static com.emftriple.util.EntityUtil.URI;
 import static com.emftriple.util.EntityUtil.checkIsEntity;
 import static com.emftriple.util.Functions.transform;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -35,8 +34,10 @@ import com.emftriple.query.SparqlBuilder;
 import com.emftriple.query.transform.Ask;
 import com.emftriple.query.transform.CountObjectsByType;
 import com.emftriple.query.transform.SelectTypes;
+import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
 import com.emftriple.transform.PutObject;
+import com.emftriple.transform.impl.GetEObjectImpl;
 import com.emftriple.transform.impl.GetProxyObjectImpl;
 import com.emftriple.transform.impl.PutObjectImpl;
 import com.emftriple.util.ETripleEcoreUtil;
@@ -60,11 +61,14 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 
 	protected PutObject put;
 
+	private GetProxyObjectImpl proxyFactory;
+
 	@Inject
-	EntityDataSourceManagerImpl(Mapping mapping, @Named("DataSources") Federation dataSources) {
-		super(mapping, dataSources);
+	EntityDataSourceManagerImpl(ResourceManager manager, Mapping mapping, @Named("DataSources") Federation dataSources) {
+		super(manager, mapping, dataSources);
 
 		this.queryFactory = new ETripleQueryFactory(this, mapping);
+		this.proxyFactory = new GetProxyObjectImpl(manager, mapping, this);
 	}
 
 	@Override
@@ -73,18 +77,64 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	}
 
 	@Override
-	protected GetObject get(boolean getProxy) {
-		return new GetProxyObjectImpl(mapping, this);
+	protected GetObject get() {
+		return new GetEObjectImpl(manager, mapping, this);
+	}
+	
+	protected <T> void isMappedClass(Class<T> aClass) {
+		if (!mapping.isMappedClass(aClass)) {
+			throw new IllegalArgumentException(aClass.getName() + " is not an entity.");
+		}
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> T find(Class<T> aClass, URI key) throws IllegalArgumentException {
+		isMappedClass(aClass);
+		
+		T object = (T) getByKey(key);
+
+		if (object != null) {
+			return object;
+		}
+		
+		object = get().get(aClass, key);
+		
+		if (object != null) {
+			put(key, (EObject) object);
+		}
+		
+		return object;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> T getReference(Class<T> aClass, URI key) {
+		isMappedClass(aClass);
+		
+		T object = (T) getByKey(key);
+
+		if (object != null) {
+			return object;
+		}
+		
+		object = proxyFactory.get(aClass, key);
+		put(key, (EObject) object);
+
+		return object;
 	}
 
 	@Override
-	public Object get(Node node, boolean getProxy) {
+	public Object findNode(Node node) {
 		if (node instanceof URIElement) 
 		{
-			if (containsKey(((URIElement) node).getURI())) 
+			URI uri = getURI(node);
+			
+			if (containsKey(uri)) 
 			{
-				final EObject obj = (EObject) get(((URIElement) node).getURI());
-				if (obj.eIsProxy() && getProxy) {
+				final EObject obj = (EObject) getByKey(uri);
+				if (obj.eIsProxy()) {
+					return get().get(obj.eClass(), uri);
+				} else {
 					return obj;
 				}
 			}
@@ -101,37 +151,20 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 				return null;
 			}
 
-			return get( eClass.getInstanceClass(), URI(((URIElement)node).getURI()) );
+			return find( eClass.getInstanceClass(), uri);
 		}
 
 		return null;
 	}
 
 	@Override
-	public List<?> get(List<Node> nodes, boolean getProxies) {
+	public List<?> findNodes(List<Node> nodes) {
 		List<Object> list = Lists.newArrayList();
 		for (Node node: nodes) 
 		{
-			list.add( get(node, getProxies) );
+			list.add( findNode(node) );
 		}
 		return list;
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public <T> T get(Class<T> aClass, URI key) {
-		T object = (T) get(key);
-
-		if (object != null) {
-			return object;
-		}
-
-		if (mapping.isMappedClass(aClass)) 
-		{
-			object = get(false).get(aClass, key);
-		}
-
-		return object;
 	}
 
 	@Override
@@ -148,7 +181,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 
 		final EObject object = (EObject) obj;
 		final EClass eClass = object.eClass();
-		final String graphURI = EntityUtil.getNamedGraph(eClass);
+		final URI graphURI = EntityUtil.getNamedGraph(eClass);
 		final DataSource dataSource;
 
 		if (graphURI != null) 
@@ -231,6 +264,9 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		else if (key instanceof URI) 
 		{
 			return (URI)key;
+		}
+		else if (key instanceof URIElement) {
+			return URI.createURI( ((URIElement) key).getURI() );
 		}
 
 		return null;

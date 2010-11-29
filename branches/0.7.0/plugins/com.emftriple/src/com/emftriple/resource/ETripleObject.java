@@ -1,9 +1,6 @@
 package com.emftriple.resource;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EFactory;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -37,15 +34,24 @@ public interface ETripleObject extends InternalEObject {
 		 * @param key
 		 * @return proxy EObject
 		 */
-		public static EObject createProxy(Resource resource, EClass eClass, URI key) {
-			final EFactory aFactory = eClass.getEPackage().getEFactoryInstance();
-			final EObject proxyObject = aFactory.create(eClass);
+//		public static EObject createProxy(EClass eClass, URI key) {
+//			
+//
+//			return proxyObject;
+//		}
+	}
+	
+	/**
+	 * 
+	 * @author ghilla01
+	 *
+	 */
+	public static class URIBuilder {
+		
+		public static URI build(Resource resource, URI key) {
 			final URI uriFragment = resource.getURI().appendQuery("query=" + key.toString());
-			((InternalEObject)proxyObject).eSetProxyURI(uriFragment);
 			
-			resource.getContents().add(proxyObject);
-			
-			return proxyObject;
+			return uriFragment;
 		}
 	}
 }

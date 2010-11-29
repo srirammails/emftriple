@@ -7,6 +7,8 @@ import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.datasources.EntityManagerDelegate;
 import com.emftriple.query.SparqlRuntimeModule;
+import com.emftriple.resource.ETripleResource.ResourceManager;
+import com.emftriple.resource.ETripleResource.ResourceManagerImpl;
 import com.emftriple.resource.ETripleStore;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
@@ -43,6 +45,8 @@ public abstract class DataSourceModule extends AbstractModule {
 		protected void configure() {
 			super.configure();
 			
+			bind(ResourceManager.class)
+				.to(ResourceManagerImpl.class);
 			bind(EntityManagerDelegate.class)
 				.to(EntityDataSourceManagerImpl.class);
 			bind(EntityDataSourceManager.class)
@@ -62,6 +66,8 @@ public abstract class DataSourceModule extends AbstractModule {
 		protected void configure() {
 			super.configure();
 			
+			bind(ResourceManager.class)
+				.to(ResourceManagerImpl.class);
 			bind(EStore.class)
 				.annotatedWith(Names.named("EStore"))
 				.toInstance(eStore);

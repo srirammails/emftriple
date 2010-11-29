@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
 import com.emftriple.transform.PutObject;
 import com.emftriple.util.EntityUtil;
@@ -47,11 +48,14 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 	private final List<Object> markAsDetachEntities;
 
+	protected final ResourceManager manager;
+	
 	@Inject
-	EntityManagerDelegateImpl(Mapping mapping, @Named("DataSources") Federation dataSources) {
+	EntityManagerDelegateImpl(ResourceManager manager, Mapping mapping, @Named("DataSources") Federation dataSources) {
 		super(dataSources);
 
 		this.mapping = mapping;
+		this.manager = manager;
 		this.allEntities = Maps.newHashBiMap();
 		this.markAsToSaveEntities = new ArrayList<Object>();
 		this.markAsToDeleteEntities = new ArrayList<Object>();
@@ -60,17 +64,16 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 	protected abstract PutObject put();
 
-	protected abstract GetObject get(boolean getProxy);
+	protected abstract GetObject get();
 
 	protected abstract int lastIndexOf(EClass eClass);
-	
+		
 	@Override 
 	public void put(URI uri, EObject eObject) {
 		if ( eObject.eResource() == null )
 		{
-			((ETripleEntityTransaction)getTransaction())
-				.getTransactionResource().getContents().add(eObject);
-		}		
+			manager.getResource(eObject.eClass()).getContents().add(eObject);
+		}
 		if ( !getAllEntities().containsKey(uri) ) 
 		{
 			getAllEntities().put(uri, eObject);
@@ -95,6 +98,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		getDetachEntities().clear();
 		getDeleteEntities().clear();
 		getAllEntities().clear();
+		manager.clear();
 	}
 
 	@Override 
@@ -164,7 +168,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	}
 	
 	@Override 
-	public Object get(Object key) {
+	public Object getByKey(URI key) {
 		return getAllEntities().get(key);
 	}
 
@@ -263,7 +267,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	}
 
 	@Override
-	public boolean containsKey(Object primaryKey) {
+	public boolean containsKey(URI primaryKey) {
 		return getAllEntities().containsKey(primaryKey);
 	}
 

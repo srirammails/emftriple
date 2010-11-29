@@ -8,14 +8,16 @@
 package com.emftriple.transform.impl;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 
 import com.emf4sw.rdf.RDFGraph;
 import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.datasources.impl.ETripleEntityTransaction;
 import com.emftriple.query.sparql.DescribeQuery;
 import com.emftriple.query.transform.Describe;
+import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
+import com.emftriple.util.EntityUtil;
 import com.emftriple.util.Functions;
 
 /**
@@ -27,16 +29,29 @@ public abstract class AbstractGetObject implements GetObject {
 	
 	protected Mapping mapping;
 
-	protected final org.eclipse.emf.ecore.resource.Resource resource;
-
 	protected EntityDataSourceManager dataSourceManager; 
 	
-	protected AbstractGetObject(Mapping mapping, EntityDataSourceManager dataSourceManager) {
+	protected ResourceManager manager;
+	
+	protected AbstractGetObject(ResourceManager manager, Mapping mapping, EntityDataSourceManager dataSourceManager) {
+		this.manager = manager;
 		this.mapping = mapping;
 		this.dataSourceManager = dataSourceManager;
-		this.resource = ((ETripleEntityTransaction)dataSourceManager.getTransaction()).getTransactionResource();
 	}
 
+	protected RDFGraph getGraph(EClass eClass, URI key) {
+		final DescribeQuery aQuery;
+		final URI graphURI = EntityUtil.getNamedGraph(eClass);
+		
+		if (graphURI == null) {
+			aQuery = Functions.transform(key, new Describe());
+		} else {
+			aQuery = Functions.transform(key, new Describe(graphURI));
+		}
+		
+		return dataSourceManager.executeDescribeQuery(aQuery);
+	}
+	
 	protected <T> RDFGraph getGraph(Class<T> entityClass, URI key) {
 		final DescribeQuery aQuery;
 		final URI graphURI = mapping.getNamedGraph(entityClass);

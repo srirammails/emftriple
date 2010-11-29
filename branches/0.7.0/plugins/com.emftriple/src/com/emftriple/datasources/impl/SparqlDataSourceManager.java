@@ -31,7 +31,7 @@ import com.google.inject.name.Named;
  */
 public class SparqlDataSourceManager implements DataSourceManager {
 
-	protected final Map<String, DataSource> dataSourcesByGraph = new HashMap<String, DataSource>();
+	protected final Map<URI, DataSource> dataSourcesByGraph = new HashMap<URI, DataSource>();
 	
 	protected final List<DataSource> dataSources;
 	
@@ -52,10 +52,10 @@ public class SparqlDataSourceManager implements DataSourceManager {
 			ds.disconnect();		
 	}
 	
-	private DataSource resolveDataSourceByGraph(String graphURI) {
+	private DataSource resolveDataSourceByGraph(URI graphURI) {
 		for (DataSource dataSource: dataSources) {
 			if (dataSource instanceof NamedGraphDataSource) {
-				if (((NamedGraphDataSource) dataSource).containsGraph(URI.createURI(graphURI))) {
+				if (((NamedGraphDataSource) dataSource).containsGraph(graphURI)) {
 					return dataSource;
 				}
 			}
@@ -64,7 +64,7 @@ public class SparqlDataSourceManager implements DataSourceManager {
 	}
 
 	@Override
-	public DataSource getDataSourceByGraph(String graphURI) {
+	public DataSource getDataSourceByGraph(URI graphURI) {
 		if (dataSourcesByGraph.containsKey(graphURI)) {
 			return dataSourcesByGraph.get(graphURI);
 		} else {

@@ -10,13 +10,8 @@ package com.emftriple.datasources.impl;
 import javax.persistence.EntityTransaction;
 import javax.persistence.RollbackException;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.TransactionEnableDataSource;
-import com.emftriple.resource.ETripleResource;
-import com.emftriple.resource.ETripleResourceSet;
 
 /**
  * {@link ETripleEntityTransaction}
@@ -25,12 +20,8 @@ import com.emftriple.resource.ETripleResourceSet;
  * @since 0.5.5
  */
 public class ETripleEntityTransaction implements EntityTransaction {
-
-	private static final ResourceSet resourceSet = new ETripleResourceSet();
 	
 	private final TransactionEnableDataSource dataSource;
-	
-	protected ETripleResource transactionResource;
 
 	private boolean isActive = false;
 
@@ -99,20 +90,6 @@ public class ETripleEntityTransaction implements EntityTransaction {
 		checkIsActive();
 		
 		isRollBackOnly = true;
-	}
-	
-	public final static String RESOURCE_URI = "http://etriple-resource";
-	
-	public ETripleResource getTransactionResource() {
-		if (transactionResource == null) {
-			if (resourceSet.getResource(URI.createURI(RESOURCE_URI), true) == null) {
-				transactionResource = (ETripleResource) resourceSet.createResource(URI.createURI(RESOURCE_URI));
-			} else { 
-				transactionResource = (ETripleResource) resourceSet.getResource(URI.createURI(RESOURCE_URI), true);
-			}
-		}
-		resourceSet.getResources().add(transactionResource);
-		return transactionResource;
 	}
 
 	private void checkIsInActive() {

@@ -9,6 +9,7 @@ package com.emftriple.resource;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -18,14 +19,20 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 import com.emftriple.ETriple;
+import com.emftriple.config.persistence.DataSourceBuilder;
+import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.impl.ETripleEntityTransaction;
 import com.emftriple.impl.ETripleEntityManagerFactory;
+import com.emftriple.util.EntityUtil;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
 /**
  * 
@@ -63,43 +70,52 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 		Map<String, String> decode = decodeQueryString(getURI().authority());
 		String emName = decode.containsKey("unit") ? decode.get("unit") : null;
 
-		EntityManagerFactory emf = persistenceProvider.createEntityManagerFactory(emName, options);
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
+		EntityManager em = null;
+		try {
+			EntityManagerFactory emf = persistenceProvider.createEntityManagerFactory(emName, options);
+			em = emf.createEntityManager();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		}
 
-		decode = decodeQueryString(getURI().query());
-		Query q = em.createQuery(decode.get("query"));
-		
-		List<?> list = q.getResultList();
-		em.getTransaction().commit();
-		em.close();
+		if (em != null) {
+			em.getTransaction().begin();
 
-		this.getContents().addAll((Collection<? extends EObject>) list);
+			decode = decodeQueryString(getURI().query());
+			Query q = em.createQuery(decode.get("query"));
+
+			List<?> list = q.getResultList();
+			em.getTransaction().commit();
+			em.close();
+
+			this.getContents().addAll((Collection<? extends EObject>) list);
+		}
 	}
 
 	@Override
 	public EObject getEObject(String uriFragment) {
-		if (uriFragment.startsWith(ETripleEntityTransaction.RESOURCE_URI)) 
-		{
-			final EntityManager em = 
-				ETripleEntityManagerFactory.Registry.INSTANCE.getActiveEntityManager();
-			
-			final URI uri = URI.createURI(uriFragment);
-			final String query = uri.query();
+		//		if (uriFragment.startsWith(ETripleEntityTransaction.RESOURCE_URI))
+		//		{
+		final EntityManager em = 
+			ETripleEntityManagerFactory.Registry.INSTANCE.getActiveEntityManager();
 
-			if (query != null && query.startsWith("query=")) 
+		final URI uri = URI.createURI(uriFragment);
+		final String query = uri.query();
+
+		if (query != null && query.startsWith("query=")) 
+		{
+			Object obj = EObjectFinder.find(query.split("=")[1], em);
+
+			if (obj != null && obj instanceof EObject)
 			{
-				Object obj = EObjectFinder.find(query.split("=")[1], em);
-				
-				if (obj != null && obj instanceof EObject)
-				{
-					return (EObject) obj;
-				}
-			}			
-			return null;
-		} else {
-			return super.getEObject(uriFragment);
-		}
+				return (EObject) obj;
+			}
+		}			
+		return null;
+		//		} 
+		//		else {
+		//			return super.getEObject(uriFragment);
+		//		}
 	}
 
 	//	String uriStr = "emftriple://unit=" + dataStoreName &?query=FROM EClass;
@@ -118,5 +134,65 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 		}
 
 		return result;
+	}
+
+	public interface ResourceManager {
+		Resource getResource(URI graph) throws IllegalArgumentException;
+		Resource getResource(EClass eClass);
+		void clear();
+	}
+
+	public static class ResourceManagerImpl implements ResourceManager {
+
+		private final Map<URI, Resource> resources;
+
+		private static final ResourceSet resourceSet = new ETripleResourceSet();
+
+		private static final URI defaultGraph = URI.createURI("emftriple://default");
+
+		@Inject
+		ResourceManagerImpl(@Named("DataSources") Federation dataSources) {
+			resources = new HashMap<URI, Resource>();
+			resources.put(defaultGraph, 
+					resourceSet.createResource(URI.createURI("emftriple://default")));
+			resourceSet.getResources().add(resources.get(defaultGraph));
+
+			for (DataSourceBuilder dataSource: dataSources.getMember()) {
+				for (String graph: dataSource.getGraphs()) {
+					Resource res = resourceSet.createResource(URI.createURI(graph));
+					resources.put(URI.createURI(graph), res);
+					resourceSet.getResources().add(res);
+				}
+			}
+		}
+
+		public Resource getResource(URI graph) throws IllegalArgumentException {
+			if (graph == null) {
+				return resources.get(defaultGraph);
+			}
+			if (!resources.containsKey(graph)) {
+				throw new IllegalArgumentException("Graph with uri " + graph + " is not defined in persistence configuration.");
+			}
+
+			return resources.get(graph);
+		}
+
+		public Resource getResource(EClass eClass) {
+			Resource resource = null;
+			try {
+				resource = getResource(EntityUtil.getNamedGraph(eClass));	
+			} catch (IllegalArgumentException e) {
+				resource = getResource(defaultGraph) ;
+			}
+			return resource;
+		}
+
+		@Override
+		public void clear() {
+			for (Resource res: resourceSet.getResources()) {
+				res.unload();
+			}
+			resourceSet.getResources().clear();
+		}
 	}
 }

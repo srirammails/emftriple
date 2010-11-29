@@ -7,6 +7,8 @@
  */
 package com.emftriple.query;
 
+import static com.emftriple.transform.impl.GetUtil.getURI;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -109,7 +111,7 @@ public class Sparql implements Query {
 				return null;
 			}
 
-			return getDataSourceManager().get(subjects, false);			
+			return getDataSourceManager().findNodes(subjects);			
 		}
 		else
 		{
@@ -154,7 +156,7 @@ public class Sparql implements Query {
 
 		for (Resource resource: resources)
 		{
-			final Object obj = getDataSourceManager().get(resource);
+			final Object obj = getDataSourceManager().getByKey(getURI(resource));
 
 			if (obj != null) 
 			{

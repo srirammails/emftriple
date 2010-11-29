@@ -8,6 +8,8 @@
 package com.emftriple.transform;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * 
@@ -17,5 +19,7 @@ import org.eclipse.emf.common.util.URI;
 public interface GetObject {
 
 	<T> T get(Class<T> entityClass, URI key);
+	
+	EObject get(EClass eClass, URI key);
 	
 }

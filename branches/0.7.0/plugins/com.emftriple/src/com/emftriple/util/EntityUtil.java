@@ -49,7 +49,7 @@ public class EntityUtil {
 		return element.getEAnnotation("etriple." + name);
 	}
 	
-	public static String getNamedGraph(EClass aClass) {
+	public static URI getNamedGraph(EClass aClass) {
 		EAnnotation graphURI = getETripleAnnotation(aClass, "NamedGraph");
 		if (graphURI == null) 
 		{
@@ -68,7 +68,7 @@ public class EntityUtil {
 			graphURI = getETripleAnnotation(aClass.getEPackage(), "NamedGraph");
 		}
 		
-		return graphURI == null ? null : graphURI.getDetails().get("uri");
+		return graphURI == null ? null : URI.createURI(graphURI.getDetails().get("uri"));
 	}
 
 	public static List<EClass> computeTopEntities(Mapping mapping) {

@@ -15,7 +15,7 @@ public class EObjectFinder {
 			Resource res = RDFFactory.eINSTANCE.createResource();
 			res.setURI(uri);
 			
-			return delegate.get(res, true);		
+			return delegate.findNode(res);
 		}
 		return null;
 	}

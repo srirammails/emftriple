@@ -9,6 +9,7 @@ import com.emf4sw.rdf.RDFGraph;
 import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.resource.ETripleObject;
+import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
 import com.emftriple.util.Functions;
 import com.emftriple.validation.TypeResolver;
@@ -17,8 +18,8 @@ public class GetEStoreObjectImpl extends AbstractGetObject implements GetObject 
 
 	private final EStore eStore;
 	
-	public GetEStoreObjectImpl(Mapping mapping, EntityDataSourceManager dataSourceManager, EStore eStore) {
-		super(mapping, dataSourceManager);
+	public GetEStoreObjectImpl(ResourceManager manager, Mapping mapping, EntityDataSourceManager dataSourceManager, EStore eStore) {
+		super(manager, mapping, dataSourceManager);
 		this.eStore = eStore;
 	}
 	
@@ -34,6 +35,12 @@ public class GetEStoreObjectImpl extends AbstractGetObject implements GetObject 
 		}
 		
 		return  (T) obj;
+	}
+
+	@Override
+	public EObject get(EClass eClass, URI key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
