@@ -9,6 +9,8 @@ package com.emftriple.datasources;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.URI;
+
 import com.emf4sw.rdf.RDFGraph;
 import com.emftriple.query.sparql.AskQuery;
 import com.emftriple.query.sparql.ConstructQuery;
@@ -70,7 +72,7 @@ public interface DataSourceManager {
 	 * 
 	 * @return data source
 	 */
-	DataSource getDataSourceByGraph(String graphURI);
+	DataSource getDataSourceByGraph(URI graphURI);
 	
 	/**
 	 * Executes a {@link SelectQuery} against a {@link DataSource}
