@@ -1,4 +1,4 @@
-package com.emf4sw.owl.jena.resource;
+package com.emf4sw.owl.resource.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,22 +16,24 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.RDFWriter;
 
 /**
+ * {@link OWLXMLResource}
  * 
- * A persistent ontology document for Turtle (TTL) format.
- * 
+ * <p>
+ * A persistent ontology document for rdf/xml format.
+ * </p>
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
- * @since 0.6.5
+ * @since 0.5.5
  */
-public class TTLJenaOWLResource extends OWLResourceImpl implements OWLResource {
+public class OWLXMLResource extends OWLResourceImpl implements OWLResource {
 
-	public TTLJenaOWLResource() {
+	public OWLXMLResource() {
 		super();
 		reader = new OWLJenaReader();
 		writer = new OWLJenaWriter();
 	}
 
-	public TTLJenaOWLResource(URI uri) {
+	public OWLXMLResource(URI uri) {
 		super(uri);
 		reader = new OWLJenaReader();
 		writer = new OWLJenaWriter();
@@ -41,7 +43,7 @@ public class TTLJenaOWLResource extends OWLResourceImpl implements OWLResource {
 	protected void doLoad(InputStream inputStream, Map<?, ?> options) throws IOException {
 		Notification notification = setLoaded(true);
 		try {
-			reader.read(inputStream, this, OWLFormats.TURTLE);
+			reader.read(inputStream, this, OWLFormats.OWL);
 		} finally {
 			if (notification != null) {
 				eNotify(notification);
@@ -52,19 +54,16 @@ public class TTLJenaOWLResource extends OWLResourceImpl implements OWLResource {
 	}
 
 	@Override
-	protected void doSave(OutputStream outputStream, Map<?, ?> options) throws IOException {
+	public void doSave(OutputStream outputStream, Map<?, ?> options) throws IOException {
 		final OntModel aModel = (OntModel) this.writer.write(this, OWLFormats.OWL);
 
-		final RDFWriter writer = aModel.getWriter("TTL");
-		writer.setProperty("usePropertySymbols", "false");
-		writer.setProperty("useTripleQuotedStrings", "false");
-		writer.setProperty("useDoubles", "false");
-		writer.setProperty("xmlbase", getOntology().getURI());
-		writer.write(aModel, outputStream, "");
+		final RDFWriter w = aModel.getWriter("RDF/XML-ABBREV");
+		w.setProperty("xmlbase", getOntology().getURI());
+		w.write(aModel, outputStream, "");
 	}
 
 	@Override
 	public Ontology getOntology() {
-		return (!getContents().isEmpty()) ? (Ontology)getContents().get(0) : null;
+		return !getContents().isEmpty() ? (Ontology) getContents().get(0) : null; 
 	}
 }

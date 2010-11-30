@@ -1,4 +1,4 @@
-package com.emf4sw.owl.jena.resource;
+package com.emf4sw.owl.resource.impl;
 
 import java.io.InputStream;
 import java.util.HashMap;

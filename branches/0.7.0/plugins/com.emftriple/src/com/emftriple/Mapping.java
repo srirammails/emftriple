@@ -47,7 +47,7 @@ public interface Mapping {
 	 * @param aClass
 	 * @return
 	 */
-	EClass getEClass(Class<?> aClass);
+	EClass getEClass(Class<?> aClass) throws IllegalArgumentException;
 
 	/**
 	 * 
@@ -95,6 +95,6 @@ public interface Mapping {
 	 * @param aClass
 	 * @return URI of the {@link NamedGraph} or null
 	 */
-	<T> URI getNamedGraph(Class<T> aClass);
+	<T> URI getNamedGraph(Class<T> aClass) throws IllegalArgumentException;
 	
 }

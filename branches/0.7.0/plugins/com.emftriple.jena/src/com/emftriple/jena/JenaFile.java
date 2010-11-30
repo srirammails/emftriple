@@ -68,8 +68,15 @@ public class JenaFile extends AbstractDataSource implements SparqlUpdateDataSour
 	
 	@Override
 	public ResultSet selectQuery(SelectQuery query) {
-		return new JenaResultSet( QueryExecutionFactory.create( QueryFactory.create(extract(query)), model )
-			.execSelect() );
+		ResultSet rs = null;
+		try {
+			rs = new JenaResultSet( 
+						QueryExecutionFactory.create( QueryFactory.create(extract(query)), model )
+					.execSelect());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@Override

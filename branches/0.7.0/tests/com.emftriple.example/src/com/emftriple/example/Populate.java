@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import com.emftriple.config.persistence.PersistencePackage;
 import com.emftriple.example.employee.Address;
 import com.emftriple.example.employee.Degree;
 import com.emftriple.example.employee.EmailAddress;
@@ -34,7 +33,6 @@ public class Populate {
 
 	static {
 		EPackage.Registry.INSTANCE.put(EmployeePackage.eNS_URI, EmployeePackage.eINSTANCE);
-//		EPackage.Registry.INSTANCE.put(PersistencePackage.eNS_URI, PersistencePackage.eINSTANCE);
 	}
 
 	public static void main(String[] args) {

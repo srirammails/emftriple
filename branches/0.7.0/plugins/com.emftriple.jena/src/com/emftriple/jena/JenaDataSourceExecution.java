@@ -65,39 +65,47 @@ public class JenaDataSourceExecution {
 	}
 
 	static RDFGraph doDescribeQuery(DescribeQuery query, Dataset dataSet, String format) {
+		RDFGraph graph = null;
 		try {
-			RDFGraph graph = null;
 			dataSet.getLock().enterCriticalSection(Lock.READ);
 			try {
 				Query aQuery = QueryFactory.create(extract(query));
 				QueryExecution qexec = QueryExecutionFactory.create(aQuery, dataSet);
 				final Model result = qexec.execDescribe();
 				graph = new NamedGraphInjector(result).inject();
+			} catch(Exception e) {
+				e.printStackTrace();
 			} finally {
 				dataSet.getLock().leaveCriticalSection();
 			}
-			return graph;
+		} catch(Exception e) {
+			e.printStackTrace();
 		} finally {
 			SparqlBuilder.clear();
 		}
+		return graph;
 	}
 
 	static RDFGraph doDescribeQuery(DescribeQuery query, Model model, String format) {
+		RDFGraph graph = null;
 		try {
-			RDFGraph graph = null;
 			model.enterCriticalSection(Lock.READ);
 			try {
 				Query aQuery = QueryFactory.create(extract(query));
 				QueryExecution qexec = QueryExecutionFactory.create(aQuery, model);
 				final Model result = qexec.execDescribe();
 				graph = new NamedGraphInjector(result).inject();
+			} catch (Exception e) {
+				e.printStackTrace();
 			} finally {
 				model.leaveCriticalSection();
 			}
-			return graph;
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			SparqlBuilder.clear();
 		}
+		return graph;
 	}
 
 	static boolean doAskQuery(AskQuery query, Model model) {

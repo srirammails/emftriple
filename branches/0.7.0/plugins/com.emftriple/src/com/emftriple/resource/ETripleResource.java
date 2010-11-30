@@ -25,10 +25,14 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
+import com.emf4sw.rdf.Node;
+import com.emf4sw.rdf.RDFFactory;
+import com.emf4sw.rdf.URIElement;
 import com.emftriple.ETriple;
 import com.emftriple.config.persistence.DataSourceBuilder;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.DataSource;
+import com.emftriple.impl.EObjectEntityManager;
 import com.emftriple.impl.ETripleEntityManagerFactory;
 import com.emftriple.util.EntityUtil;
 import com.google.inject.Inject;
@@ -94,28 +98,40 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 
 	@Override
 	public EObject getEObject(String uriFragment) {
-		//		if (uriFragment.startsWith(ETripleEntityTransaction.RESOURCE_URI))
-		//		{
-		final EntityManager em = 
-			ETripleEntityManagerFactory.Registry.INSTANCE.getActiveEntityManager();
-
 		final URI uri = URI.createURI(uriFragment);
+
+		EObject proxy = null;
+
 		final String query = uri.query();
 
 		if (query != null && query.startsWith("query=")) 
 		{
-			Object obj = EObjectFinder.find(query.split("=")[1], em);
+			final URI key = URI.createURI(query.split("=")[1]);
 
-			if (obj != null && obj instanceof EObject)
-			{
-				return (EObject) obj;
+			final EObjectEntityManager em = 
+				(EObjectEntityManager) ETripleEntityManagerFactory.Registry.INSTANCE.getActiveEntityManager();
+			
+			if (em.getDelegate().containsKey(key)) {
+				proxy = (EObject) em.getDelegate().getByKey(key);
+
+				final Map<String, Object> options = new HashMap<String, Object>();
+				options.put("KEY", key);
+
+				em.refresh(proxy, options);
+				
+				if (proxy.eIsProxy()) {
+					em.refresh(proxy, options);
+				}
+				
+			} else {
+				Node node = RDFFactory.eINSTANCE.createResource();
+				((URIElement) node).setURI(key.toString());
+				
+				proxy = (EObject) em.getDelegate().findNode(node);
 			}
+			return proxy;
 		}			
 		return null;
-		//		} 
-		//		else {
-		//			return super.getEObject(uriFragment);
-		//		}
 	}
 
 	//	String uriStr = "emftriple://unit=" + dataStoreName &?query=FROM EClass;

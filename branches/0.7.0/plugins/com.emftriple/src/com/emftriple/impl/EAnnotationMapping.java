@@ -95,13 +95,43 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 	}
 
 	@Override
-	public EClass getEClass(Class<?> c) {
-		return mappedClasses.get(c);
+	public EClass getEClass(Class<?> aClass) throws IllegalArgumentException {
+		if (aClass.isInterface()) {
+			if (mappedClasses.containsKey(aClass)) {
+				return mappedClasses.get(aClass);
+			}
+		} else {
+			if (aClass.getInterfaces().length == 0) {
+				if (mappedClasses.containsKey(aClass)) {
+					return mappedClasses.get(aClass);
+				}
+			} else {
+				for (Class<?> intface: aClass.getInterfaces()) {
+					if (mappedClasses.containsKey(intface)) {
+						return mappedClasses.get(intface);
+					}
+				}
+			}
+		}
+		return null;
 	}
 	
 	@Override
 	public boolean isMappedClass(Class<?> aClass) {
-		return mappedClasses.containsKey(aClass);
+		if (aClass.isInterface()) {
+			return mappedClasses.containsKey(aClass);
+		} else {
+			if (aClass.getInterfaces().length == 0) {
+				return mappedClasses.containsKey(aClass);
+			} else {
+				for (Class<?> intface: aClass.getInterfaces()) {
+					if (mappedClasses.containsKey(intface)) {
+						return true;
+					}
+				}
+				return false;
+			}
+		}
 	}
 
 	@Override
@@ -115,8 +145,13 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 	}
 
 	@Override
-	public <T> URI getNamedGraph(Class<T> aClass) {
-		URI uri = EntityUtil.getNamedGraph(getEClass(aClass));
+	public <T> URI getNamedGraph(Class<T> aClass) throws IllegalArgumentException {
+		final EClass eClass = getEClass(aClass);
+		if (eClass == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		final URI uri = EntityUtil.getNamedGraph(eClass);
 		
 		return uri == null ? null : uri;
 	}

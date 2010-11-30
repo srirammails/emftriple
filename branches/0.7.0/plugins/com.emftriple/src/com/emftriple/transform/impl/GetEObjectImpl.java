@@ -62,7 +62,6 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 	 * @param dataSource 
 	 * @return the corresponding {@link EObject}
 	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private EObject process(EClass aClass, Resource from) {
 		if (aClass == null) 
 		{
@@ -120,6 +119,13 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 	private EObject doProxy(Resource node, EClass eType) {
 		final URI nodeURI = getURI(node);
 		final EClass realClass = getClass(nodeURI, eType);
+		
+		if (dataSourceManager.containsKey(nodeURI)) {
+			Object obj = dataSourceManager.getByKey(nodeURI);
+			if (obj instanceof EObject)
+				if (((EObject) obj).eClass().equals(realClass))
+					return (EObject)obj;
+		}
 		
 		return proxyFactory.get(realClass, nodeURI);
 	}

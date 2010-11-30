@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 
 import com.emf4sw.rdf.Node;
 import com.emftriple.transform.GetObject;
@@ -83,5 +84,23 @@ public interface EntityDataSourceManager extends TransactionProvider, EntityMana
 	 * @return
 	 */
 	QueryFactory getQueryFactory();
+
+	/**
+	 * 
+	 * Refresh the state of an object. 
+	 * 
+	 * @param class1
+	 * @param id
+	 * @return
+	 */
+	Object refresh(Class<? extends Object> aClass, URI id);
+
+	/**
+	 * 
+	 * @param key
+	 * @param eClass
+	 * @return
+	 */
+	boolean entityExists(URI key, EClass eClass);
 	
 }

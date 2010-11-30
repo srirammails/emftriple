@@ -87,15 +87,17 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 
 	@Override
 	public ResultSet selectQuery(SelectQuery query, URI graph) {
+		ResultSet rs = null;
 		try {
-			return new JenaResultSet (
-				QueryExecutionFactory.create( QueryFactory.create(extract(query)), dataSet.getNamedModel(graph.toString()) )
-					.execSelect()
-				);
-		}
-		finally {
+			rs = new JenaResultSet (
+						QueryExecutionFactory.create( QueryFactory.create(extract(query)), dataSet.getNamedModel(graph.toString()) )
+					.execSelect() );
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
 			SparqlBuilder.clear();
 		}
+		return rs;
 	}
 	
 	@Override
@@ -108,6 +110,7 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 		if (!dataSet.containsNamedModel(graph.toString())) {
 			throw new IllegalArgumentException("DataSet does not contains named graph: " + graph);
 		}
+		
 		final Model model = dataSet.getNamedModel(graph.toString());
 		boolean result = false;
 		try {

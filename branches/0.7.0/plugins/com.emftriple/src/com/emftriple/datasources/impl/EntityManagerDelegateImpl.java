@@ -18,9 +18,12 @@ import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
+import com.emf4sw.rdf.vocabulary.RDF;
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.query.SparqlBuilder;
+import com.emftriple.query.sparql.AskQuery;
 import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
 import com.emftriple.transform.PutObject;
@@ -70,10 +73,6 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		
 	@Override 
 	public void put(URI uri, EObject eObject) {
-		if ( eObject.eResource() == null )
-		{
-			manager.getResource(eObject.eClass()).getContents().add(eObject);
-		}
 		if ( !getAllEntities().containsKey(uri) ) 
 		{
 			getAllEntities().put(uri, eObject);
@@ -82,14 +81,18 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 	@Override 
 	public void add(Object object) {
+		checkIsEntity(object);
+		
 		final URI entityKey = id( object );
 		
 		if (entityKey != null) 
 		{
-			if (!getAllEntities().containsKey(entityKey)) 
+			if ( ((EObject) object).eResource() == null )
 			{
-				getAllEntities().put(entityKey, object);
+				manager.getResource(((EObject) object).eClass()).getContents().add((EObject) object);
 			}
+			
+			put(entityKey, (EObject) object);
 		}
 	}
 
@@ -118,7 +121,10 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	private URI id(EObject object) {
 		URI entityKey = null;
 		
-		if ( isGeneratedId((EObject)object) )
+		if ( allEntities.inverse().containsKey(object) ){
+			entityKey = allEntities.inverse().get(object);
+		} 
+		else if ( isGeneratedId((EObject)object) )
 		{
 			entityKey = allEntities.inverse().get(object);
 			if (entityKey == null)
@@ -126,8 +132,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 				entityKey = generateId((EObject)object);
 			}
 		}
-		else
-		{
+		else {
 			entityKey = ID.id(object);
 		}
 		
@@ -271,6 +276,15 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		return getAllEntities().containsKey(primaryKey);
 	}
 
+	@Override
+	public boolean entityExists(URI key, EClass eClass) {
+		final URI rdfType = mapping.getRdfType(eClass);
+		final AskQuery query = 
+			SparqlBuilder.getAskQuery("ASK WHERE { <" + key + "> <" + RDF.type + "> <" + rdfType + "> }");
+		
+		return executeAskQuery(query);
+	}
+	
 	private static final class ID {
 		
 		private static final String GENERATED_ID = "GeneratedId";

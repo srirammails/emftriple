@@ -12,6 +12,7 @@ import static com.emftriple.util.EntityUtil.checkIsSupported;
 import static com.emftriple.util.EntityUtil.checkState;
 import static com.emftriple.util.Functions.transform;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.EntityExistsException;
@@ -27,8 +28,11 @@ import javax.persistence.TransactionRequiredException;
 import javax.persistence.criteria.CriteriaBuilder;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import com.emf4sw.rdf.RDFGraph;
 import com.emftriple.Mapping;
@@ -36,7 +40,6 @@ import com.emftriple.criteria.CriteriaBuilderImpl;
 import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.query.transform.Describe;
-import com.emftriple.util.EntityUtil;
 import com.emftriple.util.EntityUtil.ID;
 
 /**
@@ -128,25 +131,8 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	 * is not a valid type for that entity’s primary key or
 	 * is null
 	 */
-	@SuppressWarnings("unchecked")
 	@Override public <T> T find(Class<T> aClass, Object primarykey) throws IllegalArgumentException {
-		checkIsOpen();
-		checkHasOWLClassAnnotation(aClass);	
-
-		T returnedObject = (T) getDelegate().getByKey(EntityUtil.URI(primarykey));
-		if (returnedObject == null) {
-			try {
-				returnedObject = (T) getDelegate().find(aClass, URI(primarykey));
-			}
-			catch (IllegalArgumentException e) {
-				throw new IllegalArgumentException(e);
-			}
-			catch (DataSourceException e) {
-				e.printStackTrace();
-			}
-		}
-
-		return returnedObject;
+		return find(aClass, primarykey, LockModeType.NONE, new HashMap<String, Object>());
 	}
 
 	/**
@@ -169,9 +155,8 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	 * not denote an entity type or the second argument is
 	 * is not a valid type for that entity’s primary key or is null
 	 */
-	@Override public <T> T find(Class<T> aClass, Object primarykey, Map<String, Object> properties)
-	throws IllegalArgumentException {
-		return find(aClass, primarykey);
+	@Override public <T> T find(Class<T> aClass, Object primarykey, Map<String, Object> properties) throws IllegalArgumentException {
+		return find(aClass, primarykey, LockModeType.NONE, properties);
 	}
 
 	/**
@@ -216,20 +201,8 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	 * @throws PersistenceException if an unsupported lock call
 	 * is made
 	 */
-	@SuppressWarnings("unchecked")
 	@Override public <T> T find(Class<T> aClass, Object primarykey, LockModeType lockType) {
-		if (!getTransaction().isActive()) {
-			throw new TransactionRequiredException("Transaction is not active");
-		}
-		
-		Object obj = find(aClass, primarykey);
-		
-		if (obj == null)
-			return null;
-		
-		lock(obj, lockType);
-		
-		return (T) obj;
+		return find(aClass, primarykey, lockType, new HashMap<String, Object>());
 	}
 
 	/**
@@ -283,18 +256,37 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	 */
 	@SuppressWarnings("unchecked")
 	@Override public <T> T find(Class<T> aClass, Object primarykey, LockModeType lockType, Map<String, Object> properties) {
+		checkIsOpen();
+		checkHasOWLClassAnnotation(aClass);
+		
 		if (!getTransaction().isActive()) {
-			throw new TransactionRequiredException("Transaction is not active");
+			throw new TransactionRequiredException();
 		}
 		
-		Object obj = find(aClass, primarykey);
+		final URI key = URI(primarykey);
+		final EClass eClass = mapping.getEClass(aClass);
 		
-		if (obj == null)
-			return null;
-		
-		lock(obj, lockType);
-		
-		return (T) obj;
+		if (!getDelegate().entityExists(key, eClass)) {
+			throw new EntityNotFoundException();
+		}
+
+		T returnedObject = (T) getDelegate().getByKey(key);
+		if (returnedObject == null) {
+			try {
+				returnedObject = (T) getDelegate().find(aClass, key);
+			}
+			catch (IllegalArgumentException e) {
+				throw new IllegalArgumentException(e);
+			}
+			catch (DataSourceException e) {
+				e.printStackTrace();
+			}
+			
+//			lock(returnedObject, lockType);
+			getDelegate().add(returnedObject);
+		}
+
+		return returnedObject;
 	}
 
 	/**
@@ -321,33 +313,22 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	 * cannot be accessed
 	 */
 	@Override public <T> T getReference(Class<T> aClass, Object primarykey) throws IllegalArgumentException, EntityNotFoundException {
-		EClass eClass = mapping.getEClass(aClass);
+		final EClass eClass = mapping.getEClass(aClass);
 		if (eClass == null) {
 			throw new IllegalArgumentException();
 		}
 		
-		return getDelegate().getReference(aClass, URI(primarykey));
-	}
-
-	/**
-	 * Load the data for the object with the specified id into a newly created object.
-	 * This is only called when lazily initializing a proxy.
-	 * Do NOT return a proxy.
-	 * 
-	 * @param <T>
-	 * @param aClass
-	 * @param id
-	 * @return
-	 * 
-	 * @throws IllegalArgumentException
-	 * @throws RuntimeException
-	 */
-	public <T> T immediateLoad(Class<T> aClass, URI id) {
-		try {
-			return getDelegate().find(aClass, id);
-		} catch (Exception e) {
-			throw new RuntimeException();
+		final URI key = URI(primarykey);
+		
+		if (!getDelegate().entityExists(key, eClass)) {
+			throw new EntityNotFoundException();
 		}
+		
+		final T obj = getDelegate().getReference(aClass, key);
+
+		getDelegate().add(obj);
+		
+		return obj;
 	}
 
 	/**
@@ -363,46 +344,107 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	 * no transaction
 	 * @throws EntityNotFoundException if the entity no longer exists in the database
 	 */
-	@Override public void refresh(Object entity) {
+	@Override public void refresh(Object entity) throws IllegalArgumentException, TransactionRequiredException, EntityNotFoundException {
+		refresh(entity, LockModeType.NONE, new HashMap<String, Object>());
+	}
+
+	/**
+	 * Refresh the state of the instance from the database, overwriting changes made to the entity, if any.
+	 * 
+	 * @param entity
+	 * 
+	 * @throws IllegalArgumentException if the instance is not
+	 * an entity or the entity is not managed
+	 * @throws TransactionRequiredException if invoked on a
+	 * container-managed entity manager of type
+	 * PersistenceContextType.TRANSACTION and there is
+	 * no transaction
+	 * @throws EntityNotFoundException if the entity no longer exists in the database
+	 */
+	@Override public void refresh(Object entity, Map<String, Object> properties) throws IllegalArgumentException, TransactionRequiredException, EntityNotFoundException {
+		refresh(entity, LockModeType.NONE, properties);
+	}
+
+	/**
+	 * Refresh the state of the instance from the database, overwriting changes made to the entity, if any.
+	 * 
+	 * @param entity
+	 * 
+	 * @throws IllegalArgumentException if the instance is not
+	 * an entity or the entity is not managed
+	 * @throws TransactionRequiredException if invoked on a
+	 * container-managed entity manager of type
+	 * PersistenceContextType.TRANSACTION and there is
+	 * no transaction
+	 * @throws EntityNotFoundException if the entity no longer exists in the database
+	 */
+	@Override public void refresh(Object entity, LockModeType lockType) throws IllegalArgumentException, TransactionRequiredException, EntityNotFoundException {
+		refresh(entity, lockType, new HashMap<String, Object>());
+	}
+
+	/**
+	 * Refresh the state of the instance from the database, overwriting changes made to the entity, if any.
+	 * 
+	 * @param entity
+	 * 
+	 * @throws IllegalArgumentException if the instance is not
+	 * an entity or the entity is not managed
+	 * @throws TransactionRequiredException if invoked on a
+	 * container-managed entity manager of type
+	 * PersistenceContextType.TRANSACTION and there is
+	 * no transaction
+	 * @throws EntityNotFoundException if the entity no longer exists in the database
+	 */
+	@Override public void refresh(Object entity, LockModeType lockType, Map<String, Object> properties) throws IllegalArgumentException, TransactionRequiredException, EntityNotFoundException {
 		checkIsOpen();
 		checkState(entity);
 		checkContains(entity);
 
-		final Object persistedObject = 
-			find(entity.getClass(), ID.getId((EObject) entity));
-
-		if (persistedObject == null) {
-			throw new EntityNotFoundException();
+		if (!getTransaction().isActive()) {
+			throw new TransactionRequiredException("Transaction is required for this operation.");
 		}
-	}
+		
+		final URI id;
+		if (properties.containsKey("KEY")){
+			id = (URI) properties.get("KEY");
+		} else {
+			id = getDelegate().id(entity);
+		}
+		
+		final EObject current = (EObject) entity;
+		final EObject persistedObject = (EObject) getDelegate().refresh(entity.getClass(), id);
+		
+		if (persistedObject == null) {
+			throw new EntityNotFoundException("Entity with key " + id + " is not present in persistence context.");
+		}
+		
+		if (current.eIsProxy()) {
+			((InternalEObject)current).eSetProxyURI(null);
+		}
+		
+		for (final EAttribute attr: current.eClass().getEAllAttributes()) {
+			Object val = persistedObject.eGet(attr);
+			if (val != null)
+				current.eSet(attr, val);
+			else current.eUnset(attr);			
+		}
 
-	/**
-	 * @inheritDoc
-	 */
-	@Override public void refresh(Object entity, Map<String, Object> properties) {
-		refresh(entity);
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	@Override public void refresh(Object entity, LockModeType lockType) {
-		refresh(entity);
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	@Override public void refresh(Object entity, LockModeType lockType, Map<String, Object> properties) {
-		refresh(entity);
+		for (final EReference ref: current.eClass().getEAllReferences()) {
+			Object val = persistedObject.eGet(ref);
+			if (val != null)
+				current.eSet(ref, val);
+			else current.eUnset(ref);			
+		}
+		
+		getDelegate().add(current);
+		System.out.println(current);
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	@Override public void lock(Object arg0, LockModeType arg1) {
-		// TODO
-		throw new UnsupportedOperationException("lock is not supported");
+		lock(arg0, arg1, new HashMap<String, Object>());
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package com.emf4sw.owl.jena.resource;
+package com.emf4sw.owl.resource.impl;
 
 import java.util.HashMap;
 import java.util.Map;

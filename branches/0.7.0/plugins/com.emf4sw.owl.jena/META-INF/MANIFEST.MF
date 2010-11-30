@@ -9,5 +9,5 @@ Require-Bundle: org.openjena;bundle-version="2.6.3",
  org.eclipse.emf.ecore;bundle-version="2.5.0",
  com.emf4sw.rdf;bundle-version="0.7.0",
  com.emf4sw.owl;bundle-version="0.7.0"
-Export-Package: com.emf4sw.owl.jena.resource,
- com.emf4sw.owl.jena.utils
+Export-Package: com.emf4sw.owl.jena.utils,
+ com.emf4sw.owl.resource.impl

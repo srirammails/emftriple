@@ -48,7 +48,7 @@ public class EObjectEntityManagerTest {
 		em.clear();
 	}
 	
-//	@Test
+	@Test
 	public void testFindEmployee() {
 		EntityManager em = emf.createEntityManager();
 		
@@ -104,6 +104,39 @@ public class EObjectEntityManagerTest {
 		
 		em.getTransaction().commit();
 		em.clear();
+	}
+	
+	@Test
+	public void testRefreshProxyObject() {
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		
+		String key = "http://www.example.com/employees/emanual_smith";
+		
+		Employee emp = em.getReference(Employee.class, key);
+		
+		assertTrue(emp instanceof EObject);
+		assertTrue(emp.eResource() instanceof ETripleResource);
+		assertTrue(((InternalEObject)emp).eIsProxy());
+		assertTrue(emp.getFirstName() == null);
+		
+		em.refresh(emp);
+		
+		assertTrue(emp instanceof EObject);
+		assertTrue(emp.eResource() instanceof ETripleResource);
+		assertFalse(((InternalEObject)emp).eIsProxy());
+		assertFalse(emp.getFirstName() == null);
+		
+		em.getTransaction().commit();
+		
+		try {
+			emp.eResource().save(System.out, null);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		em.clear();
+		em.close();
 	}
 }
 

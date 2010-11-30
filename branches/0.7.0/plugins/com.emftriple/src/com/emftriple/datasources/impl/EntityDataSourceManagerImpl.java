@@ -100,7 +100,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		object = get().get(aClass, key);
 		
 		if (object != null) {
-			put(key, (EObject) object);
+			add((EObject) object);
 		}
 		
 		return object;
@@ -123,6 +123,15 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		return object;
 	}
 
+	@Override
+	public Object refresh(Class<? extends Object> aClass, URI id) {
+		isMappedClass(aClass);
+		
+		Object obj = get().get(aClass, id);
+		
+		return obj;
+	}
+	
 	@Override
 	public Object findNode(Node node) {
 		if (node instanceof URIElement) 
