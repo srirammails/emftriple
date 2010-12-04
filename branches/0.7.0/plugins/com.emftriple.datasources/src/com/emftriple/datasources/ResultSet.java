@@ -8,8 +8,8 @@ import com.emftriple.datasources.ResultSet.Solution;
 
 /**
  * 
- * @author ehilgui
- *
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
  */
 public interface ResultSet extends Iterator<Solution> {
 

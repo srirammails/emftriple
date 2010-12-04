@@ -8,6 +8,11 @@ import com.emftriple.config.persistence.Federation;
 import com.google.inject.Guice;
 import com.google.inject.Module;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public class DataSources {
 
 	private DataSources() {
