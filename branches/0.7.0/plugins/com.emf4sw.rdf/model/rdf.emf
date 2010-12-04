@@ -2,7 +2,6 @@
 package rdf;
 
 abstract class URIElement {
-
   @Id(base="")
   id attr String[1] URI;
 }
@@ -61,10 +60,6 @@ class Triple {
   ref RDFGraph[1]#triples graph;
 }
 
-class Quad extends Triple {
-  ref RDFGraph[1] contextGraph;
-}
-
 abstract class Node {
   op boolean isTypeOf(String uri);
   op Node[*] getTypes();
@@ -112,18 +107,22 @@ class Literal extends Node {
   ref RDFGraph#literals graph;
 }
 
-class Bag extends BlankNode {
+abstract class RDFSContainer extends BlankNode {
+   
+}
+
+class RDFBag extends RDFSContainer {
   ref Node[*] elements;
 }
 
-class Alt extends BlankNode {
+class RDFAlt extends RDFSContainer {
   ref Node[*] elements;
 }
 
-class Seq extends BlankNode {
-  ref Node[*] elements;
+class RDFSeq extends RDFSContainer {
+  ordered ref Node[*] elements;
 }
 
-class List extends BlankNode {
-  ref Node[*] elements;
+class RDFList extends BlankNode {
+  ordered ref Node[*] elements;
 }

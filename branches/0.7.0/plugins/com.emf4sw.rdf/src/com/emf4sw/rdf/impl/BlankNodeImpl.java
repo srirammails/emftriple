@@ -254,10 +254,10 @@ public class BlankNodeImpl extends NodeImpl implements BlankNode {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer();
-//		result.append(" (nodeID: ");
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (nodeID: ");
 		result.append(nodeID);
-//		result.append(')');
+		result.append(')');
 		return result.toString();
 	}
 

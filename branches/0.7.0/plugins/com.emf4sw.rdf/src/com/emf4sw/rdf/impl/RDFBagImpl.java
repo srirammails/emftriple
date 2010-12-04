@@ -12,24 +12,24 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import com.emf4sw.rdf.List;
 import com.emf4sw.rdf.Node;
+import com.emf4sw.rdf.RDFBag;
 import com.emf4sw.rdf.RDFPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>List</b></em>'.
+ * An implementation of the model object '<em><b>Bag</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.emf4sw.rdf.impl.ListImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.RDFBagImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ListImpl extends BlankNodeImpl implements List {
+public class RDFBagImpl extends RDFSContainerImpl implements RDFBag {
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -45,10 +45,10 @@ public class ListImpl extends BlankNodeImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ListImpl() {
+	protected RDFBagImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,7 +56,7 @@ public class ListImpl extends BlankNodeImpl implements List {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RDFPackage.Literals.LIST;
+		return RDFPackage.Literals.RDF_BAG;
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class ListImpl extends BlankNodeImpl implements List {
 	 */
 	public EList<Node> getElements() {
 		if (elements == null) {
-			elements = new EObjectResolvingEList<Node>(Node.class, this, RDFPackage.LIST__ELEMENTS);
+			elements = new EObjectResolvingEList<Node>(Node.class, this, RDFPackage.RDF_BAG__ELEMENTS);
 		}
 		return elements;
 	}
@@ -79,7 +79,7 @@ public class ListImpl extends BlankNodeImpl implements List {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RDFPackage.LIST__ELEMENTS:
+			case RDFPackage.RDF_BAG__ELEMENTS:
 				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -94,7 +94,7 @@ public class ListImpl extends BlankNodeImpl implements List {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RDFPackage.LIST__ELEMENTS:
+			case RDFPackage.RDF_BAG__ELEMENTS:
 				getElements().clear();
 				getElements().addAll((Collection<? extends Node>)newValue);
 				return;
@@ -110,7 +110,7 @@ public class ListImpl extends BlankNodeImpl implements List {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RDFPackage.LIST__ELEMENTS:
+			case RDFPackage.RDF_BAG__ELEMENTS:
 				getElements().clear();
 				return;
 		}
@@ -125,10 +125,10 @@ public class ListImpl extends BlankNodeImpl implements List {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RDFPackage.LIST__ELEMENTS:
+			case RDFPackage.RDF_BAG__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ListImpl
+} //RDFBagImpl

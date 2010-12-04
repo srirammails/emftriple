@@ -12,24 +12,24 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import com.emf4sw.rdf.Bag;
 import com.emf4sw.rdf.Node;
+import com.emf4sw.rdf.RDFAlt;
 import com.emf4sw.rdf.RDFPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Bag</b></em>'.
+ * An implementation of the model object '<em><b>Alt</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.emf4sw.rdf.impl.BagImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.RDFAltImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BagImpl extends BlankNodeImpl implements Bag {
+public class RDFAltImpl extends RDFSContainerImpl implements RDFAlt {
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -45,10 +45,10 @@ public class BagImpl extends BlankNodeImpl implements Bag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BagImpl() {
+	protected RDFAltImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,7 +56,7 @@ public class BagImpl extends BlankNodeImpl implements Bag {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RDFPackage.Literals.BAG;
+		return RDFPackage.Literals.RDF_ALT;
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class BagImpl extends BlankNodeImpl implements Bag {
 	 */
 	public EList<Node> getElements() {
 		if (elements == null) {
-			elements = new EObjectResolvingEList<Node>(Node.class, this, RDFPackage.BAG__ELEMENTS);
+			elements = new EObjectResolvingEList<Node>(Node.class, this, RDFPackage.RDF_ALT__ELEMENTS);
 		}
 		return elements;
 	}
@@ -79,7 +79,7 @@ public class BagImpl extends BlankNodeImpl implements Bag {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RDFPackage.BAG__ELEMENTS:
+			case RDFPackage.RDF_ALT__ELEMENTS:
 				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -94,7 +94,7 @@ public class BagImpl extends BlankNodeImpl implements Bag {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RDFPackage.BAG__ELEMENTS:
+			case RDFPackage.RDF_ALT__ELEMENTS:
 				getElements().clear();
 				getElements().addAll((Collection<? extends Node>)newValue);
 				return;
@@ -110,7 +110,7 @@ public class BagImpl extends BlankNodeImpl implements Bag {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RDFPackage.BAG__ELEMENTS:
+			case RDFPackage.RDF_ALT__ELEMENTS:
 				getElements().clear();
 				return;
 		}
@@ -125,10 +125,10 @@ public class BagImpl extends BlankNodeImpl implements Bag {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RDFPackage.BAG__ELEMENTS:
+			case RDFPackage.RDF_ALT__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //BagImpl
+} //RDFAltImpl

@@ -12,21 +12,20 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import com.emf4sw.rdf.Alt;
-import com.emf4sw.rdf.Bag;
 import com.emf4sw.rdf.BlankNode;
 import com.emf4sw.rdf.Datatype;
 import com.emf4sw.rdf.DocumentGraph;
-import com.emf4sw.rdf.List;
 import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.Namespace;
 import com.emf4sw.rdf.Property;
-import com.emf4sw.rdf.Quad;
+import com.emf4sw.rdf.RDFAlt;
+import com.emf4sw.rdf.RDFBag;
 import com.emf4sw.rdf.RDFFactory;
+import com.emf4sw.rdf.RDFList;
 import com.emf4sw.rdf.RDFPackage;
+import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Resource;
-import com.emf4sw.rdf.Seq;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.TripleNode;
 
@@ -77,7 +76,6 @@ public class RDFFactoryImpl extends EFactoryImpl implements RDFFactory {
 			case RDFPackage.NAMESPACE: return createNamespace();
 			case RDFPackage.DOCUMENT_GRAPH: return createDocumentGraph();
 			case RDFPackage.TRIPLE: return createTriple();
-			case RDFPackage.QUAD: return createQuad();
 			case RDFPackage.NAMED_GRAPH: return createNamedGraph();
 			case RDFPackage.BLANK_NODE: return createBlankNode();
 			case RDFPackage.TRIPLE_NODE: return createTripleNode();
@@ -85,10 +83,10 @@ public class RDFFactoryImpl extends EFactoryImpl implements RDFFactory {
 			case RDFPackage.PROPERTY: return createProperty();
 			case RDFPackage.DATATYPE: return createDatatype();
 			case RDFPackage.LITERAL: return createLiteral();
-			case RDFPackage.BAG: return createBag();
-			case RDFPackage.ALT: return createAlt();
-			case RDFPackage.SEQ: return createSeq();
-			case RDFPackage.LIST: return createList();
+			case RDFPackage.RDF_BAG: return createRDFBag();
+			case RDFPackage.RDF_ALT: return createRDFAlt();
+			case RDFPackage.RDF_SEQ: return createRDFSeq();
+			case RDFPackage.RDF_LIST: return createRDFList();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,16 +130,6 @@ public class RDFFactoryImpl extends EFactoryImpl implements RDFFactory {
 	public Triple createTriple() {
 		TripleImpl triple = new TripleImpl();
 		return triple;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Quad createQuad() {
-		QuadImpl quad = new QuadImpl();
-		return quad;
 	}
 
 	/**
@@ -209,9 +197,9 @@ public class RDFFactoryImpl extends EFactoryImpl implements RDFFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Bag createBag() {
-		BagImpl bag = new BagImpl();
-		return bag;
+	public RDFBag createRDFBag() {
+		RDFBagImpl rdfBag = new RDFBagImpl();
+		return rdfBag;
 	}
 
 	/**
@@ -219,9 +207,9 @@ public class RDFFactoryImpl extends EFactoryImpl implements RDFFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Alt createAlt() {
-		AltImpl alt = new AltImpl();
-		return alt;
+	public RDFAlt createRDFAlt() {
+		RDFAltImpl rdfAlt = new RDFAltImpl();
+		return rdfAlt;
 	}
 
 	/**
@@ -229,9 +217,9 @@ public class RDFFactoryImpl extends EFactoryImpl implements RDFFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Seq createSeq() {
-		SeqImpl seq = new SeqImpl();
-		return seq;
+	public RDFSeq createRDFSeq() {
+		RDFSeqImpl rdfSeq = new RDFSeqImpl();
+		return rdfSeq;
 	}
 
 	/**
@@ -239,9 +227,9 @@ public class RDFFactoryImpl extends EFactoryImpl implements RDFFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List createList() {
-		ListImpl list = new ListImpl();
-		return list;
+	public RDFList createRDFList() {
+		RDFListImpl rdfList = new RDFListImpl();
+		return rdfList;
 	}
 
 	/**

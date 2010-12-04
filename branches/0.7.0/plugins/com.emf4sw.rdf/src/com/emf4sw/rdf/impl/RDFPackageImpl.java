@@ -13,23 +13,23 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import com.emf4sw.rdf.Alt;
-import com.emf4sw.rdf.Bag;
 import com.emf4sw.rdf.BlankNode;
 import com.emf4sw.rdf.Datatype;
 import com.emf4sw.rdf.DocumentGraph;
-import com.emf4sw.rdf.List;
 import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.Namespace;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Property;
-import com.emf4sw.rdf.Quad;
+import com.emf4sw.rdf.RDFAlt;
+import com.emf4sw.rdf.RDFBag;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.RDFList;
 import com.emf4sw.rdf.RDFPackage;
+import com.emf4sw.rdf.RDFSContainer;
+import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Resource;
-import com.emf4sw.rdf.Seq;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.TripleNode;
 import com.emf4sw.rdf.URIElement;
@@ -88,13 +88,6 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass quadEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass nodeEClass = null;
 
 	/**
@@ -144,28 +137,35 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass bagEClass = null;
+	private EClass rdfsContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass altEClass = null;
+	private EClass rdfBagEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass seqEClass = null;
+	private EClass rdfAltEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass listEClass = null;
+	private EClass rdfSeqEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rdfListEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -440,24 +440,6 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getQuad() {
-		return quadEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getQuad_ContextGraph() {
-		return (EReference)quadEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNode() {
 		return nodeEClass;
 	}
@@ -638,8 +620,8 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBag() {
-		return bagEClass;
+	public EClass getRDFSContainer() {
+		return rdfsContainerEClass;
 	}
 
 	/**
@@ -647,8 +629,8 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBag_Elements() {
-		return (EReference)bagEClass.getEStructuralFeatures().get(0);
+	public EClass getRDFBag() {
+		return rdfBagEClass;
 	}
 
 	/**
@@ -656,8 +638,8 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAlt() {
-		return altEClass;
+	public EReference getRDFBag_Elements() {
+		return (EReference)rdfBagEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -665,8 +647,8 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAlt_Elements() {
-		return (EReference)altEClass.getEStructuralFeatures().get(0);
+	public EClass getRDFAlt() {
+		return rdfAltEClass;
 	}
 
 	/**
@@ -674,8 +656,8 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSeq() {
-		return seqEClass;
+	public EReference getRDFAlt_Elements() {
+		return (EReference)rdfAltEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -683,8 +665,8 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSeq_Elements() {
-		return (EReference)seqEClass.getEStructuralFeatures().get(0);
+	public EClass getRDFSeq() {
+		return rdfSeqEClass;
 	}
 
 	/**
@@ -692,8 +674,8 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getList() {
-		return listEClass;
+	public EReference getRDFSeq_Elements() {
+		return (EReference)rdfSeqEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -701,8 +683,17 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getList_Elements() {
-		return (EReference)listEClass.getEStructuralFeatures().get(0);
+	public EClass getRDFList() {
+		return rdfListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRDFList_Elements() {
+		return (EReference)rdfListEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -759,9 +750,6 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		createEReference(tripleEClass, TRIPLE__OBJECT);
 		createEReference(tripleEClass, TRIPLE__GRAPH);
 
-		quadEClass = createEClass(QUAD);
-		createEReference(quadEClass, QUAD__CONTEXT_GRAPH);
-
 		nodeEClass = createEClass(NODE);
 		createEAttribute(nodeEClass, NODE__LABEL);
 		createEAttribute(nodeEClass, NODE__COMMENT);
@@ -792,17 +780,19 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		createEReference(literalEClass, LITERAL__DATATYPE);
 		createEReference(literalEClass, LITERAL__GRAPH);
 
-		bagEClass = createEClass(BAG);
-		createEReference(bagEClass, BAG__ELEMENTS);
+		rdfsContainerEClass = createEClass(RDF_SCONTAINER);
 
-		altEClass = createEClass(ALT);
-		createEReference(altEClass, ALT__ELEMENTS);
+		rdfBagEClass = createEClass(RDF_BAG);
+		createEReference(rdfBagEClass, RDF_BAG__ELEMENTS);
 
-		seqEClass = createEClass(SEQ);
-		createEReference(seqEClass, SEQ__ELEMENTS);
+		rdfAltEClass = createEClass(RDF_ALT);
+		createEReference(rdfAltEClass, RDF_ALT__ELEMENTS);
 
-		listEClass = createEClass(LIST);
-		createEReference(listEClass, LIST__ELEMENTS);
+		rdfSeqEClass = createEClass(RDF_SEQ);
+		createEReference(rdfSeqEClass, RDF_SEQ__ELEMENTS);
+
+		rdfListEClass = createEClass(RDF_LIST);
+		createEReference(rdfListEClass, RDF_LIST__ELEMENTS);
 	}
 
 	/**
@@ -836,7 +826,6 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		namespaceEClass.getESuperTypes().add(this.getURIElement());
 		rdfGraphEClass.getESuperTypes().add(this.getURIElement());
 		documentGraphEClass.getESuperTypes().add(this.getRDFGraph());
-		quadEClass.getESuperTypes().add(this.getTriple());
 		namedGraphEClass.getESuperTypes().add(this.getRDFGraph());
 		namedGraphEClass.getESuperTypes().add(this.getNode());
 		blankNodeEClass.getESuperTypes().add(this.getNode());
@@ -847,10 +836,11 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		propertyEClass.getESuperTypes().add(this.getResource());
 		datatypeEClass.getESuperTypes().add(this.getResource());
 		literalEClass.getESuperTypes().add(this.getNode());
-		bagEClass.getESuperTypes().add(this.getBlankNode());
-		altEClass.getESuperTypes().add(this.getBlankNode());
-		seqEClass.getESuperTypes().add(this.getBlankNode());
-		listEClass.getESuperTypes().add(this.getBlankNode());
+		rdfsContainerEClass.getESuperTypes().add(this.getBlankNode());
+		rdfBagEClass.getESuperTypes().add(this.getRDFSContainer());
+		rdfAltEClass.getESuperTypes().add(this.getRDFSContainer());
+		rdfSeqEClass.getESuperTypes().add(this.getRDFSContainer());
+		rdfListEClass.getESuperTypes().add(this.getBlankNode());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(uriElementEClass, URIElement.class, "URIElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -923,9 +913,6 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		initEReference(getTriple_Object(), this.getNode(), this.getNode_ObjectOf(), "object", null, 1, 1, Triple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTriple_Graph(), this.getRDFGraph(), this.getRDFGraph_Triples(), "graph", null, 1, 1, Triple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(quadEClass, Quad.class, "Quad", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQuad_ContextGraph(), this.getRDFGraph(), null, "contextGraph", null, 1, 1, Quad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNode_Label(), ecorePackage.getEString(), "label", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNode_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -976,17 +963,19 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		initEReference(getLiteral_Datatype(), this.getDatatype(), null, "datatype", null, 1, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLiteral_Graph(), this.getRDFGraph(), this.getRDFGraph_Literals(), "graph", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(bagEClass, Bag.class, "Bag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBag_Elements(), this.getNode(), null, "elements", null, 0, -1, Bag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rdfsContainerEClass, RDFSContainer.class, "RDFSContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(altEClass, Alt.class, "Alt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAlt_Elements(), this.getNode(), null, "elements", null, 0, -1, Alt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rdfBagEClass, RDFBag.class, "RDFBag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRDFBag_Elements(), this.getNode(), null, "elements", null, 0, -1, RDFBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(seqEClass, Seq.class, "Seq", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSeq_Elements(), this.getNode(), null, "elements", null, 0, -1, Seq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rdfAltEClass, RDFAlt.class, "RDFAlt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRDFAlt_Elements(), this.getNode(), null, "elements", null, 0, -1, RDFAlt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(listEClass, List.class, "List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getList_Elements(), this.getNode(), null, "elements", null, 0, -1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rdfSeqEClass, RDFSeq.class, "RDFSeq", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRDFSeq_Elements(), this.getNode(), null, "elements", null, 0, -1, RDFSeq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rdfListEClass, RDFList.class, "RDFList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRDFList_Elements(), this.getNode(), null, "elements", null, 0, -1, RDFList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

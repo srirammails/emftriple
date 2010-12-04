@@ -11,22 +11,22 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
-import com.emf4sw.rdf.Alt;
-import com.emf4sw.rdf.Bag;
 import com.emf4sw.rdf.BlankNode;
 import com.emf4sw.rdf.Datatype;
 import com.emf4sw.rdf.DocumentGraph;
-import com.emf4sw.rdf.List;
 import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.Namespace;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Property;
-import com.emf4sw.rdf.Quad;
+import com.emf4sw.rdf.RDFAlt;
+import com.emf4sw.rdf.RDFBag;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.RDFList;
 import com.emf4sw.rdf.RDFPackage;
+import com.emf4sw.rdf.RDFSContainer;
+import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Resource;
-import com.emf4sw.rdf.Seq;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.TripleNode;
 import com.emf4sw.rdf.URIElement;
@@ -108,10 +108,6 @@ public class RDFAdapterFactory extends AdapterFactoryImpl {
 				return createTripleAdapter();
 			}
 			@Override
-			public Adapter caseQuad(Quad object) {
-				return createQuadAdapter();
-			}
-			@Override
 			public Adapter caseNode(Node object) {
 				return createNodeAdapter();
 			}
@@ -144,20 +140,24 @@ public class RDFAdapterFactory extends AdapterFactoryImpl {
 				return createLiteralAdapter();
 			}
 			@Override
-			public Adapter caseBag(Bag object) {
-				return createBagAdapter();
+			public Adapter caseRDFSContainer(RDFSContainer object) {
+				return createRDFSContainerAdapter();
 			}
 			@Override
-			public Adapter caseAlt(Alt object) {
-				return createAltAdapter();
+			public Adapter caseRDFBag(RDFBag object) {
+				return createRDFBagAdapter();
 			}
 			@Override
-			public Adapter caseSeq(Seq object) {
-				return createSeqAdapter();
+			public Adapter caseRDFAlt(RDFAlt object) {
+				return createRDFAltAdapter();
 			}
 			@Override
-			public Adapter caseList(List object) {
-				return createListAdapter();
+			public Adapter caseRDFSeq(RDFSeq object) {
+				return createRDFSeqAdapter();
+			}
+			@Override
+			public Adapter caseRDFList(RDFList object) {
+				return createRDFListAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -264,20 +264,6 @@ public class RDFAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.Quad <em>Quad</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.emf4sw.rdf.Quad
-	 * @generated
-	 */
-	public Adapter createQuadAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -376,58 +362,72 @@ public class RDFAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.Bag <em>Bag</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.RDFSContainer <em>SContainer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.emf4sw.rdf.Bag
+	 * @see com.emf4sw.rdf.RDFSContainer
 	 * @generated
 	 */
-	public Adapter createBagAdapter() {
+	public Adapter createRDFSContainerAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.Alt <em>Alt</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.RDFBag <em>Bag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.emf4sw.rdf.Alt
+	 * @see com.emf4sw.rdf.RDFBag
 	 * @generated
 	 */
-	public Adapter createAltAdapter() {
+	public Adapter createRDFBagAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.Seq <em>Seq</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.RDFAlt <em>Alt</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.emf4sw.rdf.Seq
+	 * @see com.emf4sw.rdf.RDFAlt
 	 * @generated
 	 */
-	public Adapter createSeqAdapter() {
+	public Adapter createRDFAltAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.List <em>List</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.RDFSeq <em>Seq</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.emf4sw.rdf.List
+	 * @see com.emf4sw.rdf.RDFSeq
 	 * @generated
 	 */
-	public Adapter createListAdapter() {
+	public Adapter createRDFSeqAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.RDFList <em>List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.emf4sw.rdf.RDFList
+	 * @generated
+	 */
+	public Adapter createRDFListAdapter() {
 		return null;
 	}
 

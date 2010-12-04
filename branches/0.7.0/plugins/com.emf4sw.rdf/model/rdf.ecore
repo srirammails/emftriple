@@ -118,10 +118,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1" eType="#//RDFGraph"
         eOpposite="#//RDFGraph/triples"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Quad" eSuperTypes="#//Triple">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contextGraph" lowerBound="1"
-        eType="#//RDFGraph"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
     <eOperations name="isTypeOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -181,19 +177,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//RDFGraph"
         eOpposite="#//RDFGraph/literals"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Bag" eSuperTypes="#//BlankNode">
+  <eClassifiers xsi:type="ecore:EClass" name="RDFSContainer" abstract="true" eSuperTypes="#//BlankNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RDFBag" eSuperTypes="#//RDFSContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//Node"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Alt" eSuperTypes="#//BlankNode">
+  <eClassifiers xsi:type="ecore:EClass" name="RDFAlt" eSuperTypes="#//RDFSContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//Node"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Seq" eSuperTypes="#//BlankNode">
+  <eClassifiers xsi:type="ecore:EClass" name="RDFSeq" eSuperTypes="#//RDFSContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//Node"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//BlankNode">
+  <eClassifiers xsi:type="ecore:EClass" name="RDFList" eSuperTypes="#//BlankNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//Node"/>
   </eClassifiers>

@@ -11,8 +11,6 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import com.emf4sw.rdf.Alt;
-import com.emf4sw.rdf.Bag;
 import com.emf4sw.rdf.BlankNode;
 import com.emf4sw.rdf.Datatype;
 import com.emf4sw.rdf.DocumentGraph;
@@ -21,11 +19,14 @@ import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.Namespace;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Property;
-import com.emf4sw.rdf.Quad;
+import com.emf4sw.rdf.RDFAlt;
+import com.emf4sw.rdf.RDFBag;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.RDFList;
 import com.emf4sw.rdf.RDFPackage;
+import com.emf4sw.rdf.RDFSContainer;
+import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Resource;
-import com.emf4sw.rdf.Seq;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.TripleNode;
 import com.emf4sw.rdf.URIElement;
@@ -138,13 +139,6 @@ public class RDFSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RDFPackage.QUAD: {
-				Quad quad = (Quad)theEObject;
-				T result = caseQuad(quad);
-				if (result == null) result = caseTriple(quad);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RDFPackage.NODE: {
 				Node node = (Node)theEObject;
 				T result = caseNode(node);
@@ -208,35 +202,46 @@ public class RDFSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RDFPackage.BAG: {
-				Bag bag = (Bag)theEObject;
-				T result = caseBag(bag);
-				if (result == null) result = caseBlankNode(bag);
-				if (result == null) result = caseNode(bag);
+			case RDFPackage.RDF_SCONTAINER: {
+				RDFSContainer rdfsContainer = (RDFSContainer)theEObject;
+				T result = caseRDFSContainer(rdfsContainer);
+				if (result == null) result = caseBlankNode(rdfsContainer);
+				if (result == null) result = caseNode(rdfsContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RDFPackage.ALT: {
-				Alt alt = (Alt)theEObject;
-				T result = caseAlt(alt);
-				if (result == null) result = caseBlankNode(alt);
-				if (result == null) result = caseNode(alt);
+			case RDFPackage.RDF_BAG: {
+				RDFBag rdfBag = (RDFBag)theEObject;
+				T result = caseRDFBag(rdfBag);
+				if (result == null) result = caseRDFSContainer(rdfBag);
+				if (result == null) result = caseBlankNode(rdfBag);
+				if (result == null) result = caseNode(rdfBag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RDFPackage.SEQ: {
-				Seq seq = (Seq)theEObject;
-				T result = caseSeq(seq);
-				if (result == null) result = caseBlankNode(seq);
-				if (result == null) result = caseNode(seq);
+			case RDFPackage.RDF_ALT: {
+				RDFAlt rdfAlt = (RDFAlt)theEObject;
+				T result = caseRDFAlt(rdfAlt);
+				if (result == null) result = caseRDFSContainer(rdfAlt);
+				if (result == null) result = caseBlankNode(rdfAlt);
+				if (result == null) result = caseNode(rdfAlt);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RDFPackage.LIST: {
-				com.emf4sw.rdf.List list = (com.emf4sw.rdf.List)theEObject;
-				T result = caseList(list);
-				if (result == null) result = caseBlankNode(list);
-				if (result == null) result = caseNode(list);
+			case RDFPackage.RDF_SEQ: {
+				RDFSeq rdfSeq = (RDFSeq)theEObject;
+				T result = caseRDFSeq(rdfSeq);
+				if (result == null) result = caseRDFSContainer(rdfSeq);
+				if (result == null) result = caseBlankNode(rdfSeq);
+				if (result == null) result = caseNode(rdfSeq);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RDFPackage.RDF_LIST: {
+				RDFList rdfList = (RDFList)theEObject;
+				T result = caseRDFList(rdfList);
+				if (result == null) result = caseBlankNode(rdfList);
+				if (result == null) result = caseNode(rdfList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -331,21 +336,6 @@ public class RDFSwitch<T> {
 	 * @generated
 	 */
 	public T caseTriple(Triple object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Quad</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Quad</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseQuad(Quad object) {
 		return null;
 	}
 
@@ -455,6 +445,21 @@ public class RDFSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SContainer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SContainer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRDFSContainer(RDFSContainer object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Bag</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -465,7 +470,7 @@ public class RDFSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBag(Bag object) {
+	public T caseRDFBag(RDFBag object) {
 		return null;
 	}
 
@@ -480,7 +485,7 @@ public class RDFSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAlt(Alt object) {
+	public T caseRDFAlt(RDFAlt object) {
 		return null;
 	}
 
@@ -495,7 +500,7 @@ public class RDFSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSeq(Seq object) {
+	public T caseRDFSeq(RDFSeq object) {
 		return null;
 	}
 
@@ -510,7 +515,7 @@ public class RDFSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseList(com.emf4sw.rdf.List object) {
+	public T caseRDFList(RDFList object) {
 		return null;
 	}
 

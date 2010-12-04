@@ -12,24 +12,24 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import com.emf4sw.rdf.Alt;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFPackage;
+import com.emf4sw.rdf.RDFSeq;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Alt</b></em>'.
+ * An implementation of the model object '<em><b>Seq</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.emf4sw.rdf.impl.AltImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.RDFSeqImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AltImpl extends BlankNodeImpl implements Alt {
+public class RDFSeqImpl extends RDFSContainerImpl implements RDFSeq {
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -45,10 +45,10 @@ public class AltImpl extends BlankNodeImpl implements Alt {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AltImpl() {
+	protected RDFSeqImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,7 +56,7 @@ public class AltImpl extends BlankNodeImpl implements Alt {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RDFPackage.Literals.ALT;
+		return RDFPackage.Literals.RDF_SEQ;
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class AltImpl extends BlankNodeImpl implements Alt {
 	 */
 	public EList<Node> getElements() {
 		if (elements == null) {
-			elements = new EObjectResolvingEList<Node>(Node.class, this, RDFPackage.ALT__ELEMENTS);
+			elements = new EObjectResolvingEList<Node>(Node.class, this, RDFPackage.RDF_SEQ__ELEMENTS);
 		}
 		return elements;
 	}
@@ -79,7 +79,7 @@ public class AltImpl extends BlankNodeImpl implements Alt {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RDFPackage.ALT__ELEMENTS:
+			case RDFPackage.RDF_SEQ__ELEMENTS:
 				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -94,7 +94,7 @@ public class AltImpl extends BlankNodeImpl implements Alt {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RDFPackage.ALT__ELEMENTS:
+			case RDFPackage.RDF_SEQ__ELEMENTS:
 				getElements().clear();
 				getElements().addAll((Collection<? extends Node>)newValue);
 				return;
@@ -110,7 +110,7 @@ public class AltImpl extends BlankNodeImpl implements Alt {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RDFPackage.ALT__ELEMENTS:
+			case RDFPackage.RDF_SEQ__ELEMENTS:
 				getElements().clear();
 				return;
 		}
@@ -125,10 +125,10 @@ public class AltImpl extends BlankNodeImpl implements Alt {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RDFPackage.ALT__ELEMENTS:
+			case RDFPackage.RDF_SEQ__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //AltImpl
+} //RDFSeqImpl

@@ -13,23 +13,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import com.emf4sw.rdf.Node;
+import com.emf4sw.rdf.RDFList;
 import com.emf4sw.rdf.RDFPackage;
-import com.emf4sw.rdf.Seq;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Seq</b></em>'.
+ * An implementation of the model object '<em><b>List</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.emf4sw.rdf.impl.SeqImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.RDFListImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SeqImpl extends BlankNodeImpl implements Seq {
+public class RDFListImpl extends BlankNodeImpl implements RDFList {
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -45,10 +45,10 @@ public class SeqImpl extends BlankNodeImpl implements Seq {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SeqImpl() {
+	protected RDFListImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,7 +56,7 @@ public class SeqImpl extends BlankNodeImpl implements Seq {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RDFPackage.Literals.SEQ;
+		return RDFPackage.Literals.RDF_LIST;
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class SeqImpl extends BlankNodeImpl implements Seq {
 	 */
 	public EList<Node> getElements() {
 		if (elements == null) {
-			elements = new EObjectResolvingEList<Node>(Node.class, this, RDFPackage.SEQ__ELEMENTS);
+			elements = new EObjectResolvingEList<Node>(Node.class, this, RDFPackage.RDF_LIST__ELEMENTS);
 		}
 		return elements;
 	}
@@ -79,7 +79,7 @@ public class SeqImpl extends BlankNodeImpl implements Seq {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RDFPackage.SEQ__ELEMENTS:
+			case RDFPackage.RDF_LIST__ELEMENTS:
 				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -94,7 +94,7 @@ public class SeqImpl extends BlankNodeImpl implements Seq {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RDFPackage.SEQ__ELEMENTS:
+			case RDFPackage.RDF_LIST__ELEMENTS:
 				getElements().clear();
 				getElements().addAll((Collection<? extends Node>)newValue);
 				return;
@@ -110,7 +110,7 @@ public class SeqImpl extends BlankNodeImpl implements Seq {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RDFPackage.SEQ__ELEMENTS:
+			case RDFPackage.RDF_LIST__ELEMENTS:
 				getElements().clear();
 				return;
 		}
@@ -125,10 +125,10 @@ public class SeqImpl extends BlankNodeImpl implements Seq {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RDFPackage.SEQ__ELEMENTS:
+			case RDFPackage.RDF_LIST__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //SeqImpl
+} //RDFListImpl

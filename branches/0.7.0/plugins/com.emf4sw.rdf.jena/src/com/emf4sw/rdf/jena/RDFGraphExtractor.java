@@ -5,17 +5,16 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 
-import com.emf4sw.rdf.Bag;
 import com.emf4sw.rdf.BlankNode;
 import com.emf4sw.rdf.Datatype;
 import com.emf4sw.rdf.DocumentGraph;
-import com.emf4sw.rdf.List;
 import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.Namespace;
 import com.emf4sw.rdf.Property;
+import com.emf4sw.rdf.RDFBag;
 import com.emf4sw.rdf.RDFGraph;
-import com.emf4sw.rdf.Seq;
+import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.TripleNode;
 import com.emf4sw.rdf.util.RDFSwitch;
@@ -260,17 +259,18 @@ public class RDFGraphExtractor {
 		}
 		
 		@Override
-		public RDFNode caseList(List object) {
+		public RDFNode caseRDFList(com.emf4sw.rdf.RDFList object) {
 			RDFList list = model.createList();
 			for (EObject obj: object.getElements()) {
-				list = list.cons(doSwitch(obj));
+				RDFNode node = doSwitch(obj);
+				list = list.cons(node);
 			}
 			
 			return list;
 		}
 		
 		@Override
-		public RDFNode caseSeq(Seq object) {
+		public RDFNode caseRDFSeq(RDFSeq object) {
 			com.hp.hpl.jena.rdf.model.Seq seq = model.createSeq();
 			for (EObject obj: object.getElements()) {
 				seq.add(doSwitch(obj));
@@ -280,7 +280,7 @@ public class RDFGraphExtractor {
 		}
 
 		@Override
-		public RDFNode caseBag(Bag object) {
+		public RDFNode caseRDFBag(RDFBag object) {
 			com.hp.hpl.jena.rdf.model.Bag bag = model.createBag();
 			for (EObject obj: object.getElements()) {
 				bag.add(doSwitch(obj));

@@ -10,21 +10,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Bag</b></em>'.
+ * A representation of the model object '<em><b>List</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.emf4sw.rdf.Bag#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.RDFList#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
- * @see com.emf4sw.rdf.RDFPackage#getBag()
+ * @see com.emf4sw.rdf.RDFPackage#getRDFList()
  * @model
  * @generated
  */
-public interface Bag extends BlankNode {
+public interface RDFList extends BlankNode {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' reference list.
 	 * The list contents are of type {@link com.emf4sw.rdf.Node}.
@@ -35,10 +35,10 @@ public interface Bag extends BlankNode {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' reference list.
-	 * @see com.emf4sw.rdf.RDFPackage#getBag_Elements()
+	 * @see com.emf4sw.rdf.RDFPackage#getRDFList_Elements()
 	 * @model
 	 * @generated
 	 */
 	EList<Node> getElements();
 
-} // Bag
+} // RDFList

@@ -62,15 +62,6 @@ public interface RDFFactory extends EFactory {
 	Triple createTriple();
 
 	/**
-	 * Returns a new object of class '<em>Quad</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Quad</em>'.
-	 * @generated
-	 */
-	Quad createQuad();
-
-	/**
 	 * Returns a new object of class '<em>Blank Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,7 +122,7 @@ public interface RDFFactory extends EFactory {
 	 * @return a new object of class '<em>Bag</em>'.
 	 * @generated
 	 */
-	Bag createBag();
+	RDFBag createRDFBag();
 
 	/**
 	 * Returns a new object of class '<em>Alt</em>'.
@@ -140,7 +131,7 @@ public interface RDFFactory extends EFactory {
 	 * @return a new object of class '<em>Alt</em>'.
 	 * @generated
 	 */
-	Alt createAlt();
+	RDFAlt createRDFAlt();
 
 	/**
 	 * Returns a new object of class '<em>Seq</em>'.
@@ -149,7 +140,7 @@ public interface RDFFactory extends EFactory {
 	 * @return a new object of class '<em>Seq</em>'.
 	 * @generated
 	 */
-	Seq createSeq();
+	RDFSeq createRDFSeq();
 
 	/**
 	 * Returns a new object of class '<em>List</em>'.
@@ -158,7 +149,7 @@ public interface RDFFactory extends EFactory {
 	 * @return a new object of class '<em>List</em>'.
 	 * @generated
 	 */
-	List createList();
+	RDFList createRDFList();
 
 	/**
 	 * Returns the package supported by this factory.
