@@ -24,6 +24,7 @@ import com.emftriple.config.persistence.Property;
 import com.emftriple.datasources.DataSource;
 import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.DataSourceFactory;
+import com.emftriple.util.Functions;
 import com.google.common.base.Function;
 import com.google.inject.internal.Lists;
 import com.google.inject.internal.Maps;
@@ -47,13 +48,13 @@ import com.hp.hpl.jena.sdb.store.LayoutType;
 public class JenaDataSourceFactory implements DataSourceFactory {
 
 	public static final String JENA_FILE_CLASS_NAME = JenaFile.class.getName();
-	
+
 	public static final String JENA_TDB_CLASS_NAME = JenaTDB.class.getName();
-	
+
 	public static final String JENA_SDB_CLASS_NAME = JenaSDB.class.getName();
-	
+
 	public static final String JENA_SERVICE_CLASS_NAME = JenaService.class.getName();
-	
+
 	private Map<DataSourceBuilder, DataSource> descriptors;
 
 	JenaDataSourceFactory() {
@@ -76,7 +77,7 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 		}
 		return Boolean.FALSE;
 	}
-	
+
 	private boolean canCreateJenaService(DataSourceBuilder config) {
 		return config.getUrl() != null;
 	}
@@ -90,7 +91,7 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 		final String aURL = config.getUrl();
 		final String aPassword = getPassword(config.getProperty());
 		final String aUser = getUser(config.getProperty());
-		
+
 		return aDbType != null && aURL != null && aPassword != null && aUser != null;
 	}
 
@@ -113,7 +114,7 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 		public Find(String value) {
 			this.value = value;
 		}
-		
+
 		@Override
 		public String apply(List<Property> from) {
 			for (Property prop: from)
@@ -121,9 +122,9 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 					return prop.getValue();
 			return null;
 		}
-		
+
 	}
-	
+
 	private boolean canCreateJenaFile(DataSourceBuilder config) {
 		return config.getUrl() != null;
 	}
@@ -148,7 +149,7 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 			dataSource = createJenaService(config);
 		}
 		descriptors.put(config, dataSource);
-		
+
 		return dataSource;
 	}
 
@@ -174,14 +175,14 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 		final StoreDesc storeDesc = new StoreDesc(
 				LayoutType.LayoutTripleNodesHash, 
 				dbTypes.get(aDbType)) ;
-		
+
 		loadDriver( dbTypes.get(aDbType) );
 
 		// String jdbcURL = "jdbc:derby:DB/SDB2";
 		final SDBConnection conn = new SDBConnection(aURL, aUser, aPassword) ; 
 		final Store store = SDBFactory.connectStore(conn, storeDesc) ;
 		final List<URI> graphs = getGraphs(config);
-		
+
 		return new JenaSDB(URI.createURI(aURL), graphs, store);
 	}
 
@@ -196,30 +197,35 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 				e.printStackTrace();
 			}
 		}
+		String fileFormat = null;
+		if (config.getProperty() != null) {
+			fileFormat = Functions.transform(config.getProperty().getProperties(), new Find("file.format"));
+		}
 
-		String fileFormat = "RDF/XML-ABBREV";
-		RDFReader reader = model.getReader();
-		reader.setProperty("WARN_REDEFINITION_OF_ID","EM_IGNORE");
-		try {
-			reader.read(model, new FileInputStream(file), "");
-		} catch (Exception e1) {
-			reader = model.getReader("N3");
+		if (fileFormat == null) {
+			fileFormat = "RDF/XML-ABBREV";
+			RDFReader reader = model.getReader();
 			reader.setProperty("WARN_REDEFINITION_OF_ID","EM_IGNORE");
 			try {
-				reader.read(model, new FileInputStream(file), "N3");
-				fileFormat = "N3";
-			} catch (Exception e2) {
-				reader = model.getReader("N-TRIPLES");
+				reader.read(model, new FileInputStream(file), "");
+			} catch (Exception e1) {
+				reader = model.getReader("N3");
 				reader.setProperty("WARN_REDEFINITION_OF_ID","EM_IGNORE");
 				try {
-					reader.read(model, new FileInputStream(file), "N-TRIPLES");
-					fileFormat = "N-TRIPLES";
-				} catch (Exception e3) {
-					throw new DataSourceException(e1);
+					reader.read(model, new FileInputStream(file), "N3");
+					fileFormat = "N3";
+				} catch (Exception e2) {
+					reader = model.getReader("N-TRIPLES");
+					reader.setProperty("WARN_REDEFINITION_OF_ID","EM_IGNORE");
+					try {
+						reader.read(model, new FileInputStream(file), "N-TRIPLES");
+						fileFormat = "N-TRIPLES";
+					} catch (Exception e3) {
+						throw new DataSourceException(e1);
+					}
 				}
 			}
 		}
-
 		return new JenaFile(URI.createURI(config.getUrl()), model, config.getUrl(), fileFormat);
 	}
 
@@ -230,7 +236,7 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 		}
 		return uris;
 	}
-	
+
 	private static final Map<String, DatabaseType> dbTypes = new HashMap<String, DatabaseType>();
 
 	static {
@@ -243,7 +249,7 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 		dbTypes.put("SQLServer", DatabaseType.SQLServer);
 		dbTypes.put("Derby", DatabaseType.Derby);
 	}
-	
+
 	private void loadDriver(final DatabaseType dbType) {
 		if (dbType.equals(DatabaseType.DB2)) {
 			JDBC.loadDriverDB2();
