@@ -13,6 +13,11 @@ import com.emftriple.resource.ETripleStore;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
+ */
 public abstract class DataSourceModule extends AbstractModule {
 
 	protected com.emftriple.config.persistence.Federation sources;

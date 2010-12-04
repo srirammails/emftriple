@@ -56,36 +56,49 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 
 	private boolean isOpen = true;
 
+	private Map<String, Object> properties;
+
 	public ETripleEntityManagerFactory(PersistenceUnit unit, Mapping mapping) {
 		this.mapping = mapping;
 		this.unit = unit;
 		this.createdEntityManagers = new HashSet<EntityManager>();
+		this.properties = new HashMap<String, Object>();
 	}
 
 	@Override
-	public EntityManager createEntityManager() {
+	public EntityManager createEntityManager() throws IllegalArgumentException {
 		if (!isOpen()) {
 			throw new IllegalStateException("EntityManagerFactory is not open.");
 		}
 
-		return doCreateEntityManager(new HashMap<String, String>()); 
+		try {
+			return doCreateEntityManager(new HashMap<String, String>());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
-	public EntityManager createEntityManager(@SuppressWarnings("rawtypes") Map options) {
+	public EntityManager createEntityManager(@SuppressWarnings("rawtypes") Map options) throws IllegalArgumentException {
 		if (!isOpen()) {
 			throw new IllegalStateException("EntityManagerFactory is not open.");
 		}
 
-		return doCreateEntityManager(options);
+		try {
+			return doCreateEntityManager(options);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	private EntityManager doCreateEntityManager(@SuppressWarnings("rawtypes") Map options) {
+	private EntityManager doCreateEntityManager(@SuppressWarnings("rawtypes") Map options) throws IllegalStateException, DataSourceException {
 		try {
 			final EntityManager entityManager;
 			final DataSourceModule module;
 			final EntityDataSourceManager dataSourceManager;
-			
+
 			if (isEStoreEnable(mapping.getEPackages())) 
 			{
 				ETripleStore eStore = new ETripleStore();
@@ -97,7 +110,7 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 				}
 				entityManager = new EStoreEntityManager(this, dataSourceManager, mapping, eStore);
 				eStore.setEntityManager(entityManager);
-				
+
 				Registry.INSTANCE.put(entityManager, eStore);
 			} 
 			else 
@@ -109,10 +122,10 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 					throw new IllegalStateException("Cannot create DataSourceManager");
 				}
 				entityManager = new EObjectEntityManager(this, dataSourceManager, mapping);
-				
+
 				Registry.INSTANCE.put(entityManager, null);
 			}
-			
+
 			createdEntityManagers.add(entityManager);
 			dataSourceManager.connect();
 
@@ -180,22 +193,22 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 
 	@Override
 	public Map<String, Object> getProperties() {
-		throw new UnsupportedOperationException();
+		return properties;
 	}
 
 	public static class Registry {
-		
+
 		public static final Registry INSTANCE = new Registry();
-		
+
 		public static final Map<EntityManager, EStore> entityManagers = Maps.newHashMap();
 
 		void put(EntityManager em, EStore e) {
 			Preconditions.checkNotNull(em);
-//			Preconditions.checkNotNull(e);
-			
+			//			Preconditions.checkNotNull(e);
+
 			entityManagers.put(em, e);
 		}
-		
+
 		public EntityManager getActiveEntityManager() {
 			for (EntityManager em: entityManagers.keySet())
 			{
@@ -206,6 +219,6 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 			}
 			return null;
 		}
-		
+
 	}
 }

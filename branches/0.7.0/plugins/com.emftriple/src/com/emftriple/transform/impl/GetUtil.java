@@ -9,6 +9,11 @@ import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Resource;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
+ */
 public final class GetUtil {
 
 	public static String getValue(Node node) {

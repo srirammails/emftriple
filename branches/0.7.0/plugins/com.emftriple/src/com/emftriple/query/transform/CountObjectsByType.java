@@ -10,6 +10,11 @@ import com.emftriple.datasources.DataSource;
 import com.emftriple.datasources.ResultSet;
 import com.google.common.base.Function;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
+ */
 public class CountObjectsByType implements Function<EClass, Integer>{
 	
 	private final DataSource dataSource;

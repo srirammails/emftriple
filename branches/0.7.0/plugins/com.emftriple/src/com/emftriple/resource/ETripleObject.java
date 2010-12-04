@@ -5,10 +5,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 /**
- * ETripleObject interface means to be used with the {@link ETripleStore} implementation.
  * 
- * @author ghilla01
- *
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
  */
 public interface ETripleObject extends InternalEObject {
 

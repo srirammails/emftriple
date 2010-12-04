@@ -13,6 +13,11 @@ import com.emftriple.query.sparql.SelectQuery;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
+ */
 public class SelectTypes implements Function<URIElement, List<String>> {
 
 	private final DataSourceManager manager;

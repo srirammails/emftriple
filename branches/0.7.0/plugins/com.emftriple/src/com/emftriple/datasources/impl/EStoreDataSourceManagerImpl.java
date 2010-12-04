@@ -13,6 +13,11 @@ import com.emftriple.transform.impl.PutObjectImpl;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public class EStoreDataSourceManagerImpl extends EntityDataSourceManagerImpl implements EntityDataSourceManager {
 
 	private final EStore eStore;

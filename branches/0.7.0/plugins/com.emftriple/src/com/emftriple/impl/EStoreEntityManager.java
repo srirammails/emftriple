@@ -9,6 +9,11 @@ import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.resource.ETripleStore;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public class EStoreEntityManager extends EObjectEntityManager implements EntityManager {
 
 	private final ETripleStore eStore;

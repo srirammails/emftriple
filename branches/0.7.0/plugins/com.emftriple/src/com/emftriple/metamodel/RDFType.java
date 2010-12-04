@@ -4,6 +4,11 @@ import javax.persistence.metamodel.Type;
 
 import org.eclipse.emf.ecore.EClass;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public class RDFType<X> implements Type<X> {
 
 	protected final Class<X> aClass;

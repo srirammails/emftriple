@@ -413,7 +413,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		
 		final EObject current = (EObject) entity;
 		final EObject persistedObject = (EObject) getDelegate().refresh(entity.getClass(), id);
-		
+
 		if (persistedObject == null) {
 			throw new EntityNotFoundException("Entity with key " + id + " is not present in persistence context.");
 		}
@@ -437,7 +437,6 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		}
 		
 		getDelegate().add(current);
-		System.out.println(current);
 	}
 
 	/**

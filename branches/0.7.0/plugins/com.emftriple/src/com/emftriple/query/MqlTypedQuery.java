@@ -14,6 +14,11 @@ import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.query.mql.MQuery;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
+ */
 public class MqlTypedQuery<T> extends Mql implements TypedQuery<T> {
 
 	private Class<T> aClass;

@@ -37,10 +37,9 @@ import com.google.common.collect.Lists;
 import com.google.inject.internal.Maps;
 
 /**
- * Implementation of {@link EStore} for RDF Data Sources.
  * 
- * @author ghilla01
- *
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
  */
 public class ETripleStore implements EStore {
 

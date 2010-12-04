@@ -16,7 +16,7 @@ import com.google.common.collect.Lists;
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
- *
+ * @since 0.6.0
  */
 class DataSourceBuilder {
 

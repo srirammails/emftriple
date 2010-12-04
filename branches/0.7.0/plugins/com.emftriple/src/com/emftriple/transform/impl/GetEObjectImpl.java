@@ -5,6 +5,8 @@ import static com.emftriple.transform.impl.GetUtil.getValue;
 import static com.emftriple.util.Functions.transform;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.List;
+
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -29,10 +31,15 @@ import com.emftriple.transform.GetObject;
 import com.emftriple.util.Functions;
 import com.emftriple.validation.TypeResolver;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
+ */
 public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 
 	private final GetProxyObjectImpl proxyFactory;
-	
+
 	public GetEObjectImpl(ResourceManager manager, Mapping mapping, EntityDataSourceManager dataSourceManager) {
 		super(manager, mapping, dataSourceManager);
 		this.proxyFactory = new GetProxyObjectImpl(manager, mapping, dataSourceManager);
@@ -51,10 +58,10 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 	@Override
 	public EObject get(EClass eClass, URI key) {
 		final RDFGraph aGraph = getGraph(eClass, key);
-		
+
 		return process( eClass, aGraph.getResource(key.toString()) );
 	}
-	
+
 	/**
 	 * Returns a real instance from a RDF Resource.
 	 * @param aClass 
@@ -71,32 +78,53 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 		final EObject returnedObject = EcoreUtil.create(aClass);
 		for (EAttribute attribute: aClass.getEAllAttributes()) 
 		{
-			loadAttributeValue(from, returnedObject, attribute);
+			if (!(attribute.isTransient() || attribute.isVolatile() || attribute.isUnsettable()))
+				loadAttributeValue(from, returnedObject, attribute);
 		}
-		
+
 		dataSourceManager.put(URI.createURI(from.getURI()), returnedObject);
 
 		for (EReference reference: aClass.getEAllReferences())
 		{
-			if (reference.isMany()) 
-			{
-				EList<EObject> list =
-					new BasicEList<EObject>();
-//					new EObjectResolvingEList(
-//							returnedObject.eClass().getInstanceClass(), 
-//							(InternalEObject) returnedObject, 
-//							reference.getFeatureID());
-				
-				getProxyValues(from, reference, list);
-				
-				returnedObject.eSet(reference, list);
-			} 
-			else 
-			{
-				Object proxy = getProxyValue(from, returnedObject, reference);
-				if (proxy != null) 
+			if (!(reference.isTransient() || reference.isDerived() || reference.isUnsettable())) {
+				if (reference.isMany())
 				{
-					returnedObject.eSet(reference, proxy);
+					if (reference.isContainment()) {
+						final EList<EObject> list = new BasicEList<EObject>();
+						for (Node node: getValues(from, reference)) {
+							final EClass targetClass = getClass(getURI(node), (EClass) reference.getEType());
+							final EObject object = get(targetClass, getURI(node));
+							if (object != null) {
+								list.add(object);
+							}
+						}
+						returnedObject.eSet(reference, list);
+					} else {
+						if (reference.getEOpposite() == null) {
+							@SuppressWarnings("unchecked")
+							EList<EObject> l = (EList<EObject>) returnedObject.eGet(reference);
+							getProxyValues(from, reference, l);
+						}
+					}
+				} 
+				else
+				{
+					if (reference.isContainment()) {
+						final List<Node> nodes = getValues(from, reference);
+						if (!(nodes == null || nodes.isEmpty())) {
+							final EClass targetClass = getClass(getURI(nodes.get(0)), (EClass) reference.getEType());
+							final EObject object = get(targetClass, getURI(nodes.get(0)));
+							if (object != null) {
+								returnedObject.eSet(reference, object);
+							}
+						}
+					} else {
+						final Object proxy = getProxyValue(from, returnedObject, reference);
+						if (proxy != null) 
+						{
+							returnedObject.eSet(reference, proxy);
+						}
+					}
 				}
 			}
 		}
@@ -106,12 +134,13 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 
 	private void getProxyValues(Resource resource, EReference reference, EList<EObject> list) {
 		final EList<Node> values = getValues(resource, reference);
-		
+
 		if (values != null) 
 		{
 			for (Node node: values)
 			{
-				list.add( doProxy((Resource) node, (EClass) reference.getEType()) );
+				EObject proxy = doProxy((Resource) node, (EClass) reference.getEType());
+				list.add( proxy );
 			}
 		}
 	}
@@ -119,26 +148,26 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 	private EObject doProxy(Resource node, EClass eType) {
 		final URI nodeURI = getURI(node);
 		final EClass realClass = getClass(nodeURI, eType);
-		
+
 		if (dataSourceManager.containsKey(nodeURI)) {
 			Object obj = dataSourceManager.getByKey(nodeURI);
 			if (obj instanceof EObject)
 				if (((EObject) obj).eClass().equals(realClass))
 					return (EObject)obj;
 		}
-		
+
 		return proxyFactory.get(realClass, nodeURI);
 	}
 
 	private EObject getProxyValue(Resource resource, EObject theLoadedObject, EReference reference) {
 		EObject ret = null;
 		final EList<Node> values = getValues(resource, reference);
-		
+
 		if (values != null && !values.isEmpty()) 
 		{
 			ret = doProxy((Resource) values.get(0), (EClass) reference.getEType());
 		}
-		
+
 		return ret;
 	}
 

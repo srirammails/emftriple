@@ -6,6 +6,11 @@ import com.emftriple.query.SparqlRuntimeModule;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
+ */
 public class SparqlDataSourceModule extends AbstractModule {
 
 	private Federation sources;

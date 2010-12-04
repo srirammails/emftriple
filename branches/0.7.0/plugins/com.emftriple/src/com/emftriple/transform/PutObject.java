@@ -7,7 +7,6 @@
  */
 package com.emftriple.transform;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
 import com.emf4sw.rdf.RDFGraph;
@@ -19,6 +18,6 @@ import com.emf4sw.rdf.RDFGraph;
  */
 public interface PutObject {
 
-	RDFGraph put(EObject from, URI graphURI);
+	RDFGraph put(EObject from, RDFGraph graph);
 	
 }

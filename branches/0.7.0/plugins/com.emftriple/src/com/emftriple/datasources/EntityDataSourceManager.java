@@ -71,7 +71,7 @@ public interface EntityDataSourceManager extends TransactionProvider, EntityMana
 	 * 
 	 * @param object
 	 */
-	void save(Collection<Object> object);
+	void saveAll(Collection<Object> object);
 	
 	/**
 	 * 

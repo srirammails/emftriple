@@ -13,6 +13,11 @@ import com.emftriple.Mapping;
 import com.emftriple.config.annotations.EntityMapping;
 import com.emftriple.config.persistence.Property;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
+ */
 public class FileMapping extends AbstractMapping implements Mapping {
 
 	FileMapping(Resource resource, List<Property> properties) {

@@ -240,7 +240,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 	 * @inheritDoc
 	 */
 	@Override public void joinTransaction() {
-		// TODO
+		//	TODO Auto-generated method stub
 		throw new UnsupportedOperationException();
 	}
 	

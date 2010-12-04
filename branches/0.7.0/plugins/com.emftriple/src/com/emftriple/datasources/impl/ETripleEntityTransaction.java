@@ -14,7 +14,7 @@ import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.TransactionEnableDataSource;
 
 /**
- * {@link ETripleEntityTransaction}
+ * 
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5

@@ -10,13 +10,14 @@ package com.emftriple.transform.impl;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -29,8 +30,8 @@ import com.emf4sw.rdf.Namespace;
 import com.emf4sw.rdf.Property;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Resource;
-import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.operations.DatatypeConverter;
 import com.emf4sw.rdf.vocabulary.RDF;
 import com.emftriple.Mapping;
@@ -56,188 +57,209 @@ public class PutObjectImpl implements PutObject {
 		this.mapping = mapping;
 	}
 
-	public RDFGraph put(EObject from, URI uri) {
+	public RDFGraph put(EObject from, RDFGraph graph) {
 		objectCache = new HashMap<EObject, Resource>();
 		objectIdCache = new HashMap<EObject, Object>();
 
-		final RDFGraph graph = RDFFactory.eINSTANCE.createDocumentGraph();
-		graph.setURI( uri.toString() );
-
-		return process( from, graph );
-	}
-
-	private RDFGraph process(EObject aObject, RDFGraph graph) {
-		if (!objectCache.containsKey(aObject)) 
-		{
-			if (graph instanceof DocumentGraph) 
-			{
-				doAddNamespaces(graph, aObject.eClass());
-			}
-
-			createTypeTriple(aObject, graph);
-			objectCache.put(aObject, getResource(aObject, graph));
-
-			for (EStructuralFeature aFeature: aObject.eClass().getEAllStructuralFeatures()) 
-			{
-				createTriples( aObject, aFeature, graph );
-			}
-		}
+		new Object2RDF().process( from, graph );
 
 		return graph;
 	}
 
-	private void doAddNamespaces(RDFGraph aGraph, EClass eClass) {
-		final String namespace = doGetEPackageNamespace(eClass);
-		final String prefix = doGetEPackagePrefix(eClass);
+	private class Object2RDF {
+		
+		private final Set<EObject> containedObjects = Collections.synchronizedSet(new HashSet<EObject>());
 
-		final Namespace aNamespace = factory.createNamespace();
-		aNamespace.setPrefix(prefix);
-		aNamespace.setURI(namespace);
-		aNamespace.setGraph((DocumentGraph) aGraph);
-	}
-
-	private void createTriples(EObject aObject, EStructuralFeature aFeature, RDFGraph aGraph) {
-		if (aFeature.isMany()) 
-		{
-			createManyTriples( aObject, aFeature, aGraph );
-		} 
-		else 
-		{
-			createOneTriple( aObject, aFeature, aGraph );
+		Object2RDF() {
+		
 		}
-	}
-
-	private void createTypeTriple(EObject aObject, RDFGraph aGraph) {
-		checkIsMappedObject(aObject, mapping);
-
-		final Resource subject = getResource(aObject, aGraph);
-		final Property property = aGraph.getProperty(RDF.type);
-		final Resource object = aGraph.getResource(mapping.getRdfType(aObject.eClass()).toString());
-
-		aGraph.addTriple(subject, property, object);
-	}
-
-	private void createOneTriple(final EObject aObject, final EStructuralFeature aFeature, final RDFGraph aGraph) {
-		if (aObject.eGet(aFeature) != null) 
-		{
-			final Resource subject = getResource(aObject, aGraph);
-			final Property property = aFeature instanceof EAttribute ?  getProperty((EAttribute)aFeature, aGraph) : getProperty((EReference)aFeature, aGraph);
-			
-			if (subject != null && property != null) 
+		
+		private RDFGraph process(EObject aObject, RDFGraph graph) {
+			if (!objectCache.containsKey(aObject)) 
 			{
-				doTriple( subject, property, aFeature.getEType(), aObject.eGet(aFeature), aGraph );
-			}
-
-			if (aFeature instanceof EReference) 
-			{
-				process((EObject) aObject.eGet(aFeature), aGraph);
-			}
-		}
-	}
-
-	private void createManyTriples(EObject aObject, EStructuralFeature aFeature, final RDFGraph aGraph) {
-		if (aObject.eGet(aFeature) != null) 
-		{
-			final Object aValue = aObject.eGet(aFeature);
-			final Resource subject = getResource(aObject, aGraph);
-			final Property property = aFeature instanceof EAttribute ? getProperty((EAttribute)aFeature, aGraph) : getProperty((EReference)aFeature, aGraph);
-
-			if (subject != null && property != null) 
-			{
-				if (Collection.class.isInstance(aValue))
+				if (graph instanceof DocumentGraph) 
 				{
-					for (final Object oneValue: (Collection<?>) aValue) 
-					{
-						doTriple(subject, property, aFeature.getEType(), oneValue, aGraph);
-						if (aFeature instanceof EReference) 
-						{
-							process((EObject) oneValue, aGraph);
-						}
-					}
-				} else if (aValue.getClass().isArray())
+					doAddNamespaces(graph, aObject.eClass());
+				}
+
+				createTypeTriple(aObject, graph);
+				objectCache.put(aObject, getResource(aObject, graph));
+
+				for (EStructuralFeature aFeature: aObject.eClass().getEAllStructuralFeatures()) 
 				{
-					for (final Object oneValue: (Object[]) aValue) 
-					{
-						doTriple(subject, property, aFeature.getEType(), oneValue, aGraph);
-						if (aFeature instanceof EReference) 
-						{
-							process((EObject) oneValue, aGraph);
+					if ( !(aFeature.isTransient() || aFeature.isDerived() || aFeature.isVolatile()) ) {
+						if (aObject.eIsSet(aFeature)) {
+							Object value = aObject.eGet(aFeature, true);
+
+							if (aFeature instanceof EAttribute) {
+								if (aFeature.isMany()) {
+									//								if (aFeature.isOrdered()) {
+									//
+									//								} else {
+									createManyLiteralTriples(aObject, aFeature, value, graph);
+									//								}
+								} else {
+									createLiteralTriple(aObject, aFeature, value, graph);
+								}
+							} else {
+								if (aFeature.isMany()) {
+//									if (aFeature.isOrdered()) {
+//										createListTriple(aObject, aFeature, value, graph);
+//									} else {
+										createManyTriples(aObject, aFeature, value, graph);
+//									}
+								} else {
+									createTriple(aObject, aFeature, value, graph);
+								}
+							}
 						}
 					}
 				}
 			}
-		}
-	}
 
-	private void doTriple(Resource resource, Property property, EClassifier aType, Object aValue, RDFGraph aGraph) {
-		if (aType instanceof EClass) 
-		{
-			doTripleAsIriValue(resource, property, aValue, aGraph);
-		} 
-		else if (aType instanceof EDataType) 
-		{
-			doTripleAsLiteralValue(resource, property, aValue, (EDataType)aType, aGraph);
-		} 
-	}
-
-	private void doTripleAsLiteralValue(Resource subject, Property property, Object aValue, EDataType aType, RDFGraph aGraph) {
-		final String literalValue = DatatypeConverter.toString( aType.getName(), aValue );
-		final Literal aLiteral = factory.createLiteral();
-		aLiteral.setLexicalForm( literalValue );
-		aLiteral.setDatatype( aGraph.getDatatype(DatatypeConverter.get(aType)) );
-
-		aGraph.addTriple(subject, property, aLiteral);
-	}
-
-	private Triple doTripleAsIriValue(Resource subject, Property property, Object aValue, RDFGraph aGraph) {
-		if (!(aValue instanceof EObject)) {
-			throw new IllegalArgumentException();
+			for (EObject obj: containedObjects) {
+				new Object2RDF().process(obj, graph);
+			}
+			
+			return graph;
 		}
 
-		return aGraph.addTriple(subject, property, getResource((EObject) aValue, aGraph));
-	}
+		// TODO
+		@SuppressWarnings("unused")
+		private void createListTriple(EObject aObject, EStructuralFeature aFeature, Object value, RDFGraph graph) {
+			if (Collection.class.isInstance(value)) {
+				final Collection<?> all = (Collection<?>) value;
+				if (all.isEmpty())
+					return;
 
-	private Resource getResource(EObject aObject, RDFGraph aGraph) {
-		final Object id;
+				final Resource subject = objectCache.get(aObject);
+				final Property property = getProperty((EReference)aFeature, graph);
 
-		synchronized (this) {
-			if (objectIdCache.containsKey(aObject)) {
-				id = objectIdCache.get(aObject);
-			} else {
-				id = ID.getId((EObject) aObject);
-				objectIdCache.put(aObject, id);
+				final RDFSeq aList = RDFFactory.eINSTANCE.createRDFSeq();
+				graph.getBlankNodes().add(aList);
+
+				for (final Object obj: all) 
+				{
+					Resource object = getResource((EObject) obj, graph);
+					aList.getElements().add(object);
+
+					if (((EReference)aFeature).isContainment()) {
+						containedObjects.add((EObject) obj);
+					}
+				}
+
+				graph.addTriple(subject, property, aList);
+			}
+		}
+
+		private void createTriple(EObject aObject, EStructuralFeature aFeature, Object value, RDFGraph graph) {
+			final Resource subject = objectCache.get(aObject);
+			final Property property = getProperty((EReference)aFeature, graph);
+			final Resource object = getResource((EObject) value, graph);
+
+			if (((EReference)aFeature).isContainment()) {
+				containedObjects.add((EObject) value);
 			}
 
-			if (id == null) {
-				throw new IllegalArgumentException();
-			}	
+			if (subject != null && property != null && object != null) {
+				graph.addTriple(subject, property, object);
+			}
 		}
 
-		return aGraph.getResource(id.toString());
-	}
-
-	private Property getProperty(EAttribute aFeature, RDFGraph aGraph) {
-		return aGraph.getProperty(mapping.getRdfType(aFeature).toString());
-	}
-
-	private Property getProperty(EReference aFeature, RDFGraph aGraph) {
-		return aGraph.getProperty(mapping.getRdfType(aFeature).toString());
-	}
-
-	private String doGetEPackageNamespace(EClass aClass) {
-		String namespace = EcoreUtil.getAnnotation(aClass.getEPackage(), "Ontology", "uri");
-		if (namespace == null) {
-			namespace = aClass.getEPackage().getNsURI();
+		private void createManyTriples(EObject aObject, EStructuralFeature aFeature, Object value, RDFGraph graph) {
+			if (Collection.class.isInstance(value)) {
+				Collection<?> all = (Collection<?>) value;
+				for (Object obj: all) {
+					createTriple(aObject, aFeature, obj, graph);
+				}
+			}
 		}
-		return namespace;
-	}
 
-	private String doGetEPackagePrefix(EClass aClass) {
-		String prefix = EcoreUtil.getAnnotation(aClass.getEPackage(), "Ontology", "prefix");
-		if (prefix == null) {
-			prefix = aClass.getEPackage().getNsPrefix();
+		private void createManyLiteralTriples(EObject aObject, EStructuralFeature aFeature, Object value, RDFGraph graph) {
+			if (Collection.class.isInstance(value)) {
+				Collection<?> all = (Collection<?>) value;
+				for (Object obj: all) 
+					createLiteralTriple(aObject, aFeature, obj, graph);
+			} else if (value.getClass().isArray()) {
+				Object[] all = (Object[]) value;
+				for (Object obj: all) 
+					createLiteralTriple(aObject, aFeature, obj, graph);
+			}
 		}
-		return prefix;
+
+		private void createLiteralTriple(EObject aObject, EStructuralFeature aFeature, Object obj, RDFGraph graph) {
+			final Resource subject = objectCache.get(aObject);
+			final String literalValue = DatatypeConverter.toString( aFeature.getEType().getName(), obj );
+			final Literal aLiteral = factory.createLiteral();
+			aLiteral.setLexicalForm( literalValue );
+			aLiteral.setDatatype( graph.getDatatype(DatatypeConverter.get((EDataType) aFeature.getEType())) );
+
+			graph.getLiterals().add(aLiteral);
+			graph.addTriple(subject, getProperty((EAttribute) aFeature, graph), aLiteral);
+		}
+
+		private void doAddNamespaces(RDFGraph aGraph, EClass eClass) {
+			final String namespace = doGetEPackageNamespace(eClass);
+			final String prefix = doGetEPackagePrefix(eClass);
+
+			final Namespace aNamespace = factory.createNamespace();
+			aNamespace.setPrefix(prefix);
+			aNamespace.setURI(namespace);
+			aNamespace.setGraph((DocumentGraph) aGraph);
+		}
+
+		private void createTypeTriple(EObject aObject, RDFGraph aGraph) {
+			checkIsMappedObject(aObject, mapping);
+
+			final Resource subject = getResource(aObject, aGraph);
+			final Property property = aGraph.getProperty(RDF.type);
+			final Resource object = aGraph.getResource(mapping.getRdfType(aObject.eClass()).toString());
+
+			aGraph.addTriple(subject, property, object);
+		}
+
+		private Resource getResource(EObject aObject, RDFGraph aGraph) {
+			final Object id;
+
+			synchronized (this) {
+				if (objectIdCache.containsKey(aObject)) {
+					id = objectIdCache.get(aObject);
+				} else {
+					id = ID.getId((EObject) aObject);
+					objectIdCache.put(aObject, id);
+				}
+
+				if (id == null) {
+					throw new IllegalArgumentException();
+				}	
+			}
+
+			return aGraph.getResource(id.toString());
+		}
+
+		private Property getProperty(EAttribute aFeature, RDFGraph aGraph) {
+			return aGraph.getProperty(mapping.getRdfType(aFeature).toString());
+		}
+
+		private Property getProperty(EReference aFeature, RDFGraph aGraph) {
+			return aGraph.getProperty(mapping.getRdfType(aFeature).toString());
+		}
+
+		private String doGetEPackageNamespace(EClass aClass) {
+			String namespace = EcoreUtil.getAnnotation(aClass.getEPackage(), "Ontology", "uri");
+			if (namespace == null) {
+				namespace = aClass.getEPackage().getNsURI();
+			}
+			return namespace;
+		}
+
+		private String doGetEPackagePrefix(EClass aClass) {
+			String prefix = EcoreUtil.getAnnotation(aClass.getEPackage(), "Ontology", "prefix");
+			if (prefix == null) {
+				prefix = aClass.getEPackage().getNsPrefix();
+			}
+			return prefix;
+		}
 	}
 
 	private static void checkIsMappedObject(EObject aObject, Mapping mapping) {

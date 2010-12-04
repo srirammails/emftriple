@@ -14,6 +14,11 @@ import com.emftriple.transform.GetObject;
 import com.emftriple.util.Functions;
 import com.emftriple.validation.TypeResolver;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public class GetEStoreObjectImpl extends AbstractGetObject implements GetObject {
 
 	private final EStore eStore;

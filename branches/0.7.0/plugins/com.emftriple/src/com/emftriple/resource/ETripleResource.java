@@ -16,7 +16,9 @@ import java.util.TreeMap;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
+import javax.persistence.TransactionRequiredException;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -99,7 +101,6 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 	@Override
 	public EObject getEObject(String uriFragment) {
 		final URI uri = URI.createURI(uriFragment);
-
 		EObject proxy = null;
 
 		final String query = uri.query();
@@ -117,12 +118,21 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 				final Map<String, Object> options = new HashMap<String, Object>();
 				options.put("KEY", key);
 
-				em.refresh(proxy, options);
-				
-				if (proxy.eIsProxy()) {
+				try {
 					em.refresh(proxy, options);
+				} catch (EntityNotFoundException e) {
+					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					e.printStackTrace();
+				} catch (TransactionRequiredException e) {
+					e.printStackTrace();
+					
+					try {
+						em.refresh(proxy, options);
+					} catch (TransactionRequiredException e2) {
+						e2.printStackTrace();
+					}
 				}
-				
 			} else {
 				Node node = RDFFactory.eINSTANCE.createResource();
 				((URIElement) node).setURI(key.toString());

@@ -6,6 +6,11 @@ import com.emftriple.config.persistence.PersistenceMetaData;
 import com.emftriple.spi.ETriplePersistenceProvider;
 import com.google.inject.AbstractModule;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public class EStoreModule extends AbstractModule {
 
 	private final PersistenceMetaData configuration;

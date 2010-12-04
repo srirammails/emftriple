@@ -7,6 +7,11 @@ import com.emftriple.datasources.DataSource;
 import com.emftriple.util.EntityUtil;
 import com.google.common.base.Function;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public class AskObjectExist implements Function<EObject, Boolean> {
 
 	public AskObjectExist(DataSource dataSource) {

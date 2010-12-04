@@ -1,5 +1,10 @@
 package com.emftriple.datasources;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public interface JPADataSource extends DataSource {
 
 	/**

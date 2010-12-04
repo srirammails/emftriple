@@ -7,6 +7,11 @@ import javax.persistence.metamodel.ManagedType;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public class AttributeImpl<X, Y> implements Attribute<X, Y> {
 
 	private EStructuralFeature feature;

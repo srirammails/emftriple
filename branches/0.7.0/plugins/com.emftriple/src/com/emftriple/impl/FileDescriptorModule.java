@@ -16,6 +16,11 @@ import com.emftriple.config.persistence.PersistenceMetaData;
 import com.emftriple.config.persistence.PersistencePackage;
 import com.emftriple.config.persistence.util.PersistenceResourceFactoryImpl;
 
+/**
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.6.0
+ */
 public class FileDescriptorModule extends ETripleModule {
 	
 	private static Factory factory = new PersistenceResourceFactoryImpl();

@@ -43,7 +43,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 	protected final Mapping mapping;
 
-	private final BiMap<URI, Object> allEntities;
+	private final BiMap<URI, EObject> allEntities;
 
 	private final List<Object> markAsToSaveEntities;
 
@@ -234,6 +234,9 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	@Override 
 	public void flush() {
 		final List<Object> removed = Lists.newArrayList();
+		
+		saveAll(getSaveEntities());
+		
 		for (Object obj: getAllEntities().values()) 
 		{
 			if (getDeleteEntities().contains(obj)) 
@@ -242,11 +245,10 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 				getDeleteEntities().remove(obj);
 				removed.add(obj);
 			} 
-			if (getSaveEntities().contains(obj))
-			{
-				save(obj);
-				getSaveEntities().remove(obj);
-			}
+//			if (getSaveEntities().contains(obj))
+//			{		
+//				getSaveEntities().remove(obj);
+//			}
 		}
 
 		getAllEntities().clear();
@@ -267,7 +269,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		return markAsToSaveEntities;
 	}
 
-	private synchronized BiMap<URI, Object> getAllEntities() {
+	private synchronized BiMap<URI, EObject> getAllEntities() {
 		return allEntities;
 	}
 
