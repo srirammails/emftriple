@@ -26,6 +26,15 @@ public interface EmployeeFactory extends EFactory {
 	EmployeeFactory eINSTANCE = com.emftriple.example.employee.impl.EmployeeFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Organization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Organization</em>'.
+	 * @generated
+	 */
+	Organization createOrganization();
+
+	/**
 	 * Returns a new object of class '<em>Small Project</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,15 +96,6 @@ public interface EmployeeFactory extends EFactory {
 	 * @generated
 	 */
 	EmailAddress createEmailAddress();
-
-	/**
-	 * Returns a new object of class '<em>Degree</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Degree</em>'.
-	 * @generated
-	 */
-	Degree createDegree();
 
 	/**
 	 * Returns a new object of class '<em>Address</em>'.

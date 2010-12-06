@@ -6,8 +6,23 @@
  */
 package com.emftriple.example.employee.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import com.emftriple.example.employee.Address;
-import com.emftriple.example.employee.Degree;
 import com.emftriple.example.employee.EmailAddress;
 import com.emftriple.example.employee.Employee;
 import com.emftriple.example.employee.EmployeePackage;
@@ -16,26 +31,6 @@ import com.emftriple.example.employee.Gender;
 import com.emftriple.example.employee.JobTitle;
 import com.emftriple.example.employee.PhoneNumber;
 import com.emftriple.example.employee.Project;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +43,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getLastName <em>Last Name</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getGender <em>Gender</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getSalary <em>Salary</em>}</li>
- *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getResponsibilities <em>Responsibilities</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getAddress <em>Address</em>}</li>
@@ -56,7 +50,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getManager <em>Manager</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getManagedEmployees <em>Managed Employees</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getPhoneNumbers <em>Phone Numbers</em>}</li>
- *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getDegrees <em>Degrees</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getProjects <em>Projects</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getEmailAddresses <em>Email Addresses</em>}</li>
  * </ul>
@@ -146,26 +139,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	protected double salary = SALARY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final long VERSION_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected long version = VERSION_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getResponsibilities() <em>Responsibilities</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -234,16 +207,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	 * @ordered
 	 */
 	protected EList<PhoneNumber> phoneNumbers;
-
-	/**
-	 * The cached value of the '{@link #getDegrees() <em>Degrees</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDegrees()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Degree> degrees;
 
 	/**
 	 * The cached value of the '{@link #getProjects() <em>Projects</em>}' reference list.
@@ -366,27 +329,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 		salary = newSalary;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EmployeePackage.EMPLOYEE__SALARY, oldSalary, salary));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public long getVersion() {
-		return version;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVersion(long newVersion) {
-		long oldVersion = version;
-		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmployeePackage.EMPLOYEE__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -614,18 +556,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Degree> getDegrees() {
-		if (degrees == null) {
-			degrees = new EObjectResolvingEList<Degree>(Degree.class, this, EmployeePackage.EMPLOYEE__DEGREES);
-		}
-		return degrees;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Project> getProjects() {
 		if (projects == null) {
 			projects = new EObjectResolvingEList<Project>(Project.class, this, EmployeePackage.EMPLOYEE__PROJECTS);
@@ -706,8 +636,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 				return getGender();
 			case EmployeePackage.EMPLOYEE__SALARY:
 				return getSalary();
-			case EmployeePackage.EMPLOYEE__VERSION:
-				return getVersion();
 			case EmployeePackage.EMPLOYEE__RESPONSIBILITIES:
 				return getResponsibilities();
 			case EmployeePackage.EMPLOYEE__PERIOD:
@@ -724,8 +652,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 				return getManagedEmployees();
 			case EmployeePackage.EMPLOYEE__PHONE_NUMBERS:
 				return getPhoneNumbers();
-			case EmployeePackage.EMPLOYEE__DEGREES:
-				return getDegrees();
 			case EmployeePackage.EMPLOYEE__PROJECTS:
 				return getProjects();
 			case EmployeePackage.EMPLOYEE__EMAIL_ADDRESSES:
@@ -755,9 +681,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 			case EmployeePackage.EMPLOYEE__SALARY:
 				setSalary((Double)newValue);
 				return;
-			case EmployeePackage.EMPLOYEE__VERSION:
-				setVersion((Long)newValue);
-				return;
 			case EmployeePackage.EMPLOYEE__RESPONSIBILITIES:
 				getResponsibilities().clear();
 				getResponsibilities().addAll((Collection<? extends String>)newValue);
@@ -781,10 +704,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 			case EmployeePackage.EMPLOYEE__PHONE_NUMBERS:
 				getPhoneNumbers().clear();
 				getPhoneNumbers().addAll((Collection<? extends PhoneNumber>)newValue);
-				return;
-			case EmployeePackage.EMPLOYEE__DEGREES:
-				getDegrees().clear();
-				getDegrees().addAll((Collection<? extends Degree>)newValue);
 				return;
 			case EmployeePackage.EMPLOYEE__PROJECTS:
 				getProjects().clear();
@@ -818,9 +737,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 			case EmployeePackage.EMPLOYEE__SALARY:
 				setSalary(SALARY_EDEFAULT);
 				return;
-			case EmployeePackage.EMPLOYEE__VERSION:
-				setVersion(VERSION_EDEFAULT);
-				return;
 			case EmployeePackage.EMPLOYEE__RESPONSIBILITIES:
 				getResponsibilities().clear();
 				return;
@@ -841,9 +757,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 				return;
 			case EmployeePackage.EMPLOYEE__PHONE_NUMBERS:
 				getPhoneNumbers().clear();
-				return;
-			case EmployeePackage.EMPLOYEE__DEGREES:
-				getDegrees().clear();
 				return;
 			case EmployeePackage.EMPLOYEE__PROJECTS:
 				getProjects().clear();
@@ -871,8 +784,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 				return gender != GENDER_EDEFAULT;
 			case EmployeePackage.EMPLOYEE__SALARY:
 				return salary != SALARY_EDEFAULT;
-			case EmployeePackage.EMPLOYEE__VERSION:
-				return version != VERSION_EDEFAULT;
 			case EmployeePackage.EMPLOYEE__RESPONSIBILITIES:
 				return responsibilities != null && !responsibilities.isEmpty();
 			case EmployeePackage.EMPLOYEE__PERIOD:
@@ -887,8 +798,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 				return managedEmployees != null && !managedEmployees.isEmpty();
 			case EmployeePackage.EMPLOYEE__PHONE_NUMBERS:
 				return phoneNumbers != null && !phoneNumbers.isEmpty();
-			case EmployeePackage.EMPLOYEE__DEGREES:
-				return degrees != null && !degrees.isEmpty();
 			case EmployeePackage.EMPLOYEE__PROJECTS:
 				return projects != null && !projects.isEmpty();
 			case EmployeePackage.EMPLOYEE__EMAIL_ADDRESSES:
@@ -915,8 +824,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 		result.append(gender);
 		result.append(", salary: ");
 		result.append(salary);
-		result.append(", version: ");
-		result.append(version);
 		result.append(", responsibilities: ");
 		result.append(responsibilities);
 		result.append(')');

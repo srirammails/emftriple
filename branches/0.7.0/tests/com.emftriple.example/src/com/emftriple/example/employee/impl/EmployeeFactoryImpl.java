@@ -6,16 +6,25 @@
  */
 package com.emftriple.example.employee.impl;
 
-import com.emftriple.example.employee.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import com.emftriple.example.employee.Address;
+import com.emftriple.example.employee.EmailAddress;
+import com.emftriple.example.employee.Employee;
+import com.emftriple.example.employee.EmployeeFactory;
+import com.emftriple.example.employee.EmployeePackage;
+import com.emftriple.example.employee.EmploymentPeriod;
+import com.emftriple.example.employee.Gender;
+import com.emftriple.example.employee.JobTitle;
+import com.emftriple.example.employee.LargeProject;
+import com.emftriple.example.employee.Organization;
+import com.emftriple.example.employee.PhoneNumber;
+import com.emftriple.example.employee.SmallProject;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,6 +70,7 @@ public class EmployeeFactoryImpl extends EFactoryImpl implements EmployeeFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case EmployeePackage.ORGANIZATION: return createOrganization();
 			case EmployeePackage.SMALL_PROJECT: return createSmallProject();
 			case EmployeePackage.LARGE_PROJECT: return createLargeProject();
 			case EmployeePackage.PHONE_NUMBER: return createPhoneNumber();
@@ -68,7 +78,6 @@ public class EmployeeFactoryImpl extends EFactoryImpl implements EmployeeFactory
 			case EmployeePackage.EMPLOYMENT_PERIOD: return createEmploymentPeriod();
 			case EmployeePackage.EMPLOYEE: return createEmployee();
 			case EmployeePackage.EMAIL_ADDRESS: return createEmailAddress();
-			case EmployeePackage.DEGREE: return createDegree();
 			case EmployeePackage.ADDRESS: return createAddress();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -103,6 +112,16 @@ public class EmployeeFactoryImpl extends EFactoryImpl implements EmployeeFactory
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Organization createOrganization() {
+		OrganizationImpl organization = new OrganizationImpl();
+		return organization;
 	}
 
 	/**
@@ -173,16 +192,6 @@ public class EmployeeFactoryImpl extends EFactoryImpl implements EmployeeFactory
 	public EmailAddress createEmailAddress() {
 		EmailAddressImpl emailAddress = new EmailAddressImpl();
 		return emailAddress;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Degree createDegree() {
-		DegreeImpl degree = new DegreeImpl();
-		return degree;
 	}
 
 	/**

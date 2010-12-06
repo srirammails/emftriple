@@ -12,6 +12,9 @@
 				<factory>com.emftriple.jena.JenaDataSourceFactory</factory>
 				<class>com.emftriple.jena.JenaFile</class>
 				<url>data.ttl</url>
+<!--				<properties>-->
+<!--					<property name="file.format" value="RDF/XML"/>-->
+<!--				</properties>-->
 			</datasource>
 		</datasources>
 		

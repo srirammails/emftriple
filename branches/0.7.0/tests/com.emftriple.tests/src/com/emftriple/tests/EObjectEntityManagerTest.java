@@ -99,7 +99,7 @@ public class EObjectEntityManagerTest {
 		for (Project p: emp.getManager().getProjects()) {
 			System.out.println(p.getName());
 		}
-		
+
 		emp.eResource().save(System.out, null);
 		
 		em.getTransaction().commit();

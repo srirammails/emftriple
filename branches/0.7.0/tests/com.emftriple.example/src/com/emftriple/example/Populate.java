@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.emftriple.example.employee.Address;
-import com.emftriple.example.employee.Degree;
 import com.emftriple.example.employee.EmailAddress;
 import com.emftriple.example.employee.Employee;
 import com.emftriple.example.employee.EmployeeFactory;
@@ -25,6 +24,7 @@ import com.emftriple.example.employee.EmploymentPeriod;
 import com.emftriple.example.employee.Gender;
 import com.emftriple.example.employee.JobTitle;
 import com.emftriple.example.employee.LargeProject;
+import com.emftriple.example.employee.Organization;
 import com.emftriple.example.employee.PhoneNumber;
 import com.emftriple.example.employee.Project;
 import com.emftriple.example.employee.SmallProject;
@@ -159,13 +159,6 @@ public class Populate {
 		return phone;
 	}
 
-	private Degree createDegree(String string) {
-		Degree degree = EmployeeFactory.eINSTANCE.createDegree();
-		degree.setName(string);
-
-		return degree;
-	}
-
 	private EmailAddress createMail(String string, String string2, int id) {
 		EmailAddress mail = EmployeeFactory.eINSTANCE.createEmailAddress();
 		mail.setName(string);
@@ -234,7 +227,6 @@ public class Populate {
 		employee.getPhoneNumbers().add(createPhone("Work", "613", "5558812"));
 		employee.getPhoneNumbers().add(createPhone("ISDN", "905", "5553691"));
 		employee.getEmailAddresses().add(createMail("Work", "john.way@acme.com", 2));
-		employee.getDegrees().add(createDegree("Bachelor Computer Science"));
 
 		return employee;
 	}
@@ -363,8 +355,6 @@ public class Populate {
 		employee.getPhoneNumbers().add(createPhone("ISDN", "905", "5553691"));
 		employee.getPhoneNumbers().add(createPhone("Work", "613", "5558812"));
 		employee.getEmailAddresses().add(createMail("Work", "marcus.saunders@acme.com", 6));
-		employee.getDegrees().add(createDegree("Bachelor Computer Science"));
-		employee.getDegrees().add(createDegree("Masters Computer Science"));
 
 		return employee;
 	}
@@ -424,8 +414,6 @@ public class Populate {
 		employee.getPhoneNumbers().add(createPhone("Cellular", "416", "5551111"));
 		employee.getPhoneNumbers().add(createPhone("ISDN", "905", "5553691"));
 		employee.getEmailAddresses().add(createMail("Work", "fred.jones@acme.com", 8));
-		employee.getDegrees().add(createDegree("Bachelor Business"));
-		employee.getDegrees().add(createDegree("Masters Business"));
 
 		return employee;
 	}
@@ -457,9 +445,6 @@ public class Populate {
 		employee.getPhoneNumbers().add(createPhone("ISDN", "905", "5553691"));
 		employee.getEmailAddresses().add(createMail("Work", "betty.jones@acme.com", 9));
 		employee.getEmailAddresses().add(createMail("Home", "betty.cleo.jones@rogers.com", 10));
-		employee.getDegrees().add(createDegree("Bachelor Arts"));
-		employee.getDegrees().add(createDegree("Masters Engineering"));
-		employee.getDegrees().add(createDegree("PHD Philosophy"));
 
 		return employee;
 	}
@@ -490,9 +475,6 @@ public class Populate {
 		employee.getPhoneNumbers().add(createPhone("Work Fax", "613", "5555943"));
 		employee.getEmailAddresses().add(createMail("Work", "jill.may@acme.com", 11));
 		employee.getEmailAddresses().add(createMail("Mobile", "jill.lewis.may@sprint.com", 12));
-		employee.getDegrees().add(createDegree("Bachelor Computer Science"));
-		employee.getDegrees().add(createDegree("Masters Computer Science"));
-		employee.getDegrees().add(createDegree("PHD Computer Science"));
 
 		return employee;
 	}
@@ -524,7 +506,6 @@ public class Populate {
 		employee.getPhoneNumbers().add(createPhone("Home", "613", "5551234"));
 		employee.getPhoneNumbers().add(createPhone("Cellular", "416", "5551111"));
 		employee.getEmailAddresses().add(createMail("Home", "sarah-lou.smitty@rogers.com", 13));
-		employee.getDegrees().add(createDegree("Bachelor Computer Science"));
 
 		return employee;
 	}
@@ -622,7 +603,8 @@ public class Populate {
 		largeProject.setDescription("A reporting application to report on the corporations database through TopLink.");
 		largeProject.setBudget((double) 5000);
 		largeProject.setMilestone(createEDate("1991-10-11:12-00-00"));
-
+		largeProject.setTeamLeader(employees[14]);
+		
 		return largeProject;
 	}
 
@@ -633,7 +615,8 @@ public class Populate {
 		largeProject.setDescription("A lightweight application to report on the corporations database through TopLink.");
 		largeProject.setBudget(100.98);
 		largeProject.setMilestone(createEDate("1999-11-25:11-40-44"));
-
+		largeProject.setTeamLeader(employees[13]);
+		
 		return largeProject;
 	}
 
@@ -644,7 +627,8 @@ public class Populate {
 		largeProject.setDescription("A management application to report on the corporations database through TopLink.");
 		largeProject.setBudget(4000.98);
 		largeProject.setMilestone(createEDate("1997-10-12:01-00-00"));
-
+		largeProject.setTeamLeader(employees[14]);
+		
 		return largeProject;
 	}
 
@@ -655,7 +639,8 @@ public class Populate {
 		largeProject.setDescription("A enterprise wide application to report on the corporations database through TopLink.");
 		largeProject.setBudget(40.98);
 		largeProject.setMilestone(createEDate("1996-08-06:06-40-44"));
-
+		largeProject.setTeamLeader(employees[12]);
+		
 		return largeProject;
 	}
 
@@ -666,7 +651,8 @@ public class Populate {
 		largeProject.setDescription("A PRS application to report on the corporations database through TopLink.");
 		largeProject.setBudget(101.98);
 		largeProject.setMilestone(createEDate("1997-09-06:01-40-44"));
-
+		largeProject.setTeamLeader(employees[11]);
+		
 		return largeProject;
 	}
 
@@ -675,39 +661,39 @@ public class Populate {
 	}
 
 	public SmallProject basicSmallProjectExample10() {
-		return createSmall("Staff Query Tool", "A tool to help staff query various things.", 22);
+		return createSmall("Staff Query Tool", "A tool to help staff query various things.", 22, employees[1]);
 	}
 
 	public SmallProject basicSmallProjectExample2() {
-		return createSmall("Sales Reporter", "A reporting application using JDK to report on the corporations database through TopLink.", 23);
+		return createSmall("Sales Reporter", "A reporting application using JDK to report on the corporations database through TopLink.", 23, employees[4]);
 	}
 
 	public SmallProject basicSmallProjectExample3() {
-		return createSmall("TOP-Employee Manager", "A management application to report on the corporations database through TopLink.", 24);
+		return createSmall("TOP-Employee Manager", "A management application to report on the corporations database through TopLink.", 24, employees[2]);
 	}
 
 	public SmallProject basicSmallProjectExample4() {
-		return createSmall("Problem Reporter", "A PRS application to report on the corporations database through TopLink.", 25);
+		return createSmall("Problem Reporter", "A PRS application to report on the corporations database through TopLink.", 25, employees[6]);
 	}
 
 	public SmallProject basicSmallProjectExample5() {
-		return createSmall("Feather Reporter", "An extremely lightweight application to report on the corporations database through TopLink.", 26);
+		return createSmall("Feather Reporter", "An extremely lightweight application to report on the corporations database through TopLink.", 26, employees[8]);
 	}
 
 	public SmallProject basicSmallProjectExample6() {
-		return createSmall("Makework", "A makework project.", 27);
+		return createSmall("Makework", "A makework project.", 27, employees[9]);
 	}
 
 	public SmallProject basicSmallProjectExample7() {
-		return createSmall("Marketing Query Tool", "A tool to help marketing query various things.", 28);
+		return createSmall("Marketing Query Tool", "A tool to help marketing query various things.", 28, employees[4]);
 	}
 
 	public SmallProject basicSmallProjectExample8() {
-		return createSmall("Shipping Query Tool", "A tool to help shipping query various things.", 29);
+		return createSmall("Shipping Query Tool", "A tool to help shipping query various things.", 29, employees[10]);
 	}
 
 	public SmallProject basicSmallProjectExample9() {
-		return createSmall("Accounting Query Tool", "A tool to help accounting query various things.", 291);
+		return createSmall("Accounting Query Tool", "A tool to help accounting query various things.", 291, employees[11]);
 	}
 
 	private SmallProject createSmall(String string, String string2, int id) {
@@ -764,34 +750,29 @@ public class Populate {
 
 		assert(em.getTransaction().isActive());
 
-		// Verify that the database tables are empty
-		//        assertCount(em, Employee.class, 0);
-		//        assertCount(em, Address.class, 0);
-		//        assertCount(em, PhoneNumber.class, 0);
-		//        assertCount(em, Project.class, 0);
-		//        assertCount(em, JobTitle.class, 0);
-
+		Organization acme = EmployeeFactory.eINSTANCE.createOrganization();
+		acme.setName("Acme");
+		
 		for (int index = 0; index < this.jobTitles.length; index++) {
-			em.persist(this.jobTitles[index]);
+			acme.getJobs().add(this.jobTitles[index]);
 		}
 		for (int index = 0; index < this.employees.length; index++) {
-			em.persist(this.employees[index]);
-			System.out.println("persisted employee " + this.employees[index]);
+			acme.getEmployees().add(this.employees[index]);
 		}
 		for (int index = 0; index < this.smallProjects.length; index++) {
-			em.persist(this.smallProjects[index]);
-			System.out.println("persisted small project " + this.smallProjects[index]);
+			acme.getProjects().add(this.smallProjects[index]);
 		}
 		for (int index = 0; index < this.largeProjects.length; index++) {
-			em.persist(this.largeProjects[index]);
-			System.out.println("persisted large project " + this.largeProjects[index]);
+			acme.getProjects().add(this.largeProjects[index]);
 		}
 
+		em.persist(acme);
+		
 		System.out.println("Flushing to database.");
 		em.flush();
 
-		//        System.out.println("Verifying populate.");
-		//        verifyCounts(em);
+//		System.out.println("Verifying populate.");
+//		verifyCounts(em);
 	}
 
 	public void verifyCounts(EntityManager em) {

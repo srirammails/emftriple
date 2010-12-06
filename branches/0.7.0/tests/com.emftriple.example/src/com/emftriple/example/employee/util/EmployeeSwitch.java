@@ -87,6 +87,12 @@ public class EmployeeSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case EmployeePackage.ORGANIZATION: {
+				Organization organization = (Organization)theEObject;
+				T result = caseOrganization(organization);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EmployeePackage.PROJECT: {
 				Project project = (Project)theEObject;
 				T result = caseProject(project);
@@ -137,12 +143,6 @@ public class EmployeeSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EmployeePackage.DEGREE: {
-				Degree degree = (Degree)theEObject;
-				T result = caseDegree(degree);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EmployeePackage.ADDRESS: {
 				Address address = (Address)theEObject;
 				T result = caseAddress(address);
@@ -151,6 +151,21 @@ public class EmployeeSwitch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Organization</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Organization</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrganization(Organization object) {
+		return null;
 	}
 
 	/**
@@ -270,21 +285,6 @@ public class EmployeeSwitch<T> {
 	 * @generated
 	 */
 	public T caseEmailAddress(EmailAddress object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Degree</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Degree</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDegree(Degree object) {
 		return null;
 	}
 

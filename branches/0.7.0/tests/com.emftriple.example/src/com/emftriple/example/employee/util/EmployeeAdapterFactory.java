@@ -72,6 +72,10 @@ public class EmployeeAdapterFactory extends AdapterFactoryImpl {
 	protected EmployeeSwitch<Adapter> modelSwitch =
 		new EmployeeSwitch<Adapter>() {
 			@Override
+			public Adapter caseOrganization(Organization object) {
+				return createOrganizationAdapter();
+			}
+			@Override
 			public Adapter caseProject(Project object) {
 				return createProjectAdapter();
 			}
@@ -104,10 +108,6 @@ public class EmployeeAdapterFactory extends AdapterFactoryImpl {
 				return createEmailAddressAdapter();
 			}
 			@Override
-			public Adapter caseDegree(Degree object) {
-				return createDegreeAdapter();
-			}
-			@Override
 			public Adapter caseAddress(Address object) {
 				return createAddressAdapter();
 			}
@@ -130,6 +130,20 @@ public class EmployeeAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.emftriple.example.employee.Organization <em>Organization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.emftriple.example.employee.Organization
+	 * @generated
+	 */
+	public Adapter createOrganizationAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.emftriple.example.employee.Project <em>Project</em>}'.
@@ -240,20 +254,6 @@ public class EmployeeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEmailAddressAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.emftriple.example.employee.Degree <em>Degree</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.emftriple.example.employee.Degree
-	 * @generated
-	 */
-	public Adapter createDegreeAdapter() {
 		return null;
 	}
 

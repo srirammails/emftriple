@@ -6,10 +6,10 @@
  */
 package com.emftriple.example.employee.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import com.emftriple.example.employee.EmployeePackage;
 import com.emftriple.example.employee.SmallProject;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

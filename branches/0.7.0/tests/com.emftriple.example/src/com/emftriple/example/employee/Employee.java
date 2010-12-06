@@ -7,7 +7,6 @@
 package com.emftriple.example.employee;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.emftriple.example.employee.Employee#getLastName <em>Last Name</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getGender <em>Gender</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getSalary <em>Salary</em>}</li>
- *   <li>{@link com.emftriple.example.employee.Employee#getVersion <em>Version</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getResponsibilities <em>Responsibilities</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getPeriod <em>Period</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getAddress <em>Address</em>}</li>
@@ -30,7 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.emftriple.example.employee.Employee#getManager <em>Manager</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getManagedEmployees <em>Managed Employees</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getPhoneNumbers <em>Phone Numbers</em>}</li>
- *   <li>{@link com.emftriple.example.employee.Employee#getDegrees <em>Degrees</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getProjects <em>Projects</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getEmailAddresses <em>Email Addresses</em>}</li>
  * </ul>
@@ -148,32 +145,6 @@ public interface Employee extends EObject {
 	 * @generated
 	 */
 	void setSalary(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Version</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Version</em>' attribute.
-	 * @see #setVersion(long)
-	 * @see com.emftriple.example.employee.EmployeePackage#getEmployee_Version()
-	 * @model
-	 * @generated
-	 */
-	long getVersion();
-
-	/**
-	 * Sets the value of the '{@link com.emftriple.example.employee.Employee#getVersion <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' attribute.
-	 * @see #getVersion()
-	 * @generated
-	 */
-	void setVersion(long value);
 
 	/**
 	 * Returns the value of the '<em><b>Responsibilities</b></em>' attribute list.
@@ -332,22 +303,6 @@ public interface Employee extends EObject {
 	 * @generated
 	 */
 	EList<PhoneNumber> getPhoneNumbers();
-
-	/**
-	 * Returns the value of the '<em><b>Degrees</b></em>' reference list.
-	 * The list contents are of type {@link com.emftriple.example.employee.Degree}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Degrees</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Degrees</em>' reference list.
-	 * @see com.emftriple.example.employee.EmployeePackage#getEmployee_Degrees()
-	 * @model
-	 * @generated
-	 */
-	EList<Degree> getDegrees();
 
 	/**
 	 * Returns the value of the '<em><b>Projects</b></em>' reference list.

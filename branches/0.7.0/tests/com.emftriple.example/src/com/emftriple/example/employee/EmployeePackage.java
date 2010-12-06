@@ -61,6 +61,61 @@ public interface EmployeePackage extends EPackage {
 	EmployeePackage eINSTANCE = com.emftriple.example.employee.impl.EmployeePackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link com.emftriple.example.employee.impl.OrganizationImpl <em>Organization</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.emftriple.example.employee.impl.OrganizationImpl
+	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getOrganization()
+	 * @generated
+	 */
+	int ORGANIZATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Employees</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__EMPLOYEES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Projects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__PROJECTS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Jobs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__JOBS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Organization</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION_FEATURE_COUNT = 4;
+
+	/**
 	 * The meta object id for the '{@link com.emftriple.example.employee.impl.ProjectImpl <em>Project</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,7 +123,7 @@ public interface EmployeePackage extends EPackage {
 	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getProject()
 	 * @generated
 	 */
-	int PROJECT = 0;
+	int PROJECT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -114,7 +169,7 @@ public interface EmployeePackage extends EPackage {
 	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getSmallProject()
 	 * @generated
 	 */
-	int SMALL_PROJECT = 1;
+	int SMALL_PROJECT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -160,7 +215,7 @@ public interface EmployeePackage extends EPackage {
 	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getLargeProject()
 	 * @generated
 	 */
-	int LARGE_PROJECT = 2;
+	int LARGE_PROJECT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -224,7 +279,7 @@ public interface EmployeePackage extends EPackage {
 	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getPhoneNumber()
 	 * @generated
 	 */
-	int PHONE_NUMBER = 3;
+	int PHONE_NUMBER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -279,7 +334,7 @@ public interface EmployeePackage extends EPackage {
 	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getJobTitle()
 	 * @generated
 	 */
-	int JOB_TITLE = 4;
+	int JOB_TITLE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -307,7 +362,7 @@ public interface EmployeePackage extends EPackage {
 	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getEmploymentPeriod()
 	 * @generated
 	 */
-	int EMPLOYMENT_PERIOD = 5;
+	int EMPLOYMENT_PERIOD = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -353,7 +408,7 @@ public interface EmployeePackage extends EPackage {
 	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getEmployee()
 	 * @generated
 	 */
-	int EMPLOYEE = 6;
+	int EMPLOYEE = 7;
 
 	/**
 	 * The feature id for the '<em><b>First Name</b></em>' attribute.
@@ -392,22 +447,13 @@ public interface EmployeePackage extends EPackage {
 	int EMPLOYEE__SALARY = 3;
 
 	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMPLOYEE__VERSION = 4;
-
-	/**
 	 * The feature id for the '<em><b>Responsibilities</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__RESPONSIBILITIES = 5;
+	int EMPLOYEE__RESPONSIBILITIES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Period</b></em>' containment reference.
@@ -416,7 +462,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__PERIOD = 6;
+	int EMPLOYEE__PERIOD = 5;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' containment reference.
@@ -425,7 +471,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__ADDRESS = 7;
+	int EMPLOYEE__ADDRESS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Job Title</b></em>' reference.
@@ -434,7 +480,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__JOB_TITLE = 8;
+	int EMPLOYEE__JOB_TITLE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Manager</b></em>' reference.
@@ -443,7 +489,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__MANAGER = 9;
+	int EMPLOYEE__MANAGER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Managed Employees</b></em>' reference list.
@@ -452,7 +498,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__MANAGED_EMPLOYEES = 10;
+	int EMPLOYEE__MANAGED_EMPLOYEES = 9;
 
 	/**
 	 * The feature id for the '<em><b>Phone Numbers</b></em>' containment reference list.
@@ -461,16 +507,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__PHONE_NUMBERS = 11;
-
-	/**
-	 * The feature id for the '<em><b>Degrees</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMPLOYEE__DEGREES = 12;
+	int EMPLOYEE__PHONE_NUMBERS = 10;
 
 	/**
 	 * The feature id for the '<em><b>Projects</b></em>' reference list.
@@ -479,7 +516,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__PROJECTS = 13;
+	int EMPLOYEE__PROJECTS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Email Addresses</b></em>' containment reference list.
@@ -488,7 +525,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__EMAIL_ADDRESSES = 14;
+	int EMPLOYEE__EMAIL_ADDRESSES = 12;
 
 	/**
 	 * The number of structural features of the '<em>Employee</em>' class.
@@ -497,7 +534,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE_FEATURE_COUNT = 15;
+	int EMPLOYEE_FEATURE_COUNT = 13;
 
 	/**
 	 * The meta object id for the '{@link com.emftriple.example.employee.impl.EmailAddressImpl <em>Email Address</em>}' class.
@@ -507,7 +544,7 @@ public interface EmployeePackage extends EPackage {
 	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getEmailAddress()
 	 * @generated
 	 */
-	int EMAIL_ADDRESS = 7;
+	int EMAIL_ADDRESS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -544,34 +581,6 @@ public interface EmployeePackage extends EPackage {
 	 * @ordered
 	 */
 	int EMAIL_ADDRESS_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link com.emftriple.example.employee.impl.DegreeImpl <em>Degree</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.emftriple.example.employee.impl.DegreeImpl
-	 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getDegree()
-	 * @generated
-	 */
-	int DEGREE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEGREE__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Degree</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEGREE_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link com.emftriple.example.employee.impl.AddressImpl <em>Address</em>}' class.
@@ -656,6 +665,60 @@ public interface EmployeePackage extends EPackage {
 	 */
 	int GENDER = 10;
 
+
+	/**
+	 * Returns the meta object for class '{@link com.emftriple.example.employee.Organization <em>Organization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Organization</em>'.
+	 * @see com.emftriple.example.employee.Organization
+	 * @generated
+	 */
+	EClass getOrganization();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.emftriple.example.employee.Organization#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.emftriple.example.employee.Organization#getName()
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	EAttribute getOrganization_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.emftriple.example.employee.Organization#getEmployees <em>Employees</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Employees</em>'.
+	 * @see com.emftriple.example.employee.Organization#getEmployees()
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	EReference getOrganization_Employees();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.emftriple.example.employee.Organization#getProjects <em>Projects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Projects</em>'.
+	 * @see com.emftriple.example.employee.Organization#getProjects()
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	EReference getOrganization_Projects();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.emftriple.example.employee.Organization#getJobs <em>Jobs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Jobs</em>'.
+	 * @see com.emftriple.example.employee.Organization#getJobs()
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	EReference getOrganization_Jobs();
 
 	/**
 	 * Returns the meta object for class '{@link com.emftriple.example.employee.Project <em>Project</em>}'.
@@ -915,17 +978,6 @@ public interface EmployeePackage extends EPackage {
 	EAttribute getEmployee_Salary();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.emftriple.example.employee.Employee#getVersion <em>Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see com.emftriple.example.employee.Employee#getVersion()
-	 * @see #getEmployee()
-	 * @generated
-	 */
-	EAttribute getEmployee_Version();
-
-	/**
 	 * Returns the meta object for the attribute list '{@link com.emftriple.example.employee.Employee#getResponsibilities <em>Responsibilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1003,17 +1055,6 @@ public interface EmployeePackage extends EPackage {
 	EReference getEmployee_PhoneNumbers();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.emftriple.example.employee.Employee#getDegrees <em>Degrees</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Degrees</em>'.
-	 * @see com.emftriple.example.employee.Employee#getDegrees()
-	 * @see #getEmployee()
-	 * @generated
-	 */
-	EReference getEmployee_Degrees();
-
-	/**
 	 * Returns the meta object for the reference list '{@link com.emftriple.example.employee.Employee#getProjects <em>Projects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1077,27 +1118,6 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEmailAddress_Address();
-
-	/**
-	 * Returns the meta object for class '{@link com.emftriple.example.employee.Degree <em>Degree</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Degree</em>'.
-	 * @see com.emftriple.example.employee.Degree
-	 * @generated
-	 */
-	EClass getDegree();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.emftriple.example.employee.Degree#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.emftriple.example.employee.Degree#getName()
-	 * @see #getDegree()
-	 * @generated
-	 */
-	EAttribute getDegree_Name();
 
 	/**
 	 * Returns the meta object for class '{@link com.emftriple.example.employee.Address <em>Address</em>}'.
@@ -1207,6 +1227,48 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link com.emftriple.example.employee.impl.OrganizationImpl <em>Organization</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.emftriple.example.employee.impl.OrganizationImpl
+		 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getOrganization()
+		 * @generated
+		 */
+		EClass ORGANIZATION = eINSTANCE.getOrganization();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORGANIZATION__NAME = eINSTANCE.getOrganization_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Employees</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORGANIZATION__EMPLOYEES = eINSTANCE.getOrganization_Employees();
+
+		/**
+		 * The meta object literal for the '<em><b>Projects</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORGANIZATION__PROJECTS = eINSTANCE.getOrganization_Projects();
+
+		/**
+		 * The meta object literal for the '<em><b>Jobs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORGANIZATION__JOBS = eINSTANCE.getOrganization_Jobs();
+
 		/**
 		 * The meta object literal for the '{@link com.emftriple.example.employee.impl.ProjectImpl <em>Project</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1414,14 +1476,6 @@ public interface EmployeePackage extends EPackage {
 		EAttribute EMPLOYEE__SALARY = eINSTANCE.getEmployee_Salary();
 
 		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EMPLOYEE__VERSION = eINSTANCE.getEmployee_Version();
-
-		/**
 		 * The meta object literal for the '<em><b>Responsibilities</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1478,14 +1532,6 @@ public interface EmployeePackage extends EPackage {
 		EReference EMPLOYEE__PHONE_NUMBERS = eINSTANCE.getEmployee_PhoneNumbers();
 
 		/**
-		 * The meta object literal for the '<em><b>Degrees</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EMPLOYEE__DEGREES = eINSTANCE.getEmployee_Degrees();
-
-		/**
 		 * The meta object literal for the '<em><b>Projects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1534,24 +1580,6 @@ public interface EmployeePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EMAIL_ADDRESS__ADDRESS = eINSTANCE.getEmailAddress_Address();
-
-		/**
-		 * The meta object literal for the '{@link com.emftriple.example.employee.impl.DegreeImpl <em>Degree</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.emftriple.example.employee.impl.DegreeImpl
-		 * @see com.emftriple.example.employee.impl.EmployeePackageImpl#getDegree()
-		 * @generated
-		 */
-		EClass DEGREE = eINSTANCE.getDegree();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DEGREE__NAME = eINSTANCE.getDegree_Name();
 
 		/**
 		 * The meta object literal for the '{@link com.emftriple.example.employee.impl.AddressImpl <em>Address</em>}' class.
