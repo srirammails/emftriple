@@ -7,8 +7,6 @@
  */
 package com.emftriple.sesame;
 
-import static com.emftriple.query.SparqlBuilder.extract;
-
 import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
@@ -29,10 +27,6 @@ import com.emftriple.datasources.MutableNamedGraphDataSource;
 import com.emftriple.datasources.ResultSet;
 import com.emftriple.datasources.TransactionEnableDataSource;
 import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.sparql.SelectQuery;
 import com.emftriple.sesame.util.SesameGraphResult2RDFGraph;
 import com.emftriple.sesame.util.SesameResultSet;
 
@@ -47,8 +41,8 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 
 	protected final Repository repository;
 
-	protected SailDataSource(URI defaultGraph, Repository repository, List<URI> graphs) {
-		super(defaultGraph, graphs);
+	protected SailDataSource(String name, Repository repository, List<URI> graphs) {
+		super(name, graphs);
 		this.repository = repository;
 	}
 
@@ -95,17 +89,17 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 	}
 
 	@Override
-	public RDFGraph constructQuery(ConstructQuery query, URI graph) {
+	public RDFGraph constructQuery(String query, URI graph) {
 		return constructQuery(query);
 	}
 
 	@Override
-	public RDFGraph constructQuery(ConstructQuery query) {
+	public RDFGraph constructQuery(String query) {
 		checkIsConnected();
 
 		GraphQueryResult aResult = null;
 		try {
-			aResult = connection.prepareGraphQuery(QueryLanguage.SPARQL, extract(query))
+			aResult = connection.prepareGraphQuery(QueryLanguage.SPARQL, query)
 			.evaluate();
 		} catch (QueryEvaluationException e) {
 			e.printStackTrace();
@@ -119,12 +113,32 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 	}
 
 	@Override
-	public ResultSet selectQuery(SelectQuery query, URI graph) {
+	public void constructQuery(String aQuery, RDFGraph aGraph) {
+		checkIsConnected();
+
+		GraphQueryResult aResult = null;
+		try {
+			aResult = connection.prepareGraphQuery(QueryLanguage.SPARQL, aQuery)
+			.evaluate();
+		} catch (QueryEvaluationException e) {
+			e.printStackTrace();
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		} catch (MalformedQueryException e) {
+			e.printStackTrace();
+		}
+
+		if (aResult != null) 
+			new SesameGraphResult2RDFGraph(aResult).extract(aGraph);
+	}
+	
+	@Override
+	public ResultSet selectQuery(String query, URI graph) {
 		checkIsConnected();
 
 		ResultSet aResult = null;
 		try {
-			TupleQuery aQuery = connection.prepareTupleQuery(QueryLanguage.SPARQL, extract(query));
+			TupleQuery aQuery = connection.prepareTupleQuery(QueryLanguage.SPARQL, query);
 			aResult = new SesameResultSet(aQuery.evaluate());
 		} catch (RepositoryException e) {
 			e.printStackTrace();
@@ -137,12 +151,12 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 	}
 
 	@Override
-	public ResultSet selectQuery(SelectQuery query) {
+	public ResultSet selectQuery(String query) {
 		checkIsConnected();
 
 		ResultSet aResult = null;
 		try {
-			TupleQuery aQuery = connection.prepareTupleQuery(QueryLanguage.SPARQL, extract(query));
+			TupleQuery aQuery = connection.prepareTupleQuery(QueryLanguage.SPARQL, query);
 			aResult = new SesameResultSet( aQuery.evaluate() );
 		} catch (RepositoryException e) {
 			e.printStackTrace();
@@ -158,12 +172,12 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 	}
 
 	@Override
-	public RDFGraph describeQuery(DescribeQuery query) {
+	public RDFGraph describeQuery(String query) {
 		checkIsConnected();
 
 		GraphQueryResult aResult = null;	
 		try {
-			aResult = connection.prepareGraphQuery(QueryLanguage.SPARQL, extract(query))
+			aResult = connection.prepareGraphQuery(QueryLanguage.SPARQL, query)
 			.evaluate();
 		} catch (QueryEvaluationException e) {
 			e.printStackTrace();
@@ -177,21 +191,41 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 	}
 
 	@Override
-	public RDFGraph describeQuery(DescribeQuery query, URI graph) {
+	public void describeQuery(String aQuery, RDFGraph aGraph) {
+		checkIsConnected();
+
+		GraphQueryResult aResult = null;	
+		try {
+			aResult = connection.prepareGraphQuery(QueryLanguage.SPARQL, aQuery)
+			.evaluate();
+		} catch (QueryEvaluationException e) {
+			e.printStackTrace();
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		} catch (MalformedQueryException e) {
+			e.printStackTrace();
+		}
+
+		if (aResult != null) 
+			new SesameGraphResult2RDFGraph(aResult).extract(aGraph);
+	}
+	
+	@Override
+	public RDFGraph describeQuery(String query, URI graph) {
 		return describeQuery(query);
 	}
 
 	@Override
-	public boolean askQuery(AskQuery query, URI graph) {
+	public boolean askQuery(String query, URI graph) {
 		return askQuery(query);
 	}
 
 	@Override
-	public boolean askQuery(AskQuery query) {
+	public boolean askQuery(String query) {
 		checkIsConnected();
 
 		try {
-			return connection.prepareBooleanQuery(QueryLanguage.SPARQL, extract(query)).evaluate();
+			return connection.prepareBooleanQuery(QueryLanguage.SPARQL, query).evaluate();
 		} catch (RepositoryException e) {
 			e.printStackTrace();
 		} catch (MalformedQueryException e) {

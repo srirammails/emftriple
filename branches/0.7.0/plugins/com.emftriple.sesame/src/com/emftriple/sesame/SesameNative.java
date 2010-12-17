@@ -1,6 +1,5 @@
 package com.emftriple.sesame;
 
-import org.eclipse.emf.common.util.URI;
 import org.openrdf.repository.Repository;
 
 /**
@@ -10,8 +9,8 @@ import org.openrdf.repository.Repository;
  */
 public class SesameNative extends SailDataSource {
 
-	protected SesameNative(URI defaultGraph, Repository repository) {
-		super(defaultGraph, repository, null);
+	protected SesameNative(String name, Repository repository) {
+		super(name, repository, null);
 	}
 	
 }

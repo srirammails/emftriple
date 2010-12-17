@@ -9,10 +9,8 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.emftriple.sesame,
  com.emftriple.sesame.util
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;bundle-version="2.5.0";visibility:=reexport,
- org.openrdf;bundle-version="2.3.2",
- com.emftriple.query.sparql;bundle-version="0.7.0",
- com.emf4sw.rdf.sesame;bundle-version="0.7.0",
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.5.0",
+ org.openrdf;bundle-version="2.3.2";visibility:=reexport,
  com.emf4sw.rdf;bundle-version="0.7.0",
+ com.emf4sw.rdf.sesame;bundle-version="0.7.0",
  com.emftriple.datasources;bundle-version="0.7.0"

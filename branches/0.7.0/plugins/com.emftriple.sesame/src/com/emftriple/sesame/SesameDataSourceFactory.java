@@ -9,7 +9,6 @@ package com.emftriple.sesame;
 
 import java.io.File;
 
-import org.eclipse.emf.common.util.URI;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.http.HTTPRepository;
@@ -96,7 +95,7 @@ public class SesameDataSourceFactory implements DataSourceFactory {
 			e1.printStackTrace();
 		}
 		
-		return new SesameMem(URI.createURI(config.getName()), repository);
+		return new SesameMem(config.getName(), repository);
 	}
 	
 	private DataSource createSesameNative(DataSourceBuilder config) {
@@ -108,7 +107,7 @@ public class SesameDataSourceFactory implements DataSourceFactory {
 			e1.printStackTrace();
 		}
 	
-		return new SesameNative(URI.createURI(config.getName()), repository);
+		return new SesameNative(config.getName(), repository);
 	}
 	
 	private DataSource createHttpRepository(DataSourceBuilder config) {
@@ -119,7 +118,7 @@ public class SesameDataSourceFactory implements DataSourceFactory {
 			e1.printStackTrace();
 		} 
 		
-		return new SesameHTTP(URI.createURI(config.getUrl()), repository);
+		return new SesameHTTP(config.getUrl(), repository);
 	}
 	
 }

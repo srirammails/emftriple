@@ -1,6 +1,5 @@
 package com.emftriple.sesame;
 
-import org.eclipse.emf.common.util.URI;
 import org.openrdf.repository.Repository;
 
 import com.emftriple.datasources.MutableNamedGraphDataSource;
@@ -12,8 +11,8 @@ import com.emftriple.datasources.MutableNamedGraphDataSource;
  */
 public class SesameMem extends SailDataSource implements MutableNamedGraphDataSource {
 
-	protected SesameMem(URI defaultGraph, Repository repository) {
-		super(defaultGraph, repository, null);
+	protected SesameMem(String name, Repository repository) {
+		super(name, repository, null);
 	}
 
 }

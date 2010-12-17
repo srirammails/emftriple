@@ -35,6 +35,20 @@ public class SesameGraphResult2RDFGraph {
 	public SesameGraphResult2RDFGraph(GraphQueryResult graphResult) {
 		this.graphResult = graphResult;
 	}
+
+	public void extract(RDFGraph aGraph) {
+		try {
+			for (;graphResult.hasNext();) {
+				Statement stmt = graphResult.next();
+				aGraph.addTriple(
+						asResource( stmt.getSubject(), aGraph ),
+						asProperty( stmt.getPredicate(), aGraph ),
+						asNode( stmt.getObject(), aGraph ) );
+			}
+		} catch (QueryEvaluationException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public RDFGraph extract() {
 		final RDFResource resource = new DummyRDFResource();
@@ -88,4 +102,5 @@ public class SesameGraphResult2RDFGraph {
 	private com.emf4sw.rdf.Resource asResource(Resource aResource, RDFGraph aGraph) {
 		return aGraph.getResource( aResource.stringValue() );
 	}
+
 }
