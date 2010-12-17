@@ -82,6 +82,7 @@ public class TripleInjector {
 			final com.emf4sw.rdf.Literal ret = factory.createLiteral();
 			ret.setLexicalForm(literal.getLexicalForm());
 			ret.setLang(literal.getLanguage());
+			
 			if (literal.getDatatypeURI() != null) {
 				ret.setDatatype(graph.getDatatype(literal.getDatatypeURI()));
 			}

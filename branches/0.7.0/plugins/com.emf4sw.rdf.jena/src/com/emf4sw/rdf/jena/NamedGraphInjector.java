@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFFactory;
+import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -31,6 +32,12 @@ public class NamedGraphInjector {
 	public NamedGraphInjector(Model aModel) {
 		this.aModel = aModel;
 		this.aTripleInjector = new TripleInjector();
+	}
+	
+	public void inject(RDFGraph aGraph) {
+		for (ExtendedIterator<Statement> it = aModel.listStatements(); it.hasNext(); ) {
+			aTripleInjector.inject(it.next(), aGraph);
+		}
 	}
 	
 	public NamedGraph inject() {
