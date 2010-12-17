@@ -7,26 +7,16 @@
  */
 package com.emftriple.jena;
 
-import static com.emftriple.query.SparqlBuilder.extract;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
-import org.eclipse.emf.common.util.URI;
-
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.jena.RDFGraphExtractor;
-import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.ResultSet;
 import com.emftriple.datasources.SparqlUpdateDataSource;
 import com.emftriple.datasources.impl.AbstractDataSource;
 import com.emftriple.jena.util.JenaResultSet;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.sparql.SelectQuery;
-import com.emftriple.query.sparql.UpdateQuery;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -49,29 +39,39 @@ public class JenaFile extends AbstractDataSource implements SparqlUpdateDataSour
 
 	private final String fileFormat;
 
-	protected JenaFile(URI defaultGraph, Model model, String fileLocation, String format) {
-		super(defaultGraph);
+	protected JenaFile(String name, Model model, String fileLocation, String format) {
+		super(name);
 		this.fileLocation = fileLocation;
 		this.fileFormat = format;
 		this.model = model;
 	}
 
 	@Override
-	public RDFGraph constructQuery(ConstructQuery query) {
+	public RDFGraph constructQuery(String query) {
 		return JenaDataSourceExecution.doContstructQuery(query, model, fileFormat); 
 	}
 
 	@Override
-	public RDFGraph describeQuery(DescribeQuery query) {
+	public RDFGraph describeQuery(String query) {
 		return JenaDataSourceExecution.doDescribeQuery(query, model, fileFormat);
 	}
 	
 	@Override
-	public ResultSet selectQuery(SelectQuery query) {
+	public void constructQuery(String query, RDFGraph aGraph) {
+		JenaDataSourceExecution.doContstructQuery(query, model, fileFormat, aGraph);
+	}
+	
+	@Override
+	public void describeQuery(String query, RDFGraph aGraph) {
+		JenaDataSourceExecution.doDescribeQuery(query, model, fileFormat, aGraph);
+	}
+	
+	@Override
+	public ResultSet selectQuery(String query) {
 		ResultSet rs = null;
 		try {
 			rs = new JenaResultSet( 
-						QueryExecutionFactory.create( QueryFactory.create(extract(query)), model )
+						QueryExecutionFactory.create( QueryFactory.create( query ), model )
 					.execSelect());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,23 +80,23 @@ public class JenaFile extends AbstractDataSource implements SparqlUpdateDataSour
 	}
 
 	@Override
-	public boolean askQuery(AskQuery query) {
-		return QueryExecutionFactory.create( QueryFactory.create(extract(query)), model )
+	public boolean askQuery(String query) {
+		return QueryExecutionFactory.create( QueryFactory.create( query ), model )
 			.execAsk();
 	}
 
 	@Override
-	public void update(UpdateQuery query) throws DataSourceException {
+	public void update(String query) {
 		GraphStore graphStore = GraphStoreFactory.create(model);
-		UpdateAction.parseExecute(extract(query), graphStore);
+		UpdateAction.parseExecute( query, graphStore);
 	}
 
 	@Override
-	public void add(RDFGraph graph) throws DataSourceException {
+	public void add(RDFGraph graph){
 		doAdd(graph, model);
 	}
 
-	protected void doAdd(RDFGraph graph, Model model) throws DataSourceException {
+	protected void doAdd(RDFGraph graph, Model model) {
 		model.enterCriticalSection(Lock.WRITE);
 		try {
 			model.add( new RDFGraphExtractor().extract(graph) );
@@ -111,7 +111,7 @@ public class JenaFile extends AbstractDataSource implements SparqlUpdateDataSour
 	}
 
 	@Override
-	public void remove(RDFGraph graph) throws DataSourceException {
+	public void remove(RDFGraph graph) {
 		doRemove(graph, model);
 	}
 

@@ -22,7 +22,6 @@ import com.emftriple.config.persistence.DataSourceBuilder;
 import com.emftriple.config.persistence.Properties;
 import com.emftriple.config.persistence.Property;
 import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.DataSourceFactory;
 import com.emftriple.util.Functions;
 import com.google.common.base.Function;
@@ -154,16 +153,11 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 	}
 
 	private DataSource createJenaService(DataSourceBuilder config) {
-		return new JenaService(
-				URI.createURI(config.getUrl()), 
-				config.getUrl(), getGraphs(config));
+		return new JenaService(config.getName(), config.getUrl(), getGraphs(config));
 	}
 
 	private DataSource createJenaTDB(DataSourceBuilder config) {
-		return new JenaTDB( 
-				URI.createURI(config.getUrl()),
-				config.getUrl(),
-				getGraphs(config) );
+		return new JenaTDB(config.getName(), config.getUrl(), getGraphs(config));
 	}
 
 	private DataSource createJenaSDB(DataSourceBuilder config) {
@@ -183,7 +177,7 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 		final Store store = SDBFactory.connectStore(conn, storeDesc) ;
 		final List<URI> graphs = getGraphs(config);
 
-		return new JenaSDB(URI.createURI(aURL), graphs, store);
+		return new JenaSDB(config.getName(), graphs, store);
 	}
 
 	private DataSource createJenaFile(DataSourceBuilder config) {
@@ -221,12 +215,12 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 						reader.read(model, new FileInputStream(file), "N-TRIPLES");
 						fileFormat = "N-TRIPLES";
 					} catch (Exception e3) {
-						throw new DataSourceException(e1);
+						
 					}
 				}
 			}
 		}
-		return new JenaFile(URI.createURI(config.getUrl()), model, config.getUrl(), fileFormat);
+		return new JenaFile(config.getName(), model, config.getUrl(), fileFormat);
 	}
 
 	private List<URI> getGraphs(DataSourceBuilder config) {

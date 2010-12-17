@@ -7,14 +7,8 @@
  */
 package com.emftriple.jena;
 
-import static com.emftriple.query.SparqlBuilder.extract;
-
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.jena.NamedGraphInjector;
-import com.emftriple.query.SparqlBuilder;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -30,46 +24,81 @@ import com.hp.hpl.jena.shared.Lock;
  */
 public class JenaDataSourceExecution {
 
-	static RDFGraph doContstructQuery(ConstructQuery query, Dataset dataSet, String format) {
+	static void doContstructQuery(String query, Dataset dataSet, String format, RDFGraph aGraph) {
+		dataSet.getLock().enterCriticalSection(Lock.READ);
 		try {
-			RDFGraph graph = null;
+			final QueryExecution queryExec = QueryExecutionFactory.create( QueryFactory.create( query ), dataSet );
+			final Model result = queryExec.execConstruct();			
+			new NamedGraphInjector(result).inject(aGraph);		
+		} finally { 
+			dataSet.getLock().leaveCriticalSection();
+		}
+	}
+	
+	static RDFGraph doContstructQuery(String query, Dataset dataSet, String format) {
+		RDFGraph graph = null;
+		dataSet.getLock().enterCriticalSection(Lock.READ);
+		try {
+			final QueryExecution queryExec = QueryExecutionFactory.create( QueryFactory.create( query ), dataSet );
+			final Model result = queryExec.execConstruct();			
+			graph = new NamedGraphInjector(result).inject();		
+		} finally { 
+			dataSet.getLock().leaveCriticalSection();
+		}
+		return graph;
+	}
+
+	static void doContstructQuery(String query, Model model, String format, RDFGraph aGraph) {
+		model.enterCriticalSection(Lock.READ);
+		try {
+			final QueryExecution queryExec = QueryExecutionFactory.create( QueryFactory.create( query ), model );
+			final Model result = queryExec.execConstruct();			
+			
+			new NamedGraphInjector(result).inject(aGraph);		
+		} finally { 
+			model.leaveCriticalSection();
+		}
+	}
+	
+	static RDFGraph doContstructQuery(String query, Model model, String format) {
+		RDFGraph graph = null;
+		model.enterCriticalSection(Lock.READ);
+		try {
+			final QueryExecution queryExec = QueryExecutionFactory.create( QueryFactory.create( query ), model );
+			final Model result = queryExec.execConstruct();			
+			graph = new NamedGraphInjector(result).inject();		
+		} finally { 
+			model.leaveCriticalSection();
+		}
+		return graph;
+	}
+
+
+	static void doDescribeQuery(String query, Dataset dataSet, String format, RDFGraph aGraph) {
+		try {
 			dataSet.getLock().enterCriticalSection(Lock.READ);
 			try {
-				final QueryExecution queryExec = QueryExecutionFactory.create( QueryFactory.create(extract(query)), dataSet );
-				final Model result = queryExec.execConstruct();			
-				graph = new NamedGraphInjector(result).inject();		
-			} finally { 
+				Query aQuery = QueryFactory.create( query );
+				QueryExecution qexec = QueryExecutionFactory.create(aQuery, dataSet);
+				final Model result = qexec.execDescribe();
+				
+				new NamedGraphInjector(result).inject(aGraph);
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
 				dataSet.getLock().leaveCriticalSection();
 			}
-			return graph;
-		} finally {
-			SparqlBuilder.clear();
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
-
-	static RDFGraph doContstructQuery(ConstructQuery query, Model model, String format) {
-		try {
-			RDFGraph graph = null;
-			model.enterCriticalSection(Lock.READ);
-			try {
-				final QueryExecution queryExec = QueryExecutionFactory.create( QueryFactory.create(extract(query)), model );
-				final Model result = queryExec.execConstruct();			
-				graph = new NamedGraphInjector(result).inject();		
-			} finally { 
-				model.leaveCriticalSection();
-			}
-			return graph;
-		} finally {
-			SparqlBuilder.clear();
-		}
-	}
-
-	static RDFGraph doDescribeQuery(DescribeQuery query, Dataset dataSet, String format) {
+	
+	static RDFGraph doDescribeQuery(String query, Dataset dataSet, String format) {
 		RDFGraph graph = null;
 		try {
 			dataSet.getLock().enterCriticalSection(Lock.READ);
 			try {
-				Query aQuery = QueryFactory.create(extract(query));
+				Query aQuery = QueryFactory.create( query );
 				QueryExecution qexec = QueryExecutionFactory.create(aQuery, dataSet);
 				final Model result = qexec.execDescribe();
 				graph = new NamedGraphInjector(result).inject();
@@ -80,18 +109,35 @@ public class JenaDataSourceExecution {
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
-		} finally {
-			SparqlBuilder.clear();
 		}
 		return graph;
 	}
 
-	static RDFGraph doDescribeQuery(DescribeQuery query, Model model, String format) {
+	static void doDescribeQuery(String query, Model model, String format, RDFGraph aGraph) {
+		try {
+			model.enterCriticalSection(Lock.READ);
+			try {
+				Query aQuery = QueryFactory.create( query );
+				QueryExecution qexec = QueryExecutionFactory.create(aQuery, model);
+				final Model result = qexec.execDescribe();
+				
+				new NamedGraphInjector(result).inject(aGraph);
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				model.leaveCriticalSection();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	static RDFGraph doDescribeQuery(String query, Model model, String format) {
 		RDFGraph graph = null;
 		try {
 			model.enterCriticalSection(Lock.READ);
 			try {
-				Query aQuery = QueryFactory.create(extract(query));
+				Query aQuery = QueryFactory.create( query );
 				QueryExecution qexec = QueryExecutionFactory.create(aQuery, model);
 				final Model result = qexec.execDescribe();
 				graph = new NamedGraphInjector(result).inject();
@@ -102,26 +148,20 @@ public class JenaDataSourceExecution {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			SparqlBuilder.clear();
 		}
 		return graph;
 	}
 
-	static boolean doAskQuery(AskQuery query, Model model) {
+	static boolean doAskQuery(String query, Model model) {
+		boolean result = false;
 		try {
-			boolean result = false;
-			try {
-				Query aQuery = QueryFactory.create(extract(query));
-				QueryExecution qexec = QueryExecutionFactory.create(aQuery, model);
-				result = qexec.execAsk();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			return result;
-		} finally {
-			SparqlBuilder.clear();
+			Query aQuery = QueryFactory.create( query );
+			QueryExecution qexec = QueryExecutionFactory.create(aQuery, model);
+			result = qexec.execAsk();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+		return result;
 	}
 }

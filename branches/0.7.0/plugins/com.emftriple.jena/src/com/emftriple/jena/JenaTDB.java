@@ -8,7 +8,6 @@
 package com.emftriple.jena;
 
 import static com.emftriple.jena.JenaDataSourceExecution.doDescribeQuery;
-import static com.emftriple.query.SparqlBuilder.extract;
 
 import java.util.List;
 
@@ -18,19 +17,12 @@ import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.jena.NamedGraphInjector;
 import com.emf4sw.rdf.jena.RDFGraphExtractor;
-import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.MutableNamedGraphDataSource;
 import com.emftriple.datasources.ResultSet;
 import com.emftriple.datasources.SparqlUpdateDataSource;
 import com.emftriple.datasources.TransactionEnableDataSource;
 import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
 import com.emftriple.jena.util.JenaResultSet;
-import com.emftriple.query.SparqlBuilder;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.sparql.SelectQuery;
-import com.emftriple.query.sparql.UpdateQuery;
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -54,18 +46,18 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 
 	private final Dataset dataSet;
 	
-	protected JenaTDB(URI defaultGraph, String fileLocation, List<URI> graphs) {
-		super( defaultGraph, graphs );
+	protected JenaTDB(String name, String fileLocation, List<URI> graphs) {
+		super( name, graphs );
 		this.dataSet = TDBFactory.createDataset(fileLocation);
 	}
 
 	@Override
-	public RDFGraph constructQuery(ConstructQuery query) {
+	public RDFGraph constructQuery(String query) {
 		return JenaDataSourceExecution.doContstructQuery(query, dataSet, null); 
 	}
 
 	@Override
-	public RDFGraph constructQuery(ConstructQuery query, URI graph) {
+	public RDFGraph constructQuery(String query, URI graph) {
 		if (!dataSet.containsNamedModel(graph.toString())) {
 			throw new IllegalArgumentException("DataSet does not contains named graph: " + graph);
 		}
@@ -73,40 +65,43 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 	}
 
 	@Override
-	public ResultSet selectQuery(SelectQuery query) {
-		try {
-			return new JenaResultSet( 
-						QueryExecutionFactory.create( QueryFactory.create(extract(query)), dataSet )
-							.execSelect()
-					);
-		}
-		finally {
-			SparqlBuilder.clear();
-		}
+	public void constructQuery(String query, RDFGraph aGraph) {
+		JenaDataSourceExecution.doContstructQuery(query, dataSet, null, aGraph);
+	}
+	
+	@Override
+	public void describeQuery(String query, RDFGraph aGraph) {
+		JenaDataSourceExecution.doDescribeQuery(query, dataSet, null, aGraph);
+	}
+	
+	@Override
+	public ResultSet selectQuery(String query) {
+		return new JenaResultSet( 
+					QueryExecutionFactory.create( QueryFactory.create( query ), dataSet )
+						.execSelect());
 	}
 
 	@Override
-	public ResultSet selectQuery(SelectQuery query, URI graph) {
+	public ResultSet selectQuery(String query, URI graph) {
 		ResultSet rs = null;
 		try {
 			rs = new JenaResultSet (
-						QueryExecutionFactory.create( QueryFactory.create(extract(query)), dataSet.getNamedModel(graph.toString()) )
+						QueryExecutionFactory.create( 
+								QueryFactory.create( query ), dataSet.getNamedModel(graph.toString()) )
 					.execSelect() );
 		} catch(Exception e) {
 			e.printStackTrace();
-		} finally {
-			SparqlBuilder.clear();
 		}
 		return rs;
 	}
 	
 	@Override
-	public RDFGraph describeQuery(DescribeQuery query) {
+	public RDFGraph describeQuery(String query) {
 		return doDescribeQuery(query, dataSet, null);
 	}
 	
 	@Override
-	public boolean askQuery(AskQuery query, URI graph) {
+	public boolean askQuery(String query, URI graph) {
 		if (!dataSet.containsNamedModel(graph.toString())) {
 			throw new IllegalArgumentException("DataSet does not contains named graph: " + graph);
 		}
@@ -114,7 +109,7 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 		final Model model = dataSet.getNamedModel(graph.toString());
 		boolean result = false;
 		try {
-			Query aQuery = QueryFactory.create(extract(query));
+			Query aQuery = QueryFactory.create( query );
 			QueryExecution qexec = QueryExecutionFactory.create(aQuery, model);
 			result = qexec.execAsk();
 		} catch (Exception e) {
@@ -125,15 +120,15 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 	}
 
 	@Override
-	public RDFGraph describeQuery(DescribeQuery query, URI graph) {
+	public RDFGraph describeQuery(String query, URI graph) {
 		return JenaDataSourceExecution.doDescribeQuery(query, dataSet.getNamedModel(graph.toString()), null);
 	}
 	
 	@Override
-	public boolean askQuery(AskQuery query) {
+	public boolean askQuery(String query) {
 		boolean result = false;
 		try {
-			Query aQuery = QueryFactory.create(extract(query));
+			Query aQuery = QueryFactory.create(query );
 			QueryExecution qexec = QueryExecutionFactory.create(aQuery, dataSet);
 			result = qexec.execAsk();
 		} catch (Exception e) {
@@ -144,22 +139,22 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 	}
 
 	@Override
-	public void update(UpdateQuery query) throws DataSourceException {
+	public void update(String query) {
 		GraphStore graphStore = GraphStoreFactory.create(dataSet);
-        UpdateAction.parseExecute(extract(query), graphStore);
+        UpdateAction.parseExecute( query, graphStore);
 	}
 	
 	@Override
-	public void add(RDFGraph graph) throws DataSourceException {
+	public void add(RDFGraph graph) {
 		doAdd(graph, dataSet.getDefaultModel());
 	}
 	
 	@Override
-	public void add(NamedGraph graph) throws DataSourceException {
+	public void add(NamedGraph graph) {
 		doAdd(graph, dataSet.getNamedModel(graph.getURI()));
 	}
 
-	protected void doAdd(RDFGraph graph, Model model) throws DataSourceException {
+	protected void doAdd(RDFGraph graph, Model model) {
 		model.enterCriticalSection(Lock.WRITE);
 		try {
 			model.add( new RDFGraphExtractor().extract(graph) );	
@@ -170,12 +165,12 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 	}
 	
 	@Override
-	public void remove(RDFGraph graph) throws DataSourceException {
+	public void remove(RDFGraph graph) {
 		doRemove(graph, dataSet.getDefaultModel());
 	}
 
 	@Override
-	public void remove(NamedGraph graph) throws DataSourceException {
+	public void remove(NamedGraph graph) {
 		doRemove(graph, dataSet.getNamedModel(graph.getURI()));
 	}
 
@@ -206,17 +201,17 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 	}
 
 	@Override
-	public void begin() throws DataSourceException {
+	public void begin() {
 		dataSet.getDefaultModel().begin();		
 	}
 
 	@Override
-	public void commit() throws DataSourceException {
+	public void commit() {
 		dataSet.getDefaultModel().commit();
 	}
 
 	@Override
-	public void rollback() throws DataSourceException {
+	public void rollback() {
 		dataSet.getDefaultModel().abort();
 	}
 

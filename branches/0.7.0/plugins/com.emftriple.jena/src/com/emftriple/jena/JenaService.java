@@ -7,9 +7,6 @@
  */
 package com.emftriple.jena;
 
-import static com.emftriple.query.Queries.graphQuery;
-import static com.emftriple.query.SparqlBuilder.extract;
-
 import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
@@ -22,10 +19,6 @@ import com.emftriple.datasources.NamedGraphDataSource;
 import com.emftriple.datasources.ResultSet;
 import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
 import com.emftriple.jena.util.JenaResultSet;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.sparql.SelectQuery;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -42,24 +35,40 @@ public class JenaService extends AbstractNamedGraphDataSource implements NamedGr
 
 	private final String service;
 	
-	JenaService(URI defaultGraph, String service, List<URI> graphs) {
-		super( defaultGraph, graphs );
+	JenaService(String name, String service, List<URI> graphs) {
+		super( name, graphs );
 		this.service = service;
 	}
 
 	@Override
-	public RDFGraph constructQuery(ConstructQuery query) {
+	public RDFGraph constructQuery(String query) {
 		return doConstructQuery(query);
 	}
 
 	@Override
-	public RDFGraph constructQuery(ConstructQuery query, URI graph) {
+	public RDFGraph constructQuery(String query, URI graph) {
 		return doConstructQuery(query);
 	}
 	
-	protected RDFGraph doConstructQuery( ConstructQuery query ) {
+	@Override
+	public void constructQuery(String query, RDFGraph aGraph) {
+		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create( query ) );
+		final Model result = queryExec.execConstruct();
+		
+		new NamedGraphInjector(result).inject(aGraph);
+	}
+	
+	@Override
+	public void describeQuery(String query, RDFGraph aGraph) {
+		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create(query) );
+		final Model result = queryExec.execDescribe();
+		
+		new NamedGraphInjector(result).inject(aGraph);
+	}
+	
+	protected RDFGraph doConstructQuery(String query) {
 		RDFGraph graph = null;
-		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create(extract(query)) );
+		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create( query ) );
 		final Model result = queryExec.execConstruct();
 		graph = new NamedGraphInjector(result).inject();
 		
@@ -67,21 +76,21 @@ public class JenaService extends AbstractNamedGraphDataSource implements NamedGr
 	}
 	
 	@Override
-	public ResultSet selectQuery(SelectQuery query) {
+	public ResultSet selectQuery(String query) {
 		return new JenaResultSet( 
-					QueryExecutionFactory.sparqlService(service, QueryFactory.create(extract(query)) ).execSelect()
+					QueryExecutionFactory.sparqlService(service, QueryFactory.create( query )).execSelect()
 				);
 	}
 
 	@Override
-	public ResultSet selectQuery(SelectQuery query, URI graph) {
+	public ResultSet selectQuery(String query, URI graph) {
 		throw new UnsupportedOperationException("select query on graph is not supported yet.");
 	}
 	
 	@Override
-	public boolean askQuery(AskQuery query) {
+	public boolean askQuery(String query) {
 		final QueryExecution queryExec = 
-				QueryExecutionFactory.sparqlService(service, QueryFactory.create(extract(query)) );
+				QueryExecutionFactory.sparqlService(service, QueryFactory.create( query ) );
 		return queryExec.execAsk();
 	}
 
@@ -92,9 +101,9 @@ public class JenaService extends AbstractNamedGraphDataSource implements NamedGr
 	}
 
 	@Override
-	public RDFGraph describeQuery(DescribeQuery query) {
+	public RDFGraph describeQuery(String query) {
 		RDFGraph graph = null;
-		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create(extract(query)) );
+		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create(query) );
 		final Model result = queryExec.execDescribe();
 		graph = new NamedGraphInjector(result).inject();
 		
@@ -102,10 +111,10 @@ public class JenaService extends AbstractNamedGraphDataSource implements NamedGr
 	}
 
 	@Override
-	public boolean askQuery(AskQuery query, URI graph) {
+	public boolean askQuery(String query, URI graph) {
 		boolean result = false;
 		try {
-			Query aQuery = QueryFactory.create(extract(query));
+			Query aQuery = QueryFactory.create( query );
 			QueryExecution qexec = QueryExecutionFactory.sparqlService(service, aQuery);
 			result = qexec.execAsk();
 		} catch (Exception e) {
@@ -115,10 +124,10 @@ public class JenaService extends AbstractNamedGraphDataSource implements NamedGr
 	}
 
 	@Override
-	public RDFGraph describeQuery(DescribeQuery query, URI graph) {
+	public RDFGraph describeQuery(String query, URI graph) {
 		RDFGraph aGraph = null;
 		try {
-			Query aQuery = QueryFactory.create(extract(query));
+			Query aQuery = QueryFactory.create( query );
 			QueryExecution qexec = QueryExecutionFactory.sparqlService(service, aQuery);
 			final Model result = qexec.execDescribe();
 			aGraph = new NamedGraphInjector(result).inject();
@@ -132,9 +141,9 @@ public class JenaService extends AbstractNamedGraphDataSource implements NamedGr
 	public NamedGraph getNamedGraph(URI graphURI) {
 		NamedGraph aGraph = null;
 		try {
-			Query aQuery = QueryFactory.create(extract(graphQuery(graphURI)));
+			Query aQuery = QueryFactory.create( graphQuery(graphURI) );
 			QueryExecution qexec = QueryExecutionFactory.sparqlService(service, aQuery);
-			final Model result = qexec.execDescribe();
+			final Model result = qexec.execConstruct();
 			aGraph = new NamedGraphInjector(result).inject();
 		} finally {
 			// nothing?
