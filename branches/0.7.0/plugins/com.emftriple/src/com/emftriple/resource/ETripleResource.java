@@ -25,7 +25,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.emf.ecore.resource.URIHandler;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.resource.impl.URIHandlerImpl;
 
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFFactory;
@@ -45,7 +47,7 @@ import com.google.inject.name.Named;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class ETripleResource extends XMIResourceImpl implements Resource {
+public class ETripleResource extends ResourceImpl implements Resource {
 
 	public static final String ETRIPLE_DATASOURCE_NAME = "ETRIPLE_DATASOURCE_NAME";
 
@@ -100,14 +102,11 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 
 	@Override
 	public EObject getEObject(String uriFragment) {
-		final URI uri = URI.createURI(uriFragment);
 		EObject proxy = null;
 
-		final String query = uri.query();
-
-		if (query != null && query.startsWith("query=")) 
+		if (uriFragment != null && uriFragment.startsWith("uri=")) 
 		{
-			final URI key = URI.createURI(query.split("=")[1]);
+			final URI key = URI.createURI(uriFragment.split("=")[1].replaceAll("%23", "#"));
 
 			final EObjectEntityManager em = 
 				(EObjectEntityManager) ETripleEntityManagerFactory.Registry.INSTANCE.getActiveEntityManager();
@@ -219,6 +218,16 @@ public class ETripleResource extends XMIResourceImpl implements Resource {
 				res.unload();
 			}
 			resourceSet.getResources().clear();
+		}
+	}
+	
+	public static class ETripleURIHandler extends URIHandlerImpl implements URIHandler {
+		@Override
+		public boolean canHandle(URI uri) {
+			if (uri.scheme().equals("emftriple")) {
+				return true;
+			}
+			return super.canHandle(uri);
 		}
 	}
 }

@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.InternalEObject.EStore;
 
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.PersistenceUnit;
-import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.datasources.impl.DataSourceModule;
 import com.emftriple.datasources.impl.DataSourceModule.EStoreDataSourceModule;
@@ -93,15 +92,17 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 		}
 	}
 
-	private EntityManager doCreateEntityManager(@SuppressWarnings("rawtypes") Map options) throws IllegalStateException, DataSourceException {
-		try {
-			final EntityManager entityManager;
-			final DataSourceModule module;
-			final EntityDataSourceManager dataSourceManager;
+	private EntityManager doCreateEntityManager(@SuppressWarnings("rawtypes") Map options) throws IllegalStateException {
 
-			if (isEStoreEnable(mapping.getEPackages())) 
-			{
-				ETripleStore eStore = new ETripleStore();
+		EntityManager entityManager = null;
+		final DataSourceModule module;
+		EntityDataSourceManager dataSourceManager = null;
+
+		if (isEStoreEnable(mapping.getEPackages())) 
+		{
+			ETripleStore eStore = new ETripleStore();
+
+			try {
 				module = new EStoreDataSourceModule( mapping, unit.getDataSources(), eStore );
 				dataSourceManager = Guice.createInjector(module).getInstance( EntityDataSourceManager.class );
 				if (dataSourceManager == null) 
@@ -110,30 +111,33 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 				}
 				entityManager = new EStoreEntityManager(this, dataSourceManager, mapping, eStore);
 				eStore.setEntityManager(entityManager);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-				Registry.INSTANCE.put(entityManager, eStore);
-			} 
-			else 
-			{
-				module = new EntityDataSourceModule( mapping, unit.getDataSources() );
+			Registry.INSTANCE.put(entityManager, eStore);
+		} 
+		else 
+		{
+			module = new EntityDataSourceModule( mapping, unit.getDataSources() );
+			try {
 				dataSourceManager = Guice.createInjector(module).getInstance( EntityDataSourceManager.class );
 				if (dataSourceManager == null) 
 				{
 					throw new IllegalStateException("Cannot create DataSourceManager");
 				}
 				entityManager = new EObjectEntityManager(this, dataSourceManager, mapping);
-
-				Registry.INSTANCE.put(entityManager, null);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-
-			createdEntityManagers.add(entityManager);
-			dataSourceManager.connect();
-
-			return entityManager;
-
-		} catch (DataSourceException e) {
-			throw new RuntimeException("Cannot create EntityManager");
+			Registry.INSTANCE.put(entityManager, null);
 		}
+
+		createdEntityManagers.add(entityManager);
+		dataSourceManager.connect();
+
+		return entityManager;
+
 	}
 
 	private boolean isEStoreEnable(List<EPackage> ePackages) {

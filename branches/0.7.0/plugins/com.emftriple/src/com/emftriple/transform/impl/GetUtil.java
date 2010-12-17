@@ -3,11 +3,14 @@ package com.emftriple.transform.impl;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.List;
+
 import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Resource;
+import com.emf4sw.rdf.Triple;
 
 /**
  * 
@@ -20,7 +23,21 @@ public final class GetUtil {
 		if (node instanceof Literal) {
 			return ((Literal) node).getLexicalForm();
 		}
+		if (node instanceof Resource) {
+			return ((Resource) node).getURI();
+		}
 		return null;
+	}
+	
+	public static String getValue(List<Triple> values, String lang) {
+		for (Triple node: values) {
+			if (node.getObject() instanceof Literal) {
+				if (((Literal) node.getObject()).getLang().equals(lang)) {
+					return ((Literal) node.getObject()).getLexicalForm();
+				}
+			}
+		}
+		return getValue(values.get(0).getObject());
 	}
 	
 	public static URI getURI(String key) {

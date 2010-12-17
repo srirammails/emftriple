@@ -1,8 +1,9 @@
-package com.emftriple.query;
+package com.emftriple.datasources.impl;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.FlushModeType;
 import javax.persistence.LockModeType;
@@ -10,42 +11,23 @@ import javax.persistence.Parameter;
 import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
-import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.query.mql.MQuery;
 
 /**
  * 
+ * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
- * @since 0.6.0
+ * @since 0.7.0
  */
-public class MqlTypedQuery<T> extends Mql implements TypedQuery<T> {
+public class NativeTypedQueryImpl<T> extends NativeQueryImpl implements TypedQuery<T> {
 
-	private Class<T> aClass;
-
-	public MqlTypedQuery(EntityDataSourceManager dataSourceManager, String queryString, Mapping mapping, Class<T> aClass) {
-		super(dataSourceManager, queryString, mapping);
-		this.aClass = aClass;
+	NativeTypedQueryImpl(EntityDataSourceManager dataSourceManager, String queryString) {
+		super(dataSourceManager, queryString);
 	}
 	
-	public MqlTypedQuery(EntityDataSourceManager dataSourceManager, MQuery query, Mapping mapping, Class<T> aClass) {
-		super(dataSourceManager, query, mapping);
-		this.aClass = aClass;
-	}
-		
-	@SuppressWarnings("unchecked")
-	@Override
-	public T getSingleResult() {
-		Object obj = super.getSingleResult();
-
-		if (obj == null)
-			return null;
-		
-		if (aClass.isAssignableFrom(obj.getClass())) {
-			return (T) obj;	
-		} else {
-			throw new ClassCastException();
-		}
+	NativeTypedQueryImpl(EntityDataSourceManager dataSourceManager, String queryString, Map<Object, Object> properties,
+			Map<Object, Object> parameters, Map<String, Object> hints, int maxResults) {
+		super(dataSourceManager, queryString, properties, parameters, hints, maxResults);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -54,19 +36,16 @@ public class MqlTypedQuery<T> extends Mql implements TypedQuery<T> {
 		return (List<T>) super.getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
-	public int executeUpdate() {
-		throw new UnsupportedOperationException();
+	public T getSingleResult() {
+		return (T) super.getSingleResult();
 	}
-
-	@Override
-	public int getFirstResult() {
-		throw new UnsupportedOperationException();
-	}
-
+	
 	@Override
 	public TypedQuery<T> setFirstResult(int arg0) {
-		throw new UnsupportedOperationException();
+		super.setFirstResult(arg0);
+		return this;
 	}
 	
 	@Override
@@ -74,27 +53,28 @@ public class MqlTypedQuery<T> extends Mql implements TypedQuery<T> {
 		super.setMaxResults(arg0);
 		return this;
 	}
-
+	
 	@Override
-	public TypedQuery<T> setHint(String arg0, Object arg1) {
-		super.setHint(arg0, arg1);
+	public TypedQuery<T> setFlushMode(FlushModeType flushMode) {
+		super.setFlushMode(flushMode);
 		return this;
 	}
-
-	@Override
-	public TypedQuery<T> setFlushMode(FlushModeType arg0) {
-		super.setFlushMode(arg0);
-		return this;
-	}
-
+	
 	@Override
 	public TypedQuery<T> setLockMode(LockModeType arg0) {
 		super.setLockMode(arg0);
 		return this;
 	}
-
+	
+	@Override
+	public TypedQuery<T> setHint(String arg0, Object arg1) {
+		super.setHint(arg0, arg1);
+		return this;
+	}
+	
 	public <U> javax.persistence.TypedQuery<T> setParameter(javax.persistence.Parameter<U> param, U value) {
-		return null;
+		super.setParameter(param, value);
+		return this;
 	};
 	
 	@Override
@@ -144,5 +124,4 @@ public class MqlTypedQuery<T> extends Mql implements TypedQuery<T> {
 		super.setParameter(position, value, temporalType);
 		return this;
 	}
-
 }

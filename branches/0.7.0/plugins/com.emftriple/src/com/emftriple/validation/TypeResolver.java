@@ -8,7 +8,7 @@
 package com.emftriple.validation;
 
 import static com.emftriple.util.ETripleEcoreUtil.getESubClasses;
-import static com.emftriple.util.EntityUtil.getEntityURI;
+import static com.emftriple.util.EntityUtil.getRdfTypes;
 import static com.emftriple.util.Functions.transform;
 import static com.google.common.collect.Lists.newArrayList;
 
@@ -97,12 +97,12 @@ public class TypeResolver implements Function<URI, EClass> {
 
 	private Map<String, EClass> computeSubTypes(EClass eClass) {
 		final Map<String, EClass> map = Maps.newLinkedHashMap();
-		final String requestedURI = getEntityURI(eClass).toString();
+		final String requestedURI = getRdfTypes(eClass).toString();
 		final EList<EClass> subClasses = getESubClasses(eClass, mapping.getEClasses());
 		map.put(requestedURI, eClass);
 
 		for (EClass subClass: subClasses) {
-			String subClassURI = getEntityURI(subClass).toString();
+			String subClassURI = getRdfTypes(subClass).toString();
 			if (subClassURI != null) {
 				map.put(subClassURI, subClass);
 			}

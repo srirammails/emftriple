@@ -8,13 +8,13 @@
 package com.emftriple.datasources.impl;
 
 import static com.emftriple.util.EntityUtil.checkIsEntity;
-import static com.emftriple.util.EntityUtil.getETripleAnnotation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
@@ -22,15 +22,13 @@ import com.emf4sw.rdf.vocabulary.RDF;
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.query.SparqlBuilder;
-import com.emftriple.query.sparql.AskQuery;
 import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
 import com.emftriple.transform.PutObject;
 import com.emftriple.util.EntityUtil;
 import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
@@ -59,7 +57,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 		this.mapping = mapping;
 		this.manager = manager;
-		this.allEntities = Maps.newHashBiMap();
+		this.allEntities = HashBiMap.create();
 		this.markAsToSaveEntities = new ArrayList<Object>();
 		this.markAsToDeleteEntities = new ArrayList<Object>();
 		this.markAsDetachEntities = new ArrayList<Object>();
@@ -115,10 +113,10 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	public URI id(Object object) {
 		checkIsEntity(object);
 		
-		return id((EObject) object);
+		return doID((EObject) object);
 	}
 	
-	private URI id(EObject object) {
+	private URI doID(EObject object) {
 		URI entityKey = null;
 		
 		if ( allEntities.inverse().containsKey(object) ){
@@ -129,7 +127,12 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 			entityKey = allEntities.inverse().get(object);
 			if (entityKey == null)
 			{
-				entityKey = generateId((EObject)object);
+				EAttribute attrId = EntityUtil.getId(object.eClass());				
+				if (object.eIsSet(attrId)) {
+					String base = attrId.getEAnnotation("GenereatedId").getDetails().get("base");
+					entityKey = base != null ? EntityUtil.URI(base + object.eGet(attrId)) : EntityUtil.URI(object.eGet(attrId)); 
+				}
+				entityKey = generateId(object);
 			}
 		}
 		else {
@@ -156,24 +159,14 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	}
 
 	private boolean isGeneratedId(EObject object) {
-		EAnnotation ann = getETripleAnnotation(object.eClass(), "GeneratedId");
-		
-		if (ann == null)
-		{
-			for (EClass eClass: object.eClass().getEAllSuperTypes())
-			{
-				if (getETripleAnnotation(eClass, "GeneratedId") != null)
-				{
-					return true;
-				}
-			}
-		}
-		
+		final EAttribute attr = EntityUtil.getId(object.eClass());
+		final EAnnotation ann = attr.getEAnnotation("GeneratedId");
+				
 		return ann != null;
 	}
 	
 	@Override 
-	public Object getByKey(URI key) {
+	public EObject getByKey(URI key) {
 		return getAllEntities().get(key);
 	}
 
@@ -280,31 +273,36 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 	@Override
 	public boolean entityExists(URI key, EClass eClass) {
-		final URI rdfType = mapping.getRdfType(eClass);
-		final AskQuery query = 
-			SparqlBuilder.getAskQuery("ASK WHERE { <" + key + "> <" + RDF.type + "> <" + rdfType + "> }");
+		boolean exists = false;
 		
-		return executeAskQuery(query);
+		for (URI rdfType: mapping.getRdfTypes(eClass)) {
+			final String query = 
+				"ASK WHERE { <" + key + "> <" + RDF.type + "> <" + rdfType + "> }";
+			exists = exists || 	executeAskQuery(query);
+		}
+		
+		return exists;
 	}
 	
 	private static final class ID {
 		
 		private static final String GENERATED_ID = "GeneratedId";
 		
-
 		static URI id(EObject object) { 
-			return EntityUtil.ID.getId(object); 
+			return IDGenerator.getId(object); 
 		}
 			
 		static URI generate(EObject object, int index) {
 			String value = null;
 			final String namespace;
+			
+			EAttribute attr = EntityUtil.getId(object.eClass());
 
-			if (getETripleAnnotation(object.eClass(), GENERATED_ID).getDetails().containsKey(EntityUtil.ID.BASE)) 
+			if (attr.getEAnnotation(GENERATED_ID).getDetails().containsKey(IDGenerator.BASE)) 
 			{
-					namespace = getETripleAnnotation(object.eClass(), GENERATED_ID).getDetails().get(EntityUtil.ID.BASE);
-			} 
-			else 
+				namespace = attr.getEAnnotation(GENERATED_ID).getDetails().get(IDGenerator.BASE);
+			}
+			else
 			{
 				namespace = EntityUtil.namespace(object);
 			}

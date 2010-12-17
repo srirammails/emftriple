@@ -6,7 +6,7 @@ import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.datasources.EntityManagerDelegate;
-import com.emftriple.query.SparqlRuntimeModule;
+import com.emftriple.datasources.QueryFactory;
 import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.resource.ETripleResource.ResourceManagerImpl;
 import com.emftriple.resource.ETripleStore;
@@ -31,8 +31,10 @@ public abstract class DataSourceModule extends AbstractModule {
 	
 	@Override
 	protected void configure() {
-		install(new SparqlRuntimeModule());
+//		install(new SparqlRuntimeModule());
 	
+		bind(QueryFactory.class)
+			.to(NativeQueryFactoryImpl.class);
 		bind(Federation.class)
 			.annotatedWith(Names.named("DataSources"))
 			.toInstance(sources);

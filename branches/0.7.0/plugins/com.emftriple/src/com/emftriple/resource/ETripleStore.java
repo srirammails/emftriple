@@ -21,18 +21,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Resource;
 import com.emf4sw.rdf.URIElement;
-import com.emftriple.datasources.DataSourceManager;
-import com.emftriple.datasources.ResultSet;
-import com.emftriple.query.sparql.GroupGraphPatternSub;
-import com.emftriple.query.sparql.IRI;
-import com.emftriple.query.sparql.PropertyList;
-import com.emftriple.query.sparql.SelectQuery;
-import com.emftriple.query.sparql.SparqlFactory;
-import com.emftriple.query.sparql.TriplesSameSubject;
-import com.emftriple.query.sparql.UnNamedVariable;
-import com.emftriple.query.sparql.Variable;
-import com.emftriple.query.sparql.WhereClause;
-import com.emftriple.util.EntityUtil;
 import com.google.common.collect.Lists;
 import com.google.inject.internal.Maps;
 
@@ -201,11 +189,11 @@ public class ETripleStore implements EStore {
 				{
 					cache.get(object).put(feature, new ArrayList<URI>());
 				}
-				URI id = EntityUtil.ID.getId(value);
-				if (id != null)
-				{
-					cache.get(object).get(feature).add(id);	
-				}
+//				URI id = IDGenerator.getId(value);
+//				if (id != null)
+//				{
+//					cache.get(object).get(feature).add(id);	
+//				}
 //				object.eSet(feature, value);
 			}
 		}
@@ -257,12 +245,12 @@ public class ETripleStore implements EStore {
 
 	protected List<Node> getNodes(EObject source, EStructuralFeature feature) {
 		final List<Node> nodes = Lists.newArrayList();
-		final SelectQuery q = createQuery(source, feature);
-		final ResultSet rs = ((DataSourceManager)getEntityManager().getDelegate()).executeSelectQuery(q);
-
-		for (;rs.hasNext();) {
-			nodes.add( rs.next().get("v") );
-		}
+//		final SelectQuery q = createQuery(source, feature);
+//		final ResultSet rs = ((DataSourceManager)getEntityManager().getDelegate()).executeSelectQuery(q);
+//
+//		for (;rs.hasNext();) {
+//			nodes.add( rs.next().get("v") );
+//		}
 
 		return nodes;
 	}
@@ -316,34 +304,34 @@ public class ETripleStore implements EStore {
 		return uris;
 	}
 
-	protected SelectQuery createQuery(EObject source, EStructuralFeature feature) {
-		// SELECT ?v WHERE { <source> <feature> ?v }
-		SelectQuery query = SparqlFactory.eINSTANCE.createSelectQuery();
-		Variable var = SparqlFactory.eINSTANCE.createUnNamedVariable();
-		var.setName("v");
-		query.getVariables().add(var);
-
-		WhereClause where = SparqlFactory.eINSTANCE.createWhereClause();
-		GroupGraphPatternSub group = SparqlFactory.eINSTANCE.createGroupGraphPatternSub();
-		TriplesSameSubject pattern = SparqlFactory.eINSTANCE.createTriplesSameSubject();
-		IRI sbj = SparqlFactory.eINSTANCE.createIRI();
-		sbj.setValue(EntityUtil.ID.getId(source).toString());
-		IRI verb = SparqlFactory.eINSTANCE.createIRI();
-		verb.setValue(EntityUtil.getEntityURI(feature).toString());
-		UnNamedVariable var2 = SparqlFactory.eINSTANCE.createUnNamedVariable();
-		var2.setName("v");
-
-		pattern.setSubject(sbj);
-		PropertyList list = SparqlFactory.eINSTANCE.createPropertyList();
-		list.setObject(var2);
-		list.setProperty(verb);
-		pattern.getPropertyList().add(list);
-
-		group.getGraphPatterns().add(pattern);
-		where.setGroupGraphPattern(group);
-		query.setWhereClause(where);
-
-		return query;
-	}
+//	protected SelectQuery createQuery(EObject source, EStructuralFeature feature) {
+//		// SELECT ?v WHERE { <source> <feature> ?v }
+//		SelectQuery query = SparqlFactory.eINSTANCE.createSelectQuery();
+//		Variable var = SparqlFactory.eINSTANCE.createUnNamedVariable();
+//		var.setName("v");
+//		query.getVariables().add(var);
+//
+//		WhereClause where = SparqlFactory.eINSTANCE.createWhereClause();
+//		GroupGraphPatternSub group = SparqlFactory.eINSTANCE.createGroupGraphPatternSub();
+//		TriplesSameSubject pattern = SparqlFactory.eINSTANCE.createTriplesSameSubject();
+//		IRI sbj = SparqlFactory.eINSTANCE.createIRI();
+//		sbj.setValue(EntityUtil.ID.getId(source).toString());
+//		IRI verb = SparqlFactory.eINSTANCE.createIRI();
+//		verb.setValue(EntityUtil.getEntityURI(feature).toString());
+//		UnNamedVariable var2 = SparqlFactory.eINSTANCE.createUnNamedVariable();
+//		var2.setName("v");
+//
+//		pattern.setSubject(sbj);
+//		PropertyList list = SparqlFactory.eINSTANCE.createPropertyList();
+//		list.setObject(var2);
+//		list.setProperty(verb);
+//		pattern.getPropertyList().add(list);
+//
+//		group.getGraphPatterns().add(pattern);
+//		where.setGroupGraphPattern(group);
+//		query.setWhereClause(where);
+//
+//		return query;
+//	}
 
 }

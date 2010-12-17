@@ -1,9 +1,12 @@
 package com.emftriple.resource;
 
+import java.util.HashMap;
+
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 /**
@@ -13,26 +16,31 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
  */
 public class ETripleResourceSet extends ResourceSetImpl implements ResourceSet {
 
+	public ETripleResourceSet() {
+		setURIResourceMap(new HashMap<URI,Resource>());
+	}
+
 	@Override
 	public Resource createResource(URI uri) {
 		return new ETripleResource(uri);
 	}
 
 	@Override
-	public EObject getEObject(URI uri, boolean loadOnDemand) {
-		if (uri.hasQuery()) {
-			Resource resource = null;
-			try {
-				resource = getResources().get(0);
-				if (!resource.isLoaded()) {
-					resource.load(getLoadOptions());
-				}			
-				return resource.getEObject(uri.toString());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+	public URIConverter getURIConverter() {
+		if (uriConverter == null) {
+			uriConverter = new ExtensibleURIConverterImpl() {
+				@Override
+				public URI normalize(URI uri) {
+					if (uri.scheme().equals("emftriple")) {
+						if (uri.query() != null && !uri.query().isEmpty()) {
+							return uri.trimQuery();
+						}
+						return uri;
+					}
+					return super.normalize(uri);
+				}
+			};
 		}
-		return super.getEObject(uri, loadOnDemand);
+		return uriConverter;
 	}
-
 }

@@ -6,19 +6,16 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 
+import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.resource.RDFResource;
+import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.DataSource;
 import com.emftriple.datasources.DataSourceManager;
 import com.emftriple.datasources.MutableDataSource;
-import com.emftriple.datasources.NamedGraphDataSource;
 import com.emftriple.datasources.ResultSet;
 import com.emftriple.datasources.SparqlUpdateDataSource;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.sparql.SelectQuery;
-import com.emftriple.query.sparql.UpdateQuery;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
@@ -31,13 +28,16 @@ import com.google.inject.name.Named;
  */
 public class SparqlDataSourceManager implements DataSourceManager {
 
-	protected final Map<URI, DataSource> dataSourcesByGraph = new HashMap<URI, DataSource>();
-	
+	protected final Map<String, DataSource> dataSourcesByName = new HashMap<String, DataSource>();
+
 	protected final List<DataSource> dataSources;
 	
 	@Inject
 	SparqlDataSourceManager(@Named("DataSources") Federation dataSources) {
 		this.dataSources = DataSourceBuilder.build(dataSources);
+		for (DataSource ds: this.dataSources) {
+			dataSourcesByName.put(ds.getName(), ds);
+		}
 	}
 	
 	@Override
@@ -51,31 +51,18 @@ public class SparqlDataSourceManager implements DataSourceManager {
 		for (DataSource ds: dataSources) 
 			ds.disconnect();		
 	}
-	
-	private DataSource resolveDataSourceByGraph(URI graphURI) {
-		for (DataSource dataSource: dataSources) {
-			if (dataSource instanceof NamedGraphDataSource) {
-				if (((NamedGraphDataSource) dataSource).containsGraph(graphURI)) {
-					return dataSource;
-				}
-			}
-		}
+
+	@Override
+	public DataSource getDataSourceByGraph(URI graphURI) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DataSource getDataSourceByGraph(URI graphURI) {
-		if (dataSourcesByGraph.containsKey(graphURI)) {
-			return dataSourcesByGraph.get(graphURI);
-		} else {
-			DataSource dataSource = resolveDataSourceByGraph(graphURI);
-			if (dataSource == null) {
-				throw new IllegalArgumentException("Graph with uri " + graphURI + " is not present in registered data sources.");
-			}
-			return dataSource;
-		}
+	public DataSource getDataSource(String name) {
+		return dataSourcesByName.get(name);
 	}
-
+	
 	@Override
 	public void remove(RDFGraph graph) 
 	{
@@ -95,27 +82,63 @@ public class SparqlDataSourceManager implements DataSourceManager {
 	}
 	
 	@Override
-	public boolean executeAskQuery(AskQuery aQuery) {
-		return getDefaultDataSource().askQuery(aQuery);
+	public boolean executeAskQuery(String aQuery) {
+		if (dataSources.size() == 1)
+			return getDefaultDataSource().askQuery(aQuery);
+		
+		boolean result = false;
+		for (DataSource dataSource: dataSources) {
+			result = result || dataSource.askQuery(aQuery);
+		}
+		return result;
 	}
 
 	@Override
-	public RDFGraph executeConctructQuery(ConstructQuery aQuery) {
-		return getDefaultDataSource().constructQuery(aQuery);
+	public RDFGraph executeConctructQuery(String aQuery) {
+		if (dataSources.size() == 1)
+			return getDefaultDataSource().constructQuery(aQuery);
+		
+		final RDFResource resource = new DummyRDFResource();
+		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
+		resource.getContents().add(aGraph);
+		
+		for (DataSource dataSource: dataSources)
+			dataSource.constructQuery(aQuery, aGraph);
+		
+		return aGraph;
 	}
 
 	@Override
-	public RDFGraph executeDescribeQuery(DescribeQuery query) {
-		return getDefaultDataSource().describeQuery(query);
+	public RDFGraph executeDescribeQuery(String aQuery) {
+		if (dataSources.size() == 1)
+			return getDefaultDataSource().describeQuery(aQuery);
+		
+		final RDFResource resource = new DummyRDFResource();
+		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
+		resource.getContents().add(aGraph);
+		
+		for (DataSource dataSource: dataSources)
+			dataSource.describeQuery(aQuery, aGraph);
+		
+		return aGraph;
 	}
 
 	@Override
-	public ResultSet executeSelectQuery(SelectQuery aQuery) {
-		return getDefaultDataSource().selectQuery(aQuery);
+	public ResultSet executeSelectQuery(String aQuery) {
+		if (dataSources.size() == 1)
+			return getDefaultDataSource().selectQuery(aQuery);
+		
+		ResultSet resultSet = null;
+		for (DataSource dataSource: dataSources) {
+			resultSet = dataSource.selectQuery(aQuery);
+			if (resultSet.hasNext())
+				return resultSet;
+		}
+		return resultSet;
 	}
 
 	@Override
-	public int executeUpdateQuery(UpdateQuery aQuery) {
+	public int executeUpdateQuery(String aQuery) {
 		if (getDefaultDataSource() instanceof SparqlUpdateDataSource)
 		{
 			((SparqlUpdateDataSource)getDefaultDataSource()).update(aQuery);
@@ -124,9 +147,15 @@ public class SparqlDataSourceManager implements DataSourceManager {
 		return 0;
 	}
 
+//	private DataSource identifyDataSet(String query) {
+//		if (query.contains("from") || query.contains("FROM")) {
+//			
+//		}
+//	}
+	
 	@Override
 	public DataSource getDefaultDataSource() {
-		return dataSources.iterator().next();
+		return dataSources.get(0);
 	}
 
 	@Override

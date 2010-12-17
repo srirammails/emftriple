@@ -9,7 +9,6 @@ package com.emftriple.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -17,8 +16,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Property;
-import com.emftriple.query.mql.MQuery;
-import com.google.common.collect.Maps;
 
 /**
  * {@link AbstractMapping}
@@ -36,14 +33,14 @@ public abstract class AbstractMapping implements Mapping {
 
 	protected List<Property> properties;
 	
-	protected Map<String, MQuery> namedQueries;
+//	protected Map<String, MQuery> namedQueries;
 
 //	private Map<String, TypedQuery<?>> namedTypedQueries;
 
 	AbstractMapping(List<EPackage> packages, List<Property> properties) {
 		this.ePackages = packages;
 		this.properties = properties;
-		this.namedQueries = Maps.newHashMap();
+//		this.namedQueries = Maps.newHashMap();
 //		this.namedTypedQueries = Maps.newHashMap();
 	}
 
@@ -60,10 +57,10 @@ public abstract class AbstractMapping implements Mapping {
 		return eClasses;
 	}
 	
-	@Override
-	public MQuery getNamedQuery(String query) {
-		return namedQueries.get(query);
-	}
+//	@Override
+//	public MQuery getNamedQuery(String query) {
+//		return namedQueries.get(query);
+//	}
 
 //	@SuppressWarnings("unchecked")
 //	@Override

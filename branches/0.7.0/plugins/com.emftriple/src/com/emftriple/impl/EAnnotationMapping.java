@@ -11,18 +11,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.emf4sw.rdf.Node;
+import com.emf4sw.rdf.Resource;
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Property;
-import com.emftriple.query.MQueryBuilder;
-import com.emftriple.query.mql.SelectStatement;
 import com.emftriple.util.EntityUtil;
 import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Maps;
 
 /**
@@ -34,7 +35,9 @@ import com.google.common.collect.Maps;
  */
 public class EAnnotationMapping extends AbstractMapping implements Mapping {
 
-	protected BiMap<URI, EClass> classMap;
+	protected Map<URI, EClass> rdfTypeMap;
+	
+	protected Map<EClass, List<URI>> classMap;
 
 	protected Map<EStructuralFeature, URI> featureMap;
 	
@@ -46,41 +49,42 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 	
 	public EAnnotationMapping(List<EPackage> packages, List<Property> properties) {
 		super(packages, properties);
-		this.classMap = Maps.newHashBiMap();
+		this.rdfTypeMap = Maps.newHashMap();
 		this.featureMap = Maps.newHashMap();
-		this.mappedClasses = Maps.newHashBiMap();
+		this.mappedClasses = HashBiMap.create();
+		this.classMap = Maps.newHashMap();
 		
 		for (EClass eClass: getEClasses()) 
 		{
-			URI aURI = EntityUtil.getEntityURI(eClass);
-			if (aURI != null) 
-			{
-				classMap.put(aURI, eClass);
+			classMap.put(eClass, EntityUtil.getRdfTypes(eClass));
+			for (URI aURI: EntityUtil.getRdfTypes(eClass)) {
+				rdfTypeMap.put(aURI, eClass);	
 			}
+			
 			Class<?> c = eClass.getInstanceClass();
 			if (c != null) 
 			{
 				mappedClasses.put(c, eClass);
 			}
 			
-			EAnnotation namedQueryAnn = EntityUtil.getETripleAnnotation(eClass, "NamedQuery");
-			if (namedQueryAnn != null)
-			{
-				String name = namedQueryAnn.getDetails().get("name");
-				String queryString = namedQueryAnn.getDetails().get("queryString");
-				if (name != null && queryString != null)
-				{
-					SelectStatement q = MQueryBuilder.getSelect(queryString);
-					if (q != null)
-					{
-						namedQueries.put(name, q);
-					}	
-				}
-			}
+//			EAnnotation namedQueryAnn = EntityUtil.getETripleAnnotation(eClass, "NamedQuery");
+//			if (namedQueryAnn != null)
+//			{
+//				String name = namedQueryAnn.getDetails().get("name");
+//				String queryString = namedQueryAnn.getDetails().get("queryString");
+//				if (name != null && queryString != null)
+//				{
+//					SelectStatement q = MQueryBuilder.getSelect(queryString);
+//					if (q != null)
+//					{
+//						namedQueries.put(name, q);
+//					}	
+//				}
+//			}
 			
 			for (EStructuralFeature eFeature: eClass.getEStructuralFeatures()) 
 			{
-				URI featureURI = EntityUtil.getEntityURI(eFeature);
+				URI featureURI = EntityUtil.getRdfType(eFeature);
 				if (featureURI != null) 
 				{
 					featureMap.put(eFeature, featureURI);
@@ -91,7 +95,7 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 
 	@Override
 	public EClass getEClassWithRdfType(String uri) {
-		return classMap.get( URI.createURI(uri) );
+		return rdfTypeMap.get( URI.createURI(uri) );
 	}
 
 	@Override
@@ -135,8 +139,8 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 	}
 
 	@Override
-	public URI getRdfType(EClass eClass) {
-		return classMap.inverse().get(eClass);
+	public List<URI> getRdfTypes(EClass eClass) {
+		return classMap.get(eClass);
 	}
 
 	@Override
@@ -144,6 +148,18 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 		return featureMap.get(eFeature);
 	}
 
+	@Override
+	public EClass findEClassByRdfType(List<String> types) {
+		// TODO
+		for (String type: types) {
+			URI typeURI = URI.createURI(type);
+			if (rdfTypeMap.containsKey(typeURI)) {
+				return rdfTypeMap.get(typeURI);
+			}
+		}
+		return null;
+	}
+	
 	@Override
 	public <T> URI getNamedGraph(Class<T> aClass) throws IllegalArgumentException {
 		final EClass eClass = getEClass(aClass);
@@ -154,6 +170,19 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 		final URI uri = EntityUtil.getNamedGraph(eClass);
 		
 		return uri == null ? null : uri;
+	}
+
+	@Override
+	public EClass findEClassByRdfType(EList<Node> types) {
+		for (Node node: types) {
+			if (node instanceof Resource) {
+				URI typeURI = URI.createURI( ((Resource) node).getURI() );
+				if (rdfTypeMap.containsKey(typeURI)) {
+					return rdfTypeMap.get(typeURI);
+				}
+			}
+		}
+		return null;
 	}
 	
 }

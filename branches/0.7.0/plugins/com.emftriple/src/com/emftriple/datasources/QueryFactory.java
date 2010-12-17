@@ -18,26 +18,9 @@ import javax.persistence.TypedQuery;
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
+ * @version 2
  */
 public interface QueryFactory {
-	/**
-	 * Creates a {@link Query} from a string
-	 * 
-	 * @param queryString contains the query
-	 * 
-	 * @return query
-	 */
-	Query createQuery(String queryString);
-
-	/**
-	 * Creates a registered named query
-	 * 
-	 * @param queryString contains the query
-	 * 
-	 * @return query
-	 */
-	Query createNamedQuery(String queryString);
-
 	/**
 	 * Creates a native query (SPARQL) from a string
 	 * 
@@ -56,7 +39,7 @@ public interface QueryFactory {
 	 * 
 	 * @return query
 	 */
-	Query createNativeQuery(String queryString, Class<?> aClass);
+	<T> TypedQuery<T> createNativeQuery(String queryString, Class<T> aClass);
 
 	/**
 	 * Creates a native query from a string
@@ -67,6 +50,24 @@ public interface QueryFactory {
 	 * @return query
 	 */
 	Query createNativeQuery(String queryString, String arg1);
+	
+	/**
+	 * Creates a {@link Query} from a string
+	 * 
+	 * @param queryString contains the query
+	 * 
+	 * @return query
+	 */
+	Query createQuery(String queryString);
+
+	/**
+	 * Creates a registered named query
+	 * 
+	 * @param queryString contains the query
+	 * 
+	 * @return query
+	 */
+	Query createNamedQuery(String queryString);
 	
 	/**
 	 * Creates a {@link TypedQuery} from a string and a given class argument

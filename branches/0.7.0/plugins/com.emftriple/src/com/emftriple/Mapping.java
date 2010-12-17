@@ -9,14 +9,15 @@ package com.emftriple;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.emf4sw.rdf.NamedGraph;
+import com.emf4sw.rdf.Node;
 import com.emftriple.config.persistence.Property;
-import com.emftriple.query.mql.MQuery;
 
 /**
  * 
@@ -61,7 +62,7 @@ public interface Mapping {
 	 * @param eClass
 	 * @return
 	 */
-	URI getRdfType(EClass eClass);
+	List<URI> getRdfTypes(EClass eClass);
 	
 	/**
 	 * 
@@ -76,13 +77,6 @@ public interface Mapping {
 	 */
 	List<Property> getProperties();
 
-	/**
-	 * 
-	 * @param queryString
-	 * @return
-	 */
-	MQuery getNamedQuery(String queryString);
-	
 //	/**
 //	 * 
 //	 * @param <T>
@@ -96,5 +90,16 @@ public interface Mapping {
 	 * @return URI of the {@link NamedGraph} or null
 	 */
 	<T> URI getNamedGraph(Class<T> aClass) throws IllegalArgumentException;
+
+	/**
+	 * Returns the EClass corresponding to a list of rdf types. The most relevant type in the list 
+	 * of types is selected. 
+	 * 
+	 * @param types
+	 * @return
+	 */
+	EClass findEClassByRdfType(List<String> types);
+
+	EClass findEClassByRdfType(EList<Node> types);
 	
 }

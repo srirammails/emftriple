@@ -15,9 +15,12 @@ import java.util.Map;
 
 import javax.persistence.spi.PersistenceProvider;
 
+import org.eclipse.emf.ecore.resource.Resource;
+
 import com.emftriple.config.persistence.PersistenceMetaData;
 import com.emftriple.impl.ETripleModule;
 import com.emftriple.impl.FileDescriptorModule;
+import com.emftriple.resource.ETripleResourceSet;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.inject.Guice;
@@ -46,6 +49,10 @@ public class ETriple {
 	private ETriple() {
 	}
 
+	static {
+		Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().put("emftriple", new ETripleResourceSet());
+	}
+	
 	public static ETriple getInstance() {
 		if (INSTANCE == null) {
 			if (!initialized) {

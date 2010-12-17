@@ -8,7 +8,7 @@
 package com.emftriple.datasources.impl;
 
 import static com.emftriple.util.EntityUtil.checkIsEntity;
-import static com.emftriple.util.Functions.transform;
+import static com.emftriple.util.SparqlQueries.selectAllTypes;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -34,19 +34,14 @@ import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.datasources.MutableDataSource;
 import com.emftriple.datasources.QueryFactory;
 import com.emftriple.datasources.TransactionEnableDataSource;
-import com.emftriple.query.SparqlBuilder;
-import com.emftriple.query.transform.Ask;
-import com.emftriple.query.transform.CountObjectsByType;
-import com.emftriple.query.transform.SelectTypes;
 import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
 import com.emftriple.transform.PutObject;
 import com.emftriple.transform.impl.GetEObjectImpl;
 import com.emftriple.transform.impl.GetProxyObjectImpl;
 import com.emftriple.transform.impl.PutObjectImpl;
-import com.emftriple.util.ETripleEcoreUtil;
 import com.emftriple.util.EntityUtil;
-import com.emftriple.util.EntityUtil.ID;
+import com.emftriple.util.SparqlQueries;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -68,23 +63,25 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	private GetProxyObjectImpl proxyFactory;
 
 	@Inject
-	EntityDataSourceManagerImpl(ResourceManager manager, Mapping mapping, @Named("DataSources") Federation dataSources) {
+	EntityDataSourceManagerImpl(ResourceManager manager, Mapping mapping, @Named("DataSources") Federation dataSources, QueryFactory queryFactory) {
 		super(manager, mapping, dataSources);
 
-		this.queryFactory = new ETripleQueryFactory(this, mapping);
+		this.queryFactory = queryFactory;
 		this.proxyFactory = new GetProxyObjectImpl(manager, mapping, this);
+		this.get = new GetEObjectImpl(manager, mapping, this);
+		this.put = new PutObjectImpl(mapping, this); 
 	}
 
 	@Override
 	protected PutObject put() {
-		return new PutObjectImpl(mapping);
+		return put;
 	}
 
 	@Override
 	protected GetObject get() {
-		return new GetEObjectImpl(manager, mapping, this);
+		return get;
 	}
-	
+
 	protected <T> void isMappedClass(Class<T> aClass) {
 		if (!mapping.isMappedClass(aClass)) {
 			throw new IllegalArgumentException(aClass.getName() + " is not an entity.");
@@ -94,33 +91,33 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	@Override
 	public <T> T find(Class<T> aClass, URI key) throws IllegalArgumentException {
 		isMappedClass(aClass);
-		
+
 		T object = (T) getByKey(key);
 
 		if (object != null && !((EObject)object).eIsProxy()) {
 			return object;
 		}
-		
-		object = get().get(aClass, key);
-		
+
+		object = get().get(aClass, key);	
+
 		if (object != null) {
 			add((EObject) object);
 		}
-		
+
 		return object;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T getReference(Class<T> aClass, URI key) {
 		isMappedClass(aClass);
-		
+
 		T object = (T) getByKey(key);
 
 		if (object != null) {
 			return object;
 		}
-		
+
 		object = proxyFactory.get(aClass, key);
 		put(key, (EObject) object);
 
@@ -130,26 +127,31 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	@Override
 	public Object refresh(Class<? extends Object> aClass, URI id) {
 		isMappedClass(aClass);
-		
+
 		Object obj = get().get(aClass, id);
-		
+
 		return obj;
 	}
-	
+
 	@Override
 	public Object findNode(Node node) {
 		if (node instanceof URIElement)
 		{
 			URI uri = getURI(node);
 
-			final List<String> types = transform((URIElement)node, new SelectTypes(this));
+			if (containsKey(uri)) {
+				EObject object = getByKey(uri);
+				return object;
+			}
+			
+			final List<String> types = selectAllTypes(this, (URIElement)node);
 			if (types.isEmpty()) 
 			{
 				return null;
 			}
 
-			final EClass eClass = mapping.getEClassWithRdfType(types.get(0));
-			if (eClass == null) 
+			final EClass eClass = mapping.findEClassByRdfType( types );
+			if (eClass == null)
 			{
 				return null;
 			}
@@ -162,7 +164,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 
 	@Override
 	public List<?> findNodes(List<Node> nodes) {
-		List<Object> list = Lists.newArrayList();
+		final List<Object> list = Lists.newArrayList();
 		for (Node node: nodes) 
 		{
 			list.add( findNode(node) );
@@ -174,25 +176,18 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	public void saveAll(Collection<Object> list) {
 		checkNotNull(list);
 		checkArgument(!list.isEmpty());
-		
+
 		final RDFGraph graph = RDFFactory.eINSTANCE.createDocumentGraph();
 		final RDFResource aResource = new DummyRDFResource();
 		aResource.getContents().add(graph);
-		
-		for (Object object: list) 
+
+		for (Object object: list)
 		{
-			if (object instanceof EObject)
+			if (object instanceof EObject) {
 				put().put((EObject)object, graph);
+			}
 		}
-		
-//		Resource res = new XMIResourceImpl(URI.createURI("src/out.xmi"));
-//		res.getContents().add(graph);
-//		try {
-//			res.save(null);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		
+
 		final DataSource dataSource = getDefaultDataSource();
 		if (dataSource instanceof MutableDataSource)
 		{
@@ -207,26 +202,32 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	public void save(Object obj) {
 		checkNotNull(obj);
 		checkArgument(obj instanceof EObject);
-		
-		final RDFGraph graph = RDFFactory.eINSTANCE.createDocumentGraph();
-		final RDFResource aResource = new DummyRDFResource();
-		aResource.getContents().add(graph);
-		
-		final EClass eClass = ((EObject) obj).eClass();
-		final URI graphURI = EntityUtil.getNamedGraph(eClass);
 
+		final EClass eClass = ((EObject) obj).eClass();
+		final String dataSetName = EntityUtil.getDataSet(eClass);
 		final DataSource dataSource;
-		if (graphURI != null) 
-		{
-			dataSource = getDataSourceByGraph(graphURI);
-		} 
-		else 
-		{
+		
+		if (dataSetName != null) {
+			dataSource = getDataSource(dataSetName);
+		} else {
 			dataSource = getDefaultDataSource();
 		}
 
-		put().put((EObject)obj, graph);
+		final URI graphURI = EntityUtil.getNamedGraph(eClass);
 		
+		final RDFGraph graph;
+		if (graphURI != null) {
+			graph = RDFFactory.eINSTANCE.createNamedGraph();
+			graph.setURI(graphURI.toString());
+		} else {
+			graph = RDFFactory.eINSTANCE.createDocumentGraph();
+		}
+		
+		final RDFResource aResource = new DummyRDFResource();
+		aResource.getContents().add(graph);
+		
+		put().put((EObject)obj, graph);
+
 		if (dataSource instanceof MutableDataSource)
 		{
 			if (!graph.getTriples().isEmpty())
@@ -236,72 +237,9 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		}
 	}
 
-//	private void doSave(EObject object, RDFGraph graph) {
-//		final EClass eClass = object.eClass();
-//		final URI graphURI = EntityUtil.getNamedGraph(eClass);
-//
-//		if (graphURI != null) 
-//		{
-//			dataSource = getDataSourceByGraph(graphURI);
-//		} 
-//		else 
-//		{
-//			dataSource = getDefaultDataSource();
-//		}
-//
-//		put().put((EObject)object, graph);
-//	}
-	
-	//	private DataSource resolveDataSourceByKey(EClass eClass, URI key) {
-	//		for (DataSource dataSource: dataSources) 
-	//		{			
-	//			if (getRealClass(dataSource, eClass.getInstanceClass(), key) != null) 
-	//			{
-	//				return dataSource;
-	//			}
-	//		}
-	//		return null;
-	//	}
-
-	protected <T> EClass getRealClass(DataSource dataSource, Class<T> aClass, Object key) {
-		EClass theRealClass = null;
-		boolean exist = false;
-		try {
-			exist = dataSource.askQuery( transform(getURI(key), new Ask(mapping.getEClass(aClass))) );
-		} finally {
-			SparqlBuilder.clear();
-		}
-
-		List<EClass> allSuperAndSub = 
-			ETripleEcoreUtil.newListOf(mapping.getEClass(aClass).getEAllSuperTypes(), 
-					ETripleEcoreUtil.getESubClasses(mapping.getEClass(aClass), mapping.getEClasses()));
-
-		if (exist == Boolean.FALSE) 
-		{
-			for (EClass ac: allSuperAndSub) 
-			{
-				try {
-					exist = dataSource.askQuery( transform(getURI(key), new Ask(ac)) );
-					if (exist == Boolean.TRUE) 
-					{
-						return ac;
-					}
-				} finally {
-					SparqlBuilder.clear();
-				}
-			}
-		} 
-		else 
-		{
-			theRealClass = mapping.getEClass(aClass);
-		}
-
-		return theRealClass;
-	}
-
 	@Override
 	protected int lastIndexOf(EClass eClass) {
-		return transform(eClass, new CountObjectsByType(getDefaultDataSource()));
+		return SparqlQueries.countObjectsByType(getDefaultDataSource(), eClass);
 	}
 
 	private static URI getURI(Object key) {
@@ -333,16 +271,16 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 			final RDFGraph graph = RDFFactory.eINSTANCE.createDocumentGraph();
 			final RDFResource aResource = new DummyRDFResource();
 			aResource.getContents().add(graph);
-			
+
 			final RDFGraph subjectGraph = put.put((EObject) object, graph);
 			if (subjectGraph != null) 
 			{
 				((MutableDataSource)getDefaultDataSource()).remove(subjectGraph);
 			}
 
-			final String id = ID.getId(object).toString();
+			final String id = id(object).toString();
 			final RDFGraph objectGraph = ((MutableDataSource)getDefaultDataSource()).constructQuery(
-					SparqlBuilder.getConstructQuery("CONSTRUCT {?s ?p <" + id + ">} WHERE {?s ?p <" + id + ">}"));
+					"CONSTRUCT {?s ?p <" + id + ">} WHERE {?s ?p <" + id + ">}");
 
 			final MutableDataSource dataSource = (MutableDataSource) getDefaultDataSource();
 			if (objectGraph != null) {

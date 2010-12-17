@@ -8,17 +8,19 @@
 package com.emftriple.transform.impl;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.Resource;
 import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.transform.Describe;
 import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
 import com.emftriple.util.EntityUtil;
-import com.emftriple.util.Functions;
+import com.emftriple.util.SparqlQueries;
 
 /**
  * 
@@ -40,29 +42,54 @@ public abstract class AbstractGetObject implements GetObject {
 	}
 
 	protected RDFGraph getGraph(EClass eClass, URI key) {
-		final DescribeQuery aQuery;
-		final URI graphURI = EntityUtil.getNamedGraph(eClass);
+		final String aQuery;
+//		final URI graphURI = EntityUtil.getNamedGraph(eClass);
 		
-		if (graphURI == null) {
-			aQuery = Functions.transform(key, new Describe());
-		} else {
-			aQuery = Functions.transform(key, new Describe(graphURI));
-		}
+//		if (graphURI == null) {
+			aQuery = SparqlQueries.constructSubject(key, eClass);
+//		} else {
+//			aQuery = SparqlQueries.describe(key, graphURI);
+//		}
 		
 		return dataSourceManager.executeDescribeQuery(aQuery);
 	}
 	
 	protected <T> RDFGraph getGraph(Class<T> entityClass, URI key) {
-		final DescribeQuery aQuery;
-		final URI graphURI = mapping.getNamedGraph(entityClass);
+		final String aQuery;
+//		final URI graphURI = mapping.getNamedGraph(entityClass);
+		final EClass eClass = mapping.getEClass(entityClass);
 		
-		if (graphURI == null) {
-			aQuery = Functions.transform(key, new Describe());
-		} else {
-			aQuery = Functions.transform(key, new Describe(graphURI));
+//		if (graphURI == null) {
+			aQuery = SparqlQueries.constructSubject(key, eClass);
+//		} else {
+//			aQuery = SparqlQueries.constructSubject(key, eClass);
+//		}
+		
+		return dataSourceManager.executeConctructQuery(aQuery);
+	}
+	
+	protected void setIdValue(EObject returnedObject, Resource from, EAttribute id) {
+		if (id == null)
+			return;
+		
+		EAnnotation ann = EntityUtil.getETripleAnnotation(id, "Id");
+		
+		if (ann == null) {
+			ann = EntityUtil.getETripleAnnotation(id, "GeneratedId");
+			if (ann == null) {
+				returnedObject.eSet(id, from.getURI());
+				return;
+			}
 		}
 		
-		return dataSourceManager.executeDescribeQuery(aQuery);
+		if (ann.getDetails().containsKey("base")) {
+			String base = ann.getDetails().get("base");
+			if (from.getURI().startsWith(base)) {
+				String localName = from.getURI().substring(base.length(), from.getURI().length());
+				if (localName != null && localName.length() > 0)
+					returnedObject.eSet(id, localName);
+			}
+		}
 	}
 	
 }

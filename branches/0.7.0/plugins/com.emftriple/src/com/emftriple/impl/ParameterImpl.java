@@ -1,4 +1,4 @@
-package com.emftriple.query;
+package com.emftriple.impl;
 
 import javax.persistence.Parameter;
 
@@ -30,6 +30,11 @@ public class ParameterImpl<T> implements Parameter<T> {
 	@Override
 	public Integer getPosition() {
 		return 0;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString();
 	}
 
 }

@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -35,8 +36,8 @@ import com.emf4sw.rdf.Resource;
 import com.emf4sw.rdf.operations.DatatypeConverter;
 import com.emf4sw.rdf.vocabulary.RDF;
 import com.emftriple.Mapping;
+import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.transform.PutObject;
-import com.emftriple.util.EntityUtil.ID;
 
 /**
  * 
@@ -53,8 +54,11 @@ public class PutObjectImpl implements PutObject {
 
 	private Map<EObject, Object> objectIdCache;
 
-	public PutObjectImpl(Mapping mapping) {
+	private EntityDataSourceManager manager;
+
+	public PutObjectImpl(Mapping mapping, EntityDataSourceManager manager) {
 		this.mapping = mapping;
+		this.manager = manager;
 	}
 
 	public RDFGraph put(EObject from, RDFGraph graph) {
@@ -211,11 +215,13 @@ public class PutObjectImpl implements PutObject {
 		private void createTypeTriple(EObject aObject, RDFGraph aGraph) {
 			checkIsMappedObject(aObject, mapping);
 
-			final Resource subject = getResource(aObject, aGraph);
-			final Property property = aGraph.getProperty(RDF.type);
-			final Resource object = aGraph.getResource(mapping.getRdfType(aObject.eClass()).toString());
-
-			aGraph.addTriple(subject, property, object);
+			for (URI aURI: mapping.getRdfTypes(aObject.eClass())) {
+				final Resource subject = getResource(aObject, aGraph);
+				final Property property = aGraph.getProperty(RDF.type);
+				final Resource object = aGraph.getResource(aURI.toString());
+				
+				aGraph.addTriple(subject, property, object);
+			}
 		}
 
 		private Resource getResource(EObject aObject, RDFGraph aGraph) {
@@ -225,7 +231,7 @@ public class PutObjectImpl implements PutObject {
 				if (objectIdCache.containsKey(aObject)) {
 					id = objectIdCache.get(aObject);
 				} else {
-					id = ID.getId((EObject) aObject);
+					id = manager.id((EObject) aObject);
 					objectIdCache.put(aObject, id);
 				}
 

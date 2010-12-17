@@ -10,7 +10,6 @@ package com.emftriple.datasources.impl;
 import javax.persistence.EntityTransaction;
 import javax.persistence.RollbackException;
 
-import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.TransactionEnableDataSource;
 
 /**
@@ -38,7 +37,7 @@ public class ETripleEntityTransaction implements EntityTransaction {
 		
 		try {
 			dataSource.begin();	
-		} catch (DataSourceException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}		
 	}
@@ -50,7 +49,7 @@ public class ETripleEntityTransaction implements EntityTransaction {
 		}
 		try {
 			dataSource.commit();
-		} catch (DataSourceException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		finally {
@@ -77,7 +76,7 @@ public class ETripleEntityTransaction implements EntityTransaction {
 		try {
 			dataSource.rollback();
 		}
-		catch (DataSourceException e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		finally {

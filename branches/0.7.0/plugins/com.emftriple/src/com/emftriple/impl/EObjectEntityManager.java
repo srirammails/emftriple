@@ -10,7 +10,6 @@ package com.emftriple.impl;
 import static com.emftriple.util.EntityUtil.URI;
 import static com.emftriple.util.EntityUtil.checkIsSupported;
 import static com.emftriple.util.EntityUtil.checkState;
-import static com.emftriple.util.Functions.transform;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,10 +36,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import com.emf4sw.rdf.RDFGraph;
 import com.emftriple.Mapping;
 import com.emftriple.criteria.CriteriaBuilderImpl;
-import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.query.transform.Describe;
-import com.emftriple.util.EntityUtil.ID;
+import com.emftriple.util.SparqlQueries;
 
 /**
  * 
@@ -79,7 +76,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		}
 		
 		if (contains(entity)) {
-			throw new EntityExistsException("Entity " + ID.getId(entity) + " already in persistence context");
+			throw new EntityExistsException("Entity " + getDelegate().id(entity) + " already in persistence context");
 		}
 
 		getDelegate().persist(entity);
@@ -107,7 +104,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		
 		final URI entityId = getDelegate().id( (EObject) entity );
 
-		final RDFGraph existingData = getDelegate().executeDescribeQuery(transform(entityId, new Describe()));
+		final RDFGraph existingData = getDelegate().executeDescribeQuery(SparqlQueries.describe(entityId, null));
 		getDelegate().remove(existingData);
 
 		getDelegate().persist(entity);
@@ -278,7 +275,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 			catch (IllegalArgumentException e) {
 				throw new IllegalArgumentException(e);
 			}
-			catch (DataSourceException e) {
+			catch (Exception e) {
 				e.printStackTrace();
 			}
 			

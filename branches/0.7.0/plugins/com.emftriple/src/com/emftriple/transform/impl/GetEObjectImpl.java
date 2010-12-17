@@ -2,34 +2,34 @@ package com.emftriple.transform.impl;
 
 import static com.emftriple.transform.impl.GetUtil.getURI;
 import static com.emftriple.transform.impl.GetUtil.getValue;
-import static com.emftriple.util.Functions.transform;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.Resource;
+import com.emf4sw.rdf.Triple;
+import com.emf4sw.rdf.URIElement;
 import com.emf4sw.rdf.operations.DatatypeConverter;
 import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.transform.Describe;
 import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
-import com.emftriple.util.Functions;
-import com.emftriple.validation.TypeResolver;
+import com.emftriple.util.EntityUtil;
+import com.emftriple.util.SparqlQueries;
 
 /**
  * 
@@ -48,9 +48,15 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 	@SuppressWarnings("unchecked")
 	public <T> T get(Class<T> entityClass, URI key) {
 		final RDFGraph aGraph = getGraph(entityClass, key);
-		final EClass aClass = Functions.transform(key, new TypeResolver(entityClass, mapping, aGraph));
+		final Resource subject = aGraph.getResource(key.toString());
 
-		T object = (T) process( aClass, aGraph.getResource(key.toString()) );
+		final EClass aClass = mapping.findEClassByRdfType(subject.getTypes());
+		final EClass requestedEClass = mapping.getEClass(entityClass);
+
+		T object = null;
+		if (aClass.equals(requestedEClass) || aClass.getESuperTypes().contains(requestedEClass)) {
+			object = (T) process( aClass, subject );
+		}
 
 		return object;
 	}
@@ -70,61 +76,39 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 	 * @return the corresponding {@link EObject}
 	 */
 	private EObject process(EClass aClass, Resource from) {
-		if (aClass == null) 
+		if (aClass == null)
 		{
 			return null;
 		}
 
 		final EObject returnedObject = EcoreUtil.create(aClass);
+		final EAttribute attrId = EntityUtil.getId(aClass);
+		setIdValue(returnedObject, from, attrId);
+		dataSourceManager.put(URI.createURI(from.getURI()), returnedObject);
+
+		final Map<URI, List<Triple>> triples = cacheTriples(from);
+		
 		for (EAttribute attribute: aClass.getEAllAttributes()) 
 		{
-			if (!(attribute.isTransient() || attribute.isVolatile() || attribute.isUnsettable()))
-				loadAttributeValue(from, returnedObject, attribute);
+			if (attribute != attrId) {
+				if (!(attribute.isTransient() || attribute.isVolatile() || attribute.isUnsettable())) {
+					URI uri = mapping.getRdfType(attribute);
+					
+					if (triples.containsKey(uri)) {
+						doAdd(returnedObject, attribute, triples.get(uri));	
+					}
+				}
+					
+			}
 		}
-
-		dataSourceManager.put(URI.createURI(from.getURI()), returnedObject);
 
 		for (EReference reference: aClass.getEAllReferences())
 		{
 			if (!(reference.isTransient() || reference.isDerived() || reference.isUnsettable())) {
-				if (reference.isMany())
-				{
-					if (reference.isContainment()) {
-						final EList<EObject> list = new BasicEList<EObject>();
-						for (Node node: getValues(from, reference)) {
-							final EClass targetClass = getClass(getURI(node), (EClass) reference.getEType());
-							final EObject object = get(targetClass, getURI(node));
-							if (object != null) {
-								list.add(object);
-							}
-						}
-						returnedObject.eSet(reference, list);
-					} else {
-						if (reference.getEOpposite() == null) {
-							@SuppressWarnings("unchecked")
-							EList<EObject> l = (EList<EObject>) returnedObject.eGet(reference);
-							getProxyValues(from, reference, l);
-						}
-					}
-				} 
-				else
-				{
-					if (reference.isContainment()) {
-						final List<Node> nodes = getValues(from, reference);
-						if (!(nodes == null || nodes.isEmpty())) {
-							final EClass targetClass = getClass(getURI(nodes.get(0)), (EClass) reference.getEType());
-							final EObject object = get(targetClass, getURI(nodes.get(0)));
-							if (object != null) {
-								returnedObject.eSet(reference, object);
-							}
-						}
-					} else {
-						final Object proxy = getProxyValue(from, returnedObject, reference);
-						if (proxy != null) 
-						{
-							returnedObject.eSet(reference, proxy);
-						}
-					}
+				URI uri = mapping.getRdfType(reference);
+
+				if (triples.containsKey(uri)) {
+					doAdd(returnedObject, reference, triples.get(uri));
 				}
 			}
 		}
@@ -132,100 +116,151 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 		return returnedObject;
 	}
 
-	private void getProxyValues(Resource resource, EReference reference, EList<EObject> list) {
-		final EList<Node> values = getValues(resource, reference);
-
-		if (values != null) 
-		{
-			for (Node node: values)
-			{
-				EObject proxy = doProxy((Resource) node, (EClass) reference.getEType());
-				list.add( proxy );
-			}
-		}
-	}
-
-	private EObject doProxy(Resource node, EClass eType) {
-		final URI nodeURI = getURI(node);
-		final EClass realClass = getClass(nodeURI, eType);
-
-		if (dataSourceManager.containsKey(nodeURI)) {
-			Object obj = dataSourceManager.getByKey(nodeURI);
-			if (obj instanceof EObject)
-				if (((EObject) obj).eClass().equals(realClass))
-					return (EObject)obj;
-		}
-
-		return proxyFactory.get(realClass, nodeURI);
-	}
-
-	private EObject getProxyValue(Resource resource, EObject theLoadedObject, EReference reference) {
-		EObject ret = null;
-		final EList<Node> values = getValues(resource, reference);
-
-		if (values != null && !values.isEmpty()) 
-		{
-			ret = doProxy((Resource) values.get(0), (EClass) reference.getEType());
-		}
-
-		return ret;
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private void loadAttributeValue(Resource resource, EObject theLoadedObject, EAttribute attribute) {
-		final EList<Node> values = getValues(resource, attribute); 
-
+	private void doAdd(EObject returnedObject, EAttribute attribute, List<Triple> triples) {
 		if (attribute.isMany()) 
 		{
-			for (Node value: values) 
+			@SuppressWarnings("unchecked")
+			final EList<Object> list = (EList<Object>) returnedObject.eGet(attribute);
+			for (Triple triple: triples)
 			{
-				final String aStringValue = getValue(value);
-				if (aStringValue != null) 
+				final String aStringValue = getValue(triple.getObject());
+				if (aStringValue != null)
 				{
 					final Object aObjectValue = DatatypeConverter.convert((EDataType) attribute.getEType(), aStringValue);
 					if (aObjectValue != null) 
 					{
-						final Object val = theLoadedObject.eGet(attribute);
-						if (EList.class.isInstance(val)) 
-						{
-							((EList)val).add(aObjectValue);
-						}
+						list.add(aObjectValue);
 					}
 				}
 			}
 		} 
 		else 
 		{
-			if (!values.isEmpty()) 
+			if (triples.isEmpty())
+				return;
+			
+			final String aStringValue;
+			if (isLangSpecific(attribute)) {
+				aStringValue = getValue(triples, getLang(attribute));
+			} else {
+				aStringValue = getValue(triples.get(0).getObject());
+			}
+
+			if (aStringValue != null) 
 			{
-				final String aStringValue = getValue(values.get(0));
-				if (aStringValue != null) 
+				final Object aObjectValue = DatatypeConverter.convert((EDataType) attribute.getEType(), aStringValue);
+				if (aObjectValue != null) 
 				{
-					final Object aObjectValue = DatatypeConverter.convert((EDataType) attribute.getEType(), aStringValue);
-					if (aObjectValue != null) 
-					{
-						theLoadedObject.eSet(attribute, aObjectValue);
-					}
+					returnedObject.eSet(attribute, aObjectValue);
 				}
 			}
 		}
 	}
 
-	private EClass getClass(URI key, EClass eType) {
+	@SuppressWarnings("unchecked")
+	private void doAdd(EObject returnedObject, EReference reference, List<Triple> triples) {
+		if (reference.isMany())
+		{
+			EList<EObject> list = (EList<EObject>) returnedObject.eGet(reference);
+			for (Triple triple: triples) {
+				final EClass targetClass = getClass(triple.getObject(), (EClass) reference.getEType());
+
+				EObject object = null;
+				if (reference.isContainment()) {
+					object = get(targetClass, getURI(triple.getObject()));
+				} else {
+					object = doProxy((Resource) triple.getObject(), (EClass) reference.getEType());
+				}
+				if (object != null) {
+					list.add(object);
+				}
+			}
+		}
+		else
+		{
+			Node node = !triples.isEmpty() ? triples.get(0).getObject() : null;
+			if (node == null)
+				return;
+
+			final EClass targetClass = getClass(node, (EClass) reference.getEType());
+			EObject object = null;
+			if (reference.isContainment()) {
+				object = get(targetClass, getURI(node));
+			} else {
+				object = doProxy((Resource) node, (EClass) reference.getEType());
+			}
+			if (object != null) {
+				returnedObject.eSet(reference, object);
+			}
+		}
+	}
+
+	private Map<URI, List<Triple>> cacheTriples(Resource from) {
+		final Map<URI, List<Triple>> res = new HashMap<URI, List<Triple>>();
+		for (Triple triple: from.getSubjectOf()) {
+			res.put(URI.createURI(triple.getPredicate().getURI()), triple.getPredicate().getPredicateOf());
+		}
+		return res;
+	}
+
+	private EObject doProxy(Resource node, EClass eType) {
+		final URI nodeURI = getURI(node);
+		final EClass realClass = getClass(node, eType);
+
+		if (dataSourceManager.containsKey(nodeURI)) {
+			Object obj = dataSourceManager.getByKey(nodeURI);
+			if (obj instanceof EObject && ((EObject) obj).eClass().equals(realClass))
+				return (EObject)obj;
+		}
+
+		return proxyFactory.get(realClass, nodeURI);
+	}
+
+//	@SuppressWarnings({ "unchecked", "rawtypes" })
+//	private void doAdd(Resource resource, EObject theLoadedObject, EAttribute attribute) {
+//		final EList<Node> values = getValues(resource, attribute); 
+//
+//	
+//	}
+
+	private boolean isLangSpecific(EAttribute attribute) {
+		EAnnotation ann = EntityUtil.getETripleAnnotation(attribute, "DataProperty");
+		if (ann != null) {
+			return ann.getDetails().containsKey("lang");
+		}
+		ann = EntityUtil.getETripleAnnotation(attribute, "rdf");
+		if (ann != null) {
+			return ann.getDetails().containsKey("lang");
+		}
+		return false;
+	}
+
+	private String getLang(EAttribute attribute) {
+		EAnnotation ann = EntityUtil.getETripleAnnotation(attribute, "DataProperty");
+		if (ann != null) {
+			return ann.getDetails().get("lang");
+		}
+		ann = EntityUtil.getETripleAnnotation(attribute, "rdf");
+		if (ann != null) {
+			return ann.getDetails().get("lang");
+		}
+		return null;
+	}
+
+	private EClass getClass(Node node, EClass eType) {
 		checkNotNull(eType);
-
-		final DescribeQuery aQuery = transform(key, new Describe());
-		final RDFGraph aGraph = dataSourceManager.executeDescribeQuery(aQuery);
-
-		return transform(key, new TypeResolver(eType.getInstanceClass(), mapping, aGraph));
+		if (node instanceof URIElement) {
+			return mapping.findEClassByRdfType( SparqlQueries.selectAllTypes(dataSourceManager, (URIElement) node) );
+		}
+		return null;
 	}
 
-	private EList<Node> getValues(Resource resource, EStructuralFeature feature) {
-		checkNotNull(resource);
-
-		final URI propertyURI = mapping.getRdfType(feature);
-
-		return propertyURI == null ? null : resource.getValues(propertyURI.toString());
-	}
+//	private EList<Node> getValues(Resource resource, EStructuralFeature feature) {
+//		checkNotNull(resource);
+//
+//		final URI propertyURI = mapping.getRdfType(feature);
+//
+//		return propertyURI == null ? null : resource.getValues(propertyURI.toString());
+//	}
 
 }

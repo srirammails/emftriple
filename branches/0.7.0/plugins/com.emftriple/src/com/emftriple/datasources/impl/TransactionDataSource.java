@@ -7,19 +7,12 @@
  */
 package com.emftriple.datasources.impl;
 
-import org.eclipse.emf.common.util.URI;
-
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
 import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.DataSourceException;
 import com.emftriple.datasources.MutableDataSource;
 import com.emftriple.datasources.ResultSet;
 import com.emftriple.datasources.TransactionEnableDataSource;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.sparql.SelectQuery;
 
 /**
  * 
@@ -37,12 +30,12 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	private RDFGraph addedGraph;
 
 	public TransactionDataSource(DataSource dataSource) {
-		super(null);
+		super(dataSource.getName());
 		this.dataSource = dataSource;
 	}
-
+	
 	@Override
-	public void begin() throws DataSourceException {
+	public void begin() {
 		if (isRunning) {
 			throw new IllegalStateException("DataSource is currently in an active transaction.");
 		}
@@ -52,7 +45,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	}
 
 	@Override
-	public void commit() throws DataSourceException {
+	public void commit() {
 		if (!isRunning) {
 			throw new IllegalStateException("DataSource is not in an active transaction.");
 		}
@@ -62,7 +55,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	}
 
 	@Override
-	public void rollback() throws DataSourceException {
+	public void rollback() {
 		if (!isRunning) {
 			throw new IllegalStateException("DataSource is not in an active transaction.");
 		}
@@ -76,7 +69,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	}
 
 	@Override
-	public boolean askQuery(AskQuery query) {
+	public boolean askQuery(String query) {
 		return dataSource.askQuery(query);
 	}
 
@@ -91,7 +84,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	}
 	
 	@Override
-	public RDFGraph constructQuery(ConstructQuery query) {
+	public RDFGraph constructQuery(String query) {
 		return dataSource.constructQuery(query);
 	}
 
@@ -101,7 +94,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	}
 
 	@Override
-	public ResultSet selectQuery(SelectQuery query) {
+	public ResultSet selectQuery(String query) {
 		return dataSource.selectQuery(query);
 	}
 
@@ -111,12 +104,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	}
 
 	@Override
-	public URI getDefaultGraph() {
-		return dataSource.getDefaultGraph();
-	}
-
-	@Override
-	public void add(RDFGraph graph) throws DataSourceException {
+	public void add(RDFGraph graph) {
 		if (!isRunning) {
 			throw new IllegalStateException("DataSource is not in an active transaction.");
 		}
@@ -130,7 +118,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	}
 
 	@Override
-	public void remove(RDFGraph graph) throws DataSourceException {
+	public void remove(RDFGraph graph) {
 		if (!isRunning) {
 			throw new IllegalStateException("DataSource is not in an active transaction.");
 		}
@@ -144,8 +132,18 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	}
 
 	@Override
-	public RDFGraph describeQuery(DescribeQuery query) {
+	public RDFGraph describeQuery(String query) {
 		return dataSource.describeQuery(query);
+	}
+
+	@Override
+	public void constructQuery(String aQuery, RDFGraph aGraph) {
+		dataSource.constructQuery(aQuery, aGraph);
+	}
+
+	@Override
+	public void describeQuery(String aQuery, RDFGraph aGraph) {
+		dataSource.describeQuery(aQuery, aGraph);
 	}
 
 }

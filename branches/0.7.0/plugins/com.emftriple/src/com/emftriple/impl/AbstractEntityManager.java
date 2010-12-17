@@ -218,6 +218,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 	/**
 	 * @inheritDoc
 	 */
+	@SuppressWarnings("unchecked")
 	@Override public Query createNativeQuery(String queryString, @SuppressWarnings("rawtypes") Class aClass) {
 		return getDelegate().getQueryFactory().createNativeQuery(queryString, aClass);
 	}

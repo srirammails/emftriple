@@ -16,31 +16,6 @@ public interface ETripleObject extends InternalEObject {
 	void eSetURI(URI uri);
 	
 	/**
-	 * Factory class for proxy objects. 
-	 * 
-	 * @author ghilla01
-	 *
-	 */
-	public static class EObjectFactory {
-		
-		/**
-		 * Creates and Add a proxy EObject to the given resource. The proxy 
-		 * URI is made of the resource URI, and a query having for parameter 
-		 * the object key.
-		 *  
-		 * @param resource
-		 * @param eClass
-		 * @param key
-		 * @return proxy EObject
-		 */
-//		public static EObject createProxy(EClass eClass, URI key) {
-//			
-//
-//			return proxyObject;
-//		}
-	}
-	
-	/**
 	 * 
 	 * @author ghilla01
 	 *
@@ -48,7 +23,7 @@ public interface ETripleObject extends InternalEObject {
 	public static class URIBuilder {
 		
 		public static URI build(Resource resource, URI key) {
-			final URI uriFragment = resource.getURI().appendQuery("query=" + key.toString());
+			final URI uriFragment = resource.getURI().appendFragment("uri=" + key.toString().replaceAll("#", "%23"));
 			
 			return uriFragment;
 		}
