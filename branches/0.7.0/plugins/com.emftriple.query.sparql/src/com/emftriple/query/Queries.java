@@ -20,12 +20,12 @@ public class Queries {
 		return getConstructQuery("CONSTRUCT { ?s ?p ?o } WHERE { " +
 				"GRAPH <" + graph.toString()+ "> { ?s ?p ?o} }");
 	}
-	
+
 	public static SelectQuery typeOf(URI resource) {
 		return getSelectQuery("SELECT ?type WHERE { <" + 
 				resource.toString() + "> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type }");
 	}
-	
+
 	public static SelectQuery typeOf(String resourceURI) {
 		return getSelectQuery("SELECT ?type WHERE { <" + 
 				resourceURI + "> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type }");

@@ -35,22 +35,11 @@ import com.google.inject.Injector;
  */
 public class SparqlBuilder {
 	
-//	private static final XtextResourceSet resourceSet;
-//	
-//	private static final IResourceFactory factory;
-
 	private static Injector injector;
 
 	static {
 		injector = new SparqlStandaloneSetup().createInjectorAndDoEMFRegistration();
-//		synchronized (SparqlBuilder.class) {
-//			new Runnable() {
-//				@Override
-//				public void run() {
-					getResourceSet();
-//				}
-//			}.run();	
-//		}
+		getResourceSet();
 	}
 
 	public static ResourceSet getResourceSet() {
@@ -169,9 +158,9 @@ public class SparqlBuilder {
 		getResourceSet().getResources().clear();
 	}
 
-	private static String assignParameters(SPARQLQuery query, Map<String, Object> parameters) {
+	private static String assignParameters(SPARQLQuery query, Map<Object, Object> parameters) {
 		String queryString = SparqlBuilder.extract(query);
-		for (String param: parameters.keySet())
+		for (Object param: parameters.keySet())
 		{
 			queryString = queryString.replaceAll("\\?:" + param, "\"" + parameters.get(param).toString() + "\"");
 		}
@@ -179,7 +168,7 @@ public class SparqlBuilder {
 		return queryString;
 	}
 
-	public static SPARQLQuery finalize(SPARQLQuery query, Map<String, Object> parameters, int maxResults) {
+	public static SPARQLQuery finalize(SPARQLQuery query, Map<Object, Object> parameters, int maxResults) {
 		String queryString = null;
 		if (!parameters.keySet().isEmpty())
 		{
