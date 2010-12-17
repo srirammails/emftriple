@@ -24,7 +24,7 @@ public interface MutableDataSource extends DataSource {
 	 * @param graph to add
 	 * @throws DataSourceException
 	 */
-	void add(RDFGraph graph) throws DataSourceException;
+	void add(RDFGraph graph);
 	 
 	/**
 	 * Removes an {@link RDFGraph} from the {@link DataSource}
@@ -32,6 +32,6 @@ public interface MutableDataSource extends DataSource {
 	 * @param graph to remove
 	 * @throws DataSourceException
 	 */
-	void remove(RDFGraph graph) throws DataSourceException;
+	void remove(RDFGraph graph);
 	
 }

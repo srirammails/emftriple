@@ -13,10 +13,6 @@ import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.sparql.SelectQuery;
 
 /**
  * The {@link NamedGraphDataSource} interface represents a {@link DataSource} that supports named graphs.
@@ -53,7 +49,7 @@ public interface NamedGraphDataSource extends DataSource {
 	 * @param graph
 	 * @return
 	 */
-	ResultSet selectQuery(SelectQuery query, URI graph);
+	ResultSet selectQuery(String query, URI graph);
 	
 	/**
 	 * 
@@ -61,7 +57,7 @@ public interface NamedGraphDataSource extends DataSource {
 	 * @param graph
 	 * @return
 	 */
-	RDFGraph constructQuery(ConstructQuery query, URI graph);
+	RDFGraph constructQuery(String query, URI graph);
 	
 	/**
 	 * 
@@ -69,7 +65,7 @@ public interface NamedGraphDataSource extends DataSource {
 	 * @param graph
 	 * @return
 	 */
-	RDFGraph describeQuery(DescribeQuery query, URI graph);
+	RDFGraph describeQuery(String query, URI graph);
 	
 	
 	/**
@@ -78,6 +74,6 @@ public interface NamedGraphDataSource extends DataSource {
 	 * @param graph
 	 * @return
 	 */
-	boolean askQuery(AskQuery query, URI graph);
+	boolean askQuery(String query, URI graph);
 	
 }

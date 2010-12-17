@@ -22,10 +22,10 @@ public abstract class AbstractNamedGraphDataSource extends AbstractDataSource im
 
 	protected final List<URI> namedGraphURIs;
 
-	protected AbstractNamedGraphDataSource(URI defaultGraphURI, List<URI> namedGraphURIs) {
-		super(defaultGraphURI);
+	protected AbstractNamedGraphDataSource(String name, List<URI> namedGraphURIs) {
+		super(name);
 		this.namedGraphURIs = namedGraphURIs;
-	}	
+	}
 
 	@Override
 	public boolean containsGraph(URI graph) {
@@ -36,5 +36,8 @@ public abstract class AbstractNamedGraphDataSource extends AbstractDataSource im
 	public List<URI> getNamedGraphs() {
 		return namedGraphURIs;
 	}
-		
+	
+	protected String graphQuery(URI graphURI) {
+		return "CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <" + graphURI.toString()+ "> { ?s ?p ?o} }";
+	}
 }

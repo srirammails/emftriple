@@ -28,14 +28,14 @@ public interface MutableNamedGraphDataSource extends NamedGraphDataSource, Mutab
 	 * @param graph
 	 * @throws DataSourceException
 	 */
-	void add(NamedGraph graph) throws DataSourceException;
+	void add(NamedGraph graph);
 	
 	/**
 	 * 
 	 * @param graph
 	 * @throws DataSourceException
 	 */
-	void remove(NamedGraph graph) throws DataSourceException;
+	void remove(NamedGraph graph);
 
 	/**
 	 * 

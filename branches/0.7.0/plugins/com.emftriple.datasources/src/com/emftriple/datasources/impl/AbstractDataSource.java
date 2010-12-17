@@ -7,8 +7,6 @@
  */
 package com.emftriple.datasources.impl;
 
-import org.eclipse.emf.common.util.URI;
-
 import com.emftriple.datasources.DataSource;
 
 
@@ -20,18 +18,23 @@ import com.emftriple.datasources.DataSource;
  */
 public abstract class AbstractDataSource implements DataSource {
 	
-	protected final URI defaultGraphURI;
+	protected final String name;
 
 	private boolean isConnected = false;
 	
-	protected AbstractDataSource(URI defaultGraph) {
-		this.defaultGraphURI = defaultGraph;
+	protected AbstractDataSource(String name) {
+		this.name = name;
 	}
 	
 	protected void setConnected(boolean isConnected) {
 		this.isConnected = isConnected;
 	}
 		
+	@Override
+	public String getName() {
+		return name;
+	}
+	
 	@Override
 	public abstract void connect();
 	
@@ -42,10 +45,5 @@ public abstract class AbstractDataSource implements DataSource {
 	public boolean isConnected() {
 		return isConnected;
 	};
-	
-	@Override
-	public URI getDefaultGraph() {
-		return defaultGraphURI;
-	}
 	
 }

@@ -7,13 +7,7 @@
  */
 package com.emftriple.datasources;
 
-import org.eclipse.emf.common.util.URI;
-
 import com.emf4sw.rdf.RDFGraph;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.sparql.SelectQuery;
 
 /**
  * The {@link DataSource} interface provides an abstraction over diverse kinds of RDF data sources. 
@@ -24,11 +18,10 @@ import com.emftriple.query.sparql.SelectQuery;
 public abstract interface DataSource {
 	
 	/**
-	 * Returns the ID of the {@link DataSource}
+	 * Returns the name of the DataSource.
 	 * 
-	 * @return URI identifying the {@link DataSource}
 	 */
-	URI getDefaultGraph();
+	String getName();
 	
 	/**
 	 * Returns a {@link ResultSet} against a Select SPARQL Query. 
@@ -36,7 +29,7 @@ public abstract interface DataSource {
 	 * @param query to execute
 	 * @return query execution value
 	 */
-	ResultSet selectQuery(SelectQuery query);
+	ResultSet selectQuery(String query);
 	
 	/**
 	 * Returns a {@link RDFGraph} against a Construct SPARQL Query.
@@ -44,14 +37,30 @@ public abstract interface DataSource {
 	 * @param query to execute
 	 * @return query execution value
 	 */
-	RDFGraph constructQuery(ConstructQuery query);
+	RDFGraph constructQuery(String query);
+
+	/**
+	 * Add result of a construct query in the graph given as parameter.
+	 * 
+	 * @param aQuery
+	 * @param aGraph
+	 */
+	void constructQuery(String aQuery, RDFGraph aGraph);
 	
 	/**
 	 * 
 	 * @param query to execute
 	 * @return query execution value
 	 */
-	RDFGraph describeQuery(DescribeQuery query);
+	RDFGraph describeQuery(String query);
+	
+	/**
+	 * Add result of a describe query in the graph given as parameter.
+	 * 
+	 * @param aQuery
+	 * @param aGraph
+	 */
+	void describeQuery(String aQuery, RDFGraph aGraph);
 	
 	/**
 	 * Returns the value obtained from the execution of an ask query against the 
@@ -60,7 +69,7 @@ public abstract interface DataSource {
 	 * @param query to execute
 	 * @return query execution value
 	 */
-	boolean askQuery(AskQuery query);
+	boolean askQuery(String query);
 
 	/**
 	 * Test if the current {@link DataSource} supports transactions
@@ -85,5 +94,5 @@ public abstract interface DataSource {
 	 * Disconnect the {@link DataSource}
 	 */
 	void disconnect();
-	
+
 }

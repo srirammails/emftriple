@@ -21,20 +21,20 @@ public interface TransactionEnableDataSource extends DataSource {
 	 * 
 	 * @throws DataSourceException
 	 */
-	void begin() throws DataSourceException;
+	void begin();
 	
 	/**
 	 * Commit changes to the data source
 	 * 
 	 * @throws DataSourceException
 	 */
-	void commit() throws DataSourceException;
+	void commit();
 	
 	/**
 	 * Roll back changes 
 	 * 
 	 * @throws DataSourceException
 	 */
-	void rollback() throws DataSourceException;
+	void rollback();
 	
 }

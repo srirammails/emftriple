@@ -1,6 +1,5 @@
 package com.emftriple.datasources;
 
-import com.emftriple.query.sparql.UpdateQuery;
 
 /**
  * The {@link SparqlUpdateDataSource} interface represents a {@link DataSource} that supports SPARQL Update queries.
@@ -16,6 +15,6 @@ public interface SparqlUpdateDataSource extends MutableDataSource {
 	 * @param query to execute
 	 * @throws DataSourceException
 	 */
-	void update(UpdateQuery query) throws DataSourceException;
+	void update(String query);
 	
 }

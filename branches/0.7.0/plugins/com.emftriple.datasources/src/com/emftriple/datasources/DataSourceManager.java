@@ -12,11 +12,6 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.RDFGraph;
-import com.emftriple.query.sparql.AskQuery;
-import com.emftriple.query.sparql.ConstructQuery;
-import com.emftriple.query.sparql.DescribeQuery;
-import com.emftriple.query.sparql.SelectQuery;
-import com.emftriple.query.sparql.UpdateQuery;
 
 /**
  * The {@link DataSourceManager} interface represents the set of methods relative to the management of {@link DataSource}.
@@ -75,12 +70,20 @@ public interface DataSourceManager {
 	DataSource getDataSourceByGraph(URI graphURI);
 	
 	/**
+	 * Returns the DataSource according to its name.
+	 * 
+	 * @param name
+	 * @return data source
+	 */
+	DataSource getDataSource(String name);
+	
+	/**
 	 * Executes a {@link SelectQuery} against a {@link DataSource}
 	 * 
 	 * @param aQuery to execute
 	 * @return query execution
 	 */
-	ResultSet executeSelectQuery(SelectQuery aQuery);
+	ResultSet executeSelectQuery(String aQuery);
 
 	/**
 	 * Executes an {@link AskQuery} against a {@link DataSource}
@@ -88,7 +91,7 @@ public interface DataSourceManager {
 	 * @param aQuery to execute
 	 * @return query execution
 	 */
-	boolean executeAskQuery(AskQuery aQuery);
+	boolean executeAskQuery(String aQuery);
 
 	/**
 	 * Executes a {@link ConstructQuery} against a {@link DataSource}
@@ -96,7 +99,7 @@ public interface DataSourceManager {
 	 * @param aQuery to execute
 	 * @return query execution
 	 */
-	RDFGraph executeConctructQuery(ConstructQuery aQuery);
+	RDFGraph executeConctructQuery(String aQuery);
 
 	/**
 	 * Executes a {@link DescribeQuery} against a {@link DataSource}
@@ -104,7 +107,7 @@ public interface DataSourceManager {
 	 * @param aQuery to execute
 	 * @return query execution
 	 */
-	RDFGraph executeDescribeQuery(DescribeQuery query);
+	RDFGraph executeDescribeQuery(String query);
 	
 	/**
 	 * Executes an {@link UpdateQuery} against a {@link DataSource}
@@ -112,7 +115,7 @@ public interface DataSourceManager {
 	 * @param aQuery to execute
 	 * @return query execution
 	 */
-	int executeUpdateQuery(UpdateQuery aQuery);
+	int executeUpdateQuery(String aQuery);
 
 	/**
 	 * Returns the default data source
