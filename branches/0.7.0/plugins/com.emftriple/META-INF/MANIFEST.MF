@@ -7,17 +7,14 @@ Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.emftriple,
- com.emftriple.criteria,
  com.emftriple.datasources,
  com.emftriple.datasources.impl,
  com.emftriple.impl,
- com.emftriple.metamodel,
  com.emftriple.resource,
  com.emftriple.spi,
  com.emftriple.transform,
  com.emftriple.transform.impl,
- com.emftriple.util,
- com.emftriple.validation
+ com.emftriple.util
 Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.5.0",
  com.emf4sw.rdf;bundle-version="0.7.0",
  com.emftriple.datasources;bundle-version="0.7.0"

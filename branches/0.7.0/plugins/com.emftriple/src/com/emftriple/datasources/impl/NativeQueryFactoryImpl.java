@@ -9,10 +9,10 @@ import com.google.inject.Inject;
 
 public class NativeQueryFactoryImpl implements QueryFactory {
 
-	private final EntityDataSourceManager dataSourceManager;
+	protected final EntityDataSourceManager dataSourceManager;
 	
 	@Inject
-	NativeQueryFactoryImpl(EntityDataSourceManager dataSourceManager) {
+	protected NativeQueryFactoryImpl(EntityDataSourceManager dataSourceManager) {
 		this.dataSourceManager = dataSourceManager;
 	}
 	
