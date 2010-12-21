@@ -369,9 +369,13 @@ public class LiteralImpl extends NodeImpl implements Literal {
 
 		StringBuffer result = new StringBuffer();
 		result.append("\"" + lexicalForm + "\"");
-//		result.append(", lang: ");
-//		result.append(lang);
-//		result.append(')');
+		if (getLang() != null && !getLang().trim().isEmpty()) {
+			result.append("@" + getLang());
+		}
+//		if (getDatatype() != null) {
+//			result.append("^^" + getDatatype().getURI());
+//		}
+
 		return result.toString();
 	}
 

@@ -19,12 +19,14 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import javax.persistence.TransactionRequiredException;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.metamodel.Metamodel;
 
 import org.eclipse.emf.ecore.EClass;
 
 import com.emftriple.Mapping;
+import com.emftriple.criteria.CriteriaBuilderImpl;
 import com.emftriple.datasources.DataSource;
 import com.emftriple.datasources.EntityDataSourceManager;
 
@@ -189,9 +191,15 @@ public abstract class AbstractEntityManager implements EntityManager {
 	/**
 	 * @inheritDoc
 	 */
+	@Override public CriteriaBuilder getCriteriaBuilder() {
+		return new CriteriaBuilderImpl();
+	}
+	
+	/**
+	 * @inheritDoc
+	 */
 	@Override public <T> TypedQuery<T> createQuery(CriteriaQuery<T> arg0) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("CriteriaQuery are not supported.");
+		return getDelegate().getQueryFactory().createCriteriaQuery(arg0);
 	}
 
 	/**

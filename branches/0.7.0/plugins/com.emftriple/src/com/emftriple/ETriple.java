@@ -11,7 +11,6 @@ import static com.emftriple.util.Functions.transform;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.spi.PersistenceProvider;
 
@@ -108,9 +107,5 @@ public class ETriple {
 			return null;
 		}
 
-	}
-
-	public Map<String, Object> properties() {
-		return null;
 	}
 }

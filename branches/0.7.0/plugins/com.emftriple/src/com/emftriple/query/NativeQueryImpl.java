@@ -1,4 +1,4 @@
-package com.emftriple.datasources.impl;
+package com.emftriple.query;
 
 import java.util.Calendar;
 import java.util.Date;

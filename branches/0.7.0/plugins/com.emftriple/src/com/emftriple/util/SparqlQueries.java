@@ -70,8 +70,6 @@ public class SparqlQueries {
 		}
 		query += "}";
 		
-		System.out.println(query);
-		
 		ResultSet rs = source.selectQuery(query);
 		int i=0;
 		for (;rs.hasNext();)
@@ -109,14 +107,14 @@ public class SparqlQueries {
 		constructPattern.append(" <" + key + "> a ?o . ");
 		
 		for (EStructuralFeature aFeature: eClass.getEAllStructuralFeatures()) {
-			if (!EntityUtil.getId(eClass).equals(aFeature)) {
+			if (EntityUtil.getId(eClass) != null && !EntityUtil.getId(eClass).equals(aFeature)) {
 				URI rdfType = EntityUtil.getRdfType(aFeature);
 				constructPattern.append(" <" + key + "> <" + rdfType + "> ?" + aFeature.getName() + " . ");
 				wherePattern.append(" OPTIONAL { <" + key + "> <" + rdfType + "> ?" + aFeature.getName() + " } ");
 			}
 		}
 		constructPattern.append(" } ");
-		wherePattern.append(" } ");
+		wherePattern.append(" } LIMIT 500");
 		constructPattern.append(wherePattern);
 		
 		return constructPattern.toString();

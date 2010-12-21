@@ -7,6 +7,7 @@ import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.datasources.EntityManagerDelegate;
 import com.emftriple.datasources.QueryFactory;
+import com.emftriple.query.NativeQueryFactoryImpl;
 import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.resource.ETripleResource.ResourceManagerImpl;
 import com.emftriple.resource.ETripleStore;

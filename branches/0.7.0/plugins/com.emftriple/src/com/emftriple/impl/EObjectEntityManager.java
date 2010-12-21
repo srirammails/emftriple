@@ -24,7 +24,6 @@ import javax.persistence.OptimisticLockException;
 import javax.persistence.PersistenceException;
 import javax.persistence.PessimisticLockException;
 import javax.persistence.TransactionRequiredException;
-import javax.persistence.criteria.CriteriaBuilder;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
@@ -35,7 +34,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import com.emf4sw.rdf.RDFGraph;
 import com.emftriple.Mapping;
-import com.emftriple.criteria.CriteriaBuilderImpl;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.util.SparqlQueries;
 
@@ -397,9 +395,9 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		checkState(entity);
 		checkContains(entity);
 
-		if (!getTransaction().isActive()) {
-			throw new TransactionRequiredException("Transaction is required for this operation.");
-		}
+//		if (!getTransaction().isActive()) {
+//			throw new TransactionRequiredException("Transaction is required for this operation.");
+//		}
 		
 		final URI id;
 		if (properties.containsKey("KEY")){
@@ -459,13 +457,6 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 			throw new UnsupportedOperationException("Lock mode is not supported");	
 		}
 		return LockModeType.NONE;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	@Override public CriteriaBuilder getCriteriaBuilder() {
-		return new CriteriaBuilderImpl();
 	}
 
 	/**

@@ -1,7 +1,8 @@
-package com.emftriple.datasources.impl;
+package com.emftriple.query;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaQuery;
 
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.datasources.QueryFactory;
@@ -49,6 +50,11 @@ public class NativeQueryFactoryImpl implements QueryFactory {
 	@Override
 	public <T> TypedQuery<T> createNamedTypedQuery(String queryName, Class<T> aClass) {
 		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public <T> TypedQuery<T> createCriteriaQuery(CriteriaQuery<T> query) {
+		return new CriteriaTypedQueryImpl<T>(dataSourceManager, query);
 	}
 
 }

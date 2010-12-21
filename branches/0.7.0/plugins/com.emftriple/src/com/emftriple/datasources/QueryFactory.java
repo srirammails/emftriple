@@ -9,6 +9,7 @@ package com.emftriple.datasources;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaQuery;
 
 /**
  * The {@link QueryFactory} interface provides the set of methods used to create 
@@ -88,4 +89,12 @@ public interface QueryFactory {
 	 * @return query
 	 */
 	<T> TypedQuery<T> createNamedTypedQuery(String queryName, Class<T> aClass);
+	
+	/**
+	 * 
+	 * @param <T>
+	 * @param query
+	 * @return
+	 */
+	<T> TypedQuery<T> createCriteriaQuery(CriteriaQuery<T> query);
 }

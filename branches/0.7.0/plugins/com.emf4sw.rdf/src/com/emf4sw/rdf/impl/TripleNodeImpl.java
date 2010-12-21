@@ -249,10 +249,11 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (URI: ");
+		StringBuffer result = new StringBuffer();
+		result.append('<');
 		result.append(uri);
-		result.append(')');
+		result.append('>');
+		
 		return result.toString();
 	}
 

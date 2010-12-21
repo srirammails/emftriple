@@ -1,5 +1,6 @@
 package com.emftriple.criteria;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -20,6 +21,32 @@ import javax.persistence.metamodel.EntityType;
  */
 public class CriteriaQueryImpl<T> implements CriteriaQuery<T> {
 
+	@SuppressWarnings("unused")
+	private Class<T> entityClass;
+	
+	private Set<Root<?>> roots;
+	
+	private Class<T> resultType;
+
+	public CriteriaQueryImpl(Class<T> entityClass) {
+		this.entityClass = entityClass;
+		this.roots = new HashSet<Root<?>>();
+	}
+	
+	@Override
+	public <X> Root<X> from(Class<X> entityClass) {
+		final Root<X> root = new RootImpl<X>(entityClass);
+		roots.add(root);
+		
+		return root;
+	}
+
+	@Override
+	public <X> Root<X> from(EntityType<X> entity) {
+		
+		return null;
+	}
+	
 	@Override
 	public CriteriaQuery<T> distinct(boolean distinct) {
 		// TODO Auto-generated method stub
@@ -103,19 +130,7 @@ public class CriteriaQueryImpl<T> implements CriteriaQuery<T> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public <X> Root<X> from(Class<X> entityClass) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <X> Root<X> from(EntityType<X> entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public List<Expression<?>> getGroupList() {
 		// TODO Auto-generated method stub
@@ -136,14 +151,12 @@ public class CriteriaQueryImpl<T> implements CriteriaQuery<T> {
 
 	@Override
 	public Class<T> getResultType() {
-		// TODO Auto-generated method stub
-		return null;
+		return resultType;
 	}
 
 	@Override
 	public Set<Root<?>> getRoots() {
-		// TODO Auto-generated method stub
-		return null;
+		return roots;
 	}
 
 	@Override

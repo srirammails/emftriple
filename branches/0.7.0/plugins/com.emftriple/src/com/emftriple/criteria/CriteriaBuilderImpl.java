@@ -134,8 +134,7 @@ public class CriteriaBuilderImpl implements CriteriaBuilder {
 	}
 
 	@Override
-	public <Y> CompoundSelection<Y> construct(Class<Y> resultClass,
-			Selection<?>... selections) {
+	public <Y> CompoundSelection<Y> construct(Class<Y> resultClass, Selection<?>... selections) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -154,14 +153,12 @@ public class CriteriaBuilderImpl implements CriteriaBuilder {
 
 	@Override
 	public CriteriaQuery<Object> createQuery() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CriteriaQueryImpl<Object>(null);
 	}
 
 	@Override
 	public <T> CriteriaQuery<T> createQuery(Class<T> resultClass) {
-		// TODO Auto-generated method stub
-		return null;
+		return new CriteriaQueryImpl<T>(resultClass);
 	}
 
 	@Override
@@ -195,8 +192,7 @@ public class CriteriaBuilderImpl implements CriteriaBuilder {
 	}
 
 	@Override
-	public <N extends Number> Expression<N> diff(Expression<? extends N> x,
-			Expression<? extends N> y) {
+	public <N extends Number> Expression<N> diff(Expression<? extends N> x, Expression<? extends N> y) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -238,15 +234,13 @@ public class CriteriaBuilderImpl implements CriteriaBuilder {
 	}
 
 	@Override
-	public <T> Expression<T> function(String name, Class<T> type,
-			Expression<?>... args) {
+	public <T> Expression<T> function(String name, Class<T> type, Expression<?>... args) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Predicate ge(Expression<? extends Number> x,
-			Expression<? extends Number> y) {
+	public Predicate ge(Expression<? extends Number> x, Expression<? extends Number> y) {
 		// TODO Auto-generated method stub
 		return null;
 	}

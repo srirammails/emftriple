@@ -80,61 +80,6 @@ public class EntityUtil {
 		return null;
 	}
 
-//	public static List<EClass> computeTopEntities(Mapping mapping) {
-//		final List<EClass> topEntities = new ArrayList<EClass>();
-//		topEntities.addAll(mapping.getEClasses());
-//		final List<EClass> removedEntities = new ArrayList<EClass>();
-//		Set<EReference> allReferences = new HashSet<EReference>();
-//
-//		for (EClass eClass: mapping.getEClasses()) 
-//		{
-//			allReferences.addAll(eClass.getEReferences());
-//		}
-//
-//		for (EReference eReference: allReferences) 
-//		{
-//			if (eReference.isContainment()) 
-//			{
-//				if (topEntities.contains(eReference.getEType())) 
-//				{
-//					removedEntities.add((EClass) eReference.getEType());
-//					topEntities.remove(eReference.getEType());
-//				}
-//			}
-//		}
-//
-//		final List<EClass> finalTopEntities = new ArrayList<EClass>();
-//		finalTopEntities.addAll(topEntities);
-//
-//		for (EClass eClass: topEntities) 
-//		{
-//			if (eClass.isAbstract()) 
-//			{
-//				if (finalTopEntities.contains(eClass)) 
-//				{
-//					finalTopEntities.remove(eClass);
-//				}
-//			} 
-//			else 
-//			{
-//				for (EClass superClass: eClass.getEAllSuperTypes()) 
-//				{
-//					if (removedEntities.contains(superClass)) 
-//					{
-//						if (finalTopEntities.contains(eClass)) 
-//						{
-//							finalTopEntities.remove(eClass);
-//						}
-//					}
-//				} 
-//			}
-//		}
-//		topEntities.clear();
-//		removedEntities.clear();
-//
-//		return finalTopEntities;
-//	}
-	
 	public static void checkState(Object obj) {
 		checkIsSupported(obj);
 	}
@@ -231,6 +176,10 @@ public class EntityUtil {
 			return cacheid.get(eClass);
 		}
 		
+		if (eClass.getEAnnotation("CompositeId") != null) {
+			return null;
+		}
+		
 		EAttribute theId = eClass.getEIDAttribute();
 		if (theId != null) {
 			cacheid.put(eClass, theId);
@@ -248,7 +197,7 @@ public class EntityUtil {
 	private static EAttribute getId(EClass eClass, EList<EAttribute> attributes) {
 		for (EAttribute eAttribute: attributes) {
 			for (EAnnotation ann: eAttribute.getEAnnotations()) {
-				if (ann.getSource().equals("Id") || ann.getSource().equals("GeneratedId") || ann.getSource().equals("CompositeId")) {
+				if (ann.getSource().contains("Id")) { // || ann.getSource().equals("GeneratedId") || ann.getSource().equals("CompositeId")) {
 					cacheid.put(eClass, eAttribute);
 					return eAttribute;
 				}
@@ -302,17 +251,6 @@ public class EntityUtil {
 						namespace;
 	}
 
-//	private static class MatchId implements Function<List<EAttribute>, EAttribute> {
-//		@Override
-//		public EAttribute apply(List<EAttribute> from) {
-//			EAttribute match = null;
-//			for (EAttribute eAttribute: from) { 
-//				match =  EntityUtil.getETripleAnnotation(eAttribute, "Id") != null ? eAttribute : null;
-//			}
-//			return match != null ? match : from.size() > 0 ? from.get(0) : null; 
-//		}
-//	}
-	
 	public static class URIValidator implements Function<String, String> {
 		private static final String HTTP = "http://";
 		
