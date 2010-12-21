@@ -71,7 +71,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Employee">
     <eAnnotations source="etriple.CompositeId">
-      <details key="base" value="http://www.example.com/employees/[firstname]_[lastname]"/>
+      <details key="base" value="http://www.example.com/employees#[firstname]_[lastname]"/>
     </eAnnotations>
     <eAnnotations source="etriple.NamedQuery">
       <details key="name" value="findEmployeeByName"/>

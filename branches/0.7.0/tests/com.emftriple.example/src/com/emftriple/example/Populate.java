@@ -6,10 +6,6 @@ import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -26,7 +22,6 @@ import com.emftriple.example.employee.JobTitle;
 import com.emftriple.example.employee.LargeProject;
 import com.emftriple.example.employee.Organization;
 import com.emftriple.example.employee.PhoneNumber;
-import com.emftriple.example.employee.Project;
 import com.emftriple.example.employee.SmallProject;
 
 public class Populate {
@@ -775,26 +770,26 @@ public class Populate {
 //		verifyCounts(em);
 	}
 
-	public void verifyCounts(EntityManager em) {
-		assertCount(em, Employee.class, this.employees.length);
-		assertCount(em, Address.class, this.employees.length);
-		assertCount(em, Project.class, this.smallProjects.length + this.largeProjects.length);
-		assertCount(em, JobTitle.class, this.jobTitles.length);
-	}
+//	public void verifyCounts(EntityManager em) {
+//		assertCount(em, Employee.class, this.employees.length);
+//		assertCount(em, Address.class, this.employees.length);
+//		assertCount(em, Project.class, this.smallProjects.length + this.largeProjects.length);
+//		assertCount(em, JobTitle.class, this.jobTitles.length);
+//	}
 
-	/**
-	 * 
-	 * @param entityClass
-	 * @param count
-	 */
-	public void assertCount(EntityManager em, Class<?> entityClass, int count) {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<?> criteria = cb.createQuery();
-		Root<?> entity = criteria.from(entityClass);
-		criteria.multiselect( cb.count(entity) );
-		Query query = em.createQuery(criteria);
-
-		Long dbCount = (Long)query.getSingleResult();
-		assert(count == dbCount.intValue());
-	}
+//	/**
+//	 * 
+//	 * @param entityClass
+//	 * @param count
+//	 */
+//	public void assertCount(EntityManager em, Class<?> entityClass, int count) {
+//		CriteriaBuilder cb = em.getCriteriaBuilder();
+//		CriteriaQuery<?> criteria = cb.createQuery();
+//		Root<?> entity = criteria.from(entityClass);
+//		criteria.multiselect( cb.count(entity) );
+//		Query query = em.createQuery(criteria);
+//
+//		Long dbCount = (Long)query.getSingleResult();
+//		assert(count == dbCount.intValue());
+//	}
 }

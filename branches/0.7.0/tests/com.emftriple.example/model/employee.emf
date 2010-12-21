@@ -55,7 +55,7 @@ class EmploymentPeriod {
   attr EDate endDate;
 }
 
-@etriple.CompositeId(base="http://www.example.com/employees/[firstname]_[lastname]")
+@etriple.CompositeId(base="http://www.example.com/employees#[firstname]_[lastname]")
 @etriple.NamedQuery(
 	name="findEmployeeByName", 
 	queryString="SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last")

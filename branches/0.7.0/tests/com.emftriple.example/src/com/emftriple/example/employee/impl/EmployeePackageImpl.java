@@ -923,7 +923,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 		  (employeeEClass, 
 		   source, 
 		   new String[] {
-			 "base", "http://www.example.com/employees/[firstname]_[lastname]"
+			 "base", "http://www.example.com/employees#[firstname]_[lastname]"
 		   });				
 	}
 

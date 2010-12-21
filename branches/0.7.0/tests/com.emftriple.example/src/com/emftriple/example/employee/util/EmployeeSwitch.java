@@ -6,12 +6,22 @@
  */
 package com.emftriple.example.employee.util;
 
-import com.emftriple.example.employee.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import com.emftriple.example.employee.Address;
+import com.emftriple.example.employee.EmailAddress;
+import com.emftriple.example.employee.Employee;
+import com.emftriple.example.employee.EmployeePackage;
+import com.emftriple.example.employee.EmploymentPeriod;
+import com.emftriple.example.employee.JobTitle;
+import com.emftriple.example.employee.LargeProject;
+import com.emftriple.example.employee.Organization;
+import com.emftriple.example.employee.PhoneNumber;
+import com.emftriple.example.employee.Project;
+import com.emftriple.example.employee.SmallProject;
 
 /**
  * <!-- begin-user-doc -->

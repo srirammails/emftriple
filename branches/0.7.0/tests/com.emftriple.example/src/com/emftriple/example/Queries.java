@@ -28,13 +28,20 @@ public class Queries {
 
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("employee");
-		EntityManager em = emf.createEntityManager();
+		EntityManager em = null;
+		try {
+			em = emf.createEntityManager();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		}
+		
 		em.getTransaction().begin();
 
 		Queries queries = new Queries();
-		queries.readAllEmployees(em);
-		queries.readAllSmallProjects(em);
-		queries.namedQuery(em);
+		queries.find(em);
+//		queries.readAllEmployees(em);
+//		queries.readAllSmallProjects(em);
+//		queries.namedQuery(em);
 		
 		em.getTransaction().commit();
 		em.close();
@@ -42,6 +49,31 @@ public class Queries {
 		emf.close();
 	}
 
+	public void find(EntityManager em) {
+		Employee e = em.find(Employee.class, "http://www.example.com/employees#bob_smith");
+		
+		assert e != null;
+		
+		System.out.println("Loading Employee " + e.getFirstName());
+		for (Project p: e.getProjects()) {
+			System.out.println("    works on " + p.getName() + " lead by " + p.getTeamLeader().getFirstName());
+		}
+		
+//		EcoreUtil.resolveAll(e.eResource());
+//		try {
+//			e.eResource().save(System.out, null);
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
+//		Resource res = new XMIResourceImpl();
+//		res.getContents().addAll(e.eResource().getContents());
+//		try {
+//			res.save(System.out, null);
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
+	}
+	
 	public void loadResource() {
 		Resource res = 
 			new ETripleResource(

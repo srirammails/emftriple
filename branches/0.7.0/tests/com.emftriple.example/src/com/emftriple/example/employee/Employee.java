@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see com.emftriple.example.employee.EmployeePackage#getEmployee()
- * @model annotation="etriple.CompositeId base='http://www.example.com/employees/[firstname]_[lastname]'"
+ * @model annotation="etriple.CompositeId base='http://www.example.com/employees#[firstname]_[lastname]'"
  *        annotation="etriple.NamedQuery name='findEmployeeByName' queryString='SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last'"
  * @generated
  */
