@@ -57,7 +57,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 		this.mapping = mapping;
 		this.manager = manager;
-		this.allEntities = HashBiMap.create();
+		this.allEntities = new HashBiMap<URI, EObject>();
 		this.markAsToSaveEntities = new ArrayList<Object>();
 		this.markAsToDeleteEntities = new ArrayList<Object>();
 		this.markAsDetachEntities = new ArrayList<Object>();

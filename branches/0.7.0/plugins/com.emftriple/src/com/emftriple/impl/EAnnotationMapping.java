@@ -51,7 +51,7 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 		super(packages, properties);
 		this.rdfTypeMap = Maps.newHashMap();
 		this.featureMap = Maps.newHashMap();
-		this.mappedClasses = HashBiMap.create();
+		this.mappedClasses = new HashBiMap<Class<?>, EClass>();
 		this.classMap = Maps.newHashMap();
 		
 		for (EClass eClass: getEClasses()) 
