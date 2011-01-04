@@ -25,7 +25,11 @@ public class JenaResultSet implements ResultSet {
 	
 	@Override
 	public boolean hasNext() {
-		return resultSet.hasNext();
+		try { 
+			return resultSet != null && resultSet.hasNext();
+		} catch (com.hp.hpl.jena.sparql.resultset.ResultSetException e) {
+			return false;
+		}
 	}
 
 	@Override
