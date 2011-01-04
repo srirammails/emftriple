@@ -261,6 +261,10 @@ public abstract class AbstractEntityManager implements EntityManager {
 		throw new UnsupportedOperationException();
 	}
 
+	public Mapping getMapping() {
+		return mapping;
+	}
+	
 	/**
 	 * @inheritDoc
 	 */

@@ -8,9 +8,14 @@
 package com.emftriple.datasources.impl;
 
 import static com.emftriple.util.EntityUtil.checkIsEntity;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -26,8 +31,6 @@ import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.GetObject;
 import com.emftriple.transform.PutObject;
 import com.emftriple.util.EntityUtil;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -41,7 +44,9 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 	protected final Mapping mapping;
 
-	private final BiMap<URI, EObject> allEntities;
+	private final Map<URI, EObject> allEntitiesByURI;
+	
+	private final Map<EObject, URI> allEntities;
 
 	private final List<Object> markAsToSaveEntities;
 
@@ -57,7 +62,8 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 		this.mapping = mapping;
 		this.manager = manager;
-		this.allEntities = new HashBiMap<URI, EObject>();
+		this.allEntitiesByURI = new HashMap<URI, EObject>();
+		this.allEntities = new HashMap<EObject, URI>();
 		this.markAsToSaveEntities = new ArrayList<Object>();
 		this.markAsToDeleteEntities = new ArrayList<Object>();
 		this.markAsDetachEntities = new ArrayList<Object>();
@@ -71,9 +77,22 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		
 	@Override 
 	public void put(URI uri, EObject eObject) {
-		if ( !getAllEntities().containsKey(uri) ) 
-		{
-			getAllEntities().put(uri, eObject);
+		checkNotNull(uri);
+		checkNotNull(eObject);
+		
+		if (!eObject.eIsProxy()) {
+			if (allEntitiesByURI.containsKey(uri)) {
+				EObject oldProxy = allEntitiesByURI.remove(uri);
+				checkArgument(allEntitiesByURI.containsKey(uri) == false);
+				checkArgument(allEntitiesByURI.get(uri) == null);
+				
+				if (allEntities.containsKey(oldProxy)) {
+					allEntities.remove(oldProxy);
+//					EcoreUtil.delete(oldProxy);
+				}
+			}
+			allEntitiesByURI.put(uri, eObject);
+			allEntities.put(eObject, uri);
 		}
 	}
 
@@ -106,7 +125,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	public boolean contains(Object object) {
 		checkIsEntity(object);
 				
-		return getAllEntities().inverse().containsKey( object );
+		return getAllEntities().containsKey( object );
 	}
 
 	@Override
@@ -119,12 +138,12 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	private URI doID(EObject object) {
 		URI entityKey = null;
 		
-		if ( allEntities.inverse().containsKey(object) ){
-			entityKey = allEntities.inverse().get(object);
+		if ( allEntities.containsKey(object) ){
+			entityKey = allEntities.get(object);
 		} 
 		else if ( isGeneratedId((EObject)object) )
 		{
-			entityKey = allEntities.inverse().get(object);
+			entityKey = allEntities.get(object);
 			if (entityKey == null)
 			{
 				EAttribute attrId = EntityUtil.getId(object.eClass());				
@@ -133,10 +152,12 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 					entityKey = base != null ? EntityUtil.URI(base + object.eGet(attrId)) : EntityUtil.URI(object.eGet(attrId)); 
 				}
 				entityKey = generateId(object);
+				put(entityKey, object);
 			}
 		}
 		else {
 			entityKey = ID.id(object);
+			put(entityKey, object);
 		}
 		
 		return entityKey;
@@ -167,7 +188,11 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	
 	@Override 
 	public EObject getByKey(URI key) {
-		return getAllEntities().get(key);
+		for (Entry<EObject, URI> uri: getAllEntities().entrySet()) {
+			if (key.equals(uri.getValue()))
+				return uri.getKey();
+		}
+		return null;
 	}
 
 	@Override 
@@ -262,7 +287,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		return markAsToSaveEntities;
 	}
 
-	private synchronized BiMap<URI, EObject> getAllEntities() {
+	private synchronized Map<EObject, URI> getAllEntities() {
 		return allEntities;
 	}
 

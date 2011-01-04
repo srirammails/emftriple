@@ -63,7 +63,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 			((MutableDataSource) dataSource).remove( addedGraph );
 		}
 		if (removedGraph != null && dataSource instanceof MutableDataSource) {
-			((RDFGraph) dataSource).add( removedGraph );
+			((MutableDataSource) dataSource).add( removedGraph );
 		}
 		commit();
 	}

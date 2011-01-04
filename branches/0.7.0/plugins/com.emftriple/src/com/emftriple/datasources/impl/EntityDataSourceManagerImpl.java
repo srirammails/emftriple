@@ -98,7 +98,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 			return object;
 		}
 
-		object = get().get(aClass, key);	
+		object = get().get(aClass, key);
 
 		if (object != null) {
 			add((EObject) object);

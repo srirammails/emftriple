@@ -110,11 +110,13 @@ public class SparqlQueries {
 			if (EntityUtil.getId(eClass) != null && !EntityUtil.getId(eClass).equals(aFeature)) {
 				URI rdfType = EntityUtil.getRdfType(aFeature);
 				constructPattern.append(" <" + key + "> <" + rdfType + "> ?" + aFeature.getName() + " . ");
-				wherePattern.append(" OPTIONAL { <" + key + "> <" + rdfType + "> ?" + aFeature.getName() + " } ");
+				wherePattern.append(" OPTIONAL { <" + key + "> <" + rdfType + "> ?" +
+						aFeature.getName() 
+						+ " } ");
 			}
 		}
 		constructPattern.append(" } ");
-		wherePattern.append(" } LIMIT 500");
+		wherePattern.append(" } LIMIT 800");
 		constructPattern.append(wherePattern);
 		
 		return constructPattern.toString();

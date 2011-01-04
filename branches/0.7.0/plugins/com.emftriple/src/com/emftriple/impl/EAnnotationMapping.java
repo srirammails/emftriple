@@ -22,8 +22,6 @@ import com.emf4sw.rdf.Resource;
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Property;
 import com.emftriple.util.EntityUtil;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Maps;
 
 /**
@@ -41,7 +39,7 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 
 	protected Map<EStructuralFeature, URI> featureMap;
 	
-	protected BiMap<Class<?>, EClass> mappedClasses;
+	protected Map<Class<?>, EClass> mappedClasses;
 
 	public EAnnotationMapping(List<EPackage> packages) {
 		this(packages, new ArrayList<Property>());
@@ -51,7 +49,7 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 		super(packages, properties);
 		this.rdfTypeMap = Maps.newHashMap();
 		this.featureMap = Maps.newHashMap();
-		this.mappedClasses = new HashBiMap<Class<?>, EClass>();
+		this.mappedClasses = Maps.newHashMap();
 		this.classMap = Maps.newHashMap();
 		
 		for (EClass eClass: getEClasses()) 
