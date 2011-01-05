@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jobs"
+    nsURI="http://www.semweb.com/jobs#" nsPrefix="jobs">
+  <eClassifiers xsi:type="ecore:EClass" name="Job">
+    <eAnnotations source="DataSet">
+      <details key="name" value="http://default"/>
+    </eAnnotations>
+    <eAnnotations source="Entity">
+      <details key="uri" value="http://www.semweb.com/jobs#Job"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Id">
+        <details key="base" value="http://www.semweb.com/jobs/"/>
+      </eAnnotations>
+      <eAnnotations source="GeneratedValue">
+        <details key="strategy" value="DEFAULT"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://purl.org/dc/elements/1.1/title"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="skills" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="posted" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="organisation" lowerBound="1"
+        eType="#//Organisation">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://www.semweb.com/jobs#organisation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
+        eType="#//Place">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://www.semweb.com/jobboard#location"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Organisation">
+    <eAnnotations source="DataSet">
+      <details key="name" value="http://lod.openlinksw.com/sparql"/>
+    </eAnnotations>
+    <eAnnotations source="Entity">
+      <details key="uri" value="http://dbpedia.org/ontology/Organisation"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Id">
+        <details key="base" value="http://dbpedia.org/resource/"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <details key="lang" value="en"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://dbpedia.org/property/companyLogo"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="revenue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://dbpedia.org/ontology/revenue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="products" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://dbpedia.org/ontology/product"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formationYear" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://dbpedia.org/ontology/formationYear"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Place">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://dbpedia.org/ontology/location"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wikiPage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://xmlns.com/foaf/0.1/page"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numEmployees" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://dbpedia.org/property/numEmployees"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Place">
+    <eAnnotations source="DataSet">
+      <details key="name" value="http://lod.openlinksw.com/sparql"/>
+    </eAnnotations>
+    <eAnnotations source="Entity">
+      <details key="uri" value="http://dbpedia.org/ontology/Place"/>
+    </eAnnotations>
+    <eAnnotations source="Entity">
+      <details key="uri" value="http://dbpedia.org/ontology/City"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Id">
+        <details key="base" value="http://dbpedia.org/resource/"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://dbpedia.org/ontology/abstract"/>
+        <details key="lang" value="en"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wikiPage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://xmlns.com/foaf/0.1/page"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,170 @@
+/** Add css rules here for your application. */
+* { /*	background: grey;*/
+	margin: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: transparent;
+	color: #444;
+	/*display: none;*/
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+}
+
+body {
+	color: #444;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+	text-align: center;
+}
+
+.header {
+	background-color: #F9F9F9;
+	height: 305px;
+	padding: 0px 15px;
+	position: relative;
+}
+
+div {
+	display: block;
+}
+
+.container {
+  margin: 0 auto;
+  width: 945px;
+  text-align: left;
+}
+
+.content {
+	clear: both;
+	float: left;
+	margin-bottom: 50px;
+	margin-top: -214px;
+	padding: 15px;
+	position: relative;
+	width: 945px;
+	vertical-align: baseline;
+}
+
+/** Example rules used by the template application (remove for your app) */
+h1 {
+	font-size: 2em;
+	font-weight: bold;
+	color: orange;
+	margin: 40px 0px 70px;
+	text-align: left;
+}
+
+h3 {
+	background-color: #EEE;
+	clear: both;
+	margin-bottom: 15px;
+	margin: 0px 0px 15px;
+	padding: 4px 5px 5px 15px;
+}
+
+.sendButton {
+	display: block;
+	font-size: 16pt;
+}
+
+/** Most GWT widgets already have a style name defined */
+.gwt-DialogBox {
+	width: 400px;
+}
+
+.dialogVPanel {
+	margin: 5px;
+}
+
+.serverResponseLabelError {
+	color: red;
+}
+
+/** Set ids using widget.getElement().setId("idOfElement") */
+#closeButton {
+	margin: 15px 6px 6px;
+}
+
+.content {
+	-webkit-box-shadow: #DDD 0px 3px 10px;
+	background: white;
+	background-color: white;
+}
+
+.main {
+	float: left;
+/*	min-height: 600px;*/
+/*	min-width: 400px;*/
+	padding: 15px;
+/*	width: 915px;*/
+}
+
+.sidebar {
+	float: right;
+	margin-bottom: 30px;
+	padding: 15px;
+/*	width: 240px;*/
+/*	height: 280px;*/
+}
+
+.jobslist {
+	margin-bottom: 50px;
+	background: white;
+}
+
+.jobsheader {
+	background-color: #EEE;
+	clear: both;
+	margin-bottom: 15px;
+	margin: 0px 0px 15px;
+	padding: 4px 5px 5px 15px;
+	width: 640px;
+	height: 20px;
+}
+
+.listitem {
+	background: white;
+	border-bottom: 1px solid #E9E9E9;
+	border-right: 1px solid transparent;
+	clear: both;
+	float: left;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	padding: 10px;
+	width: 639px;
+	position: relative;
+}
+
+.job-links {
+	color: orange;
+	font-weight: bold;
+	font-size: 16px;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.company-links {
+	color: black;
+	font-weight: bold;
+	font-size: 14px;
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.city-links {
+	color: black;
+	font-size: 12px;
+	display: inline-block;
+	margin-right: 5px;
+}

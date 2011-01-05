@@ -1,0 +1,18 @@
+<#include "/header.ftl"/>
+<#global content>
+<div class="jobs-content">
+		<div class=main>
+			<div class="jobsheader"><h1 class="title">${job.title!}</h1>
+			</div>
+			<div class="item">
+				<p class="description">${job.summary?replace(". ", ".</p><p class=\"description\">")!}</p>
+				<br/>
+				<h3>location <a href="${rootRef}/locations/${job.location.name!}">${job.location.name!}</a></h3>
+				<br/>
+				<h3>organisation <a href="${rootRef}/organisations/${job.organisation.name!}">${job.organisation.name!}</a></h3>
+			</div>
+		</div>
+
+</div>
+</#global>
+<#include "/footer.ftl"/>

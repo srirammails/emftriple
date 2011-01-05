@@ -1,0 +1,57 @@
+package com.semweb.careers.resources;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+import org.restlet.data.MediaType;
+import org.restlet.representation.Representation;
+import org.restlet.representation.Variant;
+import org.restlet.resource.Get;
+import org.restlet.resource.ResourceException;
+
+import com.emftriple.restlet.ETripleRestletUtil;
+import com.semweb.jobs.Job;
+
+public class JobResource extends BaseResource {
+
+	private Job job;
+
+	@Override
+	public void doInit() {
+		checkTransaction();
+
+		final String jobId = (String) getRequestAttributes().get("jobId");
+		if (jobId != null) {
+			em.getTransaction().begin();
+			try {
+				job = em.find(Job.class, "http://www.semweb.com/jobs/" + jobId);
+				em.getTransaction().commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+				em.getTransaction().rollback();	
+			} finally {
+
+			}
+		}
+	}
+
+	@Get("html")
+	public Representation toHtml(Variant variant) throws ResourceException {
+		final Map<String, Object> dataModel = new TreeMap<String, Object>();
+		dataModel.put("job", this.job);
+		dataModel.put("resourceRef", getRequest().getResourceRef());
+		dataModel.put("rootRef", getRequest().getRootRef());
+
+		return getTemplateRepresentation("job.html", dataModel, MediaType.TEXT_HTML);
+	}
+
+	@Get("rdf")
+	public Representation toRdf() throws ResourceException {
+		return ETripleRestletUtil.getRepresentation(job, em, MediaType.APPLICATION_RDF_XML);
+	}
+	
+	@Get("ttl")
+	public Representation toTTL() throws ResourceException {
+		return ETripleRestletUtil.getRepresentation(job, em, MediaType.APPLICATION_RDF_TURTLE);
+	}
+}

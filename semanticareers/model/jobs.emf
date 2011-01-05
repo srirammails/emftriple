@@ -1,0 +1,72 @@
+@namespace(uri="http://www.semweb.com/jobs#", prefix="jobs")
+package jobs;
+
+@DataSet(name="http://default")
+@Entity(uri="http://www.semweb.com/jobs#Job")
+class Job {
+   @Id(base="http://www.semweb.com/jobs/")
+   @GeneratedValue(strategy=DEFAULT)
+   attr String[1] ~id;
+   
+   @rdf(uri="http://purl.org/dc/elements/1.1/title")
+   attr String title;
+   
+   attr String[?] summary;
+   attr String[?] requirements;
+   attr String[?] skills;
+
+   attr EDate[1] posted;
+   attr String[1] type;
+   
+   @rdf(uri="http://www.semweb.com/jobs#organisation")
+   ref Organisation[1] organisation;
+   
+   @rdf(uri="http://www.semweb.com/jobboard#location")
+   ref Place[1] location;
+}
+
+@DataSet(name="http://lod.openlinksw.com/sparql")
+@Entity(uri="http://dbpedia.org/ontology/Organisation")
+//@Entity(uri="http://cb.semsol.org/ns#Company")
+class Organisation {
+   @Id(base="http://dbpedia.org/resource/")
+   attr String[1] name;
+   
+   @rdf(uri="http://www.w3.org/2000/01/rdf-schema#comment", lang="en")
+   attr String description;
+   
+   @rdf(uri="http://dbpedia.org/property/companyLogo")
+   attr String logo;
+   
+   @rdf(uri="http://dbpedia.org/ontology/revenue")
+   attr String revenue;
+   
+   @rdf(uri="http://dbpedia.org/ontology/product")
+   attr String[*] products;
+   
+   @rdf(uri="http://dbpedia.org/ontology/formationYear")
+   attr EDate formationYear;
+   
+   @rdf(uri="http://dbpedia.org/ontology/location")
+   ref Place location;
+   
+   @rdf(uri="http://xmlns.com/foaf/0.1/page")
+   attr String wikiPage;
+   
+   @rdf(uri="http://dbpedia.org/property/numEmployees")
+   attr String numEmployees;
+}
+
+@DataSet(name="http://lod.openlinksw.com/sparql")
+@Entity(uri="http://dbpedia.org/ontology/Place")
+@Entity(uri="http://dbpedia.org/ontology/City")
+class Place {
+   @Id(base="http://dbpedia.org/resource/")
+   attr String[1] name;
+   
+   @rdf(uri="http://dbpedia.org/ontology/abstract", lang="en")
+   attr String description;
+   
+   @rdf(uri="http://xmlns.com/foaf/0.1/page")
+   attr String wikiPage;
+}

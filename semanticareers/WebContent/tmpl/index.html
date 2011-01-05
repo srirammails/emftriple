@@ -1,0 +1,22 @@
+<#include "/header.ftl"/>
+<#global content>
+	<div id="searchlistings">
+		<h3>search jobs</h3>
+		<form action="${rootRef}/jobs" class="searchform" method="get">
+			<div>
+				<label>what</label>
+				<input id="searchTerm" name="searchTerm" placeholder="job title or company" type="text" value="" />
+			</div>
+			<div>
+				<label>where</label>
+				<input id="location" name="location" placeholder="city" type="text" value="" />
+			</div>
+			<br />
+			<input type="submit" value="search" /><br class="clear" /><br />
+		</form>
+		<div>
+			<a href="${rootRef}/add">Post a job</a>
+		</div>
+	</div>
+</#global>
+<#include "/footer.ftl"/>

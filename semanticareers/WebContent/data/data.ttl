@@ -1,0 +1,176 @@
+<http://www.semweb.com/jobboard#7>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Software Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/Galway> ;
+      <http://www.semweb.com/jobs#description>
+              "Reporting to the R&D Manager, the successful candidate will have research & development experience and will be capable of utilizing these skills in the generation and development of medical device products and process technologies. The successful candidate will be capable of leading cross functional project teams and liaising with senior management to ensure the successful completion of new product projects."^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#type>
+              "Full Time"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/Ericsson> .
+
+<http://www.semweb.com/jobboard#1>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Financial Analyst"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/Los_Angeles> ;
+      <http://www.semweb.com/jobs#description>
+              "Finance my ass"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/IBM> .
+
+<http://www.semweb.com/jobboard#2>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Marketing Guy"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/Paris> ;
+      <http://www.semweb.com/jobs#description>
+              "want to be a marketing guy"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/IBM> .
+
+<http://www.semweb.com/jobboard#10>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Java Developer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/Provo%2C_Utah> ;
+      <http://www.semweb.com/jobs#description>
+              """Hewlett-Packard's Web Platform Team is responsible for the creation and delivery of web sites and web services to support HP's growing line of web connected printers. One of the key enablers to complete the web platform solution is an eCommerce engine to allow product teams to establish revenue from web services and content associated with HP printers.. We are looking for an experienced Java/ J2EE developer to join the team that will deliver this eCommerce engine as well as other future web service components comprising the IPG Web Platform.
+
+The successful candidate must be capable of working independently, as well as with a team, to develop a Java/J2EE web based application running on running on a Linux/Oracle or Windows/SQL stack. This engineer will work with project management, the lead architect, and other engineers within the team as well as those in partner organizations, marketing, quality, and operations to design and implement new services."""^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#type>
+              "Full Time"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/Hewlett-Packard> .
+
+<http://www.semweb.com/jobboard#9>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Systems Software Cloud Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/Geneva> ;
+      <http://www.semweb.com/jobs#description>
+              """HP has a combination of software development positions to participate in an exciting new start-up project for HP Services. We are recruiting Senior and Graduate software engineers and project managers looking to expand their development and career experience on a challenging new initiative. 
+
+We are looking for:
+- Software Engineer;
+- Systems Software Cloud Engineer;
+- Web portal Developer."""^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#type>
+              "Full Time"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/Hewlett-Packard> .
+
+<http://www.semweb.com/jobboard#3>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Software Developer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/New_York_City> ;
+      <http://www.semweb.com/jobs#description>
+              """We are looking for an exceptionally intelligent, talented and enthusiastic Lead Software Engineer to drive development of our web-application. You will get to work on and deliver an application that will be used by millions of users. You are a self starter eager to make a mark for yourself. You have hands on experience of working in a small agile team / startup and can develop your skills. The company is based in Helsinki, Finland and Sunnyvale, CA.
+
+You should be well connected within the software development community either internationally or locally so that you are able to seek advice from peers in regards to solving complex problems. You should have a healthy strong working habit and be willing to put in extra hours when needed. You will lead our small development team and work closely with the founder and Chief Coder of the company in planning and designing systems that scale and allow us to continue growing our business around the world.
+
+Skills: 
+•	Generalist software engineer: Expertise building scalable systems and algorithms 
+•	Expertise in working with PHP and MySQL 
+•	Experience in working with Memcache 
+•	Experience in working with various PHP frameworks 
+•	Understanding of AJAX, CSS, JavaScript & jQuery 
+•	Experience working with large amounts of data 
+•	Experience working with Facebook or E-Commerce applications a plus
+
+Requirements: 
+•	5+ years web development experience 
+•	3+ with PHP/MySQL/Apache 
+•	Experience with profiling (e.g. xdebug), load simulation (e.g Jmeter), Linux optimization, database (MySQL) optimization 
+•	Solid understanding of scalable web architectures, queuing and partitioning. 
+•	Solid experience with Subversion, JavaScript, CSS and OO programming 
+•	Agile development experience desirable (XP/Scrum). 
+•	Knowledge of PHPUnit and test-driven development desirable 
+•	Knowledge of open standards 
+•	Bachelors degree or higher in Computer Science or similar/relevant field preferred 
+•	Strong product sense and an interest in building web applications 
+•	Entrepreneurial spirit 
+•	High levels of creativity 
+•	Ability to create specs for projects and to manage their progress 
+•	Ability to handle high pressure / high stress situations """^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/Intel_Corporation> .
+
+<http://www.semweb.com/jobboard#6>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Rails Developer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/San_Francisco> ;
+      <http://www.semweb.com/jobs#description>
+              """FBS is looking for a developer who knows the Rails stack backward and forward. Javascript expertise also is a big plus. Knowledge of Git, Memcached, and Rake is beneficial. We also use multiple database products (DB2, PostgreSQL, and MySQL) and so the more varied experience you have with databases, the better.
+
+You'd be working with our team of eight web developers to create new features for our flexmls System, which serves real estate multiple listing services. FBS is a 100% employee-owned company and a leader in our vertical. We're based in Fargo, ND, and would love it if you wanted to come work here with us, but working remotely is fine, too."""^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/Twitter> .
+
+<http://www.semweb.com/jobboard#5>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Software Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/New_York_City> ;
+      <http://www.semweb.com/jobs#description>
+              """The area: Software Engineering
+
+Google's software engineers develop the next-generation technologies for which we've become world-renowned. In addition to revolutionizing search technology, we use our world-class programming skills to innovate in a number of other areas as well. Our projects include working on advanced information-retrieval algorithms, massive scalability and storage solutions, and large-scale applications that enrich the user experience. We also work extensively on networking systems, advertising systems and complex transaction systems in consumer applications.
+
+The role: Software Engineer
+
+Software Engineers have a penchant for solving complex and interesting problems. Google is much more than search, and our mission has much greater scope. To handle information at the scale of the web requires ideas from just about every area of computer science, including information retrieval, artificial intelligence, natural language processing, distributed computing, large-scale system design, networking, security, data compression, user interface design, etc.
+
+Engineers work on many projects that carry varying responsibilities. Below are some examples of the diverse projects with which you might be involved.
+
+Responsibilities:
+* Write server-side code for web-based applications, create robust high-volume production applications, and develop prototypes quickly. You should also have a strong understanding of, and practical experience with, Java web application development.
+* Build our platforms, systems and networking infrastructure using your strong background in distributed systems, OS/kernel, network system design, and large scale storage systems.
+* Build internal systems used by thousands of Googlers around the world with your domain expertise in HR, Staffing, Legal, and all other corporate functions.
+* Specialist domains: UI development with AJAX and similar technologies, client application development for Windows/Mac (Chrome, Toolbar, etc.), embedded systems and mobile apps (Android), developer tools (IDEs, large-scale build systems, compilers), internationalization.
+
+Requirements:
+* BS, MS, or PhD in Computer Science or related technical discipline (or equivalent).
+* A solid foundation in computer science, with strong competencies in data structures, algorithms, and software design.
+* Extensive programming experience in C/C++ and/or Java (strong OO skills preferred).
+* Several years of large systems software design and development experience, with extensive knowledge of Unix/Linux.
+* Coding skills in Python or Javascript/AJAX, database design and SQL, and/or knowledge of TCP/IP and network programming are a plus."""^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/Google> .
+
+<http://www.semweb.com/jobboard#15>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Senior R&D Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/Berlin> ;
+      <http://www.semweb.com/jobs#description>
+              "Reporting to the R&D Manager, the successful candidate will have research & development experience and will be capable of utilizing these skills in the generation and development of medical device products and process technologies. The successful candidate will be capable of leading cross functional project teams and liaising with senior management to ensure the successful completion of new product projects."^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#type>
+              "Full Time"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/IBM> ;
+      <http://www.semweb.com/jobs#workKind>
+              <http://dbpedia.org/resource/Business_development> .
+
+<http://www.semweb.com/jobboard#4>
+      a       <http://www.semweb.com/jobs#Vacancy> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/Athlone> ;
+      <http://www.semweb.com/jobs#description>
+              "Become a radio engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#vacancywith>
+              <http://dbpedia.org/resource/Ericsson> .

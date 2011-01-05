@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/semanticareers/src"
+    modelPluginID="semanticareers" modelName="Jobs" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>jobs.ecore</foreignModel>
+  <genPackages prefix="JOB" basePackage="com.semweb" disposableProviderFactory="true"
+      ecorePackage="jobs.ecore#/">
+    <genClasses ecoreClass="jobs.ecore#//Job">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Job/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Job/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Job/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Job/experience"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Job/posted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Job/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jobs.ecore#//Job/functions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jobs.ecore#//Job/vacancyWith"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jobs.ecore#//Job/location"/>
+    </genClasses>
+    <genClasses ecoreClass="jobs.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Function/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Function/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Function/wikiPage"/>
+    </genClasses>
+    <genClasses ecoreClass="jobs.ecore#//Company">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Company/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Company/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Company/logo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Company/revenue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Company/products"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Company/formationYear"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jobs.ecore#//Company/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Company/wikiPage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Company/numEmployees"/>
+    </genClasses>
+    <genClasses ecoreClass="jobs.ecore#//Location">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Location/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Location/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobs.ecore#//Location/wikiPage"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

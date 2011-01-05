@@ -1,0 +1,13 @@
+<#include "/header.ftl"/>
+<#global content>
+<div class="jobs-content">
+	<div class=main>
+		<div class="jobsheader"><h1 class="title">${location.name!}</h1>
+		</div>
+		<div class="item">
+			<p class="description">${location.description?replace(". ", ".</p><p class=\"description\">")!}</p>
+		</div>		
+	</div>
+</div>
+</#global>
+<#include "/footer.ftl"/>
