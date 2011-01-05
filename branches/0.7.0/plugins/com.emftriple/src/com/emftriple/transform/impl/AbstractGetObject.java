@@ -9,11 +9,6 @@ package com.emftriple.transform.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -52,60 +47,76 @@ public abstract class AbstractGetObject implements GetObject {
 		this.dataSourceManager = dataSourceManager;
 	}
 
-//	protected RDFGraph getGraph(EClass eClass, URI key) {
-//		final List<String> queries = SparqlQueries.constructSubjectService(key, eClass);
-//		final List<RDFGraph> graphs = new ArrayList<RDFGraph>();
-//		
-//		for (final String str: queries) {
-//			RDFGraph aGraph = 
-//				dataSourceManager.executeConctructQuery(str);
-//			if (aGraph != null)
-//				graphs.add(aGraph);
-//		}
-//		
-//		return graphs.isEmpty() ? null : (graphs.size() == 1 ? graphs.get(0) : merge(graphs));
-//	}
-	
 	protected RDFGraph getGraph(EClass eClass, URI key) {
 		final List<String> queries = SparqlQueries.constructSubjectService(key, eClass);
 		final List<RDFGraph> graphs = new ArrayList<RDFGraph>();
-		final ExecutorService executor = Executors.newFixedThreadPool(4);
-		final List<Future<RDFGraph>> futures = new ArrayList<Future<RDFGraph>>();
-
+		
 		for (final String str: queries) {
-			Callable<RDFGraph> call = new Callable<RDFGraph>() {
-				@Override
-				public RDFGraph call() throws Exception {
-					System.out.println("call " + str);
-					return dataSourceManager.executeConctructQuery(str);
-				}};
-				futures.add( executor.submit(call) );
-		}
-
-		executor.shutdown();
-		while (!executor.isTerminated()) {
-		}
-
-		for (Future<RDFGraph> f: futures) {
-			RDFGraph g;
+			System.out.println("call " + str);
+			RDFGraph aGraph = null;
 			try {
-				g = f.get();
-				if (g != null)
-					graphs.add(g);
-			} catch (ExecutionException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+				aGraph = 
+					dataSourceManager.executeConctructQuery(str);
+			} catch (Exception e) {
+				System.out.println("recall " + str);
+				aGraph = 
+					dataSourceManager.executeConctructQuery(str);
 			}
+			if (aGraph != null)
+				graphs.add(aGraph);
 		}
-
+		
 		return graphs.isEmpty() ? null : (graphs.size() == 1 ? graphs.get(0) : merge(graphs));
 	}
+	
+//	protected RDFGraph getGraph(EClass eClass, URI key) {
+//		final List<String> queries = SparqlQueries.constructSubjectService(key, eClass);
+//		final List<RDFGraph> graphs = new ArrayList<RDFGraph>();
+//		final ExecutorService executor = Executors.newFixedThreadPool(4);
+//		final List<Future<RDFGraph>> futures = new ArrayList<Future<RDFGraph>>();
+//
+//		for (final String str: queries) {
+//			Callable<RDFGraph> call = new Callable<RDFGraph>() {
+//				@Override
+//				public RDFGraph call() throws Exception {
+//					System.out.println("call " + str);
+//					return dataSourceManager.executeConctructQuery(str);
+//				}};
+//				futures.add( executor.submit(call) );
+//		}
+//
+//		executor.shutdown();
+//		while (!executor.isTerminated()) {
+//		}
+//
+//		System.out.println(key + " > " + executor.isTerminated());
+//		
+//		for (Future<RDFGraph> f: futures) {
+//			RDFGraph g;
+//			try {
+//				g = f.get();
+//				if (g != null)
+//					graphs.add(g);
+//			} catch (ExecutionException e) {
+//				e.printStackTrace();
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//
+//		return graphs.isEmpty() ? null : (graphs.size() == 1 ? graphs.get(0) : merge(graphs));
+//	}
 
 	protected <T> RDFGraph getGraph(Class<T> entityClass, URI key) {
-		final EClass eClass = mapping.getEClass(entityClass);
+		try {
+			final EClass eClass = mapping.getEClass(entityClass);
+			
+			return getGraph(eClass, key);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-		return getGraph(eClass, key);
+		return null;
 	}
 
 	private static RDFGraph merge(List<RDFGraph> graphs) {

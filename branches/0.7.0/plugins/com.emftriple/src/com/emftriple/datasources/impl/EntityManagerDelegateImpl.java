@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -91,9 +90,10 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 //					EcoreUtil.delete(oldProxy);
 				}
 			}
-			allEntitiesByURI.put(uri, eObject);
-			allEntities.put(eObject, uri);
 		}
+		
+		allEntitiesByURI.put(uri, eObject);
+		allEntities.put(eObject, uri);
 	}
 
 	@Override 
@@ -117,7 +117,8 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	public void clear() {
 		getDetachEntities().clear();
 		getDeleteEntities().clear();
-		getAllEntities().clear();
+		allEntities.clear();
+		allEntitiesByURI.clear();
 		manager.clear();
 	}
 
@@ -125,7 +126,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	public boolean contains(Object object) {
 		checkIsEntity(object);
 				
-		return getAllEntities().containsKey( object );
+		return allEntities.containsKey( object );
 	}
 
 	@Override
@@ -167,7 +168,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		int dbindex = lastIndexOf(object.eClass());
 		
 		List<Object> objs = Lists.newArrayList();
-		for (Object obj: getAllEntities().values() )
+		for (EObject obj: allEntities.keySet() )
 		{
 			if (object.eClass().getInstanceClass().isInstance(obj))
 			{
@@ -188,11 +189,13 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	
 	@Override 
 	public EObject getByKey(URI key) {
-		for (Entry<EObject, URI> uri: getAllEntities().entrySet()) {
-			if (key.equals(uri.getValue()))
-				return uri.getKey();
-		}
-		return null;
+		return allEntitiesByURI.get(key);
+		
+//		for (Entry<EObject, URI> uri: allEntities.entrySet()) {
+//			if (key.equals(uri.getValue()))
+//				return uri.getKey();
+//		}
+//		return null;
 	}
 
 	@Override 
@@ -201,7 +204,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		
 		if (entityKey != null) 
 		{
-			if (!getAllEntities().containsKey(entityKey)) 
+			if (!allEntitiesByURI.containsKey(entityKey)) 
 			{
 				add(object);
 			}
@@ -218,7 +221,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		
 		if (entityKey != null) 
 		{
-			if (!getAllEntities().containsKey(entityKey)) 
+			if (!allEntitiesByURI.containsKey(entityKey)) 
 			{
 				put(entityKey, (EObject)object);
 			}
@@ -235,7 +238,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		
 		if (entityKey != null) 
 		{
-			if (getAllEntities().containsKey(entityKey)) 
+			if (allEntitiesByURI.containsKey(entityKey)) 
 			{
 				if (!getDetachEntities().contains(object)) 
 				{
@@ -255,7 +258,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		
 		saveAll(getSaveEntities());
 		
-		for (Object obj: getAllEntities().values()) 
+		for (EObject obj: allEntities.keySet()) 
 		{
 			if (getDeleteEntities().contains(obj)) 
 			{
@@ -269,7 +272,8 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 //			}
 		}
 
-		getAllEntities().clear();
+		allEntities.clear();
+		allEntitiesByURI.clear();
 		getDetachEntities().clear();
 		getDetachEntities().clear();
 		getSaveEntities().clear();
@@ -287,13 +291,13 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		return markAsToSaveEntities;
 	}
 
-	private synchronized Map<EObject, URI> getAllEntities() {
-		return allEntities;
-	}
+//	private synchronized Map<EObject, URI> getAllEntities() {
+//		return allEntities;
+//	}
 
 	@Override
 	public boolean containsKey(URI primaryKey) {
-		return getAllEntities().containsKey(primaryKey);
+		return allEntitiesByURI.containsKey(primaryKey);
 	}
 
 	@Override
