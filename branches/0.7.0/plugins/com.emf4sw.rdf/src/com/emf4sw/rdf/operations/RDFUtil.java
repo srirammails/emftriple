@@ -71,7 +71,9 @@ public class RDFUtil {
 		public Node caseLiteral(Literal object) {
 			final Literal aLiteral = RDFFactory.eINSTANCE.createLiteral();
 			aLiteral.setLexicalForm( object.getLexicalForm() );
-			aLiteral.setDatatype( aGraph.getDatatype(object.getDatatype().getURI()) );
+			if (object.getDatatype() != null) {
+				aLiteral.setDatatype( aGraph.getDatatype(object.getDatatype().getURI()) );
+			}
 			if (object.getLang() != null && !object.getLang().trim().isEmpty()) {
 				aLiteral.setLang( object.getLang() );
 			}
