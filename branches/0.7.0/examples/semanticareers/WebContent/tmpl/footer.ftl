@@ -12,13 +12,21 @@
 		<div class="sticky-main">
    			<div class="container">
 				<div class="header">
-					<a hre="${rootRef}/home"><h1 class="title">Semantic carreers</h1></a>
+					<a hre="${rootRef}/home"><h1 class="title">Semantic careers</h1></a>
+					<div class="menu">
+						<ul>
+							<li><a href="${rootRef}/home">home</a></li>
+							<li><a href="${rootRef}/jobs">job listings</a></li>
+							<li><a href="${rootRef}/add">post a job</a></li>
+						</ul>
+						<br style="clear:left"/>
+					</div>
 				</div>
 			<div class="content">
       			${content}
-      		</div>
+      		</div>      		
       		<div class="footer">
-      
+      		
       		</div>
       	</div>
 	</div>
@@ -172,6 +180,42 @@ h3
 	background-color: #F9F9F9;
 }
 
+.menu
+{
+	width: 100%;
+	background-color: #333; 
+}
+
+.menu ul
+{
+	margin: 0; padding: 0;
+	float: left;
+}
+
+.menu ul li
+{
+	display: inline;
+}
+
+.menu ul li a
+{
+	float: left; text-decoration: none;
+	color: white;
+	padding: 10.5px 11px;
+	background-color: #333; 
+}
+
+.menu ul li a:visited
+{
+	color: white;
+}
+
+.menu ul li a:hover, .menu ul li .current
+{
+	color: #fff;
+	background-color:#0b75b2;
+}
+	
 .content {
 	padding: 15px;
 	padding-top: 15px;
@@ -213,7 +257,7 @@ h3
 
 .searchform
 {
-    float: right;
+    
 }
 
 .searchform label
@@ -329,7 +373,7 @@ div.listitem a.employer
     display:block;
 }
 
-.jobsheader h1.title
+h1.title
 {
     font-size:26px;
     font-weight:bold;

@@ -329,6 +329,15 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPlace_Depiction() {
+		return (EAttribute)placeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JOBFactory getJOBFactory() {
 		return (JOBFactory)getEFactoryInstance();
 	}
@@ -378,6 +387,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		createEAttribute(placeEClass, PLACE__NAME);
 		createEAttribute(placeEClass, PLACE__DESCRIPTION);
 		createEAttribute(placeEClass, PLACE__WIKI_PAGE);
+		createEAttribute(placeEClass, PLACE__DEPICTION);
 	}
 
 	/**
@@ -434,8 +444,9 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 
 		initEClass(placeEClass, Place.class, "Place", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlace_Name(), ecorePackage.getEString(), "name", null, 1, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlace_Description(), ecorePackage.getEString(), "description", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlace_Description(), ecorePackage.getEString(), "description", null, 1, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlace_WikiPage(), ecorePackage.getEString(), "wikiPage", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlace_Depiction(), ecorePackage.getEString(), "depiction", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -478,7 +489,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "name", "http://lod.openlinksw.com/sparql"
-		   });					
+		   });						
 	}
 
 	/**
@@ -512,7 +523,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "uri", "http://dbpedia.org/ontology/City"
-		   });			
+		   });				
 	}
 
 	/**
@@ -540,7 +551,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "base", "http://dbpedia.org/resource/"
-		   });		
+		   });			
 	}
 
 	/**
@@ -556,7 +567,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "strategy", "DEFAULT"
-		   });																				
+		   });																					
 	}
 
 	/**
@@ -646,6 +657,12 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "uri", "http://xmlns.com/foaf/0.1/page"
+		   });		
+		addAnnotation
+		  (getPlace_Depiction(), 
+		   source, 
+		   new String[] {
+			 "uri", "http://xmlns.com/foaf/0.1/depiction"
 		   });
 	}
 

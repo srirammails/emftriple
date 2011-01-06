@@ -27,7 +27,6 @@ class Job {
 
 @DataSet(name="http://lod.openlinksw.com/sparql")
 @Entity(uri="http://dbpedia.org/ontology/Organisation")
-//@Entity(uri="http://cb.semsol.org/ns#Company")
 class Organisation {
    @Id(base="http://dbpedia.org/resource/")
    attr String[1] name;
@@ -65,8 +64,11 @@ class Place {
    attr String[1] name;
    
    @rdf(uri="http://dbpedia.org/ontology/abstract", lang="en")
-   attr String description;
+   attr String[1] description;
    
    @rdf(uri="http://xmlns.com/foaf/0.1/page")
-   attr String wikiPage;
+   attr String[?] wikiPage;
+   
+   @rdf(uri="http://xmlns.com/foaf/0.1/depiction")
+   attr String[?] depiction;
 }

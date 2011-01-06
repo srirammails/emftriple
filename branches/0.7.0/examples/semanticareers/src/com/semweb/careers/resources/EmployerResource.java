@@ -22,6 +22,8 @@ public class EmployerResource extends BaseResource {
 
 	@Put
 	public void storeJob(Representation entity) throws ResourceException {
+		checkTransaction();
+		
 		final Form form = new Form(entity);
 		job = JOBFactory.eINSTANCE.createJob();
 

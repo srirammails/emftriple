@@ -35,13 +35,13 @@ public class JobsResource extends BaseResource {
 		try {
 			if (searchTerm == null && location == null)
 				this.list = 
-					em.createNativeQuery("select ?j where { ?j a <http://www.semweb.com/jobs#Vacancy> }", 
+					em.createNativeQuery("select ?j where { ?j a <http://www.semweb.com/jobs#Job> }", 
 							Job.class).getResultList();
 			else if (searchTerm != null)
 				this.list = 
 					em.createNativeQuery("select ?j " +
 							"where { " +
-							" ?j a <http://www.semweb.com/jobs#Vacancy> ;" +
+							" ?j a <http://www.semweb.com/jobs#Job> ;" +
 							" 	 <http://purl.org/dc/elements/1.1/title> ?name ." +
 							" filter( ?name = ?:val ) " +
 							"}", Job.class)
