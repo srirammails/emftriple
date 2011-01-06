@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link com.semweb.jobs.impl.PlaceImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.PlaceImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.PlaceImpl#getWikiPage <em>Wiki Page</em>}</li>
+ *   <li>{@link com.semweb.jobs.impl.PlaceImpl#getDepiction <em>Depiction</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +92,26 @@ public class PlaceImpl extends EObjectImpl implements Place {
 	 * @ordered
 	 */
 	protected String wikiPage = WIKI_PAGE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDepiction() <em>Depiction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDepiction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEPICTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDepiction() <em>Depiction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDepiction()
+	 * @generated
+	 * @ordered
+	 */
+	protected String depiction = DEPICTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,6 +200,27 @@ public class PlaceImpl extends EObjectImpl implements Place {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDepiction() {
+		return depiction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDepiction(String newDepiction) {
+		String oldDepiction = depiction;
+		depiction = newDepiction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.PLACE__DEPICTION, oldDepiction, depiction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -188,6 +230,8 @@ public class PlaceImpl extends EObjectImpl implements Place {
 				return getDescription();
 			case JOBPackage.PLACE__WIKI_PAGE:
 				return getWikiPage();
+			case JOBPackage.PLACE__DEPICTION:
+				return getDepiction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,6 +252,9 @@ public class PlaceImpl extends EObjectImpl implements Place {
 				return;
 			case JOBPackage.PLACE__WIKI_PAGE:
 				setWikiPage((String)newValue);
+				return;
+			case JOBPackage.PLACE__DEPICTION:
+				setDepiction((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,6 +277,9 @@ public class PlaceImpl extends EObjectImpl implements Place {
 			case JOBPackage.PLACE__WIKI_PAGE:
 				setWikiPage(WIKI_PAGE_EDEFAULT);
 				return;
+			case JOBPackage.PLACE__DEPICTION:
+				setDepiction(DEPICTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -248,6 +298,8 @@ public class PlaceImpl extends EObjectImpl implements Place {
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case JOBPackage.PLACE__WIKI_PAGE:
 				return WIKI_PAGE_EDEFAULT == null ? wikiPage != null : !WIKI_PAGE_EDEFAULT.equals(wikiPage);
+			case JOBPackage.PLACE__DEPICTION:
+				return DEPICTION_EDEFAULT == null ? depiction != null : !DEPICTION_EDEFAULT.equals(depiction);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -268,6 +320,8 @@ public class PlaceImpl extends EObjectImpl implements Place {
 		result.append(description);
 		result.append(", wikiPage: ");
 		result.append(wikiPage);
+		result.append(", depiction: ");
+		result.append(depiction);
 		result.append(')');
 		return result.toString();
 	}

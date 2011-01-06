@@ -297,13 +297,22 @@ public interface JOBPackage extends EPackage {
 	int PLACE__WIKI_PAGE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Depiction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACE__DEPICTION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Place</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE_FEATURE_COUNT = 3;
+	int PLACE_FEATURE_COUNT = 4;
 
 
 	/**
@@ -568,6 +577,17 @@ public interface JOBPackage extends EPackage {
 	EAttribute getPlace_WikiPage();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Place#getDepiction <em>Depiction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Depiction</em>'.
+	 * @see com.semweb.jobs.Place#getDepiction()
+	 * @see #getPlace()
+	 * @generated
+	 */
+	EAttribute getPlace_Depiction();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -786,6 +806,14 @@ public interface JOBPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLACE__WIKI_PAGE = eINSTANCE.getPlace_WikiPage();
+
+		/**
+		 * The meta object literal for the '<em><b>Depiction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLACE__DEPICTION = eINSTANCE.getPlace_Depiction();
 
 	}
 
