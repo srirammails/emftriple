@@ -7,11 +7,16 @@
 package com.semweb.jobs.util;
 
 import com.semweb.jobs.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import com.semweb.jobs.ExternalElement;
+import com.semweb.jobs.JOBPackage;
+import com.semweb.jobs.Job;
+import com.semweb.jobs.Organisation;
+import com.semweb.jobs.Place;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,15 +98,23 @@ public class JOBSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JOBPackage.EXTERNAL_ELEMENT: {
+				ExternalElement externalElement = (ExternalElement)theEObject;
+				T result = caseExternalElement(externalElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JOBPackage.ORGANISATION: {
 				Organisation organisation = (Organisation)theEObject;
 				T result = caseOrganisation(organisation);
+				if (result == null) result = caseExternalElement(organisation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JOBPackage.PLACE: {
 				Place place = (Place)theEObject;
 				T result = casePlace(place);
+				if (result == null) result = caseExternalElement(place);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,6 +134,21 @@ public class JOBSwitch<T> {
 	 * @generated
 	 */
 	public T caseJob(Job object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>External Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>External Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExternalElement(ExternalElement object) {
 		return null;
 	}
 

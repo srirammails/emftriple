@@ -91,3 +91,16 @@ The most successful candidates for this role will have strong analytical and tro
               "HP has a combination of software development positions to participate in an exciting new start-up project for HP Services. We are recruiting Senior and Graduate software engineers and project managers looking to expand their development and career experience on a challenging new initiative."^^<http://www.w3.org/2001/XMLSchema#string> ;
       <http://www.semweb.com/jobs#type>
               "Full Time"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://www.semweb.com/jobs/11>
+      a       <http://www.semweb.com/jobs#Job> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Software Development Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobboard#location>
+              <http://dbpedia.org/resource/San_Francisco> ;
+      <http://www.semweb.com/jobs#organisation>
+              <http://dbpedia.org/resource/Microsoft> ;
+      <http://www.semweb.com/jobs#summary>
+              "Software engineering is a big part of what Microsoft’s all about. Our software engineering profession is a collection of disciplines responsible for designing, developing, and delivering our products. Microsoft's software engineers thrive on simplifying people’s jobs and lives and helping them reach new heights through ever-advancing technologies. Work here and you’re on top of the world of technology, collaborating with brilliant people on projects with the potential for a lasting legacy. Developers (Software Development Engineers – SDEs) write the code—C, C++, C#, and other programming languages—that turns concepts into new technologies and services. We are experts in feature design and feasibility, and we collaborate with program managers and test engineers to define features and ensure quality."^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#type>
+              "Full Time"^^<http://www.w3.org/2001/XMLSchema#string> .

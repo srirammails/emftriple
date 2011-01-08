@@ -7,13 +7,16 @@
 package com.semweb.jobs.util;
 
 import com.semweb.jobs.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import com.semweb.jobs.ExternalElement;
+import com.semweb.jobs.JOBPackage;
+import com.semweb.jobs.Job;
+import com.semweb.jobs.Organisation;
+import com.semweb.jobs.Place;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,6 +79,10 @@ public class JOBAdapterFactory extends AdapterFactoryImpl {
 				return createJobAdapter();
 			}
 			@Override
+			public Adapter caseExternalElement(ExternalElement object) {
+				return createExternalElementAdapter();
+			}
+			@Override
 			public Adapter caseOrganisation(Organisation object) {
 				return createOrganisationAdapter();
 			}
@@ -114,6 +121,20 @@ public class JOBAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJobAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.semweb.jobs.ExternalElement <em>External Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.semweb.jobs.ExternalElement
+	 * @generated
+	 */
+	public Adapter createExternalElementAdapter() {
 		return null;
 	}
 

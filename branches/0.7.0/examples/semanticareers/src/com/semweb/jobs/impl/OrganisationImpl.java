@@ -6,24 +6,19 @@
  */
 package com.semweb.jobs.impl;
 
-import com.semweb.jobs.JOBPackage;
-import com.semweb.jobs.Organisation;
-import com.semweb.jobs.Place;
-
 import java.util.Collection;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import com.semweb.jobs.JOBPackage;
+import com.semweb.jobs.Organisation;
+import com.semweb.jobs.Place;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,61 +27,18 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.semweb.jobs.impl.OrganisationImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.semweb.jobs.impl.OrganisationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.OrganisationImpl#getLogo <em>Logo</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.OrganisationImpl#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.OrganisationImpl#getProducts <em>Products</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.OrganisationImpl#getFormationYear <em>Formation Year</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.OrganisationImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link com.semweb.jobs.impl.OrganisationImpl#getWikiPage <em>Wiki Page</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.OrganisationImpl#getNumEmployees <em>Num Employees</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class OrganisationImpl extends EObjectImpl implements Organisation {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
-
+public class OrganisationImpl extends ExternalElementImpl implements Organisation {
 	/**
 	 * The default value of the '{@link #getLogo() <em>Logo</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -168,26 +120,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 	protected Place location;
 
 	/**
-	 * The default value of the '{@link #getWikiPage() <em>Wiki Page</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWikiPage()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String WIKI_PAGE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getWikiPage() <em>Wiki Page</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWikiPage()
-	 * @generated
-	 * @ordered
-	 */
-	protected String wikiPage = WIKI_PAGE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getNumEmployees() <em>Num Employees</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,48 +156,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 	@Override
 	protected EClass eStaticClass() {
 		return JOBPackage.Literals.ORGANISATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.ORGANISATION__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.ORGANISATION__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -386,27 +276,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getWikiPage() {
-		return wikiPage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWikiPage(String newWikiPage) {
-		String oldWikiPage = wikiPage;
-		wikiPage = newWikiPage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.ORGANISATION__WIKI_PAGE, oldWikiPage, wikiPage));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getNumEmployees() {
 		return numEmployees;
 	}
@@ -431,10 +300,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JOBPackage.ORGANISATION__NAME:
-				return getName();
-			case JOBPackage.ORGANISATION__DESCRIPTION:
-				return getDescription();
 			case JOBPackage.ORGANISATION__LOGO:
 				return getLogo();
 			case JOBPackage.ORGANISATION__REVENUE:
@@ -446,8 +311,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 			case JOBPackage.ORGANISATION__LOCATION:
 				if (resolve) return getLocation();
 				return basicGetLocation();
-			case JOBPackage.ORGANISATION__WIKI_PAGE:
-				return getWikiPage();
 			case JOBPackage.ORGANISATION__NUM_EMPLOYEES:
 				return getNumEmployees();
 		}
@@ -463,12 +326,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JOBPackage.ORGANISATION__NAME:
-				setName((String)newValue);
-				return;
-			case JOBPackage.ORGANISATION__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
 			case JOBPackage.ORGANISATION__LOGO:
 				setLogo((String)newValue);
 				return;
@@ -485,9 +342,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 			case JOBPackage.ORGANISATION__LOCATION:
 				setLocation((Place)newValue);
 				return;
-			case JOBPackage.ORGANISATION__WIKI_PAGE:
-				setWikiPage((String)newValue);
-				return;
 			case JOBPackage.ORGANISATION__NUM_EMPLOYEES:
 				setNumEmployees((String)newValue);
 				return;
@@ -503,12 +357,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JOBPackage.ORGANISATION__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case JOBPackage.ORGANISATION__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
 			case JOBPackage.ORGANISATION__LOGO:
 				setLogo(LOGO_EDEFAULT);
 				return;
@@ -523,9 +371,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 				return;
 			case JOBPackage.ORGANISATION__LOCATION:
 				setLocation((Place)null);
-				return;
-			case JOBPackage.ORGANISATION__WIKI_PAGE:
-				setWikiPage(WIKI_PAGE_EDEFAULT);
 				return;
 			case JOBPackage.ORGANISATION__NUM_EMPLOYEES:
 				setNumEmployees(NUM_EMPLOYEES_EDEFAULT);
@@ -542,10 +387,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JOBPackage.ORGANISATION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case JOBPackage.ORGANISATION__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case JOBPackage.ORGANISATION__LOGO:
 				return LOGO_EDEFAULT == null ? logo != null : !LOGO_EDEFAULT.equals(logo);
 			case JOBPackage.ORGANISATION__REVENUE:
@@ -556,8 +397,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 				return FORMATION_YEAR_EDEFAULT == null ? formationYear != null : !FORMATION_YEAR_EDEFAULT.equals(formationYear);
 			case JOBPackage.ORGANISATION__LOCATION:
 				return location != null;
-			case JOBPackage.ORGANISATION__WIKI_PAGE:
-				return WIKI_PAGE_EDEFAULT == null ? wikiPage != null : !WIKI_PAGE_EDEFAULT.equals(wikiPage);
 			case JOBPackage.ORGANISATION__NUM_EMPLOYEES:
 				return NUM_EMPLOYEES_EDEFAULT == null ? numEmployees != null : !NUM_EMPLOYEES_EDEFAULT.equals(numEmployees);
 		}
@@ -574,11 +413,7 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", description: ");
-		result.append(description);
-		result.append(", logo: ");
+		result.append(" (logo: ");
 		result.append(logo);
 		result.append(", revenue: ");
 		result.append(revenue);
@@ -586,8 +421,6 @@ public class OrganisationImpl extends EObjectImpl implements Organisation {
 		result.append(products);
 		result.append(", formationYear: ");
 		result.append(formationYear);
-		result.append(", wikiPage: ");
-		result.append(wikiPage);
 		result.append(", numEmployees: ");
 		result.append(numEmployees);
 		result.append(')');

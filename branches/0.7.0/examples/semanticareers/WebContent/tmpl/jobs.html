@@ -1,6 +1,6 @@
 <#include "/header.ftl"/>
 <#global content>
-<div class="jobs-content">
+<div id="jobs-content">
 	<div class="main">
 		<div class="jobsheader"><#if jobs??><h1 class="title">${jobs?size!} Jobs</h1></#if>
 		</div>
@@ -23,26 +23,26 @@
 			</#list>
 		</#if>
 		<div>
-		<a href="${rootRef}/jobs.rdf">rdf</a> | <a href="${rootRef}/jobs.ttl">ttl</a>
-	</div>
-	</div>
-	
-	<div class="sidebar">
-		<div class="jobsheader"><#if jobs??><h1 class="title">Search Jobs</h1></#if>
+			<a href="${rootRef}/jobs.rdf">rdf</a> | <a href="${rootRef}/jobs.ttl">ttl</a>
 		</div>
-		<form action="${rootRef}/jobs" class="searchform" method="get">
-			<label for="searchTerm">what</label>
-			<input id="searchTerm" name="searchTerm" placeholder="keyword or company" type="text" value="" title="keyword or company"><br class="clear">
-			<div id="where">
-				<div id="wheremask" style="width: 223px; height: 77px; "></div>
+	</div>
+	<div class="sidebar">
+		<div class="jobsheader">
+			<h1 class="title">search jobs</h1>
+		</div>
+		<div>
+			<form action="${rootRef}/jobs" class="searchform" method="get">
+				<label for="searchTerm">what</label>
+				<input id="searchTerm" name="searchTerm" placeholder="keyword or company" type="text" value="" title="keyword or company">
+				<br class="clear">
 				<label for="location">where</label>
 				<input id="location" name="location" placeholder="city" type="text" value="" title="city">
-			</div>
-			<br class="clear">
-			<a href="${rootRef}/jobs" id="viewall">view all</a>
-			<input type="submit" value="search">
-			<br class="clear">
-		</form>
+				<br class="clear">
+				<a href="${rootRef}/jobs" id="viewall">view all</a>
+				<input type="submit" value="search">
+				<br class="clear">
+			</form>
+		</div>
 	</div>
 </div>
 </#global>

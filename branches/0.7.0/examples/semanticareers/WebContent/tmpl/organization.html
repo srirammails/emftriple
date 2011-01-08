@@ -1,10 +1,19 @@
 <#include "/header.ftl"/>
 <#global content>
-<div class="jobs-content">
+<div id="jobs-content">
 	<div class=main>
 		<div class="jobsheader"><h1 class="title">${company.name}</h1>
 		</div>
 		<div class="item">
+			<#if company.logo??>
+				<img src="${logo}" align="right"></img>
+			</#if>
+			<div class="menu">
+				<ul>
+					<li><p class="description"><a href="http://en.wikipedia.org/wiki/${company.name!}">wikipedia</a></p></li>
+					<li><p class="description"><a href="http://dbpedia.org/page/${company.name!}">see also</a></p></li>
+				</ul>
+			</div>
 			<#if company.location??>
 				<p class="description">located in <a href="${rootRef}/locations/${company.location.name}">${company.location.name}</a></p>
 			</#if>
@@ -23,9 +32,6 @@
 					<p>products : <a href="${p}"> ${p}</a></p>
 				</#list>
 			</#if>
-			<#if company.wikiPage??>
-				<p class="description">wiki page <a href="${company.wikiPage!}"> ${company.wikiPage!}</a></p>
-			</#if>	
 		</div>
 		<div>
 			<a href="${resourceRef}.rdf">rdf</a> | <a href="${resourceRef}.ttl">ttl</a>

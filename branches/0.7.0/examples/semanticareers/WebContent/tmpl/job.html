@@ -1,20 +1,39 @@
 <#include "/header.ftl"/>
 <#global content>
-<div class="jobs-content">
-		<div class=main>
-			<div class="jobsheader"><h1 class="title">${job.title!}</h1>
-			</div>
-			<div class="item">
-				<p class="description">${job.summary?replace(". ", ".</p><p class=\"description\">")!}</p>
-				<br/>
-				<h3>location <a href="${rootRef}/locations/${job.location.name!}">${job.location.name!}</a></h3>
-				<br/>
-				<h3>organisation <a href="${rootRef}/organisations/${job.organisation.name!}">${job.organisation.name!}</a></h3>
-			</div>
-			<div>
-				<a href="${resourceRef}.rdf">rdf</a> | <a href="${resourceRef}.ttl">ttl</a>
-			</div>
+<div id="jobs-content">
+	<div class=main>
+		<div class="jobsheader">
+			<h1 class="title">${job.title!}</h1>
 		</div>
+		<div class="item">
+			<p class="description">${job.summary?replace(". ", ".</p><p class=\"description\">")!}</p>
+			<br/>
+			<h3>location <a href="${rootRef}/locations/${job.location.name!}">${job.location.name!}</a></h3>
+			<br/>
+			<h3>organisation <a href="${rootRef}/organisations/${job.organisation.name!}">${job.organisation.name!}</a></h3>
+		</div>
+		<div>
+			<a href="${resourceRef}.rdf">rdf</a> | <a href="${resourceRef}.ttl">ttl</a>
+		</div>
+	</div>
+	<div class="sidebar">
+		<div class="jobsheader">
+			<h1 class="title">search jobs</h1>
+		</div>
+		<div>
+			<form action="${rootRef}/jobs" class="searchform" method="get">
+				<label for="searchTerm">what</label>
+				<input id="searchTerm" name="searchTerm" placeholder="keyword or company" type="text" value="" title="keyword or company">
+				<br class="clear">
+				<label for="location">where</label>
+				<input id="location" name="location" placeholder="city" type="text" value="" title="city">
+				<br class="clear">
+				<a href="${rootRef}/jobs" id="viewall">view all</a>
+				<input type="submit" value="search">
+				<br class="clear">
+			</form>
+		</div>
+	</div>
 </div>
 </#global>
 <#include "/footer.ftl"/>

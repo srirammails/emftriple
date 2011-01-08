@@ -6,18 +6,18 @@
  */
 package com.semweb.jobs.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import com.semweb.jobs.ExternalElement;
 import com.semweb.jobs.JOBFactory;
 import com.semweb.jobs.JOBPackage;
 import com.semweb.jobs.Job;
 import com.semweb.jobs.Organisation;
 import com.semweb.jobs.Place;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +32,13 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * @generated
 	 */
 	private EClass jobEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass externalElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,6 +210,42 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExternalElement() {
+		return externalElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExternalElement_Name() {
+		return (EAttribute)externalElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExternalElement_Description() {
+		return (EAttribute)externalElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExternalElement_WikiPage() {
+		return (EAttribute)externalElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOrganisation() {
 		return organisationEClass;
 	}
@@ -212,7 +255,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOrganisation_Name() {
+	public EAttribute getOrganisation_Logo() {
 		return (EAttribute)organisationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -221,7 +264,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOrganisation_Description() {
+	public EAttribute getOrganisation_Revenue() {
 		return (EAttribute)organisationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -230,7 +273,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOrganisation_Logo() {
+	public EAttribute getOrganisation_Products() {
 		return (EAttribute)organisationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -239,7 +282,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOrganisation_Revenue() {
+	public EAttribute getOrganisation_FormationYear() {
 		return (EAttribute)organisationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -248,35 +291,8 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOrganisation_Products() {
-		return (EAttribute)organisationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOrganisation_FormationYear() {
-		return (EAttribute)organisationEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getOrganisation_Location() {
-		return (EReference)organisationEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOrganisation_WikiPage() {
-		return (EAttribute)organisationEClass.getEStructuralFeatures().get(7);
+		return (EReference)organisationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -285,7 +301,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * @generated
 	 */
 	public EAttribute getOrganisation_NumEmployees() {
-		return (EAttribute)organisationEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)organisationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -302,7 +318,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlace_Name() {
+	public EAttribute getPlace_Depiction() {
 		return (EAttribute)placeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -311,7 +327,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlace_Description() {
+	public EAttribute getPlace_HomePage() {
 		return (EAttribute)placeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -320,17 +336,8 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlace_WikiPage() {
+	public EAttribute getPlace_Population() {
 		return (EAttribute)placeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlace_Depiction() {
-		return (EAttribute)placeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -372,22 +379,23 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		createEReference(jobEClass, JOB__ORGANISATION);
 		createEReference(jobEClass, JOB__LOCATION);
 
+		externalElementEClass = createEClass(EXTERNAL_ELEMENT);
+		createEAttribute(externalElementEClass, EXTERNAL_ELEMENT__NAME);
+		createEAttribute(externalElementEClass, EXTERNAL_ELEMENT__DESCRIPTION);
+		createEAttribute(externalElementEClass, EXTERNAL_ELEMENT__WIKI_PAGE);
+
 		organisationEClass = createEClass(ORGANISATION);
-		createEAttribute(organisationEClass, ORGANISATION__NAME);
-		createEAttribute(organisationEClass, ORGANISATION__DESCRIPTION);
 		createEAttribute(organisationEClass, ORGANISATION__LOGO);
 		createEAttribute(organisationEClass, ORGANISATION__REVENUE);
 		createEAttribute(organisationEClass, ORGANISATION__PRODUCTS);
 		createEAttribute(organisationEClass, ORGANISATION__FORMATION_YEAR);
 		createEReference(organisationEClass, ORGANISATION__LOCATION);
-		createEAttribute(organisationEClass, ORGANISATION__WIKI_PAGE);
 		createEAttribute(organisationEClass, ORGANISATION__NUM_EMPLOYEES);
 
 		placeEClass = createEClass(PLACE);
-		createEAttribute(placeEClass, PLACE__NAME);
-		createEAttribute(placeEClass, PLACE__DESCRIPTION);
-		createEAttribute(placeEClass, PLACE__WIKI_PAGE);
 		createEAttribute(placeEClass, PLACE__DEPICTION);
+		createEAttribute(placeEClass, PLACE__HOME_PAGE);
+		createEAttribute(placeEClass, PLACE__POPULATION);
 	}
 
 	/**
@@ -418,6 +426,8 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		organisationEClass.getESuperTypes().add(this.getExternalElement());
+		placeEClass.getESuperTypes().add(this.getExternalElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(jobEClass, Job.class, "Job", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -431,22 +441,23 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		initEReference(getJob_Organisation(), this.getOrganisation(), null, "organisation", null, 1, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJob_Location(), this.getPlace(), null, "location", null, 1, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(externalElementEClass, ExternalElement.class, "ExternalElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExternalElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, ExternalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExternalElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, ExternalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExternalElement_WikiPage(), ecorePackage.getEString(), "wikiPage", null, 0, 1, ExternalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(organisationEClass, Organisation.class, "Organisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOrganisation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrganisation_Description(), ecorePackage.getEString(), "description", null, 0, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrganisation_Logo(), ecorePackage.getEString(), "logo", null, 0, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrganisation_Revenue(), ecorePackage.getEString(), "revenue", null, 0, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrganisation_Products(), ecorePackage.getEString(), "products", null, 0, -1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrganisation_FormationYear(), ecorePackage.getEDate(), "formationYear", null, 0, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOrganisation_Location(), this.getPlace(), null, "location", null, 0, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrganisation_WikiPage(), ecorePackage.getEString(), "wikiPage", null, 0, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrganisation_NumEmployees(), ecorePackage.getEString(), "numEmployees", null, 0, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(placeEClass, Place.class, "Place", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPlace_Name(), ecorePackage.getEString(), "name", null, 1, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlace_Description(), ecorePackage.getEString(), "description", null, 1, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlace_WikiPage(), ecorePackage.getEString(), "wikiPage", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlace_Depiction(), ecorePackage.getEString(), "depiction", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlace_HomePage(), ecorePackage.getEString(), "homePage", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlace_Population(), ecorePackage.getEString(), "population", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -477,19 +488,19 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "name", "http://default"
-		   });								
+		   });											
 		addAnnotation
 		  (organisationEClass, 
 		   source, 
 		   new String[] {
 			 "name", "http://lod.openlinksw.com/sparql"
-		   });												
+		   });									
 		addAnnotation
 		  (placeEClass, 
 		   source, 
 		   new String[] {
 			 "name", "http://lod.openlinksw.com/sparql"
-		   });						
+		   });					
 	}
 
 	/**
@@ -505,13 +516,13 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "uri", "http://www.semweb.com/jobs#Job"
-		   });								
+		   });											
 		addAnnotation
 		  (organisationEClass, 
 		   source, 
 		   new String[] {
 			 "uri", "http://dbpedia.org/ontology/Organisation"
-		   });												
+		   });									
 		addAnnotation
 		  (placeEClass, 
 		   source, 
@@ -523,7 +534,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "uri", "http://dbpedia.org/ontology/City"
-		   });				
+		   });			
 	}
 
 	/**
@@ -539,19 +550,13 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "base", "http://www.semweb.com/jobs/"
-		   });								
+		   });						
 		addAnnotation
-		  (getOrganisation_Name(), 
+		  (getExternalElement_Name(), 
 		   source, 
 		   new String[] {
 			 "base", "http://dbpedia.org/resource/"
-		   });													
-		addAnnotation
-		  (getPlace_Name(), 
-		   source, 
-		   new String[] {
-			 "base", "http://dbpedia.org/resource/"
-		   });			
+		   });																
 	}
 
 	/**
@@ -567,7 +572,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "strategy", "DEFAULT"
-		   });																					
+		   });																				
 	}
 
 	/**
@@ -595,14 +600,20 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "uri", "http://www.semweb.com/jobboard#location"
-		   });					
+		   });			
 		addAnnotation
-		  (getOrganisation_Description(), 
+		  (getExternalElement_Description(), 
 		   source, 
 		   new String[] {
 			 "uri", "http://www.w3.org/2000/01/rdf-schema#comment",
 			 "lang", "en"
 		   });		
+		addAnnotation
+		  (getExternalElement_WikiPage(), 
+		   source, 
+		   new String[] {
+			 "uri", "http://xmlns.com/foaf/0.1/page"
+		   });				
 		addAnnotation
 		  (getOrganisation_Logo(), 
 		   source, 
@@ -634,35 +645,28 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 			 "uri", "http://dbpedia.org/ontology/location"
 		   });		
 		addAnnotation
-		  (getOrganisation_WikiPage(), 
-		   source, 
-		   new String[] {
-			 "uri", "http://xmlns.com/foaf/0.1/page"
-		   });		
-		addAnnotation
 		  (getOrganisation_NumEmployees(), 
 		   source, 
 		   new String[] {
 			 "uri", "http://dbpedia.org/property/numEmployees"
-		   });						
-		addAnnotation
-		  (getPlace_Description(), 
-		   source, 
-		   new String[] {
-			 "uri", "http://dbpedia.org/ontology/abstract",
-			 "lang", "en"
-		   });		
-		addAnnotation
-		  (getPlace_WikiPage(), 
-		   source, 
-		   new String[] {
-			 "uri", "http://xmlns.com/foaf/0.1/page"
-		   });		
+		   });					
 		addAnnotation
 		  (getPlace_Depiction(), 
 		   source, 
 		   new String[] {
 			 "uri", "http://xmlns.com/foaf/0.1/depiction"
+		   });		
+		addAnnotation
+		  (getPlace_HomePage(), 
+		   source, 
+		   new String[] {
+			 "uri", "http://xmlns.com/foaf/0.1/homepage"
+		   });		
+		addAnnotation
+		  (getPlace_Population(), 
+		   source, 
+		   new String[] {
+			 "uri", "http://dbpedia.org/ontology/populationTotal"
 		   });
 	}
 

@@ -3,6 +3,8 @@ package com.semweb.careers.resources;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.representation.Representation;
@@ -23,7 +25,7 @@ public class EmployerResource extends BaseResource {
 	@Put
 	public void storeJob(Representation entity) throws ResourceException {
 		checkTransaction();
-		
+
 		final Form form = new Form(entity);
 		job = JOBFactory.eINSTANCE.createJob();
 
@@ -36,25 +38,43 @@ public class EmployerResource extends BaseResource {
 
 		if (title != null && description != null && location != null && 
 				org != null && type != null && functions != null) {
-			
+
 			job.setTitle( title );
 			job.setSummary(description);
 			job.setType(type);
+
+			try {
+				em.getTransaction().begin();
+				Place loc = em.find(Place.class, "http://dbpedia.org/resource/" + location.trim().replaceAll(" ", "_"));
+				if (loc != null)
+					job.setLocation(loc);
+				em.getTransaction().commit();
+			} catch (EntityNotFoundException e) {
+				e.printStackTrace();
+				em.getTransaction().commit();
+			}
 			
-			em.getTransaction().begin();
-			Place loc = 
-				em.find(Place.class, "http://dbpedia.org/resource/" + location.trim().replaceAll(" ", "_"));
-			if (loc != null)
-				job.setLocation(loc);
-			Organisation comp =
-				em.find(Organisation.class, "http://dbpedia.org/resource/" + org.trim().replaceAll(" ", "_"));
-			if (comp != null)
-				job.setOrganisation(comp);
-			
-			em.persist(job);
-			em.flush();
-			
-			em.getTransaction().commit();
+			try {
+				em.getTransaction().begin();
+				Organisation comp = em.find(Organisation.class, "http://dbpedia.org/resource/" + org.trim().replaceAll(" ", "_"));
+				if (comp != null)
+					job.setOrganisation(comp);
+				em.getTransaction().commit();
+			} catch (EntityNotFoundException e) {
+				e.printStackTrace();
+				em.getTransaction().commit();
+			}
+
+			synchronized (job) {
+				try {
+					em.getTransaction().begin();
+					em.persist(job);
+					em.flush();
+					em.getTransaction().commit();
+				} catch (Exception e) {
+					em.getTransaction().rollback();
+				}	
+			}
 		}
 
 		getResponse().redirectSeeOther(getRequest().getRootRef().addSegment("home"));
