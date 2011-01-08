@@ -22,7 +22,8 @@ import com.google.common.collect.Lists;
 
 /**
  * 
- * @author ehilgui
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.7.0
  */
 public class SparqlQueries {
@@ -121,11 +122,11 @@ public class SparqlQueries {
 
 			while(POS < attrs.size()) {
 				List<EStructuralFeature> feats = new ArrayList<EStructuralFeature>();  
-				for (int i=POS; i < MAX; i++)
+				for (int i=POS; i < attrs.size() && i < MAX; i++)
 					feats.add(attrs.get(i));
 				queries.addAll(constructSubject(key, eClass, feats));
 				POS+=MAX;
-				MAX+=MAX; if (MAX >= attrs.size()) MAX = attrs.size();
+				MAX+=MAX; if (MAX > attrs.size()) MAX = attrs.size();
 			}
 		}
 		if (!refs.isEmpty())

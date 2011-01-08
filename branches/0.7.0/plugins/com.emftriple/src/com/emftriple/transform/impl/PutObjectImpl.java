@@ -38,6 +38,7 @@ import com.emf4sw.rdf.vocabulary.RDF;
 import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.transform.PutObject;
+import com.emftriple.util.EntityUtil;
 
 /**
  * 
@@ -74,9 +75,7 @@ public class PutObjectImpl implements PutObject {
 		
 		private final Set<EObject> containedObjects = Collections.synchronizedSet(new HashSet<EObject>());
 
-		Object2RDF() {
-		
-		}
+		Object2RDF() {}
 		
 		private RDFGraph process(EObject aObject, RDFGraph graph) {
 			if (!objectCache.containsKey(aObject)) 
@@ -91,7 +90,8 @@ public class PutObjectImpl implements PutObject {
 
 				for (EStructuralFeature aFeature: aObject.eClass().getEAllStructuralFeatures()) 
 				{
-					if ( !(aFeature.isTransient() || aFeature.isDerived() || aFeature.isVolatile()) ) {
+					if ( !(aFeature.isTransient() || aFeature.isDerived() || aFeature.isVolatile() || 
+							EntityUtil.getId(aObject.eClass()).equals(aFeature)) ) {
 						if (aObject.eIsSet(aFeature)) {
 							Object value = aObject.eGet(aFeature, true);
 

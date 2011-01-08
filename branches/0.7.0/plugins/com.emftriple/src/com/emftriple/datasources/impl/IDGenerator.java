@@ -1,6 +1,5 @@
 package com.emftriple.datasources.impl;
 
-import static com.emftriple.util.EntityUtil.getETripleAnnotation;
 import static com.emftriple.util.Functions.transform;
 
 import java.util.regex.Pattern;
@@ -15,6 +14,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import com.emftriple.resource.ETripleObject;
 import com.emftriple.util.EntityUtil;
 import com.google.common.base.Function;
+import com.google.common.base.Preconditions;
 
 final class IDGenerator {
 	
@@ -26,7 +26,7 @@ final class IDGenerator {
 
 //	private static final String GENERATED_ID = "GeneratedId";
 
-	private static final String COMPOSITE_ID = "CompositeId";
+//	private static final String COMPOSITE_ID = "CompositeId";
 	
 	public static URI getId(Object object) {
 		EntityUtil.checkState(object);
@@ -58,20 +58,20 @@ final class IDGenerator {
 	 * Return the value of object id.
 	 */
 	private static String processId(EObject object, EAttribute id) throws IllegalArgumentException {
+		Preconditions.checkNotNull(id);
+		
+//		if (id == null) 
+//		{
+//			if (getETripleAnnotation(object.eClass(), COMPOSITE_ID) != null) 
+//			{
+//				return processCompositeId(object);
+//			} 
+//			else
+//			{
+//				throw new IllegalArgumentException("Object of type " + object.eClass() + " must declare an Id attribute");
+//			}
+//		}
 		String value = null;
-
-		if (id == null) 
-		{
-			if (getETripleAnnotation(object.eClass(), COMPOSITE_ID) != null) 
-			{
-				return processCompositeId(object);
-			} 
-			else
-			{
-				throw new IllegalArgumentException("Object of type " + object.eClass() + " must declare an Id attribute");
-			}
-		}
-
 		final EAnnotation eAnnotation = EntityUtil.getETripleAnnotation(id, ID);
 		final Boolean annotatedId = eAnnotation != null;
 		final Boolean hasBase = annotatedId ? eAnnotation.getDetails().containsKey(BASE) : false;
@@ -122,20 +122,20 @@ final class IDGenerator {
 //		return generatedIds;
 //	}
 	
-	public static String processCompositeId(EObject object) {
-		final String namespace;
-		
-		if (EntityUtil.getETripleAnnotation(object.eClass(), COMPOSITE_ID).getDetails().containsKey(BASE)) 
-		{
-			namespace = EntityUtil.getETripleAnnotation(object.eClass(), COMPOSITE_ID).getDetails().get(BASE);
-		} 
-		else
-		{
-			namespace = EntityUtil.namespace(object);
-		}
-		
-		return new IdParser(object, object.eClass()).apply(namespace);
-	}
+//	public static String processCompositeId(EObject object) {
+//		final String namespace;
+//		
+//		if (EntityUtil.getETripleAnnotation(object.eClass(), COMPOSITE_ID).getDetails().containsKey(BASE)) 
+//		{
+//			namespace = EntityUtil.getETripleAnnotation(object.eClass(), COMPOSITE_ID).getDetails().get(BASE);
+//		} 
+//		else
+//		{
+//			namespace = EntityUtil.namespace(object);
+//		}
+//		
+//		return new IdParser(object, object.eClass()).apply(namespace);
+//	}
 	
 //	public static String processGeneratedId(EObject object) {
 //		String value = null;

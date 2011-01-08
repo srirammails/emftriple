@@ -48,7 +48,12 @@ public class GetEObjectImpl extends AbstractGetObject implements GetObject {
 
 	@SuppressWarnings("unchecked")
 	public <T> T get(Class<T> entityClass, URI key) {
-		final RDFGraph aGraph = getGraph(entityClass, key);
+		RDFGraph aGraph = null;
+		try {
+			aGraph = getGraph(entityClass, key);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		final Resource subject = aGraph.getResource(key.toString());
 
 		final EClass aClass = mapping.findEClassByRdfType(subject.getTypes());

@@ -32,7 +32,6 @@ import com.google.common.base.Function;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-
 public class EntityUtil {
 	
 	private static final Map<EClass, List<URI>> cache = new HashMap<EClass, List<URI>>();
@@ -176,9 +175,9 @@ public class EntityUtil {
 			return cacheid.get(eClass);
 		}
 		
-		if (eClass.getEAnnotation("CompositeId") != null) {
-			return null;
-		}
+//		if (eClass.getEAnnotation("CompositeId") != null) {
+//			return null;
+//		}
 		
 		EAttribute theId = eClass.getEIDAttribute();
 		if (theId != null) {

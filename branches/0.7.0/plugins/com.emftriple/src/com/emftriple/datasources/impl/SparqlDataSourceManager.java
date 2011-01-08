@@ -102,8 +102,9 @@ public class SparqlDataSourceManager implements DataSourceManager {
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
 		resource.getContents().add(aGraph);
 		
-		for (DataSource dataSource: dataSources)
+		for (DataSource dataSource: dataSources) {
 			dataSource.constructQuery(aQuery, aGraph);
+		}
 		
 		return aGraph;
 	}

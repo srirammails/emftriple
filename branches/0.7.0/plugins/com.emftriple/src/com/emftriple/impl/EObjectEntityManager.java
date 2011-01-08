@@ -44,7 +44,7 @@ import com.emftriple.util.SparqlQueries;
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
- * @version 0.6.1
+ * @version 0.3
  * @see EntityManager
  */
 public class EObjectEntityManager extends AbstractEntityManager implements EntityManager {
