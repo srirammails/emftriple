@@ -1,0 +1,14 @@
+@Spec {
+	metamodel "http://tests/a" {
+		nsUri: "http://tests/a"
+	}
+}
+
+package  {
+	A "foo" {
+		name: "foo"
+	}
+	A "bar" {
+		name: "bar"
+	}
+}

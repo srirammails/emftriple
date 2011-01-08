@@ -1,0 +1,34 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore#">
+  <owl:Ontology rdf:about="http://tests/c">
+    <rdfs:label>c</rdfs:label>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://tests/c#Bar">
+    <rdfs:label>Bar</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://tests/c#Foo">
+    <rdfs:label>Foo</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://tests/c#AbstractClass">
+    <rdfs:label>AbstractClass</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://tests/c#foos">
+    <rdfs:label>foos</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://tests/c#bar">
+    <rdfs:label>bar</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://tests/c#name">
+    <rdfs:label>name</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://tests/c#value">
+    <rdfs:label>value</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://tests/c#description">
+    <rdfs:label>description</rdfs:label>
+  </owl:DatatypeProperty>
+</rdf:RDF>
