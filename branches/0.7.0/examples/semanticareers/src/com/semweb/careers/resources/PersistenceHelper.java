@@ -13,9 +13,6 @@ public class PersistenceHelper {
 	private final static EntityManagerFactory emf;
 
 	static {
-		System.setProperty("http.proxyHost", "www-proxy.ericsson.se");
-		System.setProperty("http.proxyPort", "8080");
-
 		EPackage.Registry.INSTANCE.put(JOBPackage.eNS_URI, JOBPackage.eINSTANCE);
 		
 		emf = Persistence.createEntityManagerFactory("jobs");
