@@ -6,15 +6,17 @@
  */
 package com.semweb.jobs.impl;
 
-import com.semweb.jobs.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import com.semweb.jobs.JOBFactory;
+import com.semweb.jobs.JOBPackage;
+import com.semweb.jobs.Job;
+import com.semweb.jobs.Organisation;
+import com.semweb.jobs.Place;
 
 /**
  * <!-- begin-user-doc -->

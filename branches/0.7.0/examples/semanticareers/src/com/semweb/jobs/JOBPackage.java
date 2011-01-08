@@ -160,14 +160,14 @@ public interface JOBPackage extends EPackage {
 	int JOB_FEATURE_COUNT = 9;
 
 	/**
-	 * The meta object id for the '{@link com.semweb.jobs.impl.OrganisationImpl <em>Organisation</em>}' class.
+	 * The meta object id for the '{@link com.semweb.jobs.impl.ExternalElementImpl <em>External Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.semweb.jobs.impl.OrganisationImpl
-	 * @see com.semweb.jobs.impl.JOBPackageImpl#getOrganisation()
+	 * @see com.semweb.jobs.impl.ExternalElementImpl
+	 * @see com.semweb.jobs.impl.JOBPackageImpl#getExternalElement()
 	 * @generated
 	 */
-	int ORGANISATION = 1;
+	int EXTERNAL_ELEMENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -176,7 +176,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANISATION__NAME = 0;
+	int EXTERNAL_ELEMENT__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -185,52 +185,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANISATION__DESCRIPTION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Logo</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANISATION__LOGO = 2;
-
-	/**
-	 * The feature id for the '<em><b>Revenue</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANISATION__REVENUE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Products</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANISATION__PRODUCTS = 4;
-
-	/**
-	 * The feature id for the '<em><b>Formation Year</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANISATION__FORMATION_YEAR = 5;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANISATION__LOCATION = 6;
+	int EXTERNAL_ELEMENT__DESCRIPTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Wiki Page</b></em>' attribute.
@@ -239,7 +194,98 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANISATION__WIKI_PAGE = 7;
+	int EXTERNAL_ELEMENT__WIKI_PAGE = 2;
+
+	/**
+	 * The number of structural features of the '<em>External Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_ELEMENT_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link com.semweb.jobs.impl.OrganisationImpl <em>Organisation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.semweb.jobs.impl.OrganisationImpl
+	 * @see com.semweb.jobs.impl.JOBPackageImpl#getOrganisation()
+	 * @generated
+	 */
+	int ORGANISATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__NAME = EXTERNAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__DESCRIPTION = EXTERNAL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Wiki Page</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__WIKI_PAGE = EXTERNAL_ELEMENT__WIKI_PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Logo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__LOGO = EXTERNAL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Revenue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__REVENUE = EXTERNAL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Products</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__PRODUCTS = EXTERNAL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Formation Year</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__FORMATION_YEAR = EXTERNAL_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__LOCATION = EXTERNAL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Num Employees</b></em>' attribute.
@@ -248,7 +294,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANISATION__NUM_EMPLOYEES = 8;
+	int ORGANISATION__NUM_EMPLOYEES = EXTERNAL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Organisation</em>' class.
@@ -257,7 +303,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANISATION_FEATURE_COUNT = 9;
+	int ORGANISATION_FEATURE_COUNT = EXTERNAL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.semweb.jobs.impl.PlaceImpl <em>Place</em>}' class.
@@ -267,7 +313,7 @@ public interface JOBPackage extends EPackage {
 	 * @see com.semweb.jobs.impl.JOBPackageImpl#getPlace()
 	 * @generated
 	 */
-	int PLACE = 2;
+	int PLACE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -276,7 +322,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE__NAME = 0;
+	int PLACE__NAME = EXTERNAL_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -285,7 +331,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE__DESCRIPTION = 1;
+	int PLACE__DESCRIPTION = EXTERNAL_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Wiki Page</b></em>' attribute.
@@ -294,7 +340,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE__WIKI_PAGE = 2;
+	int PLACE__WIKI_PAGE = EXTERNAL_ELEMENT__WIKI_PAGE;
 
 	/**
 	 * The feature id for the '<em><b>Depiction</b></em>' attribute.
@@ -303,7 +349,25 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE__DEPICTION = 3;
+	int PLACE__DEPICTION = EXTERNAL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Home Page</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACE__HOME_PAGE = EXTERNAL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Population</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACE__POPULATION = EXTERNAL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Place</em>' class.
@@ -312,7 +376,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE_FEATURE_COUNT = 4;
+	int PLACE_FEATURE_COUNT = EXTERNAL_ELEMENT_FEATURE_COUNT + 3;
 
 
 	/**
@@ -425,6 +489,49 @@ public interface JOBPackage extends EPackage {
 	EReference getJob_Location();
 
 	/**
+	 * Returns the meta object for class '{@link com.semweb.jobs.ExternalElement <em>External Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>External Element</em>'.
+	 * @see com.semweb.jobs.ExternalElement
+	 * @generated
+	 */
+	EClass getExternalElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.semweb.jobs.ExternalElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.semweb.jobs.ExternalElement#getName()
+	 * @see #getExternalElement()
+	 * @generated
+	 */
+	EAttribute getExternalElement_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.semweb.jobs.ExternalElement#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.semweb.jobs.ExternalElement#getDescription()
+	 * @see #getExternalElement()
+	 * @generated
+	 */
+	EAttribute getExternalElement_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.semweb.jobs.ExternalElement#getWikiPage <em>Wiki Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Wiki Page</em>'.
+	 * @see com.semweb.jobs.ExternalElement#getWikiPage()
+	 * @see #getExternalElement()
+	 * @generated
+	 */
+	EAttribute getExternalElement_WikiPage();
+
+	/**
 	 * Returns the meta object for class '{@link com.semweb.jobs.Organisation <em>Organisation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,28 +540,6 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOrganisation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Organisation#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.semweb.jobs.Organisation#getName()
-	 * @see #getOrganisation()
-	 * @generated
-	 */
-	EAttribute getOrganisation_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Organisation#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.semweb.jobs.Organisation#getDescription()
-	 * @see #getOrganisation()
-	 * @generated
-	 */
-	EAttribute getOrganisation_Description();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Organisation#getLogo <em>Logo</em>}'.
@@ -512,17 +597,6 @@ public interface JOBPackage extends EPackage {
 	EReference getOrganisation_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Organisation#getWikiPage <em>Wiki Page</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Wiki Page</em>'.
-	 * @see com.semweb.jobs.Organisation#getWikiPage()
-	 * @see #getOrganisation()
-	 * @generated
-	 */
-	EAttribute getOrganisation_WikiPage();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Organisation#getNumEmployees <em>Num Employees</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -544,39 +618,6 @@ public interface JOBPackage extends EPackage {
 	EClass getPlace();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Place#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.semweb.jobs.Place#getName()
-	 * @see #getPlace()
-	 * @generated
-	 */
-	EAttribute getPlace_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Place#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.semweb.jobs.Place#getDescription()
-	 * @see #getPlace()
-	 * @generated
-	 */
-	EAttribute getPlace_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Place#getWikiPage <em>Wiki Page</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Wiki Page</em>'.
-	 * @see com.semweb.jobs.Place#getWikiPage()
-	 * @see #getPlace()
-	 * @generated
-	 */
-	EAttribute getPlace_WikiPage();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Place#getDepiction <em>Depiction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -586,6 +627,28 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlace_Depiction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Place#getHomePage <em>Home Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Home Page</em>'.
+	 * @see com.semweb.jobs.Place#getHomePage()
+	 * @see #getPlace()
+	 * @generated
+	 */
+	EAttribute getPlace_HomePage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Place#getPopulation <em>Population</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Population</em>'.
+	 * @see com.semweb.jobs.Place#getPopulation()
+	 * @see #getPlace()
+	 * @generated
+	 */
+	EAttribute getPlace_Population();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -692,6 +755,40 @@ public interface JOBPackage extends EPackage {
 		EReference JOB__LOCATION = eINSTANCE.getJob_Location();
 
 		/**
+		 * The meta object literal for the '{@link com.semweb.jobs.impl.ExternalElementImpl <em>External Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.semweb.jobs.impl.ExternalElementImpl
+		 * @see com.semweb.jobs.impl.JOBPackageImpl#getExternalElement()
+		 * @generated
+		 */
+		EClass EXTERNAL_ELEMENT = eINSTANCE.getExternalElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTERNAL_ELEMENT__NAME = eINSTANCE.getExternalElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTERNAL_ELEMENT__DESCRIPTION = eINSTANCE.getExternalElement_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Wiki Page</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTERNAL_ELEMENT__WIKI_PAGE = eINSTANCE.getExternalElement_WikiPage();
+
+		/**
 		 * The meta object literal for the '{@link com.semweb.jobs.impl.OrganisationImpl <em>Organisation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -700,22 +797,6 @@ public interface JOBPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ORGANISATION = eINSTANCE.getOrganisation();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ORGANISATION__NAME = eINSTANCE.getOrganisation_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ORGANISATION__DESCRIPTION = eINSTANCE.getOrganisation_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Logo</b></em>' attribute feature.
@@ -758,14 +839,6 @@ public interface JOBPackage extends EPackage {
 		EReference ORGANISATION__LOCATION = eINSTANCE.getOrganisation_Location();
 
 		/**
-		 * The meta object literal for the '<em><b>Wiki Page</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ORGANISATION__WIKI_PAGE = eINSTANCE.getOrganisation_WikiPage();
-
-		/**
 		 * The meta object literal for the '<em><b>Num Employees</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -784,36 +857,28 @@ public interface JOBPackage extends EPackage {
 		EClass PLACE = eINSTANCE.getPlace();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLACE__NAME = eINSTANCE.getPlace_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLACE__DESCRIPTION = eINSTANCE.getPlace_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Wiki Page</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLACE__WIKI_PAGE = eINSTANCE.getPlace_WikiPage();
-
-		/**
 		 * The meta object literal for the '<em><b>Depiction</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute PLACE__DEPICTION = eINSTANCE.getPlace_Depiction();
+
+		/**
+		 * The meta object literal for the '<em><b>Home Page</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLACE__HOME_PAGE = eINSTANCE.getPlace_HomePage();
+
+		/**
+		 * The meta object literal for the '<em><b>Population</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLACE__POPULATION = eINSTANCE.getPlace_Population();
 
 	}
 

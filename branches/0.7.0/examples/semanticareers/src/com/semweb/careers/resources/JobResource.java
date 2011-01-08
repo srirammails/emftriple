@@ -3,6 +3,8 @@ package com.semweb.careers.resources;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.restlet.data.MediaType;
 import org.restlet.representation.Representation;
 import org.restlet.representation.Variant;
@@ -22,15 +24,15 @@ public class JobResource extends BaseResource {
 
 		final String jobId = (String) getRequestAttributes().get("jobId");
 		if (jobId != null) {
-			em.getTransaction().begin();
 			try {
+				em.getTransaction().begin();
 				job = em.find(Job.class, "http://www.semweb.com/jobs/" + jobId);
 				em.getTransaction().commit();
-			} catch (Exception e) {
+			} catch (EntityNotFoundException e) {
 				e.printStackTrace();
-				em.getTransaction().rollback();	
+				em.getTransaction().commit();	
 			} finally {
-
+				
 			}
 		}
 	}
@@ -46,12 +48,12 @@ public class JobResource extends BaseResource {
 	}
 
 	@Get("rdf")
-	public Representation toRdf() throws ResourceException {
+	public Representation toRdf(Variant variant) throws ResourceException {
 		return ETripleRestletUtil.getRepresentation(job, em, MediaType.APPLICATION_RDF_XML);
 	}
 	
 	@Get("ttl")
-	public Representation toTTL() throws ResourceException {
+	public Representation toTTL(Variant variant) throws ResourceException {
 		return ETripleRestletUtil.getRepresentation(job, em, MediaType.APPLICATION_RDF_TURTLE);
 	}
 }

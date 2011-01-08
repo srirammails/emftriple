@@ -10,8 +10,6 @@ import java.util.Date;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Organisation</b></em>'.
@@ -20,14 +18,11 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.semweb.jobs.Organisation#getName <em>Name</em>}</li>
- *   <li>{@link com.semweb.jobs.Organisation#getDescription <em>Description</em>}</li>
  *   <li>{@link com.semweb.jobs.Organisation#getLogo <em>Logo</em>}</li>
  *   <li>{@link com.semweb.jobs.Organisation#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link com.semweb.jobs.Organisation#getProducts <em>Products</em>}</li>
  *   <li>{@link com.semweb.jobs.Organisation#getFormationYear <em>Formation Year</em>}</li>
  *   <li>{@link com.semweb.jobs.Organisation#getLocation <em>Location</em>}</li>
- *   <li>{@link com.semweb.jobs.Organisation#getWikiPage <em>Wiki Page</em>}</li>
  *   <li>{@link com.semweb.jobs.Organisation#getNumEmployees <em>Num Employees</em>}</li>
  * </ul>
  * </p>
@@ -37,60 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *        annotation="Entity uri='http://dbpedia.org/ontology/Organisation'"
  * @generated
  */
-public interface Organisation extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.semweb.jobs.JOBPackage#getOrganisation_Name()
-	 * @model required="true"
-	 *        annotation="Id base='http://dbpedia.org/resource/'"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link com.semweb.jobs.Organisation#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see com.semweb.jobs.JOBPackage#getOrganisation_Description()
-	 * @model annotation="rdf uri='http://www.w3.org/2000/01/rdf-schema#comment' lang='en'"
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link com.semweb.jobs.Organisation#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
-
+public interface Organisation extends ExternalElement {
 	/**
 	 * Returns the value of the '<em><b>Logo</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -210,32 +152,6 @@ public interface Organisation extends EObject {
 	 * @generated
 	 */
 	void setLocation(Place value);
-
-	/**
-	 * Returns the value of the '<em><b>Wiki Page</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Wiki Page</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wiki Page</em>' attribute.
-	 * @see #setWikiPage(String)
-	 * @see com.semweb.jobs.JOBPackage#getOrganisation_WikiPage()
-	 * @model annotation="rdf uri='http://xmlns.com/foaf/0.1/page'"
-	 * @generated
-	 */
-	String getWikiPage();
-
-	/**
-	 * Sets the value of the '{@link com.semweb.jobs.Organisation#getWikiPage <em>Wiki Page</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wiki Page</em>' attribute.
-	 * @see #getWikiPage()
-	 * @generated
-	 */
-	void setWikiPage(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Num Employees</b></em>' attribute.

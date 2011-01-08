@@ -40,6 +40,8 @@ public class OrganisationResource extends BaseResource {
 	public Representation toHtml(Variant variant) throws ResourceException {
 		final Map<String, Object> dataModel = new TreeMap<String, Object>();
 		dataModel.put("company", this.company);
+		String logo = "http://en.wikipedia.org/wiki/File:" + this.company.getLogo().split("/")[company.getLogo().split("/").length-1];
+		dataModel.put("logo", logo);
 		dataModel.put("resourceRef", getRequest().getResourceRef());
 		dataModel.put("rootRef", getRequest().getRootRef());
 		

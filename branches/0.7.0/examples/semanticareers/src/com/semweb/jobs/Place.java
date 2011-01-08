@@ -6,7 +6,6 @@
  */
 package com.semweb.jobs;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,10 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.semweb.jobs.Place#getName <em>Name</em>}</li>
- *   <li>{@link com.semweb.jobs.Place#getDescription <em>Description</em>}</li>
- *   <li>{@link com.semweb.jobs.Place#getWikiPage <em>Wiki Page</em>}</li>
  *   <li>{@link com.semweb.jobs.Place#getDepiction <em>Depiction</em>}</li>
+ *   <li>{@link com.semweb.jobs.Place#getHomePage <em>Home Page</em>}</li>
+ *   <li>{@link com.semweb.jobs.Place#getPopulation <em>Population</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,87 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *        annotation="Entity uri='http://dbpedia.org/ontology/City'"
  * @generated
  */
-public interface Place extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.semweb.jobs.JOBPackage#getPlace_Name()
-	 * @model required="true"
-	 *        annotation="Id base='http://dbpedia.org/resource/'"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link com.semweb.jobs.Place#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see com.semweb.jobs.JOBPackage#getPlace_Description()
-	 * @model required="true"
-	 *        annotation="rdf uri='http://dbpedia.org/ontology/abstract' lang='en'"
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link com.semweb.jobs.Place#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Wiki Page</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Wiki Page</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wiki Page</em>' attribute.
-	 * @see #setWikiPage(String)
-	 * @see com.semweb.jobs.JOBPackage#getPlace_WikiPage()
-	 * @model annotation="rdf uri='http://xmlns.com/foaf/0.1/page'"
-	 * @generated
-	 */
-	String getWikiPage();
-
-	/**
-	 * Sets the value of the '{@link com.semweb.jobs.Place#getWikiPage <em>Wiki Page</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wiki Page</em>' attribute.
-	 * @see #getWikiPage()
-	 * @generated
-	 */
-	void setWikiPage(String value);
-
+public interface Place extends ExternalElement {
 	/**
 	 * Returns the value of the '<em><b>Depiction</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -135,5 +53,57 @@ public interface Place extends EObject {
 	 * @generated
 	 */
 	void setDepiction(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Home Page</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Home Page</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Home Page</em>' attribute.
+	 * @see #setHomePage(String)
+	 * @see com.semweb.jobs.JOBPackage#getPlace_HomePage()
+	 * @model annotation="rdf uri='http://xmlns.com/foaf/0.1/homepage'"
+	 * @generated
+	 */
+	String getHomePage();
+
+	/**
+	 * Sets the value of the '{@link com.semweb.jobs.Place#getHomePage <em>Home Page</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Home Page</em>' attribute.
+	 * @see #getHomePage()
+	 * @generated
+	 */
+	void setHomePage(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Population</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Population</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Population</em>' attribute.
+	 * @see #setPopulation(String)
+	 * @see com.semweb.jobs.JOBPackage#getPlace_Population()
+	 * @model annotation="rdf uri='http://dbpedia.org/ontology/populationTotal'"
+	 * @generated
+	 */
+	String getPopulation();
+
+	/**
+	 * Sets the value of the '{@link com.semweb.jobs.Place#getPopulation <em>Population</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Population</em>' attribute.
+	 * @see #getPopulation()
+	 * @generated
+	 */
+	void setPopulation(String value);
 
 } // Place

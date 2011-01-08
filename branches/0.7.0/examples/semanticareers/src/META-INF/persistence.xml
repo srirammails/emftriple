@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://www.emftriple.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	
+	<persistence-unit name="jobs">
+		<package>http://www.semweb.com/jobs#</package>
+		
+		<datasources>
+			<datasource name="http://default">
+				<factory>com.emftriple.jena.JenaDataSourceFactory</factory>
+				<class>com.emftriple.jena.JenaFile</class>
+				<url>WebContent/data/data.ttl</url>
+			</datasource>
+			<datasource name="http://lod.openlinksw.com/sparql">
+				<factory>com.emftriple.jena.JenaDataSourceFactory</factory>
+				<class>com.emftriple.jena.JenaService</class>
+				<url>http://lod.openlinksw.com/sparql</url>
+			</datasource>
+		</datasources>
+	</persistence-unit>
+	
+</persistence>

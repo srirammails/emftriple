@@ -25,14 +25,20 @@ class Job {
    ref Place[1] location;
 }
 
-@DataSet(name="http://lod.openlinksw.com/sparql")
-@Entity(uri="http://dbpedia.org/ontology/Organisation")
-class Organisation {
+abstract class ExternalElement {
    @Id(base="http://dbpedia.org/resource/")
    attr String[1] name;
    
    @rdf(uri="http://www.w3.org/2000/01/rdf-schema#comment", lang="en")
    attr String description;
+   
+   @rdf(uri="http://xmlns.com/foaf/0.1/page")
+   attr String wikiPage;
+} 
+
+@DataSet(name="http://lod.openlinksw.com/sparql")
+@Entity(uri="http://dbpedia.org/ontology/Organisation")
+class Organisation extends ExternalElement {
    
    @rdf(uri="http://dbpedia.org/property/companyLogo")
    attr String logo;
@@ -49,9 +55,6 @@ class Organisation {
    @rdf(uri="http://dbpedia.org/ontology/location")
    ref Place location;
    
-   @rdf(uri="http://xmlns.com/foaf/0.1/page")
-   attr String wikiPage;
-   
    @rdf(uri="http://dbpedia.org/property/numEmployees")
    attr String numEmployees;
 }
@@ -59,16 +62,14 @@ class Organisation {
 @DataSet(name="http://lod.openlinksw.com/sparql")
 @Entity(uri="http://dbpedia.org/ontology/Place")
 @Entity(uri="http://dbpedia.org/ontology/City")
-class Place {
-   @Id(base="http://dbpedia.org/resource/")
-   attr String[1] name;
-   
-   @rdf(uri="http://dbpedia.org/ontology/abstract", lang="en")
-   attr String[1] description;
-   
-   @rdf(uri="http://xmlns.com/foaf/0.1/page")
-   attr String[?] wikiPage;
+class Place extends ExternalElement {
    
    @rdf(uri="http://xmlns.com/foaf/0.1/depiction")
    attr String[?] depiction;
+   
+   @rdf(uri="http://xmlns.com/foaf/0.1/homepage")
+   attr String[?] homePage;
+   
+   @rdf(uri="http://dbpedia.org/ontology/populationTotal")
+   attr String[?] population;
 }

@@ -11,11 +11,11 @@ import org.restlet.resource.Directory;
 import org.restlet.routing.Redirector;
 import org.restlet.routing.Router;
 
-import com.semweb.careers.resources.OrganisationResource;
 import com.semweb.careers.resources.EmployerResource;
 import com.semweb.careers.resources.HomeResource;
 import com.semweb.careers.resources.JobResource;
 import com.semweb.careers.resources.JobsResource;
+import com.semweb.careers.resources.OrganisationResource;
 import com.semweb.careers.resources.PlaceResource;
 
 import freemarker.template.Configuration;

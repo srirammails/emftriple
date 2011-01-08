@@ -22,13 +22,13 @@ public class PlaceResource extends BaseResource {
 		
         final String locId = (String) getRequestAttributes().get("locId");
         if (locId != null) {
-        	em.getTransaction().begin();
         	try {
+        		em.getTransaction().begin();
         		location = em.find(Place.class, "http://dbpedia.org/resource/" + locId);
         		em.getTransaction().commit();
         	} catch (Exception e) {
     			e.printStackTrace();
-    			em.getTransaction().rollback();	
+    			em.getTransaction().commit();	
     		} finally {
     			
     		}
