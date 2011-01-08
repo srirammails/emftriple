@@ -149,7 +149,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 			{
 				EAttribute attrId = EntityUtil.getId(object.eClass());				
 				if (object.eIsSet(attrId)) {
-					String base = attrId.getEAnnotation("GenereatedId").getDetails().get("base");
+					String base = EntityUtil.getETripleAnnotation(attrId, "Id").getDetails().get("base");
 					entityKey = base != null ? EntityUtil.URI(base + object.eGet(attrId)) : EntityUtil.URI(object.eGet(attrId)); 
 				}
 				entityKey = generateId(object);
@@ -182,7 +182,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 	private boolean isGeneratedId(EObject object) {
 		final EAttribute attr = EntityUtil.getId(object.eClass());
-		final EAnnotation ann = attr.getEAnnotation("GeneratedId");
+		final EAnnotation ann = attr.getEAnnotation(ID.GENERATED_ID);
 				
 		return ann != null;
 	}
@@ -315,7 +315,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	
 	private static final class ID {
 		
-		private static final String GENERATED_ID = "GeneratedId";
+		private static final String GENERATED_ID = "GeneratedValue";
 		
 		static URI id(EObject object) { 
 			return IDGenerator.getId(object); 
@@ -327,9 +327,9 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 			
 			EAttribute attr = EntityUtil.getId(object.eClass());
 
-			if (attr.getEAnnotation(GENERATED_ID).getDetails().containsKey(IDGenerator.BASE)) 
+			if (EntityUtil.getETripleAnnotation(attr, "Id").getDetails().containsKey(IDGenerator.BASE)) 
 			{
-				namespace = attr.getEAnnotation(GENERATED_ID).getDetails().get(IDGenerator.BASE);
+				namespace = EntityUtil.getETripleAnnotation(attr, "Id").getDetails().get(IDGenerator.BASE);
 			}
 			else
 			{

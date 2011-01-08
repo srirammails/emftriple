@@ -7,22 +7,21 @@
  */
 package com.emftriple.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Resource;
 import com.emftriple.Mapping;
-import com.emftriple.config.persistence.Property;
 import com.emftriple.util.EntityUtil;
 import com.google.common.collect.Maps;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
 /**
  * {@link EAnnotationMapping} stores correspondances between model and ontology classes 
@@ -41,11 +40,9 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 	
 	protected Map<Class<?>, EClass> mappedClasses;
 
-	public EAnnotationMapping(List<EPackage> packages) {
-		this(packages, new ArrayList<Property>());
-	}
-	
-	public EAnnotationMapping(List<EPackage> packages, List<Property> properties) {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Inject
+	public EAnnotationMapping(@Named("Packages") List packages, @Named("Properties") List properties) {
 		super(packages, properties);
 		this.rdfTypeMap = Maps.newHashMap();
 		this.featureMap = Maps.newHashMap();
@@ -64,21 +61,6 @@ public class EAnnotationMapping extends AbstractMapping implements Mapping {
 			{
 				mappedClasses.put(c, eClass);
 			}
-			
-//			EAnnotation namedQueryAnn = EntityUtil.getETripleAnnotation(eClass, "NamedQuery");
-//			if (namedQueryAnn != null)
-//			{
-//				String name = namedQueryAnn.getDetails().get("name");
-//				String queryString = namedQueryAnn.getDetails().get("queryString");
-//				if (name != null && queryString != null)
-//				{
-//					SelectStatement q = MQueryBuilder.getSelect(queryString);
-//					if (q != null)
-//					{
-//						namedQueries.put(name, q);
-//					}	
-//				}
-//			}
 			
 			for (EStructuralFeature eFeature: eClass.getEStructuralFeatures()) 
 			{
