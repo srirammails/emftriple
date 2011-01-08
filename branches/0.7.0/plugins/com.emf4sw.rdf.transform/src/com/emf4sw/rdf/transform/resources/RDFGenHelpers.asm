@@ -6,7 +6,7 @@
 		<constant value="A"/>
 		<constant value="self"/>
 		<constant value="getGraph"/>
-		<constant value="Mecore!EClass;"/>
+		<constant value="MModel!EClass;"/>
 		<constant value="Sequence"/>
 		<constant value="#native"/>
 		<constant value="0"/>
@@ -110,7 +110,7 @@
 		<constant value="annotated"/>
 		<constant value="features"/>
 		<constant value="getIdBase"/>
-		<constant value="Mecore!EAnnotation;"/>
+		<constant value="MModel!EAnnotation;"/>
 		<constant value="J"/>
 		<constant value="base"/>
 		<constant value="8"/>
@@ -138,7 +138,7 @@
 		<constant value="35:2-37:26"/>
 		<constant value="class"/>
 		<constant value="hasIdAnnotation"/>
-		<constant value="Mecore!EStructuralFeature;"/>
+		<constant value="MModel!EStructuralFeature;"/>
 		<constant value="Id"/>
 		<constant value="B.or(B):B"/>
 		<constant value="40:2-40:6"/>

@@ -8,6 +8,9 @@ create OUT:RDF from IN:Model;
 
 uses RDFHelpers;
 
+helper context OclAny def: eTypes(): Set(String) = 
+	Set{self.eClass().getURI(), self.eClass().eAllSuperTypes->collect(e | e.getURI())}->flatten().debug('tt');
+
 --@owl.AllValuesFrom(from="http://www.example.com/Employee#Employee")
 --	@emf4sw.foreach(
 --  		var="@it",
@@ -22,19 +25,23 @@ rule EObject2Node {
 		features: Sequence(OclAny) = e.getFeatures();
 		g: String = e.eClass().getGraph();
 		annotations: Set(Model!EAnnotation) = e.eClass().getEAnnotations();
-		types: Set(Model!EAnnotation) = annotations->select(a | a.source = 'emf4sw.OWLClass').debug('types');
+		types: Set(Model!EAnnotation) = annotations->select(a | a.source.contains('OWLClass')).debug('types');
 	}
 	to	
 		r: RDF!Resource (
 			URI <- e.getRdfId()
 		,	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
 		,	subjectOf <- Sequence {
-				types->collect(t | 
-					thisModule.MakeTripleWithURI(e, 
-						thisModule.RDF + 'type', 
-						t.details.get('uri'),
-						e.eClass().getGraph())
-				),
+				if (types.isEmpty()) then
+					e.eTypes()->collect(t | 
+					thisModule.MakeTripleWithURI(e, thisModule.RDF + 'type', t, e.eClass().getGraph()))
+				else
+					types->collect(t | 
+						thisModule.MakeTripleWithURI(e, 
+							thisModule.RDF + 'type', 
+							t.details.get('uri'),
+							e.eClass().getGraph()))
+				endif,
 				features->collect(f |
 					let 
 						val: Sequence(OclAny) = thisModule.set( e.eGet(f) ) 

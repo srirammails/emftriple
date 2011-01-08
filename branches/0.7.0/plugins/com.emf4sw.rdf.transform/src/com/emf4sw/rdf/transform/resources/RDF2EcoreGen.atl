@@ -1,13 +1,16 @@
 -- @atlcompiler atl2006
 
--- @nsURI ecore=http://www.eclipse.org/emf/2002/Ecore
--- @path ATL=/com.emf4sw.rdfizer/src/com/emf4sw/rdfizer/atl/resources/atl.ecore
+-- @nsURI Model=http://www.eclipse.org/emf/2002/Ecore
+-- @path ATL=/com.emf4sw.rdfizer/src/com/emf4sw/rdfizer/atl/resources/atl.Model
 
-module RDF2EcoreGen;
-create OUT:ATL from IN:ecore;
+module RDF2ModelGen;
+create OUT:ATL from IN:Model;
 
--- uses Ecore2OWLHelpers;
+-- uses Model2OWLHelpers;
 uses RDFGenHelpers;
+uses RDFHelpers;
+
+helper def: allClasses: Set(Model!EClass) = Model!EClass.allInstancesFrom('IN');
 
 --	module model2rdf;
 --	create OUT:RDF from IN:MODEL;
@@ -32,7 +35,7 @@ endpoint rule Module() {
 unique lazy rule Model {
 	from o: OclAny
 	to
-		model: ATL!OclModel ( name <- 'MODEL' )
+		model: ATL!OclModel ( name <- 'Model' )
 }
 
 unique lazy rule Rdf {
@@ -51,14 +54,14 @@ unique lazy rule Rdf {
 --	}
 rule Class2Rule 
 {
-	from e: ecore!EClass
+	from e: Model!EClass
 	(
 		not e.abstract
 	)
 	using {
-		features: Sequence (ecore!EStructuralFeatur) = e.getEAllStructuralFeatures();
-		ones: Sequence(ecore!EStructuralFeature) = features->select(s | s.oclIsKindOf(ecore!EAttribute) and s.upperBound = 1);
-		manys: Sequence(ecore!EStructuralFeature) = features->select(s | s.oclIsKindOf(ecore!EReference) or s.upperBound <> 1);
+		features: Sequence (Model!EStructuralFeatur) = e.getEAllStructuralFeatures();
+		ones: Sequence(Model!EStructuralFeature) = features->select(s | s.oclIsKindOf(Model!EAttribute) and s.upperBound = 1);
+		manys: Sequence(Model!EStructuralFeature) = features->select(s | s.oclIsKindOf(Model!EReference) or s.upperBound <> 1);
 	}
 	to
 		a: ATL!MatchedRule (
@@ -101,7 +104,7 @@ rule Class2Rule
 }
 
 unique lazy rule EClass2SimpleInElement {
-	from e: ecore!EClass(
+	from e: Model!EClass(
 		not e.abstract
 	)
 	to
@@ -114,7 +117,7 @@ unique lazy rule EClass2SimpleInElement {
 }
 
 lazy abstract rule EStructuralFeature2Binding {
-	from e: ecore!EStrucuralFeature, c: ecore!EClass (e.upperBound <> 1)
+	from e: Model!EStrucuralFeature, c: Model!EClass (e.upperBound <> 1)
 	to
 		a: ATL!Binding (
 			propertyName <- e.name,
@@ -130,9 +133,9 @@ lazy abstract rule EStructuralFeature2Binding {
 -- name <- r.getStringValues(uri)->collect(e | e.convertTo(type))
 --
 lazy rule EAttributeMany2Binding extends EStructuralFeature2Binding {
-	from e: ecore!EAttribute, c: ecore!EClass 
+	from e: Model!EAttribute, c: Model!EClass 
 	(
-		e.upperBound <> 1 and (not e.eType.oclIsTypeOf(ecore!EEnum))
+		e.upperBound <> 1 and (not e.eType.oclIsTypeOf(Model!EEnum))
 	)
 	to
 		a: ATL!Binding (),
@@ -163,7 +166,7 @@ lazy rule EAttributeMany2Binding extends EStructuralFeature2Binding {
 }
 
 lazy abstract rule EStructuralFeatureOne2Statement {
-	from e: ecore!EStrucuralFeature, c: ecore!EClass
+	from e: Model!EStrucuralFeature, c: Model!EClass
 	to
 		a: ATL!IfStat (
 			condition <- cond,
@@ -210,9 +213,9 @@ lazy abstract rule EStructuralFeatureOne2Statement {
 }
 
 lazy rule EAttributeEEnum2Binding extends EStructuralFeatureOne2Statement {
-	from e: ecore!EAttribute, c: ecore!EClass 
+	from e: Model!EAttribute, c: Model!EClass 
 	(
-		e.upperBound = 1 and e.eType.oclIsTypeOf(ecore!EEnum)
+		e.upperBound = 1 and e.eType.oclIsTypeOf(Model!EEnum)
 	)
 	to
 		a: ATL!IfStat (),
@@ -234,9 +237,9 @@ lazy rule EAttributeEEnum2Binding extends EStructuralFeatureOne2Statement {
 --		e.foo <- r.getStringValue
 --
 lazy rule EAttribute2Binding extends EStructuralFeatureOne2Statement {
-	from e: ecore!EAttribute, c: ecore!EClass 
+	from e: Model!EAttribute, c: Model!EClass 
 	(
-		not e.eType.oclIsTypeOf(ecore!EEnum)
+		not e.eType.oclIsTypeOf(Model!EEnum)
 	)
 	to
 		a: ATL!IfStat (	),
@@ -272,7 +275,7 @@ lazy rule EAttribute2Binding extends EStructuralFeatureOne2Statement {
 --		e.foo <- r.getValues().first()
 --
 lazy rule EReferenceIsNotCreate2Binding extends EStructuralFeature2Binding {
-	from e: ecore!EReference, c: ecore!EClass 
+	from e: Model!EReference, c: Model!EClass 
 	to
 		a: ATL!Binding (),
 		
@@ -290,20 +293,20 @@ lazy rule EReferenceIsNotCreate2Binding extends EStructuralFeature2Binding {
 		)
 }
 
-helper context ecore!EReference def: isCreate(): Boolean =
-	let a: ecore!EAnnotation =
+helper context Model!EReference def: isCreate(): Boolean =
+	let a: Model!EAnnotation =
 		self.eAnnotations->any(e | e.source='Create')
 	in
 		if (not a.oclIsUndefined()) then
 			a.getDetails().containsKey('name')
 		else false endif;
 
-helper context ecore!EReference def: CreateClass(): String =
+helper context Model!EReference def: CreateClass(): String =
 	self.eAnnotations->any(e | e.source='Create').getDetails().get('name');
 	
 
 lazy rule EReferenceIsCreate2Binding extends EStructuralFeature2Binding {
-	from e: ecore!EReference, c: ecore!EClass 
+	from e: Model!EReference, c: Model!EClass 
 	(
 		(e.upperBound = 1) and (e.isCreate())
 	)
@@ -347,7 +350,7 @@ lazy rule EReferenceIsCreate2Binding extends EStructuralFeature2Binding {
 }
 
 lazy rule EReference2Binding extends EStructuralFeature2Binding {
-	from e: ecore!EReference, c: ecore!EClass 
+	from e: Model!EReference, c: Model!EClass 
 	(
 		e.upperBound <> 1
 	)
