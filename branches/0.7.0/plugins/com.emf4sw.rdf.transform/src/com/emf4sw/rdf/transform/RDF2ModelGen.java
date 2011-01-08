@@ -77,14 +77,6 @@ public class RDF2ModelGen {
 		return asm;
 	}
 
-//	public EMFReferenceModel metamodel() {
-//		return metamodel;
-//	}
-	
-//	private EMFReferenceModel rdf() {
-//		return get(RDFPackage.eNS_URI);
-//	}
-
 	protected Transformation<EMFModel, EMFModel> hot_rdf2model() {
 		return hot("resources/RDF2EcoreGen.asm"); 
 	}
@@ -93,9 +85,9 @@ public class RDF2ModelGen {
 		return 
 			new Transformations.Builder()
 			.asm(getASMS(asm))
-//			.lib(ECORE2OWL_HELPERS, OWLTransformations.class.getResource(ECORE2OWL_HELPERS_ASM))
+			.lib("RDFHelpers", this.getClass().getResource("resources/RDFHelpers.asm"))
 			.lib(RDF_GEN_HELPERS, this.getClass().getResource(RDF_GEN_HELPERS_ASM))
-			.in(ecore(), "IN", "ecore")
+			.in(ecore(), "IN", "Model")
 			.out(atl(), "OUT", "ATL", new ATLResourceFactory())
 			.buildOneInOneOut();
 	}

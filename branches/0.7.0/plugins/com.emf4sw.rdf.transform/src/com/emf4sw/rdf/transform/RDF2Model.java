@@ -41,6 +41,11 @@ public class RDF2Model {
 		this.generator = new RDF2ModelGen(ePackage);
 	}
 
+	public RDF2Model(Resource resource) {
+		this.ePackage = (EPackage) resource.getContents().get(0);
+		this.generator = new RDF2ModelGen(ePackage);
+	}
+	
 	static {
 		register(RDFPackage.eINSTANCE);
 	}
@@ -62,7 +67,7 @@ public class RDF2Model {
 					.asm(generator.getASM())
 					.options(options)
 					.in(get(RDFPackage.eNS_URI), "IN", "RDF")
-					.out(get(ePackage.getNsURI()), "OUT", "MODEL")
+					.out(get(ePackage.getNsURI()), "OUT", "Model")
 					.buildOneInOneOut());
 		
 		return model != null ? model.getResource() : null;

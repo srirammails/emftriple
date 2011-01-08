@@ -29,7 +29,7 @@ helper context OclAny def: getTypes(): Set(String) =
 		annotations->collect(a |if a.details.containsKey('uri') then a.details.get('uri') else Set{} endif)
 --	endif
 		}->flatten();
-
+		
 -- Returns well formed URI for an EPackage
 helper context Model!EPackage def: getNamespace(): String = 
 	if self.nsURI.endsWith('/') or self.nsURI.endsWith('#') 
