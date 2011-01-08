@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<c:Foo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:c="http://tests/c" xmi:id="_E3GUcBtMEeCl6bKULJZ_nw" name="foo" description="the main foo">
+  <bar xmi:id="_G5tFYBtMEeCl6bKULJZ_nw" name="barbar" description="the bar" value="45" foos="_E3GUcBtMEeCl6bKULJZ_nw"/>
+</c:Foo>

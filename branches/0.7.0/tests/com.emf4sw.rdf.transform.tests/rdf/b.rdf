@@ -1,0 +1,19 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore#">
+  <owl:Ontology rdf:about="http://tests/b">
+    <rdfs:label>b</rdfs:label>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://tests/b#B">
+    <rdfs:label>B</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="http://tests/b#value">
+    <rdfs:label>value</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://tests/b#description">
+    <rdfs:label>description</rdfs:label>
+  </owl:DatatypeProperty>
+</rdf:RDF>
