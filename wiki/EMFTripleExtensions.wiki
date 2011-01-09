@@ -1,5 +1,5 @@
 #summary One-sentence summary of this page.
-#sidebar SoteTableOfContents
+#sidebar StoreTableOfContents
 
 Emftriple currently provides a set of extensions for the GWT framework and the Restlet framework. These extensions are meant to be used to facilitate the building process of Semantic Web applications on top of emftriple.
 
