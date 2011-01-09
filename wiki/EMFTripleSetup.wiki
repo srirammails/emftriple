@@ -1,5 +1,6 @@
 #summary EMF Triple Setup and Quick start.
 #labels Featured,Phase-Implementation
+#sidebar StoreTableOfContents
 
 <wiki:toc max_depth="3" />
 
