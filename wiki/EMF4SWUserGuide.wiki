@@ -1,4 +1,5 @@
 #summary Eclipse Modeling for Semantic Web Toolkit
+#sidebar StoreTableOfContents
 
 = Introduction =
 
