@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.emf4sw.owl.feature_0.7.0.201101091819.jar" id="com.emf4sw.owl.feature" version="0.7.0.201101091819">
+      <category name="emf4sw"/>
+   </feature>
+   <feature url="features/com.emf4sw.owl.jena.feature_0.7.0.201101091819.jar" id="com.emf4sw.owl.jena.feature" version="0.7.0.201101091819">
+      <category name="emf4sw"/>
+   </feature>
+   <feature url="features/com.emf4sw.rdf.feature_0.7.0.201101091819.jar" id="com.emf4sw.rdf.feature" version="0.7.0.201101091819">
+      <category name="emf4sw"/>
+   </feature>
+   <feature url="features/com.emf4sw.rdf.jena.feature_0.7.0.201101091819.jar" id="com.emf4sw.rdf.jena.feature" version="0.7.0.201101091819">
+      <category name="emf4sw"/>
+   </feature>
+   <feature url="features/com.emf4sw.rdf.sesame.feature_0.7.0.201101091819.jar" id="com.emf4sw.rdf.sesame.feature" version="0.7.0.201101091819">
+      <category name="emf4sw"/>
+   </feature>
+   <feature url="features/com.emftriple.jena.feature_0.7.0.201101091819.jar" id="com.emftriple.jena.feature" version="0.7.0.201101091819">
+      <category name="emftriple"/>
+   </feature>
+   <feature url="features/com.emftriple.query.ui.feature_0.7.0.201101091819.jar" id="com.emftriple.query.ui.feature" version="0.7.0.201101091819">
+      <category name="emftriple"/>
+   </feature>
+   <feature url="features/com.emftriple.restlet.feature_0.1.0.201101091819.jar" id="com.emftriple.restlet.feature" version="0.1.0.201101091819">
+      <category name="emftriple"/>
+   </feature>
+   <feature url="features/com.emftriple.sesame.feature_0.7.0.201101091819.jar" id="com.emftriple.sesame.feature" version="0.7.0.201101091819">
+      <category name="emftriple"/>
+   </feature>
+   <feature url="features/com.emftriple.feature_0.7.0.201101091819.jar" id="com.emftriple.feature" version="0.7.0.201101091819">
+      <category name="emftriple"/>
+   </feature>
+   <category-def name="emf4sw" label="EMF4SW"/>
+   <category-def name="emftriple" label="EmfTriple"/>
+</site>
