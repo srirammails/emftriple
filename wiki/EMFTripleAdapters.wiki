@@ -1,5 +1,6 @@
 #summary Adapters available.
 #labels Phase-Implementation
+#sidebar StoreTableOfContents
 
 <wiki:toc max_depth="3" />
 
