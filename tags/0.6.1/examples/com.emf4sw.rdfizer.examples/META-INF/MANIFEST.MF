@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RDFizer Examples
+Bundle-SymbolicName: com.emf4sw.rdfizer.examples
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: googlecode
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: com.atl.common,
+ com.emf4sw.jena,
+ com.emf4sw.owl,
+ com.emf4sw.rdf,
+ com.emf4sw.rdfizer;bundle-version="0.6.1"
