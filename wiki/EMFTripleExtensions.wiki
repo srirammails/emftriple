@@ -1,0 +1,22 @@
+#summary One-sentence summary of this page.
+#sidebar SoteTableOfContents
+
+Emftriple currently provides a set of extensions for the GWT framework and the Restlet framework. These extensions are meant to be used to facilitate the building process of Semantic Web applications on top of emftriple.
+
+= GWT =
+
+GWT is a Java development framework that makes easy to develop AJAX Web applications directly in Java without the need to write any Javascript.
+EMF now provides a code generator for GWT. This feature allow generation of EMF code compatible with GWT. This mean that models can be manipulated on the server and client side of a GWT application.
+
+= Restlet =
+
+The Restlet framework is a Java development framework for building Restful Web services. Restlet already provides implementation of Semantic Web standards (RDF). These implementations make easy to develop Rest Web services that can deliver RDF content in various formats (RDF/XML, Turtle, NTriples).
+
+Restlet for Emftriple is an extension that makes easy to deliver objects managed by a emftriple instance as Restlet representations.
+
+{{{
+@Get("rdf")
+public Representation toRdf() throws ResourceException {
+  return ETripleRestletUtil.getRepresentation(list, em, MediaType.APPLICATION_RDF_XML);
+}
+}}}
