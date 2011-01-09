@@ -1,5 +1,6 @@
 #summary Installation
 #labels Featured
+#sidebar StoreTableOfContents
 
 <wiki:toc max_depth="3" />
 
