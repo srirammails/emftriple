@@ -1,0 +1,1289 @@
+-- @atlcompiler atl2006
+-- @path OWL=/com.emf4sw.owl/model/owl.ecore
+-- @path PROPS=/com.atl.common/src/com/atl/common/models/Properties.ecore
+-- @nsURI UML=http://www.eclipse.org/uml2/3.0.0/UML
+
+ 
+---	==================================================================================
+---
+---	UML2OWL Transformation. (UML to OWL2)
+---	
+---	@version 0.6
+---	@author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>.
+---	==================================================================================
+	
+module UML2OWL;
+create OUT:OWL from IN:UML, IN2:Properties;
+
+--uses PropertiesHelpers;
+uses UML2OWLHelpers;
+
+---	@comment
+---	Rule Package2Onntology takes a UML!Package being not named UMLPrimitiveTypes and creates the 
+---	corresponding OWL!Ontology. The OWL!Ontology imports all nested packages. OWL!Ontology 
+---	namespaces are created from input package and nested packages.
+rule Package2Onntology {
+	from u: UML!Package ( 
+		u.name <> thisModule.UML_PRIMITIVE_TYPES 
+	)
+	using 
+	{
+		interfaces: Set(UML!Interface) = u.packagedElement->select(e | e.oclIsKindOf(UML!Interface));
+		classes: Set(UML!Class) = u.packagedElement->select(e | e.oclIsKindOf(UML!Class));
+		properties: Set(UML!Property) = u.packagedElement->collect(e | e.getProperties())->flatten();
+		datatypes: Set(String) = u.getDatatypes();
+	}
+	to o: OWL!Ontology (
+		URI <- u.getURI(),
+		annotations <- thisModule.AddLabelAnnotation(u),
+		axioms <- Sequence {
+				thisModule.LabelAnnotationDeclaration(u)
+			, 	thisModule.CommentAnnotationDeclaration(u)
+			, 	interfaces->collect(e | 
+					Sequence { thisModule.Declaration(e) }->append(
+							e.general->collect(g | thisModule.SubClassOf(e, g))
+					)
+				)
+			, 	classes->collect(e |
+					 Sequence { thisModule.Declaration(e) }->append(
+							e.general->collect(g | thisModule.SubClassOf(e, g))
+					)
+				)
+			, 	properties->select(e | e.isWellFormed())->collect(e |
+				Sequence { 
+					thisModule.Declaration(e)
+				,	if (e.isFunctional()) then
+						thisModule.FunctionalProperty(e)
+					else Sequence {} endif
+				,	if (e.isInverseFunctional()) then
+						thisModule.InverseFunctionalProperty(e)
+					else Sequence {} endif
+				, 	if (thisModule.doDomainAndRange()) then 
+						thisModule.PropertyDomain(e)
+					else Sequence{} endif
+				, 	if (e.type.oclIsKindOf(UML!DataType)) then
+						thisModule.DataType2Declaration(e.type, u)
+					else Sequence {} endif
+				,	if (not e.type.oclIsUndefined()) then
+						Sequence {
+							if (thisModule.doDomainAndRange()) then
+								thisModule.PropertyRange(e)
+							else Sequence{} endif
+						  , thisModule.Property2AllValuesFromRestriction(e)
+						  , if (thisModule.doCardinalities()) then
+						  		if (e.hasCardinality()) then 
+						  			thisModule.PropertyCardinality(e) 
+								else Sequence{} endif
+							else Sequence{} endif
+						}
+					else Sequence{} endif
+				} )
+		}->flatten(),
+		namespaces <- Set {
+			u.nestedPackage->union(Sequence{u})->reject(e | 
+				e.name = thisModule.UML_PRIMITIVE_TYPES)->collect(e | 
+					thisModule.Package2Namespace(e)),
+			thisModule.XSDNamespace(u),
+			thisModule.RDFSNamespace(u),
+			rdf, owl
+		},
+		imports <- u.nestedPackage
+	),
+	rdf: OWL!Namespace (name <- 'rdf', URI <- thisModule.RDF),
+	owl: OWL!Namespace (name <- 'owl', URI <- thisModule.OWL)
+}
+
+unique lazy rule LabelAnnotationDeclaration {
+	from u: UML!Package
+	to
+		o: OWL!Declaration(
+			entity <- thisModule.LabelAnnotation(u.getModel())
+		)
+}
+
+unique lazy rule LabelAnnotation {
+	from u: UML!Package
+	to
+		o: OWL!AnnotationProperty (
+			name <- 'label',
+			namespace <- thisModule.RDFSNamespace(u.getModel()) 
+		)
+}
+
+lazy rule AddLabelAnnotation {
+	from u: UML!PackageableElement
+	to
+		o: OWL!Annotation(
+			property <- exp, 
+			value <- val
+		),
+		val: OWL!Literal (value <- u.name),
+		exp: OWL!PrefixEntityExpression(
+			namespace <- thisModule.RDFSNamespace(u.getModel()), 
+			reference <- thisModule.LabelAnnotation(u.getModel())
+		)
+}
+
+unique lazy rule CommentAnnotationDeclaration {
+	from u: UML!Package
+	to
+		o: OWL!Declaration(
+			entity <- thisModule.CommentAnnotation(u.getModel())
+		)
+}
+
+unique lazy rule CommentAnnotation {
+	from u: UML!Package
+	to
+		o: OWL!AnnotationProperty (
+			name <- 'comment',
+			namespace <- thisModule.RDFSNamespace(u.getModel()) 
+		)
+}
+
+lazy rule AddCommentAnnotation {
+	from u: UML!PackageableElement, c: String
+	to
+		o: OWL!Annotation(
+			property <- exp, 
+			value <- val
+		),
+		val: OWL!Literal (value <- c),
+		exp: OWL!PrefixEntityExpression(
+			namespace <- thisModule.RDFSNamespace(u.getModel()), 
+			reference <- thisModule.CommentAnnotation(u.getModel())
+		)
+}
+
+---	=============================================================================================================
+---	Namespace	
+
+---	@comment
+---	Lazy Rule Package2Namespace used to create OWL!Namespace from UML!Package. Namespaces are made of 
+---	a prefix being the package name, and a URI being created from the package name. 
+---	Namespaces are contained by the OWL!OWLGraph.
+unique lazy rule Package2Namespace {
+	from u: UML!Package ( 
+		u.name <> thisModule.UML_PRIMITIVE_TYPES 
+	)
+	to o: OWL!Namespace (
+		name <- thisModule.wellFormedPrefix( u.name ),
+		URI <-  u.getNamespace()
+	)
+}
+
+unique lazy rule XSDNamespace {
+	from u: UML!Package
+	to o: OWL!Namespace (
+		name <- 'xsd',
+		URI <-  thisModule.XSD
+	)
+}
+
+unique lazy rule RDFSNamespace {
+	from u: UML!Package
+	to o: OWL!Namespace (
+		name <- 'rdfs',
+		URI <-  thisModule.RDFS
+	)
+}
+
+---	=============================================================================================================
+---	Declaration
+
+unique lazy abstract rule Declaration {
+	from u: UML!NamedElement
+	to
+		o: OWL!Declaration (
+			entity <- u,
+			annotations <- Sequence {
+				thisModule.AddLabelAnnotation(u)
+			,	u.ownedComment->collect(e | thisModule.AddCommentAnnotation(u, e.body))
+			}
+		)
+}
+
+unique lazy rule Class2Declaration extends Declaration {
+	from u: UML!Class
+	to
+		o: OWL!Declaration (
+			entity <- u
+		)
+}
+
+unique lazy rule Interface2Declaration extends Declaration {
+	from u: UML!Interface
+	to
+		o: OWL!Declaration (
+			entity <- u
+		)
+}
+
+unique lazy rule Property2Declaration extends Declaration {
+	from u: UML!Property
+	to
+		o: OWL!Declaration (
+			entity <- u
+		)
+}
+
+unique lazy rule DataType2Declaration {
+	from u: UML!DataType, p: UML!Package
+	to
+		o: OWL!Declaration (
+			entity <- thisModule.DataType2Datatype(u, p)
+		)
+}
+
+---	=============================================================================================================
+---	Entities
+
+rule Class2OWLClass {
+	from u: UML!Class
+	to o: OWL!OWLClass (
+		name <- u.getName(),
+		namespace <- thisModule.Package2Namespace( u.getModel() )
+	)
+}
+
+rule Interface2OWLClass {
+	from u: UML!Interface
+	to
+		o: OWL!OWLClass (
+			name <- u.getName(),
+			namespace <- thisModule.Package2Namespace( u.getModel() )
+		)
+}
+
+unique lazy abstract rule DataType2Datatype {
+	from u: UML!DataType, p: UML!Package 
+	to
+		o: OWL!Datatype (	)
+}
+
+unique lazy rule Datatype2DatatypeImpl extends DataType2Datatype {
+	from u: UML!DataType, p: UML!Package (u.oclIsTypeOf(UML!DataType))
+	to
+		o: OWL!Datatype (
+			name <- u.name,
+			namespace <- thisModule.Package2Namespace(p)
+		)
+}
+
+unique lazy rule PrimitiveType2Datatype extends DataType2Datatype {
+	from u: UML!PrimitiveType, p: UML!Package (u.oclIsTypeOf(UML!PrimitiveType))
+	to
+		o: OWL!Datatype (
+			name <- thisModule.datatypes.get( u.name ),
+			namespace <- thisModule.XSDNamespace(p)
+		)
+}
+
+unique lazy rule Enumeration2DataOneOf extends DataType2Datatype {
+	from u: UML!Enumeration, p: UML!Package
+	to
+		o: OWL!DataOneOf (
+			literals <- u.ownedLiteral->collect(e | thisModule.Literal2Literal(e))
+		)
+}
+
+unique lazy rule Literal2Literal {
+	from u: UML!EnumerationLiteral
+	to
+		o: OWL!Literal (
+			value <- u.name
+		)
+}
+
+rule Property2DataProperty {
+	from u: UML!Property (
+		u.type.oclIsKindOf(UML!DataType)
+	)
+	to o: OWL!DataProperty (
+		name <- u.getName(),
+		namespace <- thisModule.Package2Namespace( u.getModel() )
+	)
+}
+
+rule Property2ObjectProperty {
+	from u: UML!Property (
+		not u.type.oclIsKindOf(UML!DataType)
+	)
+	to o: OWL!ObjectProperty (
+		name <- u.getName(),
+		namespace <- thisModule.Package2Namespace( u.getModel() )
+	)
+}
+
+---	=============================================================================================================
+---	SubClassOf
+
+lazy rule SubClassOf {
+	from sub: UML!Classifier, sup: UML!Classifier
+	to
+		o: OWL!SubClassOf (subClass <- subExp, superClass <- supExp),
+		subExp: OWL!PrefixEntityExpression (
+			reference <- sub,
+			namespace <- thisModule.Package2Namespace( sub.getModel() )
+		),
+		supExp: OWL!PrefixEntityExpression (
+			reference <- sup,
+			namespace <- thisModule.Package2Namespace( sup.getModel() )
+		)
+}
+
+---	=============================================================================================================
+---	PropertyDomain
+
+lazy abstract rule PropertyDomain {
+	from p: UML!Property
+	to
+		o: OWL!Axiom (
+			ontology <- p.getModel()
+		)
+}
+
+lazy abstract rule DataPropertyDomain extends PropertyDomain {
+	from p: UML!Property (
+		p.type.oclIsKindOf(UML!DataType)
+	)
+	to
+		o: OWL!DataPropertyDomain ()
+}
+
+lazy rule ClassAttribute2DataPropertyDomain extends DataPropertyDomain {
+	from p: UML!Property (
+		not p.class.oclIsUndefined()
+	)
+	to
+		o: OWL!DataPropertyDomain (
+			domain <- domExp,
+			property <- propExp
+		),
+		domExp: OWL!PrefixEntityExpression (
+			reference <- p.class,
+			namespace <- thisModule.Package2Namespace( p.class.getModel() )
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- p,
+			namespace <- thisModule.Package2Namespace( p.class.getModel() )
+		)
+}
+
+lazy abstract rule ObjectPropertyDomain extends PropertyDomain {
+	from p: UML!Property (
+		not p.type.oclIsKindOf(UML!DataType)
+	)
+	to
+		o: OWL!ObjectPropertyDomain ()
+}
+
+lazy rule ClassReferencePropertyDomain extends ObjectPropertyDomain {
+	from p: UML!Property (
+		not p.class.oclIsUndefined()
+	)
+	to
+		o: OWL!ObjectPropertyDomain (
+			domain <- domExp,
+			property <- propExp
+		),
+		domExp: OWL!PrefixEntityExpression (
+			reference <- p.class,
+			namespace <- thisModule.Package2Namespace( p.class.getModel() )
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- p,
+			namespace <- thisModule.Package2Namespace( p.getModel() )
+		)
+}
+
+lazy rule AssociationPropertyDomain extends ObjectPropertyDomain {
+	from p: UML!Property (
+		if not p.association.oclIsUndefined() then
+			p.association.isBinary()
+		else false endif
+	)
+	using {
+		inv: UML!Property = p.getOtherEnd();
+	}
+	to
+		o: OWL!ObjectPropertyDomain (
+			domain <- domExp,
+			property <- propExp
+		),
+		domExp: OWL!PrefixEntityExpression (
+			reference <- inv.type,
+			namespace <- thisModule.Package2Namespace( inv.type.getModel() )
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- p,
+			namespace <- thisModule.Package2Namespace( p.getModel() )
+		),
+		invP: OWL!InverseObjectProperties (
+			property <- invPExp, 
+			inverseProperty <- invPInvExp,
+			ontology <- p.getModel()
+		),
+		invPExp: OWL!PrefixEntityExpression (
+			reference <- p,
+			namespace <- thisModule.Package2Namespace( p.getModel() )
+		),
+		invPInvExp: OWL!PrefixEntityExpression (
+			reference <- inv,
+			namespace <- thisModule.Package2Namespace( inv.getModel() )
+		)
+}
+
+---	=============================================================================================================
+---	PropertyRange
+
+lazy abstract rule PropertyRange {
+	from p: UML!Property
+	to
+		o: OWL!Axiom (
+			ontology <- p.getModel()
+		)
+}
+
+lazy rule ObjectPropertyRange extends PropertyRange {
+	from p: UML!Property (
+		if (not p.type.oclIsUndefined()) then
+			(not p.type.oclIsKindOf(UML!DataType))
+		else false endif
+	)
+	to
+		o: OWL!ObjectPropertyRange (
+			range <- ranExp,
+			property <- propExp
+		),
+		ranExp: OWL!PrefixEntityExpression (
+			reference <- p.type,
+			namespace <- thisModule.Package2Namespace( p.type.getModel( ) )
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- p,
+			namespace <- thisModule.Package2Namespace( p.getModel() )
+		)
+}
+
+lazy abstract rule DataPropertyRange extends PropertyRange {
+	from p: UML!Property (
+		p.type.oclIsKindOf(UML!DataType)
+	)
+	to
+		o: OWL!DataPropertyRange ()
+}
+
+lazy rule ClassAttribute2DataPropertyRange extends DataPropertyRange {
+	from p: UML!Property (
+		not p.class.oclIsUndefined()
+	)
+	to
+		o: OWL!DataPropertyRange (
+			range <- ranExp,
+			property <- propExp
+		),
+		ranExp: OWL!PrefixEntityExpression (
+			reference <- thisModule.DataType2Datatype( p.type, p.getModel() ),
+			namespace <- thisModule.XSDNamespace( p.getModel() )
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- p,
+			namespace <- thisModule.Package2Namespace( p.getModel() )
+		)
+}
+
+---	=============================================================================================================
+---	AllValuesFrom
+
+lazy abstract rule Property2AllValuesFromRestriction {
+	from u: UML!Property ( not u.type.oclIsUndefined() )
+	to
+		o: OWL!SubClassOf (
+			subClass <- subExp,
+			ontology <- u.getModel()
+		),
+		all: OWL!ClassExpression (),
+		subExp: OWL!PrefixEntityExpression (
+			namespace <- thisModule.Package2Namespace( u.getModel() )
+		)
+}
+
+lazy rule Property2DataAllValuesFrom extends Property2AllValuesFromRestriction {
+	from u: UML!Property ( 
+			u.type.oclIsKindOf(UML!DataType)
+	)
+	using {
+		dom: UML!Class = 
+			if (u.class.oclIsUndefined()) then
+				if (u.association.oclIsUndefined()) then
+					OclAny
+				else u.getOtherEnd().type endif
+			else u.class endif;
+	}
+	to
+		o: OWL!SubClassOf (
+			superClass <- all
+		),
+		all: OWL!DataAllValuesFrom (
+			allValuesFrom <- valExp1,
+			onProperties <- propExp 
+		),
+		subExp: OWL!PrefixEntityExpression (reference <- dom),
+		valExp1: OWL!PrefixEntityExpression (
+			reference <- thisModule.DataType2Datatype( u.type, u.getModel() ),
+			namespace <- thisModule.XSDNamespace( u.getModel() )
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- u,
+			namespace <- thisModule.Package2Namespace( u.getModel() )
+		)
+}
+
+lazy rule Property2ObjectAllValuesFrom extends Property2AllValuesFromRestriction {
+	from u: UML!Property ( 
+			not u.type.oclIsKindOf(UML!DataType)
+	)
+	using {
+		dom: UML!Class = 
+			if (u.class.oclIsUndefined()) then
+				if (u.association.oclIsUndefined()) then
+					OclAny
+				else u.getOtherEnd().type endif
+			else u.class endif;
+	}
+	to
+		o: OWL!SubClassOf (
+			superClass <- all 
+		),
+		all: OWL!ObjectAllValuesFrom (
+			allValuesFrom <- valExp,
+			onProperty <- propExp 
+		),
+		subExp: OWL!PrefixEntityExpression (reference <- dom),
+		valExp: OWL!PrefixEntityExpression (
+			reference <- u.type,
+			namespace <- thisModule.Package2Namespace( u.type.getModel() )
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- u,
+			namespace <- thisModule.Package2Namespace( u.getModel() )
+		)
+}
+
+---	=============================================================================================================
+---	FunctionalProperty
+
+lazy abstract rule FunctionalProperty {
+	from u: UML!Property
+	to
+		o: OWL!Axiom ()
+}
+
+lazy rule FunctionalDataProperty extends FunctionalProperty {
+	from u: UML!Property (u.type.oclIsKindOf(UML!DataType))
+	to
+		o: OWL!FunctionalDataProperty (
+			property <- propExp
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- u,
+			namespace <- thisModule.Package2Namespace( u.getModel() )
+		)
+}
+
+lazy rule FunctionalObjectProperty extends FunctionalProperty {
+	from u: UML!Property (not u.type.oclIsKindOf(UML!DataType))
+	to
+		o: OWL!FunctionalObjectProperty (
+			property <- propExp
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- u,
+			namespace <- thisModule.Package2Namespace( u.getModel() )
+		)
+}
+
+---	=============================================================================================================
+---	InverseFunctionalProperty
+
+lazy rule InverseFunctionalProperty {
+	from u: UML!Property (not u.type.oclIsKindOf(UML!DataType))
+	to
+		o: OWL!InverseFunctionalObjectProperty (
+			property <- propExp
+		),
+		propExp: OWL!PrefixEntityExpression (
+			reference <- u,
+			namespace <- thisModule.Package2Namespace( u.getModel() )
+		)
+}
+
+
+----	=============================================================================================
+---- 	Restriction Axiom
+	
+lazy abstract rule PropertyCardinality {
+	from property: UML!Property
+	to 
+		o: OWL!Axiom (
+			superClass <- rest
+		),
+		rest: OWL!ClassExpression ()
+}
+
+----	=============================================================================================
+---- 	ObjectPropertyRestriction Axiom
+
+lazy abstract rule ObjectPropertyCardinality extends PropertyCardinality {
+	from property: UML!Property (not property.type.oclIsKindOf(UML!DataType))
+	to 
+		o: OWL!Axiom (
+			superClass <- rest
+		),
+		rest: OWL!ClassExpression ()
+}
+
+lazy rule ObjectExactCardinality extends ObjectPropertyCardinality {
+	from property: UML!Property  (
+		property.upper = property.lower
+	)
+	to
+		o : OWL!SubClassOf (
+			subClass <- subClass
+		),
+		rest: OWL!ObjectExactCardinality (
+			cardinality <- property.upper,
+			onClass <- onClassExp,
+			onProperty <- onPropExp
+		),
+		subClass: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- thisModule.Package2Namespace( property.getClassifier().getModel() )
+		),
+		onClassExp: OWL!PrefixEntityExpression (
+			reference <- property.type,
+			namespace <- thisModule.Package2Namespace( property.type.getModel() )
+		),
+		onPropExp: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		)
+}
+
+lazy rule ObjectMaxCardinality extends ObjectPropertyCardinality {
+	from property: UML!Property  (
+		property.upper > 0 and property.lower = 0
+	)
+	to
+		o : OWL!SubClassOf (
+			subClass <- subClass,
+			superClass <- rest
+		),
+		rest : OWL!ObjectMaxCardinality (
+			cardinality <- property.upper,
+			onProperty <- onPropExp,
+			onClass <- onClassExp
+		),
+		subClass: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- thisModule.Package2Namespace( property.getClassifier().getModel() )
+		),
+		onClassExp: OWL!PrefixEntityExpression (
+			reference <- property.type,
+			namespace <- thisModule.Package2Namespace( property.type.getModel() )
+		),
+		onPropExp: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		)
+}
+
+
+lazy rule ObjectMinCardinality extends ObjectPropertyCardinality {
+	from property: UML!Property  (
+		property.upper < 0 and property.lower > 0
+	)
+	to
+		o : OWL!SubClassOf (
+			subClass <- subClass,
+			superClass <- rest
+		),
+		rest: OWL!ObjectMinCardinality (
+			cardinality <- property.lower,
+			onProperty <- onPropExp,
+			onClass <- onClassExp
+		),
+		subClass: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- thisModule.Package2Namespace( property.getClassifier().getModel() )
+		),
+		onClassExp: OWL!PrefixEntityExpression (
+			reference <- property.type,
+			namespace <- thisModule.Package2Namespace( property.type.getModel() )
+		),
+		onPropExp: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		)
+}
+
+lazy rule ObjectMinMaxCardinality extends ObjectPropertyCardinality {
+	from property: UML!Property  (
+		(property.upper <> property.lower) and 
+		(property.upper > 0) and 
+		(property.lower > 0)
+	)
+	to
+		o : OWL!SubClassOf (
+			subClass <- subClass,
+			superClass <- rest
+		),
+		rest : OWL!ObjectMaxCardinality (
+			cardinality <- property.upper,
+			onProperty <- onPropExp,
+			onClass <- onClassExp
+		),
+		subClass: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- thisModule.Package2Namespace( property.getClassifier().getModel() )
+		),
+		onClassExp: OWL!PrefixEntityExpression (
+			reference <- property.type,
+			namespace <- thisModule.Package2Namespace( property.type.getModel() )
+		),
+		onPropExp: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		),
+		o2 : OWL!SubClassOf (
+			subClass <- subClass2,
+			superClass <- rest2,
+			ontology <- property.getModel()
+		),	
+		rest2 : OWL!ObjectMinCardinality (
+			cardinality <- property.lower,
+			onProperty <- onPropExp2,
+			onClass <- onClassExp2
+		),
+		subClass2: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- thisModule.Package2Namespace( property.getClassifier().getModel() )
+		),
+		onClassExp2: OWL!PrefixEntityExpression (
+			reference <- property.type,
+			namespace <- thisModule.Package2Namespace( property.type.getModel() )
+		),
+		onPropExp2: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		)
+}
+
+----	=============================================================================================
+---- 	DataPropertyRestriction Axiom
+	
+lazy abstract rule DataPropertyCardinality extends PropertyCardinality 
+{
+	from property: UML!Property (property.type.oclIsKindOf(UML!DataType))
+	to	o: OWL!Axiom ()
+}
+
+lazy rule DataExactCardinality extends DataPropertyCardinality {
+	from property: UML!Property (
+		property.upper = property.lower
+	)
+	to
+		o : OWL!SubClassOf (
+			superClass <- rest,
+			subClass <- subClassExp
+		),
+		rest: OWL!DataExactCardinality (
+			cardinality <- property.upper,
+			onProperty <- onPropExp
+		),
+		subClassExp: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- thisModule.Package2Namespace( property.getClassifier().getModel() )
+		),
+		onPropExp: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		)
+}
+
+lazy rule DataMinCardinality extends DataPropertyCardinality {
+	from property: UML!Property (
+		not (property.upper > 0) and (property.lower > 0)
+	)
+	to
+		o : OWL!SubClassOf (
+			superClass <- rest,
+			subClass <- subClassExp
+		),
+		rest : OWL!DataMinCardinality (
+			cardinality <- property.lower,
+			onProperty <- onPropExp
+		),
+		subClassExp: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- thisModule.Package2Namespace( property.getClassifier().getModel() )
+		),
+		onPropExp: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		)
+}
+
+lazy rule DataMaxCardinality extends DataPropertyCardinality {
+	from property: UML!Property (
+		(property.upper > 0) and (property.lower = 0)
+	)
+	to
+		o : OWL!SubClassOf (
+			superClass <- rest,
+			subClass <- subClassExp
+		),
+		rest : OWL!DataMaxCardinality (
+			cardinality <- property.upper,
+			onProperty <- onPropExp
+		),
+		subClassExp: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- thisModule.Package2Namespace( property.getClassifier().getModel() )
+		),
+		onPropExp: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		)
+}
+
+lazy rule DataMinMaxCardinality extends DataPropertyCardinality {
+	from property: UML!Property (
+		property.upper <> property.lower and 
+		property.upper > 0 and 
+		property.lower > 0
+	)
+	to
+		o : OWL!SubClassOf (
+			superClass <- rest,
+			subClass <- subClassExp
+		),
+		rest : OWL!DataMaxCardinality (
+			cardinality <- property.upper,
+			onProperty <- onPropExp
+		),
+		subClassExp: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- thisModule.Package2Namespace( property.getClassifier().getModel() )
+		),
+		onPropExp: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		),
+		o2 : OWL!SubClassOf (
+			subClass <- subClassExp2,
+			superClass <- rest2,
+			ontology <- property.getModel()
+		),
+		rest2 : OWL!DataMinCardinality (
+			cardinality <- property.lower,
+			onProperty <- thisModule.CreatePrefixEntityExpression(property)
+		),
+		subClassExp2: OWL!PrefixEntityExpression (
+			reference <- property.getClassifier(),
+			namespace <- onPropExp2
+		),
+		onPropExp2: OWL!PrefixEntityExpression (
+			reference <- property,
+			namespace <- thisModule.Package2Namespace( property.getModel() )
+		)
+}
+
+--	@comment
+--	Abstract Rule Property_2_OWLProperty creates OWL!OWLProperty from UML!Property. Add name, URI,
+--	isFunctional, ontology and graph properties to the OWL!OWLProperty.
+--abstract rule Property_2_OWLProperty
+--{
+--	from u: UML!Property
+--	
+--	to o: OWL!OWLProperty
+--	(
+--		name <- u.getName()
+----		isFunctional <- ((u.upper = 1) and (u.lower = 1)),
+--	)
+--}
+
+--	@comment
+--	Rule AttributePropertyPrimitive_2_DatatypeProperty extends Property_2_OWLProperty. 
+--	Takes has input a UML!Property being contained in a UML!Class and having for type 
+--	a UML!DataType. This rule creates a OWL!DatatypeProperty with for domain the containing 
+--	Class and for range the DataType.
+--rule AttributePropertyPrimitive_2_DatatypeProperty
+--extends Property_2_OWLProperty
+--{
+--	from u: UML!Property
+--	(
+--		if ( not u.class.oclIsUndefined() ) then
+--			u.type.oclIsKindOf(UML!DataType)
+--		else false endif
+--	)
+--	to o: OWL!DataProperty 
+--	(
+----		domain <- u.class,
+----		restrictions <- thisModule.Restriction(u, u.class),
+----		range <- thisModule.DataTypeAbstract( u.type )
+--	)
+--}
+
+--	@comment
+--	Abstract Rule Property_2_ObjectProperty extends Property_2_OWLProperty. Takes a  
+--	UML!Property having for type a kind of UML!Class. This rule creates a OWL!ObjectProperty.
+--abstract rule Property_2_ObjectProperty
+--extends Property_2_OWLProperty
+--{
+--	from u: UML!Property
+--	( 
+--		u.type.oclIsKindOf(UML!Class)
+--	)
+--	to o: OWL!ObjectProperty
+--	(
+----		isInverseFunctional <- u.isInverseFunctional(),
+----		range <- u.type
+--	)
+--}
+
+--	@comment
+--	Rule AttributePropertyNotPrimitive_2_ObjectProperty extends Property_2_ObjectProperty. Takes 
+--	a UML!Property being contained in a UML!Class. 
+--rule AttributePropertyNotPrimitive_2_ObjectProperty
+--extends Property_2_ObjectProperty
+--{
+--	from u: UML!Property 
+--	(
+--		u.association.oclIsUndefined() and
+--		not u.class.oclIsUndefined()
+--	)
+--	to o: OWL!ObjectProperty
+--	(
+----		domain <- u.class,
+----		restrictions <- thisModule.Restriction(u, u.class)
+--	)
+--}
+
+--	@comment
+--	Rule UMLPropertyInBinaryAssociation_2_ObjectPropertyWithInverse extends Property_2_ObjectProperty 
+--	takes a UML!Property being contained in a binary UML!Association being not a UML!AssociationClass. 
+--	This rule creates a OWL!ObjectProperty having for domain the type of the opposite UML!Property and 
+--	for range the type of the input UML!Property.
+--	
+--	UML:
+--		+-A
+--			+-u : A
+--			+-inv : B
+--		+-B
+--		+-Assoc
+--
+--	OWL:
+--		u a owl:ObjectProperty 
+--			rdfs:domain B
+--			rdfs:range A
+--			owl:inverseOf inv
+--
+--		inv a owl:ObjectProperty 
+--			rdfs:domain A
+--			rdfs:range B
+--			owl:inverseOf u
+--	
+--rule UMLPropertyInBinaryAssociation_2_ObjectPropertyWithInverse
+--extends Property_2_ObjectProperty
+--{
+--	from u: UML!Property
+--	(
+--		if (not u.association.oclIsUndefined()) 
+--			then
+--				if (not u.eContainer().oclIsTypeOf(UML!Class)) then
+--					not u.association.oclIsKindOf(UML!Class)
+--					and u.association.isBinary()
+--				else false endif
+--			else 
+--				false 
+--		endif
+--	)
+--	using
+--	{
+--		inverse: UML!Property = u.association.memberEnd->any(e | e <> u);
+--		inverse_valid: Boolean = inverse.type.oclIsKindOf(UML!Class);
+--		uri: String =
+--			if (inverse_valid) then 
+--					if (thisModule.option_default_property_uri) then
+--						u.getURI()
+--					else u.createURI(inverse.type.getURI()) endif 
+--				else u.getURI() endif;
+--	}
+--	to o: OWL!ObjectProperty 
+--	(
+----		URI <- uri,
+----		domain <- inverse.type,
+----		restrictions <- thisModule.Restriction(u, inverse.type),
+----		inverseOf <- if (inverse_valid) then inverse else Sequence{} endif 
+--	)
+--}
+
+--	@comment
+--	Rule UMLPropertyInNestedBinaryAssociation_2_ObjectPropertyWithInverse extends Property_2_ObjectProperty 
+--	takes a UML!Property being contained in a Class and in a binary UML!Association being not a UML!AssociationClass. 
+--	This rule creates a OWL!ObjectProperty having for domain the containing UML!Class and for range the type of the 
+--	input UML!Property.
+--	
+--	UML:
+--		+-A
+--			+-inv : B
+--			+-Assoc (u, inv)
+--		+-B
+--			+-u : A
+--
+--	OWL:
+--		u a owl:ObjectProperty 
+--			rdfs:domain B
+--			rdfs:range A
+--			owl:inverseOf inv
+--
+--		inv a owl:ObjectProperty 
+--			rdfs:domain A
+--			rdfs:range B
+--			owl:inverseOf u
+--	
+--rule UMLPropertyInNestedBinaryAssociation_2_ObjectPropertyWithInverse
+--extends Property_2_ObjectProperty
+--{
+--	from u: UML!Property
+--	(
+--		if (not u.association.oclIsUndefined()) 
+--			then
+--				if (u.eContainer().oclIsTypeOf(UML!Class)) then
+--					not u.association.oclIsKindOf(UML!Class)
+--					and u.association.isBinary()
+--				else false endif
+--			else 
+--				false 
+--		endif
+--	)
+--	using
+--	{
+--		inverse: UML!Property = u.association.memberEnd->any(e | e <> u);
+--		inverse_valid: Boolean = inverse.type.oclIsKindOf(UML!Class);
+--		uri : String = 
+--				if (thisModule.option_default_property_uri) then
+--					u.getURI()
+--				else u.createURI(u.eContainer().getURI()) endif; 
+--	}
+--	to o: OWL!ObjectProperty 
+--	(
+----		URI <- uri,
+----		domain <- u.class,
+----		restrictions <- thisModule.Restriction(u, u.eContainer()),
+----		inverseOf <- if (inverse_valid) then inverse else Sequence{} endif
+--	)
+--}
+
+--	@comment
+--	Rule UMLPropertyInBinaryAssociationClass_2_ObjectProperty extends Property_2_ObjectProperty 
+--	takes a UML!Property being contained by a binary UML!AssociationClass. The rule creates a 
+--	OWL!ObjectProperty o and its corresonding inverse. The domain of property o is the UML!AssociationClass. 
+--	The range of o is the type of the input UML!Property. The domain of inverse is made of the type of the 
+--	input UML!Property. The range of inverse is the UML!AssociationClass.
+--
+--	UML:
+--		+-A
+--		+-B
+--		+-AssoClass A2B
+--			+-u: A
+--			+-v: B
+--	
+--	OWL:
+--		A a owl:Class . B a owl:Class . A2B a owl:Class .
+--
+--		u a owl:ObjectProperty
+--			rdfs:domain A2B ; rdfs:range A ; owl:inverseOf u_inverse .
+--
+--		u_inverse a owl:ObjectProperty
+--			rdfs:domain A ; rdfs:range A2B ; owl:inverseOf u .
+--	
+--rule UMLPropertyInBinaryAssociationClass_2_ObjectProperty
+--extends Property_2_ObjectProperty
+--{
+--	from u: UML!Property
+--	(
+--		if (not u.association.oclIsUndefined()) 
+--			then
+--				u.association.oclIsTypeOf(UML!AssociationClass) and 
+--				u.association.isBinary()
+--			else 
+--				false 
+--		endif
+--	)
+--	using
+--	{
+--		uri: String = 
+--				if (thisModule.option_default_property_uri) then
+--					u.getURI()
+--				else u.createURI(u.association.getURI()) endif;
+--		inverse_uri: String = 
+--				if (thisModule.option_default_property_uri) then
+--					u.type.package.getNamespace() + u.getName() + '_inverse'
+--				else u.createURI( u.type.getURI() ) + '_inverse' endif;
+--	}
+--	to o: OWL!ObjectProperty
+--	(
+--		name <- u.getName()
+----		URI <- uri,
+----		domain <- u.association,
+----		restrictions <- thisModule.Restriction(u, u.association),
+----		inverseOf <- inverse
+--	)
+----	inverse: OWL!ObjectProperty
+----	(
+----		name <- u.getName() + '_inverse',
+----		URI <- inverse_uri,
+----		range <- u.association,
+----		domain <- u.type,
+----		isFunctional <- true,
+----		inverseOf <- u,
+----		restrictions <- thisModule.CreateCardinalityRestriction(u, u.type, 1),
+----		ontology <- u.getModel(),
+----		graph <- thisModule.graph
+----	)
+--}
+
+--	@comment
+--	Rule UMLPropertyInNAryAssociation_2_ObjectProperty extends Property_2_ObjectProperty takes 
+--	a UML!Property being in a n-ary association. This rule creates a OWL!ObjectProperty with for 
+--	domain the UML!Association and for range the input UML!Property type.
+--	
+--	UML:
+--		+-A
+--		+-B
+--		+-C
+--		+-A2B2C
+--			+-toA: A
+--			+-toB: B
+--			+-toC: C
+--
+--	OWL:
+--		A a owl:Class . B a owl:Class . C a owl:Class . A2B2C a owl:Class .
+--		
+--		toA a owl:ObjectProperty ; rdfs:domain A2B2C ; rdfs:range A .
+--
+--		toB a owl:ObjectProperty ; rdfs:domain A2B2C ; rdfs:range B .
+--
+--		toC a owl:ObjectProperty ; rdfs:domain A2B2C ; rdfs:range C .
+--
+--rule UMLPropertyInNAryAssociation_2_ObjectProperty
+--extends Property_2_ObjectProperty
+--{
+--	from u: UML!Property
+--	(
+--		if (not u.association.oclIsUndefined()) 
+--			then
+--				not u.association.isBinary()
+--			else 
+--				false 
+--		endif
+--	)
+--	to o: OWL!ObjectProperty 
+--	(
+----		domain <- u.association,
+----		restrictions <- thisModule.Restriction(u, u.owningAssociation) 
+--	)
+--}
+
+--	@comment
+--	Lazy Abstract Rule DataTypeAbstract creates OWL!DataRange fron UML!DataType.
+--lazy abstract rule DataTypeAbstract
+--{
+--	from d: UML!DataType
+--	to o: OWL!DataRange 
+--	(
+----		ontology <- d.getModel(),
+----		graph <- thisModule.graph
+--	)
+--}
+
+--	@comment
+--	Lazy Rule DataType_2_DataType extends DataTypeAbstract creates a OWL!DataType from 
+--	a UML!DataType. The getURI() method call on UML!DataType looks up in the datatypes attribute 
+--	helper in order to identify the corresponding XSD Datatype, if no one found creates RDFS.Literal.
+--lazy rule DataType_2_DataType 
+--extends DataTypeAbstract
+--{
+--	from d: UML!DataType
+--	(
+--		d.oclIsTypeOf( UML!DataType )
+--	)
+--	to o: OWL!DataType 
+--	(
+----		URI <- d.getURI()
+--	)
+--}
+
+--	@comment
+--	Lazy Rule PrimitiveType_2_DataType extends DataTypeAbstract creates a OWL!DataType from 
+--	a UML!DataType. The getURI() method call on UML!DataType looks up in the datatypes attribute 
+--	helper in order to identify the corresponding XSD Datatype, if no one found creates RDFS.Literal. 
+--lazy rule PrimitiveType_2_DataType 
+--extends DataTypeAbstract
+--{
+--	from d: UML!PrimitiveType
+--	(
+--		d.oclIsKindOf( UML!PrimitiveType )
+--	)
+--	to o: OWL!DataType 
+--	(
+----		URI <- d.getURI()
+--	)
+--}
+
+--	@comment
+--	Lazy Rule Enumeration_2_EnumeratedDataRange extends DataTypeAbstract creates a OWL!EnumerationDataRange 
+--	from a UML!Enumeration. Only enumeration literals are taken into account. Literals are translated into DataValue 
+--	via a call to the lazy rule EnumLiteral_2_DataValue.
+--lazy rule Enumeration_2_EnumeratedDataRange 
+--extends DataTypeAbstract 
+--{
+--	from d: UML!Enumeration
+--	(
+--		d.oclIsTypeOf( UML!Enumeration )
+--	)		
+--	to o: OWL!EnumeratedDataRange 
+--	(
+--		oneOf <- d.ownedLiteral->collect(e | thisModule.EnumLiteral_2_DataValue(e))
+--	)
+--}
+
+--	@comment
+--	Rule Comment_2_Comment creates a OWL!Comment from a UML!Comment. A OWL!Comment is 
+--	a special kind of OWL!OWLProperty having for domain the commented OWL!OntologyResource 
+--	and for range the text comment.
+--rule Comment_2_Comment
+--{
+--	from u: UML!Comment
+--	to
+--		o: OWL!AnnotationProperty 
+--		(
+--			URI <- thisModule.RDFS + 'comment',
+--			range <- o_range,
+--			domain <- u.annotatedElement,
+--			ontology <- u.getModel(),
+--			graph <- thisModule.graph
+--		),
+--		o_range: OWL!DataValue (
+--			value <- u.body,
+--			type <- o_range_type,
+--			ontology <- u.getModel(),
+--			graph <- thisModule.graph
+--		),
+--		o_range_type:  OWL!DataType (
+--			URI <- 'http://www.w3.org/2001/XMLSchema#string'
+--		)
+--}

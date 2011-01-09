@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.emftriple.query.sparql/src-gen"
+    editDirectory="/com.emftriple.query.sparql.edit/src" editorDirectory="/com.emftriple.query.sparql.editor/src"
+    modelPluginID="com.emftriple.query.sparql" forceOverwrite="true" modelName="Sparql"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="com.emftriple.query.sparql.edit"
+    editorPluginID="com.emftriple.query.sparql.editor">
+  <genPackages prefix="Sparql" basePackage="com.emftriple.query" disposableProviderFactory="true"
+      ecorePackage="Sparql.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sparql.ecore#//Operator">
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/lessThen"/>
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/greaterThen"/>
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/lessEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/greaterEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/equal"/>
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/notEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/sum"/>
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/div"/>
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/sub"/>
+      <genEnumLiterals ecoreEnumLiteral="Sparql.ecore#//Operator/multiplicity"/>
+    </genEnums>
+    <genClasses ecoreClass="Sparql.ecore#//SPARQLQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SPARQLQuery/prefixes"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//Prefix">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//Prefix/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//Prefix/iref"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//Base">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//Base/iref"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//SelectionQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SelectionQuery/base"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SelectionQuery/datasetClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SelectionQuery/whereClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SelectionQuery/groupClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SelectionQuery/havingClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SelectionQuery/limitClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//SelectQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//SelectQuery/isDistinct"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//SelectQuery/isReduced"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//SelectQuery/all"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SelectQuery/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//AskQuery"/>
+    <genClasses ecoreClass="Sparql.ecore#//DescribeQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DescribeQuery/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//ConstructQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ConstructQuery/constructTemplate"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//UpdateQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//UpdateQuery/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//UpdateOperation"/>
+    <genClasses ecoreClass="Sparql.ecore#//ModifyQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//ModifyQuery/withGraph"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ModifyQuery/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//CreateGraphQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//CreateGraphQuery/isSilent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//CreateGraphQuery/graph"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//DropGraphQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//DropGraphQuery/isSilent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//DropGraphQuery/graph"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//LoadGraphQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//LoadGraphQuery/graph"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//LoadGraphQuery/intoGraph"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//ClearGraphQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//ClearGraphQuery/uri"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//ClearGraphQuery/isDefault"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//UsingGraph">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//UsingGraph/named"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//UsingGraph/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//InsertQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//InsertQuery/graph"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//InsertQuery/whereClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//InsertDataQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//InsertDataQuery/graph"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//DeleteQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//DeleteQuery/graph"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DeleteQuery/insertPattern"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DeleteQuery/whereClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//DeleteDataQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//DeleteDataQuery/graph"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//DeleteWhereQuery"/>
+    <genClasses ecoreClass="Sparql.ecore#//DatasetClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//DatasetClause/dataSet"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//DefaultDataSet"/>
+    <genClasses ecoreClass="Sparql.ecore#//NamedDataSet"/>
+    <genClasses ecoreClass="Sparql.ecore#//ServiceDataSet"/>
+    <genClasses ecoreClass="Sparql.ecore#//WhereClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//WhereClause/groupGraphPattern"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//GroupClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//GroupClause/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//GroupCondition"/>
+    <genClasses ecoreClass="Sparql.ecore#//HavingClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//HavingClause/constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//Constraint"/>
+    <genClasses ecoreClass="Sparql.ecore#//LimitClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//LimitClause/limit"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//GroupGraphPattern"/>
+    <genClasses ecoreClass="Sparql.ecore#//SubSelectQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SubSelectQuery/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SubSelectQuery/whereClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SubSelectQuery/groupClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SubSelectQuery/havingClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//GroupGraphPatternSub">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//GroupGraphPatternSub/graphPatterns"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//GraphPattern"/>
+    <genClasses ecoreClass="Sparql.ecore#//TriplesSameSubject">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//TriplesSameSubject/subject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//TriplesSameSubject/propertyList"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//GroupOrUnionGraphPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//GroupOrUnionGraphPattern/graphPatterns"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//OptionalGraphPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//OptionalGraphPattern/graphPattern"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//PropertyList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//PropertyList/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//PropertyList/object"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//GraphGraphPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//GraphGraphPattern/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//GraphGraphPattern/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//ServiceGraphPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ServiceGraphPattern/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ServiceGraphPattern/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//FilterPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//FilterPattern/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//ExistsPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ExistsPattern/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//NotExistsPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//NotExistsPattern/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//MinusPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//MinusPattern/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//Expression"/>
+    <genClasses ecoreClass="Sparql.ecore#//ExpressionFilterExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ExpressionFilterExpression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//ExpressionFilterExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ExpressionFilterExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//FilterNode"/>
+    <genClasses ecoreClass="Sparql.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//Function/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//NamedFunction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sparql.ecore#//NamedFunction/prefix"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//SparqlFunction"/>
+    <genClasses ecoreClass="Sparql.ecore#//BuiltInCall">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//BuiltInCall/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//BuiltInCall/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//BuiltInCall/right"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//BuiltInCall/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//BuiltInCall/ifExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//BuiltInCall/thenExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//BuiltInCall/elseExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//Aggregate"/>
+    <genClasses ecoreClass="Sparql.ecore#//ExprAggArg">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//ExprAggArg/isDistinct"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//ExprAggArg/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//GraphNode"/>
+    <genClasses ecoreClass="Sparql.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//Variable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//UnNamedVariable"/>
+    <genClasses ecoreClass="Sparql.ecore#//NamedVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sparql.ecore#//NamedVariable/prefix"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//BlankNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//BlankNode/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//Parameter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//Value">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//Value/tag"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//IRI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//IRI/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//StringValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//StringValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//IntegerValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//IntegerValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//RDFTag"/>
+    <genClasses ecoreClass="Sparql.ecore#//TypeTag">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//TypeTag/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//LangTag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//LangTag/lang"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//OrFilterExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//OrFilterExpression/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//AndFilterExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//AndFilterExpression/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//CountAggregate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//CountAggregate/isDistinct"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//CountAggregate/isAll"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//CountAggregate/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//SumAggregate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SumAggregate/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//MinAgregate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//MinAgregate/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//MaxAggregate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//MaxAggregate/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//AvgAggregate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//AvgAggregate/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//SampleAggregate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//SampleAggregate/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Sparql.ecore#//GroupAggregate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//GroupAggregate/isDistinct"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sparql.ecore#//GroupAggregate/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sparql.ecore#//GroupAggregate/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,193 @@
+-- @atlcompiler atl2006
+
+-- @path RDF=/com.emf4sw.rdf/model/rdf.ecore
+-- @nsURI Model=http://www.eclipse.org/emf/2002/Ecore
+
+module Model2Rdf;
+create OUT:RDF from IN:Model;
+
+uses RDFHelpers;
+
+--@owl.AllValuesFrom(from="http://www.example.com/Employee#Employee")
+--	@emf4sw.foreach(
+--  		var="@it",
+--		action="@owl.AllValuesFrom(property=@it, from=@it.address)")
+--	val Employee[*] employees;
+
+--abstract 
+rule EObject2Node {
+	from e: Model!EObject
+	using 
+	{
+		features: Sequence(OclAny) = e.getFeatures();
+		g: String = e.eClass().getGraph();
+		annotations: Set(Model!EAnnotation) = e.eClass().getEAnnotations();
+		types: Set(Model!EAnnotation) = annotations->select(a | a.source = 'emf4sw.OWLClass').debug('types');
+	}
+	to	
+		r: RDF!Resource (
+			URI <- e.getRdfId()
+		,	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
+		,	subjectOf <- Sequence {
+				types->collect(t | 
+					thisModule.MakeTripleWithURI(e, 
+						thisModule.RDF + 'type', 
+						t.details.get('uri'),
+						e.eClass().getGraph())
+				),
+				features->collect(f |
+					let 
+						val: Sequence(OclAny) = thisModule.set( e.eGet(f) ) 
+					in
+					let
+						ann: Set(Model!EAnnotation)= f.getEAnnotations()
+					in
+					let
+						actions: Set(Model!EAnnotation) = ann->select(a | a.source = 'emf4sw.foreach')
+					in
+					let
+						axioms: Set(Model!EAnnotation) = ann->select(a | a.source = 'emf4sw.AllValuesFrom' or a.source = 'emf4sw.SomeValuesFrom').debug('axioms')
+					in
+					Sequence {
+						val->collect(v |
+							Sequence {
+								if (f.oclIsKindOf(Model!EReference))
+								then
+									if (v.oclIsKindOf(Model!EDataType)) -- ???
+									then
+										thisModule.MakeTripleWithURI(e, f.getURI(), v.getRdfId(), e.eClass().getGraph())
+									else
+										thisModule.MakeTriple(e, f.getURI(), v, e.eClass().getGraph()) 
+									endif
+								else 
+									thisModule.MakeTripleWithLiteral(e, f.getURI(), v, f.getType(), e.eClass().getGraph())
+								endif
+--						,	actions->collect(a |
+--		--						@emf4sw.foreach(
+--		--							var="@it", 
+--		--							action="@AllValuesFrom(property=@it.name, from=@it.type)")
+--									if (a.details.get('action').startsWith('@emf4sw.AllValuesFrom'))
+--									then
+--									let name: String = v.name in
+--									let type: String = v.type.getRdfId() in
+--										thisModule.UUB(e.getRdfId(), thisModule.RDFS + 'subClassOf', 
+--											thisModule.Feature2Action(e, name, type), e.eClass().getGraph())
+--									else Sequence {} endif
+--								)
+							})
+					
+					,	axioms->collect(t | 
+						    Sequence {
+								thisModule.UUB(e.getRdfId(), thisModule.RDFS + 'subClassOf', 
+									thisModule.Feature2Restriction(e, f), e.eClass().getGraph())
+						    }
+						)
+					}
+				) 
+			}->flatten()
+		)
+		
+		do {
+			for (f in features) {
+				for (v in thisModule.set( e.eGet(f) )) {
+					for (a in f.getEAnnotations()) {
+						if (a.source = 'emf4sw.foreach') {
+							if (a.details.get('action').startsWith('@emf4sw.AllValuesFrom')) 
+							{
+								let name: String = v.name in
+								let type: String = v.type.getRdfId() in
+									thisModule.UUU(
+										e.getRdfId(), 
+										thisModule.RDFS + 'subClassOf', 
+										thisModule.Feature2Action2(e, name, type), 
+										e.eClass().getGraph());
+							}
+						}
+					}
+				}
+			}
+		}
+}
+
+unique lazy rule BlankNode {
+	from id: String
+	to
+		r: RDF!BlankNode (
+			nodeID <- id.debug('id')
+--		,	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif 
+		)
+}
+
+-- :s rdfs:subClassOf [
+--	 	rdf:type owl:Restriction
+--		owl:onProperty :p
+--		owl:allValuesFrom :a
+-- ]
+lazy rule Feature2Restriction {
+	from e: Model!EObject, f: Model!EStructuralFeature
+	to
+		b: RDF!BlankNode (
+			nodeID <- e.getRdfId() + '__' + f.name,
+			subjectOf <- Sequence {
+				thisModule.BUU( b, thisModule.RDF + 'type',	thisModule.OWL + 'Restriction',	e.eClass().getGraph() )
+			,	thisModule.BUU( b, thisModule.OWL + 'onProperty', f.getURI(), e.eClass().getGraph() )
+			,	thisModule.BUU( b, thisModule.OWL + 'allValuesFrom', f.eType.getClassURI(), e.eClass().getGraph() )
+			}
+		)
+		
+}
+
+lazy rule Feature2Action {
+	from e: Model!EObject, f: String, t: String
+	to
+		b: RDF!BlankNode (
+			nodeID <- e.getRdfId() + '__' + f,
+			subjectOf <- Sequence {
+				thisModule.BUU( b, thisModule.RDF + 'type',	thisModule.OWL + 'Restriction',	e.eClass().getGraph() )
+			,	thisModule.BUU( b, thisModule.OWL + 'onProperty', f, e.eClass().getGraph() )
+			,	thisModule.BUU( b, thisModule.OWL + 'allValuesFrom', t, e.eClass().getGraph() )
+			}
+		)
+		
+}
+
+rule Feature2Action2 (e: Model!EObject, f: String, t: String) {
+	to
+		b: RDF!BlankNode (
+			nodeID <- e.getRdfId() + '__' + f,
+			subjectOf <- Sequence {
+--				thisModule.BUU( b, thisModule.RDF + 'type',	thisModule.OWL + 'Restriction',	e.eClass().getGraph() )
+--			,	thisModule.BUU( b, thisModule.OWL + 'onProperty', f, e.eClass().getGraph() )
+--			,	thisModule.BUU( b, thisModule.OWL + 'allValuesFrom', t, e.eClass().getGraph() )
+			}
+		)
+		
+}
+
+--rule EObject2Resource extends EObject2Node {
+--	from e: Model!EObject (not e.eClass().isAnonymous())
+--	to
+--		r: RDF!Resource (
+--			URI <- e.getRdfId()
+--		)
+--}
+--
+--helper def: ID: Integer = 1;
+--
+--rule EObject2BlankNode extends EObject2Node {
+--	from e: Model!EObject (e.eClass().isAnonymous())
+--	using {
+--		features: Sequence(OclAny) = e.eClass().getEAllStructuralFeatures()->reject(f | f.isUnsettable() or f.isTransient() or f.isDerived());
+--		g: String = e.eClass().getGraph();
+--	}
+--	to
+--		r: RDF!BlankNode (
+--			nodeID <- thisModule.ID.toString()
+--		)
+--	do {
+--		thisModule.ID <- thisModule.ID + 1; 
+--	}
+--}
+
+
+

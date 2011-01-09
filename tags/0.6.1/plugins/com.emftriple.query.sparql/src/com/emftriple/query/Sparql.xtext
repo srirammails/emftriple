@@ -1,0 +1,460 @@
+grammar com.emftriple.query.Sparql hidden(WS, ML_COMMENT, SL_COMMENT)
+
+import 'http://www.eclipse.org/emf/2002/Ecore' as ecore
+
+generate sparql 'http://www.emftriple.com/2009/Sparql'
+
+SPARQLQuery:
+	SelectionQuery |
+	UpdateQuery
+//	DeleteInsertQuery
+;
+
+Prefix:
+	'PREFIX' name=ID':' iref=IRI_TERMINAL | UnNamedPrefix
+;
+
+UnNamedPrefix returns Prefix:
+	'PREFIX' ':' iref=IRI_TERMINAL
+;
+
+Base:
+	'BASE' iref=IRI
+;
+
+SelectionQuery:
+	ConstructQuery |
+	SelectQuery |
+	AskQuery |
+	DescribeQuery
+;
+
+SelectQuery returns SelectQuery:
+	SelectAllQuery | 
+	SelectVariablesQuery
+;
+
+SelectAllQuery returns SelectQuery:
+	(base=Base)?
+	(prefixes+=Prefix)*
+	'SELECT' (isDistinct?='DISTINCT'|isReduced?='REDUCED')? all?='*'
+	(datasetClause+=DatasetClause)*
+	whereClause=WhereClause
+	(groupClause=GroupClause)?
+	(havingClause=HavingClause)?
+	(limitClause=LimitClause)?
+;
+
+SelectVariablesQuery returns SelectQuery:
+	(base=Base)?
+	(prefixes+=Prefix)*
+	'SELECT' (isDistinct?='DISTINCT'|isReduced?='REDUCED')? variables+=Variable (variables+=Variable)*
+	(datasetClause+=DatasetClause)*
+	whereClause=WhereClause
+	(groupClause=GroupClause)?
+	(havingClause=HavingClause)?
+	(limitClause=LimitClause)?
+;
+
+AskQuery:
+	(base=Base)?
+	(prefixes+=Prefix)*
+	'ASK'
+	(datasetClause+=DatasetClause)* 
+	whereClause=WhereClause
+	(groupClause=GroupClause)?
+	(havingClause=HavingClause)?
+	(limitClause=LimitClause)?
+;
+
+DescribeQuery:
+	(base=Base)?
+	(prefixes+=Prefix)*
+	'DESCRIBE' variables+=GraphNode (variables+=GraphNode)*
+	(datasetClause+=DatasetClause)*
+	(whereClause=WhereClause)?
+	(groupClause=GroupClause)?
+	(havingClause=HavingClause)?
+	(limitClause=LimitClause)?
+;
+
+ConstructQuery:
+	(base=Base)?
+	(prefixes+=Prefix)*
+	'CONSTRUCT' constructTemplate=GroupGraphPattern
+	(datasetClause+=DatasetClause)*
+	whereClause=WhereClause
+	(groupClause=GroupClause)?
+	(havingClause=HavingClause)?
+	(limitClause=LimitClause)?
+;
+
+UpdateQuery:
+	{UpdateQuery} 
+	(prefixes+=Prefix)*
+	(operations+=UpdateOperation)+
+;
+
+//DeleteInsertQuery:
+//	(prefixes+=Prefix)*
+//	operations+=DeleteInsert
+//;
+
+UpdateOperation:
+	ModifyQuery |
+	CreateGraphQuery |
+	DropGraphQuery |
+	LoadGraphQuery |
+	ClearGraphQuery
+;
+
+ModifyQuery:
+	InsertQuery |
+	InsertDataQuery |
+	DeleteQuery |
+	DeleteDataQuery |
+	DeleteWhereQuery
+;
+
+CreateGraphQuery:
+	'CREATE' (isSilent='SILENT')? 'GRAPH' graph=IRI_TERMINAL
+;
+
+DropGraphQuery:
+	'DROP' (isSilent='SILENT')? 'GRAPH' graph=IRI_TERMINAL
+;
+
+LoadGraphQuery:
+	'LOAD' graph=IRI_TERMINAL ('INTO' 'GRAPH' intoGraph=IRI_TERMINAL)?
+;
+
+ClearGraphQuery:
+	'CLEAR' 'GRAPH' (uri=IRI_TERMINAL | isDefault?='DEFAULT')
+;
+
+//DeleteInsert:
+//	('WITH' withGraph=IRI_TERMINAL)?
+//	'DELETE' deletePattern=GroupGraphPattern
+//	'INSERT' insertPattern=GroupGraphPattern
+//	(usingGraphs+=UsingGraph)*
+//	(whereClause=WhereClause)?
+//;
+
+UsingGraph:
+	'USING' (named?='NAMED')? uri=IRI_TERMINAL
+;
+
+InsertQuery:
+	('WITH' withGraph=IRI_TERMINAL)?
+	'INSERT' ('INTO' graph=IRI_TERMINAL)?
+	pattern=GroupGraphPattern
+//	(usingGraphs+=UsingGraph)*
+	(whereClause=WhereClause)?
+;
+
+InsertDataQuery:
+	('WITH' withGraph=IRI_TERMINAL)?
+	'INSERT' 'DATA' ('INTO' graph=IRI_TERMINAL)?
+	pattern=GroupGraphPattern
+;
+
+DeleteQuery:
+	('WITH' withGraph=IRI_TERMINAL)?
+	'DELETE' ('FROM' graph=IRI_TERMINAL)?
+	pattern=GroupGraphPattern
+	('INSERT' insertPattern=GroupGraphPattern)?
+//	(usingGraphs+=UsingGraph)*
+	(whereClause=WhereClause)?
+;
+
+DeleteDataQuery:
+	('WITH' withGraph=IRI_TERMINAL)?
+	'DELETE' 'DATA' ('FROM' graph=IRI_TERMINAL)?
+	pattern=GroupGraphPattern
+;
+
+DeleteWhereQuery:
+	('WITH' withGraph=IRI_TERMINAL)?
+	'DELETE' 'WHERE' '{' pattern=GroupGraphPattern '}'
+;
+
+DatasetClause:
+	DefaultDataSet |
+	NamedDataSet |
+	ServiceDataSet
+;
+
+DefaultDataSet:
+	'FROM' dataSet=IRI
+;
+
+NamedDataSet:
+	'FROM' 'NAMED' dataSet=IRI
+;
+	
+ServiceDataSet:
+	'FROM' 'SERVICE' dataSet=IRI
+;
+
+WhereClause:
+	'WHERE' groupGraphPattern=GroupGraphPattern
+;
+
+GroupClause:
+	'GROUP' 'BY' condition=GroupCondition
+;
+
+GroupCondition:
+	BuiltInCall |
+	Function |
+	Variable
+;
+
+HavingClause:
+	'HAVING' constraint=Constraint
+;
+
+Constraint:
+	ParFilterExpression |
+	BuiltInCall |
+	Function
+;
+
+LimitClause:
+	'LIMIT' limit=INT
+;
+
+GroupGraphPattern:
+	SubSelectQuery | 
+	GroupGraphPatternSub
+;
+
+SubSelectQuery:
+	'{' 
+		'SELECT' variables+=Variable (variables+=Variable)*
+		whereClause=WhereClause
+		(groupClause=GroupClause)?
+		(havingClause=HavingClause)?
+	'}'
+;
+
+GroupGraphPatternSub:
+	'{' graphPatterns+=GraphPattern ( '.' graphPatterns+=GraphPattern)* ( '.')? '}'
+;
+
+GraphPattern:
+	TriplesSameSubject |
+	GroupOrUnionGraphPattern |
+	OptionalGraphPattern |
+	GraphGraphPattern |
+	ServiceGraphPattern |
+	FilterPattern |
+	ExistsPattern |
+	NotExistsPattern |
+	MinusPattern
+;
+
+TriplesSameSubject:
+	subject=GraphNode propertyList+=PropertyList (';'
+		propertyList+=PropertyList
+	)*
+;
+
+GroupOrUnionGraphPattern:
+	graphPatterns+=GroupGraphPattern ('UNION' graphPatterns+=GroupGraphPattern)?
+;
+
+OptionalGraphPattern:
+	'OPTIONAL' graphPattern+=GroupGraphPattern
+;
+
+PropertyList:
+	property=GraphNode object=GraphNode
+;
+
+GraphGraphPattern:
+	'GRAPH' var=GraphNode pattern=GroupGraphPattern
+;
+
+ServiceGraphPattern:
+	'SERVICE' var=GraphNode pattern=GroupGraphPattern
+;
+
+FilterPattern:
+	'FILTER' '(' expression=Expression ')'
+;
+
+ExistsPattern:
+	'FILTER' 'EXISTS' pattern=GroupGraphPattern
+;
+
+NotExistsPattern:
+	'FILTER' 'NOT' 'EXISTS' pattern=GroupGraphPattern
+;
+
+MinusPattern:
+	'MINUS' pattern=GroupGraphPattern
+;
+
+Expression returns Expression:
+	AndFilterExpression ({OrFilterExpression.entries+=current} ("||" entries+=AndFilterExpression)+)?
+;
+
+AndFilterExpression returns Expression:
+	ConcreteFilterExpression ({AndFilterExpression.entries+=current} ("&&" entries+=ConcreteFilterExpression)+)?
+;
+
+ConcreteFilterExpression returns Expression:
+	ParFilterExpression |
+	ExpressionFilterExpression
+;
+
+ParFilterExpression returns Expression:
+	"(" Expression ")"
+;
+
+ExpressionFilterExpression:
+	left=FilterNode operator=Operator right=FilterNode
+;
+
+FilterNode:
+	GraphNode |
+	Function
+;
+
+Function:
+	NamedFunction |
+	SparqlFunction
+;
+
+NamedFunction hidden (WS):
+	prefix=[Prefix]':'name=ID '(' parameters+=Variable (',' parameters+=Variable)? ')'
+;
+
+SparqlFunction:
+	name=ID '(' parameters+=Variable (',' parameters+=Variable)? ')'
+;
+
+BuiltInCall:
+		'STR' '(' expr=Expression ')' 
+	|	'LANG' '(' expr=Expression ')' 
+	|	'LANGMATCHES' '(' left=Expression ',' right=Expression ')' 
+	|	'DATATYPE' '(' expr=Expression ')' 
+	|	'BOUND' '(' var=Variable ')' 
+	|	'IRI' '(' expr=Expression ')' 
+	|	'URI' '(' expr=Expression ')' 
+	|	'BNODE' '(' expr=Expression ')' // | NIL ) 
+//	|	'COALESCE' ExpressionList 
+	|	'IF' '(' ifExpr=Expression ',' thenExpr=Expression ',' elseExpr=Expression ')' 
+	|	'STRLANG' '(' left=Expression ',' right=Expression ')' 
+	|	'STRDT' '(' left=Expression ',' right=Expression ')' 
+	|	'sameTerm' '(' left=Expression ',' right=Expression ')' 
+	|	'isIRI' '(' expr=Expression ')' 
+	|	'isURI' '(' expr=Expression ')' 
+	|	'isBLANK' '(' expr=Expression ')' 
+	|	'isLITERAL' '(' expr=Expression ')'
+;
+
+Aggregate:
+	{CountAggregate} 'COUNT' '(' (isDistinct?='DISTINCT')? ( isAll?='*' | expr=Expression ) ')' 
+	| {SumAggregate}'SUM' expr=ExprAggArg 
+	| {MinAgregate}'MIN' expr=ExprAggArg 
+	| {MaxAggregate}'MAX' expr=ExprAggArg 
+	| {AvgAggregate}'AVG' expr=ExprAggArg 
+	| {SampleAggregate}'SAMPLE' expr=ExprAggArg 
+	| {GroupAggregate} 'GROUP_CONCAT' '(' (isDistinct?='DISTINCT')? expr+=Expression ( ',' expr+=Expression )* ( ';' 'SEPARATOR' '=' value=STRING )? ')'
+;
+
+ExprAggArg:  	
+	'(' (isDistinct?='DISTINCT')? expr=Expression ')'
+;
+
+enum Operator:
+	lessThen="<" |
+	greaterThen=">" |
+	lessEqual="<=" |
+	greaterEqual=">=" |
+	equal="=" |
+	notEqual="!=" |
+	sum="+" |
+	div="/" |
+	sub="-" |
+	multiplicity="*"
+;
+
+
+GraphNode:
+	Variable |
+	Value |
+	IRI |
+	BlankNode |
+	Parameter
+;
+
+Variable:
+	UnNamedVariable | 
+	NamedVariable
+;
+
+UnNamedVariable returns UnNamedVariable:
+	'?'name=ID
+;
+
+NamedVariable returns NamedVariable:
+	prefix=[Prefix]':'name=ID
+;
+
+BlankNode hidden (WS):
+	'_:'name=ID
+;
+
+Parameter hidden (WS):
+	'?:'name=ID
+;
+
+Value:
+	StringValue |
+	IntegerValue
+;
+
+IRI:
+	{IRI} value=IRI_TERMINAL
+;
+
+StringValue:
+	value=STRING (tag=RDFTag)?
+;
+
+IntegerValue:
+	value=INT (tag=RDFTag)?
+;
+
+RDFTag:
+	TypeTag |
+	LangTag
+;
+
+TypeTag hidden (WS):
+	'^^'type=GraphNode
+;
+
+LangTag hidden (WS):
+	'@'lang=ID
+;
+
+terminal IRI_TERMINAL returns ecore::EString: 
+	'<' ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9'|'/'|':'|'.'|'#'|'?'|'@'|'$'|'&'|'=')* '>'
+;
+terminal STRING returns ecore::EString:
+		'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'"'|"'"|'\\') | !('\\'|'"') )* '"'
+;
+terminal ID returns ecore::EString: 
+	('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9'|'/'|'.'|'#'|'?')*
+;
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal ML_COMMENT	: '/*' -> '*/';
+terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal WS			: (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;

@@ -1,0 +1,482 @@
+-- @atlcompiler atl2006
+-- @path Properties=/com.atl.common/src/com/atl/common/models/Properties.ecore
+-- @nsURI UML=http://www.eclipse.org/uml2/3.0.0/UML
+
+---	
+---	UML2OWL.
+---
+---	@author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+library UML2OWLHelpers;
+
+uses PropertiesHelpers;
+
+helper def: UML2OWL_NO_DOMAIN_NO_RANGE: String = 'UML2OWL_NO_DOMAIN_NO_RANGE';
+helper def: UML2OWL_NO_CARDINALITIES: String = 'UML2OWL_NO_CARDINALITIES';
+helper def: UML2OWL_PROPERTY_NAME_ONLY: String = 'UML2OWL_PROPERTY_NAME_ONLY';
+helper def: UML2OWL_PROPERTY_NAME_DELIMITER: String = 'UML2OWL_PROPERTY_NAME_DELIMITER';
+helper def: UML2OWL_DISJOINT_CLASSES: String = 'UML2OWL_DISJOINT_CLASSES';
+helper def: UML2OWL_MODEL_NAMESPACE: String = 'UML2OWL_MODEL_NAMESPACE';
+helper def: UML2OWL_CLOSE_WORLD_OPTION: String = 'UML2OWL_CLOSE_WORLD_OPTION';
+
+helper def: RDF: String = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
+helper def: RDFS: String = 'http://www.w3.org/2000/01/rdf-schema#';
+helper def: OWL: String = 'http://www.w3.org/2002/07/owl#';
+helper def: XSD: String = 'http://www.w3.org/2001/XMLSchema#';
+
+helper def: classes: Set(UML!Class) = UML!Class.allInstancesFrom('IN')->select(e | e.oclIsTypeOf(UML!Class));
+helper def: associations: Set(UML!Association) = UML!Association.allInstancesFrom('IN');
+helper def: properties: Set(UML!Property) = UML!Property.allInstancesFrom('IN');
+
+helper context UML!Class def: getProperties(): Set(UML!Property) = self.ownedAttribute;
+helper context UML!Association def: getProperties(): Set(UML!Property) = self.ownedEnd;
+helper context UML!AssociationClass def: getProperties(): Set(UML!Property) = self.ownedAttribute->union(self.ownedEnd);
+helper context UML!DataType def: getProperties(): Set(UML!Property) = Set{};
+helper context UML!Package def: getProperties(): Set(UML!Property) = Set{};
+helper context UML!Dependency def: getProperties(): Set(UML!Property) = Set{};
+helper context UML!Interface def: getProperties(): Set(UML!Property) = self.ownedAttribute;
+
+helper def: dts: Sequence(UML!DataType) = UML!Property.allInstances()->collect(e | e.type);
+
+helper context UML!Package def: getDatatypes(): Set(String) =
+	self.packagedElement->collect(e | e.getProperties())->flatten()->collect(e | 
+		if (e.type.oclIsUndefined()) then Sequence{} else e.type endif)->flatten()->asSet()->collect(e | e.name);
+	
+helper context UML!Property def: isFunctional(): Boolean = ((self.upper = 1) and (self.lower = 1));
+helper context UML!Property def: hasCardinality(): Boolean = not((self.upper < 0) and (self.lower = 0));
+helper context UML!Property def: isWellFormed(): Boolean = 
+	not (self.oclIsUndefined() and self.type.oclIsUndefined() and 
+		self.upper.oclIsUndefined() and self.lower.oclIsUndefined());
+
+helper context UML!Property def: getClassifier(): UML!Classifier = 
+	if (self.class.oclIsUndefined()) then
+		if (self.association.oclIsUndefined()) then
+			OclAny
+		else self.getOtherEnd().type endif
+	else self.class endif;
+
+helper context Properties!PropertyMap def: containsKey(key: String): Boolean =
+	if (self.oclIsUndefined()) then false else
+		self.entries->exists(e | e.key = key) endif;
+
+helper context Properties!PropertyMap def: get(key: String): String =
+	self.entries->select(e | e.key = key)->first().value;
+
+
+--- OPTION_NAMESPACE contains the default namespace that will be apply on each ontology. The default 
+---	value is http:// followed by the package names hierarchy separated by a dot 
+---	(example: http://package_one.package_two...).
+helper def: BASE_NAMESPACE: String = 'http://'; 
+
+--	OPTION_DEFAULT_PROPERTY_URI
+helper def: OPTION_DEFAULT_PROPERTY_URI: String = 'true';
+
+--	OPTION_DISJOINT_CLASSES
+helper def: OPTION_DISJOINT_CLASSES: String = 'false';
+
+--	@comment
+--	Get the Properties containing transformation options.
+helper def: Property: Properties!PropertyMap = Properties!PropertyMap.allInstancesFrom('IN2')->first();
+
+--	@comment 
+-- 	Checks if a Properties has its entries reference not null.
+helper context Properties!PropertyMap def: checkNotNull() : Boolean =
+	not thisModule.Property.oclIsUndefined();
+	
+--	@comment
+--	Checks the value set up for the namespace option. Value is set in a Properties entry 
+--	with key OPTION_NS and for value the base namespace.
+helper def: option_namespace: String =
+	if (thisModule.Property.checkNotNull()) then
+		if (not thisModule.Property.containsKey(thisModule.UML2OWL_MODEL_NAMESPACE)) then
+			thisModule.BASE_NAMESPACE
+		else thisModule.Property.get(thisModule.UML2OWL_MODEL_NAMESPACE) endif
+	else
+		thisModule.BASE_NAMESPACE
+	endif;
+
+helper def: doCardinalities(): Boolean = 
+	if (thisModule.Property.containsKey(thisModule.UML2OWL_NO_CARDINALITIES)) then
+		let doIt: String = thisModule.Property.get(thisModule.UML2OWL_NO_CARDINALITIES) in
+			doIt = 'false'
+	else true endif;
+
+helper def: doDomainAndRange(): Boolean = 
+	if (thisModule.Property.containsKey(thisModule.UML2OWL_NO_DOMAIN_NO_RANGE)) then
+		let doIt: String = thisModule.Property.get(thisModule.UML2OWL_NO_DOMAIN_NO_RANGE) in
+			doIt = 'false'
+	else true endif;
+
+helper def: doPropertyNameOnly(): Boolean = 
+	if (thisModule.Property.containsKey(thisModule.UML2OWL_PROPERTY_NAME_ONLY)) then
+		let doIt: String = thisModule.Property.get(thisModule.UML2OWL_PROPERTY_NAME_ONLY) in
+			doIt = 'true'
+	else true endif;
+
+helper def: getDelimiter: String = 
+	if (thisModule.Property.containsKey(thisModule.UML2OWL_PROPERTY_NAME_DELIMITER)) then
+		let delimiter: String = thisModule.Property.get(thisModule.UML2OWL_PROPERTY_NAME_DELIMITER) in
+			delimiter
+	else '_' endif;
+
+helper context UML!Property def: getName(): String =
+	(if (thisModule.doPropertyNameOnly()) then 
+		self.name
+	else
+		let classifier: UML!Classifier = self.getClassifier() in
+			if (classifier.oclIsUndefined()) then ''
+			else 
+				classifier.name + thisModule.getDelimiter 
+			endif 
+		+ self.name 
+	endif).trim().regexReplaceAll(' ', '_');
+
+--	@comment
+--	Checks the value set up for the default property uri option. Value is set in a Properties entry 
+--	with key OPTION_DEFAULT_PROPERTY_URI and for value true or false. The true value is the default 
+--	value and indicates that properties URI will be made of simple properties name and not by preceding 
+--	with domain class names. For example:
+--	
+--	UML:
+--		+- A
+--			+- name: String
+--
+--	OWL:
+--		default version:
+--			_:A a owl:Class . _:name a owl:DatatypeProperty .
+--	
+--		no default version:
+--			_:A a owl:Class . _:A.name a owl:DatatypeProperty .
+--
+helper def: option_default_property_uri: Boolean =
+	if (thisModule.Property.checkNotNull()) then
+		if (not thisModule.Property.containsKey(thisModule.UML2OWL_PROPERTY_NAME_ONLY)) then
+			true
+		else 
+			thisModule.Property.get(thisModule.UML2OWL_PROPERTY_NAME_ONLY) = true
+		endif
+	else true endif;
+
+--	@comment
+--	Checks the value set up for the disjoint classes option. Value is set in a Properties entry 
+--	with key OPTION_DISJOINT_CLASSES and for value true or false. The false value is the default 
+--	value and indicates that classes will not be disjoint in the resulting ontology. Setting this 
+--	value to true will force the transformation to find the Set of UML!Class that will be said 
+--	to be disjoint to the UML!Class being processed. Disjoint classes of a given class are all the classes 
+--	not in the same hierarchy tree. For example:
+--
+--	UML Class Hierarchy gives the following disjointWith axioms:	 
+--						| 
+--		 A				| A disjointWith {B, C, D}
+--		_|  D			| B disjointWith {C, D}
+--	   /  \/			| C disjointWith {B}
+--	  B   C  			| D disjointWith {A, B, C}
+-- 
+helper def: option_disjoint_classes: Boolean =
+	if (thisModule.Property.checkNotNull()) then
+		if (not thisModule.Property.containsKey(thisModule.UML2OWL_DISJOINT_CLASSES)) then
+			false
+		else 
+			thisModule.Property.get(thisModule.UML2OWL_DISJOINT_CLASSES) = true
+		endif
+	else false endif;
+
+--
+--	Constants
+--
+helper def: UML_PRIMITIVE_TYPES: String = 'UMLPrimitiveTypes';
+
+--	@comment
+--	errors constants used to identify possible unanmed elements in resulting ontology.
+helper def: ERROR_PACKAGE_NO_NAME: String = '_error_package_with_noname_';
+helper def: ERROR_PROPERTY_NO_NAME: String = '_error_property_with_noname_';
+helper def: ERROR_CLASS_NO_NAME: String = '_error_class_with_noname_';
+
+--	@comment
+--	Variable used to set up the base URI 
+helper def: BASE_URI: String = thisModule.option_namespace;
+
+--	@comment
+--	Variable used to store the OWL Graph. This variable is set up by the entrypoint rule.
+helper def: graph: OWL!OWLGraph = OclAny;
+
+--	@comment
+--	Map UML Primitive Types to XML Schema data types.
+helper def: datatypes: Map(String, String) =
+	Map {
+		('Literal', 'Literal'),
+		('String', 'string'),
+		('Integer', 'int'),
+		('Boolean', 'boolean'),
+		('UnlimitedNatural', 'integer' ),
+		('Byte', 'byte'),
+		('Currency', 'decimal'),
+		('Date', 'date'),
+		('Double', 'double'),
+		('Long', 'long'),
+		('Single', 'short'),
+		('Variant', 'string')
+	};
+
+--	@comment
+--	Helper returns the Set of all UML!Package in the input UML Model, 
+--	excluding packages with name equal to UMLPrimitiveTypes.
+helper def: packages: Set(UML!Package) = 
+	UML!Package.allInstancesFrom('IN')->select(e | 
+		e.oclIsKindOf(UML!Package) and e.name <> thisModule.UML_PRIMITIVE_TYPES
+	);
+	
+--	@comment
+--	Helper first select package being a UML!Model (supposed to be the root package), if 
+--	no UML!Model, returns the first package being not named UMLPrimitiveTypes.
+helper def: model: UML!Package = 
+	let 
+		model: UML!Model = thisModule.packages->any(e | e.oclIsTypeOf(UML!Model))
+	in 
+	if (not model.oclIsUndefined()) then
+		model 
+	else 
+		thisModule.packages->any(e | e.name <> thisModule.UML_PRIMITIVE_TYPES)
+	endif;
+
+--	@comment
+--	Helper returns the UML!Package that contains the UML!Comment. The package will be 
+--	used to identify the ontology that will contain the OWL!Comment.
+helper context UML!Comment def: getModel() : UML!Package =
+	if (thisModule.model.oclIsUndefined()) then
+		self.package
+	else thisModule.model endif;
+
+--	@comment
+--	Helper returns the UML!Package that contains the UML!Element. The package will be 
+--	used to identify the ontology that will contain the OWL!OntologyResource.
+helper context UML!Element def: getModel() : UML!Package =
+	if (self.oclIsKindOf(UML!Package)) then self
+	else 
+		if (self.oclIsKindOf(UML!PackageableElement)) then
+			if (self.package.oclIsUndefined()) then
+				thisModule.model
+			else self.package endif
+		else if (self.class.oclIsUndefined()) then
+				thisModule.model
+		else self.class.getModel() endif endif
+	endif;
+
+--	@comment
+--	Helper returns the UML!Package that contains the UML!EnumerationLiteral. 
+helper context UML!EnumerationLiteral def: getModel() : UML!Package =
+	self.enumeration.getModel();
+
+--	@comment
+--	Helper returns the URI that identifies a UML!Package. The URI will be 
+--	used to identify the OWL!Ontology corresponding to the UML!Package.
+helper context UML!Package def: getURI() : String =
+	if (self = thisModule.model) then
+		thisModule.BASE_URI + self.getName()
+	else
+		if (self.nestingPackage.oclIsUndefined()) then
+			thisModule.model.getURI() + '/' + self.getName()
+		else 
+			self.nestingPackage.getURI() + '.' + self.getName()
+		endif 
+	endif;
+
+--	@comment
+--	Helper returns the URI that identifies a UML!Classifier. The URI will be 
+--	used to identify the OWL!OWLClass corresponding to the UML!Classifier. The 
+--	URI is made of the UML!Class container URI followed by the UML!Classifier name.
+helper context UML!Classifier def: getURI() : String =
+	if (not self.package.oclIsUndefined()) then
+		self.package.getNamespace() + self.getName()
+	else 
+		self.refImmediateComposite().getURI() + '.' + self.getName() 
+	endif;
+
+--	@comment
+--	Helper returns the URI that identifies a UML!Property. The URI will be 
+--	used to identify the OWL!Property corresponding to the UML!Property. The 
+--	URI is made of the UML!Property container URI followed by the property domain name dot  
+--	the property name.
+helper context UML!Property def: getURI() : String =
+	if (not self.class.oclIsUndefined()) then
+		thisModule.getPropertyInClassURI( self )
+	else 
+		if (not self.association.oclIsUndefined()) then
+			thisModule.getPropertyInAssociationURI( self )
+	else 
+		thisModule.getPropertyAloneURI( self ) 
+	endif endif;
+
+--	@comment
+--	Helper returns the URI that identifies a UML!DataType. The URI will be 
+--	used to identify the OWL!Datarange corresponding to the UML!DataType. The 
+--	URI is pick up from the datatypes Map. If no corresponding URI in the Map, 
+--	returns a default value (RDFS:Literal).
+helper context UML!DataType def: getURI() : String =
+	let 
+		datatype: String = thisModule.datatypes.get( self.name )
+	in
+	if (datatype.oclIsUndefined()) then 
+		thisModule.datatypes.get('Literal') 
+	else 
+		datatype 
+	endif;
+
+--	@comment
+--	Helper used to create a URI thanks to a base URI followed by the context name.
+--	@param base is the base URI.
+helper context UML!Property def: createURI(base: String) : String =
+	if (base.trim().size() > 0) then
+		base + '.' + self.getName()
+	else 
+		self.getURI() 
+	endif;
+
+--	@comment
+--	Helper used to get the namespace from a UML!Package. It appends a # to the 
+--	UML!Package URI.
+helper context UML!Package def: getNamespace() : String = self.getURI() + '#';
+
+--	@comment
+--	Helper returns a well formed prefix (http://www.w3.org/TR/xml-names/). 
+--	Prefixes are used to make OWL!Namespace for each UML!Package.
+helper def: wellFormedPrefix(s: String): String = 
+	let
+		prefix: String = s.trim().regexReplaceAll('([\\W|_]+)*', '').toLower()
+	in 
+	if (prefix.substring(1,1).regexReplaceAll('\\d', '') = '') then
+		'_' + prefix
+	else 
+		prefix 
+	endif;
+
+--	@comment
+--	Helper returns false if the context UML!NamedElement has no valid name.
+helper context UML!NamedElement def: noName(): Boolean =
+	if (self.name.oclIsUndefined()) then true
+		else 
+			if (self.name.trim().size() = 0) then true
+			else 
+				false 
+			endif 
+	endif;
+
+--	@comment
+--	Helper returns the well formed name for the context UML!Package.
+helper context UML!Package def: getName(): String = 
+	if (self.noName()) then
+		thisModule.ERROR_PACKAGE_NO_NAME
+	else 
+		self.name.trim().regexReplaceAll(' ', '_')
+	endif;
+
+--	@comment
+--	Helper returns the well formed name for the context UML!Class.
+helper context UML!Class def: getName(): String = 
+	if (self.noName()) then
+		thisModule.ERROR_CLASS_NO_NAME
+	else
+		self.name.trim().regexReplaceAll(' ', '_')
+	endif;
+
+--	@comment
+--	Helper returns the well formed name for the context UML!Association.
+helper context UML!Association def: getName(): String =
+	if (self.noName()) then
+		self.memberEnd->iterate(it; res: String = '' |
+			if (res.isEmpty()) then
+				res + it.getName()
+			else res + '_' + it.getName() endif
+		)
+	else 
+		self.name.trim().regexReplaceAll(' ', '_')
+	endif;
+
+----	@comment
+----	Helper returns the well formed name for the context UML!Property.
+--helper context UML!Property def: getName(): String =
+--	if (self.noName()) then
+--		thisModule.ERROR_PROPERTY_NO_NAME
+--	else 
+--		self.getPropertyName().trim().regexReplaceAll(' ', '_')
+--	endif;
+
+--	@comment
+--	Helper returns the URI for the param UML!Property being a property contained 
+--	in a UML!Class.
+--helper def: getPropertyInClassURI(property: UML!Property) : String =
+--	let ns: String =
+--		if ( property.class.package.oclIsUndefined() ) then
+--			thisModule.model.getNamespace()
+--		else 
+--			property.class.package.getNamespace()
+--		endif
+--	in 
+--		if (thisModule.option_default_property_uri) then 
+--			ns + property.getName()
+--		else ns + property.class.getName() + '.' + property.getName() endif;
+--
+----	@comment
+----	Helper returns the URI for the param UML!Property being a property contained 
+----	in a UML!Association.
+--helper def: getPropertyInAssociationURI(property: UML!Property) : String =
+--	let
+--		ns: String =
+--			if (property.owningAssociation.package.oclIsUndefined()) then
+--				thisModule.model.getNamespace()
+--			else 
+--				property.owningAssociation.package.getNamespace() 
+--			endif
+--	in 
+--		if (thisModule.option_default_property_uri) then 
+--			ns + property.getName()
+--		else ns + property.association.getName() + '.' + property.getName() endif;
+
+--	@comment
+--	Helper returns the URI for the param UML!Property being a property being not contained. 
+--helper def: getPropertyAloneURI(property: UML!Property) : String =
+--	thisModule.model.getURI() + property.getName();
+
+---	@comment
+---	Helper returns true if the UML!Property is identify as inverse functional 
+---	(P(y,x) and P(z,x) implies y = z ).  
+helper context UML!Property def: isInverseFunctional() : Boolean =
+	if (self.association.oclIsUndefined()) then
+		false
+	else
+		if (self.association.memberEnd.size() = 2) then
+			let 
+				inverse: UML!Property = self.association.memberEnd->any(e | e <> self) 
+			in 
+				if (not inverse.oclIsUndefined()) then 
+					(inverse.upper = 1) and (inverse.lower = 1)
+				else false endif
+		else false endif
+	endif;
+
+--	@comment
+--	Load all Classes if disjointness is required.
+helper def: allClasses: Set(UML!Class) = 
+	if (thisModule.option_disjoint_classes) then
+		UML!Class.allInstancesFrom('IN')
+	else Set{} endif;
+
+--	@comment
+--	Helper returns all Classes that have to be disjoint from self if 
+--	option disjoint is set to TRUE.
+helper context UML!Class def: allDisjointWith(): Set(UML!Class) =
+	if (thisModule.option_disjoint_classes) then
+		let
+			supers: Set(UML!Class) = self.allParents()->including(self)
+		in
+			thisModule.allClasses->select(e | 
+				not supers.includes(e) and not e.allParents().includes(self))
+	else Set{} endif;
+	
+--helper context UML!Property def: getClassifier(): UML!Classifier = 
+--	if (not self.class.oclIsUndefined()) then
+--		self.class
+--	else if (not self.association.oclIsUndefined()) then
+--		self.association
+--	else OclAny endif endif;
+
+	

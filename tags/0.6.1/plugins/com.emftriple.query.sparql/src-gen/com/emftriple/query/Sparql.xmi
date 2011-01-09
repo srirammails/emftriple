@@ -1,0 +1,1610 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xtext:Grammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext" name="com.emftriple.query.Sparql" definesHiddenTokens="true" hiddenTokens="//@rules.80 //@rules.78 //@rules.79">
+  <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="ecore">
+    <ePackage href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  </metamodelDeclarations>
+  <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="sparql">
+    <ePackage href="http://www.emftriple.com/2009/Sparql#/"/>
+  </metamodelDeclarations>
+  <rules xsi:type="xtext:ParserRule" name="SPARQLQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//SPARQLQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.4"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.11"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="Prefix">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Prefix"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="PREFIX"/>
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=":"/>
+        <elements xsi:type="xtext:Assignment" feature="iref" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.2"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="UnNamedPrefix">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Prefix"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="PREFIX"/>
+      <elements xsi:type="xtext:Keyword" value=":"/>
+      <elements xsi:type="xtext:Assignment" feature="iref" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="Base">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Base"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="BASE"/>
+      <elements xsi:type="xtext:Assignment" feature="iref" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.68"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="SelectionQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//SelectionQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.10"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.5"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.8"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.9"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="SelectQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//SelectQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.6"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.7"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="SelectAllQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//SelectQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="base" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.3"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="prefixes" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="SELECT"/>
+      <elements xsi:type="xtext:Alternatives" cardinality="?">
+        <elements xsi:type="xtext:Assignment" feature="isDistinct" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="DISTINCT"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="isReduced" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="REDUCED"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="all" operator="?=">
+        <terminal xsi:type="xtext:Keyword" value="*"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="datasetClause" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="whereClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.28"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="groupClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.29"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="havingClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.31"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="limitClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.33"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="SelectVariablesQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//SelectQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="base" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.3"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="prefixes" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="SELECT"/>
+      <elements xsi:type="xtext:Alternatives" cardinality="?">
+        <elements xsi:type="xtext:Assignment" feature="isDistinct" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="DISTINCT"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="isReduced" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="REDUCED"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="variables" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="variables" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="datasetClause" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="whereClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.28"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="groupClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.29"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="havingClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.31"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="limitClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.33"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="AskQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//AskQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="base" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.3"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="prefixes" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="ASK"/>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="datasetClause" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="whereClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.28"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="groupClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.29"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="havingClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.31"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="limitClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.33"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="DescribeQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//DescribeQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="base" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.3"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="prefixes" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="DESCRIBE"/>
+      <elements xsi:type="xtext:Assignment" feature="variables" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="variables" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="datasetClause" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="whereClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.28"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="groupClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.29"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="havingClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.31"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="limitClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.33"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ConstructQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//ConstructQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="base" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.3"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="prefixes" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="CONSTRUCT"/>
+      <elements xsi:type="xtext:Assignment" feature="constructTemplate" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="datasetClause" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="whereClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.28"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="groupClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.29"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="havingClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.31"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="limitClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.33"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="UpdateQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//UpdateQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Action">
+        <type metamodel="//@metamodelDeclarations.1">
+          <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//UpdateQuery"/>
+        </type>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="prefixes" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="+" feature="operations" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.12"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="UpdateOperation">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//UpdateOperation"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.13"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.14"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.15"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.16"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.17"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ModifyQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//ModifyQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.19"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.20"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.21"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.22"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.23"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="CreateGraphQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//CreateGraphQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="CREATE"/>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="isSilent" operator="=">
+        <terminal xsi:type="xtext:Keyword" value="SILENT"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="GRAPH"/>
+      <elements xsi:type="xtext:Assignment" feature="graph" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="DropGraphQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//DropGraphQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="DROP"/>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="isSilent" operator="=">
+        <terminal xsi:type="xtext:Keyword" value="SILENT"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="GRAPH"/>
+      <elements xsi:type="xtext:Assignment" feature="graph" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="LoadGraphQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//LoadGraphQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="LOAD"/>
+      <elements xsi:type="xtext:Assignment" feature="graph" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+      </elements>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="INTO"/>
+        <elements xsi:type="xtext:Keyword" value="GRAPH"/>
+        <elements xsi:type="xtext:Assignment" feature="intoGraph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ClearGraphQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//ClearGraphQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="CLEAR"/>
+      <elements xsi:type="xtext:Keyword" value="GRAPH"/>
+      <elements xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Assignment" feature="uri" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="isDefault" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="DEFAULT"/>
+        </elements>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="UsingGraph">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//UsingGraph"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="USING"/>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="named" operator="?=">
+        <terminal xsi:type="xtext:Keyword" value="NAMED"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="uri" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="InsertQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//InsertQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="WITH"/>
+        <elements xsi:type="xtext:Assignment" feature="withGraph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="INSERT"/>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="INTO"/>
+        <elements xsi:type="xtext:Assignment" feature="graph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="whereClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.28"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="InsertDataQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//InsertDataQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="WITH"/>
+        <elements xsi:type="xtext:Assignment" feature="withGraph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="INSERT"/>
+      <elements xsi:type="xtext:Keyword" value="DATA"/>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="INTO"/>
+        <elements xsi:type="xtext:Assignment" feature="graph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="DeleteQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//DeleteQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="WITH"/>
+        <elements xsi:type="xtext:Assignment" feature="withGraph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="DELETE"/>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="FROM"/>
+        <elements xsi:type="xtext:Assignment" feature="graph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="INSERT"/>
+        <elements xsi:type="xtext:Assignment" feature="insertPattern" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="whereClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.28"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="DeleteDataQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//DeleteDataQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="WITH"/>
+        <elements xsi:type="xtext:Assignment" feature="withGraph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="DELETE"/>
+      <elements xsi:type="xtext:Keyword" value="DATA"/>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="FROM"/>
+        <elements xsi:type="xtext:Assignment" feature="graph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="DeleteWhereQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//DeleteWhereQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="WITH"/>
+        <elements xsi:type="xtext:Assignment" feature="withGraph" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="DELETE"/>
+      <elements xsi:type="xtext:Keyword" value="WHERE"/>
+      <elements xsi:type="xtext:Keyword" value="{"/>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="}"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="DatasetClause">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//DatasetClause"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.25"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.26"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.27"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="DefaultDataSet">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//DefaultDataSet"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="FROM"/>
+      <elements xsi:type="xtext:Assignment" feature="dataSet" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.68"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="NamedDataSet">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//NamedDataSet"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="FROM"/>
+      <elements xsi:type="xtext:Keyword" value="NAMED"/>
+      <elements xsi:type="xtext:Assignment" feature="dataSet" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.68"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ServiceDataSet">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//ServiceDataSet"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="FROM"/>
+      <elements xsi:type="xtext:Keyword" value="SERVICE"/>
+      <elements xsi:type="xtext:Assignment" feature="dataSet" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.68"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="WhereClause">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//WhereClause"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="WHERE"/>
+      <elements xsi:type="xtext:Assignment" feature="groupGraphPattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="GroupClause">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//GroupClause"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="GROUP"/>
+      <elements xsi:type="xtext:Keyword" value="BY"/>
+      <elements xsi:type="xtext:Assignment" feature="condition" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.30"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="GroupCondition">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//GroupCondition"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.57"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.54"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="HavingClause">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//HavingClause"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="HAVING"/>
+      <elements xsi:type="xtext:Assignment" feature="constraint" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.32"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="Constraint">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Constraint"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.51"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.57"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.54"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="LimitClause">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//LimitClause"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="LIMIT"/>
+      <elements xsi:type="xtext:Assignment" feature="limit" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.77"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="GroupGraphPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//GroupGraphPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.35"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.36"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="SubSelectQuery">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//SubSelectQuery"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="{"/>
+      <elements xsi:type="xtext:Keyword" value="SELECT"/>
+      <elements xsi:type="xtext:Assignment" feature="variables" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="*" feature="variables" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="whereClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.28"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="groupClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.29"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="havingClause" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.31"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="}"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="GroupGraphPatternSub">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//GroupGraphPatternSub"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="{"/>
+      <elements xsi:type="xtext:Assignment" feature="graphPatterns" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.37"/>
+      </elements>
+      <elements xsi:type="xtext:Group" cardinality="*">
+        <elements xsi:type="xtext:Keyword" value="."/>
+        <elements xsi:type="xtext:Assignment" feature="graphPatterns" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.37"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Keyword" cardinality="?" value="."/>
+      <elements xsi:type="xtext:Keyword" value="}"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="GraphPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//GraphPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.38"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.39"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.40"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.42"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.43"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.44"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.45"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.46"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.47"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="TriplesSameSubject">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//TriplesSameSubject"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" feature="subject" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="propertyList" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.41"/>
+      </elements>
+      <elements xsi:type="xtext:Group" cardinality="*">
+        <elements xsi:type="xtext:Keyword" value=";"/>
+        <elements xsi:type="xtext:Assignment" feature="propertyList" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.41"/>
+        </elements>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="GroupOrUnionGraphPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//GroupOrUnionGraphPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" feature="graphPatterns" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value="UNION"/>
+        <elements xsi:type="xtext:Assignment" feature="graphPatterns" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+        </elements>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="OptionalGraphPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//OptionalGraphPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="OPTIONAL"/>
+      <elements xsi:type="xtext:Assignment" feature="graphPattern" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="PropertyList">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//PropertyList"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" feature="property" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="object" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="GraphGraphPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//GraphGraphPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="GRAPH"/>
+      <elements xsi:type="xtext:Assignment" feature="var" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ServiceGraphPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//ServiceGraphPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="SERVICE"/>
+      <elements xsi:type="xtext:Assignment" feature="var" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="FilterPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//FilterPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="FILTER"/>
+      <elements xsi:type="xtext:Keyword" value="("/>
+      <elements xsi:type="xtext:Assignment" feature="expression" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value=")"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ExistsPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//ExistsPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="FILTER"/>
+      <elements xsi:type="xtext:Keyword" value="EXISTS"/>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="NotExistsPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//NotExistsPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="FILTER"/>
+      <elements xsi:type="xtext:Keyword" value="NOT"/>
+      <elements xsi:type="xtext:Keyword" value="EXISTS"/>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="MinusPattern">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//MinusPattern"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="MINUS"/>
+      <elements xsi:type="xtext:Assignment" feature="pattern" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="Expression">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Expression"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.49"/>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Action" feature="entries" operator="+=">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//OrFilterExpression"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="+">
+          <elements xsi:type="xtext:Keyword" value="||"/>
+          <elements xsi:type="xtext:Assignment" feature="entries" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.49"/>
+          </elements>
+        </elements>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="AndFilterExpression">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Expression"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.50"/>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Action" feature="entries" operator="+=">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//AndFilterExpression"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="+">
+          <elements xsi:type="xtext:Keyword" value="&amp;&amp;"/>
+          <elements xsi:type="xtext:Assignment" feature="entries" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.50"/>
+          </elements>
+        </elements>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ConcreteFilterExpression">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Expression"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.51"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.52"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ParFilterExpression">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Expression"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="("/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+      <elements xsi:type="xtext:Keyword" value=")"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ExpressionFilterExpression">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//ExpressionFilterExpression"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" feature="left" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.53"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="operator" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="right" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.53"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="FilterNode">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//FilterNode"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.54"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="Function">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Function"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.55"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.56"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="NamedFunction" definesHiddenTokens="true" hiddenTokens="//@rules.80">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//NamedFunction"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" feature="prefix" operator="=">
+        <terminal xsi:type="xtext:CrossReference">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Prefix"/>
+          </type>
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+        </terminal>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value=":"/>
+      <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="("/>
+      <elements xsi:type="xtext:Assignment" feature="parameters" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+      </elements>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value=","/>
+        <elements xsi:type="xtext:Assignment" feature="parameters" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value=")"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="SparqlFunction">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//SparqlFunction"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="("/>
+      <elements xsi:type="xtext:Assignment" feature="parameters" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+      </elements>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" value=","/>
+        <elements xsi:type="xtext:Assignment" feature="parameters" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value=")"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="BuiltInCall">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//BuiltInCall"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="STR"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="LANG"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="LANGMATCHES"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="left" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=","/>
+        <elements xsi:type="xtext:Assignment" feature="right" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="DATATYPE"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="BOUND"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="var" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="IRI"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="URI"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="BNODE"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="IF"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="ifExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=","/>
+        <elements xsi:type="xtext:Assignment" feature="thenExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=","/>
+        <elements xsi:type="xtext:Assignment" feature="elseExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="STRLANG"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="left" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=","/>
+        <elements xsi:type="xtext:Assignment" feature="right" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="STRDT"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="left" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=","/>
+        <elements xsi:type="xtext:Assignment" feature="right" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="sameTerm"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="left" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=","/>
+        <elements xsi:type="xtext:Assignment" feature="right" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="isIRI"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="isURI"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="isBLANK"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="isLITERAL"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="Aggregate">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Aggregate"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//CountAggregate"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="COUNT"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="isDistinct" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="DISTINCT"/>
+        </elements>
+        <elements xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:Assignment" feature="isAll" operator="?=">
+            <terminal xsi:type="xtext:Keyword" value="*"/>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//SumAggregate"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="SUM"/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//MinAgregate"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="MIN"/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//MaxAggregate"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="MAX"/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//AvgAggregate"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="AVG"/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//SampleAggregate"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="SAMPLE"/>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//GroupAggregate"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="GROUP_CONCAT"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="isDistinct" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="DISTINCT"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="expr" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="*">
+          <elements xsi:type="xtext:Keyword" value=","/>
+          <elements xsi:type="xtext:Assignment" feature="expr" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value=";"/>
+          <elements xsi:type="xtext:Keyword" value="SEPARATOR"/>
+          <elements xsi:type="xtext:Keyword" value="="/>
+          <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ExprAggArg">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//ExprAggArg"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="("/>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="isDistinct" operator="?=">
+        <terminal xsi:type="xtext:Keyword" value="DISTINCT"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value=")"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="Operator">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EEnum" href="http://www.emftriple.com/2009/Sparql#//Operator"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/lessThen"/>
+        <literal value="&lt;"/>
+      </elements>
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/greaterThen"/>
+        <literal value=">"/>
+      </elements>
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/lessEqual"/>
+        <literal value="&lt;="/>
+      </elements>
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/greaterEqual"/>
+        <literal value=">="/>
+      </elements>
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/equal"/>
+        <literal value="="/>
+      </elements>
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/notEqual"/>
+        <literal value="!="/>
+      </elements>
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/sum"/>
+        <literal value="+"/>
+      </elements>
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/div"/>
+        <literal value="/"/>
+      </elements>
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/sub"/>
+        <literal value="-"/>
+      </elements>
+      <elements xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.emftriple.com/2009/Sparql#//Operator/multiplicity"/>
+        <literal value="*"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="GraphNode">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//GraphNode"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.67"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.68"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.65"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.66"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="Variable">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Variable"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.63"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.64"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="UnNamedVariable">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//UnNamedVariable"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="?"/>
+      <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="NamedVariable">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//NamedVariable"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" feature="prefix" operator="=">
+        <terminal xsi:type="xtext:CrossReference">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Prefix"/>
+          </type>
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+        </terminal>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value=":"/>
+      <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="BlankNode" definesHiddenTokens="true" hiddenTokens="//@rules.80">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//BlankNode"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="_:"/>
+      <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="Parameter" definesHiddenTokens="true" hiddenTokens="//@rules.80">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Parameter"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="?:"/>
+      <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="Value">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//Value"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.69"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.70"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="IRI">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//IRI"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Action">
+        <type metamodel="//@metamodelDeclarations.1">
+          <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//IRI"/>
+        </type>
+      </elements>
+      <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="StringValue">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//StringValue"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="tag" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.71"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="IntegerValue">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//IntegerValue"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.77"/>
+      </elements>
+      <elements xsi:type="xtext:Assignment" cardinality="?" feature="tag" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.71"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="RDFTag">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//RDFTag"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.72"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.73"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="TypeTag" definesHiddenTokens="true" hiddenTokens="//@rules.80">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//TypeTag"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="^^"/>
+      <elements xsi:type="xtext:Assignment" feature="type" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="LangTag" definesHiddenTokens="true" hiddenTokens="//@rules.80">
+    <type metamodel="//@metamodelDeclarations.1">
+      <classifier xsi:type="ecore:EClass" href="http://www.emftriple.com/2009/Sparql#//LangTag"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="@"/>
+      <elements xsi:type="xtext:Assignment" feature="lang" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="IRI_TERMINAL">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="&lt;"/>
+      <elements xsi:type="xtext:Alternatives" cardinality="*">
+        <elements xsi:type="xtext:CharacterRange">
+          <left value="a"/>
+          <right value="z"/>
+        </elements>
+        <elements xsi:type="xtext:CharacterRange">
+          <left value="A"/>
+          <right value="Z"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="_"/>
+        <elements xsi:type="xtext:Keyword" value="-"/>
+        <elements xsi:type="xtext:CharacterRange">
+          <left value="0"/>
+          <right value="9"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="/"/>
+        <elements xsi:type="xtext:Keyword" value=":"/>
+        <elements xsi:type="xtext:Keyword" value="."/>
+        <elements xsi:type="xtext:Keyword" value="#"/>
+        <elements xsi:type="xtext:Keyword" value="?"/>
+        <elements xsi:type="xtext:Keyword" value="@"/>
+        <elements xsi:type="xtext:Keyword" value="$"/>
+        <elements xsi:type="xtext:Keyword" value="&amp;"/>
+        <elements xsi:type="xtext:Keyword" value="="/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value=">"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="STRING">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="&quot;"/>
+      <elements xsi:type="xtext:Alternatives" cardinality="*">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="\"/>
+          <elements xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:Keyword" value="b"/>
+            <elements xsi:type="xtext:Keyword" value="t"/>
+            <elements xsi:type="xtext:Keyword" value="n"/>
+            <elements xsi:type="xtext:Keyword" value="f"/>
+            <elements xsi:type="xtext:Keyword" value="r"/>
+            <elements xsi:type="xtext:Keyword" value="&quot;"/>
+            <elements xsi:type="xtext:Keyword" value="'"/>
+            <elements xsi:type="xtext:Keyword" value="\"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:NegatedToken">
+          <terminal xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:Keyword" value="\"/>
+            <elements xsi:type="xtext:Keyword" value="&quot;"/>
+          </terminal>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="&quot;"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="ID">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:CharacterRange">
+          <left value="a"/>
+          <right value="z"/>
+        </elements>
+        <elements xsi:type="xtext:CharacterRange">
+          <left value="A"/>
+          <right value="Z"/>
+        </elements>
+      </elements>
+      <elements xsi:type="xtext:Alternatives" cardinality="*">
+        <elements xsi:type="xtext:CharacterRange">
+          <left value="a"/>
+          <right value="z"/>
+        </elements>
+        <elements xsi:type="xtext:CharacterRange">
+          <left value="A"/>
+          <right value="Z"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="_"/>
+        <elements xsi:type="xtext:Keyword" value="-"/>
+        <elements xsi:type="xtext:CharacterRange">
+          <left value="0"/>
+          <right value="9"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="/"/>
+        <elements xsi:type="xtext:Keyword" value="."/>
+        <elements xsi:type="xtext:Keyword" value="#"/>
+        <elements xsi:type="xtext:Keyword" value="?"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="INT">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </type>
+    <alternatives xsi:type="xtext:CharacterRange" cardinality="+">
+      <left value="0"/>
+      <right value="9"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="ML_COMMENT">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="/*"/>
+      <elements xsi:type="xtext:UntilToken">
+        <terminal xsi:type="xtext:Keyword" value="*/"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="SL_COMMENT">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="//"/>
+      <elements xsi:type="xtext:NegatedToken" cardinality="*">
+        <terminal xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+          <elements xsi:type="xtext:Keyword" value="&#xD;"/>
+        </terminal>
+      </elements>
+      <elements xsi:type="xtext:Group" cardinality="?">
+        <elements xsi:type="xtext:Keyword" cardinality="?" value="&#xD;"/>
+        <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+      </elements>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="WS">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives" cardinality="+">
+      <elements xsi:type="xtext:Keyword" value=" "/>
+      <elements xsi:type="xtext:Keyword" value="&#x9;"/>
+      <elements xsi:type="xtext:Keyword" value="&#xD;"/>
+      <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="ANY_OTHER">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Wildcard"/>
+  </rules>
+</xtext:Grammar>

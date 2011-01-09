@@ -1,0 +1,89 @@
+@namespace(uri="http://www.example.com/Employee", prefix="employee")
+package employee;
+
+class Directory {
+	@Id(base="http://www.example.com/directory/")
+	attr String[1] name;
+	val Project[*] projects;
+	val Employee[*] employees;
+	val JobTitle[*] jobs;
+	val Degree[*] degrees;
+}
+
+abstract class Project {
+  @Id(base="http://www.example.com/projects/")
+  attr String name;
+  attr String description;
+  ref Employee teamLeader;
+}
+
+class SmallProject extends Project {
+}
+
+class LargeProject extends Project {
+  attr double budget;
+  attr EDate milestone;
+}
+
+class PhoneNumber {
+  @Id(base="http://www.example.com/phones/")
+  attr String number;
+  attr String type;
+  attr String areaCode;
+  ref Employee[1]#phoneNumbers owner;
+}
+
+class JobTitle {
+  @Id(base="http://www.example.com/jobs/")
+  attr String title;
+}
+
+enum Gender {
+  Male = 0;
+  Female = 1;
+}
+
+@GeneratedId(base="http://www.example.com/dates/")
+class EmploymentPeriod {
+  attr EDate startDate;
+  attr EDate endDate;
+}
+
+class Employee {
+  @Id(base="http://www.example.com/employees/")
+  attr String firstName;
+  attr String lastName;
+  attr Gender gender;
+  attr double salary;
+  attr String[*] responsibilities;
+  
+  val EmploymentPeriod[?] period;
+  val Address[?] address;
+  ref JobTitle[?] jobTitle;
+  ref Employee#managedEmployees manager;
+  ref Employee[*]#manager managedEmployees;
+  val PhoneNumber[*]#owner phoneNumbers;
+  ref Degree[*] degrees;
+  ref Project[*] projects;
+  val EmailAddress[*] emailAddresses;
+}
+
+@GeneratedId(base="http://www.example.com/mails/")
+class EmailAddress {
+  attr String address;
+}
+
+class Degree {
+  @Id(base="http://www.example.com/degrees/")
+  attr String name;
+}
+
+@GeneratedId(base="http://www.example.com/addresses/")
+class Address {
+  attr String city;
+  attr String country;
+  attr String province;
+  attr String postalCode;
+  attr String street;
+}
+
