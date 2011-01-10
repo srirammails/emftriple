@@ -11,4 +11,4 @@ EMFTriple provides an Object Triple Mapping solution for EMF Models. EMF Triple 
 
 [http://code.google.com/p/emftriple/wiki/EMF4SWUserGuide Eclipse Modeling for Semantic Web ToolKit]
 
-[http://code.google.com/p/emftriple/wiki/EMFTripleGuide EMF Model RDF Mapper]
+[http://code.google.com/p/emftriple/wiki/EMFTripleGuide EMF RDF Persistence]
