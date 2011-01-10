@@ -5,18 +5,14 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html.
  */
-package com.emftriple.query.datasources.impl;
+package com.emftriple.query;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.datasources.QueryFactory;
-import com.emftriple.query.Jpql;
-import com.emftriple.query.JpqlTypedQuery;
 import com.emftriple.query.NativeQueryFactoryImpl;
-import com.emftriple.query.QueryMapping;
-import com.emftriple.query.Sparql;
 import com.google.inject.Inject;
 
 /**
