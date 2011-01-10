@@ -1,6 +1,6 @@
 #summary Converter to RDF.
 #labels Featured
-<wiki:toc max_depth="3" />
+#sidebar StoreTableOfContents
 
 Eclipse Modeling for Semantic Web comes out with an XMI to RDF converter call RDFIzer.
 
