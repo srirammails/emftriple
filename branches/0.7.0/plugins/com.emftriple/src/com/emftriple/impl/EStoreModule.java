@@ -22,7 +22,7 @@ public class EStoreModule extends AbstractModule {
 	@Override
 	protected void configure() {
 		bind(PersistenceMetaData.class)
-		.toInstance(configuration);
+			.toInstance(configuration);
 		bind(PersistenceProvider.class)
 			.to(ETriplePersistenceProvider.class);
 	}
