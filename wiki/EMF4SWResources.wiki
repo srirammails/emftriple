@@ -1,5 +1,6 @@
 #summary EMF Resource for OWL and RDF documents.
 #labels Featured
+#sidebar StoreTableOfContents
 
 <wiki:toc max_depth="1" />
 
