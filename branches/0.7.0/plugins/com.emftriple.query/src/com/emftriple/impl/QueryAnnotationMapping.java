@@ -31,7 +31,7 @@ public class QueryAnnotationMapping extends EAnnotationMapping implements QueryM
 	@Inject
 	QueryAnnotationMapping(@Named("Packages") List packages, @Named("Properties") List properties) {
 		super(packages, properties);
-		System.out.println("yo");
+
 		namedQueries = new HashMap<String, SelectStatement>();
 		
 		for (EClass eClass: getEClasses()) 

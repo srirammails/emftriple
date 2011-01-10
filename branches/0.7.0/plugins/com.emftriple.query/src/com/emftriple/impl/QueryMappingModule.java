@@ -22,8 +22,6 @@ public class QueryMappingModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
-//		install(new MappingModule(packages, properties));
-		
 		bind(Mapping.class)
 			.to(QueryAnnotationMapping.class);
 		bind(List.class)
