@@ -1,4 +1,5 @@
 #summary RDF & OWL Metamodels.
+#sidebar StoreTableOfContents
 
 <wiki:toc max_depth="1" />
 
@@ -44,4 +45,3 @@ Individuals
 
 
 <img src="http://emftriple.googlecode.com/svn/wiki/img/owl7.jpg" height="340"/>
-
