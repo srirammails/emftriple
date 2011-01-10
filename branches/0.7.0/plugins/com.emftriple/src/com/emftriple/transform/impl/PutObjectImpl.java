@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.emf4sw.rdf.Datatype;
 import com.emf4sw.rdf.DocumentGraph;
 import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.Namespace;
@@ -121,8 +122,9 @@ public class PutObjectImpl implements PutObject {
 				}
 			}
 
+			final Object2RDF o2r = new Object2RDF();
 			for (EObject obj: containedObjects) {
-				new Object2RDF().process(obj, graph);
+				o2r.process(obj, graph);
 			}
 			
 			return graph;
@@ -196,7 +198,14 @@ public class PutObjectImpl implements PutObject {
 			final String literalValue = DatatypeConverter.toString( aFeature.getEType().getName(), obj );
 			final Literal aLiteral = factory.createLiteral();
 			aLiteral.setLexicalForm( literalValue );
-			aLiteral.setDatatype( graph.getDatatype(DatatypeConverter.get((EDataType) aFeature.getEType())) );
+			
+			String dt = DatatypeConverter.get((EDataType) aFeature.getEType());
+			try {
+				Datatype aDatatype = graph.getDatatype(dt);
+				aLiteral.setDatatype( aDatatype );
+			} catch (NullPointerException e) {
+				// TODO: handle exception
+			}
 
 			graph.getLiterals().add(aLiteral);
 			graph.addTriple(subject, getProperty((EAttribute) aFeature, graph), aLiteral);
