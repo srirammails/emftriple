@@ -69,7 +69,9 @@ public class DatatypeConverter {
 	}
 
 	public static String get(EDataType aType) {
-		return aType instanceof EEnum ? RDFS.Literal : XSD.xstring;
+		return aType instanceof EEnum ? RDFS.Literal :
+				xsdmap.containsKey(aType) ?
+					xsdmap.get(aType) : RDFS.Literal;
 	}
 
 	static {
@@ -121,8 +123,8 @@ public class DatatypeConverter {
 	static {
 		xsdmap.put(EcorePackage.eINSTANCE.getEString(), XSD.xstring);
 		xsdmap.put(EcorePackage.eINSTANCE.getEInt(), XSD.xint);
-		xsdmap.put(EcorePackage.eINSTANCE.getEString(), XSD.anyURI);
-		xsdmap.put(EcorePackage.eINSTANCE.getEDate(), XSD.date );
+//		xsdmap.put(EcorePackage.eINSTANCE.getEString(), XSD.anyURI);
+//		xsdmap.put(EcorePackage.eINSTANCE.getEDate(), XSD.date );
 		xsdmap.put(EcorePackage.eINSTANCE.getEDate(), XSD.dateTime);
 		xsdmap.put(EcorePackage.eINSTANCE.getEFloat(), XSD.negativeInteger);
 		xsdmap.put(EcorePackage.eINSTANCE.getEBoolean(), XSD.xboolean);
