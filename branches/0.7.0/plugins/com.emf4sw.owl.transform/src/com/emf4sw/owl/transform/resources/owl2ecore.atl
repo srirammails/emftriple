@@ -1,6 +1,6 @@
 -- @atlcompiler atl2006
 -- @nsURI ecore=http://www.eclipse.org/emf/2002/Ecore
--- @path owl=platform://com.emf4sw.owl/model/owl.ecore
+-- @path owl=platform://com.emf4sw.owl/model/owl2.ecore
 
 --- *******************************************************************************
 --- * Copyright (c) 2009 L3i ( http://l3i.univ-larochelle.fr ).

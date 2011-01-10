@@ -31,6 +31,8 @@ helper def: ECORE2OWL_NO_CARDINALITIES: String = 'ECORE2OWL_NO_CARDINALITIES';
 helper def: ECORE2OWL_PROPERTY_NAME_ONLY: String = 'ECORE2OWL_PROPERTY_NAME_ONLY';
 helper def: ECORE2OWL_PROPERTY_NAME_DELIMITER: String = 'ECORE2OWL_PROPERTY_NAME_DELIMITER';
 
+helper def: allClasses: Set(ecore!EClass) = ecore!EClass.allInstances().debug('all');
+
 helper def: doCardinalities(): Boolean = 
 	if (thisModule.Property.containsKey(thisModule.ECORE2OWL_NO_CARDINALITIES)) then
 		let doIt: String = thisModule.Property.get(thisModule.ECORE2OWL_NO_CARDINALITIES) in
@@ -61,6 +63,9 @@ helper def: getPropertyName(e: ecore!EStructuralFeature): String =
 	else e.eContainingClass.name + thisModule.getDelimiter + e.name endif;
 
 helper def: onto: Map(ecore!EPackage, owl!Ontology) = Map{};
+
+helper context ecore!EStructuralFeature def: hasCardinality(): Boolean = 
+	not (self.lowerBound = 0 and self.upperBound < 0);
 
 rule EPackage2Ontology
 {
@@ -115,7 +120,9 @@ rule EClass2Entity {
 				e.eSuperTypes
 			,	e.eStructuralFeatures->collect(f |
 					if thisModule.doCardinalities() then
-						thisModule.PropertyCardinality(f)
+						if f.hasCardinality() then
+							thisModule.PropertyCardinality(f)
+						else Sequence {} endif
 					else Sequence {} endif)}
 			)
 }
