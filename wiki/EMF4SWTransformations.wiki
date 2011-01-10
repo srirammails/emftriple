@@ -1,4 +1,5 @@
 #summary Model Transformations Guide.
+#sidebar StoreTableOfContents
 
 <wiki:toc max_depth="3" />
 
