@@ -1,25 +1,35 @@
 <#include "/header.ftl"/>
 <#global content>
+<script type="text/javascript">
+	var lg = ${lg};
+	var lt = ${lr};
+  	function initialize() {
+    	var latlng = new google.maps.LatLng(lg, lt);
+    	var myOptions = {
+      	zoom: 8,
+      	center: latlng,
+      	mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  	}
+</script>
+
 <div id="jobs-content">
 	<div class=main>
 		<div class="jobsheader">
 			<h1 class="title">${location.name!}</h1>
-			<#if location.depiction??>
-				<img src="${location.depiction!}" height="180" width="180" alt="${location.depiction!}" align="right"></img>
-				<br/>
-			</#if>
-			<div class="menu">
-			<ul>
-				<li><p class="description"><a href="http://en.wikipedia.org/wiki/${location.name!}">wikipedia</a></p></li>
-				<li><p class="description"><a href="http://dbpedia.org/page/${location.name!}">see also</a></p></li>
-				<li><p class="description"><a href="${location.homePage!}">home</a></p></li>
-			</ul>
-			</div>
+			<br/>
+			<p class="description"><a href="http://en.wikipedia.org/wiki/${location.name!}">wikipedia</a></p>
+			<p class="description"><a href="http://dbpedia.org/page/${location.name!}">see also</a></p>
+			<p class="description"><a href="${location.homePage!}">homepage</a></p>
 		</div>
 		<div class="item">
 			<p class="description">${location.description?replace(". ", ".</p><p class=\"description\">")!}</p>
+			<p class="description">${location.abstract?replace(". ", ".</p><p class=\"description\">")!}</p>
 			<br/>
-			<p class="description">population: ${location.population}</p>
+			<p class="description">population: ${location.population!}</p>
+		</div>
+		<div class="map" id="map_canvas">
 		</div>
 		<div>
 			<a href="${resourceRef}.rdf">rdf</a> | <a href="${resourceRef}.ttl">ttl</a>

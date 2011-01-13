@@ -18,6 +18,8 @@ package com.semweb.jobs;
  *   <li>{@link com.semweb.jobs.Place#getDepiction <em>Depiction</em>}</li>
  *   <li>{@link com.semweb.jobs.Place#getHomePage <em>Home Page</em>}</li>
  *   <li>{@link com.semweb.jobs.Place#getPopulation <em>Population</em>}</li>
+ *   <li>{@link com.semweb.jobs.Place#getPoints <em>Points</em>}</li>
+ *   <li>{@link com.semweb.jobs.Place#getAbstract <em>Abstract</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,5 +107,57 @@ public interface Place extends ExternalElement {
 	 * @generated
 	 */
 	void setPopulation(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Points</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Points</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Points</em>' attribute.
+	 * @see #setPoints(String)
+	 * @see com.semweb.jobs.JOBPackage#getPlace_Points()
+	 * @model annotation="rdf uri='http://www.georss.org/georss/point'"
+	 * @generated
+	 */
+	String getPoints();
+
+	/**
+	 * Sets the value of the '{@link com.semweb.jobs.Place#getPoints <em>Points</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Points</em>' attribute.
+	 * @see #getPoints()
+	 * @generated
+	 */
+	void setPoints(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract</em>' attribute.
+	 * @see #setAbstract(String)
+	 * @see com.semweb.jobs.JOBPackage#getPlace_Abstract()
+	 * @model annotation="rdf uri='http://dbpedia.org/ontology/abstract' lang='en'"
+	 * @generated
+	 */
+	String getAbstract();
+
+	/**
+	 * Sets the value of the '{@link com.semweb.jobs.Place#getAbstract <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Abstract</em>' attribute.
+	 * @see #getAbstract()
+	 * @generated
+	 */
+	void setAbstract(String value);
 
 } // Place

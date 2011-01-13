@@ -2,7 +2,7 @@
       a       <http://www.semweb.com/jobs#Job> ;
       <http://purl.org/dc/elements/1.1/title>
               "Software Developer"^^<http://www.w3.org/2001/XMLSchema#string> ;
-      <http://www.semweb.com/jobboard#location>
+      <http://www.semweb.com/jobs#location>
               <http://dbpedia.org/resource/Seattle> ;
       <http://www.semweb.com/jobs#organisation>
               <http://dbpedia.org/resource/Amazon.com> ;
@@ -17,11 +17,31 @@ This position is focused on webserivces (C++/Java) and website development (HTML
       <http://www.semweb.com/jobs#type>
               "Full Time"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://www.semweb.com/jobs/13>
+      a       <http://www.semweb.com/jobs#Job> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Software Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#location>
+              <http://dbpedia.org/resource/Dublin> ;
+      <http://www.semweb.com/jobs#organisation>
+              <http://dbpedia.org/resource/Google> ;
+      <http://www.semweb.com/jobs#posted>
+              "2011-01-10T15:22:11.475Z"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      <http://www.semweb.com/jobs#summary>
+              """Google's software engineers develop the next-generation technologies for which we've become world-renowned. In addition to revolutionizing search technology, we use our world-class programming skills to innovate in a number of other areas as well. Our projects include working on advanced information-retrieval algorithms, massive scalability and storage solutions, and large-scale applications that enrich the user experience. We also work extensively on networking systems, advertising systems and complex transaction systems in consumer applications.
+
+The role: Software Engineer
+
+As a Software Engineer, you have a penchant for solving complex and interesting problems. Google is much more than search, and our mission has much greater scope. To handle information at the scale of the web requires ideas from just about every area of computer science, including information retrieval, artificial intelligence, natural language processing, distributed computing, large-scale system design, networking, security, data compression, user interface design, etc.
+
+You will work on many projects that carry varying responsibilities. Below are some examples of the diverse projects with which you might be involved.
+"""^^<http://www.w3.org/2001/XMLSchema#string> .
+
 <http://www.semweb.com/jobs/3>
       a       <http://www.semweb.com/jobs#Job> ;
       <http://purl.org/dc/elements/1.1/title>
               "User Interface Developer"^^<http://www.w3.org/2001/XMLSchema#string> ;
-      <http://www.semweb.com/jobboard#location>
+      <http://www.semweb.com/jobs#location>
               <http://dbpedia.org/resource/New_York_City> ;
       <http://www.semweb.com/jobs#organisation>
               <http://dbpedia.org/resource/ThoughtWorks> ;
@@ -47,7 +67,7 @@ When some people think of leaders they see them working in corner offices at the
       a       <http://www.semweb.com/jobs#Job> ;
       <http://purl.org/dc/elements/1.1/title>
               "Software Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
-      <http://www.semweb.com/jobboard#location>
+      <http://www.semweb.com/jobs#location>
               <http://dbpedia.org/resource/Los_Angeles> ;
       <http://www.semweb.com/jobs#organisation>
               <http://dbpedia.org/resource/Intel_Corporation> ;
@@ -64,7 +84,7 @@ We are looking for self-driven engineer to take a role in design and implementat
       a       <http://www.semweb.com/jobs#Job> ;
       <http://purl.org/dc/elements/1.1/title>
               "Software Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
-      <http://www.semweb.com/jobboard#location>
+      <http://www.semweb.com/jobs#location>
               <http://dbpedia.org/resource/Geneva> ;
       <http://www.semweb.com/jobs#organisation>
               <http://dbpedia.org/resource/Google> ;
@@ -79,11 +99,24 @@ The most successful candidates for this role will have strong analytical and tro
       <http://www.semweb.com/jobs#type>
               "Full Time"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+<http://www.semweb.com/jobs/8>
+      a       <http://www.semweb.com/jobs#Job> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "Software Developer"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
+      <http://www.semweb.com/jobs#location>
+              <http://dbpedia.org/resource/San_Francisco> ;
+      <http://www.semweb.com/jobs#organisation>
+              <http://dbpedia.org/resource/Microsoft> ;
+      <http://www.semweb.com/jobs#posted>
+              "2011-01-10T15:56:02.194Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+      <http://www.semweb.com/jobs#summary>
+              "Software engineering is a big part of what Microsoft’s all about. Our software engineering profession is a collection of disciplines responsible for designing, developing, and delivering our products. Microsoft's software engineers thrive on simplifying people’s jobs and lives and helping them reach new heights through ever-advancing technologies. Work here and you’re on top of the world of technology, collaborating with brilliant people on projects with the potential for a lasting legacy. Developers (Software Development Engineers – SDEs) write the code—C, C++, C#, and other programming languages—that turns concepts into new technologies and services. We are experts in feature design and feasibility, and we collaborate with program managers and test engineers to define features and ensure quality."^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+
 <http://www.semweb.com/jobs/7>
       a       <http://www.semweb.com/jobs#Job> ;
       <http://purl.org/dc/elements/1.1/title>
               "Systems Software Cloud Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
-      <http://www.semweb.com/jobboard#location>
+      <http://www.semweb.com/jobs#location>
               <http://dbpedia.org/resource/Galway> ;
       <http://www.semweb.com/jobs#organisation>
               <http://dbpedia.org/resource/Hewlett-Packard> ;
@@ -96,7 +129,7 @@ The most successful candidates for this role will have strong analytical and tro
       a       <http://www.semweb.com/jobs#Job> ;
       <http://purl.org/dc/elements/1.1/title>
               "Software Development Engineer"^^<http://www.w3.org/2001/XMLSchema#string> ;
-      <http://www.semweb.com/jobboard#location>
+      <http://www.semweb.com/jobs#location>
               <http://dbpedia.org/resource/San_Francisco> ;
       <http://www.semweb.com/jobs#organisation>
               <http://dbpedia.org/resource/Microsoft> ;

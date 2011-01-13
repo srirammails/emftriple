@@ -156,7 +156,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Requirements() {
+	public EAttribute getJob_Posted() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -165,35 +165,8 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Skills() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJob_Posted() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJob_Type() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getJob_Organisation() {
-		return (EReference)jobEClass.getEStructuralFeatures().get(7);
+		return (EReference)jobEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -202,7 +175,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * @generated
 	 */
 	public EReference getJob_Location() {
-		return (EReference)jobEClass.getEStructuralFeatures().get(8);
+		return (EReference)jobEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -345,6 +318,24 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPlace_Points() {
+		return (EAttribute)placeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlace_Abstract() {
+		return (EAttribute)placeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JOBFactory getJOBFactory() {
 		return (JOBFactory)getEFactoryInstance();
 	}
@@ -372,10 +363,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		createEAttribute(jobEClass, JOB__ID);
 		createEAttribute(jobEClass, JOB__TITLE);
 		createEAttribute(jobEClass, JOB__SUMMARY);
-		createEAttribute(jobEClass, JOB__REQUIREMENTS);
-		createEAttribute(jobEClass, JOB__SKILLS);
 		createEAttribute(jobEClass, JOB__POSTED);
-		createEAttribute(jobEClass, JOB__TYPE);
 		createEReference(jobEClass, JOB__ORGANISATION);
 		createEReference(jobEClass, JOB__LOCATION);
 
@@ -396,6 +384,8 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		createEAttribute(placeEClass, PLACE__DEPICTION);
 		createEAttribute(placeEClass, PLACE__HOME_PAGE);
 		createEAttribute(placeEClass, PLACE__POPULATION);
+		createEAttribute(placeEClass, PLACE__POINTS);
+		createEAttribute(placeEClass, PLACE__ABSTRACT);
 	}
 
 	/**
@@ -433,11 +423,8 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		initEClass(jobEClass, Job.class, "Job", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJob_Id(), ecorePackage.getEString(), "id", null, 1, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Title(), ecorePackage.getEString(), "title", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Requirements(), ecorePackage.getEString(), "requirements", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Skills(), ecorePackage.getEString(), "skills", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJob_Summary(), ecorePackage.getEString(), "summary", null, 1, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Posted(), ecorePackage.getEDate(), "posted", null, 1, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Type(), ecorePackage.getEString(), "type", null, 1, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJob_Organisation(), this.getOrganisation(), null, "organisation", null, 1, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJob_Location(), this.getPlace(), null, "location", null, 1, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -458,6 +445,8 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		initEAttribute(getPlace_Depiction(), ecorePackage.getEString(), "depiction", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlace_HomePage(), ecorePackage.getEString(), "homePage", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlace_Population(), ecorePackage.getEString(), "population", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlace_Points(), ecorePackage.getEString(), "points", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlace_Abstract(), ecorePackage.getEString(), "abstract", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -473,6 +462,10 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		createGeneratedValueAnnotations();
 		// rdf
 		createRdfAnnotations();
+		// rdf.seeAlsoSeeAlso
+		createRdf_1Annotations();
+		// SameAs
+		createSameAsAnnotations();
 	}
 
 	/**
@@ -488,7 +481,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "name", "http://default"
-		   });											
+		   });													
 		addAnnotation
 		  (organisationEClass, 
 		   source, 
@@ -500,7 +493,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "name", "http://lod.openlinksw.com/sparql"
-		   });					
+		   });							
 	}
 
 	/**
@@ -516,7 +509,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "uri", "http://www.semweb.com/jobs#Job"
-		   });											
+		   });													
 		addAnnotation
 		  (organisationEClass, 
 		   source, 
@@ -534,7 +527,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "uri", "http://dbpedia.org/ontology/City"
-		   });			
+		   });					
 	}
 
 	/**
@@ -550,13 +543,13 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "base", "http://www.semweb.com/jobs/"
-		   });						
+		   });								
 		addAnnotation
 		  (getExternalElement_Name(), 
 		   source, 
 		   new String[] {
 			 "base", "http://dbpedia.org/resource/"
-		   });																
+		   });																		
 	}
 
 	/**
@@ -572,7 +565,7 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "strategy", "DEFAULT"
-		   });																				
+		   });																								
 	}
 
 	/**
@@ -599,8 +592,8 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		  (getJob_Location(), 
 		   source, 
 		   new String[] {
-			 "uri", "http://www.semweb.com/jobboard#location"
-		   });			
+			 "uri", "http://www.semweb.com/jobs#location"
+		   });					
 		addAnnotation
 		  (getExternalElement_Description(), 
 		   source, 
@@ -667,7 +660,52 @@ public class JOBPackageImpl extends EPackageImpl implements JOBPackage {
 		   source, 
 		   new String[] {
 			 "uri", "http://dbpedia.org/ontology/populationTotal"
+		   });		
+		addAnnotation
+		  (getPlace_Points(), 
+		   source, 
+		   new String[] {
+			 "uri", "http://www.georss.org/georss/point"
+		   });		
+		addAnnotation
+		  (getPlace_Abstract(), 
+		   source, 
+		   new String[] {
+			 "uri", "http://dbpedia.org/ontology/abstract",
+			 "lang", "en"
 		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>rdf.seeAlsoSeeAlso</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createRdf_1Annotations() {
+		String source = "rdf.seeAlsoSeeAlso";									
+		addAnnotation
+		  (externalElementEClass, 
+		   source, 
+		   new String[] {
+			 "base", "http://dbpedia.org/resource/[name]"
+		   });																				
+	}
+
+	/**
+	 * Initializes the annotations for <b>SameAs</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createSameAsAnnotations() {
+		String source = "SameAs";										
+		addAnnotation
+		  (externalElementEClass, 
+		   source, 
+		   new String[] {
+			 "base", "http://dbpedia.org/resource/[name]"
+		   });																			
 	}
 
 } //JOBPackageImpl

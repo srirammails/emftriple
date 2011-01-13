@@ -1,5 +1,6 @@
 package com.semweb.careers.resources;
 
+import java.util.Calendar;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -33,16 +34,14 @@ public class EmployerResource extends BaseResource {
 		String description = form.getFirstValue("summary");
 		String org = form.getFirstValue("organisation");
 		String location = form.getFirstValue("location");
-		String type = form.getFirstValue("type");
-		String functions = form.getFirstValue("functions");
-
-		if (title != null && description != null && location != null && 
-				org != null && type != null && functions != null) {
+		java.util.Date posted = Calendar.getInstance().getTime();
+		
+		if (title != null && description != null && location != null && org != null) {
 
 			job.setTitle( title );
 			job.setSummary(description);
-			job.setType(type);
-
+			job.setPosted(posted);
+			
 			try {
 				em.getTransaction().begin();
 				Place loc = em.find(Place.class, "http://dbpedia.org/resource/" + location.trim().replaceAll(" ", "_"));

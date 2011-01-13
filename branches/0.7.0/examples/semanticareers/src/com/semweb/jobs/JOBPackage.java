@@ -97,40 +97,13 @@ public interface JOBPackage extends EPackage {
 	int JOB__SUMMARY = 2;
 
 	/**
-	 * The feature id for the '<em><b>Requirements</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__REQUIREMENTS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Skills</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__SKILLS = 4;
-
-	/**
 	 * The feature id for the '<em><b>Posted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__POSTED = 5;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__TYPE = 6;
+	int JOB__POSTED = 3;
 
 	/**
 	 * The feature id for the '<em><b>Organisation</b></em>' reference.
@@ -139,7 +112,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__ORGANISATION = 7;
+	int JOB__ORGANISATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -148,7 +121,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__LOCATION = 8;
+	int JOB__LOCATION = 5;
 
 	/**
 	 * The number of structural features of the '<em>Job</em>' class.
@@ -157,7 +130,7 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_FEATURE_COUNT = 9;
+	int JOB_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.semweb.jobs.impl.ExternalElementImpl <em>External Element</em>}' class.
@@ -370,13 +343,31 @@ public interface JOBPackage extends EPackage {
 	int PLACE__POPULATION = EXTERNAL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Points</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACE__POINTS = EXTERNAL_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACE__ABSTRACT = EXTERNAL_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Place</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE_FEATURE_COUNT = EXTERNAL_ELEMENT_FEATURE_COUNT + 3;
+	int PLACE_FEATURE_COUNT = EXTERNAL_ELEMENT_FEATURE_COUNT + 5;
 
 
 	/**
@@ -423,28 +414,6 @@ public interface JOBPackage extends EPackage {
 	EAttribute getJob_Summary();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Job#getRequirements <em>Requirements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Requirements</em>'.
-	 * @see com.semweb.jobs.Job#getRequirements()
-	 * @see #getJob()
-	 * @generated
-	 */
-	EAttribute getJob_Requirements();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Job#getSkills <em>Skills</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Skills</em>'.
-	 * @see com.semweb.jobs.Job#getSkills()
-	 * @see #getJob()
-	 * @generated
-	 */
-	EAttribute getJob_Skills();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Job#getPosted <em>Posted</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -454,17 +423,6 @@ public interface JOBPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJob_Posted();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Job#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see com.semweb.jobs.Job#getType()
-	 * @see #getJob()
-	 * @generated
-	 */
-	EAttribute getJob_Type();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.semweb.jobs.Job#getOrganisation <em>Organisation</em>}'.
@@ -651,6 +609,28 @@ public interface JOBPackage extends EPackage {
 	EAttribute getPlace_Population();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Place#getPoints <em>Points</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Points</em>'.
+	 * @see com.semweb.jobs.Place#getPoints()
+	 * @see #getPlace()
+	 * @generated
+	 */
+	EAttribute getPlace_Points();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.semweb.jobs.Place#getAbstract <em>Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Abstract</em>'.
+	 * @see com.semweb.jobs.Place#getAbstract()
+	 * @see #getPlace()
+	 * @generated
+	 */
+	EAttribute getPlace_Abstract();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -707,36 +687,12 @@ public interface JOBPackage extends EPackage {
 		EAttribute JOB__SUMMARY = eINSTANCE.getJob_Summary();
 
 		/**
-		 * The meta object literal for the '<em><b>Requirements</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB__REQUIREMENTS = eINSTANCE.getJob_Requirements();
-
-		/**
-		 * The meta object literal for the '<em><b>Skills</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB__SKILLS = eINSTANCE.getJob_Skills();
-
-		/**
 		 * The meta object literal for the '<em><b>Posted</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute JOB__POSTED = eINSTANCE.getJob_Posted();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB__TYPE = eINSTANCE.getJob_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Organisation</b></em>' reference feature.
@@ -879,6 +835,22 @@ public interface JOBPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLACE__POPULATION = eINSTANCE.getPlace_Population();
+
+		/**
+		 * The meta object literal for the '<em><b>Points</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLACE__POINTS = eINSTANCE.getPlace_Points();
+
+		/**
+		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLACE__ABSTRACT = eINSTANCE.getPlace_Abstract();
 
 	}
 

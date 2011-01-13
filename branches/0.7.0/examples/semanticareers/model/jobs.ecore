@@ -23,12 +23,10 @@
         <details key="uri" value="http://purl.org/dc/elements/1.1/title"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="skills" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="posted" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="organisation" lowerBound="1"
         eType="#//Organisation">
       <eAnnotations source="rdf">
@@ -38,11 +36,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
         eType="#//Place">
       <eAnnotations source="rdf">
-        <details key="uri" value="http://www.semweb.com/jobboard#location"/>
+        <details key="uri" value="http://www.semweb.com/jobs#location"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalElement" abstract="true">
+    <eAnnotations source="rdf.seeAlsoSeeAlso">
+      <details key="base" value="http://dbpedia.org/resource/[name]"/>
+    </eAnnotations>
+    <eAnnotations source="SameAs">
+      <details key="base" value="http://dbpedia.org/resource/[name]"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="Id">
         <details key="base" value="http://dbpedia.org/resource/"/>
@@ -122,6 +126,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="population" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="rdf">
         <details key="uri" value="http://dbpedia.org/ontology/populationTotal"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="points" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://www.georss.org/georss/point"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="rdf">
+        <details key="uri" value="http://dbpedia.org/ontology/abstract"/>
+        <details key="lang" value="en"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

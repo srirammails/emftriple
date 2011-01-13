@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see com.semweb.jobs.JOBPackage#getExternalElement()
  * @model abstract="true"
+ *        annotation="rdf.seeAlsoSeeAlso base='http://dbpedia.org/resource/[name]'"
+ *        annotation="SameAs base='http://dbpedia.org/resource/[name]'"
  * @generated
  */
 public interface ExternalElement extends EObject {

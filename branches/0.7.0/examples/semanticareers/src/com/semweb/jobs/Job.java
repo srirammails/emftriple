@@ -21,10 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.semweb.jobs.Job#getId <em>Id</em>}</li>
  *   <li>{@link com.semweb.jobs.Job#getTitle <em>Title</em>}</li>
  *   <li>{@link com.semweb.jobs.Job#getSummary <em>Summary</em>}</li>
- *   <li>{@link com.semweb.jobs.Job#getRequirements <em>Requirements</em>}</li>
- *   <li>{@link com.semweb.jobs.Job#getSkills <em>Skills</em>}</li>
  *   <li>{@link com.semweb.jobs.Job#getPosted <em>Posted</em>}</li>
- *   <li>{@link com.semweb.jobs.Job#getType <em>Type</em>}</li>
  *   <li>{@link com.semweb.jobs.Job#getOrganisation <em>Organisation</em>}</li>
  *   <li>{@link com.semweb.jobs.Job#getLocation <em>Location</em>}</li>
  * </ul>
@@ -101,7 +98,7 @@ public interface Job extends EObject {
 	 * @return the value of the '<em>Summary</em>' attribute.
 	 * @see #setSummary(String)
 	 * @see com.semweb.jobs.JOBPackage#getJob_Summary()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getSummary();
@@ -115,58 +112,6 @@ public interface Job extends EObject {
 	 * @generated
 	 */
 	void setSummary(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Requirements</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Requirements</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Requirements</em>' attribute.
-	 * @see #setRequirements(String)
-	 * @see com.semweb.jobs.JOBPackage#getJob_Requirements()
-	 * @model
-	 * @generated
-	 */
-	String getRequirements();
-
-	/**
-	 * Sets the value of the '{@link com.semweb.jobs.Job#getRequirements <em>Requirements</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Requirements</em>' attribute.
-	 * @see #getRequirements()
-	 * @generated
-	 */
-	void setRequirements(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Skills</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Skills</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Skills</em>' attribute.
-	 * @see #setSkills(String)
-	 * @see com.semweb.jobs.JOBPackage#getJob_Skills()
-	 * @model
-	 * @generated
-	 */
-	String getSkills();
-
-	/**
-	 * Sets the value of the '{@link com.semweb.jobs.Job#getSkills <em>Skills</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Skills</em>' attribute.
-	 * @see #getSkills()
-	 * @generated
-	 */
-	void setSkills(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Posted</b></em>' attribute.
@@ -193,32 +138,6 @@ public interface Job extends EObject {
 	 * @generated
 	 */
 	void setPosted(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see #setType(String)
-	 * @see com.semweb.jobs.JOBPackage#getJob_Type()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getType();
-
-	/**
-	 * Sets the value of the '{@link com.semweb.jobs.Job#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Organisation</b></em>' reference.
@@ -259,7 +178,7 @@ public interface Job extends EObject {
 	 * @see #setLocation(Place)
 	 * @see com.semweb.jobs.JOBPackage#getJob_Location()
 	 * @model required="true"
-	 *        annotation="rdf uri='http://www.semweb.com/jobboard#location'"
+	 *        annotation="rdf uri='http://www.semweb.com/jobs#location'"
 	 * @generated
 	 */
 	Place getLocation();

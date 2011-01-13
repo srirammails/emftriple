@@ -6,8 +6,10 @@
       <title>${title}</title>
       <link rel="stylesheet" type="text/css" href="${rootRef}/stylesheets/main.css" title="Main CSS stylesheet" />
       ${foafAlternate}
+      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">
+	  </script>
    </head>
-   <body>
+   <body onload="initialize()">
    			<div class="container">
 				<div id="header">
 					<a href="${rootRef}/home"><h1 class="title">Semantic careers</h1></a>
@@ -361,6 +363,13 @@ kbd
 {
 	color: #fff;
 	background-color:#0b75b2;
+}
+
+.map
+{
+	width: 660px;
+	height: 380px;
+	float: center;
 }
 
 #footer .container
