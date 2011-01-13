@@ -115,24 +115,34 @@ public class SparqlQueries {
 		final List<EReference> refs = eClass.getEAllReferences();
 
 		if (!attrs.isEmpty()) {
-			// cuts the set of attributes to form small queries
-			// that can be executed on services
-			int MAX = 3;
-			int POS = 0;
-
-			while(POS < attrs.size()) {
-				List<EStructuralFeature> feats = new ArrayList<EStructuralFeature>();  
-				for (int i=POS; i < attrs.size() && i < MAX; i++)
-					feats.add(attrs.get(i));
-				queries.addAll(constructSubject(key, eClass, feats));
-				POS+=MAX;
-				MAX+=MAX; if (MAX > attrs.size()) MAX = attrs.size();
+			final List<List<EAttribute>> sublists = split(attrs, new ArrayList<List<EAttribute>>());
+			for (List<EAttribute> list: sublists) {
+				queries.addAll(constructSubject(key, eClass, list));
 			}
 		}
+
 		if (!refs.isEmpty())
 			queries.addAll(constructSubject(key, eClass, refs));
 
 		return queries;
+	}
+
+	private static List<List<EAttribute>> split(List<EAttribute> attrs, final List<List<EAttribute>> ret) {
+		final int LIMIT = 2;
+		int start = 0;
+		
+		for (int i=0; i < attrs.size(); i++) {
+			if (((i+1)% LIMIT) == 0 || (i+1 == attrs.size())) {
+				final List<EAttribute> other = new ArrayList<EAttribute>();
+				for (int j=start; j<i+1; ++j) {
+					other.add(attrs.get(j));
+				}
+				ret.add(other);
+				start = i + 1;
+			}
+		}
+
+		return ret;
 	}
 
 	private static List<String> constructSubject(URI key, EClass eClass, List<? extends EStructuralFeature> feats) {

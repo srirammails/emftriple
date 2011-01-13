@@ -51,28 +51,6 @@ public abstract class AbstractGetObject implements GetObject {
 		this.dataSourceManager = dataSourceManager;
 	}
 
-//	protected RDFGraph getGraph(EClass eClass, URI key) {
-//		final List<String> queries = SparqlQueries.constructSubjectService(key, eClass);
-//		final List<RDFGraph> graphs = new ArrayList<RDFGraph>();
-//		
-//		for (final String str: queries) {
-////			System.out.println("call " + str);
-//			RDFGraph aGraph = null;
-//			try {
-//				aGraph = 
-//					dataSourceManager.executeConctructQuery(str);
-//			} catch (Exception e) {
-////				System.out.println("recall " + str);
-//				aGraph = 
-//					dataSourceManager.executeConctructQuery(str);
-//			}
-//			if (aGraph != null)
-//				graphs.add(aGraph);
-//		}
-//		
-//		return graphs.isEmpty() ? null : (graphs.size() == 1 ? graphs.get(0) : merge(graphs));
-//	}
-	
 	protected RDFGraph getGraph(EClass eClass, URI key) {
 		final List<String> queries = SparqlQueries.constructSubjectService(key, eClass);
 		final List<RDFGraph> graphs = new ArrayList<RDFGraph>();
@@ -91,7 +69,7 @@ public abstract class AbstractGetObject implements GetObject {
 		executor.shutdown();
 		while (!executor.isTerminated()) {
 		}
-		
+
 		RDFGraph merge = null;
 		for (Future<RDFGraph> f: futures) {
 			RDFGraph g;
@@ -102,7 +80,7 @@ public abstract class AbstractGetObject implements GetObject {
 						merge = g;
 					else merge.add(g);
 				}
-					graphs.add(g);
+				graphs.add(g);
 			} catch (ExecutionException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
@@ -111,13 +89,12 @@ public abstract class AbstractGetObject implements GetObject {
 		}
 
 		return merge;
-//		return graphs.isEmpty() ? null : (graphs.size() == 1 ? graphs.get(0) : merge(graphs));
 	}
 
 	protected <T> RDFGraph getGraph(Class<T> entityClass, URI key) {
 		try {
 			final EClass eClass = mapping.getEClass(entityClass);
-			
+
 			return getGraph(eClass, key);
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
@@ -125,16 +102,6 @@ public abstract class AbstractGetObject implements GetObject {
 
 		return null;
 	}
-
-//	private static RDFGraph merge(List<RDFGraph> graphs) {
-//		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
-//		final RDFResource res = new DummyRDFResource();
-//		res.getContents().add(aGraph);
-//		for (RDFGraph g: graphs)
-//			aGraph.add(g);
-//
-//		return aGraph;
-//	}
 
 	protected void setIdValue(EObject returnedObject, Resource from, EAttribute id) {
 		if (id == null)
