@@ -6,7 +6,6 @@
  */
 package com.semweb.jobs.util;
 
-import com.semweb.jobs.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;

@@ -29,10 +29,7 @@ import com.semweb.jobs.Place;
  *   <li>{@link com.semweb.jobs.impl.JobImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.JobImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.JobImpl#getSummary <em>Summary</em>}</li>
- *   <li>{@link com.semweb.jobs.impl.JobImpl#getRequirements <em>Requirements</em>}</li>
- *   <li>{@link com.semweb.jobs.impl.JobImpl#getSkills <em>Skills</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.JobImpl#getPosted <em>Posted</em>}</li>
- *   <li>{@link com.semweb.jobs.impl.JobImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.JobImpl#getOrganisation <em>Organisation</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.JobImpl#getLocation <em>Location</em>}</li>
  * </ul>
@@ -102,46 +99,6 @@ public class JobImpl extends EObjectImpl implements Job {
 	protected String summary = SUMMARY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRequirements() <em>Requirements</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequirements()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REQUIREMENTS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequirements()
-	 * @generated
-	 * @ordered
-	 */
-	protected String requirements = REQUIREMENTS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSkills() <em>Skills</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSkills()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SKILLS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSkills() <em>Skills</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSkills()
-	 * @generated
-	 * @ordered
-	 */
-	protected String skills = SKILLS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getPosted() <em>Posted</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,26 +117,6 @@ public class JobImpl extends EObjectImpl implements Job {
 	 * @ordered
 	 */
 	protected Date posted = POSTED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String type = TYPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOrganisation() <em>Organisation</em>}' reference.
@@ -288,48 +225,6 @@ public class JobImpl extends EObjectImpl implements Job {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRequirements() {
-		return requirements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequirements(String newRequirements) {
-		String oldRequirements = requirements;
-		requirements = newRequirements;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.JOB__REQUIREMENTS, oldRequirements, requirements));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getSkills() {
-		return skills;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSkills(String newSkills) {
-		String oldSkills = skills;
-		skills = newSkills;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.JOB__SKILLS, oldSkills, skills));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Date getPosted() {
 		return posted;
 	}
@@ -344,27 +239,6 @@ public class JobImpl extends EObjectImpl implements Job {
 		posted = newPosted;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.JOB__POSTED, oldPosted, posted));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(String newType) {
-		String oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.JOB__TYPE, oldType, type));
 	}
 
 	/**
@@ -457,14 +331,8 @@ public class JobImpl extends EObjectImpl implements Job {
 				return getTitle();
 			case JOBPackage.JOB__SUMMARY:
 				return getSummary();
-			case JOBPackage.JOB__REQUIREMENTS:
-				return getRequirements();
-			case JOBPackage.JOB__SKILLS:
-				return getSkills();
 			case JOBPackage.JOB__POSTED:
 				return getPosted();
-			case JOBPackage.JOB__TYPE:
-				return getType();
 			case JOBPackage.JOB__ORGANISATION:
 				if (resolve) return getOrganisation();
 				return basicGetOrganisation();
@@ -492,17 +360,8 @@ public class JobImpl extends EObjectImpl implements Job {
 			case JOBPackage.JOB__SUMMARY:
 				setSummary((String)newValue);
 				return;
-			case JOBPackage.JOB__REQUIREMENTS:
-				setRequirements((String)newValue);
-				return;
-			case JOBPackage.JOB__SKILLS:
-				setSkills((String)newValue);
-				return;
 			case JOBPackage.JOB__POSTED:
 				setPosted((Date)newValue);
-				return;
-			case JOBPackage.JOB__TYPE:
-				setType((String)newValue);
 				return;
 			case JOBPackage.JOB__ORGANISATION:
 				setOrganisation((Organisation)newValue);
@@ -531,17 +390,8 @@ public class JobImpl extends EObjectImpl implements Job {
 			case JOBPackage.JOB__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
 				return;
-			case JOBPackage.JOB__REQUIREMENTS:
-				setRequirements(REQUIREMENTS_EDEFAULT);
-				return;
-			case JOBPackage.JOB__SKILLS:
-				setSkills(SKILLS_EDEFAULT);
-				return;
 			case JOBPackage.JOB__POSTED:
 				setPosted(POSTED_EDEFAULT);
-				return;
-			case JOBPackage.JOB__TYPE:
-				setType(TYPE_EDEFAULT);
 				return;
 			case JOBPackage.JOB__ORGANISATION:
 				setOrganisation((Organisation)null);
@@ -567,14 +417,8 @@ public class JobImpl extends EObjectImpl implements Job {
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case JOBPackage.JOB__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
-			case JOBPackage.JOB__REQUIREMENTS:
-				return REQUIREMENTS_EDEFAULT == null ? requirements != null : !REQUIREMENTS_EDEFAULT.equals(requirements);
-			case JOBPackage.JOB__SKILLS:
-				return SKILLS_EDEFAULT == null ? skills != null : !SKILLS_EDEFAULT.equals(skills);
 			case JOBPackage.JOB__POSTED:
 				return POSTED_EDEFAULT == null ? posted != null : !POSTED_EDEFAULT.equals(posted);
-			case JOBPackage.JOB__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case JOBPackage.JOB__ORGANISATION:
 				return organisation != null;
 			case JOBPackage.JOB__LOCATION:
@@ -599,14 +443,8 @@ public class JobImpl extends EObjectImpl implements Job {
 		result.append(title);
 		result.append(", summary: ");
 		result.append(summary);
-		result.append(", requirements: ");
-		result.append(requirements);
-		result.append(", skills: ");
-		result.append(skills);
 		result.append(", posted: ");
 		result.append(posted);
-		result.append(", type: ");
-		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

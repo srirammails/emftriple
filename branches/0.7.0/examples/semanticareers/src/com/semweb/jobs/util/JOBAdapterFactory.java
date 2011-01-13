@@ -6,7 +6,6 @@
  */
 package com.semweb.jobs.util;
 
-import com.semweb.jobs.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;

@@ -23,6 +23,8 @@ import com.semweb.jobs.Place;
  *   <li>{@link com.semweb.jobs.impl.PlaceImpl#getDepiction <em>Depiction</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.PlaceImpl#getHomePage <em>Home Page</em>}</li>
  *   <li>{@link com.semweb.jobs.impl.PlaceImpl#getPopulation <em>Population</em>}</li>
+ *   <li>{@link com.semweb.jobs.impl.PlaceImpl#getPoints <em>Points</em>}</li>
+ *   <li>{@link com.semweb.jobs.impl.PlaceImpl#getAbstract <em>Abstract</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +90,46 @@ public class PlaceImpl extends ExternalElementImpl implements Place {
 	 * @ordered
 	 */
 	protected String population = POPULATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPoints() <em>Points</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPoints()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String POINTS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPoints() <em>Points</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPoints()
+	 * @generated
+	 * @ordered
+	 */
+	protected String points = POINTS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAbstract() <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAbstract()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ABSTRACT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAbstract() <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAbstract()
+	 * @generated
+	 * @ordered
+	 */
+	protected String abstract_ = ABSTRACT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,6 +218,48 @@ public class PlaceImpl extends ExternalElementImpl implements Place {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPoints() {
+		return points;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPoints(String newPoints) {
+		String oldPoints = points;
+		points = newPoints;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.PLACE__POINTS, oldPoints, points));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAbstract() {
+		return abstract_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAbstract(String newAbstract) {
+		String oldAbstract = abstract_;
+		abstract_ = newAbstract;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JOBPackage.PLACE__ABSTRACT, oldAbstract, abstract_));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -185,6 +269,10 @@ public class PlaceImpl extends ExternalElementImpl implements Place {
 				return getHomePage();
 			case JOBPackage.PLACE__POPULATION:
 				return getPopulation();
+			case JOBPackage.PLACE__POINTS:
+				return getPoints();
+			case JOBPackage.PLACE__ABSTRACT:
+				return getAbstract();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,6 +293,12 @@ public class PlaceImpl extends ExternalElementImpl implements Place {
 				return;
 			case JOBPackage.PLACE__POPULATION:
 				setPopulation((String)newValue);
+				return;
+			case JOBPackage.PLACE__POINTS:
+				setPoints((String)newValue);
+				return;
+			case JOBPackage.PLACE__ABSTRACT:
+				setAbstract((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -227,6 +321,12 @@ public class PlaceImpl extends ExternalElementImpl implements Place {
 			case JOBPackage.PLACE__POPULATION:
 				setPopulation(POPULATION_EDEFAULT);
 				return;
+			case JOBPackage.PLACE__POINTS:
+				setPoints(POINTS_EDEFAULT);
+				return;
+			case JOBPackage.PLACE__ABSTRACT:
+				setAbstract(ABSTRACT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -245,6 +345,10 @@ public class PlaceImpl extends ExternalElementImpl implements Place {
 				return HOME_PAGE_EDEFAULT == null ? homePage != null : !HOME_PAGE_EDEFAULT.equals(homePage);
 			case JOBPackage.PLACE__POPULATION:
 				return POPULATION_EDEFAULT == null ? population != null : !POPULATION_EDEFAULT.equals(population);
+			case JOBPackage.PLACE__POINTS:
+				return POINTS_EDEFAULT == null ? points != null : !POINTS_EDEFAULT.equals(points);
+			case JOBPackage.PLACE__ABSTRACT:
+				return ABSTRACT_EDEFAULT == null ? abstract_ != null : !ABSTRACT_EDEFAULT.equals(abstract_);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -265,6 +369,10 @@ public class PlaceImpl extends ExternalElementImpl implements Place {
 		result.append(homePage);
 		result.append(", population: ");
 		result.append(population);
+		result.append(", points: ");
+		result.append(points);
+		result.append(", abstract: ");
+		result.append(abstract_);
 		result.append(')');
 		return result.toString();
 	}

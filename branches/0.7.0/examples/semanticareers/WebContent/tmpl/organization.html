@@ -5,17 +5,12 @@
 		<div class="jobsheader"><h1 class="title">${company.name}</h1>
 		</div>
 		<div class="item">
-			<#if company.logo??>
-				<img src="${logo}" align="right"></img>
-			</#if>
-			<div class="menu">
-				<ul>
-					<li><p class="description"><a href="http://en.wikipedia.org/wiki/${company.name!}">wikipedia</a></p></li>
-					<li><p class="description"><a href="http://dbpedia.org/page/${company.name!}">see also</a></p></li>
-				</ul>
+			<div>
+				<p class="description"><a href="http://en.wikipedia.org/wiki/${company.name!}">wikipedia</a></p>
+				<p class="description"><a href="http://dbpedia.org/page/${company.name!}">see also</a></p>
 			</div>
 			<#if company.location??>
-				<p class="description">located in <a href="${rootRef}/locations/${company.location.name}">${company.location.name}</a></p>
+				<p class="description">located in <a href="${rootRef}/locations/${company.location.name!}">${company.location.name!}</a></p>
 			</#if>
 			<p class="description">${company.description}</p>
 			<#if company.formationYear??>

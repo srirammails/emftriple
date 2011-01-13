@@ -10,21 +10,18 @@ class Job {
    
    @rdf(uri="http://purl.org/dc/elements/1.1/title")
    attr String title;
-   
-   attr String[?] summary;
-   attr String[?] requirements;
-   attr String[?] skills;
-
+   attr String[1] summary;
    attr EDate[1] posted;
-   attr String[1] type;
    
    @rdf(uri="http://www.semweb.com/jobs#organisation")
    ref Organisation[1] organisation;
    
-   @rdf(uri="http://www.semweb.com/jobboard#location")
+   @rdf(uri="http://www.semweb.com/jobs#location")
    ref Place[1] location;
 }
 
+@rdf.seeAlsoSeeAlso(base="http://dbpedia.org/resource/[name]")
+@SameAs(base="http://dbpedia.org/resource/[name]")
 abstract class ExternalElement {
    @Id(base="http://dbpedia.org/resource/")
    attr String[1] name;
@@ -72,4 +69,10 @@ class Place extends ExternalElement {
    
    @rdf(uri="http://dbpedia.org/ontology/populationTotal")
    attr String[?] population;
+   
+   @rdf(uri="http://www.georss.org/georss/point")
+   attr String[?] points;
+   
+   @rdf(uri="http://dbpedia.org/ontology/abstract", lang="en")
+   attr String[?] ~abstract;
 }

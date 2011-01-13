@@ -1,7 +1,7 @@
 package com.semweb.careers.resources;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.restlet.data.MediaType;
 import org.restlet.representation.Representation;
@@ -37,8 +37,21 @@ public class PlaceResource extends BaseResource {
 
 	@Get("html")
 	public Representation toHtml(Variant variant) throws ResourceException {
-		final Map<String, Object> dataModel = new TreeMap<String, Object>();
+		String pt = location.getPoints();
+		System.out.println(location.getPoints());
+		
+		String lg = "0";
+		String lt = "0";
+		if (pt != null) {
+			lg = pt.split(" ")[0];
+			lt = pt.split(" ")[1];
+		}
+			
+		System.out.println("lg " + lg + " " + lt);
+		final Map<String, Object> dataModel = new HashMap<String, Object>();
 		dataModel.put("location", this.location);
+		dataModel.put("lg", lg);
+		dataModel.put("lr", lt);
 		dataModel.put("resourceRef", getRequest().getResourceRef());
 		dataModel.put("rootRef", getRequest().getRootRef());
 		
