@@ -6,15 +6,13 @@
  */
 package com.emftriple.config.persistence.util;
 
-import com.emftriple.config.persistence.PersistencePackage;
-
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.resource.Resource;
-
 import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
+
+import com.emftriple.config.persistence.PersistencePackage;
 
 /**
  * This class contains helper methods to serialize and deserialize XML documents

@@ -6,14 +6,18 @@
  */
 package com.emftriple.config.persistence.util;
 
-import com.emftriple.config.persistence.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import com.emftriple.config.persistence.DataSourceConfig;
+import com.emftriple.config.persistence.DataSources;
+import com.emftriple.config.persistence.PersistenceConfig;
+import com.emftriple.config.persistence.PersistencePackage;
+import com.emftriple.config.persistence.PersistenceUnit;
+import com.emftriple.config.persistence.Properties;
+import com.emftriple.config.persistence.Property;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,20 +76,20 @@ public class PersistenceAdapterFactory extends AdapterFactoryImpl {
 	protected PersistenceSwitch<Adapter> modelSwitch =
 		new PersistenceSwitch<Adapter>() {
 			@Override
-			public Adapter casePersistenceMetaData(PersistenceMetaData object) {
-				return createPersistenceMetaDataAdapter();
+			public Adapter casePersistenceConfig(PersistenceConfig object) {
+				return createPersistenceConfigAdapter();
 			}
 			@Override
 			public Adapter casePersistenceUnit(PersistenceUnit object) {
 				return createPersistenceUnitAdapter();
 			}
 			@Override
-			public Adapter caseFederation(Federation object) {
-				return createFederationAdapter();
+			public Adapter caseDataSources(DataSources object) {
+				return createDataSourcesAdapter();
 			}
 			@Override
-			public Adapter caseDataSourceBuilder(DataSourceBuilder object) {
-				return createDataSourceBuilderAdapter();
+			public Adapter caseDataSourceConfig(DataSourceConfig object) {
+				return createDataSourceConfigAdapter();
 			}
 			@Override
 			public Adapter caseProperties(Properties object) {
@@ -116,16 +120,16 @@ public class PersistenceAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.emftriple.config.persistence.PersistenceMetaData <em>Meta Data</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.emftriple.config.persistence.PersistenceConfig <em>Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.emftriple.config.persistence.PersistenceMetaData
+	 * @see com.emftriple.config.persistence.PersistenceConfig
 	 * @generated
 	 */
-	public Adapter createPersistenceMetaDataAdapter() {
+	public Adapter createPersistenceConfigAdapter() {
 		return null;
 	}
 
@@ -144,30 +148,30 @@ public class PersistenceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.emftriple.config.persistence.Federation <em>Federation</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.emftriple.config.persistence.DataSources <em>Data Sources</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.emftriple.config.persistence.Federation
+	 * @see com.emftriple.config.persistence.DataSources
 	 * @generated
 	 */
-	public Adapter createFederationAdapter() {
+	public Adapter createDataSourcesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.emftriple.config.persistence.DataSourceBuilder <em>Data Source Builder</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.emftriple.config.persistence.DataSourceConfig <em>Data Source Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.emftriple.config.persistence.DataSourceBuilder
+	 * @see com.emftriple.config.persistence.DataSourceConfig
 	 * @generated
 	 */
-	public Adapter createDataSourceBuilderAdapter() {
+	public Adapter createDataSourceConfigAdapter() {
 		return null;
 	}
 

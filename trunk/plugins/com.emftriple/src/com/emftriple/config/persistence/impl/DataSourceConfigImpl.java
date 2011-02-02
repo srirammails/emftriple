@@ -6,44 +6,40 @@
  */
 package com.emftriple.config.persistence.impl;
 
-import com.emftriple.config.persistence.DataSourceBuilder;
-import com.emftriple.config.persistence.PersistencePackage;
-import com.emftriple.config.persistence.Properties;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import com.emftriple.config.persistence.DataSourceConfig;
+import com.emftriple.config.persistence.PersistencePackage;
+import com.emftriple.config.persistence.Properties;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Data Source Builder</b></em>'.
+ * An implementation of the model object '<em><b>Data Source Config</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.emftriple.config.persistence.impl.DataSourceBuilderImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.emftriple.config.persistence.impl.DataSourceBuilderImpl#getFactory <em>Factory</em>}</li>
- *   <li>{@link com.emftriple.config.persistence.impl.DataSourceBuilderImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link com.emftriple.config.persistence.impl.DataSourceBuilderImpl#getUrl <em>Url</em>}</li>
- *   <li>{@link com.emftriple.config.persistence.impl.DataSourceBuilderImpl#getGraphs <em>Graphs</em>}</li>
- *   <li>{@link com.emftriple.config.persistence.impl.DataSourceBuilderImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link com.emftriple.config.persistence.impl.DataSourceConfigImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.emftriple.config.persistence.impl.DataSourceConfigImpl#getFactory <em>Factory</em>}</li>
+ *   <li>{@link com.emftriple.config.persistence.impl.DataSourceConfigImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link com.emftriple.config.persistence.impl.DataSourceConfigImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link com.emftriple.config.persistence.impl.DataSourceConfigImpl#getGraphs <em>Graphs</em>}</li>
+ *   <li>{@link com.emftriple.config.persistence.impl.DataSourceConfigImpl#getProperty <em>Property</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implements DataSourceBuilder {
+public class DataSourceConfigImpl extends MinimalEObjectImpl.Container implements DataSourceConfig {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -149,7 +145,7 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataSourceBuilderImpl() {
+	protected DataSourceConfigImpl() {
 		super();
 	}
 
@@ -160,7 +156,7 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PersistencePackage.Literals.DATA_SOURCE_BUILDER;
+		return PersistencePackage.Literals.DATA_SOURCE_CONFIG;
 	}
 
 	/**
@@ -181,7 +177,7 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_BUILDER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_CONFIG__NAME, oldName, name));
 	}
 
 	/**
@@ -202,7 +198,7 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 		String oldFactory = factory;
 		factory = newFactory;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_BUILDER__FACTORY, oldFactory, factory));
+			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_CONFIG__FACTORY, oldFactory, factory));
 	}
 
 	/**
@@ -223,7 +219,7 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 		String oldClass = class_;
 		class_ = newClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_BUILDER__CLASS, oldClass, class_));
+			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_CONFIG__CLASS, oldClass, class_));
 	}
 
 	/**
@@ -244,7 +240,7 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 		String oldUrl = url;
 		url = newUrl;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_BUILDER__URL, oldUrl, url));
+			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_CONFIG__URL, oldUrl, url));
 	}
 
 	/**
@@ -254,7 +250,7 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	public EList<String> getGraphs() {
 		if (graphs == null) {
-			graphs = new EDataTypeUniqueEList<String>(String.class, this, PersistencePackage.DATA_SOURCE_BUILDER__GRAPHS);
+			graphs = new EDataTypeUniqueEList<String>(String.class, this, PersistencePackage.DATA_SOURCE_CONFIG__GRAPHS);
 		}
 		return graphs;
 	}
@@ -277,7 +273,7 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 		Properties oldProperty = property;
 		property = newProperty;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_BUILDER__PROPERTY, oldProperty, newProperty);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_CONFIG__PROPERTY, oldProperty, newProperty);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -292,14 +288,14 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 		if (newProperty != property) {
 			NotificationChain msgs = null;
 			if (property != null)
-				msgs = ((InternalEObject)property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PersistencePackage.DATA_SOURCE_BUILDER__PROPERTY, null, msgs);
+				msgs = ((InternalEObject)property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PersistencePackage.DATA_SOURCE_CONFIG__PROPERTY, null, msgs);
 			if (newProperty != null)
-				msgs = ((InternalEObject)newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PersistencePackage.DATA_SOURCE_BUILDER__PROPERTY, null, msgs);
+				msgs = ((InternalEObject)newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PersistencePackage.DATA_SOURCE_CONFIG__PROPERTY, null, msgs);
 			msgs = basicSetProperty(newProperty, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_BUILDER__PROPERTY, newProperty, newProperty));
+			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.DATA_SOURCE_CONFIG__PROPERTY, newProperty, newProperty));
 	}
 
 	/**
@@ -310,7 +306,7 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PersistencePackage.DATA_SOURCE_BUILDER__PROPERTY:
+			case PersistencePackage.DATA_SOURCE_CONFIG__PROPERTY:
 				return basicSetProperty(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -324,17 +320,17 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PersistencePackage.DATA_SOURCE_BUILDER__NAME:
+			case PersistencePackage.DATA_SOURCE_CONFIG__NAME:
 				return getName();
-			case PersistencePackage.DATA_SOURCE_BUILDER__FACTORY:
+			case PersistencePackage.DATA_SOURCE_CONFIG__FACTORY:
 				return getFactory();
-			case PersistencePackage.DATA_SOURCE_BUILDER__CLASS:
+			case PersistencePackage.DATA_SOURCE_CONFIG__CLASS:
 				return getClass_();
-			case PersistencePackage.DATA_SOURCE_BUILDER__URL:
+			case PersistencePackage.DATA_SOURCE_CONFIG__URL:
 				return getUrl();
-			case PersistencePackage.DATA_SOURCE_BUILDER__GRAPHS:
+			case PersistencePackage.DATA_SOURCE_CONFIG__GRAPHS:
 				return getGraphs();
-			case PersistencePackage.DATA_SOURCE_BUILDER__PROPERTY:
+			case PersistencePackage.DATA_SOURCE_CONFIG__PROPERTY:
 				return getProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -349,23 +345,23 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PersistencePackage.DATA_SOURCE_BUILDER__NAME:
+			case PersistencePackage.DATA_SOURCE_CONFIG__NAME:
 				setName((String)newValue);
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__FACTORY:
+			case PersistencePackage.DATA_SOURCE_CONFIG__FACTORY:
 				setFactory((String)newValue);
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__CLASS:
+			case PersistencePackage.DATA_SOURCE_CONFIG__CLASS:
 				setClass((String)newValue);
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__URL:
+			case PersistencePackage.DATA_SOURCE_CONFIG__URL:
 				setUrl((String)newValue);
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__GRAPHS:
+			case PersistencePackage.DATA_SOURCE_CONFIG__GRAPHS:
 				getGraphs().clear();
 				getGraphs().addAll((Collection<? extends String>)newValue);
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__PROPERTY:
+			case PersistencePackage.DATA_SOURCE_CONFIG__PROPERTY:
 				setProperty((Properties)newValue);
 				return;
 		}
@@ -380,22 +376,22 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PersistencePackage.DATA_SOURCE_BUILDER__NAME:
+			case PersistencePackage.DATA_SOURCE_CONFIG__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__FACTORY:
+			case PersistencePackage.DATA_SOURCE_CONFIG__FACTORY:
 				setFactory(FACTORY_EDEFAULT);
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__CLASS:
+			case PersistencePackage.DATA_SOURCE_CONFIG__CLASS:
 				setClass(CLASS_EDEFAULT);
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__URL:
+			case PersistencePackage.DATA_SOURCE_CONFIG__URL:
 				setUrl(URL_EDEFAULT);
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__GRAPHS:
+			case PersistencePackage.DATA_SOURCE_CONFIG__GRAPHS:
 				getGraphs().clear();
 				return;
-			case PersistencePackage.DATA_SOURCE_BUILDER__PROPERTY:
+			case PersistencePackage.DATA_SOURCE_CONFIG__PROPERTY:
 				setProperty((Properties)null);
 				return;
 		}
@@ -410,17 +406,17 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PersistencePackage.DATA_SOURCE_BUILDER__NAME:
+			case PersistencePackage.DATA_SOURCE_CONFIG__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case PersistencePackage.DATA_SOURCE_BUILDER__FACTORY:
+			case PersistencePackage.DATA_SOURCE_CONFIG__FACTORY:
 				return FACTORY_EDEFAULT == null ? factory != null : !FACTORY_EDEFAULT.equals(factory);
-			case PersistencePackage.DATA_SOURCE_BUILDER__CLASS:
+			case PersistencePackage.DATA_SOURCE_CONFIG__CLASS:
 				return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
-			case PersistencePackage.DATA_SOURCE_BUILDER__URL:
+			case PersistencePackage.DATA_SOURCE_CONFIG__URL:
 				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
-			case PersistencePackage.DATA_SOURCE_BUILDER__GRAPHS:
+			case PersistencePackage.DATA_SOURCE_CONFIG__GRAPHS:
 				return graphs != null && !graphs.isEmpty();
-			case PersistencePackage.DATA_SOURCE_BUILDER__PROPERTY:
+			case PersistencePackage.DATA_SOURCE_CONFIG__PROPERTY:
 				return property != null;
 		}
 		return super.eIsSet(featureID);
@@ -450,4 +446,4 @@ public class DataSourceBuilderImpl extends MinimalEObjectImpl.Container implemen
 		return result.toString();
 	}
 
-} //DataSourceBuilderImpl
+} //DataSourceConfigImpl

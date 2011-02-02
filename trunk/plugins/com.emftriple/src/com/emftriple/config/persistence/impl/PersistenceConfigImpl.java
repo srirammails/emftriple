@@ -6,41 +6,37 @@
  */
 package com.emftriple.config.persistence.impl;
 
-import com.emftriple.config.persistence.PersistenceMetaData;
-import com.emftriple.config.persistence.PersistencePackage;
-import com.emftriple.config.persistence.PersistenceUnit;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import com.emftriple.config.persistence.PersistenceConfig;
+import com.emftriple.config.persistence.PersistencePackage;
+import com.emftriple.config.persistence.PersistenceUnit;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Meta Data</b></em>'.
+ * An implementation of the model object '<em><b>Config</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.emftriple.config.persistence.impl.PersistenceMetaDataImpl#getPersistenceUnit <em>Persistence Unit</em>}</li>
- *   <li>{@link com.emftriple.config.persistence.impl.PersistenceMetaDataImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link com.emftriple.config.persistence.impl.PersistenceConfigImpl#getPersistenceUnit <em>Persistence Unit</em>}</li>
+ *   <li>{@link com.emftriple.config.persistence.impl.PersistenceConfigImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implements PersistenceMetaData {
+public class PersistenceConfigImpl extends MinimalEObjectImpl.Container implements PersistenceConfig {
 	/**
 	 * The cached value of the '{@link #getPersistenceUnit() <em>Persistence Unit</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -85,7 +81,7 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PersistenceMetaDataImpl() {
+	protected PersistenceConfigImpl() {
 		super();
 	}
 
@@ -96,7 +92,7 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PersistencePackage.Literals.PERSISTENCE_META_DATA;
+		return PersistencePackage.Literals.PERSISTENCE_CONFIG;
 	}
 
 	/**
@@ -106,7 +102,7 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 	 */
 	public EList<PersistenceUnit> getPersistenceUnit() {
 		if (persistenceUnit == null) {
-			persistenceUnit = new EObjectContainmentEList<PersistenceUnit>(PersistenceUnit.class, this, PersistencePackage.PERSISTENCE_META_DATA__PERSISTENCE_UNIT);
+			persistenceUnit = new EObjectContainmentEList<PersistenceUnit>(PersistenceUnit.class, this, PersistencePackage.PERSISTENCE_CONFIG__PERSISTENCE_UNIT);
 		}
 		return persistenceUnit;
 	}
@@ -131,7 +127,7 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 		boolean oldVersionESet = versionESet;
 		versionESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.PERSISTENCE_META_DATA__VERSION, oldVersion, version, !oldVersionESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, PersistencePackage.PERSISTENCE_CONFIG__VERSION, oldVersion, version, !oldVersionESet));
 	}
 
 	/**
@@ -145,7 +141,7 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 		version = VERSION_EDEFAULT;
 		versionESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PersistencePackage.PERSISTENCE_META_DATA__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PersistencePackage.PERSISTENCE_CONFIG__VERSION, oldVersion, VERSION_EDEFAULT, oldVersionESet));
 	}
 
 	/**
@@ -165,7 +161,7 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PersistencePackage.PERSISTENCE_META_DATA__PERSISTENCE_UNIT:
+			case PersistencePackage.PERSISTENCE_CONFIG__PERSISTENCE_UNIT:
 				return ((InternalEList<?>)getPersistenceUnit()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -179,9 +175,9 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PersistencePackage.PERSISTENCE_META_DATA__PERSISTENCE_UNIT:
+			case PersistencePackage.PERSISTENCE_CONFIG__PERSISTENCE_UNIT:
 				return getPersistenceUnit();
-			case PersistencePackage.PERSISTENCE_META_DATA__VERSION:
+			case PersistencePackage.PERSISTENCE_CONFIG__VERSION:
 				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -196,11 +192,11 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PersistencePackage.PERSISTENCE_META_DATA__PERSISTENCE_UNIT:
+			case PersistencePackage.PERSISTENCE_CONFIG__PERSISTENCE_UNIT:
 				getPersistenceUnit().clear();
 				getPersistenceUnit().addAll((Collection<? extends PersistenceUnit>)newValue);
 				return;
-			case PersistencePackage.PERSISTENCE_META_DATA__VERSION:
+			case PersistencePackage.PERSISTENCE_CONFIG__VERSION:
 				setVersion((String)newValue);
 				return;
 		}
@@ -215,10 +211,10 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PersistencePackage.PERSISTENCE_META_DATA__PERSISTENCE_UNIT:
+			case PersistencePackage.PERSISTENCE_CONFIG__PERSISTENCE_UNIT:
 				getPersistenceUnit().clear();
 				return;
-			case PersistencePackage.PERSISTENCE_META_DATA__VERSION:
+			case PersistencePackage.PERSISTENCE_CONFIG__VERSION:
 				unsetVersion();
 				return;
 		}
@@ -233,9 +229,9 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PersistencePackage.PERSISTENCE_META_DATA__PERSISTENCE_UNIT:
+			case PersistencePackage.PERSISTENCE_CONFIG__PERSISTENCE_UNIT:
 				return persistenceUnit != null && !persistenceUnit.isEmpty();
-			case PersistencePackage.PERSISTENCE_META_DATA__VERSION:
+			case PersistencePackage.PERSISTENCE_CONFIG__VERSION:
 				return isSetVersion();
 		}
 		return super.eIsSet(featureID);
@@ -257,4 +253,4 @@ public class PersistenceMetaDataImpl extends MinimalEObjectImpl.Container implem
 		return result.toString();
 	}
 
-} //PersistenceMetaDataImpl
+} //PersistenceConfigImpl

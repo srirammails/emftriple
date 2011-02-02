@@ -6,15 +6,13 @@
  */
 package com.emftriple.config.persistence.impl;
 
-import com.emftriple.config.persistence.PersistencePackage;
-import com.emftriple.config.persistence.Property;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import com.emftriple.config.persistence.PersistencePackage;
+import com.emftriple.config.persistence.Property;
 
 /**
  * <!-- begin-user-doc -->
