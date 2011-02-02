@@ -6,25 +6,21 @@
  */
 package com.emftriple.config.persistence.impl;
 
-import com.emftriple.config.persistence.Federation;
-import com.emftriple.config.persistence.PersistencePackage;
-import com.emftriple.config.persistence.PersistenceUnit;
-import com.emftriple.config.persistence.Properties;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+
+import com.emftriple.config.persistence.DataSources;
+import com.emftriple.config.persistence.PersistencePackage;
+import com.emftriple.config.persistence.PersistenceUnit;
+import com.emftriple.config.persistence.Properties;
 
 /**
  * <!-- begin-user-doc -->
@@ -133,7 +129,7 @@ public class PersistenceUnitImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Federation dataSources;
+	protected DataSources dataSources;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -277,7 +273,7 @@ public class PersistenceUnitImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Federation getDataSources() {
+	public DataSources getDataSources() {
 		return dataSources;
 	}
 
@@ -286,8 +282,8 @@ public class PersistenceUnitImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDataSources(Federation newDataSources, NotificationChain msgs) {
-		Federation oldDataSources = dataSources;
+	public NotificationChain basicSetDataSources(DataSources newDataSources, NotificationChain msgs) {
+		DataSources oldDataSources = dataSources;
 		dataSources = newDataSources;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PersistencePackage.PERSISTENCE_UNIT__DATA_SOURCES, oldDataSources, newDataSources);
@@ -301,7 +297,7 @@ public class PersistenceUnitImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDataSources(Federation newDataSources) {
+	public void setDataSources(DataSources newDataSources) {
 		if (newDataSources != dataSources) {
 			NotificationChain msgs = null;
 			if (dataSources != null)
@@ -381,7 +377,7 @@ public class PersistenceUnitImpl extends MinimalEObjectImpl.Container implements
 				setProperties((Properties)newValue);
 				return;
 			case PersistencePackage.PERSISTENCE_UNIT__DATA_SOURCES:
-				setDataSources((Federation)newValue);
+				setDataSources((DataSources)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -411,7 +407,7 @@ public class PersistenceUnitImpl extends MinimalEObjectImpl.Container implements
 				setProperties((Properties)null);
 				return;
 			case PersistencePackage.PERSISTENCE_UNIT__DATA_SOURCES:
-				setDataSources((Federation)null);
+				setDataSources((DataSources)null);
 				return;
 		}
 		super.eUnset(featureID);

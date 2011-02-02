@@ -6,12 +6,18 @@
  */
 package com.emftriple.config.persistence.util;
 
-import com.emftriple.config.persistence.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import com.emftriple.config.persistence.DataSourceConfig;
+import com.emftriple.config.persistence.DataSources;
+import com.emftriple.config.persistence.PersistenceConfig;
+import com.emftriple.config.persistence.PersistencePackage;
+import com.emftriple.config.persistence.PersistenceUnit;
+import com.emftriple.config.persistence.Properties;
+import com.emftriple.config.persistence.Property;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,9 +93,9 @@ public class PersistenceSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case PersistencePackage.PERSISTENCE_META_DATA: {
-				PersistenceMetaData persistenceMetaData = (PersistenceMetaData)theEObject;
-				T result = casePersistenceMetaData(persistenceMetaData);
+			case PersistencePackage.PERSISTENCE_CONFIG: {
+				PersistenceConfig persistenceConfig = (PersistenceConfig)theEObject;
+				T result = casePersistenceConfig(persistenceConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -99,15 +105,15 @@ public class PersistenceSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PersistencePackage.FEDERATION: {
-				Federation federation = (Federation)theEObject;
-				T result = caseFederation(federation);
+			case PersistencePackage.DATA_SOURCES: {
+				DataSources dataSources = (DataSources)theEObject;
+				T result = caseDataSources(dataSources);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PersistencePackage.DATA_SOURCE_BUILDER: {
-				DataSourceBuilder dataSourceBuilder = (DataSourceBuilder)theEObject;
-				T result = caseDataSourceBuilder(dataSourceBuilder);
+			case PersistencePackage.DATA_SOURCE_CONFIG: {
+				DataSourceConfig dataSourceConfig = (DataSourceConfig)theEObject;
+				T result = caseDataSourceConfig(dataSourceConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -128,17 +134,17 @@ public class PersistenceSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Meta Data</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Meta Data</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Config</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePersistenceMetaData(PersistenceMetaData object) {
+	public T casePersistenceConfig(PersistenceConfig object) {
 		return null;
 	}
 
@@ -158,32 +164,32 @@ public class PersistenceSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Federation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Data Sources</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Federation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Data Sources</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFederation(Federation object) {
+	public T caseDataSources(DataSources object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Source Builder</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Data Source Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Source Builder</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Data Source Config</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDataSourceBuilder(DataSourceBuilder object) {
+	public T caseDataSourceConfig(DataSourceConfig object) {
 		return null;
 	}
 

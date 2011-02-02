@@ -6,27 +6,24 @@
  */
 package com.emftriple.config.persistence.impl;
 
-import com.emftriple.config.persistence.DataSourceBuilder;
-import com.emftriple.config.persistence.Federation;
-import com.emftriple.config.persistence.PersistenceFactory;
-import com.emftriple.config.persistence.PersistenceMetaData;
-import com.emftriple.config.persistence.PersistencePackage;
-import com.emftriple.config.persistence.PersistenceUnit;
-import com.emftriple.config.persistence.Properties;
-import com.emftriple.config.persistence.Property;
-
-import com.emftriple.config.persistence.util.PersistenceValidator;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
+
+import com.emftriple.config.persistence.DataSourceConfig;
+import com.emftriple.config.persistence.DataSources;
+import com.emftriple.config.persistence.PersistenceConfig;
+import com.emftriple.config.persistence.PersistenceFactory;
+import com.emftriple.config.persistence.PersistencePackage;
+import com.emftriple.config.persistence.PersistenceUnit;
+import com.emftriple.config.persistence.Properties;
+import com.emftriple.config.persistence.Property;
+import com.emftriple.config.persistence.util.PersistenceValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +37,7 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass persistenceMetaDataEClass = null;
+	private EClass persistenceConfigEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -54,14 +51,14 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass federationEClass = null;
+	private EClass dataSourcesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dataSourceBuilderEClass = null;
+	private EClass dataSourceConfigEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,8 +159,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPersistenceMetaData() {
-		return persistenceMetaDataEClass;
+	public EClass getPersistenceConfig() {
+		return persistenceConfigEClass;
 	}
 
 	/**
@@ -171,8 +168,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPersistenceMetaData_PersistenceUnit() {
-		return (EReference)persistenceMetaDataEClass.getEStructuralFeatures().get(0);
+	public EReference getPersistenceConfig_PersistenceUnit() {
+		return (EReference)persistenceConfigEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -180,8 +177,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPersistenceMetaData_Version() {
-		return (EAttribute)persistenceMetaDataEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPersistenceConfig_Version() {
+		return (EAttribute)persistenceConfigEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -252,8 +249,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFederation() {
-		return federationEClass;
+	public EClass getDataSources() {
+		return dataSourcesEClass;
 	}
 
 	/**
@@ -261,8 +258,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFederation_Member() {
-		return (EReference)federationEClass.getEStructuralFeatures().get(0);
+	public EReference getDataSources_DataSources() {
+		return (EReference)dataSourcesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -270,8 +267,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDataSourceBuilder() {
-		return dataSourceBuilderEClass;
+	public EClass getDataSourceConfig() {
+		return dataSourceConfigEClass;
 	}
 
 	/**
@@ -279,8 +276,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataSourceBuilder_Name() {
-		return (EAttribute)dataSourceBuilderEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDataSourceConfig_Name() {
+		return (EAttribute)dataSourceConfigEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -288,8 +285,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataSourceBuilder_Factory() {
-		return (EAttribute)dataSourceBuilderEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDataSourceConfig_Factory() {
+		return (EAttribute)dataSourceConfigEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -297,8 +294,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataSourceBuilder_Class() {
-		return (EAttribute)dataSourceBuilderEClass.getEStructuralFeatures().get(2);
+	public EAttribute getDataSourceConfig_Class() {
+		return (EAttribute)dataSourceConfigEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -306,8 +303,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataSourceBuilder_Url() {
-		return (EAttribute)dataSourceBuilderEClass.getEStructuralFeatures().get(3);
+	public EAttribute getDataSourceConfig_Url() {
+		return (EAttribute)dataSourceConfigEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -315,8 +312,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataSourceBuilder_Graphs() {
-		return (EAttribute)dataSourceBuilderEClass.getEStructuralFeatures().get(4);
+	public EAttribute getDataSourceConfig_Graphs() {
+		return (EAttribute)dataSourceConfigEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -324,8 +321,8 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataSourceBuilder_Property() {
-		return (EReference)dataSourceBuilderEClass.getEStructuralFeatures().get(5);
+	public EReference getDataSourceConfig_Property() {
+		return (EReference)dataSourceConfigEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -410,9 +407,9 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 		isCreated = true;
 
 		// Create classes and their features
-		persistenceMetaDataEClass = createEClass(PERSISTENCE_META_DATA);
-		createEReference(persistenceMetaDataEClass, PERSISTENCE_META_DATA__PERSISTENCE_UNIT);
-		createEAttribute(persistenceMetaDataEClass, PERSISTENCE_META_DATA__VERSION);
+		persistenceConfigEClass = createEClass(PERSISTENCE_CONFIG);
+		createEReference(persistenceConfigEClass, PERSISTENCE_CONFIG__PERSISTENCE_UNIT);
+		createEAttribute(persistenceConfigEClass, PERSISTENCE_CONFIG__VERSION);
 
 		persistenceUnitEClass = createEClass(PERSISTENCE_UNIT);
 		createEAttribute(persistenceUnitEClass, PERSISTENCE_UNIT__NAME);
@@ -422,16 +419,16 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 		createEReference(persistenceUnitEClass, PERSISTENCE_UNIT__PROPERTIES);
 		createEReference(persistenceUnitEClass, PERSISTENCE_UNIT__DATA_SOURCES);
 
-		federationEClass = createEClass(FEDERATION);
-		createEReference(federationEClass, FEDERATION__MEMBER);
+		dataSourcesEClass = createEClass(DATA_SOURCES);
+		createEReference(dataSourcesEClass, DATA_SOURCES__DATA_SOURCES);
 
-		dataSourceBuilderEClass = createEClass(DATA_SOURCE_BUILDER);
-		createEAttribute(dataSourceBuilderEClass, DATA_SOURCE_BUILDER__NAME);
-		createEAttribute(dataSourceBuilderEClass, DATA_SOURCE_BUILDER__FACTORY);
-		createEAttribute(dataSourceBuilderEClass, DATA_SOURCE_BUILDER__CLASS);
-		createEAttribute(dataSourceBuilderEClass, DATA_SOURCE_BUILDER__URL);
-		createEAttribute(dataSourceBuilderEClass, DATA_SOURCE_BUILDER__GRAPHS);
-		createEReference(dataSourceBuilderEClass, DATA_SOURCE_BUILDER__PROPERTY);
+		dataSourceConfigEClass = createEClass(DATA_SOURCE_CONFIG);
+		createEAttribute(dataSourceConfigEClass, DATA_SOURCE_CONFIG__NAME);
+		createEAttribute(dataSourceConfigEClass, DATA_SOURCE_CONFIG__FACTORY);
+		createEAttribute(dataSourceConfigEClass, DATA_SOURCE_CONFIG__CLASS);
+		createEAttribute(dataSourceConfigEClass, DATA_SOURCE_CONFIG__URL);
+		createEAttribute(dataSourceConfigEClass, DATA_SOURCE_CONFIG__GRAPHS);
+		createEReference(dataSourceConfigEClass, DATA_SOURCE_CONFIG__PROPERTY);
 
 		propertiesEClass = createEClass(PROPERTIES);
 		createEReference(propertiesEClass, PROPERTIES__PROPERTIES);
@@ -477,9 +474,9 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(persistenceMetaDataEClass, PersistenceMetaData.class, "PersistenceMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPersistenceMetaData_PersistenceUnit(), this.getPersistenceUnit(), null, "persistenceUnit", null, 1, -1, PersistenceMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPersistenceMetaData_Version(), this.getVersionType(), "version", "2.0", 1, 1, PersistenceMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(persistenceConfigEClass, PersistenceConfig.class, "PersistenceConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPersistenceConfig_PersistenceUnit(), this.getPersistenceUnit(), null, "persistenceUnit", null, 1, -1, PersistenceConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceConfig_Version(), this.getVersionType(), "version", "2.0", 1, 1, PersistenceConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(persistenceUnitEClass, PersistenceUnit.class, "PersistenceUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPersistenceUnit_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, PersistenceUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -487,18 +484,18 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 		initEAttribute(getPersistenceUnit_Provider(), theXMLTypePackage.getString(), "provider", null, 0, 1, PersistenceUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPersistenceUnit_Package(), theXMLTypePackage.getString(), "package", null, 0, -1, PersistenceUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPersistenceUnit_Properties(), this.getProperties(), null, "properties", null, 0, 1, PersistenceUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPersistenceUnit_DataSources(), this.getFederation(), null, "dataSources", null, 0, 1, PersistenceUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPersistenceUnit_DataSources(), this.getDataSources(), null, "dataSources", null, 0, 1, PersistenceUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(federationEClass, Federation.class, "Federation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFederation_Member(), this.getDataSourceBuilder(), null, "member", null, 0, -1, Federation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dataSourcesEClass, DataSources.class, "DataSources", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataSources_DataSources(), this.getDataSourceConfig(), null, "dataSources", null, 0, -1, DataSources.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dataSourceBuilderEClass, DataSourceBuilder.class, "DataSourceBuilder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataSourceBuilder_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, DataSourceBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataSourceBuilder_Factory(), theXMLTypePackage.getString(), "factory", null, 1, 1, DataSourceBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataSourceBuilder_Class(), theXMLTypePackage.getString(), "class", null, 1, 1, DataSourceBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataSourceBuilder_Url(), theXMLTypePackage.getString(), "url", null, 1, 1, DataSourceBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataSourceBuilder_Graphs(), theXMLTypePackage.getString(), "graphs", null, 0, -1, DataSourceBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataSourceBuilder_Property(), this.getProperties(), null, "property", null, 0, 1, DataSourceBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dataSourceConfigEClass, DataSourceConfig.class, "DataSourceConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataSourceConfig_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, DataSourceConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceConfig_Factory(), theXMLTypePackage.getString(), "factory", null, 1, 1, DataSourceConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceConfig_Class(), theXMLTypePackage.getString(), "class", null, 1, 1, DataSourceConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceConfig_Url(), theXMLTypePackage.getString(), "url", null, 1, 1, DataSourceConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceConfig_Graphs(), theXMLTypePackage.getString(), "graphs", null, 0, -1, DataSourceConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSourceConfig_Property(), this.getProperties(), null, "property", null, 0, 1, DataSourceConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertiesEClass, Properties.class, "Properties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProperties_Properties(), this.getProperty(), null, "properties", null, 0, -1, Properties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -527,14 +524,14 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
 		addAnnotation
-		  (persistenceMetaDataEClass, 
+		  (persistenceConfigEClass, 
 		   source, 
 		   new String[] {
 			 "name", "persistence",
 			 "kind", "elementOnly"
 		   });		
 		addAnnotation
-		  (getPersistenceMetaData_PersistenceUnit(), 
+		  (getPersistenceConfig_PersistenceUnit(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -542,7 +539,7 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
-		  (getPersistenceMetaData_Version(), 
+		  (getPersistenceConfig_Version(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
@@ -603,14 +600,14 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
-		  (federationEClass, 
+		  (dataSourcesEClass, 
 		   source, 
 		   new String[] {
 			 "name", "datasources_._type",
 			 "kind", "elementOnly"
 		   });		
 		addAnnotation
-		  (getFederation_Member(), 
+		  (getDataSources_DataSources(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -618,21 +615,21 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
-		  (dataSourceBuilderEClass, 
+		  (dataSourceConfigEClass, 
 		   source, 
 		   new String[] {
 			 "name", "datasource_._type",
 			 "kind", "elementOnly"
 		   });		
 		addAnnotation
-		  (getDataSourceBuilder_Name(), 
+		  (getDataSourceConfig_Name(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "name"
 		   });		
 		addAnnotation
-		  (getDataSourceBuilder_Factory(), 
+		  (getDataSourceConfig_Factory(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -640,7 +637,7 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
-		  (getDataSourceBuilder_Class(), 
+		  (getDataSourceConfig_Class(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -648,7 +645,7 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
-		  (getDataSourceBuilder_Url(), 
+		  (getDataSourceConfig_Url(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -656,7 +653,7 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
-		  (getDataSourceBuilder_Graphs(), 
+		  (getDataSourceConfig_Graphs(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -664,7 +661,7 @@ public class PersistencePackageImpl extends EPackageImpl implements PersistenceP
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
-		  (getDataSourceBuilder_Property(), 
+		  (getDataSourceConfig_Property(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
