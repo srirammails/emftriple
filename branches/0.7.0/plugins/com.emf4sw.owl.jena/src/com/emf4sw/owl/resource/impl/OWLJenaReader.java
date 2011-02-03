@@ -13,6 +13,7 @@ import com.emf4sw.owl.DataProperty;
 import com.emf4sw.owl.DataRange;
 import com.emf4sw.owl.Individual;
 import com.emf4sw.owl.OWLClass;
+import com.emf4sw.owl.OWLDatatype;
 import com.emf4sw.owl.OWLFactory;
 import com.emf4sw.owl.ObjectAllValuesFrom;
 import com.emf4sw.owl.ObjectComplementOf;
@@ -26,6 +27,7 @@ import com.emf4sw.owl.jena.utils.OntModelSwitch;
 import com.emf4sw.owl.resource.OWLFormats;
 import com.emf4sw.owl.resource.OWLReader;
 import com.emf4sw.owl.resource.OWLResource;
+import com.emf4sw.rdf.vocabulary.XSD;
 import com.hp.hpl.jena.ontology.AllValuesFromRestriction;
 import com.hp.hpl.jena.ontology.CardinalityQRestriction;
 import com.hp.hpl.jena.ontology.CardinalityRestriction;
@@ -51,9 +53,12 @@ import com.hp.hpl.jena.rdf.model.RDFReader;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
+/**
+ * 
+ * @author ehilgui
+ *
+ */
 public class OWLJenaReader implements OWLReader {
-
-//	private static final Registry registry = Resource.Factory.Registry.INSTANCE;
 
 	@Override
 	public void read(InputStream inputStream, OWLResource resource, OWLFormats format) {
@@ -102,32 +107,43 @@ public class OWLJenaReader implements OWLReader {
 
 		return target;
 	}
-
-//	private static void checkFactoryRegistry() {
-//		if (!registry.getContentTypeToFactoryMap().containsKey("owl")) 
-//		{
-//			registry.getExtensionToFactoryMap().put("owl", new OWLResourceFactory());
-//		}
-//		if (!registry.getContentTypeToFactoryMap().containsKey("ttl")) 
-//		{
-//			registry.getExtensionToFactoryMap().put("ttl", new OWLTurtleResourceFactory());
-//		}
-//	}
-
+	
 	private static class OntModelReaderSwitch extends OntModelSwitch<Object> {
+		
 		private final static OWLFactory factory = OWLFactory.eINSTANCE;
-//		private final OntModel model;
 		private final Map<OntResource, Object> registry;
+		private final Map<String, OWLDatatype> datatypes;
 		private final com.emf4sw.owl.Ontology target;
 
 		public OntModelReaderSwitch(OntModel model, com.emf4sw.owl.Ontology target) {
-//			this.model = model;
 			this.target = target;
 			this.registry = new HashMap<OntResource, Object>();
+			this.datatypes = new HashMap<String, OWLDatatype>();
 		}
 
+		private OWLDatatype createDatatype(String uri) {
+			if (datatypes.containsKey(uri))
+				return datatypes.get(uri);
+			else {
+				final OWLDatatype datatype = OWLFactory.eINSTANCE.createOWLDatatype();
+				datatype.setURI(uri);
+				datatypes.put(uri, datatype);
+				target.getDatatypes().add(datatype);
+				
+				return datatype;
+			}
+		}
+		
 		@Override
 		public Object caseOntClass(OntClass object) {
+			if (datatype(object)) {
+				if (object.canAs(com.hp.hpl.jena.ontology.DataRange.class)) {
+					return caseDatatype(object.asDataRange());
+				} else {
+					return createDatatype(object.getURI());
+				}
+			}
+			
 			final ClassExpression entity;
 			if (registry.containsKey(object)) 
 			{
@@ -150,6 +166,14 @@ public class OWLJenaReader implements OWLReader {
 			}
 
 			return entity;
+		}
+		
+		private static Boolean datatype(OntResource res) {
+			if (res != null && res.getURI() != null)
+				if (!res.isDataRange())
+					return res.getURI().startsWith(XSD.NS);
+				else return true;
+			else return false;
 		}
 
 		private void completeClassExpression(final ClassExpression entity, final OntClass object) {
@@ -293,8 +317,9 @@ public class OWLJenaReader implements OWLReader {
 		@Override
 		public Object caseCardinalityRestriction(CardinalityRestriction object) {
 			ClassExpression aExpression = null;
-			Object switchedP = doSwitch( object.getOnProperty() );
+			final Object switchedP = doSwitch( object.getOnProperty() );
 			int card = object.getCardinality();
+			
 			if (switchedP instanceof DataProperty) {
 				aExpression = factory.createDataExactCardinality();
 				((DataExactCardinality) aExpression).setCardinality( card );
@@ -314,9 +339,10 @@ public class OWLJenaReader implements OWLReader {
 		@Override
 		public Object caseCardinalityQRestriction(CardinalityQRestriction object) {
 			ClassExpression aExpression = null;
-			Object switchedQ = doSwitch( object.getHasClassQ() );
-			Object switchedP = doSwitch( object.getOnProperty() );
+			final Object switchedQ = doSwitch( object.getHasClassQ() );
+			final Object switchedP = doSwitch( object.getOnProperty() );
 			int card = object.getCardinalityQ();
+			
 			if (switchedP instanceof DataProperty) {
 				aExpression = factory.createDataExactCardinality();
 				((DataExactCardinality) aExpression).setCardinality( card );
@@ -344,8 +370,9 @@ public class OWLJenaReader implements OWLReader {
 		@Override
 		public Object caseMinCardinalityRestriction(MinCardinalityRestriction object) {
 			ClassExpression aExpression = null;
-			Object switchedP = doSwitch( object.getOnProperty() );
+			final Object switchedP = doSwitch( object.getOnProperty() );
 			int card = object.getMinCardinality();
+			
 			if (switchedP instanceof DataProperty) {
 				aExpression = factory.createDataMinCardinality();
 				((DataMinCardinality) aExpression).setCardinality( card );
@@ -366,9 +393,10 @@ public class OWLJenaReader implements OWLReader {
 		@Override
 		public Object caseMinCardinalityQRestriction(MinCardinalityQRestriction object) {
 			ClassExpression aExpression = null;
-			Object switchedQ = doSwitch( object.getHasClassQ() );
-			Object switchedP = doSwitch( object.getOnProperty() );
+			final Object switchedQ = doSwitch( object.getHasClassQ() );
+			final Object switchedP = doSwitch( object.getOnProperty() );
 			int card = object.getMinCardinalityQ();
+			
 			if (switchedP instanceof DataProperty) {
 				aExpression = factory.createDataMinCardinality();
 				((DataMinCardinality) aExpression).setCardinality( card );
@@ -395,8 +423,9 @@ public class OWLJenaReader implements OWLReader {
 		@Override
 		public Object caseMaxCardinalityRestriction(MaxCardinalityRestriction object) {
 			ClassExpression aExpression = null;
-			Object switchedP = doSwitch( object.getOnProperty() );
+			final Object switchedP = doSwitch( object.getOnProperty() );
 			int card = object.getMaxCardinality();
+			
 			if (switchedP instanceof DataProperty) {
 				aExpression = factory.createDataMaxCardinality();
 				((DataMaxCardinality) aExpression).setCardinality( card );
@@ -417,9 +446,10 @@ public class OWLJenaReader implements OWLReader {
 		@Override
 		public Object caseMaxCardinalityQRestriction(MaxCardinalityQRestriction object) {
 			ClassExpression aExpression = null;
-			Object switchedQ = doSwitch( object.getHasClassQ() );
-			Object switchedP = doSwitch( object.getOnProperty() );
+			final Object switchedQ = doSwitch( object.getHasClassQ() );
+			final Object switchedP = doSwitch( object.getOnProperty() );
 			int card = object.getMaxCardinalityQ();
+			
 			if (switchedP instanceof DataProperty) {
 				aExpression = factory.createDataMaxCardinality();
 				((DataMaxCardinality) aExpression).setCardinality( card );
@@ -446,7 +476,8 @@ public class OWLJenaReader implements OWLReader {
 		@Override
 		public Object caseAllValuesFromRestriction(AllValuesFromRestriction object) {
 			ClassExpression all = null;
-			OntProperty property = object.getOnProperty();
+			final OntProperty property = object.getOnProperty();
+			
 			if (property.isObjectProperty()) {
 				all = createObjectAllValuesFrom(object);
 			} else if (property.isDatatypeProperty()) {
@@ -461,8 +492,8 @@ public class OWLJenaReader implements OWLReader {
 
 		private ClassExpression createDataAllValuesFrom(AllValuesFromRestriction object) {
 			final DataAllValuesFrom all = factory.createDataAllValuesFrom();
-
-			Object switched = doSwitch(object.getOnProperty());
+			final Object switched = doSwitch(object.getOnProperty());
+			
 			if (switched instanceof DataProperty) 
 			{
 				all.getProperties().add((DataProperty) switched);
@@ -477,8 +508,8 @@ public class OWLJenaReader implements OWLReader {
 
 		private ClassExpression createObjectAllValuesFrom(AllValuesFromRestriction object) {
 			final ObjectAllValuesFrom all = factory.createObjectAllValuesFrom();
-
-			Object switched = doSwitch(object.getOnProperty());
+			final Object switched = doSwitch(object.getOnProperty());
+			
 			if (switched instanceof com.emf4sw.owl.ObjectProperty) {
 				all.setProperty((com.emf4sw.owl.ObjectProperty) switched);
 				Object aExpression = doSwitch(object.getAllValuesFrom());
@@ -502,7 +533,21 @@ public class OWLJenaReader implements OWLReader {
 					entity.setLabel(object.getLabel(null));
 				if (object.getComment(null) != null)
 					entity.setComment(object.getComment(null));
+
+				for (OntResource res: object.listDomain().toList()) {
+					if (doSwitch(res) != null) {
+						entity.getDomain().add((ClassExpression) doSwitch(res));
+					}
+				}
+				
+				for (OntResource res: object.listRange().toList()) {
+					if (doSwitch(res) != null && doSwitch(res) instanceof DataRange) {
+						entity.getRange().add((DataRange) doSwitch(res));
+					}
+				}
+				
 				target.getDataProperties().add(entity);
+				registry.put(object, entity);
 			}
 
 			return entity;
@@ -516,15 +561,35 @@ public class OWLJenaReader implements OWLReader {
 			} else {
 				entity = factory.createObjectProperty();
 				entity.setURI(object.getURI());
+				
 				if (object.getLabel(null) != null)
 					entity.setLabel(object.getLabel(null));
+				
 				if (object.getComment(null) != null)
 					entity.setComment(object.getComment(null));
+				
+				for (OntResource res: object.listDomain().toList()) {
+					if (doSwitch(res) != null) {
+						entity.getDomain().add((ClassExpression) doSwitch(res));
+					}
+				}
+				
+				for (OntResource res: object.listRange().toList()) {
+					if (doSwitch(res) != null) {
+						entity.getRange().add((ClassExpression) doSwitch(res));
+					}
+				}
+				
 				target.getObjectProperties().add(entity);
+				registry.put(object, entity);
 			}
 
 			return entity;
 		}
 
+		@Override
+		public Object caseDatatype(com.hp.hpl.jena.ontology.DataRange object) {
+			return createDatatype(object.getURI());			
+		}
 	}
 }

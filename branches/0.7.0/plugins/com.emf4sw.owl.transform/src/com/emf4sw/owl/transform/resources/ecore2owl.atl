@@ -80,7 +80,7 @@ rule EPackage2Ontology
 		o : owl!Ontology (
 			URI <- e.getURI()
 --		,	imports <- imported->collect(i | thisModule.MakeImportedPackage(i))
-		,	classes <- classes
+		,	classes <- classes->collect(e | if (e.eIsProxy()) then e.resolve() else e endif).debug('classes')
 		,	objectProperties <- classes->collect(c | c.eAllReferences)->flatten()->asSet()
 		,	dataProperties <- classes->collect(c | c.eAllAttributes)->flatten()->asSet()
 		)
@@ -112,12 +112,30 @@ unique lazy rule MakeImportedPackage
 --	=============================================================================================
 
 rule EClass2Entity {
-	from e: ecore!EClass
+	from e: ecore!EClass (e.oclIsTypeOf(ecore!EClass))
 	to
 		o: owl!OWLClass (
 			URI <- e.getURI()
 		,	subClassOf <- Sequence {
-				e.eSuperTypes
+				e.eSuperTypes->reject(e |e.eIsProxy())
+			,	e.eSuperTypes->select(e | e.eIsProxy().debug('is'))->collect(e | thisModule.EClass2EntityProxy(e.resolve()))
+			,	e.eStructuralFeatures->collect(f |
+					if thisModule.doCardinalities() then
+						if f.hasCardinality() then
+							thisModule.PropertyCardinality(f)
+						else Sequence {} endif
+					else Sequence {} endif)}
+			)
+}
+
+unique lazy rule EClass2EntityProxy {
+	from e: ecore!EClass
+	to
+		o: owl!OWLClass (
+			URI <- e.getURI().debug('here')
+		,	subClassOf <- Sequence {
+				e.eSuperTypes->reject(e |e.eIsProxy())
+			,	e.eSuperTypes->select(e | e.eIsProxy())->collect(e | thisModule.EClass2EntityProxy(e.resolve()))
 			,	e.eStructuralFeatures->collect(f |
 					if thisModule.doCardinalities() then
 						if f.hasCardinality() then
@@ -136,7 +154,7 @@ rule EAttribute2Entity {
 		o: owl!DataProperty (
 			URI <- e.getURI()
 		,	domain <- if thisModule.doDomainAndRange() then e.eContainingClass else Sequence {} endif
-		,	range <- if thisModule.doDomainAndRange() then e.eType else Sequence {} endif
+--		,	range <- if thisModule.doDomainAndRange() then e.eType.resolve() else Sequence {} endif
 		)
 }
 

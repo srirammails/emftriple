@@ -18,16 +18,19 @@ helper def: findLocalName(seq : Sequence(String)) : String =
 
 helper context String def: resolveLocalName() : String =
 	let uri : String = 
-			if (self.startsWith('http://')) then
-				self.substring('http://'.size(), self.size())
-			else self endif 
-	in let splits : Sequence(String) = uri.split('/') in
-		thisModule.findLocalName(splits).regexReplaceAll('\\.', '_');
+		if (self.startsWith('http://')) then
+			self.substring('http://'.size(), self.size())
+		else self endif 
+	in 
+		let indexOfSharp: Integer = uri.lastIndexOf('#')
+		in if (indexOfSharp < 0) then
+			let splits : Sequence(String) = uri.split('/') in
+				thisModule.findLocalName(splits).regexReplaceAll('\\.', '_')
+			else uri.substring(indexOfSharp + 2, uri.size()) endif;
 			
 helper def: ontologies: Set(owl!Ontology) = owl!Ontology.allInstancesFrom('IN');
 
-helper def: Thing: owl!OWLClass = 
-	owl!OWLClass.allInstancesFrom('IN')->any(e | e.getURI() = 'http://www.w3.org/2002/07/owl#Thing');
+helper def: Thing: owl!OWLClass = owl!OWLClass.allInstancesFrom('IN')->any(e | e.getURI() = 'http://www.w3.org/2002/07/owl#Thing');
 
 helper def: allDatatypes: Set(owl!Datatype) = 
 	owl!Datatype.allInstancesFrom('IN')->iterate(it; res: Set(owl!Datatype) = Set{} |
@@ -55,7 +58,7 @@ helper def: commaSeparatedNames(col: Collection(OclAny)): String =
 	col->asSet()->iterate(it; res: String = '' | 
 		if (res.isEmpty()) then
 			res.concat(it.getName())
-		else res.concat(', ' + it.getName()) endif ).debug('comma');
+		else res.concat(', ' + it.getName()) endif );
 	
 --
 --helper def: collectNamespaces: Set(String) = 

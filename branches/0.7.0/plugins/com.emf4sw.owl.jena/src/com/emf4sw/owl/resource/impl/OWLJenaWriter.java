@@ -68,6 +68,8 @@ public class OWLJenaWriter implements OWLWriter {
 		extract(ontology.getDataProperties(), cswitch, model);
 		extract(ontology.getClassExpressions(), cswitch, model);
 		
+		model.createOntology(ontology.getURI());
+		
 		return model;
 	}
 

@@ -9,19 +9,16 @@
  */
 package com.emf4sw.owl.transform.owl2ecore;
 
-import static com.atl.common.models.Models.conformsTo;
-import static com.atl.common.models.Models.get;
 import static com.atl.common.models.Models.register;
 import static com.atl.common.trans.Transformations.transform;
-import static com.atl.common.utils.Preconditions.checkArgument;
 import static com.atl.common.utils.Preconditions.checkNotNull;
-import static com.emf4sw.owl.transform.utils.OWL2EcoreOptions.needRefiningTransformation;
 
-import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.m2m.atl.core.emf.EMFModel;
 
+import com.atl.common.models.Models;
 import com.atl.common.trans.Transformation;
 import com.emf4sw.owl.OWLPackage;
 import com.emf4sw.owl.transform.OWLTransformations;
@@ -34,29 +31,33 @@ import com.emf4sw.owl.transform.OWLTransformations;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.4
  */
-public class OWL2Ecore implements Transformation<EMFModel, EMFModel> {
+public class OWL2Ecore implements Transformation<Resource, Resource> {
 
-	private final Map<String, Object> options;
+//	private final Map<String, Object> options;
+	
+	static {
+		register(OWLPackage.eINSTANCE.eResource());
+	}
 	
     public OWL2Ecore() {
-    	options = new HashMap<String, Object>();
+//    	options = new HashMap<String, Object>();
     }
 
     public OWL2Ecore(Map<String, Object> options) {
-    	this.options = options; 
+//    	this.options = options; 
     }
     
     static {
     	register(OWLPackage.eINSTANCE.eResource());
     }
     
-	public EMFModel apply(EMFModel arg) {
+	public Resource apply(Resource arg) {
         checkNotNull(arg, "Cannot execute transformation " + this + ", cause input null.");
-        checkArgument(conformsTo(arg, get(OWLPackage.eNS_URI)));
         
-        EMFModel owlModel = transform(arg, OWLTransformations.owl2ecore());
+        EMFModel in = Models.inject(arg, Models.get(OWLPackage.eNS_URI));
+        EMFModel out = transform(in, OWLTransformations.owl2ecore());
         
-        return needRefiningTransformation(options) ? transform(owlModel, new EcoreRefine()) : owlModel;
+        return out != null ? out.getResource() : null;
 	}
 	
 }

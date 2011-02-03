@@ -33,10 +33,15 @@ public abstract class ClassPropertyTripleAdapter extends AdapterImpl {
 	}
 
 	protected void addPropertyValueTriple(Notification msg, Ontology ontology, String type) {
+		if (ontology == null || ontology.getProperty(type) == null)
+			return;
 		final Object value = msg.getNewValue();
-		ontology.addTriple((Node)
-				msg.getNotifier(), ontology.getProperty(type), 
-				(Node)value);
+		
+		if (value != null) {
+			ontology.addTriple((Node)
+					msg.getNotifier(), ontology.getProperty(type), 
+					(Node)value);
+		}
 	}
 
 	public static class ObjectPropertyTripleAdapter extends ClassPropertyTripleAdapter {
