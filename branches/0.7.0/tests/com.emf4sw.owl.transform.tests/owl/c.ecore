@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tests" nsURI="http://tests/c" nsPrefix="tests">
+  <eAnnotations source="http://www.w3.org/2002/07/owl#Ontology">
+    <details key="uri" value="http://tests/c"/>
+    <details key="prefix" value="tests"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Bar" eSuperTypes="//Foo">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://tests/c#Bar"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="foos" eType="//Foo">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://tests/c#foos"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://tests/c#value"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Foo" eSuperTypes="//AbstractClass">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://tests/c#Foo"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://tests/c#description"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bar" eType="//Bar">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://tests/c#bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractClass">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://tests/c#AbstractClass"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://tests/c#name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="goodrelations" nsURI="http://purl.org/goodrelations/v1" nsPrefix="goodrelations">
+  <eAnnotations source="http://www.w3.org/2002/07/owl#Ontology">
+    <details key="uri" value="http://purl.org/goodrelations/v1"/>
+    <details key="prefix" value="goodrelations"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_QuantitativeValue_UnitPriceSpecification_TypeAndQuantityNode" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasUnitOfMeasurement" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasUnitOfMeasurement"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_Offering_UnitPriceSpecification" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validThrough" eType="//dateTime">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#validThrough"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_Offering_ProductOrService" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasStockKeepingUnit" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasStockKeepingUnit"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_ProductOrService_Offering" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasGTIN-14" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasGTIN-14"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_BusinessEntity_LocationOfSalesOrServiceProvisioning" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasGlobalLocationNumber" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasGlobalLocationNumber"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_Offering_DeliveryChargeSpecification" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eligibleRegions" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#eligibleRegions"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_ProductOrService_Offering" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasEAN_UCC-13" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasEAN_UCC-13"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasMakeAndModel" eType="//ProductOrServiceModel">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasMakeAndModel"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_Offering_UnitPriceSpecification" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validFrom" eType="//dateTime">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#validFrom"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Offering" eSuperTypes="//ObjectUnionOf_Offering_UnitPriceSpecification //ObjectUnionOf_Offering_ProductOrService //ObjectUnionOf_ProductOrService_Offering //ObjectUnionOf_Offering_DeliveryChargeSpecification //ObjectUnionOf_ProductOrService_Offering.1 //ObjectUnionOf_Offering_UnitPriceSpecification.1">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#Offering"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includesObject" eType="//TypeAndQuantityNode">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#includesObject"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableDeliveryMethods" eType="//DeliveryMethod">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#availableDeliveryMethods"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasPriceSpecification" eType="//PriceSpecification">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasPriceSpecification"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasWarrantyPromise" eType="//WarrantyPromise">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasWarrantyPromise"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eligibleCustomerTypes" eType="//BusinessEntityType">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#eligibleCustomerTypes"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableAtOrFrom" eType="//LocationOfSalesOrServiceProvisioning">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#availableAtOrFrom"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="acceptedPaymentMethods" eType="//PaymentMethod">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#acceptedPaymentMethods"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" eType="//ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder.2">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#includes"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasBusinessFunction" eType="//BusinessFunction">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasBusinessFunction"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantitativeValue" eSuperTypes="//ObjectUnionOf_QuantitativeValue_UnitPriceSpecification_TypeAndQuantityNode">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#QuantitativeValue"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasMaxValue">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasMaxValue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasMinValue">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasMinValue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeliveryMethod">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#DeliveryMethod"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessFunction">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#BusinessFunction"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PaymentMethod">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#PaymentMethod"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationOfSalesOrServiceProvisioning" eSuperTypes="//ObjectUnionOf_BusinessEntity_LocationOfSalesOrServiceProvisioning">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#LocationOfSalesOrServiceProvisioning"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasOpeningHoursSpecification" eType="//OpeningHoursSpecification">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasOpeningHoursSpecification"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PriceSpecification">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#PriceSpecification"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueAddedTaxIncluded" eType="//boolean">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#valueAddedTaxIncluded"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasMaxCurrencyValue" eType="//float">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasMaxCurrencyValue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasMinCurrencyValue" eType="//float">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasMinCurrencyValue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasCurrencyValue" eType="//float">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasCurrencyValue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasEligibleQuantity" eType="//QuantitativeValue">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasEligibleQuantity"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasCurrency" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasCurrency"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DayOfWeek">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#DayOfWeek"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="N-Ary-Relations">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#N-Ary-Relations"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QualitativeValue">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#QualitativeValue"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessEntityType">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#BusinessEntityType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WarrantyScope">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#WarrantyScope"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessEntity" eSuperTypes="//ObjectUnionOf_BusinessEntity_LocationOfSalesOrServiceProvisioning">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="offers" eType="//Offering">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#offers"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasNAICS" eType="//int">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasNAICS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="legalName" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#legalName"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasPOS" eType="//LocationOfSalesOrServiceProvisioning">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasPOS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="seeks" eType="//Offering">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#seeks"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasDUNS" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasDUNS"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasISICv4" eType="//int">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasISICv4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductOrService" eSuperTypes="//ObjectUnionOf_Offering_ProductOrService //ObjectUnionOf_ProductOrService_Offering //ObjectUnionOf_ProductOrService_Offering.1">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#ProductOrService"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualitativeProductOrServiceProperty" eType="//QualitativeValue">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#qualitativeProductOrServiceProperty"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="datatypeProductOrServiceProperty">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#datatypeProductOrServiceProperty"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isAccessoryOrSparePartFor" eType="//ProductOrService">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#isAccessoryOrSparePartFor"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasManufacturer" eType="//BusinessEntity">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasManufacturer"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantitativeProductOrServiceProperty" eType="//QuantitativeValue">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isConsumableFor" eType="//ProductOrService">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#isConsumableFor"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#description"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isSimilarTo" eType="//ProductOrService">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#isSimilarTo"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeAndQuantityNode" eSuperTypes="//N-Ary-Relations //ObjectUnionOf_QuantitativeValue_UnitPriceSpecification_TypeAndQuantityNode">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#TypeAndQuantityNode"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amountOfThisGood" eType="//float">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#amountOfThisGood"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeOfGood" eType="//ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder.1">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#typeOfGood"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantitativeValueFloat" eSuperTypes="//QuantitativeValue">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#QuantitativeValueFloat"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasValueFloat" eType="//float">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasValueFloat"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasMaxValueFloat" eType="//float">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasMaxValueFloat"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasMinValueFloat" eType="//float">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasMinValueFloat"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OpeningHoursSpecification" eSuperTypes="//N-Ary-Relations">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#OpeningHoursSpecification"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="closes" eType="//time">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#closes"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="opens" eType="//time">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#opens"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasOpeningHoursDayOfWeek" eType="//DayOfWeek">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasOpeningHoursDayOfWeek"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitPriceSpecification" eSuperTypes="//PriceSpecification //ObjectUnionOf_QuantitativeValue_UnitPriceSpecification_TypeAndQuantityNode //ObjectUnionOf_Offering_UnitPriceSpecification //ObjectUnionOf_Offering_UnitPriceSpecification.1">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#UnitPriceSpecification"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priceType" eType="//string">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#priceType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isListPrice" eType="//boolean">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#isListPrice"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WarrantyPromise" eSuperTypes="//N-Ary-Relations">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#WarrantyPromise"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="durationOfWarrantyInMonths" eType="//int">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#durationOfWarrantyInMonths"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasWarrantyScope" eType="//WarrantyScope">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasWarrantyScope"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantitativeValueInteger" eSuperTypes="//QuantitativeValue">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#QuantitativeValueInteger"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasValueInteger" eType="//int">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasValueInteger"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasMaxValueInteger" eType="//int">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasMaxValueInteger"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasMinValueInteger" eType="//int">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasMinValueInteger"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductOrServiceModel" eSuperTypes="//ProductOrService">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isVariantOf" eType="//ProductOrServiceModel">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#isVariantOf"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeliveryChargeSpecification" eSuperTypes="//PriceSpecification //ObjectUnionOf_Offering_DeliveryChargeSpecification">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#DeliveryChargeSpecification"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appliesToDeliveryMethod" eType="//DeliveryMethod">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#appliesToDeliveryMethod"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeliveryModeParcelService" eSuperTypes="//DeliveryMethod">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#DeliveryModeParcelService"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualProductOrServiceInstance" eSuperTypes="//ProductOrService //ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder //ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder.1 //ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder.2">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#ActualProductOrServiceInstance"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductOrServicesSomeInstancesPlaceholder" eSuperTypes="//ProductOrService //ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder //ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder.1 //ObjectUnionOf_ActualProductOrServiceInstance_ProductOrServicesSomeInstancesPlaceholder.2">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#ProductOrServicesSomeInstancesPlaceholder"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasInventoryLevel" eType="//QuantitativeValueFloat">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#hasInventoryLevel"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PaymentChargeSpecification" eSuperTypes="//PriceSpecification">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#PaymentChargeSpecification"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appliesToPaymentMethod" eType="//PaymentMethod">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#ObjectProperty">
+        <details key="uri" value="http://purl.org/goodrelations/v1#appliesToPaymentMethod"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PaymentMethodCreditCard" eSuperTypes="//PaymentMethod">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://purl.org/goodrelations/v1#PaymentMethodCreditCard"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="float"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="time"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="int"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="string"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="boolean"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="dateTime"/>
+</ecore:EPackage>
