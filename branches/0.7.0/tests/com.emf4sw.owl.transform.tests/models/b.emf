@@ -1,0 +1,9 @@
+@namespace(uri="http://tests/b", prefix="b")
+package b;
+
+import "platform:/resource/com.emf4sw.rdf.transform.tests/models/a.ecore";
+
+class B extends a.A {
+   attr String description;
+   attr Integer value;
+}

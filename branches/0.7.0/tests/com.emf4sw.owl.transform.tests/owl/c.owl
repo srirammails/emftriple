@@ -1,0 +1,74 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://tests/c">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Bar">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Foo"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="value"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Foo">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AbstractClass"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onClass rdf:resource="#Bar"/>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="bar"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="description"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#AbstractClass">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="foos">
+    <rdfs:range rdf:resource="#Foo"/>
+    <rdfs:domain rdf:resource="#Bar"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#bar">
+    <rdfs:range rdf:resource="#Bar"/>
+    <rdfs:domain rdf:resource="#Foo"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#name">
+    <rdfs:domain rdf:resource="#AbstractClass"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#value">
+    <rdfs:domain rdf:resource="#Bar"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#description">
+    <rdfs:domain rdf:resource="#Foo"/>
+  </owl:DatatypeProperty>
+</rdf:RDF>

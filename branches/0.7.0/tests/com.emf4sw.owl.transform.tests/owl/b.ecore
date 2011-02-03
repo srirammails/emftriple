@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tests" nsURI="http://tests/b" nsPrefix="tests">
+  <eAnnotations source="http://www.w3.org/2002/07/owl#Ontology">
+    <details key="uri" value="http://tests/b"/>
+    <details key="prefix" value="tests"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="B">
+    <eAnnotations source="http://www.w3.org/2002/07/owl#Class">
+      <details key="uri" value="http://tests/b#B"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://tests/b#value"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description">
+      <eAnnotations source="http://www.w3.org/2002/07/owl#DatatypeProperty">
+        <details key="uri" value="http://tests/b#description"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,17 @@
+@namespace(uri="http://tests/c", prefix="c")
+package c;
+
+abstract class AbstractClass {
+	@Id(base="http://tests/c/")
+	attr String name;
+} 
+
+class Foo extends AbstractClass {
+   attr String description;
+   val Bar bar;
+}
+
+class Bar extends Foo {
+   attr Integer value;
+   ref Foo[*] foos;
+}

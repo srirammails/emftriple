@@ -1,0 +1,28 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <http://tests/d#> .
+
+<http://tests/d> a owl:Ontology .
+
+:A a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty :foo ;
+		owl:cardinality "1"^^xsd:integer
+	] .
+:B a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Class ;
+		owl:intersectionOf(:A :C)
+	] .
+:C a owl:Class .
+
+:foo a owl:ObjectProperty ;
+	rdfs:domain :A ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (:A :B)
+	] .
+	
