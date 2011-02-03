@@ -5,13 +5,19 @@ import static com.atl.common.models.Models.get;
 import static com.atl.common.models.Models.register;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Factory;
 import org.eclipse.m2m.atl.core.emf.EMFModel;
+import org.eclipse.m2m.atl.engine.emfvm.lib.LibExtension;
 
 import com.atl.common.models.Properties;
+import com.atl.common.models.extensions.ATLExtensions;
 import com.atl.common.trans.MultiInOneOutTransformation;
 import com.atl.common.trans.OneInOneOutTransformation;
 import com.atl.common.trans.Transformation;
@@ -67,8 +73,13 @@ public class OWLTransformations {
 	}
 	
 	public static Transformation<Set<EMFModel>, EMFModel> ecore2owl(OWLFormats format) {
+		final Map<String, Object> atloptions = new HashMap<String, Object>();
+		atloptions.put("extensionObjects", getListExtension());
+//		atloptions.put("allowInterModelReferences", true);
+		
 		return new Transformations.Builder()
 		.asm(ecore2owlURL)
+		.options(atloptions)
 		.lib("Ecore2OWLHelpers", ecore2owlHelpersURL)
 		.lib("PropertiesHelpers", Properties.getHelpers())
 		.in(ecore(), "IN", "ecore")
@@ -104,5 +115,12 @@ public class OWLTransformations {
 	private static Resource.Factory factory(OWLFormats format) {
 		return (Factory) Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().get(
 				format.extension().substring(1));
+	}
+	
+	private static List<LibExtension> getListExtension() {
+		final List<LibExtension> list = new ArrayList<LibExtension>();
+		list.add(new ATLExtensions());
+		
+		return list;
 	}
 }
