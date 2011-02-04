@@ -19,33 +19,36 @@ import com.google.inject.name.Names;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public abstract class DataSourceModule extends AbstractModule {
+public abstract class DataSourceModule extends AbstractModule implements IDataSourceModule {
 
-	protected com.emftriple.config.persistence.Federation sources;
+	protected com.emftriple.config.persistence.Federation federation;
 	
 	protected Mapping mapping;
 	
-	public DataSourceModule(Mapping mapping, Federation sources) {
+	public DataSourceModule() {}
+	
+	@Override
+	public void setFederation(Federation federation) {
+		this.federation = federation;
+	}
+	
+	@Override
+	public void setMapping(Mapping mapping) {
 		this.mapping = mapping;
-		this.sources = sources;
 	}
 	
 	@Override
 	protected void configure() {
-//		install(new SparqlRuntimeModule());
-
 		bind(Federation.class)
 			.annotatedWith(Names.named("DataSources"))
-			.toInstance(sources);
+			.toInstance(federation);
 		bind(Mapping.class)
 			.toInstance(mapping);
 	}
 
 	public static class EntityDataSourceModule extends DataSourceModule {
 
-		public EntityDataSourceModule(Mapping mapping, Federation sources) {
-			super(mapping, sources);
-		}
+		public EntityDataSourceModule() {}
 	
 		@Override
 		protected void configure() {
@@ -66,8 +69,7 @@ public abstract class DataSourceModule extends AbstractModule {
 
 		private EStore eStore;
 		
-		public EStoreDataSourceModule(Mapping mapping, Federation sources, ETripleStore eStore) {
-			super(mapping, sources);
+		public EStoreDataSourceModule(ETripleStore eStore) {
 			this.eStore = eStore;
 		}
 		
