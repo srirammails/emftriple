@@ -38,7 +38,7 @@ public class EmailAddressImpl extends EObjectImpl implements EmailAddress {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ID_EDEFAULT = 0;
+	protected static final String ID_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -48,7 +48,7 @@ public class EmailAddressImpl extends EObjectImpl implements EmailAddress {
 	 * @generated
 	 * @ordered
 	 */
-	protected int id = ID_EDEFAULT;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -114,7 +114,7 @@ public class EmailAddressImpl extends EObjectImpl implements EmailAddress {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -123,8 +123,8 @@ public class EmailAddressImpl extends EObjectImpl implements EmailAddress {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(int newId) {
-		int oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EmployeePackage.EMAIL_ADDRESS__ID, oldId, id));
@@ -199,7 +199,7 @@ public class EmailAddressImpl extends EObjectImpl implements EmailAddress {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EmployeePackage.EMAIL_ADDRESS__ID:
-				setId((Integer)newValue);
+				setId((String)newValue);
 				return;
 			case EmployeePackage.EMAIL_ADDRESS__NAME:
 				setName((String)newValue);
@@ -241,7 +241,7 @@ public class EmailAddressImpl extends EObjectImpl implements EmailAddress {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EmployeePackage.EMAIL_ADDRESS__ID:
-				return id != ID_EDEFAULT;
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case EmployeePackage.EMAIL_ADDRESS__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EmployeePackage.EMAIL_ADDRESS__ADDRESS:

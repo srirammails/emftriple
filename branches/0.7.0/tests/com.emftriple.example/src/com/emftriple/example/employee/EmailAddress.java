@@ -36,12 +36,12 @@ public interface EmailAddress extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
+	 * @see #setId(String)
 	 * @see com.emftriple.example.employee.EmployeePackage#getEmailAddress_Id()
 	 * @model annotation="etriple.Id base='http://www.example.com/mails/'"
 	 * @generated
 	 */
-	int getId();
+	String getId();
 
 	/**
 	 * Sets the value of the '{@link com.emftriple.example.employee.EmailAddress#getId <em>Id</em>}' attribute.
@@ -51,7 +51,7 @@ public interface EmailAddress extends EObject {
 	 * @see #getId()
 	 * @generated
 	 */
-	void setId(int value);
+	void setId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

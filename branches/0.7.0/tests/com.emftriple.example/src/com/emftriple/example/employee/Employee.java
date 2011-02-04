@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link com.emftriple.example.employee.Employee#getId <em>Id</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getFirstName <em>First Name</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getLastName <em>Last Name</em>}</li>
  *   <li>{@link com.emftriple.example.employee.Employee#getGender <em>Gender</em>}</li>
@@ -34,11 +35,37 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see com.emftriple.example.employee.EmployeePackage#getEmployee()
- * @model annotation="etriple.CompositeId base='http://www.example.com/employees#[firstname]_[lastname]'"
- *        annotation="etriple.NamedQuery name='findEmployeeByName' queryString='SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last'"
+ * @model annotation="etriple.NamedQuery name='findEmployeeByName' queryString='SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last'"
  * @generated
  */
 public interface Employee extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see com.emftriple.example.employee.EmployeePackage#getEmployee_Id()
+	 * @model annotation="etriple.Id base='http://www.example.com/employees/'"
+	 *        annotation="etriple.GeneratedValue strategy='DEFAULT'"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link com.emftriple.example.employee.Employee#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
+
 	/**
 	 * Returns the value of the '<em><b>First Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -242,7 +269,6 @@ public interface Employee extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Manager</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.emftriple.example.employee.Employee#getManagedEmployees <em>Managed Employees</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Manager</em>' reference isn't clear,
@@ -252,8 +278,7 @@ public interface Employee extends EObject {
 	 * @return the value of the '<em>Manager</em>' reference.
 	 * @see #setManager(Employee)
 	 * @see com.emftriple.example.employee.EmployeePackage#getEmployee_Manager()
-	 * @see com.emftriple.example.employee.Employee#getManagedEmployees
-	 * @model opposite="managedEmployees"
+	 * @model
 	 * @generated
 	 */
 	Employee getManager();
@@ -271,7 +296,6 @@ public interface Employee extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Managed Employees</b></em>' reference list.
 	 * The list contents are of type {@link com.emftriple.example.employee.Employee}.
-	 * It is bidirectional and its opposite is '{@link com.emftriple.example.employee.Employee#getManager <em>Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Managed Employees</em>' reference list isn't clear,
@@ -280,8 +304,7 @@ public interface Employee extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Managed Employees</em>' reference list.
 	 * @see com.emftriple.example.employee.EmployeePackage#getEmployee_ManagedEmployees()
-	 * @see com.emftriple.example.employee.Employee#getManager
-	 * @model opposite="manager"
+	 * @model
 	 * @generated
 	 */
 	EList<Employee> getManagedEmployees();
@@ -289,7 +312,6 @@ public interface Employee extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Phone Numbers</b></em>' containment reference list.
 	 * The list contents are of type {@link com.emftriple.example.employee.PhoneNumber}.
-	 * It is bidirectional and its opposite is '{@link com.emftriple.example.employee.PhoneNumber#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Phone Numbers</em>' containment reference list isn't clear,
@@ -298,8 +320,7 @@ public interface Employee extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Phone Numbers</em>' containment reference list.
 	 * @see com.emftriple.example.employee.EmployeePackage#getEmployee_PhoneNumbers()
-	 * @see com.emftriple.example.employee.PhoneNumber#getOwner
-	 * @model opposite="owner" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<PhoneNumber> getPhoneNumbers();

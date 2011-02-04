@@ -46,8 +46,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="areaCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Employee"
-        eOpposite="#//Employee/phoneNumbers"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Employee"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobTitle">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -61,22 +60,30 @@
     <eLiterals name="Female" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EmploymentPeriod">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="etriple.Id">
         <details key="base" value="http://www.example.com/periods/"/>
+      </eAnnotations>
+      <eAnnotations source="etriple.GeneratedValue">
+        <details key="strategy" value="DEFAULT"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="endDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Employee">
-    <eAnnotations source="etriple.CompositeId">
-      <details key="base" value="http://www.example.com/employees#[firstname]_[lastname]"/>
-    </eAnnotations>
     <eAnnotations source="etriple.NamedQuery">
       <details key="name" value="findEmployeeByName"/>
       <details key="queryString" value="SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="etriple.Id">
+        <details key="base" value="http://www.example.com/employees/"/>
+      </eAnnotations>
+      <eAnnotations source="etriple.GeneratedValue">
+        <details key="strategy" value="DEFAULT"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gender" eType="#//Gender"/>
@@ -88,12 +95,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Address"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="jobTitle" eType="#//JobTitle"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="manager" eType="#//Employee"
-        eOpposite="#//Employee/managedEmployees"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manager" eType="#//Employee"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="managedEmployees" upperBound="-1"
-        eType="#//Employee" eOpposite="#//Employee/manager"/>
+        eType="#//Employee"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="phoneNumbers" upperBound="-1"
-        eType="#//PhoneNumber" containment="true" eOpposite="#//PhoneNumber/owner"/>
+        eType="#//PhoneNumber" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
         eType="#//Project"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="emailAddresses" upperBound="-1"
@@ -104,7 +110,7 @@
       <details key="name" value="findEmailByAddress"/>
       <details key="queryString" value="SELECT e FROM EmailAddress e WHERE e.address = :address"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="etriple.Id">
         <details key="base" value="http://www.example.com/mails/"/>
       </eAnnotations>
@@ -113,9 +119,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Address">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="etriple.Id">
         <details key="base" value="http://www.example.com/addresses/"/>
+      </eAnnotations>
+      <eAnnotations source="etriple.GeneratedValue">
+        <details key="strategy" value="DEFAULT"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="city" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

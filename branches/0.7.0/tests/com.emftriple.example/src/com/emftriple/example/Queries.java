@@ -39,7 +39,7 @@ public class Queries {
 
 		Queries queries = new Queries();
 		queries.find(em);
-//		queries.readAllEmployees(em);
+		queries.readAllEmployees(em);
 //		queries.readAllSmallProjects(em);
 //		queries.namedQuery(em);
 		
@@ -50,28 +50,15 @@ public class Queries {
 	}
 
 	public void find(EntityManager em) {
-		Employee e = em.find(Employee.class, "http://www.example.com/employees#bob_smith");
+		Employee e = em.find(Employee.class, "http://www.example.com/employees/1");
 		
 		assert e != null;
 		
 		System.out.println("Loading Employee " + e.getFirstName());
 		for (Project p: e.getProjects()) {
+			System.out.println(p);
 			System.out.println("    works on " + p.getName() + " lead by " + p.getTeamLeader().getFirstName());
 		}
-		
-//		EcoreUtil.resolveAll(e.eResource());
-//		try {
-//			e.eResource().save(System.out, null);
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
-//		Resource res = new XMIResourceImpl();
-//		res.getContents().addAll(e.eResource().getContents());
-//		try {
-//			res.save(System.out, null);
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
 	}
 	
 	public void loadResource() {

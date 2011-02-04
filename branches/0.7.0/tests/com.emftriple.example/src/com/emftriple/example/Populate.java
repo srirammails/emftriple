@@ -154,11 +154,11 @@ public class Populate {
 		return phone;
 	}
 
-	private EmailAddress createMail(String string, String string2, int id) {
+	private EmailAddress createMail(String string, String string2, Integer id) {
 		EmailAddress mail = EmployeeFactory.eINSTANCE.createEmailAddress();
 		mail.setName(string);
 		mail.setAddress(string2);
-		mail.setId(id);
+		mail.setId(id.toString());
 
 		return mail;
 	}
@@ -170,15 +170,16 @@ public class Populate {
 		employee.setLastName("Smith");
 		employee.setGender(Gender.MALE);
 		employee.setSalary(35000);
+		employee.setId("1");
 
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(1);
+		employmentPeriod.setId("1");
 		employmentPeriod.setEndDate(createEDate("1996-01-01"));
 		employmentPeriod.setStartDate(createEDate("1993-01-01"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(1);
+		address.setId("1");
 		address.setCity("Toronto");
 		address.setPostalCode("L5J2B5");
 		address.setProvince("ONT");
@@ -197,19 +198,19 @@ public class Populate {
 	public Employee basicEmployeeExample2() {
 		Employee employee = EmployeeFactory.eINSTANCE.createEmployee();
 
-//		employee.setId(2);
+		employee.setId("2");
 		employee.setFirstName("John");
 		employee.setLastName("Way");
 		employee.setGender(Gender.MALE);
 		employee.setSalary(53000);
 
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(2);
+		employmentPeriod.setId("2");
 		employmentPeriod.setStartDate(createEDate("1991-10-11"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(2);
+		address.setId("2");
 		address.setCity("Ottawa");
 		address.setPostalCode("K5J2B5");
 		address.setProvince("ONT");
@@ -229,20 +230,20 @@ public class Populate {
 	public Employee basicEmployeeExample3() {
 		Employee employee = EmployeeFactory.eINSTANCE.createEmployee();
 
-//		employee.setId(3);
+		employee.setId("3");
 		employee.setFirstName("Charles");
 		employee.setLastName("Chanley");
 		employee.setGender(Gender.MALE);
 		employee.setSalary(43000);
 
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(3);
+		employmentPeriod.setId("3");
 		employmentPeriod.setEndDate(createEDate("2001-11-31"));
 		employmentPeriod.setStartDate(createEDate("1995-01-01"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(3);
+		address.setId("3");
 		address.setCity("Montreal");
 		address.setPostalCode("Q2S5Z5");
 		address.setProvince("QUE");
@@ -265,15 +266,16 @@ public class Populate {
 		employee.setLastName("Smith");
 		employee.setGender(Gender.MALE);
 		employee.setSalary(49631);
+		employee.setId("4");
 
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(4);
+		employmentPeriod.setId("4");
 		employmentPeriod.setEndDate(createEDate("2001-11-31"));
 		employmentPeriod.setStartDate(createEDate("1995-01-01"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(4);
+		address.setId("4");
 		address.setCity("Vancouver");
 		address.setPostalCode("N5J2N5");
 		address.setProvince("BC");
@@ -298,15 +300,16 @@ public class Populate {
 		employee.setLastName("Way");
 		employee.setGender(Gender.FEMALE);
 		employee.setSalary(87000);
+		employee.setId("5");
 
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(5);
+		employmentPeriod.setId("5");
 		employmentPeriod.setEndDate(createEDate("2001-06-31"));
 		employmentPeriod.setStartDate(createEDate("1995-04-01"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(5);
+		address.setId("5");
 		address.setCity("Prince Rupert");
 		address.setPostalCode("K3K5D5");
 		address.setProvince("BC");
@@ -330,15 +333,16 @@ public class Populate {
 		employee.setLastName("Saunders");
 		employee.setGender(Gender.MALE);
 		employee.setSalary(54300);
-
+		employee.setId("6");
+		
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(6);
+		employmentPeriod.setId("6");
 		employmentPeriod.setEndDate(createEDate("2001-11-31"));
 		employmentPeriod.setStartDate(createEDate("1995-01-12"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(6);
+		address.setId("6");
 		address.setCity("Perth");
 		address.setPostalCode("Y3Q2N9");
 		address.setProvince("ONT");
@@ -361,15 +365,16 @@ public class Populate {
 		employee.setLastName("White");
 		employee.setGender(Gender.FEMALE);
 		employee.setSalary(31000);
-
+		employee.setId("7");
+		
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(7);
+		employmentPeriod.setId("7");
 		employmentPeriod.setEndDate(createEDate("1996-01-01"));
 		employmentPeriod.setStartDate(createEDate("1993-01-01"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(7);
+		address.setId("7");
 		address.setCity("Metcalfe");
 		address.setPostalCode("Y4F7V6");
 		address.setProvince("ONT");
@@ -390,15 +395,16 @@ public class Populate {
 		employee.setLastName("Jones");
 		employee.setGender(Gender.MALE);
 		employee.setSalary(500000);
-
+		employee.setId("8");
+		
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(8);
+		employmentPeriod.setId("8");
 		employmentPeriod.setEndDate(createEDate("2001-11-31"));
 		employmentPeriod.setStartDate(createEDate("1995-01-01"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(8);
+		address.setId("8");
 		address.setCity("Victoria");
 		address.setPostalCode("Z5J2N5");
 		address.setProvince("BC");
@@ -420,15 +426,16 @@ public class Populate {
 		employee.setLastName("Jones");
 		employee.setGender(Gender.FEMALE);
 		employee.setSalary(500001);
+		employee.setId("9");
 
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(9);
+		employmentPeriod.setId("9");
 		employmentPeriod.setStartDate(createEDate("2001-11-31"));
 		employmentPeriod.setEndDate(createEDate("1995-01-01"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(9);
+		address.setId("9");
 		address.setCity("Smith Falls");
 		address.setPostalCode("C6C6C6");
 		address.setProvince("ONT");
@@ -450,14 +457,15 @@ public class Populate {
 		employee.setFirstName("Jill");
 		employee.setLastName("May");
 		employee.setGender(Gender.FEMALE);
-
+		employee.setId("10");
+		
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(10);
+		employmentPeriod.setId("10");
 		employmentPeriod.setStartDate(createEDate("1991-10-11"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(10);
+		address.setId("10");
 		address.setCity("Calgary");
 		address.setPostalCode("J5J2B5");
 		address.setProvince("AB");
@@ -480,15 +488,16 @@ public class Populate {
 		employee.setFirstName("Sarah-Lou");
 		employee.setLastName("Smitty");
 		employee.setGender(Gender.FEMALE);
-
+		employee.setId("11");
+		
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(11);
+		employmentPeriod.setId("11");
 		employmentPeriod.setEndDate(createEDate("1996-01-01"));
 		employmentPeriod.setStartDate(createEDate("1993-01-01"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(11);
+		address.setId("11");
 		address.setCity("Arnprior");
 		address.setPostalCode("W1A2B5");
 		address.setProvince("ONT");
@@ -511,15 +520,16 @@ public class Populate {
 		employee.setFirstName("Jim-Bob");
 		employee.setLastName("Jefferson");
 		employee.setGender(Gender.MALE);
-
+		employee.setId("12");
+		
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(12);
+		employmentPeriod.setId("12");
 		employmentPeriod.setEndDate(createEDate("2001-11-31"));
 		employmentPeriod.setStartDate(createEDate("1995-01-12"));
 		employee.setPeriod(employmentPeriod);
 
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(12);
+		address.setId("12");
 		address.setCity("Yellowknife");
 		address.setPostalCode("Y5J2N5");
 		address.setProvince("YK");
@@ -556,9 +566,9 @@ public class Populate {
 				new PhoneNumber[]{createPhone("mobile", "432", "4689563")});
 	}
 
-	public Address createAddress(int id, String city, String code, String province, String street, String country) {
+	public Address createAddress(Integer id, String city, String code, String province, String street, String country) {
 		Address address = EmployeeFactory.eINSTANCE.createAddress();
-		address.setId(id);
+		address.setId(id.toString());
 		address.setCity(city);
 		address.setPostalCode(code);
 		address.setProvince(province);
@@ -569,16 +579,17 @@ public class Populate {
 	}
 
 	public Employee basicEmployeeExample(
-			int id, String fname, String lname, Gender gender, String start, String end, double salary, 
+			Integer id, String fname, String lname, Gender gender, String start, String end, double salary, 
 			Address address, EmailAddress[] mails, PhoneNumber[] phones) 
 	{
 		Employee employee = EmployeeFactory.eINSTANCE.createEmployee();
 		employee.setFirstName(fname);
 		employee.setLastName(lname);
 		employee.setGender(gender);
+		employee.setId(id.toString());
 
 		EmploymentPeriod employmentPeriod = EmployeeFactory.eINSTANCE.createEmploymentPeriod();
-		employmentPeriod.setId(id + 111);
+		employmentPeriod.setId(new Integer(id+ 111).toString());
 		employmentPeriod.setEndDate(createEDate(start));
 		employmentPeriod.setStartDate(createEDate(end));
 		employee.setPeriod(employmentPeriod);

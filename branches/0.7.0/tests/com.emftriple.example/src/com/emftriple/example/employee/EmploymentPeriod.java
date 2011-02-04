@@ -38,12 +38,13 @@ public interface EmploymentPeriod extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
+	 * @see #setId(String)
 	 * @see com.emftriple.example.employee.EmployeePackage#getEmploymentPeriod_Id()
 	 * @model annotation="etriple.Id base='http://www.example.com/periods/'"
+	 *        annotation="etriple.GeneratedValue strategy='DEFAULT'"
 	 * @generated
 	 */
-	int getId();
+	String getId();
 
 	/**
 	 * Sets the value of the '{@link com.emftriple.example.employee.EmploymentPeriod#getId <em>Id</em>}' attribute.
@@ -53,7 +54,7 @@ public interface EmploymentPeriod extends EObject {
 	 * @see #getId()
 	 * @generated
 	 */
-	void setId(int value);
+	void setId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Start Date</b></em>' attribute.

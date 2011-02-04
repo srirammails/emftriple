@@ -35,7 +35,7 @@ class PhoneNumber {
   attr String number;
   attr String type;
   attr String areaCode;
-  ref Employee[1]#phoneNumbers owner;
+  ref Employee[1] owner;
 }
 
 class JobTitle {
@@ -50,16 +50,19 @@ enum Gender {
 
 class EmploymentPeriod {
   @etriple.Id(base="http://www.example.com/periods/")
-  attr int ~id;
+  @etriple.GeneratedValue(strategy=DEFAULT)
+  attr String ~id;
   attr EDate startDate;
   attr EDate endDate;
 }
 
-@etriple.CompositeId(base="http://www.example.com/employees#[firstname]_[lastname]")
 @etriple.NamedQuery(
 	name="findEmployeeByName", 
 	queryString="SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last")
 class Employee {
+  @etriple.Id(base="http://www.example.com/employees/")
+  @etriple.GeneratedValue(strategy=DEFAULT)
+  attr String ~id;
   attr String firstName;
   attr String lastName;
   attr Gender gender;
@@ -69,9 +72,9 @@ class Employee {
   val EmploymentPeriod period;
   val Address address;
   ref JobTitle jobTitle;
-  ref Employee#managedEmployees manager;
-  ref Employee[*]#manager managedEmployees;
-  val PhoneNumber[*]#owner phoneNumbers;
+  ref Employee manager;
+  ref Employee[*] managedEmployees;
+  val PhoneNumber[*] phoneNumbers;
   ref Project[*] projects;
   val EmailAddress[*] emailAddresses;
 }
@@ -81,14 +84,15 @@ class Employee {
 	queryString="SELECT e FROM EmailAddress e WHERE e.address = :address")
 class EmailAddress {
   @etriple.Id(base="http://www.example.com/mails/")
-  attr int ~id;
+  attr String ~id;
   attr String name;
   attr String address;
 }
 
 class Address {
   @etriple.Id(base="http://www.example.com/addresses/")
-  attr int ~id;
+  @etriple.GeneratedValue(strategy=DEFAULT)
+  attr String ~id;
   attr String city;
   attr String country;
   attr String province;

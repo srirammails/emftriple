@@ -309,7 +309,7 @@ public interface EmployeePackage extends EPackage {
 	int PHONE_NUMBER__AREA_CODE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -411,13 +411,22 @@ public interface EmployeePackage extends EPackage {
 	int EMPLOYEE = 7;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPLOYEE__ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>First Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__FIRST_NAME = 0;
+	int EMPLOYEE__FIRST_NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Last Name</b></em>' attribute.
@@ -426,7 +435,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__LAST_NAME = 1;
+	int EMPLOYEE__LAST_NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Gender</b></em>' attribute.
@@ -435,7 +444,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__GENDER = 2;
+	int EMPLOYEE__GENDER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Salary</b></em>' attribute.
@@ -444,7 +453,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__SALARY = 3;
+	int EMPLOYEE__SALARY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Responsibilities</b></em>' attribute list.
@@ -453,7 +462,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__RESPONSIBILITIES = 4;
+	int EMPLOYEE__RESPONSIBILITIES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Period</b></em>' containment reference.
@@ -462,7 +471,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__PERIOD = 5;
+	int EMPLOYEE__PERIOD = 6;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' containment reference.
@@ -471,7 +480,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__ADDRESS = 6;
+	int EMPLOYEE__ADDRESS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Job Title</b></em>' reference.
@@ -480,7 +489,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__JOB_TITLE = 7;
+	int EMPLOYEE__JOB_TITLE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Manager</b></em>' reference.
@@ -489,7 +498,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__MANAGER = 8;
+	int EMPLOYEE__MANAGER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Managed Employees</b></em>' reference list.
@@ -498,7 +507,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__MANAGED_EMPLOYEES = 9;
+	int EMPLOYEE__MANAGED_EMPLOYEES = 10;
 
 	/**
 	 * The feature id for the '<em><b>Phone Numbers</b></em>' containment reference list.
@@ -507,7 +516,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__PHONE_NUMBERS = 10;
+	int EMPLOYEE__PHONE_NUMBERS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Projects</b></em>' reference list.
@@ -516,7 +525,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__PROJECTS = 11;
+	int EMPLOYEE__PROJECTS = 12;
 
 	/**
 	 * The feature id for the '<em><b>Email Addresses</b></em>' containment reference list.
@@ -525,7 +534,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE__EMAIL_ADDRESSES = 12;
+	int EMPLOYEE__EMAIL_ADDRESSES = 13;
 
 	/**
 	 * The number of structural features of the '<em>Employee</em>' class.
@@ -534,7 +543,7 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMPLOYEE_FEATURE_COUNT = 13;
+	int EMPLOYEE_FEATURE_COUNT = 14;
 
 	/**
 	 * The meta object id for the '{@link com.emftriple.example.employee.impl.EmailAddressImpl <em>Email Address</em>}' class.
@@ -849,10 +858,10 @@ public interface EmployeePackage extends EPackage {
 	EAttribute getPhoneNumber_AreaCode();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.emftriple.example.employee.PhoneNumber#getOwner <em>Owner</em>}'.
+	 * Returns the meta object for the reference '{@link com.emftriple.example.employee.PhoneNumber#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Owner</em>'.
+	 * @return the meta object for the reference '<em>Owner</em>'.
 	 * @see com.emftriple.example.employee.PhoneNumber#getOwner()
 	 * @see #getPhoneNumber()
 	 * @generated
@@ -932,6 +941,17 @@ public interface EmployeePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEmployee();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.emftriple.example.employee.Employee#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see com.emftriple.example.employee.Employee#getId()
+	 * @see #getEmployee()
+	 * @generated
+	 */
+	EAttribute getEmployee_Id();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.emftriple.example.employee.Employee#getFirstName <em>First Name</em>}'.
@@ -1374,7 +1394,7 @@ public interface EmployeePackage extends EPackage {
 		EAttribute PHONE_NUMBER__AREA_CODE = eINSTANCE.getPhoneNumber_AreaCode();
 
 		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1442,6 +1462,14 @@ public interface EmployeePackage extends EPackage {
 		 * @generated
 		 */
 		EClass EMPLOYEE = eINSTANCE.getEmployee();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EMPLOYEE__ID = eINSTANCE.getEmployee_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>First Name</b></em>' attribute feature.

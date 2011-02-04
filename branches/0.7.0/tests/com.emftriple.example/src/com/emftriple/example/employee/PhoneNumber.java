@@ -107,28 +107,26 @@ public interface PhoneNumber extends EObject {
 	void setAreaCode(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.emftriple.example.employee.Employee#getPhoneNumbers <em>Phone Numbers</em>}'.
+	 * Returns the value of the '<em><b>Owner</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Owner</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' container reference.
+	 * @return the value of the '<em>Owner</em>' reference.
 	 * @see #setOwner(Employee)
 	 * @see com.emftriple.example.employee.EmployeePackage#getPhoneNumber_Owner()
-	 * @see com.emftriple.example.employee.Employee#getPhoneNumbers
-	 * @model opposite="phoneNumbers" required="true" transient="false"
+	 * @model required="true"
 	 * @generated
 	 */
 	Employee getOwner();
 
 	/**
-	 * Sets the value of the '{@link com.emftriple.example.employee.PhoneNumber#getOwner <em>Owner</em>}' container reference.
+	 * Sets the value of the '{@link com.emftriple.example.employee.PhoneNumber#getOwner <em>Owner</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' container reference.
+	 * @param value the new value of the '<em>Owner</em>' reference.
 	 * @see #getOwner()
 	 * @generated
 	 */
