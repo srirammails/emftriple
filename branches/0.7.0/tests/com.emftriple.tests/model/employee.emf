@@ -1,0 +1,101 @@
+@namespace(uri="http://www.example.com/Employee", prefix="employee")
+package employee;
+
+@etriple.NamedQuery(
+	name="findOrganizationByName", 
+	queryString="SELECT o FROM Organization o WHERE o.name = :name")
+class Organization {
+	@etriple.Id(base="http://www.example.com/organization/")
+	attr String[1] name;
+	val Employee[*] employees;
+	val Project[*] projects;
+	val JobTitle[*] jobs;
+}
+
+@etriple.NamedQuery(
+	name="findProjectByName", 
+	queryString="SELECT p FROM Project p WHERE p.name = :name")
+abstract class Project {
+  @etriple.Id(base="http://www.example.com/projects/")
+  attr String name;
+  attr String description;
+  ref Employee teamLeader;
+}
+
+class SmallProject extends Project {
+}
+
+class LargeProject extends Project {
+  attr double budget;
+  attr EDate milestone;
+}
+
+class PhoneNumber {
+  @etriple.Id(base="http://www.example.com/phones/")
+  attr String number;
+  attr String type;
+  attr String areaCode;
+  ref Employee[1] owner;
+}
+
+class JobTitle {
+  @etriple.Id(base="http://www.example.com/jobs/")
+  attr String title;
+}
+
+enum Gender {
+  Male = 0;
+  Female = 1;
+}
+
+class EmploymentPeriod {
+  @etriple.Id(base="http://www.example.com/periods/")
+  @etriple.GeneratedValue(strategy=DEFAULT)
+  attr String ~id;
+  attr EDate startDate;
+  attr EDate endDate;
+}
+
+@etriple.NamedQuery(
+	name="findEmployeeByName", 
+	queryString="SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last")
+class Employee {
+  @etriple.Id(base="http://www.example.com/employees/")
+  @etriple.GeneratedValue(strategy=DEFAULT)
+  attr String ~id;
+  attr String firstName;
+  attr String lastName;
+  attr Gender gender;
+  attr double salary;
+  attr String[*] responsibilities;
+  
+  val EmploymentPeriod period;
+  val Address address;
+  ref JobTitle jobTitle;
+  ref Employee manager;
+  ref Employee[*] managedEmployees;
+  val PhoneNumber[*] phoneNumbers;
+  ref Project[*] projects;
+  val EmailAddress[*] emailAddresses;
+}
+
+@etriple.NamedQuery(
+	name="findEmailByAddress", 
+	queryString="SELECT e FROM EmailAddress e WHERE e.address = :address")
+class EmailAddress {
+  @etriple.Id(base="http://www.example.com/mails/")
+  attr String ~id;
+  attr String name;
+  attr String address;
+}
+
+class Address {
+  @etriple.Id(base="http://www.example.com/addresses/")
+  @etriple.GeneratedValue(strategy=DEFAULT)
+  attr String ~id;
+  attr String city;
+  attr String country;
+  attr String province;
+  attr String postalCode;
+  attr String street;
+}

@@ -12,11 +12,13 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 
+import com.emftriple.ETriple;
 import com.emftriple.config.persistence.PersistencePackage;
 import com.emftriple.example.employee.Employee;
 import com.emftriple.example.employee.EmployeePackage;
 import com.emftriple.example.employee.Project;
 import com.emftriple.example.employee.SmallProject;
+import com.emftriple.jena.JenaModule;
 import com.emftriple.resource.ETripleResource;
 
 public class Queries {
@@ -24,6 +26,7 @@ public class Queries {
 	static {
 		EPackage.Registry.INSTANCE.put(EmployeePackage.eNS_URI, EmployeePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(PersistencePackage.eNS_URI, PersistencePackage.eINSTANCE);
+		ETriple.init(new JenaModule());
 	}
 
 	public static void main(String[] args) {

@@ -3,10 +3,11 @@
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix ecore:   <http://www.eclipse.org/emf/2002/Ecore#> .
 
 <http://tests/c/barbar>
       a       c:Bar , c:Foo , c:AbstractClass ;
+      <http://eclipselabs.org/emf4sw#etype>
+              c:Bar ;
       c:description "the bar"^^xsd:string ;
       c:foos  <http://tests/c/foo> ;
       c:name  "barbar"^^xsd:string ;
@@ -14,6 +15,8 @@
 
 <http://tests/c/foo>
       a       c:Foo , c:AbstractClass ;
+      <http://eclipselabs.org/emf4sw#etype>
+              c:Foo ;
       c:bar   <http://tests/c/barbar> ;
       c:description "the main foo"^^xsd:string ;
       c:name  "foo"^^xsd:string .
