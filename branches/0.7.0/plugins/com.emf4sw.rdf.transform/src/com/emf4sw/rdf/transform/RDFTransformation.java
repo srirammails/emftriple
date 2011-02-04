@@ -24,9 +24,9 @@ import com.emf4sw.rdf.transform.lib.ETripleLibExtension;
  * @author <a href=g.hillairet@gmail.com>guillaume hillairet</a>
  * @since 0.7.0
  */
-public abstract class AbstractTransformation {
+public abstract class RDFTransformation {
 	
-	protected AbstractTransformation() {
+	protected RDFTransformation() {
 		register( RDFPackage.eINSTANCE );
 	}
 	
