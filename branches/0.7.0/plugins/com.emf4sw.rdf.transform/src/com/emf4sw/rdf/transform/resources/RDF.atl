@@ -4,19 +4,22 @@
 -- @nsURI Model=http://www.eclipse.org/emf/2002/Ecore
 
 module RDF;
-create OUT: RDF from IN: Model;
+create OUT: RDF from IN: Model, IN2:Properties;
 
 uses RDFHelpers;
 
 helper def: Graph: String = 'http://default';
 
-helper def: namespaces: Map(String, String) =
+helper def: namespaces: Map(String, String) = 
 	let 
-		packages: Set(OclAny) = 
-			Model!EObject.allInstances()->collect(e | e.eClass())->flatten()->collect(e | e.ePackage)->flatten()->asSet()
+		packages: Sequence(OclAny) = 
+			Model!EObject.allInstancesFrom('IN')->collect(e | 
+				e.eClass())->flatten()->collect(e | e.ePackage)->flatten()
 	in 
 		packages->iterate(it; res: Map(String, String) = Map{} |
-			res->including(it.nsPrefix, it.nsURI)
+			if (it.oclIsKindOf(Model!EPackage)) then 
+				res->including(it.nsPrefix, it.nsURI)
+			else res endif
 		);
 
 helper context OclAny def: getGraph(): String = 
@@ -118,7 +121,7 @@ lazy rule MakeTripleWithURI {
   g : String
  to
   r : RDF!Triple (
-   	subject <- s.debug('sbj ' + s.oclIsTypeOf(RDF!BlankNode)),
+   	subject <- s,
    	predicate <- predicate,
    	object <- object_,
    	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif

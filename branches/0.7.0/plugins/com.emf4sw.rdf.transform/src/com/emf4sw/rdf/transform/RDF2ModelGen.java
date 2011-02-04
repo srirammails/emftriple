@@ -35,7 +35,6 @@ import com.atl.common.trans.Transformations;
 public class RDF2ModelGen {
 
 	private static final String RDF_GEN_HELPERS = "RDFGenHelpers";
-		
 	private static final String RDF_GEN_HELPERS_ASM = "resources/RDFGenHelpers.asm";
 
 	private Resource resource;
