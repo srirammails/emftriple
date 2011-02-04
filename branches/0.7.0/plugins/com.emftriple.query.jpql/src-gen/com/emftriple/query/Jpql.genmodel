@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.emftriple.query.jpql/src-gen"
+    editDirectory="/com.emftriple.query.jpql.edit/src" editorDirectory="/com.emftriple.query.jpql.editor/src"
+    modelPluginID="com.emftriple.query.jpql" forceOverwrite="true" modelName="Jpql"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="com.emftriple.query.jpql.edit"
+    editorPluginID="com.emftriple.query.jpql.editor">
+  <genPackages prefix="Jpql" basePackage="com.emftriple.query" disposableProviderFactory="true"
+      ecorePackage="Jpql.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Jpql.ecore#//Operator">
+      <genEnumLiterals ecoreEnumLiteral="Jpql.ecore#//Operator/lessThen"/>
+      <genEnumLiterals ecoreEnumLiteral="Jpql.ecore#//Operator/greaterThen"/>
+      <genEnumLiterals ecoreEnumLiteral="Jpql.ecore#//Operator/lessEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="Jpql.ecore#//Operator/greaterEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="Jpql.ecore#//Operator/equal"/>
+      <genEnumLiterals ecoreEnumLiteral="Jpql.ecore#//Operator/notEqual"/>
+    </genEnums>
+    <genClasses ecoreClass="Jpql.ecore#//QueryModule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//QueryModule/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//QueryModule/defaultQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//QueryModule/namedQueries"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//Import/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//NamedQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//NamedQuery/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//NamedQuery/query"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//JPQLQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//JPQLQuery/whereClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//SelectStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SelectStatement/selectFromClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SelectStatement/having"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SelectStatement/order"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//HavingClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//HavingClause/having"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//OrderClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//OrderClause/ordering"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//OrderClause/isAsc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//OrderClause/isDesc"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//OrderItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Jpql.ecore#//OrderItem/var"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//OrderItem/feature"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//UpdateStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//UpdateStatement/updateClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//UpdateStatement/setClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//UpdateClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//UpdateClause/fromEntries"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//SetClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SetClause/items"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//UpdateItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//UpdateItem/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//UpdateItem/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//DeleteStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//DeleteStatement/deleteClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//DeleteClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//DeleteClause/fromClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//SelectFromClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SelectFromClause/selectClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SelectFromClause/fromClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//SelectClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//SelectClause/isDistinct"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SelectClause/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//SelectExpression"/>
+    <genClasses ecoreClass="Jpql.ecore#//SelectAggregateExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//SelectAggregateExpression/isDistinct"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SelectAggregateExpression/item"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//AvgAggregate"/>
+    <genClasses ecoreClass="Jpql.ecore#//MaxAggregate"/>
+    <genClasses ecoreClass="Jpql.ecore#//MinAggregate"/>
+    <genClasses ecoreClass="Jpql.ecore#//SumAggregate"/>
+    <genClasses ecoreClass="Jpql.ecore#//CountAggregate"/>
+    <genClasses ecoreClass="Jpql.ecore#//SelectConstructorExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//SelectConstructorExpression/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SelectConstructorExpression/items"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//FromClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//FromClause/fromEntries"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//FromEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//FromEntry/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//VariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//VariableDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//FromClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//FromClass/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//FromClass/joins"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//FromCollection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//FromCollection/path"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//FromJoin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//FromJoin/isFetch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//FromJoin/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//FromJoin/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//Join"/>
+    <genClasses ecoreClass="Jpql.ecore#//LeftJoin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//LeftJoin/isOuter"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//InnerJoin"/>
+    <genClasses ecoreClass="Jpql.ecore#//WhereClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//WhereClause/whereEntry"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//Expression"/>
+    <genClasses ecoreClass="Jpql.ecore#//OperatorExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//OperatorExpression/lhs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//OperatorExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//OperatorExpression/rhs"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//ExistsExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//ExistsExpression/isNot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//ExistsExpression/query"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//AllExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//AllExpression/query"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//AnyExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//AnyExpression/query"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//SomeExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//SomeExpression/query"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//CollectionExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//CollectionExpression/lhs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//CollectionExpression/isNot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//CollectionExpression/rhs"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//NullComparisonExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//NullComparisonExpression/lhs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//NullComparisonExpression/isNot"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//EmptyComparisonExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//EmptyComparisonExpression/lhs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//EmptyComparisonExpression/isNot"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//LikeExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//LikeExpression/lhs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//LikeExpression/isNot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//LikeExpression/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//InExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//InExpression/lhs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//InExpression/isNot"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//InSeqExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//InSeqExpression/items"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//InQueryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//InQueryExpression/query"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//BetweenExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//BetweenExpression/lhs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//BetweenExpression/isNot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//BetweenExpression/min"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//BetweenExpression/max"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//Variable"/>
+    <genClasses ecoreClass="Jpql.ecore#//ExpressionTerm"/>
+    <genClasses ecoreClass="Jpql.ecore#//AliasAttributeExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Jpql.ecore#//AliasAttributeExpression/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//AliasAttributeExpression/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//ParameterExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//ParameterExpression/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//Function/params"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//Value"/>
+    <genClasses ecoreClass="Jpql.ecore#//IntegerExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//IntegerExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//StringExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//StringExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//NullExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//NullExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//BooleanExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//BooleanExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//DateTimeExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jpql.ecore#//DateTimeExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//OrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//OrExpression/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="Jpql.ecore#//AndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jpql.ecore#//AndExpression/entries"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
