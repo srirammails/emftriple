@@ -9,63 +9,43 @@ package com.emf4sw.rdf.transform;
 
 import static com.atl.common.models.Models.get;
 import static com.atl.common.models.Models.inject;
-import static com.atl.common.models.Models.register;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.m2m.atl.core.emf.EMFModel;
-import org.eclipse.m2m.atl.engine.emfvm.lib.LibExtension;
 
 import com.atl.common.trans.Transformations;
 import com.emf4sw.rdf.RDFPackage;
-import com.emf4sw.rdf.transform.lib.ETripleLibExtension;
 
 /**
  * 
  * @author <a href=g.hillairet@gmail.com>guillaume hillairet</a>
  * @since 0.6.0
  */
-public class RDF2Model {
+public class RDF2Model extends AbstractTransformation {
 
 	private final RDF2ModelGen generator;
 
 	private EPackage ePackage;
 
 	public RDF2Model(EPackage ePackage) {
+		super();
 		this.ePackage = ePackage;
 		this.generator = new RDF2ModelGen(ePackage);
 	}
 
 	public RDF2Model(Resource resource) {
+		super();
 		this.ePackage = (EPackage) resource.getContents().get(0);
 		this.generator = new RDF2ModelGen(ePackage);
 	}
-	
-	static {
-		register(RDFPackage.eINSTANCE);
-	}
 
-	private List<LibExtension> getListExtension() {
-		final List<LibExtension> list = new ArrayList<LibExtension>();
-		list.add(new ETripleLibExtension());
-		
-		return list;
-	}
-	
 	public Resource transform(Resource resource) {
-		final Map<String, Object> options = new HashMap<String, Object>();
-		options.put("extensionObjects", getListExtension());
-		
 		final EMFModel model = Transformations.transform(
 				inject(resource, get(RDFPackage.eNS_URI)), 
 					new Transformations.Builder()
 					.asm(generator.getASM())
-					.options(options)
+					.options(atloptions())
 					.in(get(RDFPackage.eNS_URI), "IN", "RDF")
 					.out(get(ePackage.getNsURI()), "OUT", "Model")
 					.buildOneInOneOut());
