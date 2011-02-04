@@ -5,11 +5,11 @@ Bundle-SymbolicName: com.emf4sw.rdf.transform.tests
 Bundle-Version: 0.0.7.qualifier
 Bundle-Vendor: eclipselabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: com.emf4sw.rdf;bundle-version="0.7.0",
- com.emf4sw.rdf.jena;bundle-version="0.7.0",
- org.openjena;bundle-version="2.6.4",
- org.eclipse.emf.ecore;bundle-version="2.6.1",
+Require-Bundle: org.openjena;bundle-version="2.6.4",
+ org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
- org.junit;bundle-version="4.8.1",
  com.atl.common;bundle-version="0.6.1",
+ com.emf4sw.rdf;bundle-version="0.7.0",
+ com.emf4sw.rdf.jena;bundle-version="0.7.0",
+ org.junit;bundle-version="4.8.1",
  com.emf4sw.rdf.transform;bundle-version="0.7.0"

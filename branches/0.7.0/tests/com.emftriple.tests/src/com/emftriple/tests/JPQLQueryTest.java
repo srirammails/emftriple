@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.emftriple.example.employee.Employee;
-import com.emftriple.example.employee.EmployeePackage;
+import com.emftriple.employee.Employee;
+import com.emftriple.employee.EmployeePackage;
 
 public class JPQLQueryTest {
 	EntityManagerFactory emf;
