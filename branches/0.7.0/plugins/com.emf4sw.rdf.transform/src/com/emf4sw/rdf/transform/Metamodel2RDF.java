@@ -21,7 +21,7 @@ import com.emf4sw.rdf.resource.RDFFormats;
  * @author <a href=g.hillairet@gmail.com>guillaume hillairet</a>
  * @since 0.7.0
  */
-public class Metamodel2RDF extends AbstractTransformation {
+public class Metamodel2RDF extends RDFTransformation {
 	
 	private static final String asm = "resources/Metamodel2RDF.asm";
 	

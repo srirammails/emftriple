@@ -22,7 +22,7 @@ import com.emf4sw.rdf.RDFPackage;
  * @author <a href=g.hillairet@gmail.com>guillaume hillairet</a>
  * @since 0.6.0
  */
-public class RDF2Model extends AbstractTransformation {
+public class RDF2Model extends RDFTransformation {
 
 	private final RDF2ModelGen generator;
 

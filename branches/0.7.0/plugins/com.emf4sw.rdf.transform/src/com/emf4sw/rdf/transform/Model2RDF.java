@@ -32,7 +32,7 @@ import com.emf4sw.rdf.resource.RDFFormats;
  * @author <a href=g.hillairet@gmail.com>guillaume hillairet</a>
  * @since 0.6.0
  */
-public class Model2RDF extends AbstractTransformation {
+public class Model2RDF extends RDFTransformation {
 
 	/**
 	 * ATL Files
