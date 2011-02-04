@@ -39,12 +39,13 @@ public interface Address extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
+	 * @see #setId(String)
 	 * @see com.emftriple.example.employee.EmployeePackage#getAddress_Id()
 	 * @model annotation="etriple.Id base='http://www.example.com/addresses/'"
+	 *        annotation="etriple.GeneratedValue strategy='DEFAULT'"
 	 * @generated
 	 */
-	int getId();
+	String getId();
 
 	/**
 	 * Sets the value of the '{@link com.emftriple.example.employee.Address#getId <em>Id</em>}' attribute.
@@ -54,7 +55,7 @@ public interface Address extends EObject {
 	 * @see #getId()
 	 * @generated
 	 */
-	void setId(int value);
+	void setId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>City</b></em>' attribute.

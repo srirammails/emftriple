@@ -17,9 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.emftriple.example.employee.Address;
@@ -39,6 +37,7 @@ import com.emftriple.example.employee.Project;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getFirstName <em>First Name</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getLastName <em>Last Name</em>}</li>
  *   <li>{@link com.emftriple.example.employee.impl.EmployeeImpl#getGender <em>Gender</em>}</li>
@@ -58,6 +57,26 @@ import com.emftriple.example.employee.Project;
  * @generated
  */
 public class EmployeeImpl extends EObjectImpl implements Employee {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getFirstName() <em>First Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -245,6 +264,27 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	protected EClass eStaticClass() {
 		return EmployeePackage.Literals.EMPLOYEE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmployeePackage.EMPLOYEE__ID, oldId, id));
 	}
 
 	/**
@@ -498,33 +538,11 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetManager(Employee newManager, NotificationChain msgs) {
+	public void setManager(Employee newManager) {
 		Employee oldManager = manager;
 		manager = newManager;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmployeePackage.EMPLOYEE__MANAGER, oldManager, newManager);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setManager(Employee newManager) {
-		if (newManager != manager) {
-			NotificationChain msgs = null;
-			if (manager != null)
-				msgs = ((InternalEObject)manager).eInverseRemove(this, EmployeePackage.EMPLOYEE__MANAGED_EMPLOYEES, Employee.class, msgs);
-			if (newManager != null)
-				msgs = ((InternalEObject)newManager).eInverseAdd(this, EmployeePackage.EMPLOYEE__MANAGED_EMPLOYEES, Employee.class, msgs);
-			msgs = basicSetManager(newManager, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmployeePackage.EMPLOYEE__MANAGER, newManager, newManager));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmployeePackage.EMPLOYEE__MANAGER, oldManager, manager));
 	}
 
 	/**
@@ -534,7 +552,7 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	 */
 	public EList<Employee> getManagedEmployees() {
 		if (managedEmployees == null) {
-			managedEmployees = new EObjectWithInverseResolvingEList<Employee>(Employee.class, this, EmployeePackage.EMPLOYEE__MANAGED_EMPLOYEES, EmployeePackage.EMPLOYEE__MANAGER);
+			managedEmployees = new EObjectResolvingEList<Employee>(Employee.class, this, EmployeePackage.EMPLOYEE__MANAGED_EMPLOYEES);
 		}
 		return managedEmployees;
 	}
@@ -546,7 +564,7 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	 */
 	public EList<PhoneNumber> getPhoneNumbers() {
 		if (phoneNumbers == null) {
-			phoneNumbers = new EObjectContainmentWithInverseEList<PhoneNumber>(PhoneNumber.class, this, EmployeePackage.EMPLOYEE__PHONE_NUMBERS, EmployeePackage.PHONE_NUMBER__OWNER);
+			phoneNumbers = new EObjectContainmentEList<PhoneNumber>(PhoneNumber.class, this, EmployeePackage.EMPLOYEE__PHONE_NUMBERS);
 		}
 		return phoneNumbers;
 	}
@@ -580,27 +598,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EmployeePackage.EMPLOYEE__MANAGER:
-				if (manager != null)
-					msgs = ((InternalEObject)manager).eInverseRemove(this, EmployeePackage.EMPLOYEE__MANAGED_EMPLOYEES, Employee.class, msgs);
-				return basicSetManager((Employee)otherEnd, msgs);
-			case EmployeePackage.EMPLOYEE__MANAGED_EMPLOYEES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getManagedEmployees()).basicAdd(otherEnd, msgs);
-			case EmployeePackage.EMPLOYEE__PHONE_NUMBERS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPhoneNumbers()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -608,10 +605,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 				return basicSetPeriod(null, msgs);
 			case EmployeePackage.EMPLOYEE__ADDRESS:
 				return basicSetAddress(null, msgs);
-			case EmployeePackage.EMPLOYEE__MANAGER:
-				return basicSetManager(null, msgs);
-			case EmployeePackage.EMPLOYEE__MANAGED_EMPLOYEES:
-				return ((InternalEList<?>)getManagedEmployees()).basicRemove(otherEnd, msgs);
 			case EmployeePackage.EMPLOYEE__PHONE_NUMBERS:
 				return ((InternalEList<?>)getPhoneNumbers()).basicRemove(otherEnd, msgs);
 			case EmployeePackage.EMPLOYEE__EMAIL_ADDRESSES:
@@ -628,6 +621,8 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case EmployeePackage.EMPLOYEE__ID:
+				return getId();
 			case EmployeePackage.EMPLOYEE__FIRST_NAME:
 				return getFirstName();
 			case EmployeePackage.EMPLOYEE__LAST_NAME:
@@ -669,6 +664,9 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case EmployeePackage.EMPLOYEE__ID:
+				setId((String)newValue);
+				return;
 			case EmployeePackage.EMPLOYEE__FIRST_NAME:
 				setFirstName((String)newValue);
 				return;
@@ -725,6 +723,9 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case EmployeePackage.EMPLOYEE__ID:
+				setId(ID_EDEFAULT);
+				return;
 			case EmployeePackage.EMPLOYEE__FIRST_NAME:
 				setFirstName(FIRST_NAME_EDEFAULT);
 				return;
@@ -776,6 +777,8 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case EmployeePackage.EMPLOYEE__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case EmployeePackage.EMPLOYEE__FIRST_NAME:
 				return FIRST_NAME_EDEFAULT == null ? firstName != null : !FIRST_NAME_EDEFAULT.equals(firstName);
 			case EmployeePackage.EMPLOYEE__LAST_NAME:
@@ -816,7 +819,9 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (firstName: ");
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", firstName: ");
 		result.append(firstName);
 		result.append(", lastName: ");
 		result.append(lastName);

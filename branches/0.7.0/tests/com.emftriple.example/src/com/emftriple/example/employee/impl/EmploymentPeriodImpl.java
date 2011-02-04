@@ -40,7 +40,7 @@ public class EmploymentPeriodImpl extends EObjectImpl implements EmploymentPerio
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ID_EDEFAULT = 0;
+	protected static final String ID_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -50,7 +50,7 @@ public class EmploymentPeriodImpl extends EObjectImpl implements EmploymentPerio
 	 * @generated
 	 * @ordered
 	 */
-	protected int id = ID_EDEFAULT;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStartDate() <em>Start Date</em>}' attribute.
@@ -116,7 +116,7 @@ public class EmploymentPeriodImpl extends EObjectImpl implements EmploymentPerio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -125,8 +125,8 @@ public class EmploymentPeriodImpl extends EObjectImpl implements EmploymentPerio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(int newId) {
-		int oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EmployeePackage.EMPLOYMENT_PERIOD__ID, oldId, id));
@@ -201,7 +201,7 @@ public class EmploymentPeriodImpl extends EObjectImpl implements EmploymentPerio
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EmployeePackage.EMPLOYMENT_PERIOD__ID:
-				setId((Integer)newValue);
+				setId((String)newValue);
 				return;
 			case EmployeePackage.EMPLOYMENT_PERIOD__START_DATE:
 				setStartDate((Date)newValue);
@@ -243,7 +243,7 @@ public class EmploymentPeriodImpl extends EObjectImpl implements EmploymentPerio
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EmployeePackage.EMPLOYMENT_PERIOD__ID:
-				return id != ID_EDEFAULT;
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case EmployeePackage.EMPLOYMENT_PERIOD__START_DATE:
 				return START_DATE_EDEFAULT == null ? startDate != null : !START_DATE_EDEFAULT.equals(startDate);
 			case EmployeePackage.EMPLOYMENT_PERIOD__END_DATE:

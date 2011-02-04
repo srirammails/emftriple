@@ -7,12 +7,10 @@
 package com.emftriple.example.employee.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.emftriple.example.employee.Employee;
 import com.emftriple.example.employee.EmployeePackage;
@@ -94,6 +92,16 @@ public class PhoneNumberImpl extends EObjectImpl implements PhoneNumber {
 	 * @ordered
 	 */
 	protected String areaCode = AREA_CODE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwner()
+	 * @generated
+	 * @ordered
+	 */
+	protected Employee owner;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,8 +191,15 @@ public class PhoneNumberImpl extends EObjectImpl implements PhoneNumber {
 	 * @generated
 	 */
 	public Employee getOwner() {
-		if (eContainerFeatureID() != EmployeePackage.PHONE_NUMBER__OWNER) return null;
-		return (Employee)eContainer();
+		if (owner != null && owner.eIsProxy()) {
+			InternalEObject oldOwner = (InternalEObject)owner;
+			owner = (Employee)eResolveProxy(oldOwner);
+			if (owner != oldOwner) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmployeePackage.PHONE_NUMBER__OWNER, oldOwner, owner));
+			}
+		}
+		return owner;
 	}
 
 	/**
@@ -192,9 +207,8 @@ public class PhoneNumberImpl extends EObjectImpl implements PhoneNumber {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOwner(Employee newOwner, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newOwner, EmployeePackage.PHONE_NUMBER__OWNER, msgs);
-		return msgs;
+	public Employee basicGetOwner() {
+		return owner;
 	}
 
 	/**
@@ -203,63 +217,10 @@ public class PhoneNumberImpl extends EObjectImpl implements PhoneNumber {
 	 * @generated
 	 */
 	public void setOwner(Employee newOwner) {
-		if (newOwner != eInternalContainer() || (eContainerFeatureID() != EmployeePackage.PHONE_NUMBER__OWNER && newOwner != null)) {
-			if (EcoreUtil.isAncestor(this, newOwner))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newOwner != null)
-				msgs = ((InternalEObject)newOwner).eInverseAdd(this, EmployeePackage.EMPLOYEE__PHONE_NUMBERS, Employee.class, msgs);
-			msgs = basicSetOwner(newOwner, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmployeePackage.PHONE_NUMBER__OWNER, newOwner, newOwner));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EmployeePackage.PHONE_NUMBER__OWNER:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetOwner((Employee)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EmployeePackage.PHONE_NUMBER__OWNER:
-				return basicSetOwner(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case EmployeePackage.PHONE_NUMBER__OWNER:
-				return eInternalContainer().eInverseRemove(this, EmployeePackage.EMPLOYEE__PHONE_NUMBERS, Employee.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
+		Employee oldOwner = owner;
+		owner = newOwner;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmployeePackage.PHONE_NUMBER__OWNER, oldOwner, owner));
 	}
 
 	/**
@@ -277,7 +238,8 @@ public class PhoneNumberImpl extends EObjectImpl implements PhoneNumber {
 			case EmployeePackage.PHONE_NUMBER__AREA_CODE:
 				return getAreaCode();
 			case EmployeePackage.PHONE_NUMBER__OWNER:
-				return getOwner();
+				if (resolve) return getOwner();
+				return basicGetOwner();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -345,7 +307,7 @@ public class PhoneNumberImpl extends EObjectImpl implements PhoneNumber {
 			case EmployeePackage.PHONE_NUMBER__AREA_CODE:
 				return AREA_CODE_EDEFAULT == null ? areaCode != null : !AREA_CODE_EDEFAULT.equals(areaCode);
 			case EmployeePackage.PHONE_NUMBER__OWNER:
-				return getOwner() != null;
+				return owner != null;
 		}
 		return super.eIsSet(featureID);
 	}

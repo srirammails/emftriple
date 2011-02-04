@@ -17,7 +17,10 @@ Require-Bundle: org.eclipse.core.runtime,
  com.emftriple.jena;bundle-version="0.6.1",
  com.emf4sw.rdf.jena;bundle-version="0.6.5",
  com.emftriple.datasources;bundle-version="0.6.5",
- org.eclipse.emf.ecore.xmi;bundle-version="2.5.0"
+ org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
+ com.emftriple.query;bundle-version="0.7.0",
+ com.emftriple.query.jpql;bundle-version="0.7.0",
+ com.emftriple.query.sparql;bundle-version="0.7.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.persistence,
  javax.persistence.spi

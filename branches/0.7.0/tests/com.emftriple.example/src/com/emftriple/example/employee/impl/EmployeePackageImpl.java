@@ -402,7 +402,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEmployee_FirstName() {
+	public EAttribute getEmployee_Id() {
 		return (EAttribute)employeeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -411,7 +411,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEmployee_LastName() {
+	public EAttribute getEmployee_FirstName() {
 		return (EAttribute)employeeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -420,7 +420,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEmployee_Gender() {
+	public EAttribute getEmployee_LastName() {
 		return (EAttribute)employeeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -429,7 +429,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEmployee_Salary() {
+	public EAttribute getEmployee_Gender() {
 		return (EAttribute)employeeEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -438,7 +438,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEmployee_Responsibilities() {
+	public EAttribute getEmployee_Salary() {
 		return (EAttribute)employeeEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -447,8 +447,8 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEmployee_Period() {
-		return (EReference)employeeEClass.getEStructuralFeatures().get(5);
+	public EAttribute getEmployee_Responsibilities() {
+		return (EAttribute)employeeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -456,7 +456,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEmployee_Address() {
+	public EReference getEmployee_Period() {
 		return (EReference)employeeEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -465,7 +465,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEmployee_JobTitle() {
+	public EReference getEmployee_Address() {
 		return (EReference)employeeEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -474,7 +474,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEmployee_Manager() {
+	public EReference getEmployee_JobTitle() {
 		return (EReference)employeeEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -483,7 +483,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEmployee_ManagedEmployees() {
+	public EReference getEmployee_Manager() {
 		return (EReference)employeeEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -492,7 +492,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEmployee_PhoneNumbers() {
+	public EReference getEmployee_ManagedEmployees() {
 		return (EReference)employeeEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -501,7 +501,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEmployee_Projects() {
+	public EReference getEmployee_PhoneNumbers() {
 		return (EReference)employeeEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -510,8 +510,17 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEmployee_EmailAddresses() {
+	public EReference getEmployee_Projects() {
 		return (EReference)employeeEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEmployee_EmailAddresses() {
+		return (EReference)employeeEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -682,6 +691,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 		createEAttribute(employmentPeriodEClass, EMPLOYMENT_PERIOD__END_DATE);
 
 		employeeEClass = createEClass(EMPLOYEE);
+		createEAttribute(employeeEClass, EMPLOYEE__ID);
 		createEAttribute(employeeEClass, EMPLOYEE__FIRST_NAME);
 		createEAttribute(employeeEClass, EMPLOYEE__LAST_NAME);
 		createEAttribute(employeeEClass, EMPLOYEE__GENDER);
@@ -766,17 +776,18 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 		initEAttribute(getPhoneNumber_Number(), ecorePackage.getEString(), "number", null, 0, 1, PhoneNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPhoneNumber_Type(), ecorePackage.getEString(), "type", null, 0, 1, PhoneNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPhoneNumber_AreaCode(), ecorePackage.getEString(), "areaCode", null, 0, 1, PhoneNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPhoneNumber_Owner(), this.getEmployee(), this.getEmployee_PhoneNumbers(), "owner", null, 1, 1, PhoneNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPhoneNumber_Owner(), this.getEmployee(), null, "owner", null, 1, 1, PhoneNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobTitleEClass, JobTitle.class, "JobTitle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobTitle_Title(), ecorePackage.getEString(), "title", null, 0, 1, JobTitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(employmentPeriodEClass, EmploymentPeriod.class, "EmploymentPeriod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEmploymentPeriod_Id(), ecorePackage.getEInt(), "id", null, 0, 1, EmploymentPeriod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEmploymentPeriod_Id(), ecorePackage.getEString(), "id", null, 0, 1, EmploymentPeriod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEmploymentPeriod_StartDate(), ecorePackage.getEDate(), "startDate", null, 0, 1, EmploymentPeriod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEmploymentPeriod_EndDate(), ecorePackage.getEDate(), "endDate", null, 0, 1, EmploymentPeriod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(employeeEClass, Employee.class, "Employee", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEmployee_Id(), ecorePackage.getEString(), "id", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEmployee_FirstName(), ecorePackage.getEString(), "firstName", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEmployee_LastName(), ecorePackage.getEString(), "lastName", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEmployee_Gender(), this.getGender(), "gender", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -785,19 +796,19 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 		initEReference(getEmployee_Period(), this.getEmploymentPeriod(), null, "period", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEmployee_Address(), this.getAddress(), null, "address", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEmployee_JobTitle(), this.getJobTitle(), null, "jobTitle", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEmployee_Manager(), this.getEmployee(), this.getEmployee_ManagedEmployees(), "manager", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEmployee_ManagedEmployees(), this.getEmployee(), this.getEmployee_Manager(), "managedEmployees", null, 0, -1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEmployee_PhoneNumbers(), this.getPhoneNumber(), this.getPhoneNumber_Owner(), "phoneNumbers", null, 0, -1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEmployee_Manager(), this.getEmployee(), null, "manager", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEmployee_ManagedEmployees(), this.getEmployee(), null, "managedEmployees", null, 0, -1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEmployee_PhoneNumbers(), this.getPhoneNumber(), null, "phoneNumbers", null, 0, -1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEmployee_Projects(), this.getProject(), null, "projects", null, 0, -1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEmployee_EmailAddresses(), this.getEmailAddress(), null, "emailAddresses", null, 0, -1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(emailAddressEClass, EmailAddress.class, "EmailAddress", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEmailAddress_Id(), ecorePackage.getEInt(), "id", null, 0, 1, EmailAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEmailAddress_Id(), ecorePackage.getEString(), "id", null, 0, 1, EmailAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEmailAddress_Name(), ecorePackage.getEString(), "name", null, 0, 1, EmailAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEmailAddress_Address(), ecorePackage.getEString(), "address", null, 0, 1, EmailAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(addressEClass, Address.class, "Address", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAddress_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAddress_Id(), ecorePackage.getEString(), "id", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAddress_City(), ecorePackage.getEString(), "city", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAddress_Country(), ecorePackage.getEString(), "country", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAddress_Province(), ecorePackage.getEString(), "province", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -817,7 +828,7 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 		createEtripleAnnotations();
 		// etriple.Id
 		createEtriple_1Annotations();
-		// etriple.CompositeId
+		// etriple.GeneratedValue
 		createEtriple_2Annotations();
 	}
 
@@ -849,14 +860,14 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 		   new String[] {
 			 "name", "findEmployeeByName",
 			 "queryString", "SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last"
-		   });		
+		   });				
 		addAnnotation
 		  (emailAddressEClass, 
 		   source, 
 		   new String[] {
 			 "name", "findEmailByAddress",
 			 "queryString", "SELECT e FROM EmailAddress e WHERE e.address = :address"
-		   });		
+		   });			
 	}
 
 	/**
@@ -896,7 +907,13 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 		   source, 
 		   new String[] {
 			 "base", "http://www.example.com/periods/"
-		   });					
+		   });				
+		addAnnotation
+		  (getEmployee_Id(), 
+		   source, 
+		   new String[] {
+			 "base", "http://www.example.com/employees/"
+		   });				
 		addAnnotation
 		  (getEmailAddress_Id(), 
 		   source, 
@@ -908,23 +925,35 @@ public class EmployeePackageImpl extends EPackageImpl implements EmployeePackage
 		   source, 
 		   new String[] {
 			 "base", "http://www.example.com/addresses/"
-		   });
+		   });	
 	}
 
 	/**
-	 * Initializes the annotations for <b>etriple.CompositeId</b>.
+	 * Initializes the annotations for <b>etriple.GeneratedValue</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void createEtriple_2Annotations() {
-		String source = "etriple.CompositeId";									
+		String source = "etriple.GeneratedValue";									
 		addAnnotation
-		  (employeeEClass, 
+		  (getEmploymentPeriod_Id(), 
 		   source, 
 		   new String[] {
-			 "base", "http://www.example.com/employees#[firstname]_[lastname]"
+			 "strategy", "DEFAULT"
 		   });				
+		addAnnotation
+		  (getEmployee_Id(), 
+		   source, 
+		   new String[] {
+			 "strategy", "DEFAULT"
+		   });					
+		addAnnotation
+		  (getAddress_Id(), 
+		   source, 
+		   new String[] {
+			 "strategy", "DEFAULT"
+		   });
 	}
 
 } //EmployeePackageImpl
