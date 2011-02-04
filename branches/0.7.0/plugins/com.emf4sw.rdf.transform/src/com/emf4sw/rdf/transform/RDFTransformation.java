@@ -30,29 +30,32 @@ public abstract class RDFTransformation {
 		register( RDFPackage.eINSTANCE );
 	}
 	
-	/**
+	/*
 	 * ATL Files
 	 */
 	protected static final String super_asm = "resources/RDF.asm";
 	protected static final String lib = "resources/RDFHelpers.asm";
 	
 	/**
-	 * 
+	 * @see RDFFormats
 	 */
 	public static final String OPTION_RDF_FORMAT = "OPTION_RDF_FORMAT";
 	
 	/**
-	 * 
+	 * This option is used to set the objects base namespace. Use this when a model contains classes that do 
+	 * not make use of the @Id annotation.
 	 */
 	public static final String OPTION_BASE_NAMESPACE = "OPTION_BASE_NAMESPACE";
 	
 	/**
-	 * 
+	 * If true, the whole type hierarchy of an object will be represented in RDF. 
+	 * This option takes a Boolean parameter. 
 	 */
 	public static final String OPTION_DIRECT_TYPE_ONLY = "OPTION_DIRECT_TYPE_ONLY";
 	
 	/**
-	 * 
+	 * If true, the transformer will not add a special property to the object that declares 
+	 * the direct type of the object.
 	 */
 	public static final String OPTION_NO_ECORE_TYPE = "OPTION_NO_ECORE_TYPE";
 	

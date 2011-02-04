@@ -90,7 +90,7 @@ public class RDF2ModelGen {
 			.out(atl(), "OUT", "ATL", new ATLResourceFactory())
 			.buildOneInOneOut();
 	}
-		
+	
 	protected ASM loadASM(String location) {
 		return new ASMXMLReader().read(getClass().getResourceAsStream(location));
 	}
