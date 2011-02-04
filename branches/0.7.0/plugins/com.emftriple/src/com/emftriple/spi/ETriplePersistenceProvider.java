@@ -7,8 +7,6 @@
  */
 package com.emftriple.spi;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -20,18 +18,18 @@ import javax.persistence.spi.ProviderUtil;
 
 import org.eclipse.emf.ecore.EPackage;
 
+import com.emftriple.ETriple;
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.PersistenceMetaData;
 import com.emftriple.config.persistence.PersistenceUnit;
 import com.emftriple.config.persistence.Property;
+import com.emftriple.impl.AbstractMappingModule;
 import com.emftriple.impl.ETripleEntityManagerFactory;
 import com.emftriple.impl.MappingModule;
-import com.emftriple.util.ModuleUtil;
 import com.emftriple.util.ProviderUtilImpl;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.google.inject.Module;
 import com.google.inject.internal.Lists;
 
 /**
@@ -89,44 +87,16 @@ public class ETriplePersistenceProvider implements PersistenceProvider {
 			throw new IllegalArgumentException("No EPackage(s) found in persistence unit");
 		}
 
-		Module m;
-		Class<? extends Module> cm = ModuleUtil.getModuleClass("com.emftriple.impl.QueryMappingModule");
-		if (cm != null) {
-			m = load(cm, packages);
-		} else {
-			m = unit.getProperties() == null ? 
-				new MappingModule(packages, new ArrayList<Property>()) : 
-					new MappingModule(packages, unit.getProperties().getProperties());
+		AbstractMappingModule m = (AbstractMappingModule) ETriple.get(AbstractMappingModule.class);
+		if (m == null) {
+			m = new MappingModule();
 		}
-		
+
+		m.setPackages(packages);
+		m.setProperties(unit.getProperties() == null ? new ArrayList<Property>() : unit.getProperties().getProperties());
+
 		Injector injector = Guice.createInjector( m );
 		return injector.getInstance(Mapping.class);
-	}
-	
-	public static Module load(Class<? extends Module> cm, List<EPackage> packages) {
-		Module m = null;
-		Constructor<? extends Module> c = null;
-		try {
-			c = cm.getConstructor(List.class, List.class);
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		}
-		if (c != null) {
-			try {
-				m = c.newInstance(packages, new ArrayList<Property>());
-			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
-			} catch (InstantiationException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				e.printStackTrace();
-			}
-		}
-		return m;
 	}
 
 	@Override

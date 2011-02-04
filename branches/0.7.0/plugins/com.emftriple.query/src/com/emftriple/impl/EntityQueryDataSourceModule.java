@@ -7,8 +7,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EPackage;
 
-import com.emftriple.Mapping;
-import com.emftriple.config.persistence.Federation;
 import com.emftriple.config.persistence.Property;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.datasources.EntityManagerDelegate;
@@ -29,9 +27,7 @@ import com.google.inject.Module;
  */
 public class EntityQueryDataSourceModule extends DataSourceModule {
 
-	public EntityQueryDataSourceModule(Mapping mapping, Federation sources) {
-		super(mapping, sources);
-	}
+	public EntityQueryDataSourceModule() {}
 	
 	@Override
 	protected void configure() {

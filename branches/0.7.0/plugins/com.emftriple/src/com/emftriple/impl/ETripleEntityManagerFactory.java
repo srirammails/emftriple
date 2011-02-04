@@ -9,8 +9,6 @@ package com.emftriple.impl;
 
 import static com.emftriple.util.ETripleEcoreUtil.filter;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -28,18 +26,17 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject.EStore;
 
+import com.emftriple.ETriple;
 import com.emftriple.Mapping;
-import com.emftriple.config.persistence.Federation;
 import com.emftriple.config.persistence.PersistenceUnit;
 import com.emftriple.datasources.DataSourceManager;
 import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.datasources.impl.DataSourceModule;
 import com.emftriple.datasources.impl.DataSourceModule.EntityDataSourceModule;
 import com.emftriple.resource.ETripleObject;
-import com.emftriple.util.ModuleUtil;
 import com.emftriple.util.PersistenceUnitUtilImpl;
 import com.google.common.base.Preconditions;
 import com.google.inject.Guice;
-import com.google.inject.Module;
 import com.google.inject.internal.Maps;
 
 /**
@@ -96,13 +93,13 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 	}
 
 	private EntityManager doCreateEntityManager(@SuppressWarnings("rawtypes") Map options) throws IllegalStateException {
-		Module module;
-		Class<? extends Module> cm = ModuleUtil.getModuleClass("com.emftriple.impl.EntityQueryDataSourceModule");
-		if (cm != null) {
-			module = load(cm, mapping, unit.getDataSources());
-		} else {
-			module = new EntityDataSourceModule(mapping, unit.getDataSources());
+		DataSourceModule module = (DataSourceModule) ETriple.get(DataSourceModule.class);
+		if (module == null) {
+			module = new EntityDataSourceModule();
 		}
+		
+		module.setFederation(unit.getDataSources());
+		module.setMapping(mapping);
 		
 		final EntityDataSourceManager dataSourceManager = Guice.createInjector(module).getInstance( EntityDataSourceManager.class );
 		
@@ -192,32 +189,6 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 		return properties;
 	}
 
-	private static Module load(Class<? extends Module> cm, Mapping mapping, Federation federation) {
-		Module m = null;
-		Constructor<? extends Module> c = null;
-		try {
-			c = cm.getConstructor(Mapping.class, Federation.class);
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		}
-		if (c != null) {
-			try {
-				m = c.newInstance(mapping, federation);
-			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
-			} catch (InstantiationException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				e.printStackTrace();
-			}
-		}
-		return m;
-	}
-	
 	public static class Registry {
 
 		public static final Registry INSTANCE = new Registry();

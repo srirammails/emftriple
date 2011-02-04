@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import com.emftriple.Mapping;
 import com.emftriple.config.persistence.Property;
-import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 
 /**
@@ -15,7 +14,7 @@ import com.google.inject.name.Names;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.7.0
  */
-public class QueryMappingModule extends AbstractModule {
+public class QueryMappingModule extends AbstractMappingModule {
 
 	private final List<EPackage> packages;
 	

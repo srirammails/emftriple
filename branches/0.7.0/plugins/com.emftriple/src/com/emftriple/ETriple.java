@@ -10,7 +10,6 @@ package com.emftriple;
 import static com.emftriple.util.Functions.transform;
 
 import java.util.Arrays;
-import java.util.List;
 
 import javax.persistence.spi.PersistenceProvider;
 
@@ -20,8 +19,8 @@ import com.emftriple.config.persistence.PersistenceMetaData;
 import com.emftriple.impl.ETripleModule;
 import com.emftriple.impl.FileDescriptorModule;
 import com.emftriple.resource.ETripleResourceSet;
+import com.emftriple.util.Functions;
 import com.google.common.base.Function;
-import com.google.common.collect.Lists;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
@@ -43,6 +42,8 @@ public class ETriple {
 	private static ETriple INSTANCE;
 
 	private static PersistenceMetaData configuration;
+	
+	private static Module[] modules;
 
 	private ETriple() {
 	}
@@ -55,28 +56,38 @@ public class ETriple {
 		if (INSTANCE == null) {
 			if (!initialized) {
 				ETriple.init(new FileDescriptorModule());
+			} else {
+				Module[] copy = Arrays.copyOf(modules, modules.length + 1);
+				copy[copy.length - 1] = new FileDescriptorModule();
+				ETriple.modules = copy;
 			}
+			injector = Guice.createInjector( modules );
 			INSTANCE = new ETriple();
 		}
 		return INSTANCE;
 	}
 
-	private static void init(Module module) {
-		injector = Guice.createInjector( module );
+	public static synchronized void init(Module... modules) {
+		if (initialized)
+			return;
+		
+		ETriple.modules = modules;
 		initialized = true;
 	}
-
+	
 	public static synchronized void init(PersistenceMetaData config, Module... modules) {
-		configuration = config;
-
-		final Module mainModule = transform(Arrays.asList(modules), new FilterModuleByType(ETripleModule.class));
-		List<Module> aModules = null;
-		if (mainModule == null) {
-			aModules = Lists.asList(new ETripleModule(configuration), modules);
-		} else {
-			aModules = Arrays.asList(modules);
+		if (initialized)
+			return;
+		
+		ETriple.configuration = config;
+		ETriple.modules = modules;
+		
+		if (null == transform(ETripleModule.class, new ModuleFinder())) {
+			Module[] copy = Arrays.copyOf(modules, modules.length + 1);
+			copy[copy.length - 1] = new ETripleModule(configuration);
+			ETriple.modules = copy;
 		}
-		injector = Guice.createInjector( aModules );
+
 		initialized = true;
 	}
 
@@ -88,23 +99,22 @@ public class ETriple {
 		return injector.getInstance(aClass);
 	}
 
-	private static class FilterModuleByType implements Function<List<Module>, Module> {
+	private static class ModuleFinder implements Function<Class<? extends Module>, Module> {
 
-		private final Class<? extends Module> aClass;
-
-		public FilterModuleByType(Class<? extends Module> aClass) {
-			this.aClass = aClass;
-		}
+		public ModuleFinder() {}
 
 		@Override
-		public Module apply(List<Module> from) {
-			for (Module module: from) {
+		public Module apply(Class<? extends Module> aClass) {
+			for (Module module: modules) {
 				if (aClass.isInstance(module)) {
 					return module;
 				}
 			}
 			return null;
 		}
+	}
 
+	public static Module get(Class<? extends Module> aClass) {
+		return Functions.transform(aClass, new ETriple.ModuleFinder());
 	}
 }
