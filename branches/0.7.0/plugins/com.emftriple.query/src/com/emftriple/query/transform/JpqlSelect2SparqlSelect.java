@@ -21,25 +21,25 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.emf4sw.rdf.vocabulary.RDF;
 import com.emftriple.Mapping;
-import com.emftriple.query.mql.AliasAttributeExpression;
-import com.emftriple.query.mql.AndExpression;
-import com.emftriple.query.mql.BooleanExpression;
-import com.emftriple.query.mql.Expression;
-import com.emftriple.query.mql.FromClass;
-import com.emftriple.query.mql.FromCollection;
-import com.emftriple.query.mql.FromEntry;
-import com.emftriple.query.mql.FromJoin;
-import com.emftriple.query.mql.IntegerExpression;
-import com.emftriple.query.mql.Join;
-import com.emftriple.query.mql.OperatorExpression;
-import com.emftriple.query.mql.OrExpression;
-import com.emftriple.query.mql.ParameterExpression;
-import com.emftriple.query.mql.SelectClause;
-import com.emftriple.query.mql.SelectExpression;
-import com.emftriple.query.mql.SelectStatement;
-import com.emftriple.query.mql.StringExpression;
-import com.emftriple.query.mql.VariableDeclaration;
-import com.emftriple.query.mql.util.MqlSwitch;
+import com.emftriple.query.jpql.AliasAttributeExpression;
+import com.emftriple.query.jpql.AndExpression;
+import com.emftriple.query.jpql.BooleanExpression;
+import com.emftriple.query.jpql.Expression;
+import com.emftriple.query.jpql.FromClass;
+import com.emftriple.query.jpql.FromCollection;
+import com.emftriple.query.jpql.FromEntry;
+import com.emftriple.query.jpql.FromJoin;
+import com.emftriple.query.jpql.IntegerExpression;
+import com.emftriple.query.jpql.Join;
+import com.emftriple.query.jpql.OperatorExpression;
+import com.emftriple.query.jpql.OrExpression;
+import com.emftriple.query.jpql.ParameterExpression;
+import com.emftriple.query.jpql.SelectClause;
+import com.emftriple.query.jpql.SelectExpression;
+import com.emftriple.query.jpql.SelectStatement;
+import com.emftriple.query.jpql.StringExpression;
+import com.emftriple.query.jpql.VariableDeclaration;
+import com.emftriple.query.jpql.util.JpqlSwitch;
 import com.emftriple.query.sparql.ExpressionFilterExpression;
 import com.emftriple.query.sparql.FilterPattern;
 import com.emftriple.query.sparql.GraphNode;
@@ -271,7 +271,7 @@ public class JpqlSelect2SparqlSelect implements Function<SelectStatement, Select
 	//	SELECT ?a WHERE { ?a a :Attribute . ?e a Entity . ?a :name ?a_name . ?e features ?a }
 	//	DESCRIBE ?a WHERE { ?a a :Author . ?a :lastName ?n . FILTER(?n = %value%) }
 
-	private static class WhereSwitch extends MqlSwitch<List<GraphPattern>> {
+	private static class WhereSwitch extends JpqlSwitch<List<GraphPattern>> {
 
 		private JpqlSelect2SparqlSelect trans;
 
@@ -281,7 +281,7 @@ public class JpqlSelect2SparqlSelect implements Function<SelectStatement, Select
 
 		@Override
 		public List<GraphPattern> caseOperatorExpression(OperatorExpression object) {
-			final com.emftriple.query.mql.Variable lhs = object.getLhs();
+			final com.emftriple.query.jpql.Variable lhs = object.getLhs();
 			EStructuralFeature feature = null;
 
 			if (lhs instanceof AliasAttributeExpression)
@@ -397,7 +397,7 @@ public class JpqlSelect2SparqlSelect implements Function<SelectStatement, Select
 
 	}
 
-	private static class ValueSwitch extends MqlSwitch<GraphNode> {
+	private static class ValueSwitch extends JpqlSwitch<GraphNode> {
 		@Override
 		public Value caseStringExpression(StringExpression object) {
 			checkNotNull(object);
@@ -434,15 +434,15 @@ public class JpqlSelect2SparqlSelect implements Function<SelectStatement, Select
 		}
 	}
 
-	protected static final List<com.emftriple.query.mql.Operator> seqOps = 
+	protected static final List<com.emftriple.query.jpql.Operator> seqOps = 
 		Lists.asList( 
 				//				com.emftriple.query.mql.Operator.IN, 
 				//				com.emftriple.query.mql.Operator.NOT_IN,
 				null,
-				new com.emftriple.query.mql.Operator[] {}
+				new com.emftriple.query.jpql.Operator[] {}
 		);
 
-	protected static Operator operator(com.emftriple.query.mql.Operator operator) {
+	protected static Operator operator(com.emftriple.query.jpql.Operator operator) {
 		switch (operator) {
 		case EQUAL:
 			return Operator.EQUAL;

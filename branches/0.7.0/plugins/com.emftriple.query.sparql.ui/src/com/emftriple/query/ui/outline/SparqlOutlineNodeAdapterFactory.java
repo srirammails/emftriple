@@ -5,6 +5,7 @@ package com.emftriple.query.ui.outline;
 
 import org.eclipse.xtext.ui.editor.outline.actions.DefaultContentOutlineNodeAdapterFactory;
 
+@SuppressWarnings("deprecation")
 public class SparqlOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapterFactory {
 
 	private static final Class<?>[] types = { 

@@ -9,10 +9,10 @@ import javax.persistence.TypedQuery;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
 
-import com.emftriple.query.MQueryBuilder;
+import com.emftriple.query.JpqlBuilder;
 import com.emftriple.query.QueryMapping;
-import com.emftriple.query.mql.MQuery;
-import com.emftriple.query.mql.SelectStatement;
+import com.emftriple.query.jpql.JPQLQuery;
+import com.emftriple.query.jpql.SelectStatement;
 import com.emftriple.util.EntityUtil;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -43,7 +43,7 @@ public class QueryAnnotationMapping extends EAnnotationMapping implements QueryM
 				String queryString = namedQueryAnn.getDetails().get("queryString");
 				if (name != null && queryString != null)
 				{
-					SelectStatement q = MQueryBuilder.getSelect(queryString);
+					SelectStatement q = JpqlBuilder.getSelect(queryString);
 					if (q != null)
 					{
 						namedQueries.put(name, q);
@@ -54,7 +54,7 @@ public class QueryAnnotationMapping extends EAnnotationMapping implements QueryM
 	}
 
 	@Override
-	public MQuery getNamedQuery(String queryString) {
+	public JPQLQuery getNamedQuery(String queryString) {
 		return namedQueries.get(queryString);
 	}
 

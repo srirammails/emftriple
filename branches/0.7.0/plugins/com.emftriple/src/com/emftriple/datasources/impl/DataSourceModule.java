@@ -33,9 +33,7 @@ public abstract class DataSourceModule extends AbstractModule {
 	@Override
 	protected void configure() {
 //		install(new SparqlRuntimeModule());
-	
-		bind(QueryFactory.class)
-			.to(NativeQueryFactoryImpl.class);
+
 		bind(Federation.class)
 			.annotatedWith(Names.named("DataSources"))
 			.toInstance(sources);
@@ -53,6 +51,8 @@ public abstract class DataSourceModule extends AbstractModule {
 		protected void configure() {
 			super.configure();
 			
+			bind(QueryFactory.class)
+				.to(NativeQueryFactoryImpl.class);
 			bind(ResourceManager.class)
 				.to(ResourceManagerImpl.class);
 			bind(EntityManagerDelegate.class)
@@ -74,6 +74,8 @@ public abstract class DataSourceModule extends AbstractModule {
 		protected void configure() {
 			super.configure();
 			
+			bind(QueryFactory.class)
+				.to(NativeQueryFactoryImpl.class);
 			bind(ResourceManager.class)
 				.to(ResourceManagerImpl.class);
 			bind(EStore.class)

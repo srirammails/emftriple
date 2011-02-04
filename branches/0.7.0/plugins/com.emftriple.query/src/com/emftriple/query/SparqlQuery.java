@@ -41,9 +41,9 @@ import com.google.common.collect.Maps;
  * 
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
- * @since 0.5.5
+ * @since 0.7.0
  */
-public class Sparql implements Query {
+public class SparqlQuery implements Query {
 
 	private final SPARQLQuery theQuery;
 
@@ -60,7 +60,7 @@ public class Sparql implements Query {
 
 	private Map<String, Object> hints;
 
-	public Sparql(EntityDataSourceManager dataSourceManager, String queryString) {
+	public SparqlQuery(EntityDataSourceManager dataSourceManager, String queryString) {
 		this.dataSourceManager = dataSourceManager;
 		this.theQuery = SparqlBuilder.getQuery(queryString);
 		this.properties = Maps.newHashMap();
@@ -68,7 +68,7 @@ public class Sparql implements Query {
 		this.hints = Maps.newHashMap();
 	}
 
-	public Sparql(EntityDataSourceManager dataSourceManager, SelectQuery query, Map<Object, Object> properties,
+	public SparqlQuery(EntityDataSourceManager dataSourceManager, SelectQuery query, Map<Object, Object> properties,
 			Map<Object, Object> parameters, Map<String, Object> hints, int maxResults) {
 		this.dataSourceManager = dataSourceManager;
 		this.theQuery = query;

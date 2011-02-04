@@ -12,14 +12,13 @@ import javax.persistence.TypedQuery;
 
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.datasources.QueryFactory;
-import com.emftriple.query.NativeQueryFactoryImpl;
 import com.google.inject.Inject;
 
 /**
  * 
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
- * @since 0.5.5
+ * @since 0.7.0
  */
 public class QueryFactoryImpl extends NativeQueryFactoryImpl implements QueryFactory {
 
@@ -33,22 +32,22 @@ public class QueryFactoryImpl extends NativeQueryFactoryImpl implements QueryFac
 
 	@Override
 	public Query createNamedQuery(String queryString) {
-		return new Jpql(dataSourceManager, mapping.getNamedQuery(queryString), mapping);
+		return new JpqlQuery(dataSourceManager, mapping.getNamedQuery(queryString), mapping);
 	}
 
 	@Override
 	public Query createNativeQuery(String queryString) {		
-		return new Sparql(dataSourceManager, queryString);
+		return new SparqlQuery(dataSourceManager, queryString);
 	}
 
 	@Override
 	public Query createNativeQuery(String queryString, String arg1) {
-		return new Sparql(dataSourceManager, queryString);
+		return new SparqlQuery(dataSourceManager, queryString);
 	}
 
 	@Override
 	public Query createQuery(String queryString) {
-		return new Jpql(dataSourceManager, queryString, mapping);
+		return new JpqlQuery(dataSourceManager, queryString, mapping);
 	}
 
 	@Override

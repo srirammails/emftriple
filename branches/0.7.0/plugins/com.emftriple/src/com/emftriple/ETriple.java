@@ -33,7 +33,6 @@ import com.google.inject.Module;
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
- * @version 0.1
  */
 public class ETriple {
 
@@ -70,7 +69,7 @@ public class ETriple {
 	public static synchronized void init(PersistenceMetaData config, Module... modules) {
 		configuration = config;
 
-		Module mainModule = transform(Arrays.asList(modules), new FilterModuleByType(ETripleModule.class));
+		final Module mainModule = transform(Arrays.asList(modules), new FilterModuleByType(ETripleModule.class));
 		List<Module> aModules = null;
 		if (mainModule == null) {
 			aModules = Lists.asList(new ETripleModule(configuration), modules);

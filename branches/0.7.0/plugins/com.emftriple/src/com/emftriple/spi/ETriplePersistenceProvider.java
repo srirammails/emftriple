@@ -26,6 +26,7 @@ import com.emftriple.config.persistence.PersistenceUnit;
 import com.emftriple.config.persistence.Property;
 import com.emftriple.impl.ETripleEntityManagerFactory;
 import com.emftriple.impl.MappingModule;
+import com.emftriple.util.ModuleUtil;
 import com.emftriple.util.ProviderUtilImpl;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
@@ -89,7 +90,7 @@ public class ETriplePersistenceProvider implements PersistenceProvider {
 		}
 
 		Module m;
-		Class<? extends Module> cm = getModuleClass();
+		Class<? extends Module> cm = ModuleUtil.getModuleClass("com.emftriple.impl.QueryMappingModule");
 		if (cm != null) {
 			m = load(cm, packages);
 		} else {
@@ -101,8 +102,8 @@ public class ETriplePersistenceProvider implements PersistenceProvider {
 		Injector injector = Guice.createInjector( m );
 		return injector.getInstance(Mapping.class);
 	}
-
-	private Module load(Class<? extends Module> cm, List<EPackage> packages) {
+	
+	public static Module load(Class<? extends Module> cm, List<EPackage> packages) {
 		Module m = null;
 		Constructor<? extends Module> c = null;
 		try {
@@ -124,18 +125,6 @@ public class ETriplePersistenceProvider implements PersistenceProvider {
 			} catch (InvocationTargetException e) {
 				e.printStackTrace();
 			}
-		}
-		return m;
-	}
-
-	@SuppressWarnings("unchecked")
-	private Class<? extends Module> getModuleClass() {
-		ClassLoader loader = Thread.currentThread().getContextClassLoader();
-		Class<? extends Module> m = null;
-		try {
-			m = (Class<? extends Module>) loader.loadClass("com.emftriple.impl.QueryMappingModule");
-		} catch (ClassNotFoundException e) {
-			return null;
 		}
 		return m;
 	}
