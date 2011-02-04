@@ -12,14 +12,14 @@ import javax.persistence.TypedQuery;
 
 import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.query.mql.MQuery;
+import com.emftriple.query.jpql.JPQLQuery;
 
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class JpqlTypedQuery<T> extends Jpql implements TypedQuery<T> {
+public class JpqlTypedQuery<T> extends JpqlQuery implements TypedQuery<T> {
 
 	private Class<T> aClass;
 
@@ -28,7 +28,7 @@ public class JpqlTypedQuery<T> extends Jpql implements TypedQuery<T> {
 		this.aClass = aClass;
 	}
 	
-	public JpqlTypedQuery(EntityDataSourceManager dataSourceManager, MQuery query, Mapping mapping, Class<T> aClass) {
+	public JpqlTypedQuery(EntityDataSourceManager dataSourceManager, JPQLQuery query, Mapping mapping, Class<T> aClass) {
 		super(dataSourceManager, query, mapping);
 		this.aClass = aClass;
 	}

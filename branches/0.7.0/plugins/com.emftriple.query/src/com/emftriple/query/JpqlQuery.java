@@ -25,8 +25,8 @@ import javax.persistence.TemporalType;
 import com.emftriple.Mapping;
 import com.emftriple.datasources.EntityDataSourceManager;
 import com.emftriple.impl.ParameterImpl;
-import com.emftriple.query.mql.MQuery;
-import com.emftriple.query.mql.SelectStatement;
+import com.emftriple.query.jpql.JPQLQuery;
+import com.emftriple.query.jpql.SelectStatement;
 import com.emftriple.query.sparql.SelectQuery;
 import com.emftriple.query.transform.JpqlSelect2SparqlSelect;
 import com.google.common.collect.Maps;
@@ -37,9 +37,9 @@ import com.google.common.collect.Maps;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public class Jpql implements Query {
+public class JpqlQuery implements Query {
 
-	protected final MQuery theQuery;
+	protected final JPQLQuery theQuery;
 
 	protected final EntityDataSourceManager dataSourceManager;
 
@@ -55,16 +55,16 @@ public class Jpql implements Query {
 
 	protected Map<String, Object> hints;
 
-	public Jpql(EntityDataSourceManager dataSourceManager, String queryString, Mapping mapping) {
+	public JpqlQuery(EntityDataSourceManager dataSourceManager, String queryString, Mapping mapping) {
 		this.dataSourceManager = dataSourceManager;
 		this.properties = Maps.newHashMap();
 		this.parameters = Maps.newHashMap();
 		this.hints = Maps.newHashMap();
-		this.theQuery = MQueryBuilder.getSelect(queryString);
+		this.theQuery = JpqlBuilder.getSelect(queryString);
 		this.mapping = mapping;
 	}
 
-	public Jpql(EntityDataSourceManager dataSourceManager, MQuery aQuery, Mapping mapping) {
+	public JpqlQuery(EntityDataSourceManager dataSourceManager, JPQLQuery aQuery, Mapping mapping) {
 		this.dataSourceManager = dataSourceManager;
 		this.properties = Maps.newHashMap();		
 		this.parameters = Maps.newHashMap();
@@ -84,7 +84,7 @@ public class Jpql implements Query {
 
 		if (theQuery instanceof SelectStatement) {
 			final SelectQuery query = transform((SelectStatement)theQuery, new JpqlSelect2SparqlSelect(mapping));
-			Sparql sparql = new Sparql(getDataSourceManager(), query, properties, parameters, hints, maxResults);
+			SparqlQuery sparql = new SparqlQuery(getDataSourceManager(), query, properties, parameters, hints, maxResults);
 			
 			return sparql.getResultList();
 		}

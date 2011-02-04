@@ -10,12 +10,13 @@ package com.emftriple.query;
 import javax.persistence.TypedQuery;
 
 import com.emftriple.Mapping;
-import com.emftriple.query.mql.MQuery;
+import com.emftriple.query.jpql.JPQLQuery;
 
 /**
  * 
+ * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
- * @since 0.5.5
+ * @since 0.7.0
  */
 public interface QueryMapping extends Mapping {
 
@@ -24,7 +25,7 @@ public interface QueryMapping extends Mapping {
 	 * @param queryString
 	 * @return
 	 */
-	MQuery getNamedQuery(String queryString);
+	JPQLQuery getNamedQuery(String queryString);
 	
 	/**
 	 * 

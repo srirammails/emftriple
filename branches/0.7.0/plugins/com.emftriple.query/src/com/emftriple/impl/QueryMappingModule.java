@@ -9,6 +9,12 @@ import com.emftriple.config.persistence.Property;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 
+/**
+ * 
+ * 
+ * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+ * @since 0.7.0
+ */
 public class QueryMappingModule extends AbstractModule {
 
 	private final List<EPackage> packages;

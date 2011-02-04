@@ -18,7 +18,7 @@
    </license>
 
    <requires>
-      <import plugin="com.emftriple.query.mquery" version="0.6.0" match="greaterOrEqual"/>
+      <import plugin="com.emftriple.query.jpql" version="0.7.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.ui" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
@@ -31,7 +31,7 @@
    </requires>
 
    <plugin
-         id="com.emftriple.query.mquery.ui"
+         id="com.emftriple.query.jpql.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
