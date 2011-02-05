@@ -15,14 +15,14 @@ import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
 
 /**
- * The {@link NamedGraphDataSource} interface represents a {@link DataSource} that supports named graphs.
+ * The {@link INamedGraphDataSource} interface represents a {@link IDataSource} that supports named graphs.
  * 
- * @see DataSource
+ * @see IDataSource
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public interface NamedGraphDataSource extends DataSource {
+public interface INamedGraphDataSource extends IDataSource {
 
 	/**
 	 * 
@@ -32,7 +32,7 @@ public interface NamedGraphDataSource extends DataSource {
 	NamedGraph getNamedGraph(URI graphURI);
 	
 	/**
-	 * Returns the List of {@link URI} identifying the {@link DataSource} Named Graphs.
+	 * Returns the List of {@link URI} identifying the {@link IDataSource} Named Graphs.
 	 */
 	List<URI> getNamedGraphs();
 
@@ -49,7 +49,7 @@ public interface NamedGraphDataSource extends DataSource {
 	 * @param graph
 	 * @return
 	 */
-	ResultSet selectQuery(String query, URI graph);
+	IResultSet selectQuery(String query, URI graph);
 	
 	/**
 	 * 

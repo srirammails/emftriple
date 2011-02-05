@@ -7,7 +7,7 @@
  */
 package com.emftriple.datasources.impl;
 
-import com.emftriple.datasources.DataSource;
+import com.emftriple.datasources.IDataSource;
 
 
 /**
@@ -16,7 +16,7 @@ import com.emftriple.datasources.DataSource;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public abstract class AbstractDataSource implements DataSource {
+public abstract class AbstractDataSource implements IDataSource {
 	
 	protected final String name;
 

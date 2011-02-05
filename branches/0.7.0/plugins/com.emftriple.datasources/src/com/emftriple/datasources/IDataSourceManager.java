@@ -14,19 +14,19 @@ import org.eclipse.emf.common.util.URI;
 import com.emf4sw.rdf.RDFGraph;
 
 /**
- * The {@link DataSourceManager} interface represents the set of methods relative to the management of {@link DataSource}.
- * A {@link DataSourceManager} is supposed to manage a set of {@link DataSource}. The implementation of a {@link DataSourceManager} 
+ * The {@link IDataSourceManager} interface represents the set of methods relative to the management of {@link IDataSource}.
+ * A {@link IDataSourceManager} is supposed to manage a set of {@link IDataSource}. The implementation of a {@link IDataSourceManager} 
  * must take into account the delivery of SPAQRL queries to the required data sources.
  * 
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public interface DataSourceManager {
+public interface IDataSourceManager {
 	
 	/**
-	 * Adds an {@link RDFGraph} to a {@link DataSource}. 
-	 * The implementation must locate the {@link DataSource} according to
+	 * Adds an {@link RDFGraph} to a {@link IDataSource}. 
+	 * The implementation must locate the {@link IDataSource} according to
 	 * the value of the URI attribute of the {@link RDFGraph}.
 	 *  
 	 * @param graph
@@ -34,8 +34,8 @@ public interface DataSourceManager {
 	void add(RDFGraph graph);
 
 	/**
-	 * Removes an {@link RDFGraph} to a {@link DataSource}. 
-	 * The implementation must locate the {@link DataSource} according to
+	 * Removes an {@link RDFGraph} to a {@link IDataSource}. 
+	 * The implementation must locate the {@link IDataSource} according to
 	 * the value of the URI attribute of the {@link RDFGraph}.
 	 * 
 	 * @param graph
@@ -43,31 +43,31 @@ public interface DataSourceManager {
 	void remove(RDFGraph graph);
 
 	/**
-	 * Connect the managed {@link DataSource}.
+	 * Connect the managed {@link IDataSource}.
 	 */
 	void connect();
 
 	/**
-	 * Disconnect the managed {@link DataSource}
+	 * Disconnect the managed {@link IDataSource}
 	 */
 	void disconnect();
 	
 	/**
-	 * Returns the list of managed {@link DataSource}
+	 * Returns the list of managed {@link IDataSource}
 	 * 
 	 * @return list of data sources
 	 */
-	List<DataSource> getDataSources();
+	List<IDataSource> getDataSources();
 	
 	/**
-	 * Returns the {@link DataSource} identify by a URI, or containing a corresponding 
+	 * Returns the {@link IDataSource} identify by a URI, or containing a corresponding 
 	 * named graph.
 	 *  
 	 * @param graphURI identifying a data source
 	 * 
 	 * @return data source
 	 */
-	DataSource getDataSourceByGraph(URI graphURI);
+	IDataSource getDataSourceByGraph(URI graphURI);
 	
 	/**
 	 * Returns the DataSource according to its name.
@@ -75,18 +75,18 @@ public interface DataSourceManager {
 	 * @param name
 	 * @return data source
 	 */
-	DataSource getDataSource(String name);
+	IDataSource getDataSource(String name);
 	
 	/**
-	 * Executes a {@link SelectQuery} against a {@link DataSource}
+	 * Executes a {@link SelectQuery} against a {@link IDataSource}
 	 * 
 	 * @param aQuery to execute
 	 * @return query execution
 	 */
-	ResultSet executeSelectQuery(String aQuery);
+	IResultSet executeSelectQuery(String aQuery);
 
 	/**
-	 * Executes an {@link AskQuery} against a {@link DataSource}
+	 * Executes an {@link AskQuery} against a {@link IDataSource}
 	 * 
 	 * @param aQuery to execute
 	 * @return query execution
@@ -94,7 +94,7 @@ public interface DataSourceManager {
 	boolean executeAskQuery(String aQuery);
 
 	/**
-	 * Executes a {@link ConstructQuery} against a {@link DataSource}
+	 * Executes a {@link ConstructQuery} against a {@link IDataSource}
 	 * 
 	 * @param aQuery to execute
 	 * @return query execution
@@ -102,7 +102,7 @@ public interface DataSourceManager {
 	RDFGraph executeConctructQuery(String aQuery);
 
 	/**
-	 * Executes a {@link DescribeQuery} against a {@link DataSource}
+	 * Executes a {@link DescribeQuery} against a {@link IDataSource}
 	 * 
 	 * @param aQuery to execute
 	 * @return query execution
@@ -110,7 +110,7 @@ public interface DataSourceManager {
 	RDFGraph executeDescribeQuery(String query);
 	
 	/**
-	 * Executes an {@link UpdateQuery} against a {@link DataSource}
+	 * Executes an {@link UpdateQuery} against a {@link IDataSource}
 	 * 
 	 * @param aQuery to execute
 	 * @return query execution
@@ -122,6 +122,6 @@ public interface DataSourceManager {
 	 * 
 	 * @return data source
 	 */
-	DataSource getDefaultDataSource();
+	IDataSource getDefaultDataSource();
 
 }

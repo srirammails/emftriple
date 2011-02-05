@@ -12,16 +12,16 @@ import org.eclipse.emf.common.util.URI;
 import com.emf4sw.rdf.NamedGraph;
 
 /**
- * The {@link MutableNamedGraphDataSource} interface represents {@link DataSource} being both mutable 
+ * The {@link IMutableNamedGraphDataSource} interface represents {@link IDataSource} being both mutable 
  * and that supports named graphs.
  * 
- * @see MutableDataSource
- * @see NamedGraphDataSource
+ * @see IMutableDataSource
+ * @see INamedGraphDataSource
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public interface MutableNamedGraphDataSource extends NamedGraphDataSource, MutableDataSource {
+public interface IMutableNamedGraphDataSource extends INamedGraphDataSource, IMutableDataSource {
 
 	/**
 	 * 
