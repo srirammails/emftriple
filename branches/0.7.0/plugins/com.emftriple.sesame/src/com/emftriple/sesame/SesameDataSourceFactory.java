@@ -17,15 +17,15 @@ import org.openrdf.sail.memory.MemoryStore;
 import org.openrdf.sail.nativerdf.NativeStore;
 
 import com.emftriple.config.persistence.DataSourceBuilder;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.DataSourceFactory;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IDataSourceFactory;
 
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class SesameDataSourceFactory implements DataSourceFactory {
+public class SesameDataSourceFactory implements IDataSourceFactory {
 	
 	public static final String SESAME_NATIVE_CLASS_NAME = SesameNative.class.getName();
 	
@@ -67,8 +67,8 @@ public class SesameDataSourceFactory implements DataSourceFactory {
 	}
 
 	@Override
-	public DataSource create(DataSourceBuilder config) {
-		DataSource dataSource = null;
+	public IDataSource create(DataSourceBuilder config) {
+		IDataSource dataSource = null;
 		if (config.getClass_().equals(SESAME_MEM_CLASS_NAME)) {
 			dataSource = createSesameMem(config);
 		}
@@ -81,7 +81,7 @@ public class SesameDataSourceFactory implements DataSourceFactory {
 		return dataSource;
 	}
 
-	private DataSource createSesameMem(DataSourceBuilder config) {
+	private IDataSource createSesameMem(DataSourceBuilder config) {
 		final Repository repository;
 		if (config.getUrl() == null) {
 			repository = new SailRepository( new MemoryStore() );
@@ -98,7 +98,7 @@ public class SesameDataSourceFactory implements DataSourceFactory {
 		return new SesameMem(config.getName(), repository);
 	}
 	
-	private DataSource createSesameNative(DataSourceBuilder config) {
+	private IDataSource createSesameNative(DataSourceBuilder config) {
 		File dataDir = new File(config.getUrl());
 		Repository repository = new SailRepository(new NativeStore(dataDir));
 		try {
@@ -110,7 +110,7 @@ public class SesameDataSourceFactory implements DataSourceFactory {
 		return new SesameNative(config.getName(), repository);
 	}
 	
-	private DataSource createHttpRepository(DataSourceBuilder config) {
+	private IDataSource createHttpRepository(DataSourceBuilder config) {
 		final Repository repository = new HTTPRepository(config.getUrl());
 		try {
 			repository.initialize();

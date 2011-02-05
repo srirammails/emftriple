@@ -18,10 +18,10 @@ import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.jena.NamedGraphInjector;
 import com.emf4sw.rdf.jena.RDFGraphExtractor;
-import com.emftriple.datasources.MutableNamedGraphDataSource;
-import com.emftriple.datasources.ResultSet;
-import com.emftriple.datasources.SparqlUpdateDataSource;
-import com.emftriple.datasources.TransactionEnableDataSource;
+import com.emftriple.datasources.IMutableNamedGraphDataSource;
+import com.emftriple.datasources.IResultSet;
+import com.emftriple.datasources.ISparqlUpdateDataSource;
+import com.emftriple.datasources.ITransactionEnableDataSource;
 import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
 import com.emftriple.jena.util.JenaResultSet;
 import com.hp.hpl.jena.query.Dataset;
@@ -42,7 +42,7 @@ import com.hp.hpl.jena.update.UpdateAction;
  * @since 0.6.0
  */
 public class JenaSDB extends AbstractNamedGraphDataSource 
-implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnableDataSource {
+implements ISparqlUpdateDataSource, IMutableNamedGraphDataSource, ITransactionEnableDataSource {
 
 	public static final String JENA_SDB_OPTION_USER = "emftriple.db.user";
 	
@@ -115,8 +115,8 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 	}
 
 	@Override
-	public ResultSet selectQuery(String query, URI graph) {
-		ResultSet resultSet = null;
+	public IResultSet selectQuery(String query, URI graph) {
+		IResultSet resultSet = null;
 		final Dataset ds = DatasetStore.create(store);
 		
 		if (ds.containsNamedModel(graph.toString())) {
@@ -129,7 +129,7 @@ implements SparqlUpdateDataSource, MutableNamedGraphDataSource, TransactionEnabl
 	}
 
 	@Override
-	public ResultSet selectQuery(String query) {
+	public IResultSet selectQuery(String query) {
 		final Dataset ds = DatasetStore.create(store);
 		return new JenaResultSet ( 
 				QueryExecutionFactory.create( QueryFactory.create( query ), ds.getDefaultModel() )

@@ -14,9 +14,9 @@ import org.eclipse.emf.common.util.URI;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.jena.NamedGraphInjector;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.NamedGraphDataSource;
-import com.emftriple.datasources.ResultSet;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.INamedGraphDataSource;
+import com.emftriple.datasources.IResultSet;
 import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
 import com.emftriple.jena.util.JenaResultSet;
 import com.hp.hpl.jena.query.Query;
@@ -26,12 +26,12 @@ import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 
 /**
- * {@link JenaService} is a SPARQL endpoint {@link DataSource} representation.
+ * {@link JenaService} is a SPARQL endpoint {@link IDataSource} representation.
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class JenaService extends AbstractNamedGraphDataSource implements NamedGraphDataSource {
+public class JenaService extends AbstractNamedGraphDataSource implements INamedGraphDataSource {
 
 	private final String service;
 	
@@ -76,14 +76,14 @@ public class JenaService extends AbstractNamedGraphDataSource implements NamedGr
 	}
 	
 	@Override
-	public ResultSet selectQuery(String query) {
+	public IResultSet selectQuery(String query) {
 		return new JenaResultSet( 
 					QueryExecutionFactory.sparqlService(service, QueryFactory.create( query )).execSelect()
 				);
 	}
 
 	@Override
-	public ResultSet selectQuery(String query, URI graph) {
+	public IResultSet selectQuery(String query, URI graph) {
 		throw new UnsupportedOperationException("select query on graph is not supported yet.");
 	}
 	

@@ -13,8 +13,8 @@ import java.io.FileOutputStream;
 
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.jena.RDFGraphExtractor;
-import com.emftriple.datasources.ResultSet;
-import com.emftriple.datasources.SparqlUpdateDataSource;
+import com.emftriple.datasources.IResultSet;
+import com.emftriple.datasources.ISparqlUpdateDataSource;
 import com.emftriple.datasources.impl.AbstractDataSource;
 import com.emftriple.jena.util.JenaResultSet;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -31,7 +31,7 @@ import com.hp.hpl.jena.update.UpdateAction;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class JenaFile extends AbstractDataSource implements SparqlUpdateDataSource {
+public class JenaFile extends AbstractDataSource implements ISparqlUpdateDataSource {
 
 	private final String fileLocation;
 
@@ -67,8 +67,8 @@ public class JenaFile extends AbstractDataSource implements SparqlUpdateDataSour
 	}
 	
 	@Override
-	public ResultSet selectQuery(String query) {
-		ResultSet rs = null;
+	public IResultSet selectQuery(String query) {
+		IResultSet rs = null;
 		try {
 			rs = new JenaResultSet( 
 						QueryExecutionFactory.create( QueryFactory.create( query ), model )

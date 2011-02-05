@@ -20,9 +20,9 @@ import org.openrdf.query.TupleQueryResult;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.Resource;
-import com.emftriple.datasources.ResultSet;
+import com.emftriple.datasources.IResultSet;
 
-public class SesameResultSet implements ResultSet {
+public class SesameResultSet implements IResultSet {
 
 	private final TupleQueryResult result;
 

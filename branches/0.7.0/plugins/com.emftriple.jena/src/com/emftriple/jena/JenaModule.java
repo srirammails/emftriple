@@ -7,7 +7,11 @@
  */
 package com.emftriple.jena;
 
-import com.emftriple.datasources.DataSourceFactory;
+import java.util.Properties;
+
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IDataSourceFactory;
+import com.emftriple.datasources.IDataSourceFactoryModule;
 import com.google.inject.AbstractModule;
 
 /**
@@ -15,12 +19,32 @@ import com.google.inject.AbstractModule;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class JenaModule extends AbstractModule {
+public class JenaModule extends AbstractModule implements IDataSourceFactoryModule {
 
+	private Properties properties;
+	private Class<? extends IDataSource> kind;
+
+	public JenaModule() {}
+	
+	public JenaModule(Class<? extends IDataSource> kind, Properties properties) {
+		this.kind = kind;
+		this.properties = properties;
+	}
+	
 	@Override
 	protected void configure() {
-		bind(DataSourceFactory.class)
+		bind(IDataSourceFactory.class)
 			.to(JenaDataSourceFactory.class);		
+	}
+
+	@Override
+	public Properties getProperties() {
+		return properties;
+	}
+
+	@Override
+	public Class<? extends IDataSource> getDataSourceClass() {
+		return kind;
 	}
 
 }

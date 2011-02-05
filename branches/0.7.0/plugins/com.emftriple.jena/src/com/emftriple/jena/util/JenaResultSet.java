@@ -6,7 +6,7 @@ import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.URIElement;
-import com.emftriple.datasources.ResultSet;
+import com.emftriple.datasources.IResultSet;
 import com.hp.hpl.jena.query.QuerySolution;
 
 /**
@@ -15,7 +15,7 @@ import com.hp.hpl.jena.query.QuerySolution;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.1
  */
-public class JenaResultSet implements ResultSet {
+public class JenaResultSet implements IResultSet {
 	
 	private com.hp.hpl.jena.query.ResultSet resultSet;
 	

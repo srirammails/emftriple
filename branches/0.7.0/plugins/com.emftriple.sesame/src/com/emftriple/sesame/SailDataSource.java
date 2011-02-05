@@ -23,9 +23,9 @@ import org.openrdf.repository.RepositoryException;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.sesame.RDFGraph2SesameGraph;
-import com.emftriple.datasources.MutableNamedGraphDataSource;
-import com.emftriple.datasources.ResultSet;
-import com.emftriple.datasources.TransactionEnableDataSource;
+import com.emftriple.datasources.IMutableNamedGraphDataSource;
+import com.emftriple.datasources.IResultSet;
+import com.emftriple.datasources.ITransactionEnableDataSource;
 import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
 import com.emftriple.sesame.util.SesameGraphResult2RDFGraph;
 import com.emftriple.sesame.util.SesameResultSet;
@@ -35,7 +35,7 @@ import com.emftriple.sesame.util.SesameResultSet;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public abstract class SailDataSource extends AbstractNamedGraphDataSource implements MutableNamedGraphDataSource, TransactionEnableDataSource {
+public abstract class SailDataSource extends AbstractNamedGraphDataSource implements IMutableNamedGraphDataSource, ITransactionEnableDataSource {
 
 	protected RepositoryConnection connection;
 
@@ -133,10 +133,10 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 	}
 	
 	@Override
-	public ResultSet selectQuery(String query, URI graph) {
+	public IResultSet selectQuery(String query, URI graph) {
 		checkIsConnected();
 
-		ResultSet aResult = null;
+		IResultSet aResult = null;
 		try {
 			TupleQuery aQuery = connection.prepareTupleQuery(QueryLanguage.SPARQL, query);
 			aResult = new SesameResultSet(aQuery.evaluate());
@@ -151,10 +151,10 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 	}
 
 	@Override
-	public ResultSet selectQuery(String query) {
+	public IResultSet selectQuery(String query) {
 		checkIsConnected();
 
-		ResultSet aResult = null;
+		IResultSet aResult = null;
 		try {
 			TupleQuery aQuery = connection.prepareTupleQuery(QueryLanguage.SPARQL, query);
 			aResult = new SesameResultSet( aQuery.evaluate() );
