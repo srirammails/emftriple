@@ -10,8 +10,8 @@ package com.emftriple.query;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.datasources.QueryFactory;
+import com.emftriple.datasources.IEntityDataSourceManager;
+import com.emftriple.datasources.IQueryFactory;
 import com.google.inject.Inject;
 
 /**
@@ -20,12 +20,12 @@ import com.google.inject.Inject;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.7.0
  */
-public class QueryFactoryImpl extends NativeQueryFactoryImpl implements QueryFactory {
+public class QueryFactoryImpl extends NativeQueryFactoryImpl implements IQueryFactory {
 
 	private final QueryMapping mapping;
 	
 	@Inject
-	protected QueryFactoryImpl(EntityDataSourceManager dataSourceManager, QueryMapping mapping) {
+	protected QueryFactoryImpl(IEntityDataSourceManager dataSourceManager, QueryMapping mapping) {
 		super(dataSourceManager);
 		this.mapping = mapping;
 	}
