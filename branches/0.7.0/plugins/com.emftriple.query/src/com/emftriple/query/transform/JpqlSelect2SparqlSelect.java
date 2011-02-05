@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.emf4sw.rdf.vocabulary.RDF;
-import com.emftriple.Mapping;
+import com.emftriple.IMapping;
 import com.emftriple.query.jpql.AliasAttributeExpression;
 import com.emftriple.query.jpql.AndExpression;
 import com.emftriple.query.jpql.BooleanExpression;
@@ -72,9 +72,9 @@ public class JpqlSelect2SparqlSelect implements Function<SelectStatement, Select
 
 	private static final SparqlFactory factory = SparqlFactory.eINSTANCE;
 
-	private Mapping mapping;
+	private IMapping mapping;
 
-	public JpqlSelect2SparqlSelect(Mapping mapping) {
+	public JpqlSelect2SparqlSelect(IMapping mapping) {
 		this.mapping = mapping;
 	}
 

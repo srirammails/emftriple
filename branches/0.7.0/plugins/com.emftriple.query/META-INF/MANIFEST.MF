@@ -13,3 +13,6 @@ Require-Bundle: com.google.collect;bundle-version="0.8.0",
  com.emftriple.datasources,
  com.emftriple;bundle-version="0.7.0"
 Import-Package: javax.persistence
+Export-Package: com.emftriple.impl,
+ com.emftriple.query,
+ com.emftriple.query.transform

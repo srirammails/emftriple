@@ -24,11 +24,11 @@ import javax.persistence.TemporalType;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.Resource;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.datasources.MutableDataSource;
-import com.emftriple.datasources.ResultSet;
-import com.emftriple.datasources.ResultSet.Solution;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IEntityDataSourceManager;
+import com.emftriple.datasources.IMutableDataSource;
+import com.emftriple.datasources.IResultSet;
+import com.emftriple.datasources.IResultSet.Solution;
 import com.emftriple.impl.ParameterImpl;
 import com.emftriple.query.sparql.ConstructQuery;
 import com.emftriple.query.sparql.SPARQLQuery;
@@ -56,11 +56,11 @@ public class SparqlQuery implements Query {
 
 	private FlushModeType flushMode;
 
-	private final EntityDataSourceManager dataSourceManager;
+	private final IEntityDataSourceManager dataSourceManager;
 
 	private Map<String, Object> hints;
 
-	public SparqlQuery(EntityDataSourceManager dataSourceManager, String queryString) {
+	public SparqlQuery(IEntityDataSourceManager dataSourceManager, String queryString) {
 		this.dataSourceManager = dataSourceManager;
 		this.theQuery = SparqlBuilder.getQuery(queryString);
 		this.properties = Maps.newHashMap();
@@ -68,7 +68,7 @@ public class SparqlQuery implements Query {
 		this.hints = Maps.newHashMap();
 	}
 
-	public SparqlQuery(EntityDataSourceManager dataSourceManager, SelectQuery query, Map<Object, Object> properties,
+	public SparqlQuery(IEntityDataSourceManager dataSourceManager, SelectQuery query, Map<Object, Object> properties,
 			Map<Object, Object> parameters, Map<String, Object> hints, int maxResults) {
 		this.dataSourceManager = dataSourceManager;
 		this.theQuery = query;
@@ -78,12 +78,12 @@ public class SparqlQuery implements Query {
 		this.hints = hints;
 	}
 
-	private EntityDataSourceManager getDataSourceManager() {
+	private IEntityDataSourceManager getDataSourceManager() {
 		return dataSourceManager;
 	}
 
 	/**
-	 * Execute a SPARQL Update Query only if the {@link DataSource} is a {@link MutableDataSource} and 
+	 * Execute a SPARQL Update Query only if the {@link IDataSource} is a {@link IMutableDataSource} and 
 	 * supports {@link UpdateQuery} operations. Otherwise, do nothing.
 	 */
 	@Override
@@ -94,7 +94,7 @@ public class SparqlQuery implements Query {
 	}
 
 	/**
-	 * Execute the Query on the {@link DataSource} and returns a List of Objects.
+	 * Execute the Query on the {@link IDataSource} and returns a List of Objects.
 	 */
 	@Override
 	public List<?> getResultList() {
@@ -133,7 +133,7 @@ public class SparqlQuery implements Query {
 	private List<?> doExecuteSelectQuery(SelectQuery query) {
 		final List<Object> list = Lists.newArrayList();
 		final SelectQuery queryFinal = (SelectQuery) SparqlBuilder.finalize(query, parameters, maxResults);
-		final ResultSet resultSet = getDataSourceManager().executeSelectQuery(SparqlBuilder.extract(queryFinal));
+		final IResultSet resultSet = getDataSourceManager().executeSelectQuery(SparqlBuilder.extract(queryFinal));
 
 		List<Resource> resources = Lists.newArrayList();
 		for (;resultSet.hasNext();) 
@@ -167,7 +167,7 @@ public class SparqlQuery implements Query {
 	}
 
 	/**
-	 * Execute the Query on the {@link DataSource} and returns a single Object.
+	 * Execute the Query on the {@link IDataSource} and returns a single Object.
 	 */
 	@Override
 	public Object getSingleResult() {

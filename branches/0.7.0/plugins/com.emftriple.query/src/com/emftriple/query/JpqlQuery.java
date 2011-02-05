@@ -22,8 +22,8 @@ import javax.persistence.Parameter;
 import javax.persistence.Query;
 import javax.persistence.TemporalType;
 
-import com.emftriple.Mapping;
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.IMapping;
+import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.impl.ParameterImpl;
 import com.emftriple.query.jpql.JPQLQuery;
 import com.emftriple.query.jpql.SelectStatement;
@@ -41,13 +41,13 @@ public class JpqlQuery implements Query {
 
 	protected final JPQLQuery theQuery;
 
-	protected final EntityDataSourceManager dataSourceManager;
+	protected final IEntityDataSourceManager dataSourceManager;
 
 	protected int maxResults;
 
 	protected FlushModeType flushMode;
 
-	protected Mapping mapping;
+	protected IMapping mapping;
 	
 	protected Map<Object, Object> properties;
 	
@@ -55,7 +55,7 @@ public class JpqlQuery implements Query {
 
 	protected Map<String, Object> hints;
 
-	public JpqlQuery(EntityDataSourceManager dataSourceManager, String queryString, Mapping mapping) {
+	public JpqlQuery(IEntityDataSourceManager dataSourceManager, String queryString, IMapping mapping) {
 		this.dataSourceManager = dataSourceManager;
 		this.properties = Maps.newHashMap();
 		this.parameters = Maps.newHashMap();
@@ -64,7 +64,7 @@ public class JpqlQuery implements Query {
 		this.mapping = mapping;
 	}
 
-	public JpqlQuery(EntityDataSourceManager dataSourceManager, JPQLQuery aQuery, Mapping mapping) {
+	public JpqlQuery(IEntityDataSourceManager dataSourceManager, JPQLQuery aQuery, IMapping mapping) {
 		this.dataSourceManager = dataSourceManager;
 		this.properties = Maps.newHashMap();		
 		this.parameters = Maps.newHashMap();
@@ -92,7 +92,7 @@ public class JpqlQuery implements Query {
 		return result;
 	}
 
-	private EntityDataSourceManager getDataSourceManager() {
+	private IEntityDataSourceManager getDataSourceManager() {
 		return dataSourceManager;
 	}
 

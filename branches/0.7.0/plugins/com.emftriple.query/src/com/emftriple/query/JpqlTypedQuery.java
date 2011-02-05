@@ -10,8 +10,8 @@ import javax.persistence.Parameter;
 import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
-import com.emftriple.Mapping;
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.IMapping;
+import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.query.jpql.JPQLQuery;
 
 /**
@@ -23,12 +23,12 @@ public class JpqlTypedQuery<T> extends JpqlQuery implements TypedQuery<T> {
 
 	private Class<T> aClass;
 
-	public JpqlTypedQuery(EntityDataSourceManager dataSourceManager, String queryString, Mapping mapping, Class<T> aClass) {
+	public JpqlTypedQuery(IEntityDataSourceManager dataSourceManager, String queryString, IMapping mapping, Class<T> aClass) {
 		super(dataSourceManager, queryString, mapping);
 		this.aClass = aClass;
 	}
 	
-	public JpqlTypedQuery(EntityDataSourceManager dataSourceManager, JPQLQuery query, Mapping mapping, Class<T> aClass) {
+	public JpqlTypedQuery(IEntityDataSourceManager dataSourceManager, JPQLQuery query, IMapping mapping, Class<T> aClass) {
 		super(dataSourceManager, query, mapping);
 		this.aClass = aClass;
 	}
