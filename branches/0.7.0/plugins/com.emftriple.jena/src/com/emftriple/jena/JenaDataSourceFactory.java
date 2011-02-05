@@ -21,8 +21,8 @@ import org.eclipse.emf.common.util.URI;
 import com.emftriple.config.persistence.DataSourceBuilder;
 import com.emftriple.config.persistence.Properties;
 import com.emftriple.config.persistence.Property;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.DataSourceFactory;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IDataSourceFactory;
 import com.emftriple.util.Functions;
 import com.google.common.base.Function;
 import com.google.inject.internal.Lists;
@@ -39,12 +39,12 @@ import com.hp.hpl.jena.sdb.store.DatabaseType;
 import com.hp.hpl.jena.sdb.store.LayoutType;
 
 /**
- * Factory class for Jena based {@link DataSource}.
+ * Factory class for Jena based {@link IDataSource}.
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  *
  */
-public class JenaDataSourceFactory implements DataSourceFactory {
+public class JenaDataSourceFactory implements IDataSourceFactory {
 
 	public static final String JENA_FILE_CLASS_NAME = JenaFile.class.getName();
 
@@ -54,7 +54,7 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 
 	public static final String JENA_SERVICE_CLASS_NAME = JenaService.class.getName();
 
-	private Map<DataSourceBuilder, DataSource> descriptors;
+	private Map<DataSourceBuilder, IDataSource> descriptors;
 
 	JenaDataSourceFactory() {
 		descriptors = Maps.newHashMap();
@@ -129,12 +129,12 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 	}
 
 	@Override
-	public DataSource create(DataSourceBuilder config) {
+	public IDataSource create(DataSourceBuilder config) {
 		return descriptors.containsKey(config) ? descriptors.get(config) : doCreate(config);
 	}
 
-	private DataSource doCreate(DataSourceBuilder config) {
-		DataSource dataSource = null;
+	private IDataSource doCreate(DataSourceBuilder config) {
+		IDataSource dataSource = null;
 		if (config.getClass_().equals(JENA_FILE_CLASS_NAME)) {
 			dataSource = createJenaFile(config);
 		}
@@ -152,15 +152,15 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 		return dataSource;
 	}
 
-	private DataSource createJenaService(DataSourceBuilder config) {
+	private IDataSource createJenaService(DataSourceBuilder config) {
 		return new JenaService(config.getName(), config.getUrl(), getGraphs(config));
 	}
 
-	private DataSource createJenaTDB(DataSourceBuilder config) {
+	private IDataSource createJenaTDB(DataSourceBuilder config) {
 		return new JenaTDB(config.getName(), config.getUrl(), getGraphs(config));
 	}
 
-	private DataSource createJenaSDB(DataSourceBuilder config) {
+	private IDataSource createJenaSDB(DataSourceBuilder config) {
 		final String aDbType = getSDBType(config.getProperty());
 		final String aURL = config.getUrl();
 		final String aPassword = getPassword(config.getProperty());
@@ -180,7 +180,7 @@ public class JenaDataSourceFactory implements DataSourceFactory {
 		return new JenaSDB(config.getName(), graphs, store);
 	}
 
-	private DataSource createJenaFile(DataSourceBuilder config) {
+	private IDataSource createJenaFile(DataSourceBuilder config) {
 		final Model model = ModelFactory.createDefaultModel();
 		final File file = new File(config.getUrl());
 

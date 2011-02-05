@@ -6,9 +6,9 @@ import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.MutableDataSource;
-import com.emftriple.datasources.ResultSet;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IMutableDataSource;
+import com.emftriple.datasources.IResultSet;
 import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
 import com.emftriple.jena.util.JenaResultSet;
 import com.hp.hpl.jena.query.DatasetFactory;
@@ -21,17 +21,17 @@ import com.hp.hpl.jena.query.Syntax;
  * @author ehilgui
  *
  */
-public class ARQFederation extends AbstractNamedGraphDataSource implements MutableDataSource {
+public class ARQFederation extends AbstractNamedGraphDataSource implements IMutableDataSource {
 
-	protected final List<DataSource> dataSources;
+	protected final List<IDataSource> dataSources;
 	
-	protected ARQFederation(String name, List<URI> namedGraphURIs, List<DataSource> dataSources) {
+	protected ARQFederation(String name, List<URI> namedGraphURIs, List<IDataSource> dataSources) {
 		super(name, namedGraphURIs);
 		this.dataSources = dataSources;
 	}
 
 	@Override
-	public ResultSet selectQuery(String query) {
+	public IResultSet selectQuery(String query) {
 		QueryExecution qe = QueryExecutionFactory.create(query, Syntax.syntaxARQ, DatasetFactory.create());
 		com.hp.hpl.jena.query.ResultSet rs = qe.execSelect();
 		
@@ -81,7 +81,7 @@ public class ARQFederation extends AbstractNamedGraphDataSource implements Mutab
 	}
 
 	@Override
-	public ResultSet selectQuery(String query, URI graph) {
+	public IResultSet selectQuery(String query, URI graph) {
 		// TODO Auto-generated method stub
 		return null;
 	}
