@@ -10,10 +10,12 @@ package com.emftriple.spi;
 import java.util.Map;
 
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.spi.PersistenceProvider;
 import javax.persistence.spi.PersistenceUnitInfo;
 import javax.persistence.spi.ProviderUtil;
 
 import com.emftriple.ETriple;
+import com.emftriple.impl.FileDescriptorModule;
 
 /**
  * 
@@ -41,7 +43,7 @@ public class PersistenceProviderImpl implements javax.persistence.spi.Persistenc
 	
 	private javax.persistence.spi.PersistenceProvider getPersistenceProvider() {
 		if (persistenceProvider == null) {
-			persistenceProvider = ETriple.getInstance().getPersistenceProvider();
+			persistenceProvider = ETriple.inject(new FileDescriptorModule()).getInstance(PersistenceProvider.class);
 		}
 		return persistenceProvider;
 	}

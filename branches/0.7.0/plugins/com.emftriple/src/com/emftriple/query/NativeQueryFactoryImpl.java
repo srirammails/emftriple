@@ -4,16 +4,16 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.datasources.QueryFactory;
+import com.emftriple.datasources.IEntityDataSourceManager;
+import com.emftriple.datasources.IQueryFactory;
 import com.google.inject.Inject;
 
-public class NativeQueryFactoryImpl implements QueryFactory {
+public class NativeQueryFactoryImpl implements IQueryFactory {
 
-	protected final EntityDataSourceManager dataSourceManager;
+	protected final IEntityDataSourceManager dataSourceManager;
 	
 	@Inject
-	protected NativeQueryFactoryImpl(EntityDataSourceManager dataSourceManager) {
+	protected NativeQueryFactoryImpl(IEntityDataSourceManager dataSourceManager) {
 		this.dataSourceManager = dataSourceManager;
 	}
 	

@@ -13,20 +13,20 @@ import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import com.emftriple.Mapping;
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.resource.ETripleObject.URIBuilder;
+import com.emftriple.IMapping;
+import com.emftriple.datasources.IEntityDataSourceManager;
+import com.emftriple.resource.IETripleObject.URIBuilder;
 import com.emftriple.resource.ETripleResource.ResourceManager;
-import com.emftriple.transform.GetObject;
+import com.emftriple.transform.IGetObject;
 
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class GetProxyObjectImpl extends AbstractGetObject implements GetObject {
+public class GetProxyObjectImpl extends AbstractGetObject implements IGetObject {
 
-	public GetProxyObjectImpl(ResourceManager manager, Mapping mapping, EntityDataSourceManager dataSourceManager) {
+	public GetProxyObjectImpl(ResourceManager manager, IMapping mapping, IEntityDataSourceManager dataSourceManager) {
 		super(manager, mapping, dataSourceManager);
 	}
 

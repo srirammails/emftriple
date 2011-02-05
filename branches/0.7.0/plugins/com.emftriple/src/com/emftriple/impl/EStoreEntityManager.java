@@ -5,8 +5,8 @@ import javax.persistence.EntityManagerFactory;
 
 import org.eclipse.emf.ecore.InternalEObject.EStore;
 
-import com.emftriple.Mapping;
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.IMapping;
+import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.resource.ETripleStore;
 
 /**
@@ -18,7 +18,7 @@ public class EStoreEntityManager extends EObjectEntityManager implements EntityM
 
 	private final ETripleStore eStore;
 
-	public EStoreEntityManager(EntityManagerFactory emf, EntityDataSourceManager dataSourceManager, Mapping mapping, ETripleStore eStore) {
+	public EStoreEntityManager(EntityManagerFactory emf, IEntityDataSourceManager dataSourceManager, IMapping mapping, ETripleStore eStore) {
 		super(emf, dataSourceManager, mapping);
 		this.isOpen = true;
 		this.eStore = eStore;

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 
-import com.emftriple.Mapping;
+import com.emftriple.IMapping;
 import com.emftriple.config.persistence.Property;
 
 /**
@@ -23,7 +23,7 @@ import com.emftriple.config.persistence.Property;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public abstract class AbstractMapping implements Mapping {
+public abstract class AbstractMapping implements IMapping {
 
 	protected List<EPackage> ePackages;
 

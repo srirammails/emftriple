@@ -12,7 +12,7 @@ import com.emftriple.impl.ETripleEntityManagerFactory;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.7.0
  */
-public class ETripleObjectImpl extends EStoreEObjectImpl implements ETripleObject {
+public class ETripleObjectImpl extends EStoreEObjectImpl implements IETripleObject {
 	
 	private URI uri;
 	

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import com.emftriple.resource.ETripleObject;
+import com.emftriple.resource.IETripleObject;
 import com.emftriple.util.EntityUtil;
 import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
@@ -38,8 +38,8 @@ final class IDGenerator {
 	 * Return the value of object id.
 	 */
 	public static URI getId(EObject object) {
-		if (object instanceof ETripleObject) {
-			return ((ETripleObject)object).eGetURI();
+		if (object instanceof IETripleObject) {
+			return ((IETripleObject)object).eGetURI();
 		}
 		
 		EAttribute attrId = EntityUtil.getId(object.eClass());

@@ -27,16 +27,16 @@ import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.URIElement;
 import com.emf4sw.rdf.resource.RDFResource;
 import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
-import com.emftriple.Mapping;
+import com.emftriple.IMapping;
 import com.emftriple.config.persistence.Federation;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.datasources.MutableDataSource;
-import com.emftriple.datasources.QueryFactory;
-import com.emftriple.datasources.TransactionEnableDataSource;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IEntityDataSourceManager;
+import com.emftriple.datasources.IMutableDataSource;
+import com.emftriple.datasources.IQueryFactory;
+import com.emftriple.datasources.ITransactionEnableDataSource;
 import com.emftriple.resource.ETripleResource.ResourceManager;
-import com.emftriple.transform.GetObject;
-import com.emftriple.transform.PutObject;
+import com.emftriple.transform.IGetObject;
+import com.emftriple.transform.IPutObject;
 import com.emftriple.transform.impl.GetEObjectImpl;
 import com.emftriple.transform.impl.GetProxyObjectImpl;
 import com.emftriple.transform.impl.PutObjectImpl;
@@ -52,18 +52,18 @@ import com.google.inject.name.Named;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl implements EntityDataSourceManager {
+public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl implements IEntityDataSourceManager {
 
-	private final QueryFactory queryFactory;
+	private final IQueryFactory queryFactory;
 
-	protected GetObject get;
+	protected IGetObject get;
 
-	protected PutObject put;
+	protected IPutObject put;
 
 	private GetProxyObjectImpl proxyFactory;
 
 	@Inject
-	EntityDataSourceManagerImpl(ResourceManager manager, Mapping mapping, @Named("DataSources") Federation dataSources, QueryFactory queryFactory) {
+	EntityDataSourceManagerImpl(ResourceManager manager, IMapping mapping, @Named("DataSources") Federation dataSources, IQueryFactory queryFactory) {
 		super(manager, mapping, dataSources);
 
 		this.queryFactory = queryFactory;
@@ -73,12 +73,12 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	}
 
 	@Override
-	protected PutObject put() {
+	protected IPutObject put() {
 		return put;
 	}
 
 	@Override
-	protected GetObject get() {
+	protected IGetObject get() {
 		return get;
 	}
 
@@ -188,12 +188,12 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 			}
 		}
 
-		final DataSource dataSource = getDefaultDataSource();
-		if (dataSource instanceof MutableDataSource)
+		final IDataSource dataSource = getDefaultDataSource();
+		if (dataSource instanceof IMutableDataSource)
 		{
 			if (!graph.getTriples().isEmpty())
 			{
-				((MutableDataSource) dataSource).add(graph);
+				((IMutableDataSource) dataSource).add(graph);
 			}
 		}
 	}
@@ -205,7 +205,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 
 		final EClass eClass = ((EObject) obj).eClass();
 		final String dataSetName = EntityUtil.getDataSet(eClass);
-		final DataSource dataSource;
+		final IDataSource dataSource;
 		
 		if (dataSetName != null) {
 			dataSource = getDataSource(dataSetName);
@@ -228,11 +228,11 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		
 		put().put((EObject)obj, graph);
 
-		if (dataSource instanceof MutableDataSource)
+		if (dataSource instanceof IMutableDataSource)
 		{
 			if (!graph.getTriples().isEmpty())
 			{
-				((MutableDataSource) dataSource).add(graph);
+				((IMutableDataSource) dataSource).add(graph);
 			}
 		}
 	}
@@ -266,7 +266,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		{
 			remove((RDFGraph)object);
 		} 
-		else if (getDefaultDataSource() instanceof MutableDataSource) 
+		else if (getDefaultDataSource() instanceof IMutableDataSource) 
 		{
 			final RDFGraph graph = RDFFactory.eINSTANCE.createDocumentGraph();
 			final RDFResource aResource = new DummyRDFResource();
@@ -275,14 +275,14 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 			final RDFGraph subjectGraph = put.put((EObject) object, graph);
 			if (subjectGraph != null) 
 			{
-				((MutableDataSource)getDefaultDataSource()).remove(subjectGraph);
+				((IMutableDataSource)getDefaultDataSource()).remove(subjectGraph);
 			}
 
 			final String id = id(object).toString();
-			final RDFGraph objectGraph = ((MutableDataSource)getDefaultDataSource()).constructQuery(
+			final RDFGraph objectGraph = ((IMutableDataSource)getDefaultDataSource()).constructQuery(
 					"CONSTRUCT {?s ?p <" + id + ">} WHERE {?s ?p <" + id + ">}");
 
-			final MutableDataSource dataSource = (MutableDataSource) getDefaultDataSource();
+			final IMutableDataSource dataSource = (IMutableDataSource) getDefaultDataSource();
 			if (objectGraph != null) {
 				dataSource.remove(objectGraph);	
 			}
@@ -294,7 +294,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	}
 
 	@Override
-	public QueryFactory getQueryFactory() {
+	public IQueryFactory getQueryFactory() {
 		return queryFactory;
 	}
 
@@ -306,7 +306,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		} 
 		else 
 		{
-			return new ETripleEntityTransaction((TransactionEnableDataSource) getDefaultDataSource());
+			return new ETripleEntityTransaction((ITransactionEnableDataSource) getDefaultDataSource());
 		}
 	}
 

@@ -30,7 +30,6 @@ public class FileDescriptorModule extends ETripleModule {
 	}
 
 	static {
-//		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xml", factory);
 		EPackage.Registry.INSTANCE.put(PersistencePackage.eNS_URI, PersistencePackage.eINSTANCE);
 	}
 	

@@ -16,9 +16,9 @@ import javax.persistence.TemporalType;
 
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.datasources.ResultSet;
-import com.emftriple.datasources.ResultSet.Solution;
+import com.emftriple.datasources.IEntityDataSourceManager;
+import com.emftriple.datasources.IResultSet;
+import com.emftriple.datasources.IResultSet.Solution;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
@@ -41,7 +41,7 @@ public class NativeQueryImpl implements Query {
 
 	private FlushModeType flushMode;
 
-	private final EntityDataSourceManager dataSourceManager;
+	private final IEntityDataSourceManager dataSourceManager;
 
 	private Map<String, Object> hints;
 	
@@ -51,7 +51,7 @@ public class NativeQueryImpl implements Query {
 		SELECT, CONSTRUCT, ASK, DESCRIBE, UPDATE;
 	}
 	
-	public NativeQueryImpl(EntityDataSourceManager dataSourceManager, String queryString) {
+	public NativeQueryImpl(IEntityDataSourceManager dataSourceManager, String queryString) {
 		this.dataSourceManager = dataSourceManager;
 		this.query = queryString;
 		this.properties = Maps.newHashMap();
@@ -69,7 +69,7 @@ public class NativeQueryImpl implements Query {
 		return null;
 	}
 
-	NativeQueryImpl(EntityDataSourceManager dataSourceManager, String queryString, Map<Object, Object> properties,
+	NativeQueryImpl(IEntityDataSourceManager dataSourceManager, String queryString, Map<Object, Object> properties,
 			Map<Object, Object> parameters, Map<String, Object> hints, int maxResults) {
 		this.dataSourceManager = dataSourceManager;
 		this.query = queryString;
@@ -80,7 +80,7 @@ public class NativeQueryImpl implements Query {
 		this.type = typeOf(queryString);
 	}
 	
-	private EntityDataSourceManager getDataSourceManager() {
+	private IEntityDataSourceManager getDataSourceManager() {
 		return dataSourceManager;
 	}
 	
@@ -308,7 +308,7 @@ public class NativeQueryImpl implements Query {
 	private List<?> doExecuteSelectQuery(String query) {
 		final List<Object> list = Lists.newArrayList();
 		final String queryFinal = finalize(query, parameters, maxResults);
-		final ResultSet resultSet = getDataSourceManager().executeSelectQuery(queryFinal);
+		final IResultSet resultSet = getDataSourceManager().executeSelectQuery(queryFinal);
 
 		if (resultSet == null)
 			return list;

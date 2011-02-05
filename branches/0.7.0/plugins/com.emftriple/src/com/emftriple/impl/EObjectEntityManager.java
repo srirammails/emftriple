@@ -33,8 +33,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import com.emf4sw.rdf.RDFGraph;
-import com.emftriple.Mapping;
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.IMapping;
+import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.util.SparqlQueries;
 
 /**
@@ -49,7 +49,7 @@ import com.emftriple.util.SparqlQueries;
  */
 public class EObjectEntityManager extends AbstractEntityManager implements EntityManager {
 
-	EObjectEntityManager(EntityManagerFactory emf, EntityDataSourceManager dataSourceManager, Mapping mapping) {
+	EObjectEntityManager(EntityManagerFactory emf, IEntityDataSourceManager dataSourceManager, IMapping mapping) {
 		super(emf, dataSourceManager, mapping);
 		this.isOpen = true;
 	}

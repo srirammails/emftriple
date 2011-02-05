@@ -25,7 +25,7 @@ import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.Resource;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.vocabulary.RDF;
-import com.emftriple.Mapping;
+import com.emftriple.IMapping;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.inject.internal.Maps;
@@ -41,9 +41,9 @@ public class TypeResolver implements Function<URI, EClass> {
 
 	private final RDFGraph aGraph;
 
-	private final Mapping mapping;
+	private final IMapping mapping;
 
-	public TypeResolver(Class<?> entityClass, Mapping mapping, RDFGraph aGraph) {
+	public TypeResolver(Class<?> entityClass, IMapping mapping, RDFGraph aGraph) {
 		this.requestedTypes = entityClass;
 		this.aGraph = aGraph;
 		this.mapping = mapping;
