@@ -11,7 +11,7 @@ import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
 import com.emftriple.impl.EObjectEntityManager;
-import com.emftriple.transform.PutObject;
+import com.emftriple.transform.IPutObject;
 import com.emftriple.transform.impl.PutObjectImpl;
 
 /**
@@ -22,7 +22,7 @@ import com.emftriple.transform.impl.PutObjectImpl;
 public class ETripleRestletUtil {
 	
 	public static RdfRepresentation getRepresentation(Resource resource, EntityManager em, MediaType mediaType) {
-		final PutObject put = new PutObjectImpl(((EObjectEntityManager)em).getMapping(), 
+		final IPutObject put = new PutObjectImpl(((EObjectEntityManager)em).getMapping(), 
 				((EObjectEntityManager)em).getDelegate());
 		
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
@@ -36,7 +36,7 @@ public class ETripleRestletUtil {
 	}
 	
 	public static RdfRepresentation getRepresentation(Iterable<? extends EObject> objects, EntityManager em, MediaType mediaType) {
-		final PutObject put = new PutObjectImpl(((EObjectEntityManager)em).getMapping(), 
+		final IPutObject put = new PutObjectImpl(((EObjectEntityManager)em).getMapping(), 
 				((EObjectEntityManager)em).getDelegate());
 		
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
@@ -50,7 +50,7 @@ public class ETripleRestletUtil {
 	}
 	
 	public static RdfRepresentation getRepresentation(EObject object, EntityManager em, MediaType mediaType) {
-		final PutObject put = new PutObjectImpl(((EObjectEntityManager)em).getMapping(), 
+		final IPutObject put = new PutObjectImpl(((EObjectEntityManager)em).getMapping(), 
 				((EObjectEntityManager)em).getDelegate());
 		
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
