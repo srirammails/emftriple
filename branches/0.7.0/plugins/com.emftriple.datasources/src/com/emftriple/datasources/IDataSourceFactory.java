@@ -11,7 +11,7 @@ import com.emftriple.config.persistence.DataSourceBuilder;
 
 
 /**
- * The {@link DataSourceFactory} interface contains necessary methods to create {@link DataSource} according 
+ * The {@link IDataSourceFactory} interface contains necessary methods to create {@link IDataSource} according 
  * to a given configuration. This interface is supposed to be implemented by data source adapters. This interface 
  * is called during {@link EntityManagerFactory} initialisation to create the set of data sources associated to the 
  * persistence unit. 
@@ -19,10 +19,10 @@ import com.emftriple.config.persistence.DataSourceBuilder;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public interface DataSourceFactory {
+public interface IDataSourceFactory {
 
 	/**
-	 * Returns True if the {@link DataSourceFactory} can create a {@link DataSource} with the given options.
+	 * Returns True if the {@link IDataSourceFactory} can create a {@link IDataSource} with the given options.
 	 * 
 	 * @param descriptor
 	 * @return true if can create
@@ -30,7 +30,7 @@ public interface DataSourceFactory {
 	boolean canCreate(DataSourceBuilder descriptor);
 	
 	/**
-	 * Returns a newly created {@link DataSource} instance corresponding to the given options.
+	 * Returns a newly created {@link IDataSource} instance corresponding to the given options.
 	 * 
 	 * @param options
 	 * 
@@ -38,18 +38,6 @@ public interface DataSourceFactory {
 	 * 
 	 * @throws DataSourceException
 	 */
-	DataSource create(DataSourceBuilder descriptor);
+	IDataSource create(DataSourceBuilder descriptor);
 
-	/**
-	 * 	The {@link Registry} interface manages the {@link DataSource} being created.   
-	 * 
-	 *  @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
-	 *	@since 0.6.0
-	 */
-//	interface Registry {
-//		
-//		Map<String, Object> getURIToDataSourceMap();
-//		 
-//		Registry INSTANCE = new DataSourceFactoryRegistryImpl();
-//	}
 }

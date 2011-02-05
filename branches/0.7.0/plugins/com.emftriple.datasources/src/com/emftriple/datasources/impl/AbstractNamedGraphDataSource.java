@@ -11,14 +11,14 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 
-import com.emftriple.datasources.NamedGraphDataSource;
+import com.emftriple.datasources.INamedGraphDataSource;
 
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public abstract class AbstractNamedGraphDataSource extends AbstractDataSource implements NamedGraphDataSource {
+public abstract class AbstractNamedGraphDataSource extends AbstractDataSource implements INamedGraphDataSource {
 
 	protected final List<URI> namedGraphURIs;
 

@@ -10,12 +10,12 @@ package com.emftriple.datasources;
 import com.emf4sw.rdf.RDFGraph;
 
 /**
- * The {@link DataSource} interface provides an abstraction over diverse kinds of RDF data sources. 
+ * The {@link IDataSource} interface provides an abstraction over diverse kinds of RDF data sources. 
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public abstract interface DataSource {
+public abstract interface IDataSource {
 	
 	/**
 	 * Returns the name of the DataSource.
@@ -24,12 +24,12 @@ public abstract interface DataSource {
 	String getName();
 	
 	/**
-	 * Returns a {@link ResultSet} against a Select SPARQL Query. 
+	 * Returns a {@link IResultSet} against a Select SPARQL Query. 
 	 * 
 	 * @param query to execute
 	 * @return query execution value
 	 */
-	ResultSet selectQuery(String query);
+	IResultSet selectQuery(String query);
 	
 	/**
 	 * Returns a {@link RDFGraph} against a Construct SPARQL Query.
@@ -64,7 +64,7 @@ public abstract interface DataSource {
 	
 	/**
 	 * Returns the value obtained from the execution of an ask query against the 
-	 * {@link DataSource}
+	 * {@link IDataSource}
 	 * 
 	 * @param query to execute
 	 * @return query execution value
@@ -72,26 +72,26 @@ public abstract interface DataSource {
 	boolean askQuery(String query);
 
 	/**
-	 * Test if the current {@link DataSource} supports transactions
+	 * Test if the current {@link IDataSource} supports transactions
 	 * 
 	 * @return true if transactions are supported
 	 */
 	boolean supportsTransaction();
 		
 	/**
-	 * Returns true if the {@link DataSource} if connected
+	 * Returns true if the {@link IDataSource} if connected
 	 * 
 	 * @return true if connected
 	 */
 	boolean isConnected();
 	
 	/**
-	 * Connect the {@link DataSource}
+	 * Connect the {@link IDataSource}
 	 */
 	void connect();
 	
 	/**
-	 * Disconnect the {@link DataSource}
+	 * Disconnect the {@link IDataSource}
 	 */
 	void disconnect();
 

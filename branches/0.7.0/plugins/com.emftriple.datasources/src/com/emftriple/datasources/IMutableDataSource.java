@@ -7,34 +7,31 @@
  */
 package com.emftriple.datasources;
 
+import com.emf4sw.rdf.RDFGraph;
+
 /**
- * The {@link TransactionEnableDataSource} interface represents a {@link DataSource} that supports 
- * transactions.
+ * The {@link IMutableDataSource} interface represents {@link IDataSource} that support add and remove operations.
+ * 
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public interface TransactionEnableDataSource extends DataSource {
+public interface IMutableDataSource extends IDataSource {
 
 	/**
-	 * Begin a transaction
+	 * Adds an {@link RDFGraph} to the {@link IDataSource}
 	 * 
+	 * @param graph to add
 	 * @throws DataSourceException
 	 */
-	void begin();
-	
+	void add(RDFGraph graph);
+	 
 	/**
-	 * Commit changes to the data source
+	 * Removes an {@link RDFGraph} from the {@link IDataSource}
 	 * 
+	 * @param graph to remove
 	 * @throws DataSourceException
 	 */
-	void commit();
-	
-	/**
-	 * Roll back changes 
-	 * 
-	 * @throws DataSourceException
-	 */
-	void rollback();
+	void remove(RDFGraph graph);
 	
 }
