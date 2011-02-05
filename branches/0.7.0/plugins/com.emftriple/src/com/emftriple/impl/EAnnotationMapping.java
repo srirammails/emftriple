@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Resource;
-import com.emftriple.Mapping;
+import com.emftriple.IMapping;
 import com.emftriple.util.EntityUtil;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
@@ -30,7 +30,7 @@ import com.google.inject.name.Named;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.5
  */
-public class EAnnotationMapping extends AbstractMapping implements Mapping {
+public class EAnnotationMapping extends AbstractMapping implements IMapping {
 
 	protected Map<URI, EClass> rdfTypeMap;
 	

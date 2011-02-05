@@ -9,19 +9,19 @@ package com.emftriple.datasources.impl;
 
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.MutableDataSource;
-import com.emftriple.datasources.ResultSet;
-import com.emftriple.datasources.TransactionEnableDataSource;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IMutableDataSource;
+import com.emftriple.datasources.IResultSet;
+import com.emftriple.datasources.ITransactionEnableDataSource;
 
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.5.6
  */
-public class TransactionDataSource extends AbstractDataSource implements MutableDataSource, TransactionEnableDataSource {
+public class TransactionDataSource extends AbstractDataSource implements IMutableDataSource, ITransactionEnableDataSource {
 
-	private DataSource dataSource;
+	private IDataSource dataSource;
 
 	private boolean isRunning = false;
 
@@ -29,7 +29,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 
 	private RDFGraph addedGraph;
 
-	public TransactionDataSource(DataSource dataSource) {
+	public TransactionDataSource(IDataSource dataSource) {
 		super(dataSource.getName());
 		this.dataSource = dataSource;
 	}
@@ -59,11 +59,11 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 		if (!isRunning) {
 			throw new IllegalStateException("DataSource is not in an active transaction.");
 		}
-		if (addedGraph != null && dataSource instanceof MutableDataSource) {
-			((MutableDataSource) dataSource).remove( addedGraph );
+		if (addedGraph != null && dataSource instanceof IMutableDataSource) {
+			((IMutableDataSource) dataSource).remove( addedGraph );
 		}
-		if (removedGraph != null && dataSource instanceof MutableDataSource) {
-			((MutableDataSource) dataSource).add( removedGraph );
+		if (removedGraph != null && dataSource instanceof IMutableDataSource) {
+			((IMutableDataSource) dataSource).add( removedGraph );
 		}
 		commit();
 	}
@@ -94,7 +94,7 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 	}
 
 	@Override
-	public ResultSet selectQuery(String query) {
+	public IResultSet selectQuery(String query) {
 		return dataSource.selectQuery(query);
 	}
 
@@ -108,12 +108,12 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 		if (!isRunning) {
 			throw new IllegalStateException("DataSource is not in an active transaction.");
 		}
-		if (dataSource instanceof MutableDataSource) {
+		if (dataSource instanceof IMutableDataSource) {
 			if (addedGraph == RDFFactory.eINSTANCE.createDocumentGraph()) {
 				addedGraph = graph;
 			}
 			addedGraph.add(graph);
-			((MutableDataSource) dataSource).add(graph);
+			((IMutableDataSource) dataSource).add(graph);
 		}
 	}
 
@@ -122,12 +122,12 @@ public class TransactionDataSource extends AbstractDataSource implements Mutable
 		if (!isRunning) {
 			throw new IllegalStateException("DataSource is not in an active transaction.");
 		}
-		if (dataSource instanceof MutableDataSource) {
+		if (dataSource instanceof IMutableDataSource) {
 			if (removedGraph == RDFFactory.eINSTANCE.createDocumentGraph()) {
 				removedGraph = graph;
 			}
 			removedGraph.add(graph);
-			((MutableDataSource) dataSource).remove(graph);
+			((IMutableDataSource) dataSource).remove(graph);
 		}
 	}
 

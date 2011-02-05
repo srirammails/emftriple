@@ -36,9 +36,9 @@ import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Resource;
 import com.emf4sw.rdf.operations.DatatypeConverter;
 import com.emf4sw.rdf.vocabulary.RDF;
-import com.emftriple.Mapping;
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.transform.PutObject;
+import com.emftriple.IMapping;
+import com.emftriple.datasources.IEntityDataSourceManager;
+import com.emftriple.transform.IPutObject;
 import com.emftriple.util.EntityUtil;
 
 /**
@@ -46,19 +46,19 @@ import com.emftriple.util.EntityUtil;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class PutObjectImpl implements PutObject {
+public class PutObjectImpl implements IPutObject {
 
 	private static final RDFFactory factory = RDFFactory.eINSTANCE;
 
-	private final Mapping mapping;
+	private final IMapping mapping;
 
 	private Map<EObject, Resource> objectCache;
 
 	private Map<EObject, Object> objectIdCache;
 
-	private EntityDataSourceManager manager;
+	private IEntityDataSourceManager manager;
 
-	public PutObjectImpl(Mapping mapping, EntityDataSourceManager manager) {
+	public PutObjectImpl(IMapping mapping, IEntityDataSourceManager manager) {
 		this.mapping = mapping;
 		this.manager = manager;
 	}
@@ -277,7 +277,7 @@ public class PutObjectImpl implements PutObject {
 		}
 	}
 
-	private static void checkIsMappedObject(EObject aObject, Mapping mapping) {
+	private static void checkIsMappedObject(EObject aObject, IMapping mapping) {
 		checkNotNull(mapping);
 
 		if (mapping == null) {

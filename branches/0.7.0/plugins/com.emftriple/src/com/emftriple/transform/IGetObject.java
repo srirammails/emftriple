@@ -7,17 +7,19 @@
  */
 package com.emftriple.transform;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import com.emf4sw.rdf.RDFGraph;
 
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public interface PutObject {
+public interface IGetObject {
 
-	RDFGraph put(EObject from, RDFGraph graph);
+	<T> T get(Class<T> entityClass, URI key);
+	
+	EObject get(EClass eClass, URI key);
 	
 }

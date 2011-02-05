@@ -25,10 +25,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.Resource;
-import com.emftriple.Mapping;
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.IMapping;
+import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.resource.ETripleResource.ResourceManager;
-import com.emftriple.transform.GetObject;
+import com.emftriple.transform.IGetObject;
 import com.emftriple.util.EntityUtil;
 import com.emftriple.util.SparqlQueries;
 
@@ -37,15 +37,15 @@ import com.emftriple.util.SparqlQueries;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public abstract class AbstractGetObject implements GetObject {
+public abstract class AbstractGetObject implements IGetObject {
 
-	protected Mapping mapping;
+	protected IMapping mapping;
 
-	protected EntityDataSourceManager dataSourceManager; 
+	protected IEntityDataSourceManager dataSourceManager; 
 
 	protected ResourceManager manager;
 
-	protected AbstractGetObject(ResourceManager manager, Mapping mapping, EntityDataSourceManager dataSourceManager) {
+	protected AbstractGetObject(ResourceManager manager, IMapping mapping, IEntityDataSourceManager dataSourceManager) {
 		this.manager = manager;
 		this.mapping = mapping;
 		this.dataSourceManager = dataSourceManager;

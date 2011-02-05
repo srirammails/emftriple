@@ -8,16 +8,11 @@
 package com.emftriple.resource;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Query;
 import javax.persistence.TransactionRequiredException;
 
 import org.eclipse.emf.common.util.URI;
@@ -32,10 +27,9 @@ import org.eclipse.emf.ecore.resource.impl.URIHandlerImpl;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.URIElement;
-import com.emftriple.ETriple;
 import com.emftriple.config.persistence.DataSourceBuilder;
 import com.emftriple.config.persistence.Federation;
-import com.emftriple.datasources.DataSource;
+import com.emftriple.datasources.IDataSource;
 import com.emftriple.impl.EObjectEntityManager;
 import com.emftriple.impl.ETripleEntityManagerFactory;
 import com.emftriple.util.EntityUtil;
@@ -52,14 +46,14 @@ public class ETripleResource extends ResourceImpl implements Resource {
 	public static final String ETRIPLE_DATASOURCE_NAME = "ETRIPLE_DATASOURCE_NAME";
 
 	@SuppressWarnings("unused")
-	private DataSource dataSource;
+	private IDataSource dataSource;
 
-	private javax.persistence.spi.PersistenceProvider persistenceProvider;
+//	private javax.persistence.spi.PersistenceProvider persistenceProvider;
 
 	public ETripleResource(URI uri) {
 		super(uri);
 
-		this.persistenceProvider = ETriple.getInstance().getPersistenceProvider();
+//		this.persistenceProvider = ETriple.getInstance().getPersistenceProvider();
 	}
 
 	@Override
@@ -72,32 +66,31 @@ public class ETripleResource extends ResourceImpl implements Resource {
 		super.save(options);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void load(Map<?, ?> options) throws IOException {
-		Map<String, String> decode = decodeQueryString(getURI().authority());
-		String emName = decode.containsKey("unit") ? decode.get("unit") : null;
+//		Map<String, String> decode = decodeQueryString(getURI().authority());
+//		String emName = decode.containsKey("unit") ? decode.get("unit") : null;
 
-		EntityManager em = null;
-		try {
-			EntityManagerFactory emf = persistenceProvider.createEntityManagerFactory(emName, options);
-			em = emf.createEntityManager();
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		}
-
-		if (em != null) {
-			em.getTransaction().begin();
-
-			decode = decodeQueryString(getURI().query());
-			Query q = em.createQuery(decode.get("query"));
-
-			List<?> list = q.getResultList();
-			em.getTransaction().commit();
-			em.close();
-
-			this.getContents().addAll((Collection<? extends EObject>) list);
-		}
+//		EntityManager em = null;
+//		try {
+//			EntityManagerFactory emf = persistenceProvider.createEntityManagerFactory(emName, options);
+//			em = emf.createEntityManager();
+//		} catch (IllegalArgumentException e) {
+//			e.printStackTrace();
+//		}
+//
+//		if (em != null) {
+//			em.getTransaction().begin();
+//
+//			decode = decodeQueryString(getURI().query());
+//			Query q = em.createQuery(decode.get("query"));
+//
+//			List<?> list = q.getResultList();
+//			em.getTransaction().commit();
+//			em.close();
+//
+//			this.getContents().addAll((Collection<? extends EObject>) list);
+//		}
 	}
 
 	@Override

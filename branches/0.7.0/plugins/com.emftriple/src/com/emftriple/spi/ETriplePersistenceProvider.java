@@ -7,8 +7,6 @@
  */
 package com.emftriple.spi;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.persistence.EntityManagerFactory;
@@ -16,21 +14,11 @@ import javax.persistence.spi.PersistenceProvider;
 import javax.persistence.spi.PersistenceUnitInfo;
 import javax.persistence.spi.ProviderUtil;
 
-import org.eclipse.emf.ecore.EPackage;
-
-import com.emftriple.ETriple;
-import com.emftriple.Mapping;
 import com.emftriple.config.persistence.PersistenceMetaData;
 import com.emftriple.config.persistence.PersistenceUnit;
-import com.emftriple.config.persistence.Property;
-import com.emftriple.impl.AbstractMappingModule;
 import com.emftriple.impl.ETripleEntityManagerFactory;
-import com.emftriple.impl.MappingModule;
 import com.emftriple.util.ProviderUtilImpl;
-import com.google.inject.Guice;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.google.inject.internal.Lists;
 
 /**
  * 
@@ -53,10 +41,7 @@ public class ETriplePersistenceProvider implements PersistenceProvider {
 			throw new IllegalArgumentException("Found no persistence unit with name " + info.getPersistenceUnitName());
 		}
 
-		final Mapping mapping = createMapping(unit);
-		final EntityManagerFactory entityManagerFactory = new ETripleEntityManagerFactory(unit, mapping);
-
-		return entityManagerFactory;
+		return new ETripleEntityManagerFactory(unit);
 	}
 
 	@Override
@@ -67,37 +52,10 @@ public class ETriplePersistenceProvider implements PersistenceProvider {
 			throw new IllegalArgumentException("Found no persistence unit with name " + name);
 		}
 
-		final Mapping mapping = createMapping(unit);
-		final EntityManagerFactory entityManagerFactory = new ETripleEntityManagerFactory(unit, mapping);
-
-		return entityManagerFactory;
+		return new ETripleEntityManagerFactory(unit);
 	}
 
-	private Mapping createMapping(PersistenceUnit unit) {
-		final List<EPackage> packages = Lists.newArrayList();
-
-		for (String nsURI: unit.getPackage()) {
-			EPackage findPackage = EPackage.Registry.INSTANCE.getEPackage(nsURI);
-			if (findPackage != null) {
-				packages.add(findPackage);
-			}
-		}
-
-		if (packages.isEmpty()) {
-			throw new IllegalArgumentException("No EPackage(s) found in persistence unit");
-		}
-
-		AbstractMappingModule m = (AbstractMappingModule) ETriple.get(AbstractMappingModule.class);
-		if (m == null) {
-			m = new MappingModule();
-		}
-
-		m.setPackages(packages);
-		m.setProperties(unit.getProperties() == null ? new ArrayList<Property>() : unit.getProperties().getProperties());
-
-		Injector injector = Guice.createInjector( m );
-		return injector.getInstance(Mapping.class);
-	}
+	
 
 	@Override
 	public ProviderUtil getProviderUtil() {

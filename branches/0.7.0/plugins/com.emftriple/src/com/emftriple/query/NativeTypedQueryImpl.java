@@ -11,7 +11,7 @@ import javax.persistence.Parameter;
 import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.datasources.IEntityDataSourceManager;
 
 /**
  * 
@@ -21,11 +21,11 @@ import com.emftriple.datasources.EntityDataSourceManager;
  */
 public class NativeTypedQueryImpl<T> extends NativeQueryImpl implements TypedQuery<T> {
 
-	NativeTypedQueryImpl(EntityDataSourceManager dataSourceManager, String queryString) {
+	NativeTypedQueryImpl(IEntityDataSourceManager dataSourceManager, String queryString) {
 		super(dataSourceManager, queryString);
 	}
 	
-	NativeTypedQueryImpl(EntityDataSourceManager dataSourceManager, String queryString, Map<Object, Object> properties,
+	NativeTypedQueryImpl(IEntityDataSourceManager dataSourceManager, String queryString, Map<Object, Object> properties,
 			Map<Object, Object> parameters, Map<String, Object> hints, int maxResults) {
 		super(dataSourceManager, queryString, properties, parameters, hints, maxResults);
 	}

@@ -2,11 +2,12 @@ package com.emftriple.datasources.impl;
 
 import org.eclipse.emf.ecore.InternalEObject.EStore;
 
-import com.emftriple.Mapping;
+import com.emftriple.IDataSourceModule;
+import com.emftriple.IMapping;
 import com.emftriple.config.persistence.Federation;
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.datasources.EntityManagerDelegate;
-import com.emftriple.datasources.QueryFactory;
+import com.emftriple.datasources.IEntityDataSourceManager;
+import com.emftriple.datasources.IEntityManagerDelegate;
+import com.emftriple.datasources.IQueryFactory;
 import com.emftriple.query.NativeQueryFactoryImpl;
 import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.resource.ETripleResource.ResourceManagerImpl;
@@ -23,7 +24,7 @@ public abstract class DataSourceModule extends AbstractModule implements IDataSo
 
 	protected com.emftriple.config.persistence.Federation federation;
 	
-	protected Mapping mapping;
+	protected IMapping mapping;
 	
 	public DataSourceModule() {}
 	
@@ -33,7 +34,7 @@ public abstract class DataSourceModule extends AbstractModule implements IDataSo
 	}
 	
 	@Override
-	public void setMapping(Mapping mapping) {
+	public void setMapping(IMapping mapping) {
 		this.mapping = mapping;
 	}
 	
@@ -42,7 +43,7 @@ public abstract class DataSourceModule extends AbstractModule implements IDataSo
 		bind(Federation.class)
 			.annotatedWith(Names.named("DataSources"))
 			.toInstance(federation);
-		bind(Mapping.class)
+		bind(IMapping.class)
 			.toInstance(mapping);
 	}
 
@@ -54,13 +55,13 @@ public abstract class DataSourceModule extends AbstractModule implements IDataSo
 		protected void configure() {
 			super.configure();
 			
-			bind(QueryFactory.class)
+			bind(IQueryFactory.class)
 				.to(NativeQueryFactoryImpl.class);
 			bind(ResourceManager.class)
 				.to(ResourceManagerImpl.class);
-			bind(EntityManagerDelegate.class)
+			bind(IEntityManagerDelegate.class)
 				.to(EntityDataSourceManagerImpl.class);
-			bind(EntityDataSourceManager.class)
+			bind(IEntityDataSourceManager.class)
 				.to(EntityDataSourceManagerImpl.class);
 		}
 	}
@@ -76,16 +77,16 @@ public abstract class DataSourceModule extends AbstractModule implements IDataSo
 		protected void configure() {
 			super.configure();
 			
-			bind(QueryFactory.class)
+			bind(IQueryFactory.class)
 				.to(NativeQueryFactoryImpl.class);
 			bind(ResourceManager.class)
 				.to(ResourceManagerImpl.class);
 			bind(EStore.class)
 				.annotatedWith(Names.named("EStore"))
 				.toInstance(eStore);
-			bind(EntityManagerDelegate.class)
+			bind(IEntityManagerDelegate.class)
 				.to(EStoreDataSourceManagerImpl.class);
-			bind(EntityDataSourceManager.class)
+			bind(IEntityDataSourceManager.class)
 				.to(EStoreDataSourceManagerImpl.class);			
 		}
 	}

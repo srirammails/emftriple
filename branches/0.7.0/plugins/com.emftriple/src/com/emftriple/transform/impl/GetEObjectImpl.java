@@ -25,10 +25,10 @@ import com.emf4sw.rdf.Resource;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.URIElement;
 import com.emf4sw.rdf.operations.DatatypeConverter;
-import com.emftriple.Mapping;
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.IMapping;
+import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.resource.ETripleResource.ResourceManager;
-import com.emftriple.transform.GetObject;
+import com.emftriple.transform.IGetObject;
 import com.emftriple.util.EntityUtil;
 import com.emftriple.util.SparqlQueries;
 
@@ -37,11 +37,11 @@ import com.emftriple.util.SparqlQueries;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class GetEObjectImpl extends AbstractGetObject implements GetObject {
+public class GetEObjectImpl extends AbstractGetObject implements IGetObject {
 
 	private final GetProxyObjectImpl proxyFactory;
 
-	public GetEObjectImpl(ResourceManager manager, Mapping mapping, EntityDataSourceManager dataSourceManager) {
+	public GetEObjectImpl(ResourceManager manager, IMapping mapping, IEntityDataSourceManager dataSourceManager) {
 		super(manager, mapping, dataSourceManager);
 		this.proxyFactory = new GetProxyObjectImpl(manager, mapping, dataSourceManager);
 	}

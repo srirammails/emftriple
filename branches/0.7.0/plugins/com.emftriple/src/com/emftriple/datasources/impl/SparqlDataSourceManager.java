@@ -11,73 +11,73 @@ import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.resource.RDFResource;
 import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
 import com.emftriple.config.persistence.Federation;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.DataSourceManager;
-import com.emftriple.datasources.MutableDataSource;
-import com.emftriple.datasources.ResultSet;
-import com.emftriple.datasources.SparqlUpdateDataSource;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IDataSourceManager;
+import com.emftriple.datasources.IMutableDataSource;
+import com.emftriple.datasources.IResultSet;
+import com.emftriple.datasources.ISparqlUpdateDataSource;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
 /**
- * The {@link SparqlDataSourceManager} class is the default implementation of the {@link DataSourceManager} interface.
+ * The {@link SparqlDataSourceManager} class is the default implementation of the {@link IDataSourceManager} interface.
  * 
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.1
  */
-public class SparqlDataSourceManager implements DataSourceManager {
+public class SparqlDataSourceManager implements IDataSourceManager {
 
-	protected final Map<String, DataSource> dataSourcesByName = new HashMap<String, DataSource>();
+	protected final Map<String, IDataSource> dataSourcesByName = new HashMap<String, IDataSource>();
 
-	protected final List<DataSource> dataSources;
+	protected final List<IDataSource> dataSources;
 	
 	@Inject
 	SparqlDataSourceManager(@Named("DataSources") Federation dataSources) {
 		this.dataSources = DataSourceBuilder.build(dataSources);
-		for (DataSource ds: this.dataSources) {
+		for (IDataSource ds: this.dataSources) {
 			dataSourcesByName.put(ds.getName(), ds);
 		}
 	}
 	
 	@Override
 	public void connect() {
-		for (DataSource ds: dataSources) 
+		for (IDataSource ds: dataSources) 
 			ds.connect();
 	}
 
 	@Override
 	public void disconnect() {
-		for (DataSource ds: dataSources) 
+		for (IDataSource ds: dataSources) 
 			ds.disconnect();		
 	}
 
 	@Override
-	public DataSource getDataSourceByGraph(URI graphURI) {
+	public IDataSource getDataSourceByGraph(URI graphURI) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DataSource getDataSource(String name) {
+	public IDataSource getDataSource(String name) {
 		return dataSourcesByName.get(name);
 	}
 	
 	@Override
 	public void remove(RDFGraph graph) 
 	{
-		if (getDefaultDataSource() instanceof MutableDataSource) 
+		if (getDefaultDataSource() instanceof IMutableDataSource) 
 		{
-			((MutableDataSource)getDefaultDataSource()).remove(graph);
+			((IMutableDataSource)getDefaultDataSource()).remove(graph);
 		}
 	}
 	
 	@Override
 	public void add(RDFGraph graph) 
 	{
-		if (getDefaultDataSource() instanceof MutableDataSource) 
+		if (getDefaultDataSource() instanceof IMutableDataSource) 
 		{
-			((MutableDataSource)getDefaultDataSource()).add(graph);
+			((IMutableDataSource)getDefaultDataSource()).add(graph);
 		}
 	}
 	
@@ -87,7 +87,7 @@ public class SparqlDataSourceManager implements DataSourceManager {
 			return getDefaultDataSource().askQuery(aQuery);
 		
 		boolean result = false;
-		for (DataSource dataSource: dataSources) {
+		for (IDataSource dataSource: dataSources) {
 			result = result || dataSource.askQuery(aQuery);
 		}
 		return result;
@@ -102,7 +102,7 @@ public class SparqlDataSourceManager implements DataSourceManager {
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
 		resource.getContents().add(aGraph);
 		
-		for (DataSource dataSource: dataSources) {
+		for (IDataSource dataSource: dataSources) {
 			dataSource.constructQuery(aQuery, aGraph);
 		}
 		
@@ -118,19 +118,19 @@ public class SparqlDataSourceManager implements DataSourceManager {
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
 		resource.getContents().add(aGraph);
 		
-		for (DataSource dataSource: dataSources)
+		for (IDataSource dataSource: dataSources)
 			dataSource.describeQuery(aQuery, aGraph);
 		
 		return aGraph;
 	}
 
 	@Override
-	public ResultSet executeSelectQuery(String aQuery) {
+	public IResultSet executeSelectQuery(String aQuery) {
 		if (dataSources.size() == 1)
 			return getDefaultDataSource().selectQuery(aQuery);
 		
-		ResultSet resultSet = null;
-		for (DataSource dataSource: dataSources) {
+		IResultSet resultSet = null;
+		for (IDataSource dataSource: dataSources) {
 			resultSet = dataSource.selectQuery(aQuery);
 			if (resultSet.hasNext())
 				return resultSet;
@@ -140,9 +140,9 @@ public class SparqlDataSourceManager implements DataSourceManager {
 
 	@Override
 	public int executeUpdateQuery(String aQuery) {
-		if (getDefaultDataSource() instanceof SparqlUpdateDataSource)
+		if (getDefaultDataSource() instanceof ISparqlUpdateDataSource)
 		{
-			((SparqlUpdateDataSource)getDefaultDataSource()).update(aQuery);
+			((ISparqlUpdateDataSource)getDefaultDataSource()).update(aQuery);
 			return 1;
 		}
 		return 0;
@@ -155,12 +155,12 @@ public class SparqlDataSourceManager implements DataSourceManager {
 //	}
 	
 	@Override
-	public DataSource getDefaultDataSource() {
+	public IDataSource getDefaultDataSource() {
 		return dataSources.get(0);
 	}
 
 	@Override
-	public List<DataSource> getDataSources() {
+	public List<IDataSource> getDataSources() {
 		return dataSources;
 	}
 

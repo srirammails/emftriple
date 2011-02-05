@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import com.emf4sw.rdf.vocabulary.RDF;
-import com.emftriple.Mapping;
+import com.emftriple.IMapping;
 import com.emftriple.config.persistence.Federation;
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.resource.ETripleResource.ResourceManager;
-import com.emftriple.transform.GetObject;
-import com.emftriple.transform.PutObject;
+import com.emftriple.transform.IGetObject;
+import com.emftriple.transform.IPutObject;
 import com.emftriple.util.EntityUtil;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
@@ -39,9 +39,9 @@ import com.google.inject.name.Named;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.1
  */
-public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager implements EntityDataSourceManager {
+public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager implements IEntityDataSourceManager {
 
-	protected final Mapping mapping;
+	protected final IMapping mapping;
 
 	private final Map<URI, EObject> allEntitiesByURI;
 	
@@ -56,7 +56,7 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	protected final ResourceManager manager;
 	
 	@Inject
-	EntityManagerDelegateImpl(ResourceManager manager, Mapping mapping, @Named("DataSources") Federation dataSources) {
+	EntityManagerDelegateImpl(ResourceManager manager, IMapping mapping, @Named("DataSources") Federation dataSources) {
 		super(dataSources);
 
 		this.mapping = mapping;
@@ -68,9 +68,9 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 		this.markAsDetachEntities = new ArrayList<Object>();
 	}
 
-	protected abstract PutObject put();
+	protected abstract IPutObject put();
 
-	protected abstract GetObject get();
+	protected abstract IGetObject get();
 
 	protected abstract int lastIndexOf(EClass eClass);
 		

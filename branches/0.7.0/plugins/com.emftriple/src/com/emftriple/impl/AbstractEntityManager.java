@@ -25,10 +25,10 @@ import javax.persistence.metamodel.Metamodel;
 
 import org.eclipse.emf.ecore.EClass;
 
-import com.emftriple.Mapping;
+import com.emftriple.IMapping;
 import com.emftriple.criteria.CriteriaBuilderImpl;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IEntityDataSourceManager;
 
 /**
  * The {@link AbstractEntityManager} class implements {@link EntityManager}.
@@ -43,9 +43,9 @@ public abstract class AbstractEntityManager implements EntityManager {
 
 	private static final Map<String, Object> properties = null;
 
-	protected final EntityDataSourceManager dataSourceManager;
+	protected final IEntityDataSourceManager dataSourceManager;
 	
-	protected final Mapping mapping;
+	protected final IMapping mapping;
 
 	protected EntityTransaction transaction;
 	
@@ -53,7 +53,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 	
 	private final EntityManagerFactory emf;
 	
-	AbstractEntityManager(EntityManagerFactory emf, EntityDataSourceManager dataSourceManager, Mapping mapping) {
+	AbstractEntityManager(EntityManagerFactory emf, IEntityDataSourceManager dataSourceManager, IMapping mapping) {
 		this.emf = emf;
 		this.dataSourceManager = dataSourceManager;
 		this.mapping = mapping;
@@ -261,7 +261,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mapping getMapping() {
+	public IMapping getMapping() {
 		return mapping;
 	}
 	
@@ -282,7 +282,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 	/**
 	 * @inheritDoc
 	 */
-	@Override public EntityDataSourceManager getDelegate() {
+	@Override public IEntityDataSourceManager getDelegate() {
 		return dataSourceManager;
 	}
 	
@@ -305,7 +305,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 		return isOpen ;
 	}
 	
-	protected boolean needTransaction(DataSource dataSource) {
+	protected boolean needTransaction(IDataSource dataSource) {
 		return dataSource.supportsTransaction();
 	}
 	

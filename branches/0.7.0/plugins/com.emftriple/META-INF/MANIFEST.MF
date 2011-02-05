@@ -7,9 +7,11 @@ Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.emftriple,
+ com.emftriple.criteria,
  com.emftriple.datasources,
  com.emftriple.datasources.impl,
  com.emftriple.impl,
+ com.emftriple.metamodel,
  com.emftriple.query,
  com.emftriple.resource,
  com.emftriple.spi,

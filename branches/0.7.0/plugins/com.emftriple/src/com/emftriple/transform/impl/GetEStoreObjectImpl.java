@@ -6,11 +6,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject.EStore;
 
 import com.emf4sw.rdf.RDFGraph;
-import com.emftriple.Mapping;
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.resource.ETripleObject;
+import com.emftriple.IMapping;
+import com.emftriple.datasources.IEntityDataSourceManager;
+import com.emftriple.resource.IETripleObject;
 import com.emftriple.resource.ETripleResource.ResourceManager;
-import com.emftriple.transform.GetObject;
+import com.emftriple.transform.IGetObject;
 import com.emftriple.util.Functions;
 import com.emftriple.validation.TypeResolver;
 
@@ -19,11 +19,11 @@ import com.emftriple.validation.TypeResolver;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.7.0
  */
-public class GetEStoreObjectImpl extends AbstractGetObject implements GetObject {
+public class GetEStoreObjectImpl extends AbstractGetObject implements IGetObject {
 
 	private final EStore eStore;
 	
-	public GetEStoreObjectImpl(ResourceManager manager, Mapping mapping, EntityDataSourceManager dataSourceManager, EStore eStore) {
+	public GetEStoreObjectImpl(ResourceManager manager, IMapping mapping, IEntityDataSourceManager dataSourceManager, EStore eStore) {
 		super(manager, mapping, dataSourceManager);
 		this.eStore = eStore;
 	}
@@ -36,7 +36,7 @@ public class GetEStoreObjectImpl extends AbstractGetObject implements GetObject 
 		
 		EObject obj = (aClass == null) ? null : eStore.create(aClass);
 		if (obj != null) {
-			((ETripleObject)obj).eSetURI(key);
+			((IETripleObject)obj).eSetURI(key);
 		}
 		
 		return  (T) obj;

@@ -13,16 +13,16 @@ import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 
-import com.emftriple.datasources.EntityDataSourceManager;
+import com.emftriple.datasources.IEntityDataSourceManager;
 
 public class CriteriaTypedQueryImpl<X> implements TypedQuery<X> {
 
 	private CriteriaQuery<X> query;
 	
 	@SuppressWarnings("unused")
-	private EntityDataSourceManager dataSourceManager;
+	private IEntityDataSourceManager dataSourceManager;
 
-	public CriteriaTypedQueryImpl(EntityDataSourceManager dataSourceManager, CriteriaQuery<X> query) {
+	public CriteriaTypedQueryImpl(IEntityDataSourceManager dataSourceManager, CriteriaQuery<X> query) {
 		this.query = query;
 		this.dataSourceManager = dataSourceManager;
 	}

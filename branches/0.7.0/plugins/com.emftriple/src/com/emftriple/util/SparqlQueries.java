@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.URIElement;
 import com.emf4sw.rdf.vocabulary.RDF;
-import com.emftriple.datasources.DataSource;
-import com.emftriple.datasources.DataSourceManager;
-import com.emftriple.datasources.ResultSet;
-import com.emftriple.datasources.ResultSet.Solution;
+import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IDataSourceManager;
+import com.emftriple.datasources.IResultSet;
+import com.emftriple.datasources.IResultSet.Solution;
 import com.google.common.collect.Lists;
 
 /**
@@ -42,12 +42,12 @@ public class SparqlQueries {
 		return "DESCRIBE <" + from.toString()+ ">";
 	}
 
-	public static List<String> selectAllTypes(DataSourceManager manager, URIElement from) {
+	public static List<String> selectAllTypes(IDataSourceManager manager, URIElement from) {
 		final List<String> types = Lists.newArrayList();
 		if (from != null && from.getURI() != null) 
 		{
 			final String query = typeOf(from.getURI());
-			final ResultSet resultSet = manager.executeSelectQuery(query);
+			final IResultSet resultSet = manager.executeSelectQuery(query);
 
 			if (resultSet == null) {
 				return null;
@@ -64,7 +64,7 @@ public class SparqlQueries {
 		return types;
 	}
 
-	public static Integer countObjectsByType(DataSource source, EClass from) {
+	public static Integer countObjectsByType(IDataSource source, EClass from) {
 		String query = "SELECT ?n WHERE { ";
 		List<URI> uris = getRdfTypes(from);
 
@@ -74,7 +74,7 @@ public class SparqlQueries {
 		}
 		query += "}";
 
-		ResultSet rs = source.selectQuery(query);
+		IResultSet rs = source.selectQuery(query);
 		int i=0;
 		for (;rs.hasNext();)
 			i += rs.next() != null ? 1 : 0;

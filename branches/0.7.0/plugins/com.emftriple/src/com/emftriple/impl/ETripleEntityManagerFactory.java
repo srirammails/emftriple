@@ -9,6 +9,7 @@ package com.emftriple.impl;
 
 import static com.emftriple.util.ETripleEcoreUtil.filter;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -27,16 +28,18 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject.EStore;
 
 import com.emftriple.ETriple;
-import com.emftriple.Mapping;
+import com.emftriple.IDataSourceModule;
+import com.emftriple.IMapping;
+import com.emftriple.IMappingModule;
 import com.emftriple.config.persistence.PersistenceUnit;
-import com.emftriple.datasources.DataSourceManager;
-import com.emftriple.datasources.EntityDataSourceManager;
-import com.emftriple.datasources.impl.DataSourceModule;
+import com.emftriple.config.persistence.Property;
+import com.emftriple.datasources.IDataSourceManager;
+import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.datasources.impl.DataSourceModule.EntityDataSourceModule;
-import com.emftriple.resource.ETripleObject;
+import com.emftriple.resource.IETripleObject;
 import com.emftriple.util.PersistenceUnitUtilImpl;
 import com.google.common.base.Preconditions;
-import com.google.inject.Guice;
+import com.google.inject.internal.Lists;
 import com.google.inject.internal.Maps;
 
 /**
@@ -49,16 +52,13 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 
 	private final Collection<EntityManager> createdEntityManagers;
 
-	private final Mapping mapping;
-
 	private final PersistenceUnit unit;
 
 	private boolean isOpen = true;
 
 	private Map<String, Object> properties;
 
-	public ETripleEntityManagerFactory(PersistenceUnit unit, Mapping mapping) {
-		this.mapping = mapping;
+	public ETripleEntityManagerFactory(PersistenceUnit unit) {
 		this.unit = unit;
 		this.createdEntityManagers = new HashSet<EntityManager>();
 		this.properties = new HashMap<String, Object>();
@@ -93,7 +93,20 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 	}
 
 	private EntityManager doCreateEntityManager(@SuppressWarnings("rawtypes") Map options) throws IllegalStateException {
-		DataSourceModule module = (DataSourceModule) ETriple.get(DataSourceModule.class);
+		IMappingModule mappingModule = (IMappingModule) ETriple.get(IMappingModule.class);
+		if (mappingModule == null) {
+			mappingModule = new MappingModule();
+		}
+		mappingModule.setPackages(getEPackages(unit));
+		mappingModule.setProperties(unit.getProperties() == null ? 
+				new ArrayList<Property>() : unit.getProperties().getProperties());
+		
+		final IMapping mapping = ETriple.inject(mappingModule).getInstance(IMapping.class);
+		if (mapping == null) {
+			throw new IllegalStateException("Cannot create mapping");
+		}
+		
+		IDataSourceModule module = (IDataSourceModule) ETriple.get(IDataSourceModule.class);
 		if (module == null) {
 			module = new EntityDataSourceModule();
 		}
@@ -101,17 +114,17 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 		module.setFederation(unit.getDataSources());
 		module.setMapping(mapping);
 		
-		final EntityDataSourceManager dataSourceManager = Guice.createInjector(module).getInstance( EntityDataSourceManager.class );
+		final IEntityDataSourceManager dataSourceManager = ETriple.inject(module).getInstance( IEntityDataSourceManager.class );
 		
 		final EntityManager entityManager = 
-			isEStoreEnable(mapping.getEPackages()) ? createEStore(dataSourceManager) : create(dataSourceManager);
+			isEStoreEnable(mapping.getEPackages()) ? createEStore(dataSourceManager) : create(dataSourceManager, mapping);
 			
 		dataSourceManager.connect();
 		
 		return entityManager;
 	}
 
-	private EntityManager createEStore(DataSourceManager dataSourceManager) {
+	private EntityManager createEStore(IDataSourceManager dataSourceManager) {
 //		final EntityManager entityManager = new EStoreEntityManager(this, dataSourceManager, mapping, null);
 //		eStore.setEntityManager(entityManager);
 			
@@ -121,19 +134,36 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 		return null;
 	}
 	
-	private EntityManager create(DataSourceManager dataSourceManager) {
-		final EntityManager entityManager = new EObjectEntityManager(this, (EntityDataSourceManager) dataSourceManager, mapping);
+	private EntityManager create(IDataSourceManager dataSourceManager, IMapping mapping) {
+		final EntityManager entityManager = new EObjectEntityManager(this, (IEntityDataSourceManager) dataSourceManager, mapping);
 		createdEntityManagers.add(entityManager);
 		Registry.INSTANCE.put(entityManager, null);
 		
 		return entityManager;
 	}
 
+	private List<EPackage> getEPackages(PersistenceUnit unit) {
+		final List<EPackage> packages = Lists.newArrayList();
+
+		for (String nsURI: unit.getPackage()) {
+			EPackage findPackage = EPackage.Registry.INSTANCE.getEPackage(nsURI);
+			if (findPackage != null) {
+				packages.add(findPackage);
+			}
+		}
+
+		if (packages.isEmpty()) {
+			throw new IllegalArgumentException("No EPackage(s) found in persistence unit");
+		}
+		
+		return packages;
+	}
+		
 	private boolean isEStoreEnable(List<EPackage> ePackages) {
 		Boolean res = false;
 		for (EPackage ePackage: ePackages) {
 			for (EClass eClass: filter(ePackage.getEClassifiers(), EClass.class)) {
-				if (ETripleObject.class.isAssignableFrom(eClass.getInstanceClass())) {
+				if (IETripleObject.class.isAssignableFrom(eClass.getInstanceClass())) {
 					res = res || Boolean.TRUE;
 				} else {
 					res = res || Boolean.FALSE;

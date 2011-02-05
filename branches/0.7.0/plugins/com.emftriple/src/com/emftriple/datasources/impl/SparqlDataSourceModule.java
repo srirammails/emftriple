@@ -1,7 +1,7 @@
 package com.emftriple.datasources.impl;
 
 import com.emftriple.config.persistence.Federation;
-import com.emftriple.datasources.DataSourceManager;
+import com.emftriple.datasources.IDataSourceManager;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 
@@ -20,9 +20,7 @@ public class SparqlDataSourceModule extends AbstractModule {
 	
 	@Override
 	protected void configure() {
-//		install(new SparqlRuntimeModule());
-	
-		bind(DataSourceManager.class)
+		bind(IDataSourceManager.class)
 			.to(SparqlDataSourceManager.class);
 		bind(com.emftriple.config.persistence.Federation.class)
 			.annotatedWith(Names.named("DataSources"))
