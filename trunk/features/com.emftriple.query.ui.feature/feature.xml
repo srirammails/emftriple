@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emftriple.query.ui.feature"
-      label="EMF Triple Query UI"
+      label="JPQL &amp; SPARQL Editors"
       version="0.7.0.qualifier"
       provider-name="eclipselabs">
 

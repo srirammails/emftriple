@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emf4sw.owl.transform.feature"
-      label="OWL Transform"
+      label="OWL Transformations"
       version="0.7.0.qualifier"
       provider-name="eclipselabs">
 
@@ -20,6 +20,9 @@
    <requires>
       <import plugin="com.atl.common" version="0.6.1" match="greaterOrEqual"/>
       <import plugin="com.emf4sw.owl" version="0.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.m2m.atl.core.emf"/>
+      <import plugin="org.eclipse.m2m.atl.engine.emfvm"/>
    </requires>
 
    <plugin

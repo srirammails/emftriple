@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emf4sw.rdf.sesame.feature"
-      label="EMF4SW RDF Sesame"
+      label="Sesame Adapter for RDF Metamodel"
       version="0.7.0.qualifier"
       provider-name="eclipselabs">
 
@@ -18,9 +18,9 @@
    </license>
 
    <requires>
-      <import plugin="org.openrdf" version="2.3.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="com.emf4sw.rdf" version="0.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common"/>
    </requires>
 
    <plugin

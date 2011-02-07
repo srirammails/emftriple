@@ -4,18 +4,11 @@ Bundle-Name: EMF Triple Sparql Query
 Bundle-Version: 0.7.0.qualifier
 Bundle-SymbolicName: com.emftriple.query.sparql; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext.generator;resolution:=optional,
- org.apache.commons.logging;resolution:=optional,
- org.eclipse.emf.codegen.ecore;resolution:=optional,
- org.eclipse.emf.mwe.utils;resolution:=optional,
- org.eclipse.emf.mwe2.launch;resolution:=optional,
- com.ibm.icu;resolution:=optional,
- org.eclipse.xtext.xtend;resolution:=optional
+Require-Bundle: org.eclipse.xtext.generator;resolution:=optional
 Import-Package: com.google.common.base,
  com.google.inject;version="2.0.0",
  com.google.inject.name;version="2.0.0",
  org.antlr.runtime;version="3.0.0",
- org.apache.log4j,
  org.eclipse.emf.ecore.xmi.impl,
  org.eclipse.xtext,
  org.eclipse.xtext.conversion,
