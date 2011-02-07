@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emftriple.restlet.feature"
-      label="EMF Triple Restlet Extension"
+      label="Restlet Extension for EMFTriple"
       version="0.1.0.qualifier"
       provider-name="eclipselabs">
 
@@ -18,10 +18,10 @@
    </license>
 
    <requires>
-      <import plugin="org.eclipse.emf.ecore" version="2.6.1" match="greaterOrEqual"/>
       <import plugin="com.emf4sw.rdf" version="0.7.0" match="greaterOrEqual"/>
       <import plugin="com.emftriple" version="0.7.0" match="greaterOrEqual"/>
       <import plugin="javax.persistence"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.6.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin

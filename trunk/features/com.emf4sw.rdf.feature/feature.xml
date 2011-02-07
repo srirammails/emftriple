@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emf4sw.rdf.feature"
-      label="EMF4SW RDF"
+      label="RDF Metamodel"
       version="0.7.0.qualifier"
       provider-name="eclipselabs">
 

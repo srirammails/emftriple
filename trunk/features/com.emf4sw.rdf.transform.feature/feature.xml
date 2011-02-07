@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emf4sw.rdf.transform.feature"
-      label="RDF Transform Feature"
+      label="RDF Transformations"
       version="0.7.0.qualifier"
       provider-name="eclipselabs">
 
@@ -16,6 +16,14 @@
    <license url="http://www.example.com/license">
       [Enter License Description here.]
    </license>
+
+   <requires>
+      <import plugin="com.atl.common"/>
+      <import plugin="com.emf4sw.rdf"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.m2m.atl.core.emf"/>
+      <import plugin="org.eclipse.m2m.atl.engine.emfvm"/>
+   </requires>
 
    <plugin
          id="com.emf4sw.rdf.transform"

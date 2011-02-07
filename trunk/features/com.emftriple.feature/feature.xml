@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emftriple.feature"
-      label="EMF Triple"
+      label="EMFTriple - RDF Persistence For Eclipse Modeling Framework"
       version="0.7.0.qualifier"
       provider-name="eclipselabs">
 
@@ -18,24 +18,16 @@
    </license>
 
    <requires>
-      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="com.emf4sw.rdf" version="0.7.0" match="greaterOrEqual"/>
-      <import plugin="com.emftriple.datasources" version="0.7.0" match="greaterOrEqual"/>
-      <import plugin="javax.persistence"/>
-      <import plugin="org.eclipse.osgi"/>
-      <import plugin="org.aopalliance"/>
       <import plugin="com.google.collect" version="0.8.0" match="compatible"/>
       <import plugin="com.google.inject" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore.xmi" version="2.5.0" match="greaterOrEqual"/>
-      <import plugin="com.google.collect" version="0.8.0" match="greaterOrEqual"/>
-      <import plugin="com.emftriple.query.jpql" version="0.7.0" match="greaterOrEqual"/>
-      <import plugin="com.emftriple.query.sparql" version="0.7.0" match="greaterOrEqual"/>
-      <import plugin="com.emftriple" version="0.7.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext.util" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="javax.persistence"/>
       <import plugin="org.eclipse.emf.common" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="org.antlr.runtime" version="3.0.0" match="greaterOrEqual"/>
-      <import plugin="org.apache.log4j"/>
+      <import plugin="org.eclipse.xtext" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.generator" version="1.0.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin

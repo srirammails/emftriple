@@ -7,7 +7,6 @@ Bundle-ActivationPolicy: lazy
 Import-Package: com.google.inject;version="2.0.0",
  com.google.inject.name;version="2.0.0",
  org.antlr.runtime;version="3.0.0",
- org.apache.log4j,
  org.eclipse.emf.common.notify,
  org.eclipse.emf.common.notify.impl,
  org.eclipse.emf.common.util,
@@ -50,7 +49,4 @@ Export-Package: com.emftriple.query,
  com.emftriple.query.jpql,
  com.emftriple.query.jpql.impl,
  com.emftriple.query.jpql.util
-Require-Bundle: org.eclipse.emf.mwe2.runtime;bundle-version="1.0.1",
- org.eclipse.emf.mwe2.language;bundle-version="1.0.1",
- org.eclipse.emf.mwe2.launch;bundle-version="1.0.1",
- org.eclipse.xtext.generator;bundle-version="1.0.1"
+Require-Bundle: org.eclipse.xtext.generator;bundle-version="1.0.1"

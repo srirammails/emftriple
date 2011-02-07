@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emf4sw.rdf.jena.feature"
-      label="EMF4SW RDF Jena"
+      label="Jena Adapter for RDF Metamodel"
       version="0.7.0.qualifier"
       provider-name="eclipselabs">
 
@@ -18,9 +18,9 @@
    </license>
 
    <requires>
-      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
-      <import plugin="org.openjena" version="2.6.3" match="greaterOrEqual"/>
       <import plugin="com.emf4sw.rdf" version="0.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common"/>
    </requires>
 
    <plugin
