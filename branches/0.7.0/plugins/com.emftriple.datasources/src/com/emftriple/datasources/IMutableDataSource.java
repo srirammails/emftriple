@@ -10,7 +10,7 @@ package com.emftriple.datasources;
 import com.emf4sw.rdf.RDFGraph;
 
 /**
- * The {@link IMutableDataSource} interface represents {@link IDataSource} that support add and remove operations.
+ * {@link IMutableDataSource} extends {@link IDataSource} with support for add and remove operations.
  * 
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
@@ -19,7 +19,7 @@ import com.emf4sw.rdf.RDFGraph;
 public interface IMutableDataSource extends IDataSource {
 
 	/**
-	 * Adds an {@link RDFGraph} to the {@link IDataSource}
+	 * Adds the {@link RDFGraph} to the {@link IDataSource}
 	 * 
 	 * @param graph to add
 	 * @throws DataSourceException
@@ -27,7 +27,7 @@ public interface IMutableDataSource extends IDataSource {
 	void add(RDFGraph graph);
 	 
 	/**
-	 * Removes an {@link RDFGraph} from the {@link IDataSource}
+	 * Removes the {@link RDFGraph} from the {@link IDataSource}
 	 * 
 	 * @param graph to remove
 	 * @throws DataSourceException

@@ -26,6 +26,12 @@ public interface IMutableNamedGraphDataSource extends INamedGraphDataSource, IMu
 	/**
 	 * 
 	 * @param graph
+	 */
+	void deleteGraph(URI graph);
+	
+	/**
+	 * 
+	 * @param graph
 	 * @throws DataSourceException
 	 */
 	void add(NamedGraph graph);
@@ -36,11 +42,5 @@ public interface IMutableNamedGraphDataSource extends INamedGraphDataSource, IMu
 	 * @throws DataSourceException
 	 */
 	void remove(NamedGraph graph);
-
-	/**
-	 * 
-	 * @param graphURI
-	 */
-	void createGraph(URI graphURI);
 	
 }

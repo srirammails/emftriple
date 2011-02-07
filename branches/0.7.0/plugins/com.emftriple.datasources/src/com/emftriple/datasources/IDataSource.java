@@ -94,5 +94,13 @@ public abstract interface IDataSource {
 	 * Disconnect the {@link IDataSource}
 	 */
 	void disconnect();
+	
+	/**
+	 * 
+	 * @param <T>
+	 * @param aClass
+	 * @return
+	 */
+	<T extends IDataSource> T as(Class<T> aClass);
 
 }

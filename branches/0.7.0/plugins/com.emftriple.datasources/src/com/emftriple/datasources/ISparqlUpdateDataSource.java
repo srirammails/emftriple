@@ -2,7 +2,7 @@ package com.emftriple.datasources;
 
 
 /**
- * The {@link ISparqlUpdateDataSource} interface represents a {@link IDataSource} that supports SPARQL Update queries.
+ * {@link ISparqlUpdateDataSource} extends {@link IDataSource} with support for SPARQL 1.1 Update Queries.
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
@@ -10,10 +10,11 @@ package com.emftriple.datasources;
 public interface ISparqlUpdateDataSource extends IMutableDataSource {
 
 	/**
-	 * Executes an {@link UpdateQuery} against the {@link IDataSource}
+	 * Executes the update query.
 	 * 
 	 * @param query to execute
-	 * @throws DataSourceException
+	 * @throws MalformedQueryException
+	 * @throws {@link UnsupportedOperationException}
 	 */
 	void update(String query);
 	
