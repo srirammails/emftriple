@@ -5,7 +5,10 @@ Bundle-SymbolicName: com.emftriple.neo4j
 Bundle-Version: 0.7.0.qualifier
 Bundle-Vendor: eclipselabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.5.0",
- com.emf4sw.rdf;bundle-version="0.7.0",
- com.emftriple;bundle-version="0.7.0",
- com.emftriple.datasources;bundle-version="0.7.0"
+Import-Package: com.emf4sw.rdf,
+ com.emftriple.config.persistence,
+ com.emftriple.datasources,
+ com.emftriple.datasources.impl,
+ com.google.inject;version="2.0.0",
+ com.google.inject.internal;version="2.0.0",
+ org.eclipse.emf.common.util
