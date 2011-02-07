@@ -18,6 +18,7 @@
    </license>
 
    <requires>
+      <import plugin="org.eclipse.emf.common" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="com.atl.common"/>
       <import plugin="com.emf4sw.rdf" version="0.7.0" match="greaterOrEqual"/>
