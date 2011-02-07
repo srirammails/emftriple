@@ -13,6 +13,7 @@ import com.emftriple.datasources.IDataSource;
 import com.emftriple.datasources.IMutableDataSource;
 import com.emftriple.datasources.IResultSet;
 import com.emftriple.datasources.ITransactionEnableDataSource;
+import com.emftriple.datasources.MalformedQueryException;
 
 /**
  * 
@@ -69,7 +70,7 @@ public class TransactionDataSource extends AbstractDataSource implements IMutabl
 	}
 
 	@Override
-	public boolean askQuery(String query) {
+	public boolean askQuery(String query) throws MalformedQueryException {
 		return dataSource.askQuery(query);
 	}
 
@@ -84,7 +85,7 @@ public class TransactionDataSource extends AbstractDataSource implements IMutabl
 	}
 	
 	@Override
-	public RDFGraph constructQuery(String query) {
+	public RDFGraph constructQuery(String query) throws MalformedQueryException {
 		return dataSource.constructQuery(query);
 	}
 
@@ -94,7 +95,7 @@ public class TransactionDataSource extends AbstractDataSource implements IMutabl
 	}
 
 	@Override
-	public IResultSet selectQuery(String query) {
+	public IResultSet selectQuery(String query) throws MalformedQueryException {
 		return dataSource.selectQuery(query);
 	}
 
@@ -132,17 +133,17 @@ public class TransactionDataSource extends AbstractDataSource implements IMutabl
 	}
 
 	@Override
-	public RDFGraph describeQuery(String query) {
+	public RDFGraph describeQuery(String query) throws MalformedQueryException {
 		return dataSource.describeQuery(query);
 	}
 
 	@Override
-	public void constructQuery(String aQuery, RDFGraph aGraph) {
+	public void constructQuery(String aQuery, RDFGraph aGraph) throws MalformedQueryException {
 		dataSource.constructQuery(aQuery, aGraph);
 	}
 
 	@Override
-	public void describeQuery(String aQuery, RDFGraph aGraph) {
+	public void describeQuery(String aQuery, RDFGraph aGraph) throws MalformedQueryException {
 		dataSource.describeQuery(aQuery, aGraph);
 	}
 
