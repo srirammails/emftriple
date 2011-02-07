@@ -16,8 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.URI;
-
 import com.emftriple.config.persistence.DataSourceBuilder;
 import com.emftriple.config.persistence.Properties;
 import com.emftriple.config.persistence.Property;
@@ -25,7 +23,6 @@ import com.emftriple.datasources.IDataSource;
 import com.emftriple.datasources.IDataSourceFactory;
 import com.emftriple.util.Functions;
 import com.google.common.base.Function;
-import com.google.inject.internal.Lists;
 import com.google.inject.internal.Maps;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -106,24 +103,6 @@ public class JenaDataSourceFactory implements IDataSourceFactory {
 		return transform(property.getProperties(), new Find(JenaSDB.JENA_SDB_OPTION_TYPE));
 	}
 
-	private class Find implements Function<List<Property>, String> {
-
-		private String value;
-
-		public Find(String value) {
-			this.value = value;
-		}
-
-		@Override
-		public String apply(List<Property> from) {
-			for (Property prop: from)
-				if (prop.getName().equals(value))
-					return prop.getValue();
-			return null;
-		}
-
-	}
-
 	private boolean canCreateJenaFile(DataSourceBuilder config) {
 		return config.getUrl() != null;
 	}
@@ -153,11 +132,11 @@ public class JenaDataSourceFactory implements IDataSourceFactory {
 	}
 
 	private IDataSource createJenaService(DataSourceBuilder config) {
-		return new JenaService(config.getName(), config.getUrl(), getGraphs(config));
+		return new JenaService(config.getName(), config.getUrl());
 	}
 
 	private IDataSource createJenaTDB(DataSourceBuilder config) {
-		return new JenaTDB(config.getName(), config.getUrl(), getGraphs(config));
+		return new JenaTDB(config.getName(), config.getUrl());
 	}
 
 	private IDataSource createJenaSDB(DataSourceBuilder config) {
@@ -175,9 +154,8 @@ public class JenaDataSourceFactory implements IDataSourceFactory {
 		// String jdbcURL = "jdbc:derby:DB/SDB2";
 		final SDBConnection conn = new SDBConnection(aURL, aUser, aPassword) ; 
 		final Store store = SDBFactory.connectStore(conn, storeDesc) ;
-		final List<URI> graphs = getGraphs(config);
 
-		return new JenaSDB(config.getName(), graphs, store);
+		return new JenaSDB(config.getName(), store);
 	}
 
 	private IDataSource createJenaFile(DataSourceBuilder config) {
@@ -223,15 +201,25 @@ public class JenaDataSourceFactory implements IDataSourceFactory {
 		return new JenaFile(config.getName(), model, config.getUrl(), fileFormat);
 	}
 
-	private List<URI> getGraphs(DataSourceBuilder config) {
-		final List<URI> uris = Lists.newArrayList();
-		for (String g: config.getGraphs()) {
-			uris.add(URI.createURI(g));
-		}
-		return uris;
-	}
-
 	private static final Map<String, DatabaseType> dbTypes = new HashMap<String, DatabaseType>();
+
+	private class Find implements Function<List<Property>, String> {
+	
+		private String value;
+	
+		public Find(String value) {
+			this.value = value;
+		}
+	
+		@Override
+		public String apply(List<Property> from) {
+			for (Property prop: from)
+				if (prop.getName().equals(value))
+					return prop.getValue();
+			return null;
+		}
+	
+	}
 
 	static {
 		dbTypes.put("DB2", DatabaseType.DB2);

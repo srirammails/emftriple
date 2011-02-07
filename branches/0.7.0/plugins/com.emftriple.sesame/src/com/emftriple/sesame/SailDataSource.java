@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.openrdf.model.Graph;
+import org.openrdf.model.Resource;
 import org.openrdf.query.GraphQueryResult;
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
@@ -19,6 +20,7 @@ import org.openrdf.query.TupleQuery;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
+import org.openrdf.repository.RepositoryResult;
 
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
@@ -29,6 +31,7 @@ import com.emftriple.datasources.ITransactionEnableDataSource;
 import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
 import com.emftriple.sesame.util.SesameGraphResult2RDFGraph;
 import com.emftriple.sesame.util.SesameResultSet;
+import com.google.common.collect.Lists;
 
 /**
  * 
@@ -41,8 +44,8 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 
 	protected final Repository repository;
 
-	protected SailDataSource(String name, Repository repository, List<URI> graphs) {
-		super(name, graphs);
+	protected SailDataSource(String name, Repository repository) {
+		super(name);
 		this.repository = repository;
 	}
 
@@ -240,16 +243,44 @@ public abstract class SailDataSource extends AbstractNamedGraphDataSource implem
 	public boolean supportsTransaction() {
 		return true;
 	}
-
+	
 	@Override
-	public void createGraph(URI graphURI) {
-		if (!containsGraph(graphURI))
-			namedGraphURIs.add(graphURI);
+	public boolean containsGraph(URI graph) {
+		try {
+			for (RepositoryResult<Resource> res = repository.getConnection().getContextIDs(); res.hasNext();) {
+				Resource r = res.next();
+				if (r.stringValue().equals(graph.toString()))
+					return true;
+			}
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		}
+			
+		return false;
 	}
 
 	@Override
+	public void deleteGraph(URI graph) {
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
 	public NamedGraph getNamedGraph(URI graphURI) {
 		return null;
+	}
+	
+	@Override
+	public Iterable<String> getNamedGraphs() {
+		List<String> list = Lists.newArrayList();
+		try {
+			for (RepositoryResult<Resource> res = repository.getConnection().getContextIDs(); res.hasNext();) {
+				Resource r = res.next();
+				list.add(r.stringValue());
+			}
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override

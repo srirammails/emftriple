@@ -11,14 +11,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import org.eclipse.emf.common.util.URI;
+
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.jena.RDFGraphExtractor;
-import com.emftriple.datasources.IResultSet;
 import com.emftriple.datasources.ISparqlUpdateDataSource;
-import com.emftriple.datasources.impl.AbstractDataSource;
-import com.emftriple.jena.util.JenaResultSet;
+import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.shared.Lock;
 import com.hp.hpl.jena.update.GraphStore;
@@ -31,7 +30,7 @@ import com.hp.hpl.jena.update.UpdateAction;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class JenaFile extends AbstractDataSource implements ISparqlUpdateDataSource {
+public class JenaFile extends ModelDataSource implements ISparqlUpdateDataSource {
 
 	private final String fileLocation;
 
@@ -47,56 +46,7 @@ public class JenaFile extends AbstractDataSource implements ISparqlUpdateDataSou
 	}
 
 	@Override
-	public RDFGraph constructQuery(String query) {
-		return JenaDataSourceExecution.doContstructQuery(query, model, fileFormat); 
-	}
-
-	@Override
-	public RDFGraph describeQuery(String query) {
-		return JenaDataSourceExecution.doDescribeQuery(query, model, fileFormat);
-	}
-	
-	@Override
-	public void constructQuery(String query, RDFGraph aGraph) {
-		JenaDataSourceExecution.doContstructQuery(query, model, fileFormat, aGraph);
-	}
-	
-	@Override
-	public void describeQuery(String query, RDFGraph aGraph) {
-		JenaDataSourceExecution.doDescribeQuery(query, model, fileFormat, aGraph);
-	}
-	
-	@Override
-	public IResultSet selectQuery(String query) {
-		IResultSet rs = null;
-		try {
-			rs = new JenaResultSet( 
-						QueryExecutionFactory.create( QueryFactory.create( query ), model )
-					.execSelect());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return rs;
-	}
-
-	@Override
-	public boolean askQuery(String query) {
-		return QueryExecutionFactory.create( QueryFactory.create( query ), model )
-			.execAsk();
-	}
-
-	@Override
-	public void update(String query) {
-		GraphStore graphStore = GraphStoreFactory.create(model);
-		UpdateAction.parseExecute( query, graphStore);
-	}
-
-	@Override
-	public void add(RDFGraph graph){
-		doAdd(graph, model);
-	}
-
-	protected void doAdd(RDFGraph graph, Model model) {
+	public void add(RDFGraph graph) {
 		model.enterCriticalSection(Lock.WRITE);
 		try {
 			model.add( new RDFGraphExtractor().extract(graph) );
@@ -107,15 +57,11 @@ public class JenaFile extends AbstractDataSource implements ISparqlUpdateDataSou
 			}
 		} finally { 
 			model.leaveCriticalSection();
-		}	
+		}
 	}
 
 	@Override
 	public void remove(RDFGraph graph) {
-		doRemove(graph, model);
-	}
-
-	protected void doRemove(RDFGraph graph, Model model) {
 		model.enterCriticalSection(Lock.WRITE);
 		try {
 			Model removeModel = new RDFGraphExtractor().extract(graph);
@@ -128,6 +74,34 @@ public class JenaFile extends AbstractDataSource implements ISparqlUpdateDataSou
 				e.printStackTrace();
 			}
 		} finally { 
+			model.leaveCriticalSection();
+		}
+	}
+
+	@Override
+	public Model getModel() {
+		return model;
+	}
+
+	@Override
+	public Model getModel(URI graph) {
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public QueryExecution getQueryExecution(String query, Model model) {
+		return QueryExecutionFactory.create(query, model);
+	}
+
+	@Override
+	public void update(String query) {
+		final Model model = getModel();
+		
+		model.enterCriticalSection(Lock.WRITE);
+		try {
+			GraphStore graphStore = GraphStoreFactory.create(model);
+			UpdateAction.parseExecute( query, graphStore);
+		} finally {
 			model.leaveCriticalSection();
 		}
 	}
@@ -152,6 +126,5 @@ public class JenaFile extends AbstractDataSource implements ISparqlUpdateDataSou
 	public void disconnect() {
 		setConnected(false);
 	}
-	
 
 }

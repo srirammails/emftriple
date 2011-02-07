@@ -7,15 +7,13 @@
  */
 package com.emftriple.datasources;
 
-import java.util.List;
-
 import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
 
 /**
- * The {@link INamedGraphDataSource} interface represents a {@link IDataSource} that supports named graphs.
+ * {@link INamedGraphDataSource} extends {@link IDataSource} with support for Named Graphs.
  * 
  * @see IDataSource
  * 
@@ -25,54 +23,60 @@ import com.emf4sw.rdf.RDFGraph;
 public interface INamedGraphDataSource extends IDataSource {
 
 	/**
+	 * Returns the graph identified by the URI.
 	 * 
 	 * @param graphURI
-	 * @return the NamedGraph identified by the given URI.
+	 * @return NamedGraph.
 	 */
 	NamedGraph getNamedGraph(URI graphURI);
 	
 	/**
-	 * Returns the List of {@link URI} identifying the {@link IDataSource} Named Graphs.
+	 * Returns all Named Graphs URIs.
 	 */
-	List<URI> getNamedGraphs();
+	Iterable<String> getNamedGraphs();
 
 	/**
+	 * Returns true if the {@link IDataSource} contains the named graph.
 	 * 
 	 * @param graph
-	 * @return
+	 * @return true if graph is created.
 	 */
 	boolean containsGraph(URI graph);
 	
 	/**
+	 * Executes the select query on the specified named graph.
 	 * 
 	 * @param query
-	 * @param graph
-	 * @return
+	 * @param graph uri
+	 * @return query result.
 	 */
 	IResultSet selectQuery(String query, URI graph);
 	
 	/**
+	 * Executes the construct query on the specified named graph.
 	 * 
 	 * @param query
 	 * @param graph
-	 * @return
+	 * @return query result.
+	 * @throws MalformedQueryException 
 	 */
 	RDFGraph constructQuery(String query, URI graph);
 	
 	/**
+	 * Executes the describe query on the specified named graph.
 	 * 
 	 * @param query
 	 * @param graph
-	 * @return
+	 * @return query result.
 	 */
 	RDFGraph describeQuery(String query, URI graph);
 	
-	
 	/**
+	 * Executes the ask query on the specified named graph.
 	 * 
 	 * @param query
 	 * @param graph
-	 * @return
+	 * @return query result.
 	 */
 	boolean askQuery(String query, URI graph);
 	

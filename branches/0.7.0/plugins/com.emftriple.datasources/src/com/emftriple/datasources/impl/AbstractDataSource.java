@@ -46,4 +46,12 @@ public abstract class AbstractDataSource implements IDataSource {
 		return isConnected;
 	};
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T extends IDataSource> T as(Class<T> aClass) throws ClassCastException{
+		if (aClass.isInstance(this)) {
+			return (T) this;
+		}
+		else throw new ClassCastException("Cannot cast " + this + " as " + aClass);
+	}
 }

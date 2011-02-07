@@ -12,7 +12,7 @@ import com.emftriple.datasources.IMutableNamedGraphDataSource;
 public class SesameMem extends SailDataSource implements IMutableNamedGraphDataSource {
 
 	protected SesameMem(String name, Repository repository) {
-		super(name, repository, null);
+		super(name, repository);
 	}
 
 }

@@ -12,18 +12,20 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.NamedGraph;
+import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
-import com.emf4sw.rdf.jena.NamedGraphInjector;
+import com.emf4sw.rdf.URIElement;
+import com.emf4sw.rdf.resource.RDFResourceImpl;
 import com.emftriple.datasources.IDataSource;
 import com.emftriple.datasources.INamedGraphDataSource;
 import com.emftriple.datasources.IResultSet;
-import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
-import com.emftriple.jena.util.JenaResultSet;
-import com.hp.hpl.jena.query.Query;
+import com.emftriple.datasources.IResultSet.Solution;
+import com.google.inject.internal.Lists;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 /**
  * {@link JenaService} is a SPARQL endpoint {@link IDataSource} representation.
@@ -31,124 +33,33 @@ import com.hp.hpl.jena.rdf.model.Model;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class JenaService extends AbstractNamedGraphDataSource implements INamedGraphDataSource {
+public class JenaService extends ModelDataSource implements INamedGraphDataSource {
 
 	private final String service;
 	
-	JenaService(String name, String service, List<URI> graphs) {
-		super( name, graphs );
+	JenaService(String name, String service) {
+		super( name );
 		this.service = service;
 	}
 
 	@Override
-	public RDFGraph constructQuery(String query) {
-		return doConstructQuery(query);
-	}
-
-	@Override
-	public RDFGraph constructQuery(String query, URI graph) {
-		return doConstructQuery(query);
+	public QueryExecution getQueryExecution(String query, Model model) {
+		return QueryExecutionFactory.sparqlService(service, QueryFactory.create( query ));
 	}
 	
 	@Override
-	public void constructQuery(String query, RDFGraph aGraph) {
-		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create( query ) );
-		final Model result = queryExec.execConstruct();
-		
-		new NamedGraphInjector(result).inject(aGraph);
+	public Model getModel() {
+		return ModelFactory.createDefaultModel();
 	}
 	
 	@Override
-	public void describeQuery(String query, RDFGraph aGraph) {
-		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create(query) );
-		final Model result = queryExec.execDescribe();
-		
-		new NamedGraphInjector(result).inject(aGraph);
+	public Model getModel(URI graph) {
+		return getModel();
 	}
-	
-	protected RDFGraph doConstructQuery(String query) {
-		RDFGraph graph = null;
-		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create( query ) );
-		final Model result = queryExec.execConstruct();
-		graph = new NamedGraphInjector(result).inject();
-		
-		return graph;
-	}
-	
-	@Override
-	public IResultSet selectQuery(String query) {
-		return new JenaResultSet( 
-					QueryExecutionFactory.sparqlService(service, QueryFactory.create( query )).execSelect()
-				);
-	}
-
-	@Override
-	public IResultSet selectQuery(String query, URI graph) {
-		throw new UnsupportedOperationException("select query on graph is not supported yet.");
-	}
-	
-	@Override
-	public boolean askQuery(String query) {
-		final QueryExecution queryExec = 
-				QueryExecutionFactory.sparqlService(service, QueryFactory.create( query ) );
-		return queryExec.execAsk();
-	}
-
 
 	@Override
 	public boolean supportsTransaction() {
 		return Boolean.FALSE;
-	}
-
-	@Override
-	public RDFGraph describeQuery(String query) {
-		RDFGraph graph = null;
-		final QueryExecution queryExec = QueryExecutionFactory.sparqlService(service, QueryFactory.create(query) );
-		final Model result = queryExec.execDescribe();
-		graph = new NamedGraphInjector(result).inject();
-		
-		return graph;
-	}
-
-	@Override
-	public boolean askQuery(String query, URI graph) {
-		boolean result = false;
-		try {
-			Query aQuery = QueryFactory.create( query );
-			QueryExecution qexec = QueryExecutionFactory.sparqlService(service, aQuery);
-			result = qexec.execAsk();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-
-	@Override
-	public RDFGraph describeQuery(String query, URI graph) {
-		RDFGraph aGraph = null;
-		try {
-			Query aQuery = QueryFactory.create( query );
-			QueryExecution qexec = QueryExecutionFactory.sparqlService(service, aQuery);
-			final Model result = qexec.execDescribe();
-			aGraph = new NamedGraphInjector(result).inject();
-		} finally {
-			// nothing?			
-		}
-		return aGraph;
-	}
-
-	@Override
-	public NamedGraph getNamedGraph(URI graphURI) {
-		NamedGraph aGraph = null;
-		try {
-			Query aQuery = QueryFactory.create( graphQuery(graphURI) );
-			QueryExecution qexec = QueryExecutionFactory.sparqlService(service, aQuery);
-			final Model result = qexec.execConstruct();
-			aGraph = new NamedGraphInjector(result).inject();
-		} finally {
-			// nothing?
-		}
-		return aGraph;
 	}
 
 	@Override
@@ -159,5 +70,57 @@ public class JenaService extends AbstractNamedGraphDataSource implements INamedG
 	@Override
 	public void disconnect() {
 		setConnected(false);
+	}
+
+	@Override
+	public boolean containsGraph(URI graph) {
+		return askQuery("ask where { graph < " + graph.toString() + "> { ?s ?p ?o } }");
+	}
+
+	@Override
+	public Iterable<String> getNamedGraphs() {
+		final List<String> list = Lists.newArrayList();
+		final IResultSet result = selectQuery("select ?g where { graph ?g { ?s ?p ?o } }");
+		for (;result.hasNext();) {
+			Solution sol = result.next();
+			Node n = sol.get("g");
+			if (n instanceof URIElement)
+				list.add(((URIElement) n).getURI());
+		}
+		return list;
+	}
+
+	@Override
+	public NamedGraph getNamedGraph(URI graphURI) {
+		NamedGraph aGraph = new RDFResourceImpl.DummyRDFResource().createNamedGraph(graphURI);
+		
+		constructQuery(
+				"construct { ?s ?p ?o } " +
+				"where { " +
+				"	graph <" + graphURI.toString() + "> { ?s ?p ?o } " +
+				"}", 
+				aGraph);
+		
+		return aGraph;
+	}
+
+	@Override
+	public IResultSet selectQuery(String query, URI graph) {
+		return selectQuery(query);
+	}
+
+	@Override
+	public RDFGraph constructQuery(String query, URI graph) {
+		return constructQuery(query);
+	}
+
+	@Override
+	public RDFGraph describeQuery(String query, URI graph) {
+		return describeQuery(query);
+	}
+
+	@Override
+	public boolean askQuery(String query, URI graph) {
+		return askQuery(query);
 	}
 }

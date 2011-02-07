@@ -7,27 +7,18 @@
  */
 package com.emftriple.jena;
 
-import static com.emftriple.jena.JenaDataSourceExecution.doDescribeQuery;
-
-import java.util.List;
-
 import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
-import com.emf4sw.rdf.jena.NamedGraphInjector;
 import com.emf4sw.rdf.jena.RDFGraphExtractor;
-import com.emftriple.datasources.IMutableNamedGraphDataSource;
-import com.emftriple.datasources.IResultSet;
+import com.emf4sw.rdf.resource.RDFResourceImpl;
 import com.emftriple.datasources.ISparqlUpdateDataSource;
 import com.emftriple.datasources.ITransactionEnableDataSource;
-import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
-import com.emftriple.jena.util.JenaResultSet;
+import com.google.inject.internal.Lists;
 import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.shared.Lock;
 import com.hp.hpl.jena.tdb.TDBFactory;
@@ -41,168 +32,35 @@ import com.hp.hpl.jena.update.UpdateAction;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.0
  */
-public class JenaTDB extends AbstractNamedGraphDataSource 
-implements ISparqlUpdateDataSource, IMutableNamedGraphDataSource, ITransactionEnableDataSource {
+public class JenaTDB extends ModelNamedGraphDataSource implements ITransactionEnableDataSource, ISparqlUpdateDataSource {
 
 	private final Dataset dataSet;
 	
-	protected JenaTDB(String name, String fileLocation, List<URI> graphs) {
-		super( name, graphs );
-		this.dataSet = TDBFactory.createDataset(fileLocation);
+	protected JenaTDB(String name, String fileLocation) {
+		super( name );
+		dataSet = TDBFactory.createDataset(fileLocation);
 	}
 
 	@Override
-	public RDFGraph constructQuery(String query) {
-		return JenaDataSourceExecution.doContstructQuery(query, dataSet, null); 
+	public Model getModel() {
+		return dataSet.getDefaultModel();
 	}
 
 	@Override
-	public RDFGraph constructQuery(String query, URI graph) {
-		if (!dataSet.containsNamedModel(graph.toString())) {
-			throw new IllegalArgumentException("DataSet does not contains named graph: " + graph);
-		}
-		return JenaDataSourceExecution.doContstructQuery(query, dataSet.getNamedModel(graph.toString()), null);
+	public Model getModel(URI graph) {
+		if (dataSet.containsNamedModel(graph.toString()))
+			return dataSet.getNamedModel(graph.toString());
+		return null;
 	}
 
 	@Override
-	public void constructQuery(String query, RDFGraph aGraph) {
-		JenaDataSourceExecution.doContstructQuery(query, dataSet, null, aGraph);
+	public QueryExecution getQueryExecution(String query, Model model) {
+		return QueryExecutionFactory.create(query, model);
 	}
 	
-	@Override
-	public void describeQuery(String query, RDFGraph aGraph) {
-		JenaDataSourceExecution.doDescribeQuery(query, dataSet, null, aGraph);
-	}
-	
-	@Override
-	public IResultSet selectQuery(String query) {
-		return new JenaResultSet( 
-					QueryExecutionFactory.create( QueryFactory.create( query ), dataSet )
-						.execSelect());
-	}
-
-	@Override
-	public IResultSet selectQuery(String query, URI graph) {
-		IResultSet rs = null;
-		try {
-			rs = new JenaResultSet (
-						QueryExecutionFactory.create( 
-								QueryFactory.create( query ), dataSet.getNamedModel(graph.toString()) )
-					.execSelect() );
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		return rs;
-	}
-	
-	@Override
-	public RDFGraph describeQuery(String query) {
-		return doDescribeQuery(query, dataSet, null);
-	}
-	
-	@Override
-	public boolean askQuery(String query, URI graph) {
-		if (!dataSet.containsNamedModel(graph.toString())) {
-			throw new IllegalArgumentException("DataSet does not contains named graph: " + graph);
-		}
-		
-		final Model model = dataSet.getNamedModel(graph.toString());
-		boolean result = false;
-		try {
-			Query aQuery = QueryFactory.create( query );
-			QueryExecution qexec = QueryExecutionFactory.create(aQuery, model);
-			result = qexec.execAsk();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return result;
-	}
-
-	@Override
-	public RDFGraph describeQuery(String query, URI graph) {
-		return JenaDataSourceExecution.doDescribeQuery(query, dataSet.getNamedModel(graph.toString()), null);
-	}
-	
-	@Override
-	public boolean askQuery(String query) {
-		boolean result = false;
-		try {
-			Query aQuery = QueryFactory.create(query );
-			QueryExecution qexec = QueryExecutionFactory.create(aQuery, dataSet);
-			result = qexec.execAsk();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return result;
-	}
-
-	@Override
-	public void update(String query) {
-		GraphStore graphStore = GraphStoreFactory.create(dataSet);
-        UpdateAction.parseExecute( query, graphStore);
-	}
-	
-	@Override
-	public void add(RDFGraph graph) {
-		doAdd(graph, dataSet.getDefaultModel());
-	}
-	
-	@Override
-	public void add(NamedGraph graph) {
-		doAdd(graph, dataSet.getNamedModel(graph.getURI()));
-	}
-
-	protected void doAdd(RDFGraph graph, Model model) {
-		model.enterCriticalSection(Lock.WRITE);
-		try {
-			model.add( new RDFGraphExtractor().extract(graph) );	
-		} finally { 
-			model.leaveCriticalSection();
-			model.commit();
-		}	
-	}
-	
-	@Override
-	public void remove(RDFGraph graph) {
-		doRemove(graph, dataSet.getDefaultModel());
-	}
-
-	@Override
-	public void remove(NamedGraph graph) {
-		doRemove(graph, dataSet.getNamedModel(graph.getURI()));
-	}
-
-	protected void doRemove(RDFGraph graph, Model model) {
-		model.enterCriticalSection(Lock.WRITE);
-		try {
-			model.remove( new RDFGraphExtractor().extract(graph) );
-		} finally { 
-			model.leaveCriticalSection();
-			model.commit();
-		}
-	}
-
-	@Override
-	protected void finalize() throws Throwable {
-		super.finalize();
-		dataSet.close();
-	}
-	
-	@Override
-	public NamedGraph getNamedGraph(URI graphURI) {
-		return new NamedGraphInjector(dataSet.getNamedModel(graphURI.toString())).inject();
-	}
-
-	@Override
-	public boolean supportsTransaction() {
-		return Boolean.TRUE;
-	}
-
 	@Override
 	public void begin() {
-		dataSet.getDefaultModel().begin();		
+		dataSet.getDefaultModel().begin();
 	}
 
 	@Override
@@ -216,15 +74,111 @@ implements ISparqlUpdateDataSource, IMutableNamedGraphDataSource, ITransactionEn
 	}
 
 	@Override
-	public void createGraph(URI graphURI) {
-		throw new UnsupportedOperationException();
+	public NamedGraph getNamedGraph(URI graphURI) {
+		NamedGraph aGraph = new RDFResourceImpl.DummyRDFResource().createNamedGraph(graphURI);
+		
+		constructQuery(
+				"construct { ?s ?p ?o } " +
+				"where { " +
+				"	graph <" + graphURI.toString() + "> { ?s ?p ?o } " +
+				"}", 
+				aGraph);
+		
+		return aGraph;
+	}
+
+	@Override
+	public Iterable<String> getNamedGraphs() {
+		return Lists.newArrayList(dataSet.listNames());
+	}
+
+	@Override
+	public boolean containsGraph(URI graph) {
+		return dataSet.containsNamedModel(graph.toString());
+	}
+
+	@Override
+	public void add(RDFGraph graph) {
+		final Model model = getModel();
+		
+		model.enterCriticalSection(Lock.WRITE);
+		try {
+			model.add( new RDFGraphExtractor().extract(graph) );	
+		} finally { 
+			model.leaveCriticalSection();
+			model.commit();
+		}	
+	}
+
+	@Override
+	public void remove(RDFGraph graph) {
+		final Model model = getModel();
+		
+		model.enterCriticalSection(Lock.WRITE);
+		try {
+			model.remove( new RDFGraphExtractor().extract(graph) );
+		} finally { 
+			model.leaveCriticalSection();
+			model.commit();
+		}
+	}
+
+	@Override
+	public void deleteGraph(URI graph) {
+		if (containsGraph(graph))
+			dataSet.getNamedModel(graph.toString()).removeAll();
+		
+	}
+
+	@Override
+	public void add(NamedGraph graph) {
+		final Model model = getModel(URI.createURI(graph.getURI()));
+		
+		model.enterCriticalSection(Lock.WRITE);
+		try {
+			model.add( new RDFGraphExtractor().extract(graph) );
+		} finally { 
+			model.leaveCriticalSection();
+			model.commit();
+		}
+	}
+
+	@Override
+	public void remove(NamedGraph graph) {
+		final Model model = getModel(URI.createURI(graph.getURI()));
+		
+		model.enterCriticalSection(Lock.WRITE);
+		try {
+			model.remove( new RDFGraphExtractor().extract(graph) );
+		} finally { 
+			model.leaveCriticalSection();
+			model.commit();
+		}
 	}
 	
+	@Override
+	public void update(String query) {
+		final Model model = getModel();
+		
+		model.enterCriticalSection(Lock.WRITE);
+		try {
+			GraphStore graphStore = GraphStoreFactory.create(model);
+			UpdateAction.parseExecute( query, graphStore);
+		} finally {
+			model.leaveCriticalSection();
+		}
+	}
+
+	@Override
+	public boolean supportsTransaction() {
+		return true;
+	}
+
 	@Override
 	public void connect() {
 		setConnected(true);
 	}
-	
+
 	@Override
 	public void disconnect() {
 		setConnected(false);

@@ -7,8 +7,6 @@
  */
 package com.emftriple.datasources.impl;
 
-import java.util.List;
-
 import org.eclipse.emf.common.util.URI;
 
 import com.emftriple.datasources.INamedGraphDataSource;
@@ -20,23 +18,10 @@ import com.emftriple.datasources.INamedGraphDataSource;
  */
 public abstract class AbstractNamedGraphDataSource extends AbstractDataSource implements INamedGraphDataSource {
 
-	protected final List<URI> namedGraphURIs;
-
-	protected AbstractNamedGraphDataSource(String name, List<URI> namedGraphURIs) {
+	protected AbstractNamedGraphDataSource(String name) {
 		super(name);
-		this.namedGraphURIs = namedGraphURIs;
 	}
 
-	@Override
-	public boolean containsGraph(URI graph) {
-		return namedGraphURIs.contains(graph);
-	}
-	
-	@Override
-	public List<URI> getNamedGraphs() {
-		return namedGraphURIs;
-	}
-	
 	protected String graphQuery(URI graphURI) {
 		return "CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <" + graphURI.toString()+ "> { ?s ?p ?o} }";
 	}

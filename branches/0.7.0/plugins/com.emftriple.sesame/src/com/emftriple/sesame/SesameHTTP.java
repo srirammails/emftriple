@@ -10,6 +10,7 @@ import org.openrdf.repository.Repository;
 public class SesameHTTP extends SailDataSource {
 
 	protected SesameHTTP(String name, Repository repository) {
-		super(name, repository, null);
+		super(name, repository);
 	}
+
 }
