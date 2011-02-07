@@ -8,7 +8,7 @@ import com.emf4sw.rdf.resource.RDFResource.RDFResourceFactory;
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
- * @since 0.5.5
+ * @since 0.7
  */
 public class TTLResourceFactory implements RDFResourceFactory {
 	

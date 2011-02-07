@@ -7,6 +7,8 @@
  */
 package com.emf4sw.rdf.resource;
 
+import static org.eclipse.emf.ecore.util.EcoreUtil.getObjectsByType;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import com.emf4sw.rdf.DocumentGraph;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFFactory;
+import com.emf4sw.rdf.RDFPackage;
 
 /**
  * 
@@ -42,21 +45,58 @@ public abstract class RDFResourceImpl extends ResourceImpl implements RDFResourc
 	}
 
 	@Override
+	public NamedGraph createNamedGraph(URI uri) {
+		if (!getContents().isEmpty()) {
+			throw new IllegalStateException("Cannot create NamedGraph, RDFResource already contains a graph");
+		}
+		
+		final NamedGraph aGraph = RDFFactory.eINSTANCE.createNamedGraph();
+		aGraph.setURI(uri.toString());
+		getContents().add(aGraph);
+
+		return aGraph;
+	}
+	
+	@Override
 	public DocumentGraph createGraph() {
+		if (!getContents().isEmpty()) {
+			throw new IllegalStateException("Cannot create DocumentGraph, RDFResource already contains a graph");
+		}
+		
 		final DocumentGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
-		this.getContents().add(aGraph);
+		getContents().add(aGraph);
 
 		return aGraph;
 	}
 
 	@Override
 	public DocumentGraph getGraph() {
+		if (getContents().size() == 0) {
+			return null;
+		}
+		
 		return getContents().get(0) == null ? null : (DocumentGraph) getContents().get(0);
 	}
 
 	@Override
 	public NamedGraph getNamedGraph(URI uri) {
-		return getGraph().getNamedGraph(uri.toString());
+		if (getContents().size() == 0) {
+			return null;
+		}
+		
+		if (getContents().get(0) instanceof DocumentGraph) {
+			return ((DocumentGraph)getContents().get(0)).getNamedGraph(uri.toString());
+		}
+		
+		for (Object aGraph: getObjectsByType(getContents(), RDFPackage.eINSTANCE.getNamedGraph())) {
+			if (aGraph instanceof NamedGraph) {
+				if (((NamedGraph)aGraph).getURI() == uri.toString()) {
+					return (NamedGraph) aGraph;
+				}
+			}
+		}
+		
+		return null;
 	}
 
 	public final static class DummyRDFResource extends RDFResourceImpl {
