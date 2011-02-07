@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EmfTriple Neo4j Extension
+Bundle-SymbolicName: com.emftriple.neo4j
+Bundle-Version: 0.7.0.qualifier
+Bundle-Vendor: eclipselabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.5.0",
+ com.emf4sw.rdf;bundle-version="0.7.0",
+ com.emftriple;bundle-version="0.7.0",
+ com.emftriple.datasources;bundle-version="0.7.0"
