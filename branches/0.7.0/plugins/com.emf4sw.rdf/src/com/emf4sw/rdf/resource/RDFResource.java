@@ -20,12 +20,43 @@ import com.emf4sw.rdf.NamedGraph;
  */
 public interface RDFResource extends Resource {
 	
-	DocumentGraph createGraph();
+	/**
+	 * Create and Add a DocumentGraph as root element.
+	 * 
+	 * @throws IllegalStateException if the resource already contains a root graph.
+	 * @return the created graph.
+	 */
+	DocumentGraph createGraph() throws IllegalStateException;
+
+	/**
+	 * Create and Add a NamedGraph as root element.
+	 * 
+	 * @param uri for the named graph;
+	 * @throws IllegalStateException if the resource already contains a root graph.
+	 * @return the created graph.
+	 */
+	NamedGraph createNamedGraph(URI uri) throws IllegalStateException;
 	
+	/**
+	 * Returns the root graph is the root element is a DocumentGraph.
+	 * 
+	 * @return the graph
+	 */
 	DocumentGraph getGraph();
 	
+	/**
+	 * Returns the NamedGraph identified by the uri.
+	 * 
+	 * @param uri
+	 * @return the graph
+	 */
 	NamedGraph getNamedGraph(URI uri);
 	
+	/**
+	 * 
+	 * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+	 * @since 0.7
+	 */
 	public interface RDFResourceFactory extends Resource.Factory {
 		
 	}
@@ -33,7 +64,7 @@ public interface RDFResource extends Resource {
 	/**
 	 * 
 	 * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
-	 * @since 0.6.5
+	 * @since 0.7
 	 */
 	public interface RDFReader<T> {
 		
@@ -44,12 +75,12 @@ public interface RDFResource extends Resource {
 	/**
 	 * 
 	 * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
-	 * @since 0.6.5
+	 * @since 0.7
 	 */
 	public interface RDFWriter<T> {
 		
 		void write(RDFResource resource, T target);
 		
 	}
-	
+
 }

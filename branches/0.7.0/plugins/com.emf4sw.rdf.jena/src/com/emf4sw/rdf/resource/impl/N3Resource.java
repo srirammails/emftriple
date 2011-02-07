@@ -10,7 +10,7 @@ import com.emf4sw.rdf.resource.RDFResourceImpl;
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
- * @since 0.6.5
+ * @since 0.7
  */
 public class N3Resource extends RDFResourceImpl implements RDFResource {
 	

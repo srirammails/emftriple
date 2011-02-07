@@ -27,7 +27,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 /**
  * 
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
- * @since 0.5.0
+ * @since 0.7
  */
 public class RDFXMLResource extends RDFResourceImpl implements RDFResource {
 
