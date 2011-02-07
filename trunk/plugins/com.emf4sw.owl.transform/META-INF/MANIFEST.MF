@@ -9,6 +9,13 @@ Export-Package: com.emf4sw.owl.transform,
  com.emf4sw.owl.transform.ecore2owl,
  com.emf4sw.owl.transform.owl2ecore,
  com.emf4sw.owl.transform.utils
-Require-Bundle: com.atl.common;bundle-version="0.7.0",
- com.emf4sw.owl;bundle-version="0.7.0",
- org.eclipse.emf.ecore;bundle-version="2.5.0"
+Import-Package: com.atl.common.models,
+ com.atl.common.models.extensions,
+ com.atl.common.trans,
+ com.atl.common.utils,
+ com.emf4sw.owl,
+ com.emf4sw.owl.resource,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.resource,
+ org.eclipse.m2m.atl.core.emf,
+ org.eclipse.m2m.atl.engine.emfvm.lib
