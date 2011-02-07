@@ -1,0 +1,93 @@
+@namespace(uri="http://www.example.com/Employee", prefix="employee")
+package employee;
+
+@etriple.NamedQuery(
+	name="findProjectByName", 
+	queryString="SELECT p FROM Project p WHERE p.name = :name")
+abstract class Project {
+  @etriple.Id(base="http://www.example.com/projects/")
+  attr String name;
+  attr String description;
+  ref Employee teamLeader;
+}
+
+class SmallProject extends Project {
+}
+
+class LargeProject extends Project {
+  attr double budget;
+  attr EDate milestone;
+}
+
+class PhoneNumber {
+  @etriple.Id(base="http://www.example.com/phones/")
+  attr String number;
+  attr String type;
+  attr String areaCode;
+  ref Employee[1]#phoneNumbers owner;
+}
+
+class JobTitle {
+  @etriple.Id(base="http://www.example.com/jobs/")
+  attr String title;
+}
+
+enum Gender {
+  Male = 0;
+  Female = 1;
+}
+
+class EmploymentPeriod {
+  @etriple.Id(base="http://www.example.com/periods/")
+  attr int ~id;
+  attr EDate startDate;
+  attr EDate endDate;
+}
+
+@etriple.CompositeId(base="http://www.example.com/employees/[firstname]_[lastname]")
+@etriple.NamedQuery(
+	name="findEmployeeByName", 
+	queryString="SELECT e FROM Employee e WHERE e.firstName = :first AND e.lastName = :last")
+class Employee {
+  attr String firstName;
+  attr String lastName;
+  attr Gender gender;
+  attr double salary;
+  attr long version;
+  attr String[*] responsibilities;
+  
+  val EmploymentPeriod period;
+  val Address address;
+  ref JobTitle jobTitle;
+  ref Employee#managedEmployees manager;
+  ref Employee[*]#manager managedEmployees;
+  val PhoneNumber[*]#owner phoneNumbers;
+  ref Degree[*] degrees;
+  ref Project[*] projects;
+  val EmailAddress[*] emailAddresses;
+}
+
+@etriple.NamedQuery(
+	name="findEmailByAddress", 
+	queryString="SELECT e FROM EmailAddress e WHERE e.address = :address")
+class EmailAddress {
+  @etriple.Id(base="http://www.example.com/mails/")
+  attr int ~id;
+  attr String name;
+  attr String address;
+}
+
+class Degree {
+  @etriple.Id(base="http://www.example.com/degrees/")
+  attr String name;
+}
+
+class Address {
+  @etriple.Id(base="http://www.example.com/addresses/")
+  attr int ~id;
+  attr String city;
+  attr String country;
+  attr String province;
+  attr String postalCode;
+  attr String street;
+}

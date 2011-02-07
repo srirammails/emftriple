@@ -1,0 +1,126 @@
+@namespace(uri="http://www.emftriple.com/xml/ns/annotations", prefix="annotations")
+package annotations;
+
+import "http://www.eclipse.org/emf/2003/XMLType";
+
+@ExtendedMetaData(name="entity-mappings", kind="elementOnly")
+class EntityMapping {
+ @ExtendedMetaData(kind="element", name="description", namespace="##targetNamespace")
+  attr type.String description;
+
+  @ExtendedMetaData(kind="element", name="persistence-unit-metadata", namespace="##targetNamespace")
+  !resolve val PersistenceUnitMetadata persistenceUnitMetadata;
+
+  @ExtendedMetaData(kind="element", name="package", namespace="##targetNamespace")
+  attr type.String ~package;
+
+  @ExtendedMetaData(kind="element", name="schema", namespace="##targetNamespace")
+  attr type.String[?] schema;
+
+  @ExtendedMetaData(kind="element", name="catalog", namespace="##targetNamespace")
+  attr type.String[?] catalog;
+
+  @ExtendedMetaData(kind="element", name="access", namespace="##targetNamespace")
+  unsettable attr AccessType access;
+
+//  @ExtendedMetaData(kind="element", name="sequence-generator", namespace="##targetNamespace")
+//  !resolve val SequenceGenerator[*] sequenceGenerator;
+
+//  @ExtendedMetaData(kind="element", name="table-generator", namespace="##targetNamespace")
+//  !resolve val TableGenerator[*] tableGenerator;
+
+  @ExtendedMetaData(kind="element", name="named-query", namespace="##targetNamespace")
+  !resolve val NamedQueryType[*] namedQuery;
+
+  @ExtendedMetaData(kind="element", name="named-native-query", namespace="##targetNamespace")
+  !resolve val NamedNativeQueryType[*] namedNativeQuery;
+
+//  @ExtendedMetaData(kind="element", name="sql-result-set-mapping", namespace="##targetNamespace")
+//  !resolve val SqlResultSetMapping[*] sqlResultSetMapping;
+
+//  @ExtendedMetaData(kind="element", name="mapped-superclass", namespace="##targetNamespace")
+//  !resolve val MappedSuperclass[*] mappedSuperclass;
+
+  @ExtendedMetaData(kind="element", name="entity", namespace="##targetNamespace")
+  !resolve val EntityType[*] entity;
+
+//  @ExtendedMetaData(kind="element", name="embeddable", namespace="##targetNamespace")
+//  !resolve val Embeddable[*] embeddable;
+
+  @ExtendedMetaData(kind="attribute", name="version")
+  unsettable attr VersionType[1] version = "2.0";
+}
+
+@ExtendedMetaData(name="entity", kind="elementOnly")
+class EntityType {
+	
+	@ExtendedMetaData(kind="attribute", name="name")
+  	attr type.String name;
+  	
+  	@ExtendedMetaData(kind="attribute", name="class")
+  	attr type.String[1] ~class;
+ 
+ 	@ExtendedMetaData(kind="element", name="description", namespace="##targetNamespace")
+  	attr type.String description;
+}
+
+abstract class QueryType {
+	@ExtendedMetaData(kind="attribute", name="name")
+  	attr type.String[1] name;   
+} 
+
+@ExtendedMetaData(name="named-query", kind="elementOnly")
+class NamedQueryType extends QueryType {
+ 	@ExtendedMetaData(kind="element", name="description", namespace="##targetNamespace")
+ 	attr type.String description;
+
+  	@ExtendedMetaData(kind="element", name="query", namespace="##targetNamespace")
+  	attr type.String[1] query;
+
+//  @ExtendedMetaData(kind="element", name="lock-mode", namespace="##targetNamespace")
+//  unsettable attr LockModeType lockMode;
+
+//  @ExtendedMetaData(kind="element", name="hint", namespace="##targetNamespace")
+//  !resolve val QueryHint[*] hint;
+}
+
+@ExtendedMetaData(name="named-native-query", kind="elementOnly")
+class NamedNativeQueryType extends QueryType {
+   
+    @ExtendedMetaData(kind="element", name="description", namespace="##targetNamespace")
+	attr type.String description;
+
+  	@ExtendedMetaData(kind="element", name="query", namespace="##targetNamespace")
+  	attr type.String[1] query;
+
+//  	@ExtendedMetaData(kind="element", name="hint", namespace="##targetNamespace")
+//  	!resolve val QueryHint[*] hint;
+
+  	@ExtendedMetaData(kind="attribute", name="result-class")
+  	attr type.String resultClass;
+
+  	@ExtendedMetaData(kind="attribute", name="result-set-mapping")
+  	attr type.String resultSetMapping;
+}
+
+@ExtendedMetaData(name="persistence-unit-metadata", kind="elementOnly")
+class PersistenceUnitMetadata {
+
+  @ExtendedMetaData(kind="element", name="description", namespace="##targetNamespace")
+  attr type.String description;
+
+//  @ExtendedMetaData(kind="element", name="xml-mapping-metadata-complete", namespace="##targetNamespace")
+//  !resolve val EmptyType xmlMappingMetadataComplete;
+
+//  @ExtendedMetaData(kind="element", name="persistence-unit-defaults", namespace="##targetNamespace")
+//  !resolve val PersistenceUnitDefaults persistenceUnitDefaults;
+}
+
+@ExtendedMetaData(name="versionType", baseType="http://www.eclipse.org/emf/2003/XMLType#token", pattern="[0-9]+(\.[0-9]+)*")
+datatype VersionType : java.lang.String;
+
+@ExtendedMetaData(name="access-type")
+enum AccessType {
+  PROPERTY = 0;
+  FIELD = 1;
+}

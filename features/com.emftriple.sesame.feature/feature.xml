@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.emftriple.sesame.feature"
+      label="EMF Triple Sesame adapter"
+      version="0.6.1.qualifier"
+      provider-name="eclipselabs">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="Eclipse Modeling for Semantic Web" url="http://emftriple.googlecode.com/svn/trunk/emftriple/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="com.emf4sw.sesame" version="2.3.1" match="greaterOrEqual"/>
+      <import plugin="com.emf4sw.jena" version="2.6.2" match="greaterOrEqual"/>
+      <import plugin="com.emftriple.query.sparql" version="0.6.0" match="greaterOrEqual"/>
+      <import plugin="com.emftriple" version="0.6.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.emf4sw.sesame"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="com.emftriple.sesame"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,100 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:employee="http://www.example.com/Employee#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://www.example.com/directory/default">
+    <employee:degrees rdf:resource="http://www.example.com/degrees/Master"/>
+    <employee:degrees rdf:resource="http://www.example.com/degrees/Phd"/>
+    <employee:jobs rdf:resource="http://www.example.com/jobs/Software_Developer"/>
+    <employee:jobs rdf:resource="http://www.example.com/jobs/Project_Manager"/>
+    <employee:employees rdf:resource="http://www.example.com/employees/Peter"/>
+    <employee:employees rdf:resource="http://www.example.com/employees/John"/>
+    <employee:projects rdf:resource="http://www.example.com/projects/realistic_project"/>
+    <employee:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">default</employee:name>
+    <rdf:type rdf:resource="http://www.example.com/Employee#Directory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/mails/3">
+    <employee:address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">peter.griffin@acme.com</employee:address>
+    <rdf:type rdf:resource="http://www.example.com/Employee#EmailAddress"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/projects/realistic_project">
+    <employee:teamLeader rdf:resource="http://www.example.com/employees/John"/>
+    <employee:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a small example project</employee:description>
+    <employee:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">realistic project</employee:name>
+    <rdf:type rdf:resource="http://www.example.com/Employee#SmallProject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/mails/4">
+    <employee:address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">john.smith@acme.com</employee:address>
+    <rdf:type rdf:resource="http://www.example.com/Employee#EmailAddress"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/phones/3456782">
+    <employee:owner rdf:resource="http://www.example.com/employees/Peter"/>
+    <employee:areaCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">453</employee:areaCode>
+    <employee:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">home</employee:type>
+    <employee:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3456782</employee:number>
+    <rdf:type rdf:resource="http://www.example.com/Employee#PhoneNumber"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/phones/1432675">
+    <employee:owner rdf:resource="http://www.example.com/employees/John"/>
+    <employee:areaCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">345</employee:areaCode>
+    <employee:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mobile</employee:type>
+    <employee:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1432675</employee:number>
+    <rdf:type rdf:resource="http://www.example.com/Employee#PhoneNumber"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/employees/Peter">
+    <employee:emailAddresses rdf:resource="http://www.example.com/mails/3"/>
+    <employee:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">35000.0</employee:salary>
+    <employee:phoneNumbers rdf:resource="http://www.example.com/phones/3456782"/>
+    <employee:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peter</employee:firstName>
+    <employee:gender rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Male</employee:gender>
+    <employee:jobTitle rdf:resource="http://www.example.com/jobs/Software_Developer"/>
+    <employee:lastName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Griffin</employee:lastName>
+    <employee:period rdf:resource="http://www.example.com/dates/2"/>
+    <employee:projects rdf:resource="http://www.example.com/projects/realistic_project"/>
+    <employee:manager rdf:resource="http://www.example.com/employees/John"/>
+    <rdf:type rdf:resource="http://www.example.com/Employee#Employee"/>
+    <employee:degrees rdf:resource="http://www.example.com/degrees/Master"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/jobs/Software_Developer">
+    <employee:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Software Developer</employee:title>
+    <rdf:type rdf:resource="http://www.example.com/Employee#JobTitle"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/jobs/Project_Manager">
+    <employee:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Project Manager</employee:title>
+    <rdf:type rdf:resource="http://www.example.com/Employee#JobTitle"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/degrees/Master">
+    <employee:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Master</employee:name>
+    <rdf:type rdf:resource="http://www.example.com/Employee#Degree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/degrees/Phd">
+    <employee:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Phd</employee:name>
+    <rdf:type rdf:resource="http://www.example.com/Employee#Degree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/dates/1">
+    <employee:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0007-06-19T00:00:00.000Z</employee:startDate>
+    <rdf:type rdf:resource="http://www.example.com/Employee#EmploymentPeriod"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/employees/John">
+    <employee:gender rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Male</employee:gender>
+    <employee:managedEmployees rdf:resource="http://www.example.com/employees/Peter"/>
+    <employee:lastName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Smith</employee:lastName>
+    <employee:responsibilities rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Manager</employee:responsibilities>
+    <employee:period rdf:resource="http://www.example.com/dates/1"/>
+    <employee:degrees rdf:resource="http://www.example.com/degrees/Phd"/>
+    <employee:jobTitle rdf:resource="http://www.example.com/jobs/Project_Manager"/>
+    <employee:projects rdf:resource="http://www.example.com/projects/realistic_project"/>
+    <employee:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John</employee:firstName>
+    <employee:emailAddresses rdf:resource="http://www.example.com/mails/4"/>
+    <employee:degrees rdf:resource="http://www.example.com/degrees/Master"/>
+    <rdf:type rdf:resource="http://www.example.com/Employee#Employee"/>
+    <employee:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">60000.0</employee:salary>
+    <employee:phoneNumbers rdf:resource="http://www.example.com/phones/1432675"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.example.com/dates/2">
+    <employee:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0016-07-24T00:00:00.000Z</employee:startDate>
+    <rdf:type rdf:resource="http://www.example.com/Employee#EmploymentPeriod"/>
+  </rdf:Description>
+</rdf:RDF>
