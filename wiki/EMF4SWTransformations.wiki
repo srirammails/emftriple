@@ -11,8 +11,7 @@ This section presents the model transformations available in EMF4SW.
 The component can be used in an eclipse plugin. Do to so, create a new eclipse plugin with the wizard find under: 
 File -> New -> Plug-in development -> Plug-in Project. 
 
-Then add the required dependencies to the Plug-in manifest, as depicted by the following pictures.
-Required dependencies for the RDFIzer component:
+Then add the required dependencies to the Plug-in manifest:
  * com.atl.common
  * com.emf4sw.owl
  * com.emf4sw.owl.transform
