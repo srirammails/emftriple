@@ -38,7 +38,9 @@ The following code excerpt shows how to generate a RDF document from a model.
 {{{ 
 // Register Resource Factories
 
-Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("rdf", new TTLResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("rdf", new TTLResourceFactory());
 
 // Register Metamodel
 Models.register(Models.resource("metamodel.ecore", true));
@@ -58,31 +60,23 @@ rdf.save(null);
 ===RDF to Model===
 
 {{{
-Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
-Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
-Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new RDFTurtleResourceFactory());
-		
-ResourceSet resourceSet = Models.resourceSet();
-Resource metamodel = resourceSet.createResource(URI.createURI("src/resources/employee.ecore"));
-try {
-  metamodel.load(null);
-} catch (IOException e) {
-  e.printStackTrace();
-}
+// Register Resource Factories
 
-RDFIzer rdfizer = new RDFIzer(metamodel);
-Resource rdf = resourceSet.createResource(URI.createURI("src/resources/model.ttl"));
-try {
-  rdf.load(null);
-} catch (IOException e) {
-  e.printStackTrace();
-}
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("rdf", new TTLResourceFactory());
+
+// Register the targeted metamodel
+Models.register(Models.resource("metamodel.ecore", true));
 		
-Resource model = rdfizer.toModel(rdf2);
-model.setURI(URI.createURI("src/resources/model.xmi"));
-try {
-  model.save(null);
-} catch (IOException e) {
- e.printStackTrace();
-}
+Resource resource = Models.resource(URI.createURI("model.rdf"));
+resource.load(null);
+		
+// Execute the transformation
+RDF2Model r2m = new RDF2Model(Models.getMetamodelByUri("http://tests/a"));
+Resource model = r2m.transform(resource);
+		
+// URI for the resulting model
+model.setURI(URI.createURI("model.xmi"));
+model.save(null);
 }}}
