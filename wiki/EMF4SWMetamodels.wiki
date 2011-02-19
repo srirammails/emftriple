@@ -21,27 +21,6 @@ In this metamodel, an RDFGraph is the container of Nodes and Triples. A Node can
 
 The OWL metamodel available in EMF4SW covers all features proposed in the [http://www.w3.org/TR/owl2-primer/ OWL 2] specification.
 
-<img src="http://emftriple.googlecode.com/svn/wiki/img/owl1.jpg" height="480"/>
-
-Axioms in OWL 2.
-
-<img src="http://emftriple.googlecode.com/svn/wiki/img/owl2.jpg" height="340"/>
-
-Entities in OWL 2.
-
-<img src="http://emftriple.googlecode.com/svn/wiki/img/owl3.jpg" height="340"/>
-
-Class expressions in OWL 2.
-
-<img src="http://emftriple.googlecode.com/svn/wiki/img/owl4.jpg" height="340"/>
-
-Data Range
-
-<img src="http://emftriple.googlecode.com/svn/wiki/img/owl5.jpg" height="340"/>
-
-Individuals
-
-<img src="http://emftriple.googlecode.com/svn/wiki/img/owl6.jpg" height="340"/>
+<img src="http://emftriple.googlecode.com/svn/wiki/img/owlclasses.png" height="480"/>
 
 
-<img src="http://emftriple.googlecode.com/svn/wiki/img/owl7.jpg" height="340"/>
