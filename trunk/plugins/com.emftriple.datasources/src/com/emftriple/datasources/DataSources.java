@@ -13,8 +13,8 @@ import com.google.inject.Guice;
  */
 public class DataSources {
 
-	public static final String OTION_DATASOURCE_NAME = "com.emftriple.datasource.name";
-	public static final String OTION_DATASOURCE_URL = "com.emftriple.datasource.url";
+	public static final String OPTION_DATASOURCE_NAME = "com.emftriple.datasource.name";
+	public static final String OPTION_DATASOURCE_URL = "com.emftriple.datasource.url";
 	
 	private DataSources() {}
 
@@ -49,8 +49,8 @@ public class DataSources {
 	private static DataSourceBuilder getConfig(IDataSourceFactoryModule module) {
 		final DataSourceBuilder builder = PersistenceFactory.eINSTANCE.createDataSourceBuilder();
 		builder.setClass(module.getDataSourceClass().getName());
-		builder.setName(module.getProperties().getProperty(OTION_DATASOURCE_NAME));
-		builder.setUrl(module.getProperties().getProperty(OTION_DATASOURCE_URL));
+		builder.setName(module.getProperties().getProperty(OPTION_DATASOURCE_NAME));
+		builder.setUrl(module.getProperties().getProperty(OPTION_DATASOURCE_URL));
 		
 		final Properties properties = PersistenceFactory.eINSTANCE.createProperties();
 		for (Object prop: module.getProperties().keySet()) {
