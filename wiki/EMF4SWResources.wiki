@@ -16,11 +16,6 @@ resource factory register as depicted in the following code snippet.
 Each file extension will have its corresponding RDF resource factory. For example a file named example.ttl must be a valid Turtle document and so will be loaded as a RDFTurtleResource thanks to the factory RDFTurtleResourceFactory. The default RDF format which is RDF/XML is managed by the RDFResourceFactory. 
 
 {{{
-import com.emf4sw.rdf.resource.RDFXMLResource.RDFResourceFactory;
-import com.emf4sw.rdf.resource.RDFTurtleResource.RDFTurtleResourceFactory;
-import com.emf4sw.rdf.resource.RDFTriplesResource.RDFTriplesResourceFactory;
-
-...
 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("rdf", new RDFXMLResourceFactory());
 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new TTLResourceFactory());
 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("nt", new NTriplesResourceFactory());
