@@ -11,16 +11,14 @@ This section presents the RDF and OWL metamodels available in EMF4SW.
 
 The RDF metamodel available in EMF4SW is a slighly different version than the RDF metamodel proposed in the [http://www.omg.org/ontology ODM] sepcification. This metamodel proposes a clear representation of graphs by distinguishing Document graphs and contained named graphs.
   
-<img src="http://emftriple.googlecode.com/svn/wiki/img/rdf1.jpg" height="640"/>
+<img src="https://svn.codespot.com/a/eclipselabs.org/emftriple/wiki/img/rdf1.jpg" height="640"/>
 
 In this metamodel, an RDFGraph is the container of Nodes and Triples. A Node can be a BlankNode (no URI), a named node (Resource, NamedGraph, TripleNode) or a Literal.
  
-<img src="http://emftriple.googlecode.com/svn/wiki/img/rdf2.jpg" height="640"/>
+<img src="https://svn.codespot.com/a/eclipselabs.org/emftriple/wiki/img/rdf2.jpg" height="640"/>
 
 = OWL metamodel =
 
 The OWL metamodel available in EMF4SW covers all features proposed in the [http://www.w3.org/TR/owl2-primer/ OWL 2] specification.
 
-<img src="http://emftriple.googlecode.com/svn/wiki/img/owlclasses.png" height="480"/>
-
-
+<img src="https://svn.codespot.com/a/eclipselabs.org/emftriple/wiki/img/owlclasses.png" height="480"/>
