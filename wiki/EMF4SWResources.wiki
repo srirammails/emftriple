@@ -21,15 +21,15 @@ import com.emf4sw.rdf.resource.RDFTurtleResource.RDFTurtleResourceFactory;
 import com.emf4sw.rdf.resource.RDFTriplesResource.RDFTriplesResourceFactory;
 
 ...
-Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("rdf", new RDFResourceFactory());
-Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new RDFTurtleResourceFactory());
-Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("nt", new RDFTriplesResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("rdf", new RDFXMLResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new TTLResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("nt", new NTriplesResourceFactory());
 }}}
 
 Once the factories are registered, you can create and load RDF documents as RDF models. This is done via a ResourceSet. A special kind of ResourceSet is provided, RDFResourceSet, but ResourceSetImpl can also be used.
 
 {{{
-Resource.Factory.Registry.INSTANCE.getContentTypeToFactoryMap().put("ttl", new RDFTurtleResourceFactory());
+Resource.Factory.Registry.INSTANCE.getContentTypeToFactoryMap().put("ttl", new TTLResourceFactory());
 ...
 ResourceSet resourceSet = new RDFResourceSet();
 Resource aResource = resourceSet.createResource(URI.createURI("example.ttl"));
@@ -57,11 +57,8 @@ rdfxml.save(Collections.EMPTY_MAP);
 OWL documents are loaded via the OWLResource interface and OWLResource factories. Like for RDF documents, you need to register the required factories according to the OWL file extensions.
 
 {{{
-import com.emf4sw.owl.resource.OWLXMLResource.OWLResourceFactory;
-import com.emf4sw.owl.resource.OWLTurtleResource.OWLTurtleResourceFactory;
-...
-Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("owl", new OWLResourceFactory());
-Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new OWLTurtleResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("owl", new OWLXMLResourceFactory());
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new TTLResourceFactory());
 }}}
 
 Creation of OWLResource is done via a ResourceSet. Here we use OWLResourceSet, but ResourceSetImpl can be used instead.
@@ -94,7 +91,7 @@ Ontology ontology = (Ontology) resource.getContents().get(0);
 
 OWLClass entityClass = ontology.getOWLClass("http://www.example.org/Entity");
 
-for (OWLClass aClass: ontology.listClasses()) {
-	EList<ClassExpression> superClasses = aClass.listSuperClasses();
+for (OWLClass aClass: ontology.getClasses()) {
+	EList<ClassExpression> superClasses = aClass.getSuperClasses();
 }
 }}}
