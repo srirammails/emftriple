@@ -2,120 +2,61 @@
 #labels Featured
 #sidebar StoreTableOfContents
 
-Eclipse Modeling for Semantic Web comes out with an XMI to RDF converter call RDFIzer.
+Eclipse Modeling for Semantic Web comes out with XMI to RDF converters. Those are available in the RDF Transformations plugin.
 
-==RDFizer== 
+==RDF Transformations== 
 A Converter to RDF is a tool which converts application data from an application-specific format into RDF for use with RDF tools and integration with other data. Converters may be part of a one-time migration effort, or part of a running system which provides a semantic web view of a given application. (http://esw.w3.org/ConverterToRdf).
 
-The conversion of EMF Models to RDF is provided by emf4sw via the class RDFIzer.
-
-===Create a new plugin project===
-The RDFIzer component can be used in an eclipse plugin. Do to so, create a new eclipse plugin with the wizard find under: 
+===Project Dependencies===
+The component can be used in an eclipse plugin. Do to so, create a new eclipse plugin with the wizard find under: 
 File -> New -> Plug-in development -> Plug-in Project. 
 
 Then add the required dependencies to the Plug-in manifest, as depicted by the following pictures.
 Required dependencies for the RDFIzer component:
  * com.atl.common
  * com.emf4sw.rdf
- * com.emf4sw.rdfizer 
+ * com.emf4sw.rdf.transform
+Then choose one of Jena or Sesame as backend:
 
-<img src="http://emftriple.googlecode.com/svn/wiki/img/rdfizer_dependencies.jpg" height="640"/>
+For Jena add
+ * com.emf4sw.rdf.jena
+and add Jena dependencies to the project classpath or add the following osgi bundle:
+ * org.openjena
 
-===Annotation of EMF Models===
+For Sesame add
+ * com.emf4sw.rdf.sesame
+and add Sesame dependencies to the project classpath or add the following osgi bundle:
+ * org.openrdf
 
-The RDFizer provides a set of annotations to be defined over EMF Models. These annotations help to define how and where EMF Models are stored and retrieved. (To ease the use of annotations, please consider to install emfatic http://scharf.gr/eclipse/emfatic/download/)
-
-{{{
-@namespace(prefix="conf", uri="http://eclipse.org/conferences")
-package Conferences;
-
-@OWLClass(uri="http://eclipse.org/conferences#Conference")
-class Conference {
-        @Id(base="http://www.example.org/entities/")
-        @DataProperty(uri="http://eclipse.org/conferences#name")
-        attr String[1] name;
-        
-        @ObjectProperty(uri="http://eclipse.org/conferences#properties")
-        val Property[*] properties;
-}
-}}}
-
-@OWLClass
-
-Model element: EClass
-Properties uri: set the URI of the class, will be use when asserting types for instances.
-
-@DataProperty
-
-Model element: EAttribute
-Properties uri: set the URI of the property
-
-@Id Tells which property will be used as an Id for a given class. If there is no @Id annotation, the tool will look for a property marked as isId equals true (see emf features), or will look for a property call name. If none of these can be identified, then the URI of the instance, according to its current Resource, will be use as its Id.
-
-Model element: EAttribute
-Properties Base: set the namespace for the Id.
-
-@ObjectProperty
-
-Model element EReference
-Properties uri: set the URI of the property
-
-
-==RDFIzer Usage==
+==Usage==
   
-In this section, we detail the use of the RDFIzer.
+The RDF Transformations plugin can be use to convert any EMF Models as RDF documents via the Model2RDF class or convert a RDF document as a EMF Model thanks to the RDF2Model class.
 
-
-===Saving models in RDF=== 
-The following code excerpt shows how to generate a RDF document from a model instance.
+===Models to RDF=== 
+The following code excerpt shows how to generate a RDF document from a model.
 
 {{{ 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.Resource.Factory;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+// Register Resource Factories
 
-import com.atl.common.models.Models;
-import com.emf4sw.rdf.resource.RDFFormats;
-import com.emf4sw.rdf.resource.RDFTurtleResource.RDFTurtleResourceFactory;
-import com.emf4sw.rdfizer.RDFIzer;
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("rdf", new TTLResourceFactory());
 
-public class Main {
-  public static void main(String[] args) throws IOException {
-    Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
-    Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
-    Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new RDFTurtleResourceFactory());
+// Register Metamodel
+Models.register(Models.resource("metamodel.ecore", true));
+
+Resource resource = Models.resource(URI.createURI("model.xmi"));
+resource.load(null);
+
+// Execute the transformation
+Model2RDF m2r = new Model2RDF();
+Resource rdf = m2r.transform(resource, null);
 		
-    ResourceSet resourceSet = Models.resourceSet();
-    Resource metamodel =    resourceSet.createResource(URI.createURI("src/resources/employee.ecore"));
-    try {
-      metamodel.load(null);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-
-    RDFIzer rdfizer = new RDFIzer(metamodel);
-		
-    Resource model = resourceSet.createResource(URI.createURI("src/resources/model.xmi"));
-    try {
-      model.load(null);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-	
-    Resource rdf = rdfizer.toRdf(model, RDFFormats.TURTLE_FORMAT);
-    rdf.setURI(URI.createURI("src/resources/model.ttl"));
-    try {
-     rdf.save(null);
-    } catch (IOException e) {
-     e.printStackTrace();
-    }
-  }
-} 
+// URI where the document will be save
+rdf.setURI(URI.createURI("model.rdf"));
+rdf.save(null);
 }}}
 
-===Loading models from RDF===
+===RDF to Model===
+
 {{{
 Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
 Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
@@ -143,38 +84,5 @@ try {
   model.save(null);
 } catch (IOException e) {
  e.printStackTrace();
-}
-}}}
-==Generate Model Transformation File===
-RDFIzer uses the RDF2ModelGen class to generate a model transformation (written in ATL) from a given EMF Model in order to translate RDF files into instances of this EMF Model.
-The following code excerpt shows how to use this RDF2ModelGen class in order to generate this model transformation. 
-
-Please note that in order to be compiled, the ATL file has to be put in a valid ATL project (see http://www.eclipse.org/atl for more details about ATL).
-
-{{{
-import static com.atl.common.models.Models.register;
-import static com.atl.common.models.Models.resource;
-
-import java.io.IOException;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.Resource.Factory;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
-import com.atl.common.models.Models;
-import com.emf4sw.rdfizer.atl.RDF2ModelGen;
-
-Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
-		
-register(resource("src/resources/employee.ecore", true));
-		
-RDF2ModelGen gen = new RDF2ModelGen(Models.ePackage("http://www.emftriple.com/Employee"));
-Resource atl = gen.getResource();
-atl.setURI(URI.createURI("src/resources/rdf2model.atl"));
-try {
-  atl.save(null);
-} catch (IOException e) {
-  e.printStackTrace();
 }
 }}}
