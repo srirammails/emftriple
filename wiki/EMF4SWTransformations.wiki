@@ -12,7 +12,7 @@ This section presents the model transformations available in EMF4SW.
 
 The Ecore to OWL model transformation takes as input any valid Ecore models to produce the equivalent OWL ontology. The model transformations rules are an adaptation of rules found in the ODM specification.
 
-===Understand Rules===
+===Mapping Rules===
 
 This section describes the main rules that are implemented in the Ecore to OWL transformation.
 
@@ -21,7 +21,7 @@ This section describes the main rules that are implemented in the Ecore to OWL t
 || EAttribute || DataProperty ||
 || EReference || ObjectProperty ||
 
-===Execute from Java===
+===Java code===
 
 The following code excerpt shows how to execute this model transformation from Java code. 
 
