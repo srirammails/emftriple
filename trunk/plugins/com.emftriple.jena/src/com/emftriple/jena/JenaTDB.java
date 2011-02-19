@@ -165,6 +165,7 @@ public class JenaTDB extends ModelNamedGraphDataSource implements ITransactionEn
 			GraphStore graphStore = GraphStoreFactory.create(model);
 			UpdateAction.parseExecute( query, graphStore);
 		} finally {
+			model.commit();
 			model.leaveCriticalSection();
 		}
 	}
