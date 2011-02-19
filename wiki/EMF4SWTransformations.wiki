@@ -43,6 +43,10 @@ owl.save(null);
 
 == OWL to Ecore ==
 
+===Mapping Rules===
+
+===Java code===
+
 {{{
 // Register Resource Factories
 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
