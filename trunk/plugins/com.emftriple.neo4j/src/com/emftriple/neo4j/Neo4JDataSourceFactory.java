@@ -18,19 +18,18 @@ public class Neo4JDataSourceFactory implements IDataSourceFactory {
 	
 	@Override
 	public boolean canCreate(DataSourceBuilder descriptor) {
-		// TODO Auto-generated method stub
-		return false;
+		return descriptor.getName() != null && descriptor.getUrl() != null;
 	}
 
 	@Override
 	public IDataSource create(DataSourceBuilder descriptor) {
-		GraphDatabaseService graphDb = new EmbeddedGraphDatabase( "target/var/examples" );
-		LuceneIndexService indexService = new LuceneIndexService( graphDb );
-		FulltextIndex fulltextIndex = new SimpleFulltextIndex( graphDb,
-		        new File( "target/var/examples/fulltext-index" ) );
-		RdfStore store = new VerboseQuadStore( graphDb, indexService, null, fulltextIndex );
+		final GraphDatabaseService graphDb = new EmbeddedGraphDatabase( descriptor.getUrl() );
+		final LuceneIndexService indexService = new LuceneIndexService( graphDb );
+		final FulltextIndex fulltextIndex = new SimpleFulltextIndex( graphDb,
+		        new File( descriptor.getUrl() + "/fulltext-index" ) );
+		final RdfStore store = new VerboseQuadStore( graphDb, indexService, null, fulltextIndex );
 		
-		return new Neo4JDataStore("", store);
+		return new Neo4JDataStore(descriptor.getName(), (VerboseQuadStore) store);
 	}
 	
 }

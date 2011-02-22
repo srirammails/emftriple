@@ -1,7 +1,9 @@
 package com.emftriple.neo4j;
 
 import org.eclipse.emf.common.util.URI;
-import org.neo4j.rdf.store.RdfStore;
+import org.neo4j.rdf.model.Uri;
+import org.neo4j.rdf.model.WildcardStatement;
+import org.neo4j.rdf.store.VerboseQuadStore;
 
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
@@ -9,32 +11,35 @@ import com.emftriple.datasources.IMutableNamedGraphDataSource;
 import com.emftriple.datasources.IResultSet;
 import com.emftriple.datasources.impl.AbstractNamedGraphDataSource;
 import com.emftriple.neo4j.util.RDFGraph2Statements;
+import com.emftriple.neo4j.util.Statements2RDFGraph;
 
 public class Neo4JDataStore extends AbstractNamedGraphDataSource implements IMutableNamedGraphDataSource {
 
-	private final RdfStore store;
+	private final VerboseQuadStore store;
+	@SuppressWarnings("unused")
+	private boolean connected;
 	
-	protected Neo4JDataStore(String name, RdfStore store) {
+	protected Neo4JDataStore(String name, VerboseQuadStore store) {
 		super(name);
 		this.store = store;
 	}
 
 	@Override
 	public NamedGraph getNamedGraph(URI graphURI) {
-		// TODO Auto-generated method stub
-		return null;
+		return Statements2RDFGraph.getNamedGraph(graphURI, 
+				store.getStatements(
+						new WildcardStatement(null, null, null, new Uri(graphURI.toString())), 
+				true));
 	}
 
 	@Override
 	public Iterable<String> getNamedGraphs() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public boolean containsGraph(URI graph) {
-		// TODO Auto-generated method stub
-		return false;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -99,14 +104,14 @@ public class Neo4JDataStore extends AbstractNamedGraphDataSource implements IMut
 
 	@Override
 	public boolean supportsTransaction() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public void add(RDFGraph graph) {
-		// TODO Auto-generated method stub
-
+		synchronized (store) {
+			store.addStatements(RDFGraph2Statements.createStatements(graph));	
+		}
 	}
 
 	@Override
@@ -123,7 +128,9 @@ public class Neo4JDataStore extends AbstractNamedGraphDataSource implements IMut
 
 	@Override
 	public void add(NamedGraph graph) {
-		store.addStatements(RDFGraph2Statements.createStatements(graph));
+		synchronized (store) {
+			store.addStatements(RDFGraph2Statements.createStatements(graph));	
+		}
 	}
 
 	@Override
@@ -133,12 +140,12 @@ public class Neo4JDataStore extends AbstractNamedGraphDataSource implements IMut
 
 	@Override
 	public void connect() {
-		// TODO Auto-generated method stub
-
+		this.connected = true;
 	}
 
 	@Override
 	public void disconnect() {
+		this.connected = false;
 		store.shutDown();
 	}
 
