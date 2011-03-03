@@ -26,7 +26,7 @@ Once the factories are registered, you can create and load RDF documents as RDF 
 {{{
 Resource.Factory.Registry.INSTANCE.getContentTypeToFactoryMap().put("ttl", new TTLResourceFactory());
 ...
-ResourceSet resourceSet = new RDFResourceSet();
+ResourceSet resourceSet = new ResourceSet();
 Resource aResource = resourceSet.createResource(URI.createURI("example.ttl"));
 aResource.load(Collections.EMPTY_MAP);
 }}}
@@ -59,7 +59,7 @@ Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ttl", new TTL
 Creation of OWLResource is done via a ResourceSet. Here we use OWLResourceSet, but ResourceSetImpl can be used instead.
 
 {{{
-ResourceSet resourceSet = new OWLResourceSet();
+ResourceSet resourceSet = new ResourceSet();
 Resource resource = resourceSet.createResource(URI.createURI("file.owl"));
 resource.load(null);
 }}}
