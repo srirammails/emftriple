@@ -21,7 +21,6 @@ import org.openrdf.rio.rdfxml.util.RDFXMLPrettyWriter;
 import org.openrdf.sail.memory.MemoryStore;
 
 import com.emf4sw.rdf.resource.RDFResource;
-import com.emf4sw.rdf.resource.RDFResourceImpl;
 import com.emf4sw.rdf.sesame.RDFGraph2SesameGraph;
 import com.emf4sw.rdf.sesame.RDFSesameReader;
 import com.emf4sw.rdf.sesame.RDFSesameWriter;
@@ -31,7 +30,7 @@ import com.emf4sw.rdf.sesame.RDFSesameWriter;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.6.5
  */
-public class RDFXMLResource extends RDFResourceImpl implements RDFResource {
+public class RDFXMLResource extends SesameResourceImpl implements RDFResource {
 
 	public RDFXMLResource() {
 		super();

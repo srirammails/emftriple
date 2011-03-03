@@ -17,8 +17,7 @@ import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.jena.JenaRDFReader;
 import com.emf4sw.rdf.jena.JenaRDFWriter;
-import com.emf4sw.rdf.resource.RDFResource;
-import com.emf4sw.rdf.resource.RDFResourceImpl;
+import com.emf4sw.rdf.resource.TTLResource;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
@@ -27,15 +26,15 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
  * @since 0.7
  */
-public class TTLResource extends RDFResourceImpl implements RDFResource {
+public class TTLResourceImpl extends JenaResourceImpl implements TTLResource {
 
-	public TTLResource() {
+	public TTLResourceImpl() {
 		super();
 		reader = new JenaRDFReader();
 		writer = new JenaRDFWriter();
 	}
 
-	public TTLResource(URI uri) {
+	public TTLResourceImpl(URI uri) {
 		super(uri);	
 		reader = new JenaRDFReader();
 		writer = new JenaRDFWriter();

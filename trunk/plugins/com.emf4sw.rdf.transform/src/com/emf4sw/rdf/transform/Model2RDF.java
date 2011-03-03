@@ -51,34 +51,33 @@ public class Model2RDF extends RDFTransformation {
 		checkNotNull(resource);
 		checkArgument(!resource.getContents().isEmpty());
 		
-		if (options == null) {
-			options = new HashMap<String, Object>();
-		}
+		final Map<String, Object> copyOptions = 
+			options == null ? new HashMap<String, Object>() : new HashMap<String, Object>(options);
 		
 		final EPackage ePackage = registerAndGetPackage(resource);
 		
 		checkNotNull(ePackage, "EPackage cannot be found for resource " + resource);
 		checkNotNull(ePackage.getNsURI(), "EPackage nsURI should be set");
 		
-		if (!options.containsKey(OPTION_BASE_NAMESPACE)) {
-			options.put(OPTION_BASE_NAMESPACE, ePackage.getNsURI().endsWith("/") ? 
+		if (!copyOptions.containsKey(OPTION_BASE_NAMESPACE)) {
+			copyOptions.put(OPTION_BASE_NAMESPACE, ePackage.getNsURI().endsWith("/") ? 
 					ePackage.getNsURI() : ePackage.getNsURI() + "#");
 		}
 		
-		final RDFFormats format = options.containsKey(OPTION_RDF_FORMAT) ? 
-				(RDFFormats) options.get(OPTION_RDF_FORMAT) : 
+		final RDFFormats format = copyOptions.containsKey(OPTION_RDF_FORMAT) ? 
+				(RDFFormats) copyOptions.get(OPTION_RDF_FORMAT) : 
 					RDFFormats.RDF_XML_FORMAT;
 		
 		checkFactoryIsRegistered(format);
 		
-		final Properties<String, Object> properties = Properties.createProperties(options);		
+		final Properties<String, Object> properties = Properties.createProperties(copyOptions);		
 		final EMFModel propertiesModel = inject(properties.serialize(), Properties.getReferenceModel());
 		
 		return Transformations.transform( setOf(inject(resource, get(ePackage.getNsURI())), propertiesModel), 
-				transformation(ePackage, format, options)).getResource();
+				transformation(ePackage, format)).getResource();
 	}
 
-	private MultiInOneOutTransformation transformation(EPackage ePackage, RDFFormats format, Map<String, Object> options) {
+	private MultiInOneOutTransformation transformation(EPackage ePackage, RDFFormats format) {
 		return new Transformations.Builder()
 				.asm(loadASM(super_asm), loadASM(asm))
 				.lib("RDFHelpers", loadASM(lib))

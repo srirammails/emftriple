@@ -14,6 +14,6 @@ public class NTriplesResourceFactory implements RDFResourceFactory {
 
 	@Override
 	public Resource createResource(URI uri) {
-		return new NTriplesResource(uri);
+		return new NTriplesResourceImpl(uri);
 	}
 }

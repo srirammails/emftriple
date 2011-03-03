@@ -26,7 +26,7 @@ public interface IEntityManagerDelegate {
 	 * 
 	 * @param object added to persistence context
 	 */
-	void add(Object object);
+	void add(EObject object);
 	
 	/**
 	 * Adds an object and its key to the current persistence context
@@ -42,28 +42,28 @@ public interface IEntityManagerDelegate {
 	 * @param object
 	 * @return true if the object is a persisted object in this context
 	 */
-	boolean contains(Object object);
+	boolean contains(EObject object);
 	
 	/**
 	 * Adds an Object to the persistence context
 	 * 
 	 * @param object added to persistence context
 	 */
-	void persist(Object object);
+	void persist(EObject object);
 	
 	/**
 	 * Removes the object from the current persistence context
 	 * 
 	 * @param object to remove
 	 */
-	void remove(Object object);
+	void remove(EObject object);
 	
 	/**
 	 * Detach the object from the current persistence context
 	 * 
 	 * @param object to detach
 	 */
-	void detach(Object object);
+	void detach(EObject object);
 	
 	/**
 	 * Returns the identifier of a persistent object
@@ -71,7 +71,7 @@ public interface IEntityManagerDelegate {
 	 * @param object is a persistent object
 	 * @return uri of the object
 	 */
-	URI id(Object object);
+	URI id(EObject object);
 	
 	/**
 	 * Clear the current persistence context

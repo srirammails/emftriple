@@ -74,10 +74,10 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		}
 		
 		if (contains(entity)) {
-			throw new EntityExistsException("Entity " + getDelegate().id(entity) + " already in persistence context");
+			throw new EntityExistsException("Entity " + getDelegate().id((EObject) entity) + " already in persistence context");
 		}
 
-		getDelegate().persist(entity);
+		getDelegate().persist((EObject) entity);
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		final RDFGraph existingData = getDelegate().executeDescribeQuery(SparqlQueries.describe(entityId, null));
 		getDelegate().remove(existingData);
 
-		getDelegate().persist(entity);
+		getDelegate().persist((EObject) entity);
 
 		return entity;
 	}
@@ -278,7 +278,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 			}
 			
 //			lock(returnedObject, lockType);
-			getDelegate().add(returnedObject);
+			getDelegate().add((EObject) returnedObject);
 		}
 
 		return returnedObject;
@@ -321,7 +321,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		
 		final T obj = getDelegate().getReference(aClass, key);
 
-		getDelegate().add(obj);
+		getDelegate().add((EObject) obj);
 		
 		return obj;
 	}
@@ -403,7 +403,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		if (properties.containsKey("KEY")){
 			id = (URI) properties.get("KEY");
 		} else {
-			id = getDelegate().id(entity);
+			id = getDelegate().id((EObject) entity);
 		}
 		
 		final EObject current = (EObject) entity;

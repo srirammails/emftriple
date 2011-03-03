@@ -12,7 +12,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
-import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
+import com.emf4sw.rdf.Triple;
+import com.emf4sw.rdf.resource.RDFResourceImpl;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
@@ -41,7 +42,14 @@ public class NamedGraphInjector {
 	}
 	
 	public NamedGraph inject() {
-		final Resource aResource = new DummyRDFResource();
+		final Resource aResource = new RDFResourceImpl() {
+			@Override
+			public Object getDelegate() { return null; }
+			
+			@Override
+			public void addDelegate(Triple obj) {}
+		};
+		
 		final NamedGraph aGraph = RDFFactory.eINSTANCE.createNamedGraph();
 		aResource.getContents().add(aGraph);
 		

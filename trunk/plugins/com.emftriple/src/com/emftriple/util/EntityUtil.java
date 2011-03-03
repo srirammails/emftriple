@@ -175,10 +175,6 @@ public class EntityUtil {
 			return cacheid.get(eClass);
 		}
 		
-//		if (eClass.getEAnnotation("CompositeId") != null) {
-//			return null;
-//		}
-		
 		EAttribute theId = eClass.getEIDAttribute();
 		if (theId != null) {
 			cacheid.put(eClass, theId);

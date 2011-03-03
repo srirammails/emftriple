@@ -8,10 +8,13 @@ import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.notify.ModelAdapterImpl;
 import com.emf4sw.rdf.resource.RDFResource;
-import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
+import com.emf4sw.rdf.resource.TTLResource;
+import com.emftriple.ETriple;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.IDataSource;
+import com.emftriple.datasources.IDataSourceFactoryModule;
 import com.emftriple.datasources.IDataSourceManager;
 import com.emftriple.datasources.IMutableDataSource;
 import com.emftriple.datasources.IResultSet;
@@ -97,10 +100,8 @@ public class SparqlDataSourceManager implements IDataSourceManager {
 	public RDFGraph executeConctructQuery(String aQuery) {
 		if (dataSources.size() == 1)
 			return getDefaultDataSource().constructQuery(aQuery);
-		
-		final RDFResource resource = new DummyRDFResource();
-		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
-		resource.getContents().add(aGraph);
+
+		final RDFGraph aGraph = getGraph(null);
 		
 		for (IDataSource dataSource: dataSources) {
 			dataSource.constructQuery(aQuery, aGraph);
@@ -114,9 +115,7 @@ public class SparqlDataSourceManager implements IDataSourceManager {
 		if (dataSources.size() == 1)
 			return getDefaultDataSource().describeQuery(aQuery);
 		
-		final RDFResource resource = new DummyRDFResource();
-		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
-		resource.getContents().add(aGraph);
+		final RDFGraph aGraph = getGraph(null);
 		
 		for (IDataSource dataSource: dataSources)
 			dataSource.describeQuery(aQuery, aGraph);
@@ -146,6 +145,21 @@ public class SparqlDataSourceManager implements IDataSourceManager {
 			return 1;
 		}
 		return 0;
+	}
+	
+	protected RDFGraph getGraph(URI graphURI) {
+		final RDFGraph graph;
+		if (graphURI != null) {
+			graph = RDFFactory.eINSTANCE.createDocumentGraph();
+		} else {
+			graph = RDFFactory.eINSTANCE.createDocumentGraph();
+		}
+
+		final RDFResource aResource = ETriple.inject(ETriple.get(IDataSourceFactoryModule.class)).getInstance(TTLResource.class);
+		aResource.getContents().add(graph);
+		graph.eAdapters().add(new ModelAdapterImpl());
+
+		return graph;
 	}
 
 //	private DataSource identifyDataSet(String query) {

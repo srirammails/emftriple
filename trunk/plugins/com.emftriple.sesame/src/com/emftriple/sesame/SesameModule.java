@@ -24,6 +24,13 @@ public class SesameModule extends AbstractModule implements IDataSourceFactoryMo
 	private Properties properties;
 	private Class<? extends IDataSource> kind;
 	
+	public SesameModule() {}
+	
+	public SesameModule(Class<? extends IDataSource> kind, Properties properties) {
+		this.kind = kind;
+		this.properties = properties;
+	}
+	
 	@Override
 	protected void configure() {
 		bind(IDataSourceFactory.class)

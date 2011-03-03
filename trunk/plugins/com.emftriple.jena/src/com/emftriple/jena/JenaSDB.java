@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.URI;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.jena.RDFGraphExtractor;
-import com.emf4sw.rdf.resource.RDFResourceImpl;
+import com.emf4sw.rdf.resource.impl.NTriplesResourceImpl;
 import com.emftriple.datasources.ISparqlUpdateDataSource;
 import com.emftriple.datasources.ITransactionEnableDataSource;
 import com.google.inject.internal.Lists;
@@ -159,7 +159,7 @@ public class JenaSDB extends ModelNamedGraphDataSource implements ISparqlUpdateD
 
 	@Override
 	public NamedGraph getNamedGraph(URI graphURI) {
-		NamedGraph aGraph = new RDFResourceImpl.DummyRDFResource().createNamedGraph(graphURI);
+		NamedGraph aGraph = new NTriplesResourceImpl().createNamedGraph(graphURI);
 		
 		constructQuery(
 				"construct { ?s ?p ?o } " +

@@ -80,7 +80,7 @@ public class RDFGraphExtractor {
 		return model;
 	}
 
-	private com.hp.hpl.jena.rdf.model.Statement extract(Triple triple, Model model) {
+	public static com.hp.hpl.jena.rdf.model.Statement extract(Triple triple, Model model) {
 		if ( triple.getSubject() == null || 
 				triple.getPredicate() == null || 
 				triple.getObject() == null ) {

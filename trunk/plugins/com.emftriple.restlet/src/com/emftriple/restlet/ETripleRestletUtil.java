@@ -9,7 +9,8 @@ import org.restlet.ext.rdf.RdfRepresentation;
 
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
-import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
+import com.emf4sw.rdf.Triple;
+import com.emf4sw.rdf.resource.RDFResourceImpl;
 import com.emftriple.impl.EObjectEntityManager;
 import com.emftriple.transform.IPutObject;
 import com.emftriple.transform.impl.PutObjectImpl;
@@ -26,7 +27,13 @@ public class ETripleRestletUtil {
 				((EObjectEntityManager)em).getDelegate());
 		
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
-		final Resource res = new DummyRDFResource();
+		final Resource res = new RDFResourceImpl() {			
+			@Override
+			public Object getDelegate() { return null; }
+			
+			@Override
+			public void addDelegate(Triple obj) {}
+		};
 		res.getContents().add(aGraph);
 		
 		for (EObject obj: resource.getContents())
@@ -40,7 +47,13 @@ public class ETripleRestletUtil {
 				((EObjectEntityManager)em).getDelegate());
 		
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
-		final Resource res = new DummyRDFResource();
+		final Resource res = new RDFResourceImpl() {			
+			@Override
+			public Object getDelegate() { return null; }
+			
+			@Override
+			public void addDelegate(Triple obj) {}
+		};
 		res.getContents().add(aGraph);
 		
 		for (EObject o: objects)
@@ -54,7 +67,13 @@ public class ETripleRestletUtil {
 				((EObjectEntityManager)em).getDelegate());
 		
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
-		final Resource res = new DummyRDFResource();
+		final Resource res = new RDFResourceImpl() {			
+			@Override
+			public Object getDelegate() { return null; }
+			
+			@Override
+			public void addDelegate(Triple obj) {}
+		};
 		res.getContents().add(aGraph);
 		
 		put.put(object, aGraph);
