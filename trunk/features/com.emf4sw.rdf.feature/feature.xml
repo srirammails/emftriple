@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emf4sw.rdf.feature"
-      label="RDF Metamodel"
+      label="RDF"
       version="0.7.0.qualifier"
       provider-name="eclipselabs">
 
@@ -20,19 +20,10 @@
    <requires>
       <import plugin="org.eclipse.emf.common" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
-      <import plugin="com.atl.common"/>
-      <import plugin="com.emf4sw.rdf" version="0.7.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="com.emf4sw.rdf"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.emf4sw.rdf.transform"
          download-size="0"
          install-size="0"
          version="0.0.0"
