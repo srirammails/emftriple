@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: EMF4SW OWL Jena
+Bundle-Name: OWL Jena Adapter
 Bundle-SymbolicName: com.emf4sw.owl.jena;singleton:=true
 Bundle-Version: 0.7.0.qualifier
 Bundle-Vendor: eclipselabs
