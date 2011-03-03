@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.emftriple.feature"
-      label="EMFTriple - RDF Persistence For Eclipse Modeling Framework"
+      label="RDF Data Mapper For Eclipse Modeling Framework"
       version="0.7.0.qualifier"
       provider-name="eclipselabs">
 
