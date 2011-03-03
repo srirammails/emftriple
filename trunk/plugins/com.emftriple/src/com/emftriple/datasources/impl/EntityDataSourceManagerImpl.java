@@ -7,9 +7,7 @@
  */
 package com.emftriple.datasources.impl;
 
-import static com.emftriple.util.EntityUtil.checkIsEntity;
 import static com.emftriple.util.SparqlQueries.selectAllTypes;
-import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Collection;
@@ -22,11 +20,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import com.emf4sw.rdf.Node;
-import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.URIElement;
-import com.emf4sw.rdf.resource.RDFResource;
-import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
 import com.emftriple.IMapping;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.IDataSource;
@@ -143,7 +138,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 				EObject object = getByKey(uri);
 				return object;
 			}
-			
+
 			final List<String> types = selectAllTypes(this, (URIElement)node);
 			if (types.isEmpty()) 
 			{
@@ -173,40 +168,40 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	}
 
 	@Override
-	public void saveAll(Collection<Object> list) {
+	public void saveAll(Collection<EObject> list) {
 		checkNotNull(list);
-		checkArgument(!list.isEmpty());
 
-		final RDFGraph graph = RDFFactory.eINSTANCE.createDocumentGraph();
-		final RDFResource aResource = new DummyRDFResource();
-		aResource.getContents().add(graph);
-
-		for (Object object: list)
+		for (final EObject object: list)
 		{
-			if (object instanceof EObject) {
-				put().put((EObject)object, graph);
-			}
-		}
+			final List<EObject> currents = Lists.newArrayList(object.eAllContents());
+			final RDFGraph graph = getGraph(null);
+			put().put(object, graph);
 
-		final IDataSource dataSource = getDefaultDataSource();
-		if (dataSource instanceof IMutableDataSource)
-		{
-			if (!graph.getTriples().isEmpty())
+			for (EObject obj: currents) 
+				put().put(obj, graph);
+
+			final IDataSource dataSource = getDefaultDataSource(); // DataSource By NamedGraph
+			if (dataSource instanceof IMutableDataSource)
 			{
-				((IMutableDataSource) dataSource).add(graph);
+				if (!graph.getTriples().isEmpty())
+				{
+					((IMutableDataSource) dataSource).add(graph);
+				}
 			}
 		}
+
+//		put().clearCache();
+
 	}
 
 	@Override
-	public void save(Object obj) {
+	public void save(final EObject obj) {
 		checkNotNull(obj);
-		checkArgument(obj instanceof EObject);
 
 		final EClass eClass = ((EObject) obj).eClass();
 		final String dataSetName = EntityUtil.getDataSet(eClass);
 		final IDataSource dataSource;
-		
+
 		if (dataSetName != null) {
 			dataSource = getDataSource(dataSetName);
 		} else {
@@ -214,27 +209,34 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		}
 
 		final URI graphURI = EntityUtil.getNamedGraph(eClass);
-		
-		final RDFGraph graph;
-		if (graphURI != null) {
-			graph = RDFFactory.eINSTANCE.createNamedGraph();
-			graph.setURI(graphURI.toString());
-		} else {
-			graph = RDFFactory.eINSTANCE.createDocumentGraph();
-		}
-		
-		final RDFResource aResource = new DummyRDFResource();
-		aResource.getContents().add(graph);
-		
-		put().put((EObject)obj, graph);
+		final RDFGraph graph = getGraph(graphURI);
 
-		if (dataSource instanceof IMutableDataSource)
-		{
-			if (!graph.getTriples().isEmpty())
+		put().put(obj, graph);
+
+//		if (!obj.eContents().isEmpty()) {
+//			if (dataSource instanceof IMutableDataSource)
+//			{
+//				if (!graph.getTriples().isEmpty())
+//				{
+//					((IMutableDataSource) dataSource).add(graph);
+//				}
+//			} 
+//			for (EObject object: obj.eContents()) {
+//				if (!markedAsSave(object)) {
+//					save(object);
+//				}
+//			} 
+//
+//		} else {
+			if (dataSource instanceof IMutableDataSource)
 			{
-				((IMutableDataSource) dataSource).add(graph);
-			}
-		}
+				if (!graph.getTriples().isEmpty())
+				{
+					((IMutableDataSource) dataSource).add(graph);
+				}
+			} 
+//		}
+
 	}
 
 	@Override
@@ -259,18 +261,14 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	}
 
 	@Override
-	public void remove(Object object) {
-		checkIsEntity(object);
-
+	public void remove(EObject object) {
 		if (object instanceof RDFGraph) 
 		{
 			remove((RDFGraph)object);
 		} 
 		else if (getDefaultDataSource() instanceof IMutableDataSource) 
 		{
-			final RDFGraph graph = RDFFactory.eINSTANCE.createDocumentGraph();
-			final RDFResource aResource = new DummyRDFResource();
-			aResource.getContents().add(graph);
+			final RDFGraph graph = getGraph(null);
 
 			final RDFGraph subjectGraph = put.put((EObject) object, graph);
 			if (subjectGraph != null) 

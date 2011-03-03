@@ -52,6 +52,9 @@ public interface RDFResource extends Resource {
 	 */
 	NamedGraph getNamedGraph(URI uri);
 	
+	
+	Object getDelegate();
+	
 	/**
 	 * 
 	 * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>

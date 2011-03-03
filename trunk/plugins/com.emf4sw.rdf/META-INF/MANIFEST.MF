@@ -7,6 +7,7 @@ Bundle-ClassPath: .
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.emf4sw.rdf,
  com.emf4sw.rdf.impl,
+ com.emf4sw.rdf.notify,
  com.emf4sw.rdf.operations,
  com.emf4sw.rdf.resource,
  com.emf4sw.rdf.util,

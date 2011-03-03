@@ -57,6 +57,10 @@ public class JenaResultSet implements IResultSet {
 
 		@Override
 		public Node get(String varName) {
+			if (!solution.contains(varName)) {
+				return null;
+			}
+			
 			RDFFactory aFactory = RDFFactory.eINSTANCE;
 			Node node = null;
 			if (solution.get(varName).isResource()) {

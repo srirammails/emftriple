@@ -68,7 +68,7 @@ public class RDFGraph2SesameGraph {
 		return aGraph;
 	}
 	
-	private Statement extractAsSesameStatement(Triple triple) {
+	public static Statement extractAsSesameStatement(Triple triple) {
 		final org.openrdf.model.Resource aResource = asSesameResource( triple.getSubject() );
 		final URI aURI = asSesameURI( triple.getPredicate() );
 		final Value aValue = asSesameValue( triple.getObject());
@@ -78,11 +78,11 @@ public class RDFGraph2SesameGraph {
 				null;
 	}
 
-	private URI asSesameURI(URIElement predicate) {
+	private static URI asSesameURI(URIElement predicate) {
 		return new URIImpl(predicate.getURI());
 	}
 
-	private org.openrdf.model.Resource asSesameResource(Node aNode) {
+	private static org.openrdf.model.Resource asSesameResource(Node aNode) {
 		org.openrdf.model.Resource aResource = null;
 		
 		if (aNode instanceof Resource || 
@@ -94,11 +94,11 @@ public class RDFGraph2SesameGraph {
 		return aResource;
 	}
 	
-	private org.openrdf.model.Resource asSesameResource(URIElement aNode) {	
+	private static org.openrdf.model.Resource asSesameResource(URIElement aNode) {	
 		return sesameFactory.createURI( aNode.getURI() );
 	}
 
-	private Value asSesameValue(Node aNode) {
+	private static Value asSesameValue(Node aNode) {
 		Value value = null;
 		if (aNode instanceof Resource || 
 				aNode instanceof NamedGraph || 

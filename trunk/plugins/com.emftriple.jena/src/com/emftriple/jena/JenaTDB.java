@@ -11,8 +11,8 @@ import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFGraph;
-import com.emf4sw.rdf.jena.RDFGraphExtractor;
-import com.emf4sw.rdf.resource.RDFResourceImpl;
+import com.emf4sw.rdf.resource.RDFResource;
+import com.emf4sw.rdf.resource.impl.NTriplesResourceImpl;
 import com.emftriple.datasources.ISparqlUpdateDataSource;
 import com.emftriple.datasources.ITransactionEnableDataSource;
 import com.google.inject.internal.Lists;
@@ -75,7 +75,7 @@ public class JenaTDB extends ModelNamedGraphDataSource implements ITransactionEn
 
 	@Override
 	public NamedGraph getNamedGraph(URI graphURI) {
-		NamedGraph aGraph = new RDFResourceImpl.DummyRDFResource().createNamedGraph(graphURI);
+		NamedGraph aGraph = new NTriplesResourceImpl().createNamedGraph(graphURI);
 		
 		constructQuery(
 				"construct { ?s ?p ?o } " +
@@ -103,7 +103,7 @@ public class JenaTDB extends ModelNamedGraphDataSource implements ITransactionEn
 		
 		model.enterCriticalSection(Lock.WRITE);
 		try {
-			model.add( new RDFGraphExtractor().extract(graph) );	
+			model.add( (Model) ((RDFResource)graph.eResource()).getDelegate() );	
 		} finally { 
 			model.leaveCriticalSection();
 			model.commit();
@@ -116,7 +116,7 @@ public class JenaTDB extends ModelNamedGraphDataSource implements ITransactionEn
 		
 		model.enterCriticalSection(Lock.WRITE);
 		try {
-			model.remove( new RDFGraphExtractor().extract(graph) );
+			model.remove( (Model) ((RDFResource)graph.eResource()).getDelegate() );
 		} finally { 
 			model.leaveCriticalSection();
 			model.commit();
@@ -136,7 +136,7 @@ public class JenaTDB extends ModelNamedGraphDataSource implements ITransactionEn
 		
 		model.enterCriticalSection(Lock.WRITE);
 		try {
-			model.add( new RDFGraphExtractor().extract(graph) );
+			model.add( (Model) ((RDFResource)graph.eResource()).getDelegate() );
 		} finally { 
 			model.leaveCriticalSection();
 			model.commit();
@@ -149,7 +149,7 @@ public class JenaTDB extends ModelNamedGraphDataSource implements ITransactionEn
 		
 		model.enterCriticalSection(Lock.WRITE);
 		try {
-			model.remove( new RDFGraphExtractor().extract(graph) );
+			model.remove( (Model) ((RDFResource)graph.eResource()).getDelegate() );
 		} finally { 
 			model.leaveCriticalSection();
 			model.commit();

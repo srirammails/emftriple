@@ -40,6 +40,7 @@ import com.emftriple.IMapping;
 import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.transform.IPutObject;
 import com.emftriple.util.EntityUtil;
+import com.google.common.collect.Sets;
 
 /**
  * 
@@ -52,69 +53,85 @@ public class PutObjectImpl implements IPutObject {
 
 	private final IMapping mapping;
 
-	private Map<EObject, Resource> objectCache;
+	private Map<String, Resource> objectCache;
 
-	private Map<EObject, Object> objectIdCache;
+	private Map<EObject, String> objectIdCache;
 
 	private IEntityDataSourceManager manager;
 
 	public PutObjectImpl(IMapping mapping, IEntityDataSourceManager manager) {
 		this.mapping = mapping;
 		this.manager = manager;
+		this.objectCache = Collections.synchronizedMap(new HashMap<String, Resource>());
+		this.objectIdCache = Collections.synchronizedMap(new HashMap<EObject, String>());
 	}
 
+	@Override
+	public void clearCache() {
+		objectCache.clear();
+		objectIdCache.clear();
+	}
+
+	@Override
 	public RDFGraph put(EObject from, RDFGraph graph) {
-		objectCache = new HashMap<EObject, Resource>();
-		objectIdCache = new HashMap<EObject, Object>();
-
-		new Object2RDF().process( from, graph );
-
+		final Object2RDF o2r = new Object2RDF();
+		final Set<EObject> objects = Sets.newConcurrentHashSet(o2r.process(from, graph));
+		for (EObject obj: objects) {
+			o2r.process(obj, graph);
+		}
+		
 		return graph;
 	}
 
 	private class Object2RDF {
-		
+
 		private final Set<EObject> containedObjects = Collections.synchronizedSet(new HashSet<EObject>());
 
+		//		private final EObject object;
+		//
+		//		private final RDFGraph graph;
+
 		Object2RDF() {}
-		
-		private RDFGraph process(EObject aObject, RDFGraph graph) {
-			if (!objectCache.containsKey(aObject)) 
+
+		private Set<EObject> process(EObject object, RDFGraph graph) {
+			if (!objectCache.containsKey(object)) 
 			{
 				if (graph instanceof DocumentGraph) 
 				{
-					doAddNamespaces(graph, aObject.eClass());
+					doAddNamespaces(graph, object.eClass());
 				}
 
-				createTypeTriple(aObject, graph);
-				objectCache.put(aObject, getResource(aObject, graph));
+				createTypeTriple(object, graph);
+				final String id = objectIdCache.get(object);
+				objectCache.put(id, getResource(object, graph));
 
-				for (EStructuralFeature aFeature: aObject.eClass().getEAllStructuralFeatures()) 
+				final EAttribute attrId = EntityUtil.getId(object.eClass());
+
+				for (EStructuralFeature aFeature: object.eClass().getEAllStructuralFeatures()) 
 				{
-					if ( !(aFeature.isTransient() || aFeature.isDerived() || aFeature.isVolatile() || 
-							EntityUtil.getId(aObject.eClass()).equals(aFeature)) ) {
-						if (aObject.eIsSet(aFeature)) {
-							Object value = aObject.eGet(aFeature, true);
+					if ( !(	aFeature.isTransient() || 
+							aFeature.isDerived() || 
+							aFeature.isVolatile() ||
+							attrId.equals(aFeature))) // id attribute is not converted. 
+					{
+						if (object.eIsSet(aFeature))
+						{
+							Object value = object.eGet(aFeature, true);
 
-							if (aFeature instanceof EAttribute) {
+							if (aFeature instanceof EAttribute)
+							{
 								if (aFeature.isMany()) {
-									//								if (aFeature.isOrdered()) {
-									//
-									//								} else {
-									createManyLiteralTriples(aObject, aFeature, value, graph);
-									//								}
+									createManyLiteralTriples(object, aFeature, value, graph);
 								} else {
-									createLiteralTriple(aObject, aFeature, value, graph);
+									createLiteralTriple(object, aFeature, value, graph);
 								}
-							} else {
+							}
+							else 
+							{
 								if (aFeature.isMany()) {
-//									if (aFeature.isOrdered()) {
-//										createListTriple(aObject, aFeature, value, graph);
-//									} else {
-										createManyTriples(aObject, aFeature, value, graph);
-//									}
+									createManyTriples(object, aFeature, value, graph);
 								} else {
-									createTriple(aObject, aFeature, value, graph);
+									createTriple(object, aFeature, value, graph);
 								}
 							}
 						}
@@ -122,15 +139,14 @@ public class PutObjectImpl implements IPutObject {
 				}
 			}
 
-			final Object2RDF o2r = new Object2RDF();
-			for (EObject obj: containedObjects) {
-				o2r.process(obj, graph);
+			synchronized (containedObjects) {
+				if (containedObjects.contains(object))
+					containedObjects.remove(object);	
 			}
 			
-			return graph;
+			return containedObjects;
 		}
 
-		// TODO
 		@SuppressWarnings("unused")
 		private void createListTriple(EObject aObject, EStructuralFeature aFeature, Object value, RDFGraph graph) {
 			if (Collection.class.isInstance(value)) {
@@ -138,7 +154,7 @@ public class PutObjectImpl implements IPutObject {
 				if (all.isEmpty())
 					return;
 
-				final Resource subject = objectCache.get(aObject);
+				final Resource subject = objectCache.get(objectIdCache.get(aObject));
 				final Property property = getProperty((EReference)aFeature, graph);
 
 				final RDFSeq aList = RDFFactory.eINSTANCE.createRDFSeq();
@@ -149,9 +165,9 @@ public class PutObjectImpl implements IPutObject {
 					Resource object = getResource((EObject) obj, graph);
 					aList.getElements().add(object);
 
-					if (((EReference)aFeature).isContainment()) {
-						containedObjects.add((EObject) obj);
-					}
+										if (((EReference)aFeature).isContainment()) {
+											containedObjects.add((EObject) obj);
+										}
 				}
 
 				graph.addTriple(subject, property, aList);
@@ -159,13 +175,13 @@ public class PutObjectImpl implements IPutObject {
 		}
 
 		private void createTriple(EObject aObject, EStructuralFeature aFeature, Object value, RDFGraph graph) {
-			final Resource subject = objectCache.get(aObject);
+			final Resource subject = objectCache.get(objectIdCache.get(aObject));
 			final Property property = getProperty((EReference)aFeature, graph);
 			final Resource object = getResource((EObject) value, graph);
 
-			if (((EReference)aFeature).isContainment()) {
-				containedObjects.add((EObject) value);
-			}
+						if (((EReference)aFeature).isContainment()) {
+							containedObjects.add((EObject) value);
+						}
 
 			if (subject != null && property != null && object != null) {
 				graph.addTriple(subject, property, object);
@@ -194,11 +210,11 @@ public class PutObjectImpl implements IPutObject {
 		}
 
 		private void createLiteralTriple(EObject aObject, EStructuralFeature aFeature, Object obj, RDFGraph graph) {
-			final Resource subject = objectCache.get(aObject);
+			final Resource subject = objectCache.get(objectIdCache.get(aObject));
 			final String literalValue = DatatypeConverter.toString( aFeature.getEType().getName(), obj );
 			final Literal aLiteral = factory.createLiteral();
 			aLiteral.setLexicalForm( literalValue );
-			
+
 			String dt = DatatypeConverter.get((EDataType) aFeature.getEType());
 			try {
 				Datatype aDatatype = graph.getDatatype(dt);
@@ -228,19 +244,19 @@ public class PutObjectImpl implements IPutObject {
 				final Resource subject = getResource(aObject, aGraph);
 				final Property property = aGraph.getProperty(RDF.type);
 				final Resource object = aGraph.getResource(aURI.toString());
-				
+
 				aGraph.addTriple(subject, property, object);
 			}
 		}
 
 		private Resource getResource(EObject aObject, RDFGraph aGraph) {
-			final Object id;
+			final String id;
 
 			synchronized (this) {
 				if (objectIdCache.containsKey(aObject)) {
 					id = objectIdCache.get(aObject);
 				} else {
-					id = manager.id((EObject) aObject);
+					id = manager.id(aObject).toString();
 					objectIdCache.put(aObject, id);
 				}
 

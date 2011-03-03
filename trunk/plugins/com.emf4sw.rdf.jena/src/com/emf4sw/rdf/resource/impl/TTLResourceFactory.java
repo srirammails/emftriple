@@ -14,7 +14,7 @@ public class TTLResourceFactory implements RDFResourceFactory {
 	
 	@Override
 	public Resource createResource(URI uri) {
-		return new TTLResource(uri);
+		return new TTLResourceImpl(uri);
 	}
 
 }

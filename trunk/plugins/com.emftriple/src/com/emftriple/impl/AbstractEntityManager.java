@@ -24,6 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.metamodel.Metamodel;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 import com.emftriple.IMapping;
 import com.emftriple.criteria.CriteriaBuilderImpl;
@@ -84,7 +85,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 			throw new TransactionRequiredException("Transaction is not active");
 		}
 
-		getDelegate().remove(object);
+		getDelegate().remove((EObject) object);
 	}
 
 	/**
@@ -136,7 +137,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 	@Override public void detach(Object entity) {
 		checkState(entity);
 		
-		getDelegate().detach(entity);
+		getDelegate().detach((EObject) entity);
 	}
 	
 	/**
@@ -152,7 +153,7 @@ public abstract class AbstractEntityManager implements EntityManager {
 	@Override public boolean contains(Object entity) throws IllegalArgumentException {
 		checkState(entity);
 
-		return getDelegate().contains(entity); 
+		return getDelegate().contains((EObject) entity); 
 	}
 	
 	@Override public FlushModeType getFlushMode() {

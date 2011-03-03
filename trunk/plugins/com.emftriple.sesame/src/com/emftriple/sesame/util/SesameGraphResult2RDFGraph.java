@@ -20,8 +20,9 @@ import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Property;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.resource.RDFResource;
-import com.emf4sw.rdf.resource.RDFResourceImpl.DummyRDFResource;
+import com.emf4sw.rdf.resource.RDFResourceImpl;
 
 /**
  * 
@@ -51,7 +52,13 @@ public class SesameGraphResult2RDFGraph {
 	}
 	
 	public RDFGraph extract() {
-		final RDFResource resource = new DummyRDFResource();
+		final RDFResource resource = new RDFResourceImpl() {			
+			@Override
+			public Object getDelegate() { return null; }
+			
+			@Override
+			public void addDelegate(Triple obj) {}
+		};
 		final RDFGraph aGraph = RDFFactory.eINSTANCE.createDocumentGraph();
 		resource.getContents().add(aGraph);
 		

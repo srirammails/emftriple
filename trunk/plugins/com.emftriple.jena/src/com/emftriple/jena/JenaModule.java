@@ -9,6 +9,8 @@ package com.emftriple.jena;
 
 import java.util.Properties;
 
+import com.emf4sw.rdf.resource.TTLResource;
+import com.emf4sw.rdf.resource.impl.TTLResourceImpl;
 import com.emftriple.datasources.IDataSource;
 import com.emftriple.datasources.IDataSourceFactory;
 import com.emftriple.datasources.IDataSourceFactoryModule;
@@ -34,7 +36,9 @@ public class JenaModule extends AbstractModule implements IDataSourceFactoryModu
 	@Override
 	protected void configure() {
 		bind(IDataSourceFactory.class)
-			.to(JenaDataSourceFactory.class);		
+			.to(JenaDataSourceFactory.class);
+		bind(TTLResource.class)
+			.to(TTLResourceImpl.class);
 	}
 
 	@Override

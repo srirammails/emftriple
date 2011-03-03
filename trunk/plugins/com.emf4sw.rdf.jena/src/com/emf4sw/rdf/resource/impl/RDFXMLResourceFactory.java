@@ -14,7 +14,7 @@ public class RDFXMLResourceFactory implements RDFResourceFactory {
 
 	@Override
 	public RDFResource createResource(URI uri) {
-		return new RDFXMLResource(uri);
+		return new RDFXMLResourceImpl(uri);
 	}
 
 }

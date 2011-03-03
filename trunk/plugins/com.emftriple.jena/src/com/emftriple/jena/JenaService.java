@@ -15,7 +15,7 @@ import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.URIElement;
-import com.emf4sw.rdf.resource.RDFResourceImpl;
+import com.emf4sw.rdf.resource.impl.NTriplesResourceImpl;
 import com.emftriple.datasources.IDataSource;
 import com.emftriple.datasources.INamedGraphDataSource;
 import com.emftriple.datasources.IResultSet;
@@ -92,7 +92,7 @@ public class JenaService extends ModelDataSource implements INamedGraphDataSourc
 
 	@Override
 	public NamedGraph getNamedGraph(URI graphURI) {
-		NamedGraph aGraph = new RDFResourceImpl.DummyRDFResource().createNamedGraph(graphURI);
+		NamedGraph aGraph = new NTriplesResourceImpl().createNamedGraph(graphURI);
 		
 		constructQuery(
 				"construct { ?s ?p ?o } " +

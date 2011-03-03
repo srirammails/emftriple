@@ -9,10 +9,7 @@ package com.emf4sw.rdf.resource;
 
 import static org.eclipse.emf.ecore.util.EcoreUtil.getObjectsByType;
 
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.HashMap;
-import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -22,6 +19,7 @@ import com.emf4sw.rdf.DocumentGraph;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFPackage;
+import com.emf4sw.rdf.Triple;
 
 /**
  * 
@@ -99,20 +97,30 @@ public abstract class RDFResourceImpl extends ResourceImpl implements RDFResourc
 		return null;
 	}
 
-	public final static class DummyRDFResource extends RDFResourceImpl {
-		public DummyRDFResource() {
-			super();
-		}
+//	public final static class DummyRDFResource extends RDFResourceImpl {
+//		public DummyRDFResource() {
+//			super();
+//		}
+//
+//		@Override
+//		protected void doLoad(InputStream inputStream, Map<?, ?> options) throws UnsupportedOperationException {
+//			throw new UnsupportedOperationException("Can't load dummy resources, use other implementation.");
+//		}
+//
+//		@Override
+//		protected void doSave(OutputStream outputStream, Map<?, ?> options) throws UnsupportedOperationException {
+//			throw new UnsupportedOperationException("Can't save dummy resources, use other implementation.");
+//		}
+//
+//		@Override
+//		public Object getDelegate() {
+//			throw new UnsupportedOperationException();
+//		}
+//
+//		@Override
+//		public void addDelegate(Triple obj) {}
+//
+//	}
 
-		@Override
-		protected void doLoad(InputStream inputStream, Map<?, ?> options) throws UnsupportedOperationException {
-			throw new UnsupportedOperationException("Can't load dummy resources, use other implementation.");
-		}
-
-		@Override
-		protected void doSave(OutputStream outputStream, Map<?, ?> options) throws UnsupportedOperationException {
-			throw new UnsupportedOperationException("Can't save dummy resources, use other implementation.");
-		}
-
-	}
+	public abstract void addDelegate(Triple obj);
 }

@@ -19,5 +19,7 @@ import com.emf4sw.rdf.RDFGraph;
 public interface IPutObject {
 
 	RDFGraph put(EObject from, RDFGraph graph);
+
+	void clearCache();
 	
 }

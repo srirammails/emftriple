@@ -16,7 +16,7 @@ helper def: etype: String = thisModule.NS_EMF4SW + 'etype';
 
 --- PROPERTY HELPERS
 helper def: PROPERTY: Properties!PropertyMap = Properties!PropertyMap.allInstancesFrom('IN2').first();
-helper def: BASE: String = thisModule.PROPERTY.get('OPTION_BASE_NAMESPACE');
+helper def: BASE(): String = thisModule.PROPERTY.get('OPTION_BASE_NAMESPACE');
 helper def: OPTION_DIRECT_TYPE_ONLY(): Boolean = 
 	if thisModule.PROPERTY.containsKey('OPTION_DIRECT_TYPE_ONLY') then
 		let doIt: String = thisModule.get('OPTION_DIRECT_TYPE_ONLY') in
@@ -42,7 +42,7 @@ helper context OclAny def: getID(): String =
 	let id: Model!EAttribute = 
 		self.eClass().eAllAttributes->any(e | e.iD)
 	in if (not id.oclIsUndefined()) then
-		thisModule.BASE + self.eGet(id).toString()
+		thisModule.BASE() + self.eGet(id).toString()
 	else
 		let id2: Model!EAttribute =
 			self.eClass().eAllAttributes->any(e | not e.getEAnnotation('Id').oclIsUndefined())
@@ -50,10 +50,10 @@ helper context OclAny def: getID(): String =
 			let ns: String = id2.getEAnnotation('Id').details.get('base')
 			in
 				if (ns.oclIsUndefined()) then
-					thisModule.BASE + self.eGet(id2).toString()
+					thisModule.BASE() + self.eGet(id2).toString()
 				else ns + self.eGet(id2) endif
 			else
-				thisModule.BASE + self.getEcoreId()
+				thisModule.BASE() + self.getEcoreId()
 		endif
 	endif;
 	

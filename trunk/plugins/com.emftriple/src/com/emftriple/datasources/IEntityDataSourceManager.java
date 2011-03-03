@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 import com.emf4sw.rdf.Node;
 import com.emftriple.transform.IGetObject;
@@ -65,19 +66,19 @@ public interface IEntityDataSourceManager extends ITransactionProvider, IEntityM
 	 * 
 	 * @param object
 	 */
-	void save(Object object);
+	void save(EObject object);
 
 	/**
 	 * 
 	 * @param object
 	 */
-	void saveAll(Collection<Object> object);
+	void saveAll(Collection<EObject> object);
 	
 	/**
 	 * 
 	 * @param aGraph
 	 */
-	void remove(Object object);
+	void remove(EObject object);
 	
 	/**
 	 * 
