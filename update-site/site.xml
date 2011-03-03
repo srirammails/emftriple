@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.emf4sw.owl.feature_0.7.0.201102220951.jar" id="com.emf4sw.owl.feature" version="0.7.0.201102220951">
-      <category name="EMF4SW"/>
-   </feature>
-   <feature url="features/com.emf4sw.owl.jena.feature_0.7.0.201102220951.jar" id="com.emf4sw.owl.jena.feature" version="0.7.0.201102220951">
+   <feature url="features/com.emf4sw.owl.jena.feature_0.7.0.201103031755.jar" id="com.emf4sw.owl.jena.feature" version="0.7.0.201103031755">
       <category name="EMF4SW-JENA"/>
    </feature>
-   <feature url="features/com.emf4sw.owl.transform.feature_0.7.0.201102220951.jar" id="com.emf4sw.owl.transform.feature" version="0.7.0.201102220951">
-      <category name="EMF4SW"/>
-   </feature>
-   <feature url="features/com.emf4sw.rdf.feature_0.7.0.201102220951.jar" id="com.emf4sw.rdf.feature" version="0.7.0.201102220951">
-      <category name="EMF4SW"/>
-   </feature>
-   <feature url="features/com.emf4sw.rdf.jena.feature_0.7.0.201102220951.jar" id="com.emf4sw.rdf.jena.feature" version="0.7.0.201102220951">
+   <feature url="features/com.emf4sw.rdf.jena.feature_0.7.0.201103031755.jar" id="com.emf4sw.rdf.jena.feature" version="0.7.0.201103031755">
       <category name="EMF4SW-JENA"/>
    </feature>
-   <feature url="features/com.emf4sw.rdf.sesame.feature_0.7.0.201102220951.jar" id="com.emf4sw.rdf.sesame.feature" version="0.7.0.201102220951">
+   <feature url="features/com.emf4sw.rdf.sesame.feature_0.7.0.201103031755.jar" id="com.emf4sw.rdf.sesame.feature" version="0.7.0.201103031755">
       <category name="EMF4SW-SESAME"/>
    </feature>
-   <feature url="features/com.emf4sw.rdf.transform.feature_0.7.0.201102220951.jar" id="com.emf4sw.rdf.transform.feature" version="0.7.0.201102220951">
-      <category name="EMF4SW"/>
-   </feature>
-   <feature url="features/com.emftriple.feature_0.7.0.201102220951.jar" id="com.emftriple.feature" version="0.7.0.201102220951">
-      <category name="EMF4SW"/>
-   </feature>
-   <feature url="features/com.emftriple.jena.feature_0.7.0.201102220951.jar" id="com.emftriple.jena.feature" version="0.7.0.201102220951">
+   <feature url="features/com.emftriple.jena.feature_0.7.0.201103031755.jar" id="com.emftriple.jena.feature" version="0.7.0.201103031755">
       <category name="EMF4SW-JENA"/>
    </feature>
-   <feature url="features/com.emftriple.query.ui.feature_0.7.0.201102220951.jar" id="com.emftriple.query.ui.feature" version="0.7.0.201102220951">
+   <feature url="features/com.emftriple.query.ui.feature_0.7.0.201103031755.jar" id="com.emftriple.query.ui.feature" version="0.7.0.201103031755">
       <category name="EMFTRIPLE-EXTENSION"/>
    </feature>
-   <feature url="features/com.emftriple.restlet.feature_0.1.0.201102220951.jar" id="com.emftriple.restlet.feature" version="0.1.0.201102220951">
+   <feature url="features/com.emftriple.sesame.feature_0.7.0.201103031755.jar" id="com.emftriple.sesame.feature" version="0.7.0.201103031755">
+      <category name="EMF4SW-SESAME"/>
+   </feature>
+   <feature url="features/com.emf4sw.owl.feature_0.7.0.201103031755.jar" id="com.emf4sw.owl.feature" version="0.7.0.201103031755">
+      <category name="EMF4SW"/>
+   </feature>
+   <feature url="features/com.emf4sw.rdf.feature_0.7.0.201103031755.jar" id="com.emf4sw.rdf.feature" version="0.7.0.201103031755">
+      <category name="EMF4SW"/>
+   </feature>
+   <feature url="features/com.emf4sw.rdf.transform.feature_0.7.0.201103031755.jar" id="com.emf4sw.rdf.transform.feature" version="0.7.0.201103031755">
+      <category name="EMF4SW"/>
+   </feature>
+   <feature url="features/com.emftriple.feature_0.7.0.201103031755.jar" id="com.emftriple.feature" version="0.7.0.201103031755">
+      <category name="EMF4SW"/>
+   </feature>
+   <feature url="features/com.emf4sw.owl.transform.feature_0.7.0.201103031755.jar" id="com.emf4sw.owl.transform.feature" version="0.7.0.201103031755">
+      <category name="EMF4SW"/>
+   </feature>
+   <feature url="features/com.emftriple.restlet.feature_0.1.0.201103031755.jar" id="com.emftriple.restlet.feature" version="0.1.0.201103031755">
       <category name="EMFTRIPLE-EXTENSION"/>
    </feature>
-   <feature url="features/com.emftriple.sesame.feature_0.7.0.201102220951.jar" id="com.emftriple.sesame.feature" version="0.7.0.201102220951">
+   <feature url="features/org.openrdf.feature_2.3.2.201103031755.jar" id="org.openrdf.feature" version="2.3.2.201103031755">
       <category name="EMF4SW-SESAME"/>
    </feature>
-   <feature url="features/org.openrdf.feature_2.3.2.201102220951.jar" id="org.openrdf.feature" version="2.3.2.201102220951">
-      <category name="EMF4SW-SESAME"/>
-   </feature>
-   <feature url="features/org.openjena.feature_2.6.4.201102220951.jar" id="org.openjena.feature" version="2.6.4.201102220951">
+   <feature url="features/org.openjena.feature_2.6.4.201103031755.jar" id="org.openjena.feature" version="2.6.4.201103031755">
       <category name="EMF4SW-JENA"/>
    </feature>
    <category-def name="EMF4SW" label="Eclipse Modeling for Semantic Web"/>
