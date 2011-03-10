@@ -1,0 +1,22 @@
+@namespace(prefix="network", uri="http://eclipselabs.org/network")
+package network;
+
+@Entity(uri="http://xmlns.com/foaf/0.1/Organization")
+class SocialNetwork {
+	@Id(base="http://eclipselabs.org/social/")
+	attr String name;
+	@rdf(uri="http://xmlns.com/foaf/0.1/member")
+	val Person[*] members;
+}
+
+@Entity(uri="http://xmlns.com/foaf/0.1/Person")
+class Person {
+   @Id(base="http://eclipselabs.org/social/people/")
+   attr long ~id;
+   @rdf(uri="http://xmlns.com/foaf/0.1/firstName")
+   attr String firstName;
+   @rdf(uri="http://xmlns.com/foaf/0.1/lastName")
+   attr String lastName;
+   @rdf(uri="http://xmlns.com/foaf/0.1/knows")
+   ref Person[*] knows;
+}
