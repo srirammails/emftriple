@@ -13,14 +13,21 @@ public class ModelAdapterImpl extends AdapterImpl {
 	@Override
 	public void notifyChanged(Notification msg) {
 		if (msg.getFeatureID(RDFGraph.class) == RDFPackage.RDF_GRAPH__TRIPLES) {
-			RDFGraph notifier = (RDFGraph) msg.getNotifier();
-			Triple obj = (Triple) msg.getNewValue();
-			
-			if (notifier.eResource() != null)
-				if (notifier.eResource() instanceof RDFResource)
-					((RDFResourceImpl) notifier.eResource()).addDelegate(obj);
+			RDFGraph notifier;
+			if (msg.getNotifier() instanceof RDFResource) {
+				notifier = ((RDFResource) msg.getNotifier()).getGraph();
+			} else {
+				notifier = (RDFGraph) msg.getNotifier();
+			}
+			if (msg.getNewValue() instanceof Triple) {
+				Triple obj = (Triple) msg.getNewValue();
+
+				if (notifier.eResource() != null)
+					if (notifier.eResource() instanceof RDFResource)
+						((RDFResourceImpl) notifier.eResource()).addDelegate(obj);
+			}
 		}
-		
+
 		super.notifyChanged(msg);
 	}
 }

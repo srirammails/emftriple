@@ -4,6 +4,9 @@ package rdf;
 abstract class URIElement {
   @Id(base="")
   id attr String[1] URI;
+  ref Namespace[?] namespace;
+  
+  op String getLocalName();
 }
 
 class Namespace extends URIElement {

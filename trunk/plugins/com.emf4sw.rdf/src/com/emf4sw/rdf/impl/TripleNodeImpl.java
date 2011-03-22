@@ -6,6 +6,7 @@
  */
 package com.emf4sw.rdf.impl;
 
+import com.emf4sw.rdf.Namespace;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -24,6 +25,7 @@ import com.emf4sw.rdf.URIElement;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.emf4sw.rdf.impl.TripleNodeImpl#getURI <em>URI</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.TripleNodeImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link com.emf4sw.rdf.impl.TripleNodeImpl#getTriple <em>Triple</em>}</li>
  * </ul>
  * </p>
@@ -50,6 +52,16 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 	 * @ordered
 	 */
 	protected String uri = URI_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected Namespace namespace;
 
 	/**
 	 * The cached value of the '{@link #getTriple() <em>Triple</em>}' reference.
@@ -106,6 +118,44 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Namespace getNamespace() {
+		if (namespace != null && namespace.eIsProxy()) {
+			InternalEObject oldNamespace = (InternalEObject)namespace;
+			namespace = (Namespace)eResolveProxy(oldNamespace);
+			if (namespace != oldNamespace) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RDFPackage.TRIPLE_NODE__NAMESPACE, oldNamespace, namespace));
+			}
+		}
+		return namespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Namespace basicGetNamespace() {
+		return namespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNamespace(Namespace newNamespace) {
+		Namespace oldNamespace = namespace;
+		namespace = newNamespace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.TRIPLE_NODE__NAMESPACE, oldNamespace, namespace));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Triple getTriple() {
 		if (triple != null && triple.eIsProxy()) {
 			InternalEObject oldTriple = (InternalEObject)triple;
@@ -144,11 +194,25 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getLocalName() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RDFPackage.TRIPLE_NODE__URI:
 				return getURI();
+			case RDFPackage.TRIPLE_NODE__NAMESPACE:
+				if (resolve) return getNamespace();
+				return basicGetNamespace();
 			case RDFPackage.TRIPLE_NODE__TRIPLE:
 				if (resolve) return getTriple();
 				return basicGetTriple();
@@ -166,6 +230,9 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 		switch (featureID) {
 			case RDFPackage.TRIPLE_NODE__URI:
 				setURI((String)newValue);
+				return;
+			case RDFPackage.TRIPLE_NODE__NAMESPACE:
+				setNamespace((Namespace)newValue);
 				return;
 			case RDFPackage.TRIPLE_NODE__TRIPLE:
 				setTriple((Triple)newValue);
@@ -185,6 +252,9 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 			case RDFPackage.TRIPLE_NODE__URI:
 				setURI(URI_EDEFAULT);
 				return;
+			case RDFPackage.TRIPLE_NODE__NAMESPACE:
+				setNamespace((Namespace)null);
+				return;
 			case RDFPackage.TRIPLE_NODE__TRIPLE:
 				setTriple((Triple)null);
 				return;
@@ -202,6 +272,8 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 		switch (featureID) {
 			case RDFPackage.TRIPLE_NODE__URI:
 				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+			case RDFPackage.TRIPLE_NODE__NAMESPACE:
+				return namespace != null;
 			case RDFPackage.TRIPLE_NODE__TRIPLE:
 				return triple != null;
 		}
@@ -218,6 +290,7 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 		if (baseClass == URIElement.class) {
 			switch (derivedFeatureID) {
 				case RDFPackage.TRIPLE_NODE__URI: return RDFPackage.URI_ELEMENT__URI;
+				case RDFPackage.TRIPLE_NODE__NAMESPACE: return RDFPackage.URI_ELEMENT__NAMESPACE;
 				default: return -1;
 			}
 		}
@@ -234,6 +307,7 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 		if (baseClass == URIElement.class) {
 			switch (baseFeatureID) {
 				case RDFPackage.URI_ELEMENT__URI: return RDFPackage.TRIPLE_NODE__URI;
+				case RDFPackage.URI_ELEMENT__NAMESPACE: return RDFPackage.TRIPLE_NODE__NAMESPACE;
 				default: return -1;
 			}
 		}
@@ -249,11 +323,10 @@ public class TripleNodeImpl extends NodeImpl implements TripleNode {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer();
-		result.append('<');
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (URI: ");
 		result.append(uri);
-		result.append('>');
-		
+		result.append(')');
 		return result.toString();
 	}
 

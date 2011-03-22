@@ -65,18 +65,6 @@ public class ETripleLibExtension implements LibExtension {
 		};
 		execEnv.registerOperation(Object.class, asStringOperation);
 
-//		Operation getRdfIdOperation = new Operation(1, "getRdfId") {  
-//			@Override
-//			public String exec(AbstractStackFrame frame) {
-//				Object[] localVars = frame.getLocalVars();
-//				if (localVars[0] instanceof EObject) { 
-//					return generator.getId((EObject)localVars[0]).toString();			
-//				}
-//				throw new IllegalArgumentException("Cannot get URI from " + localVars[0]);
-//			}
-//		};
-//		execEnv.registerOperation(Object.class, getRdfIdOperation);
-		
 		Operation getEcoreIdOperation = new Operation(1, "getEcoreId") {  
 			@Override
 			public String exec(AbstractStackFrame frame) {
@@ -92,36 +80,6 @@ public class ETripleLibExtension implements LibExtension {
 			}
 		};
 		execEnv.registerOperation(Object.class, getEcoreIdOperation);
-		
-//		Operation inverse = new Operation(1, "inverse") {  
-//			@SuppressWarnings("unchecked")
-//			@Override
-//			public Collection<Object> exec(AbstractStackFrame frame) {
-//				Object[] localVars = frame.getLocalVars();
-//				if (localVars[0] instanceof Collection) {
-//					if ( ((Collection<Object>) localVars[0]).size() > 1) {
-//						try {
-//							Collection<Object> col = (Collection<Object>) localVars[0].getClass().newInstance();
-//							Object[] array = ((Collection<?>)localVars[0]).toArray();
-//							
-//							int i=0;
-//							while (i < array.length) {
-//								col.add(array[array.length - 1 - i]);
-//								i++;
-//							}
-//							return col;
-//						} catch (InstantiationException e) {
-//							e.printStackTrace();
-//						} catch (IllegalAccessException e) {
-//							e.printStackTrace();
-//						}
-//					}
-//
-//					return (Collection<Object>) localVars[0];	
-//				} else return null;
-//			}
-//		};
-//		execEnv.registerOperation(Collection.class, inverse);
 
 		Operation split_annotation = new Operation(1, "split_annotation") {  
 			@Override

@@ -4,12 +4,14 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rdf"
     nsURI="http://www.emf4sw.org/2008/RDF" nsPrefix="RDF">
   <eClassifiers xsi:type="ecore:EClass" name="URIElement" abstract="true">
+    <eOperations name="getLocalName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true">
       <eAnnotations source="Id">
         <details key="base" value=""/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namespace" eType="#//Namespace"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Namespace" eSuperTypes="#//URIElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"

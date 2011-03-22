@@ -251,6 +251,15 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getURIElement_Namespace() {
+		return (EReference)uriElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNamespace() {
 		return namespaceEClass;
 	}
@@ -726,6 +735,7 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		// Create classes and their features
 		uriElementEClass = createEClass(URI_ELEMENT);
 		createEAttribute(uriElementEClass, URI_ELEMENT__URI);
+		createEReference(uriElementEClass, URI_ELEMENT__NAMESPACE);
 
 		namespaceEClass = createEClass(NAMESPACE);
 		createEAttribute(namespaceEClass, NAMESPACE__PREFIX);
@@ -845,6 +855,9 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(uriElementEClass, URIElement.class, "URIElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getURIElement_URI(), ecorePackage.getEString(), "URI", null, 1, 1, URIElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getURIElement_Namespace(), this.getNamespace(), null, "namespace", null, 0, 1, URIElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(uriElementEClass, ecorePackage.getEString(), "getLocalName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamespace_Prefix(), ecorePackage.getEString(), "prefix", null, 1, 1, Namespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

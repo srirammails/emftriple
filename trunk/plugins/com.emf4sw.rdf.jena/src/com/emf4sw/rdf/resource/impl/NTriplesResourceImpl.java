@@ -36,6 +36,8 @@ public class NTriplesResourceImpl extends JenaResourceImpl implements NTriplesRe
 
 	public NTriplesResourceImpl(URI uri) {
 		super(uri);
+		reader = new JenaRDFReader();
+		writer = new JenaRDFWriter();
 	}
 
 	@Override
