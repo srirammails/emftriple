@@ -11,7 +11,7 @@ uses RDFHelpers;
 uses PropertiesHelpers;
 
 --- NAMESPACES
-helper def: NS_EMF4SW: String = 'http://eclipselabs.org/emf4sw#';
+helper def: NS_EMF4SW: String = 'http://www.eclipselabs.org/emf4sw/rdf-ecore#';
 helper def: etype: String = thisModule.NS_EMF4SW + 'etype';
 
 --- PROPERTY HELPERS

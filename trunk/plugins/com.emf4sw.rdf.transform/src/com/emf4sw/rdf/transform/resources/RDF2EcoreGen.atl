@@ -1,12 +1,10 @@
 -- @atlcompiler atl2006
 
 -- @nsURI Model=http://www.eclipse.org/emf/2002/Ecore
--- @path ATL=/com.emf4sw.rdfizer/src/com/emf4sw/rdfizer/atl/resources/atl.Model
 
 module RDF2ModelGen;
 create OUT:ATL from IN:Model;
 
--- uses Model2OWLHelpers;
 uses RDFGenHelpers;
 uses RDFHelpers;
 
@@ -22,7 +20,7 @@ endpoint rule Module() {
 			elements <- Sequence {
 				thisModule.MakeIsValidHelper(OclAny),
 				thisModule.allClasses->select(e | not e.abstract)
-			},
+			},			
 			outModels <- Sequence{ out },
 			inModels <- Sequence{ im }
 		),
@@ -78,7 +76,7 @@ rule Class2Rule
 		
 		-- Filter
 		filter_el: ATL!OperationCallExp (
-			operationName <- 'isTypeOf',
+			operationName <- 'isDirectTypeOf',
 			arguments <- filter_type,
 			source <- filter_var ),
 		filter_var: ATL!VariableExp (

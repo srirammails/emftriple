@@ -1,0 +1,33 @@
+-- @atlcompiler atl2006
+
+-- @path RDF=/com.emf4sw.rdf/model/rdf.ecore
+
+module RDF2Model;
+create OUT:Model from IN:RDF, IN2:Properties;
+
+uses PropertiesHelpers;
+
+--- NAMESPACES
+helper def: NS_EMF4SW: String = 'http://www.eclipselabs.org/emf4sw/rdf-ecore#';
+helper def: etype: String = thisModule.NS_EMF4SW + 'etype';
+
+--- PROPERTY HELPERS
+helper def: PROPERTY: Properties!PropertyMap = Properties!PropertyMap.allInstancesFrom('IN2').first();
+helper def: OPTION_NO_ECORE_TYPE(): Boolean = 
+	if thisModule.PROPERTY.containsKey('OPTION_NO_ECORE_TYPE') then
+		let doIt: String = thisModule.get('OPTION_NO_ECORE_TYPE') in
+			doIt = 'true'
+	else false endif;
+
+helper context RDF!Node def: isDirectTypeOf(uri: String): Boolean = false;
+	
+helper context RDF!Resource def: isDirectTypeOf(uri: String): Boolean = 
+	let eTypes: Set(RDF!Triple) = 
+		self.subjectOf->select(e | e.predicate.URI = thisModule.etype)
+	in 
+	if (eTypes.isEmpty()) then
+		self.isTypeOf(uri)
+	else 
+		eTypes->collect(e | e.object)->select(e | e.oclIsKindOf(RDF!Resource))->exists(e | e.URI = uri)
+	endif;
+

@@ -79,13 +79,22 @@ public interface RDFPackage extends EPackage {
 	int URI_ELEMENT__URI = 0;
 
 	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int URI_ELEMENT__NAMESPACE = 1;
+
+	/**
 	 * The number of structural features of the '<em>URI Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int URI_ELEMENT_FEATURE_COUNT = 1;
+	int URI_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.NamespaceImpl <em>Namespace</em>}' class.
@@ -105,6 +114,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMESPACE__URI = URI_ELEMENT__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE__NAMESPACE = URI_ELEMENT__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
@@ -151,6 +169,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_GRAPH__URI = URI_ELEMENT__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_GRAPH__NAMESPACE = URI_ELEMENT__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' attribute list.
@@ -242,6 +269,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOCUMENT_GRAPH__URI = RDF_GRAPH__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_GRAPH__NAMESPACE = RDF_GRAPH__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' attribute list.
@@ -461,6 +497,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_GRAPH__URI = RDF_GRAPH__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_GRAPH__NAMESPACE = RDF_GRAPH__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' attribute list.
@@ -708,13 +753,22 @@ public interface RDFPackage extends EPackage {
 	int TRIPLE_NODE__URI = NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE__NAMESPACE = NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Triple</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRIPLE_NODE__TRIPLE = NODE_FEATURE_COUNT + 1;
+	int TRIPLE_NODE__TRIPLE = NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Triple Node</em>' class.
@@ -723,7 +777,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRIPLE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 2;
+	int TRIPLE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.ResourceImpl <em>Resource</em>}' class.
@@ -743,6 +797,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE__URI = URI_ELEMENT__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__NAMESPACE = URI_ELEMENT__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -816,6 +879,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY__URI = RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAMESPACE = RESOURCE__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -898,6 +970,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATATYPE__URI = RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATATYPE__NAMESPACE = RESOURCE__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1465,6 +1546,17 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getURIElement_URI();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.emf4sw.rdf.URIElement#getNamespace <em>Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Namespace</em>'.
+	 * @see com.emf4sw.rdf.URIElement#getNamespace()
+	 * @see #getURIElement()
+	 * @generated
+	 */
+	EReference getURIElement_Namespace();
 
 	/**
 	 * Returns the meta object for class '{@link com.emf4sw.rdf.Namespace <em>Namespace</em>}'.
@@ -2038,6 +2130,14 @@ public interface RDFPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute URI_ELEMENT__URI = eINSTANCE.getURIElement_URI();
+
+		/**
+		 * The meta object literal for the '<em><b>Namespace</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference URI_ELEMENT__NAMESPACE = eINSTANCE.getURIElement_Namespace();
 
 		/**
 		 * The meta object literal for the '{@link com.emf4sw.rdf.impl.NamespaceImpl <em>Namespace</em>}' class.

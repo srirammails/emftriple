@@ -7,10 +7,13 @@
 package com.emf4sw.rdf.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import com.emf4sw.rdf.Namespace;
 import com.emf4sw.rdf.RDFPackage;
 import com.emf4sw.rdf.URIElement;
 
@@ -22,6 +25,7 @@ import com.emf4sw.rdf.URIElement;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.emf4sw.rdf.impl.URIElementImpl#getURI <em>URI</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.URIElementImpl#getNamespace <em>Namespace</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +51,16 @@ public abstract class URIElementImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected String uri = URI_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected Namespace namespace;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,11 +107,70 @@ public abstract class URIElementImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Namespace getNamespace() {
+		if (namespace != null && namespace.eIsProxy()) {
+			InternalEObject oldNamespace = (InternalEObject)namespace;
+			namespace = (Namespace)eResolveProxy(oldNamespace);
+			if (namespace != oldNamespace) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RDFPackage.URI_ELEMENT__NAMESPACE, oldNamespace, namespace));
+			}
+		}
+		return namespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Namespace basicGetNamespace() {
+		return namespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNamespace(Namespace newNamespace) {
+		Namespace oldNamespace = namespace;
+		namespace = newNamespace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.URI_ELEMENT__NAMESPACE, oldNamespace, namespace));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLocalName() {
+		if (getNamespace() == null) {
+			URI uri = URI.createURI(getURI());
+			if (uri.hasFragment()) {
+				return uri.fragment();
+			} else {
+				return uri.lastSegment();
+			}
+		} else {
+			return getURI().substring(0, getNamespace().getURI().length());
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RDFPackage.URI_ELEMENT__URI:
 				return getURI();
+			case RDFPackage.URI_ELEMENT__NAMESPACE:
+				if (resolve) return getNamespace();
+				return basicGetNamespace();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,6 +185,9 @@ public abstract class URIElementImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case RDFPackage.URI_ELEMENT__URI:
 				setURI((String)newValue);
+				return;
+			case RDFPackage.URI_ELEMENT__NAMESPACE:
+				setNamespace((Namespace)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,6 +204,9 @@ public abstract class URIElementImpl extends MinimalEObjectImpl.Container implem
 			case RDFPackage.URI_ELEMENT__URI:
 				setURI(URI_EDEFAULT);
 				return;
+			case RDFPackage.URI_ELEMENT__NAMESPACE:
+				setNamespace((Namespace)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -142,6 +221,8 @@ public abstract class URIElementImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case RDFPackage.URI_ELEMENT__URI:
 				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+			case RDFPackage.URI_ELEMENT__NAMESPACE:
+				return namespace != null;
 		}
 		return super.eIsSet(featureID);
 	}
