@@ -8,6 +8,7 @@
 package com.emftriple.datasources.impl;
 
 import static com.emftriple.util.SparqlQueries.selectAllTypes;
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Collection;
@@ -93,13 +94,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 			return object;
 		}
 
-		object = get().get(aClass, key);
-
-		if (object != null) {
-			add((EObject) object);
-		}
-
-		return object;
+		return get().get(aClass, key);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -113,10 +108,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 			return object;
 		}
 
-		object = proxyFactory.get(aClass, key);
-		put(key, (EObject) object);
-
-		return object;
+		return proxyFactory.get(aClass, key);
 	}
 
 	@Override
@@ -129,32 +121,20 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	}
 
 	@Override
-	public Object findNode(Node node) {
-		if (node instanceof URIElement)
-		{
-			URI uri = getURI(node);
-
-			if (containsKey(uri)) {
-				EObject object = getByKey(uri);
-				return object;
-			}
-
-			final List<String> types = selectAllTypes(this, (URIElement)node);
-			if (types.isEmpty()) 
-			{
-				return null;
-			}
-
-			final EClass eClass = mapping.findEClassByRdfType( types );
-			if (eClass == null)
-			{
-				return null;
-			}
-
-			return find( eClass.getInstanceClass(), uri);
+	public Object findNode(URI node) {
+		final URI uri = node;
+		
+		final List<String> types = selectAllTypes(this, node);
+		if (types.isEmpty()) {
+			return null;
 		}
 
-		return null;
+		final EClass eClass = mapping.findEClassByRdfType( types );
+		if (eClass == null) {
+			return null;
+		}
+
+		return find( eClass.getInstanceClass(), uri );
 	}
 
 	@Override
@@ -162,7 +142,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		final List<Object> list = Lists.newArrayList();
 		for (Node node: nodes) 
 		{
-			list.add( findNode(node) );
+			list.add( findNode( URI.createURI(((URIElement) node).getURI())) );
 		}
 		return list;
 	}
@@ -189,54 +169,32 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 				}
 			}
 		}
-
-//		put().clearCache();
-
 	}
 
 	@Override
 	public void save(final EObject obj) {
 		checkNotNull(obj);
 
-		final EClass eClass = ((EObject) obj).eClass();
-		final String dataSetName = EntityUtil.getDataSet(eClass);
-		final IDataSource dataSource;
+		final String dataSetName = EntityUtil.getDataSet(obj.eClass());
 
 		if (dataSetName != null) {
-			dataSource = getDataSource(dataSetName);
+			saveInDataSource(getDataSource(dataSetName), obj);
 		} else {
-			dataSource = getDefaultDataSource();
+			saveInDataSource(getDefaultDataSource(), obj);
 		}
 
-		final URI graphURI = EntityUtil.getNamedGraph(eClass);
-		final RDFGraph graph = getGraph(graphURI);
+	}
 
-		put().put(obj, graph);
+	private void saveInDataSource(IDataSource dataSource, EObject obj) {
+		checkArgument(dataSource instanceof IMutableDataSource);
 
-//		if (!obj.eContents().isEmpty()) {
-//			if (dataSource instanceof IMutableDataSource)
-//			{
-//				if (!graph.getTriples().isEmpty())
-//				{
-//					((IMutableDataSource) dataSource).add(graph);
-//				}
-//			} 
-//			for (EObject object: obj.eContents()) {
-//				if (!markedAsSave(object)) {
-//					save(object);
-//				}
-//			} 
-//
-//		} else {
-			if (dataSource instanceof IMutableDataSource)
-			{
-				if (!graph.getTriples().isEmpty())
-				{
-					((IMutableDataSource) dataSource).add(graph);
-				}
-			} 
-//		}
+		final URI graphURI = EntityUtil.getNamedGraph(obj.eClass());
+		final RDFGraph graph = put().put(obj, getGraph(graphURI));
 
+		if (!graph.getTriples().isEmpty())
+		{
+			((IMutableDataSource) dataSource).add(graph);
+		}
 	}
 
 	@Override
@@ -244,24 +202,24 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 		return SparqlQueries.countObjectsByType(getDefaultDataSource(), eClass);
 	}
 
-	private static URI getURI(Object key) {
-		if (key instanceof String) 
-		{
-			return URI.createURI((String) key);
-		} 
-		else if (key instanceof URI) 
-		{
-			return (URI)key;
-		}
-		else if (key instanceof URIElement) {
-			return URI.createURI( ((URIElement) key).getURI() );
-		}
-
-		return null;
-	}
+//	private static URI getURI(Object key) {
+//		if (key instanceof String) 
+//		{
+//			return URI.createURI((String) key);
+//		} 
+//		else if (key instanceof URI) 
+//		{
+//			return (URI)key;
+//		}
+//		else if (key instanceof URIElement) {
+//			return URI.createURI( ((URIElement) key).getURI() );
+//		}
+//
+//		return null;
+//	}
 
 	@Override
-	public void remove(EObject object) {
+	public void delete(EObject object) {
 		if (object instanceof RDFGraph) 
 		{
 			remove((RDFGraph)object);

@@ -5,6 +5,7 @@ import java.util.Collection;
 import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFFactory;
+import com.emf4sw.rdf.Resource;
 import com.emf4sw.rdf.URIElement;
 import com.emftriple.datasources.IResultSet;
 import com.hp.hpl.jena.query.QuerySolution;
@@ -50,6 +51,8 @@ public class JenaResultSet implements IResultSet {
 	public static class JenaSolution implements Solution {
 
 		private QuerySolution solution;
+
+		private RDFFactory aFactory = RDFFactory.eINSTANCE;
 		
 		public JenaSolution(QuerySolution solution) {
 			this.solution = solution;
@@ -60,8 +63,7 @@ public class JenaResultSet implements IResultSet {
 			if (!solution.contains(varName)) {
 				return null;
 			}
-			
-			RDFFactory aFactory = RDFFactory.eINSTANCE;
+
 			Node node = null;
 			if (solution.get(varName).isResource()) {
 				node = aFactory.createResource();
@@ -73,6 +75,39 @@ public class JenaResultSet implements IResultSet {
 				node = aFactory.createBlankNode();
 			}
 			return node;
+		}
+
+		@Override
+		public boolean isResource(String varName) {
+			if (!solution.contains(varName)) {
+				return false;
+			}
+			
+			return solution.get(varName).isResource();
+		}
+
+		@Override
+		public Resource getResource(String varName) {
+			if (!isResource(varName)) {
+				throw new IllegalArgumentException();
+			}
+			
+			final Resource node = aFactory.createResource();
+			node.setURI(solution.get(varName).asResource().getURI());
+
+			return node;
+		}
+
+		@Override
+		public boolean isLiteral(String varName) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		public Literal getLiteral(String varName) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 	}

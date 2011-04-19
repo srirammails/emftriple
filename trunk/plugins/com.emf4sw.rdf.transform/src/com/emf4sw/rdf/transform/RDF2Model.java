@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.m2m.atl.core.emf.EMFModel;
 
+import com.atl.common.models.Models;
 import com.atl.common.models.Properties;
 import com.atl.common.trans.MultiInOneOutTransformation;
 import com.atl.common.trans.Transformations;
@@ -61,7 +62,12 @@ public class RDF2Model extends RDFTransformation {
 		final Properties<String, Object> properties = Properties.createProperties(copyOptions);		
 		final EMFModel propertiesModel = inject(properties.serialize(), Properties.getReferenceModel());
 		
-		return Transformations.transform( setOf(inject(resource, get(RDFPackage.eNS_URI)), propertiesModel), 
+		return Transformations.transform( 
+				setOf(
+						inject(resource, get(RDFPackage.eNS_URI)), 
+						propertiesModel, 
+						inject(ePackage.eResource(), Models.ecore())
+				), 
 				transformation()).getResource();
 	}
 	
@@ -76,6 +82,7 @@ public class RDF2Model extends RDFTransformation {
 			.options(atloptions())
 			.in(get(RDFPackage.eNS_URI), "IN", "RDF")
 			.in(Properties.getReferenceModel(), "IN2", "Properties")
+			.in(Models.ecore(), "IN3", "Ecore")
 			.out(get(ePackage.getNsURI()), "OUT", "Model")
 			.buildMultiInOneOut();
 	}

@@ -12,9 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.TransactionRequiredException;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -24,9 +21,6 @@ import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.URIHandlerImpl;
 
-import com.emf4sw.rdf.Node;
-import com.emf4sw.rdf.RDFFactory;
-import com.emf4sw.rdf.URIElement;
 import com.emftriple.config.persistence.DataSourceBuilder;
 import com.emftriple.config.persistence.Federation;
 import com.emftriple.datasources.IDataSource;
@@ -48,12 +42,8 @@ public class ETripleResource extends ResourceImpl implements Resource {
 	@SuppressWarnings("unused")
 	private IDataSource dataSource;
 
-//	private javax.persistence.spi.PersistenceProvider persistenceProvider;
-
 	public ETripleResource(URI uri) {
 		super(uri);
-
-//		this.persistenceProvider = ETriple.getInstance().getPersistenceProvider();
 	}
 
 	@Override
@@ -96,7 +86,7 @@ public class ETripleResource extends ResourceImpl implements Resource {
 	@Override
 	public EObject getEObject(String uriFragment) {
 		EObject proxy = null;
-
+		System.out.println("GET " + uriFragment);
 		if (uriFragment != null && uriFragment.startsWith("uri=")) 
 		{
 			final URI key = URI.createURI(uriFragment.split("=")[1].replaceAll("%23", "#"));
@@ -106,33 +96,13 @@ public class ETripleResource extends ResourceImpl implements Resource {
 			
 			if (em.getDelegate().containsKey(key)) {
 				proxy = (EObject) em.getDelegate().getByKey(key);
-
-				final Map<String, Object> options = new HashMap<String, Object>();
-				options.put("KEY", key);
-
-				try {
-					em.refresh(proxy, options);
-				} catch (EntityNotFoundException e) {
-					e.printStackTrace();
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-				} catch (TransactionRequiredException e) {
-					e.printStackTrace();
-					
-					try {
-						em.refresh(proxy, options);
-					} catch (TransactionRequiredException e2) {
-						e2.printStackTrace();
-					}
-				}
+				System.out.println("proxy from get " + proxy);
 			} else {
-				Node node = RDFFactory.eINSTANCE.createResource();
-				((URIElement) node).setURI(key.toString());
-				
-				proxy = (EObject) em.getDelegate().findNode(node);
+				proxy = (EObject) em.getDelegate().findNode(key);
+				System.out.println("proxy from find " + proxy);
 			}
 			return proxy;
-		}			
+		}
 		return null;
 	}
 
@@ -201,6 +171,10 @@ public class ETripleResource extends ResourceImpl implements Resource {
 				resource = getResource(EntityUtil.getNamedGraph(eClass));	
 			} catch (IllegalArgumentException e) {
 				resource = getResource(defaultGraph) ;
+			}
+			if (resource.getResourceSet() == null) {
+				resourceSet.getResources().add(resource);
+				assert resource.getResourceSet() == resourceSet;
 			}
 			return resource;
 		}

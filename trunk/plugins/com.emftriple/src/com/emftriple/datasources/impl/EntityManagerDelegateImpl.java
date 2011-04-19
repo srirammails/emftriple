@@ -8,13 +8,11 @@
 package com.emftriple.datasources.impl;
 
 import static com.emftriple.util.EntityUtil.checkIsEntity;
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.persistence.EntityExistsException;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -25,12 +23,14 @@ import org.eclipse.emf.ecore.EObject;
 import com.emf4sw.rdf.vocabulary.RDF;
 import com.emftriple.IMapping;
 import com.emftriple.config.persistence.Federation;
+import com.emftriple.datasources.ETripleLocalCache;
 import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.resource.ETripleResource.ResourceManager;
 import com.emftriple.transform.IGetObject;
 import com.emftriple.transform.IPutObject;
 import com.emftriple.util.EntityUtil;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
@@ -43,29 +43,17 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 
 	protected final IMapping mapping;
 
-	private final Map<URI, EObject> allEntitiesByURI;
-	
-	private final Map<EObject, URI> allEntities;
-
-	private final List<EObject> markAsToSaveEntities;
-
-	private final List<EObject> markAsToDeleteEntities;
-
-	private final List<EObject> markAsDetachEntities;
-
 	protected final ResourceManager manager;
-	
+
+	private final EntityManagerLevelCache localCache;
+
 	@Inject
 	EntityManagerDelegateImpl(ResourceManager manager, IMapping mapping, @Named("DataSources") Federation dataSources) {
 		super(dataSources);
 
 		this.mapping = mapping;
 		this.manager = manager;
-		this.allEntitiesByURI = new HashMap<URI, EObject>();
-		this.allEntities = new HashMap<EObject, URI>();
-		this.markAsToSaveEntities = new ArrayList<EObject>();
-		this.markAsToDeleteEntities = new ArrayList<EObject>();
-		this.markAsDetachEntities = new ArrayList<EObject>();
+		this.localCache = new EntityManagerLevelCache();
 	}
 
 	protected abstract IPutObject put();
@@ -73,106 +61,132 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 	protected abstract IGetObject get();
 
 	protected abstract int lastIndexOf(EClass eClass);
-		
-	@Override 
-	public void put(URI uri, EObject eObject) {
-		checkNotNull(uri);
-		checkNotNull(eObject);
-		
-		if (!eObject.eIsProxy()) {
-			if (allEntitiesByURI.containsKey(uri)) {
-				EObject oldProxy = allEntitiesByURI.remove(uri);
-				checkArgument(allEntitiesByURI.containsKey(uri) == false);
-				checkArgument(allEntitiesByURI.get(uri) == null);
-				
-				if (allEntities.containsKey(oldProxy)) {
-					allEntities.remove(oldProxy);
-//					EcoreUtil.delete(oldProxy);
-				}
-			}
-		}
-		
-		allEntitiesByURI.put(uri, eObject);
-		allEntities.put(eObject, uri);
-	}
-
-	@Override 
-	public void add(EObject object) {
-		checkIsEntity(object);
-		
-		final URI entityKey = id( object );
-		
-		if (entityKey != null) 
-		{
-			if (object.eResource() == null )
-			{
-				manager.getResource(object.eClass()).getContents().add(object);
-			}
-			
-			put(entityKey, object);
-		}
-	}
 
 	@Override 
 	public void clear() {
-		getDetachEntities().clear();
-		getDeleteEntities().clear();
-		allEntities.clear();
-		allEntitiesByURI.clear();
+		localCache.evictAll();
 		manager.clear();
+	}
+	
+	@Override
+	public void addToContext(EObject object) {
+		checkIsEntity(object);
+		
+		localCache.addToCache(id(object), object);
 	}
 
 	@Override 
 	public boolean contains(EObject object) {
-		checkIsEntity(object);
-				
-		return allEntities.containsKey( object );
+		return localCache.contains( object.eClass(), id(object) );
 	}
-	
-	protected boolean markedAsSave(EObject object) {
-		return getSaveEntities().contains(object);
+
+	@Override 
+	public EObject getByKey(URI key) {
+		return localCache.get(key);
+	}
+
+	@Override 
+	public void persist(EObject object) throws EntityExistsException, IllegalArgumentException {
+		final URI entityKey = id( object );
+		
+		if (entityKey != null) {
+			if (localCache.save.contains(entityKey)) {
+				throw new EntityExistsException();
+			}
+
+			localCache.addToCache(entityKey, object);
+			localCache.setAsSave(entityKey);
+		}
+	}
+
+	@Override 
+	public void remove(EObject object) throws IllegalArgumentException {
+		final URI entityKey = id( object );
+
+		if (entityKey != null) {
+			localCache.setAsDelete(entityKey);
+		}
+	}
+
+	/**
+	 * Remove the given entity from the persistence context, causing a managed entity to become detached.
+	 */
+	@Override 
+	public void detach(EObject object) throws IllegalArgumentException {
+		final URI entityKey = id( object );
+
+		if (entityKey != null) {
+			localCache.evict(entityKey);
+		}
+	}
+
+	/**
+	 * Synchronize the persistence context to the underlying database.
+	 */
+	@Override 
+	public void flush() {
+		for (String key: localCache.save)
+			save(localCache.get(key));
+		for (String key: localCache.delete)
+			delete(localCache.get(key));
+		
+		localCache.clearAfterPersist();
+		put().clearCache();
 	}
 
 	@Override
+	public boolean containsKey(URI primaryKey) {
+		return localCache.contains(primaryKey);
+	}
+
+	@Override
+	public boolean entityExists(URI key, EClass eClass) {
+		boolean exists = false;
+
+		for (URI rdfType: mapping.getRdfTypes(eClass)) {
+			final String query = 
+				"ASK WHERE { <" + key + "> <" + RDF.type + "> <" + rdfType + "> }";
+			exists = exists || 	executeAskQuery(query);
+		}
+
+		return exists;
+	}
+	
+	@Override
 	public URI id(EObject object) {
 		checkIsEntity(object);
-		
-		return doID(object);
+
+		return URI.createURI(doID(object));
 	}
-	
-	private URI doID(EObject object) {
-		URI entityKey = null;
-		
-		if ( allEntities.containsKey(object) ){
-			entityKey = allEntities.get(object);
+
+	private String doID(EObject object) {
+		String entityKey = localCache.getKey(object);
+		if (entityKey != null) {
+			return entityKey;
 		}
-		else if ( isGeneratedId((EObject)object) )
+
+		if ( isGeneratedId(object) )
 		{
-			entityKey = allEntities.get(object);
-			if (entityKey == null)
-			{
-				EAttribute attrId = EntityUtil.getId(object.eClass());				
-				if (object.eIsSet(attrId)) {
-					String base = EntityUtil.getETripleAnnotation(attrId, "Id").getDetails().get("base");
-					entityKey = base != null ? EntityUtil.URI(base + object.eGet(attrId)) : EntityUtil.URI(object.eGet(attrId)); 
-				}
-				entityKey = generateId(object);
-				put(entityKey, object);
+			EAttribute attrId = EntityUtil.getId(object.eClass());				
+			if (object.eIsSet(attrId)) {
+				String base = EntityUtil.getETripleAnnotation(attrId, "Id").getDetails().get("base");
+				entityKey = base != null ? base + object.eGet(attrId) : object.eGet(attrId).toString(); 
 			}
+			
+			entityKey = generateId(object);
 		}
 		else {
-			entityKey = ID.id(object);
-			put(entityKey, object);
+			entityKey = ID.id(object);		
 		}
-		
+
 		return entityKey;
 	}
-	
-	private URI generateId(EObject object) {
+
+	private String generateId(EObject object) {
 		int dbindex = lastIndexOf(object.eClass());
-		
+
 		List<Object> objs = Lists.newArrayList();
-		for (EObject obj: allEntities.keySet() )
+		for (EObject obj: localCache.cachedObjects.values() )
 		{
 			if (object.eClass().getInstanceClass().isInstance(obj))
 			{
@@ -180,153 +194,29 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 			}
 		}
 		int cacheindex = objs.size();
-		
-		return ID.generate((EObject)object, dbindex + cacheindex + 1);
+
+		return ID.generate(object, dbindex + cacheindex + 1);
 	}
 
 	private boolean isGeneratedId(EObject object) {
 		final EAttribute attr = EntityUtil.getId(object.eClass());
 		final EAnnotation ann = attr.getEAnnotation(ID.GENERATED_ID);
-				
+
 		return ann != null;
 	}
-	
-	@Override 
-	public EObject getByKey(URI key) {
-		return allEntitiesByURI.get(key);
-	}
 
-	@Override 
-	public void persist(EObject object) {
-		final URI entityKey = id( object );
-		
-		if (entityKey != null) 
-		{
-			if (!allEntitiesByURI.containsKey(entityKey)) 
-			{
-				add(object);
-			}
-			if (!getSaveEntities().contains(object)) 
-			{
-				getSaveEntities().add(object);	
-			}
-		}
-	}
-
-	@Override 
-	public void remove(EObject object) {
-		final URI entityKey = id( object );
-		
-		if (entityKey != null) 
-		{
-			if (!allEntitiesByURI.containsKey(entityKey)) 
-			{
-				put(entityKey, object);
-			}
-			if (!getDeleteEntities().contains(object)) 
-			{
-				getDeleteEntities().add(object);
-			}
-		}
-	}
-
-	@Override 
-	public void detach(EObject object) {
-		final URI entityKey = id( object );
-		
-		if (entityKey != null) 
-		{
-			if (allEntitiesByURI.containsKey(entityKey)) 
-			{
-				if (!getDetachEntities().contains(object)) 
-				{
-					getDetachEntities().add(object);
-				}
-			} 
-			else 
-			{
-				put(entityKey, (EObject)object);
-			}
-		}
-	}
-
-	@Override 
-	public void flush() {
-		final List<Object> removed = Lists.newArrayList();
-		
-//		saveAll(getSaveEntities());
-		
-		for (EObject obj: allEntities.keySet()) 
-		{
-			if (getDeleteEntities().contains(obj)) 
-			{
-				remove(obj);
-				getDeleteEntities().remove(obj);
-				removed.add(obj);
-			} 
-			if (getSaveEntities().contains(obj))
-			{		
-				save(obj);
-				getSaveEntities().remove(obj);
-				removed.add(obj);
-			}
-		}
-		
-		put().clearCache();
-
-		allEntities.clear();
-		allEntitiesByURI.clear();
-		getDetachEntities().clear();
-		getDetachEntities().clear();
-		getSaveEntities().clear();
-	}
-
-	private synchronized List<EObject> getDetachEntities() {
-		return markAsDetachEntities;
-	}
-
-	private synchronized List<EObject> getDeleteEntities() {
-		return markAsToDeleteEntities;
-	}
-
-	private synchronized List<EObject> getSaveEntities() {
-		return markAsToSaveEntities;
-	}
-
-//	private synchronized Map<EObject, URI> getAllEntities() {
-//		return allEntities;
-//	}
-
-	@Override
-	public boolean containsKey(URI primaryKey) {
-		return allEntitiesByURI.containsKey(primaryKey);
-	}
-
-	@Override
-	public boolean entityExists(URI key, EClass eClass) {
-		boolean exists = false;
-		
-		for (URI rdfType: mapping.getRdfTypes(eClass)) {
-			final String query = 
-				"ASK WHERE { <" + key + "> <" + RDF.type + "> <" + rdfType + "> }";
-			exists = exists || 	executeAskQuery(query);
-		}
-		
-		return exists;
-	}
-	
 	private static final class ID {
-		
+
 		private static final String GENERATED_ID = "GeneratedValue";
-		
-		static URI id(EObject object) { 
+
+		static String id(EObject object) { 
 			return IDGenerator.getId(object); 
 		}
-			
-		static URI generate(EObject object, int index) {
+
+		static String generate(EObject object, int index) {
 			String value = null;
 			final String namespace;
-			
+
 			EAttribute attr = EntityUtil.getId(object.eClass());
 
 			if (EntityUtil.getETripleAnnotation(attr, "Id").getDetails().containsKey(IDGenerator.BASE)) 
@@ -339,8 +229,115 @@ public abstract class EntityManagerDelegateImpl extends SparqlDataSourceManager 
 			}
 
 			value = EntityUtil.validNamespace(namespace) + index;
+
+			return value;
+		}
+
+	}
+	
+	/**
+	 * 
+	 * Level 1 Cache
+	 * 
+	 * @author <a href="mailto:g.hillairet at gmail.com">Guillaume Hillairet</a>
+	 * @since 0.7.1
+	 *
+	 */
+	protected class EntityManagerLevelCache implements ETripleLocalCache {
+		
+		private Map<String, EObject> cachedObjects = Maps.newConcurrentHashMap();
+		
+		private Map<EObject, String> cachedKeys = Maps.newConcurrentHashMap();
+		
+		private List<String> delete = Lists.newArrayList();
+		
+		private List<String> save = Lists.newArrayList(); 
+		
+		/**
+		 * Whether the cache contains data for the given entity.
+		 */
+		@Override
+		public boolean contains(@SuppressWarnings("rawtypes") Class arg0, Object primaryKey) {
+			return cachedObjects.containsKey(primaryKey.toString());
+		}
+
+		/**
+		 *  Remove the data for entities of the specified class (and its subclasses) from the cache.
+		 */
+		@Override
+		public void evict(@SuppressWarnings("rawtypes") Class arg0) {
+			// TODO Auto-generated method stub
 			
-			return URI.createURI( value );
+		}
+
+		/**
+		 * Remove the data for the given entity from the cache.
+		 */
+		@Override
+		public void evict(@SuppressWarnings("rawtypes") Class arg0, Object primaryKey) {
+			cachedObjects.remove(primaryKey.toString());
+		}
+
+		/**
+		 * Clear the cache.
+		 */
+		@Override
+		public void evictAll() {
+			cachedObjects.clear();
+		}
+
+		/**
+		 * Whether the cache contains data for the given key.
+		 */
+		@Override
+		public boolean contains(URI key) {
+			return cachedObjects.containsKey(key.toString());
+		}
+
+		/**
+		 * Whether the cache contains data for the given entity.
+		 */
+		@Override
+		public boolean contains(EClass eClass, URI key) {
+			return cachedObjects.containsKey(key.toString());
+		}
+
+		@Override
+		public void evict(URI key) {
+			if (cachedObjects.containsKey(key.toString()))
+				cachedObjects.remove(key.toString());
+		}
+
+		@Override
+		public void addToCache(Object primaryKey, EObject object) {
+			cachedObjects.put(primaryKey.toString(), object);
+			cachedKeys.put(object, primaryKey.toString());
+		}
+
+		@Override
+		public void setAsDelete(Object primaryKey) {
+			delete.add(primaryKey.toString());
+		}
+
+		@Override
+		public void setAsSave(Object primaryKey) {
+			save.add(primaryKey.toString());
+		}
+
+		@Override
+		public void clearAfterPersist() {
+			save.clear();
+			delete.clear();
+		}
+
+		@Override
+		public EObject get(Object primaryKey) {
+			return cachedObjects.get(primaryKey.toString());
+		}
+
+		@Override
+		public String getKey(EObject object) {
+			return cachedKeys.get(object);
 		}
 		
 	}

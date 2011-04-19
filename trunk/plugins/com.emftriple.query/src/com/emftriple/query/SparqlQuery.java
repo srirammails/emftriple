@@ -21,6 +21,8 @@ import javax.persistence.Parameter;
 import javax.persistence.Query;
 import javax.persistence.TemporalType;
 
+import org.eclipse.emf.common.util.URI;
+
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.Resource;
@@ -155,7 +157,7 @@ public class SparqlQuery implements Query {
 
 		for (Resource resource: resources)
 		{
-			final Object obj = getDataSourceManager().findNode(resource);
+			final Object obj = getDataSourceManager().findNode(URI.createURI(resource.getURI()));
 
 			if (obj != null) 
 			{

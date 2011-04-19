@@ -79,17 +79,13 @@ public class PutObjectImpl implements IPutObject {
 		for (EObject obj: objects) {
 			o2r.process(obj, graph);
 		}
-		
+
 		return graph;
 	}
 
 	private class Object2RDF {
 
 		private final Set<EObject> containedObjects = Collections.synchronizedSet(new HashSet<EObject>());
-
-		//		private final EObject object;
-		//
-		//		private final RDFGraph graph;
 
 		Object2RDF() {}
 
@@ -143,7 +139,7 @@ public class PutObjectImpl implements IPutObject {
 				if (containedObjects.contains(object))
 					containedObjects.remove(object);	
 			}
-			
+
 			return containedObjects;
 		}
 
@@ -165,9 +161,9 @@ public class PutObjectImpl implements IPutObject {
 					Resource object = getResource((EObject) obj, graph);
 					aList.getElements().add(object);
 
-										if (((EReference)aFeature).isContainment()) {
-											containedObjects.add((EObject) obj);
-										}
+					if (((EReference)aFeature).isContainment()) {
+						containedObjects.add((EObject) obj);
+					}
 				}
 
 				graph.addTriple(subject, property, aList);
@@ -179,9 +175,9 @@ public class PutObjectImpl implements IPutObject {
 			final Property property = getProperty((EReference)aFeature, graph);
 			final Resource object = getResource((EObject) value, graph);
 
-						if (((EReference)aFeature).isContainment()) {
-							containedObjects.add((EObject) value);
-						}
+			if (((EReference)aFeature).isContainment()) {
+				containedObjects.add((EObject) value);
+			}
 
 			if (subject != null && property != null && object != null) {
 				graph.addTriple(subject, property, object);

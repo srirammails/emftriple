@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EMF Triple Query
 Bundle-SymbolicName: com.emftriple.query
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.7.1.qualifier
 Bundle-Vendor: eclipselabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: com.emftriple.impl,
- com.emftriple.query,
+Export-Package: com.emftriple.query,
+ com.emftriple.query.module,
  com.emftriple.query.transform
 Import-Package: com.emf4sw.rdf,
  com.emf4sw.rdf.vocabulary,

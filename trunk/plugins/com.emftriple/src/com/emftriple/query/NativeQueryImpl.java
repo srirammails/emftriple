@@ -9,13 +9,15 @@ import java.util.Set;
 import javax.persistence.FlushModeType;
 import javax.persistence.LockModeType;
 import javax.persistence.NoResultException;
-import javax.persistence.NonUniqueResultException;
 import javax.persistence.Parameter;
 import javax.persistence.Query;
 import javax.persistence.TemporalType;
 
+import org.eclipse.emf.common.util.URI;
+
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
+import com.emf4sw.rdf.Resource;
 import com.emftriple.datasources.IEntityDataSourceManager;
 import com.emftriple.datasources.IResultSet;
 import com.emftriple.datasources.IResultSet.Solution;
@@ -63,10 +65,14 @@ public class NativeQueryImpl implements Query {
 	private TYPE typeOf(String queryString) {
 		if (queryString.contains("select") || queryString.contains("SELECT")) {
 			return TYPE.SELECT;
-		} else if (queryString.contains("CONSTRUCT") || queryString.contains("CONSTRUCT")) {
+		} else if (queryString.contains("CONSTRUCT") || queryString.contains("construct")) {
 			return TYPE.CONSTRUCT;
+		} else if (queryString.contains("DESCRIBE") || queryString.contains("describe")) {
+			return TYPE.DESCRIBE;
+		} else if (queryString.contains("ASK") || queryString.contains("ask")) {
+			return TYPE.ASK;
 		}
-		return null;
+		throw new IllegalArgumentException("This kind of query is not supported");
 	}
 
 	NativeQueryImpl(IEntityDataSourceManager dataSourceManager, String queryString, Map<Object, Object> properties,
@@ -117,7 +123,6 @@ public class NativeQueryImpl implements Query {
 
 	@Override
 	public Parameter<?> getParameter(String arg0) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -190,9 +195,9 @@ public class NativeQueryImpl implements Query {
 			throw new NoResultException();
 		}
 
-		if (results.size() > 1) {
-			throw new NonUniqueResultException();
-		}
+//		if (results.size() > 1) {
+//			throw new NonUniqueResultException();
+//		}
 
 		return results.get(0);
 	}
@@ -319,10 +324,9 @@ public class NativeQueryImpl implements Query {
 			for (String var: resultSet.getVarNames()) 
 			{
 
-				final Node res = sol.get(var); 
-				if (res != null)
-				{
-					final Object obj = getDataSourceManager().findNode(res);
+				if (sol.isResource(var)) {
+					final Resource res = sol.getResource(var);
+					final Object obj = getDataSourceManager().findNode(URI.createURI(res.getURI()));
 					if (obj != null) 
 					{
 						list.add(obj);

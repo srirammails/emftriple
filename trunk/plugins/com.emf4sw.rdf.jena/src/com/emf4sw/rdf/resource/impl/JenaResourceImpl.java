@@ -4,7 +4,6 @@ import org.eclipse.emf.common.util.URI;
 
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.jena.RDFGraphExtractor;
-import com.emf4sw.rdf.notify.ModelAdapterImpl;
 import com.emf4sw.rdf.resource.RDFResourceImpl;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;

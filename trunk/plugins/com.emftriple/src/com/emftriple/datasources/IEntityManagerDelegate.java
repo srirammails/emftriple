@@ -26,16 +26,8 @@ public interface IEntityManagerDelegate {
 	 * 
 	 * @param object added to persistence context
 	 */
-	void add(EObject object);
-	
-	/**
-	 * Adds an object and its key to the current persistence context
-	 * 
-	 * @param uri of the object 
-	 * @param eObject to add to the persistence context
-	 */
-	void put(URI uri, EObject eObject);
-	
+	void addToContext(EObject object);
+		
 	/**
 	 * Test if the object is contained by the current persistence context
 	 * 
@@ -95,7 +87,7 @@ public interface IEntityManagerDelegate {
 	 * 
 	 * @return the Object
 	 */
-	Object getByKey(URI primarykey);
+	EObject getByKey(URI primarykey);
 	
 	/**
 	 * Flush the current persistence context to the corresponding {@link IDataSource}

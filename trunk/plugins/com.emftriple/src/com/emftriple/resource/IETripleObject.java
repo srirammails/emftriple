@@ -23,7 +23,11 @@ public interface IETripleObject extends InternalEObject {
 	public static class URIBuilder {
 		
 		public static URI build(Resource resource, URI key) {
-			final URI uriFragment = resource.getURI().appendFragment("uri=" + key.toString().replaceAll("#", "%23"));
+			final String fragment = "uri=" + key.toString().replaceAll("#", "%23");
+			if (!fragment.startsWith("uri=http://")) {
+				throw new IllegalArgumentException();
+			}
+			final URI uriFragment = resource.getURI().appendFragment(fragment);
 			
 			return uriFragment;
 		}
