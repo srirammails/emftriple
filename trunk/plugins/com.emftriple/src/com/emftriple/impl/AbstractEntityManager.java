@@ -316,8 +316,8 @@ public abstract class AbstractEntityManager implements EntityManager {
 		}		
 	}
 		
-	protected void checkContains(Object object) {
-		if (!contains(object)) {
+	protected void checkContains(EObject object) {
+		if (!object.eIsProxy() && !contains(object)) {
 			throw new IllegalArgumentException("Object is not part of Persistence Context.");
 		}
 	}

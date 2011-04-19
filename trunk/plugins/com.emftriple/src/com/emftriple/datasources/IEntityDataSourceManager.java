@@ -53,14 +53,14 @@ public interface IEntityDataSourceManager extends ITransactionProvider, IEntityM
 	 * @param node
 	 * @return
 	 */
-	Object findNode(Node node);
+	Object findNode(URI node);
 
 	/**
 	 * 
 	 * @param subjects
 	 * @return
 	 */
-	List<?> findNodes(List<Node> nodes);
+	List<?> findNodes(List<Node> subjects);
 	
 	/**
 	 * 
@@ -78,7 +78,7 @@ public interface IEntityDataSourceManager extends ITransactionProvider, IEntityM
 	 * 
 	 * @param aGraph
 	 */
-	void remove(EObject object);
+	void delete(EObject object);
 	
 	/**
 	 * 

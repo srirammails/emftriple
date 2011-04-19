@@ -22,9 +22,11 @@ endpoint rule Module() {
 				thisModule.allClasses->select(e | not e.abstract)
 			},			
 			outModels <- Sequence{ out },
-			inModels <- Sequence{ im }
+			inModels <- Sequence{ in1, in2, in3 }
 		),
-		im: ATL!OclModel ( name <- 'IN', metamodel <- thisModule.Rdf(thisModule.mapping) ),
+		in1: ATL!OclModel ( name <- 'IN', metamodel <- thisModule.Rdf(thisModule.mapping) ),
+		in2: ATL!OclModel ( name <- 'IN2', metamodel <- thisModule.Properties(thisModule.mapping) ),
+		in3: ATL!OclModel ( name <- 'IN3', metamodel <- thisModule.Ecore(thisModule.mapping) ),
 		out: ATL!OclModel ( name <- 'OUT', metamodel <- thisModule.Model(thisModule.mapping) )
 	
 	do { thisModule.mapping <- a; }
@@ -36,20 +38,34 @@ unique lazy rule Model {
 		model: ATL!OclModel ( name <- 'Model' )
 }
 
+unique lazy rule Ecore {
+	from o: OclAny
+	to
+		model: ATL!OclModel ( name <- 'Ecore' )
+}
+
+unique lazy rule Properties {
+	from o: OclAny
+	to
+		model: ATL!OclModel ( name <- 'Properties' )
+}
+
 unique lazy rule Rdf {
 	from o: OclAny
 	to
 		model: ATL!OclModel ( name <- 'RDF' )
 }
 
---	
---	rule Resource2EObject {
---		from r: RDF!Resource (r.getTypes())
---		to
---			e: MODEL!EClassName (
---				attr1 <- r.getValue('property')			
---			)
---	}
+---	
+---	rule Resource2EObject {
+---		from r: RDF!Resource ( 
+---			Ecore!EClass.allInstances()->any(e | e.name='EClassName').isValidObject(r) 
+---		)
+---		to
+---			e: MODEL!EClassName (
+---				attr1 <- r.getValue('property')			
+---			)
+---	}
 rule Class2Rule 
 {
 	from e: Model!EClass
@@ -68,23 +84,55 @@ rule Class2Rule
 			outPattern <- outp,
 			actionBlock <- action ),
 
-		-- IN
+		---
+		--- IN
 		inp: ATL!InPattern ( 
 			elements <- thisModule.EClass2SimpleInElement(e),
 			filter <- filter_el
 		),
 		
-		-- Filter
+		---
+		--- Filter
 		filter_el: ATL!OperationCallExp (
-			operationName <- 'isDirectTypeOf',
-			arguments <- filter_type,
-			source <- filter_var ),
-		filter_var: ATL!VariableExp (
-			referredVariable <- thisModule.EClass2SimpleInElement(e) ),
-		filter_type: ATL!StringExp (
-			stringSymbol <- e.getURI() ),
+			operationName <- 'isValidObject'
+		,	arguments <- filter_args
+		,	source <- filter_src 
+		),
+		filter_args: ATL!VariableExp (
+			referredVariable <- thisModule.EClass2SimpleInElement(e) 
+		),
+		
+		filter_src: ATL!IteratorExp (
+			name <- 'any'
+		,	source <- it_src
+		,	body <- it_body
+		,	iterators <- it_it
+		),
+		it_src: ATL!OperationCallExp (
+			operationName <- 'allInstancesFrom'
+		,	source <- it_src_el
+		,	arguments <- all_args
+		),
+		all_args: ATL!StringExp (stringSymbol <- 'IN3'),
+		it_src_el: ATL!OclModelElement (
+			name <- 'EClass'
+		,	model <- thisModule.Ecore(thisModule.mapping)			
+		),
+		it_body: ATL!OperatorCallExp (
+			operationName <- '='
+		,	source <- body_src
+		,	arguments <- body_args
+		),
+		body_src: ATL!NavigationOrAttributeCallExp (
+			name <- 'name'
+		,	source <- nav_src
+		),
+		nav_src: ATL!VariableExp (referredVariable <- it_it),
+		body_args: ATL!StringExp(stringSymbol <- e.name),
+		it_it: ATL!Iterator (varName <- 'it'),
 
-		-- OUT
+		---
+		--- OUT
 		outp: ATL!OutPattern ( elements <- out_el ),
 		out_el: ATL!SimpleOutPatternElement (
 			varName <- 'o',

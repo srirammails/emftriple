@@ -71,10 +71,12 @@ rule EObject2Node {
 			URI <- e.getID()
 		,	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
 		,	subjectOf <- Sequence {
+				---TODO: This one should be optional 
 				thisModule.MakeTripleWithURI(e, thisModule.etype, e.eClass().getURI(), e.eClass().getGraph()),
+				---TODO: Check returned types 
 				if (types.isEmpty()) then
 					e.eTypes()->collect(t | 
-					thisModule.MakeTripleWithURI(e, thisModule.RDF + 'type', t, e.eClass().getGraph()))
+						thisModule.MakeTripleWithURI(e, thisModule.RDF + 'type', t, e.eClass().getGraph()))
 				else
 					types->collect(t | 
 						thisModule.MakeTripleWithURI(e, 

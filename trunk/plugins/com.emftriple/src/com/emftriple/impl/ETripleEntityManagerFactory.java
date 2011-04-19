@@ -227,7 +227,6 @@ public class ETripleEntityManagerFactory implements EntityManagerFactory {
 
 		void put(EntityManager em, EStore e) {
 			Preconditions.checkNotNull(em);
-			//			Preconditions.checkNotNull(e);
 
 			entityManagers.put(em, e);
 		}

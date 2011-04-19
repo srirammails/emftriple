@@ -10,7 +10,6 @@ package com.emf4sw.rdf.transform;
 import static com.atl.common.models.Models.atl;
 import static com.atl.common.models.Models.ecore;
 import static com.atl.common.models.Models.emptyModel;
-import static com.atl.common.models.Models.getModelFactory;
 import static com.atl.common.models.Models.inject;
 import static com.atl.common.trans.Transformations.transform;
 
@@ -18,7 +17,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.m2m.atl.core.emf.EMFInjector;
 import org.eclipse.m2m.atl.core.emf.EMFModel;
-import org.eclipse.m2m.atl.core.emf.EMFReferenceModel;
 import org.eclipse.m2m.atl.engine.emfvm.ASM;
 import org.eclipse.m2m.atl.engine.emfvm.ASMXMLReader;
 
@@ -40,19 +38,19 @@ public class RDF2ModelGen {
 	private Resource resource;
 
 	private final EPackage ePackage;
-	
-	private final EMFReferenceModel metamodel;
-	
+		
 	private final EMFInjector injector = new EMFInjector();
 
 	private ASM asm;
 	
 	public RDF2ModelGen(EPackage ePackage) {
 		this.ePackage = ePackage;
-		this.metamodel = (EMFReferenceModel) getModelFactory().newReferenceModel();
-		injector.inject(metamodel, ePackage.eResource());
 	}
 		
+	public RDF2ModelGen(Resource resource) {
+		this.ePackage = (EPackage) resource.getContents().get(0);
+	}
+	
 	public Resource getResource() {
 		if (resource == null) {
 			final EMFModel model = transform(inject(ePackage.eResource(), ecore()), hot_rdf2model());

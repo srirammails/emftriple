@@ -10,6 +10,7 @@ package com.emftriple.impl;
 import static com.emftriple.util.EntityUtil.URI;
 import static com.emftriple.util.EntityUtil.checkIsSupported;
 import static com.emftriple.util.EntityUtil.checkState;
+import static com.emftriple.util.SparqlQueries.describe;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +36,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import com.emf4sw.rdf.RDFGraph;
 import com.emftriple.IMapping;
 import com.emftriple.datasources.IEntityDataSourceManager;
-import com.emftriple.util.SparqlQueries;
 
 /**
  * 
@@ -72,10 +72,6 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		if (!getTransaction().isActive()) {
 			throw new TransactionRequiredException("Transaction is not open");
 		}
-		
-		if (contains(entity)) {
-			throw new EntityExistsException("Entity " + getDelegate().id((EObject) entity) + " already in persistence context");
-		}
 
 		getDelegate().persist((EObject) entity);
 	}
@@ -94,7 +90,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	throws TransactionRequiredException, IllegalArgumentException {
 		checkIsOpen();
 		checkState(entity);
-		checkContains(entity);
+		checkContains((EObject) entity);
 
 		if (!getTransaction().isActive()) {
 			throw new TransactionRequiredException("Transaction is not open");
@@ -102,7 +98,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		
 		final URI entityId = getDelegate().id( (EObject) entity );
 
-		final RDFGraph existingData = getDelegate().executeDescribeQuery(SparqlQueries.describe(entityId, null));
+		final RDFGraph existingData = getDelegate().executeDescribeQuery( describe(entityId, null) );
 		getDelegate().remove(existingData);
 
 		getDelegate().persist((EObject) entity);
@@ -276,9 +272,6 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 			catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-//			lock(returnedObject, lockType);
-			getDelegate().add((EObject) returnedObject);
 		}
 
 		return returnedObject;
@@ -320,8 +313,6 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 		}
 		
 		final T obj = getDelegate().getReference(aClass, key);
-
-		getDelegate().add((EObject) obj);
 		
 		return obj;
 	}
@@ -393,11 +384,7 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 	@Override public void refresh(Object entity, LockModeType lockType, Map<String, Object> properties) throws IllegalArgumentException, TransactionRequiredException, EntityNotFoundException {
 		checkIsOpen();
 		checkState(entity);
-		checkContains(entity);
-
-//		if (!getTransaction().isActive()) {
-//			throw new TransactionRequiredException("Transaction is required for this operation.");
-//		}
+		checkContains((EObject) entity);
 		
 		final URI id;
 		if (properties.containsKey("KEY")){
@@ -430,8 +417,6 @@ public class EObjectEntityManager extends AbstractEntityManager implements Entit
 				current.eSet(ref, val);
 			else current.eUnset(ref);			
 		}
-		
-		getDelegate().add(current);
 	}
 
 	/**

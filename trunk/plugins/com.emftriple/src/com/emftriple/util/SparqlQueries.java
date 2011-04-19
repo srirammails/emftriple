@@ -42,25 +42,32 @@ public class SparqlQueries {
 		return "DESCRIBE <" + from.toString()+ ">";
 	}
 
-	public static List<String> selectAllTypes(IDataSourceManager manager, URIElement from) {
-		final List<String> types = Lists.newArrayList();
-		if (from != null && from.getURI() != null) 
+	public static List<String> selectAllTypes(IDataSourceManager dataSourceManager, URI from) {
+		if (from != null) 
 		{
-			final String query = typeOf(from.getURI());
-			final IResultSet resultSet = manager.executeSelectQuery(query);
+			return selectAllTypes(dataSourceManager, from.toString());
+		}
+		return Lists.newArrayList();
+	}
+	
+	public static List<String> selectAllTypes(IDataSourceManager dataSourceManager, String key) {
+		final List<String> types = Lists.newArrayList();
+		final String query = typeOf(key);
+		final IResultSet resultSet = dataSourceManager.executeSelectQuery(query);
 
-			if (resultSet == null) {
-				return null;
-			}
-			while (resultSet.hasNext()) {
-				Solution solution = resultSet.next();
-				Node node = solution.get("type");
-				if (node instanceof URIElement)
-				{
-					types.add( ((URIElement) node).getURI() );
-				}
+		if (resultSet == null) {
+			return null;
+		}
+		
+		while (resultSet.hasNext()) {
+			Solution solution = resultSet.next();
+			Node node = solution.get("type");
+			if (node instanceof URIElement)
+			{
+				types.add( ((URIElement) node).getURI() );
 			}
 		}
+		
 		return types;
 	}
 
@@ -170,4 +177,32 @@ public class SparqlQueries {
 	public static String constructSubject(URI key, Object object, Integer limit) {
 		return "CONSTRUCT { <" + key + "> ?p ?o } WHERE { <" + key + "> ?p ?o }" + ((limit != null) ? " LIMIT " + limit : "");
 	}
+	
+	private static final String prefixes = 
+		"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ";
+	
+	public static String selectObjectByClass(EClass eClass, String uri) {
+		String query = prefixes + "\n select " + getVarFrom(eClass.getEAllStructuralFeatures());
+		query+= "\n where { ";
+		for (final URI type: EntityUtil.getRdfTypes(eClass))
+			query+="<"+uri+"> rdf:type <"+type+"> . \n";
+		for (final EStructuralFeature feature: eClass.getEAllStructuralFeatures()) {
+			if (feature.getLowerBound() < 1) {
+				query+=" optional { \n <"+uri+"> <"+EntityUtil.getRdfType(feature)+"> ?"+feature.getName()+" \n } \n";
+			} else {
+				query+="<"+uri+"> <"+EntityUtil.getRdfType(feature)+"> ?"+feature.getName()+" . \n ";
+			}
+		}
+		query+=" }";
+		return query;
+	}
+
+	private static String getVarFrom(List<EStructuralFeature> list) {
+		String vars = "";
+		for (int i=0; i<list.size(); i++)
+			vars += "?"+list.get(i).getName()+" ";
+		
+		return vars;
+	}
+
 }

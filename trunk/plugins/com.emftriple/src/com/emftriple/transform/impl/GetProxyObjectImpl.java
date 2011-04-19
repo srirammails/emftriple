@@ -9,14 +9,14 @@ package com.emftriple.transform.impl;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.emftriple.IMapping;
 import com.emftriple.datasources.IEntityDataSourceManager;
-import com.emftriple.resource.IETripleObject.URIBuilder;
 import com.emftriple.resource.ETripleResource.ResourceManager;
+import com.emftriple.resource.IETripleObject.URIBuilder;
 import com.emftriple.transform.IGetObject;
 
 /**
@@ -54,14 +54,13 @@ public class GetProxyObjectImpl extends AbstractGetObject implements IGetObject 
 			proxy = (EObject) dataSourceManager.getByKey(key);
 		}
 		
-		final EFactory aFactory = eClass.getEPackage().getEFactoryInstance();
-		proxy = aFactory.create(eClass);
-		((InternalEObject)proxy).eSetProxyURI(URIBuilder.build(manager.getResource(eClass), key));
-		
-		if (proxy != null)
-		{
-			dataSourceManager.put(key, proxy);
+		proxy = EcoreUtil.create(eClass);
+		URI uri = URIBuilder.build(manager.getResource(eClass), key);
+		if (!uri.fragment().startsWith("uri=")) {
+			throw new IllegalArgumentException();
 		}
+		((InternalEObject)proxy).eSetProxyURI(uri);
+		manager.getResource(eClass).getContents().add(proxy);
 		
 		return proxy;
 	}
