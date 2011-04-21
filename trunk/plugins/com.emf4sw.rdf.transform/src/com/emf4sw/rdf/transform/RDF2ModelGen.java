@@ -32,8 +32,9 @@ import com.atl.common.trans.Transformations;
  */
 public class RDF2ModelGen {
 
-	private static final String RDF_GEN_HELPERS = "RDFGenHelpers";
-	private static final String RDF_GEN_HELPERS_ASM = "resources/RDFGenHelpers.asm";
+	private static final String lib_rdf_gen = "resources/RDFGenHelpers.asm";
+	private static final String lib_rdf = "resources/RDFHelpers.asm";
+	private static final String lib_ecore = "resources/EcoreHelpers.asm";
 
 	private Resource resource;
 
@@ -82,8 +83,9 @@ public class RDF2ModelGen {
 		return 
 			new Transformations.Builder()
 			.asm(getASMS(asm))
-			.lib("RDFHelpers", this.getClass().getResource("resources/RDFHelpers.asm"))
-			.lib(RDF_GEN_HELPERS, this.getClass().getResource(RDF_GEN_HELPERS_ASM))
+			.lib("RDFHelpers", loadASM(lib_rdf))
+			.lib("RDFGenHelpers", loadASM(lib_rdf_gen))
+			.lib("EcoreHelpers", loadASM(lib_ecore))
 			.in(ecore(), "IN", "Model")
 			.out(atl(), "OUT", "ATL", new ATLResourceFactory())
 			.buildOneInOneOut();

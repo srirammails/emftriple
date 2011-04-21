@@ -46,7 +46,7 @@ public class Metamodel2RDF extends RDFTransformation {
 		return Transformations.transform( inject(resource, Models.ecore() ),
 				new Transformations.Builder()
 				.asm(loadASM(super_asm), loadASM(asm))
-				.lib("RDFHelpers", loadASM(lib))
+				.lib("RDFHelpers", loadASM(lib_rdf))
 				.options(atloptions())
 				.in(Models.ecore(), "IN", "Model")
 				.out(get(RDFPackage.eNS_URI), "OUT", "RDF", RDFFormats.factory(format))

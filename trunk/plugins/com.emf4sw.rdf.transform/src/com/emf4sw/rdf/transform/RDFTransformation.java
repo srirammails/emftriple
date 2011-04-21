@@ -34,7 +34,8 @@ public abstract class RDFTransformation {
 	 * ATL Files
 	 */
 	protected static final String super_asm = "resources/RDF.asm";
-	protected static final String lib = "resources/RDFHelpers.asm";
+	protected static final String lib_rdf = "resources/RDFHelpers.asm";
+	protected static final String lib_ecore = "resources/EcoreHelpers.asm";
 	
 	/**
 	 * @see RDFFormats

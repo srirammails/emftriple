@@ -17,45 +17,6 @@ helper def: etype: String = thisModule.NS_EMF4SW + 'etype';
 --- PROPERTY HELPERS
 helper def: PROPERTY: Properties!PropertyMap = Properties!PropertyMap.allInstancesFrom('IN2').first();
 helper def: BASE(): String = thisModule.PROPERTY.get('OPTION_BASE_NAMESPACE');
-helper def: OPTION_DIRECT_TYPE_ONLY(): Boolean = 
-	if thisModule.PROPERTY.containsKey('OPTION_DIRECT_TYPE_ONLY') then
-		let doIt: String = thisModule.get('OPTION_DIRECT_TYPE_ONLY') in
-			doIt = 'true'
-	else false endif;
-helper def: OPTION_NO_ECORE_TYPE(): Boolean = 
-	if thisModule.PROPERTY.containsKey('OPTION_NO_ECORE_TYPE') then
-		let doIt: String = thisModule.get('OPTION_NO_ECORE_TYPE') in
-			doIt = 'true'
-	else false endif;	
-
---- Return the types of an object
--- return all hierarchy types if OPTION_DIRECT_TYPE_ONLY set to false, direct type otherwise
-helper context OclAny def: eTypes(): Set(String) =
-	Set{self.eClass().getURI()}
-	->union(
-		if thisModule.OPTION_DIRECT_TYPE_ONLY() then Set{} else 
-			Set{self.eClass().eAllSuperTypes->collect(e | e.getURI())}
-		endif)->flatten();
-
---- Return the unique object URI
-helper context OclAny def: getID(): String = 
-	let id: Model!EAttribute = 
-		self.eClass().eAllAttributes->any(e | e.iD)
-	in if (not id.oclIsUndefined()) then
-		thisModule.BASE() + self.eGet(id).toString()
-	else
-		let id2: Model!EAttribute =
-			self.eClass().eAllAttributes->any(e | not e.getEAnnotation('Id').oclIsUndefined())
-		in if (not id2.oclIsUndefined()) then
-			let ns: String = id2.getEAnnotation('Id').details.get('base')
-			in
-				if (ns.oclIsUndefined()) then
-					thisModule.BASE() + self.eGet(id2).toString()
-				else ns + self.eGet(id2) endif
-			else
-				thisModule.BASE() + self.getEcoreId()
-		endif
-	endif;
 	
 rule EObject2Node {
 	from e: Model!EObject
@@ -64,7 +25,7 @@ rule EObject2Node {
 		features: Sequence(OclAny) = e.getFeatures();
 		g: String = e.eClass().getGraph();
 		annotations: Set(Model!EAnnotation) = e.eClass().getEAnnotations();
-		types: Set(Model!EAnnotation) = annotations->select(a | a.source.contains('OWLClass'));
+--		types: Set(Model!EAnnotation) = annotations->select(a | a.source.contains('OWLClass'));
 	}
 	to	
 		r: RDF!Resource (
@@ -72,18 +33,19 @@ rule EObject2Node {
 		,	graph <- if (g = thisModule.Graph) then thisModule.DocumentGraph(g) else thisModule.NamedGraph(g) endif
 		,	subjectOf <- Sequence {
 				---TODO: This one should be optional 
-				thisModule.MakeTripleWithURI(e, thisModule.etype, e.eClass().getURI(), e.eClass().getGraph()),
-				---TODO: Check returned types 
-				if (types.isEmpty()) then
-					e.eTypes()->collect(t | 
-						thisModule.MakeTripleWithURI(e, thisModule.RDF + 'type', t, e.eClass().getGraph()))
-				else
-					types->collect(t | 
+--				thisModule.MakeTripleWithURI(e, thisModule.etype, e.eClass().getURI(), e.eClass().getGraph()),
+--				---TODO: Check returned types 
+--				if (types.isEmpty()) then
+--					e.eTypes()->collect(t | 
+--						thisModule.MakeTripleWithURI(e, thisModule.RDF + 'type', t, e.eClass().getGraph()))
+--				else
+					e.eClass().getAllRdfTypes()->collect(uri | 
 						thisModule.MakeTripleWithURI(e, 
 							thisModule.RDF + 'type', 
-							t.details.get('uri'),
+							uri,
 							e.eClass().getGraph()))
-				endif,
+--				endif
+				,
 				features->collect(f |
 					let 
 						val: Sequence(OclAny) = thisModule.set( e.eGet(f) ) 

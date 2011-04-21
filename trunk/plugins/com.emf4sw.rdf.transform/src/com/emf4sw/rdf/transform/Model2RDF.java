@@ -80,7 +80,8 @@ public class Model2RDF extends RDFTransformation {
 	private MultiInOneOutTransformation transformation(EPackage ePackage, RDFFormats format) {
 		return new Transformations.Builder()
 				.asm(loadASM(super_asm), loadASM(asm))
-				.lib("RDFHelpers", loadASM(lib))
+				.lib("RDFHelpers", loadASM(lib_rdf))
+				.lib("EcoreHelpers", loadASM(lib_ecore))
 				.lib("PropertiesHelpers", Properties.getHelpers())
 				.options(atloptions())
 				.in(get(ePackage.getNsURI()), "IN", "Model")
