@@ -78,6 +78,7 @@ public class RDF2Model extends RDFTransformation {
 	private MultiInOneOutTransformation transformation() {
 		return new Transformations.Builder()
 			.asm(loadASM(rdf2model_asm), generator.getASM())
+			.lib("EcoreHelpers", loadASM(lib_ecore))
 			.lib("PropertiesHelpers", Properties.getHelpers())
 			.options(atloptions())
 			.in(get(RDFPackage.eNS_URI), "IN", "RDF")

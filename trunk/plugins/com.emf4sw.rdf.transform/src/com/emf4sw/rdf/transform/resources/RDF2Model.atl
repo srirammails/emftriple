@@ -7,6 +7,7 @@ module RDF2Model;
 create OUT:Model from IN:RDF, IN2:Properties, IN3: Ecore;
 
 uses PropertiesHelpers;
+uses EcoreHelpers;
 
 helper context Ecore!EPackage def: getNamespace(): String = 
 	if self.nsURI.endsWith('/') or self.nsURI.endsWith('#') 
@@ -22,11 +23,7 @@ helper def: etype: String = thisModule.NS_EMF4SW + 'etype';
 
 --- PROPERTY HELPERS
 helper def: PROPERTY: Properties!PropertyMap = Properties!PropertyMap.allInstancesFrom('IN2').first();
-helper def: OPTION_NO_ECORE_TYPE(): Boolean = 
-	if thisModule.PROPERTY.containsKey('OPTION_NO_ECORE_TYPE') then
-		let doIt: String = thisModule.get('OPTION_NO_ECORE_TYPE') in
-			doIt = 'true'
-	else false endif;
+
 
 helper context RDF!Node def: isDirectTypeOf(uri: String): Boolean = false;
 	
@@ -43,14 +40,24 @@ helper context RDF!Resource def: isDirectTypeOf(uri: String): Boolean =
 helper context RDF!Resource def: getEClass(): Ecore!EClass =
 	Ecore!EClass.allInstances()->any(E | E.getRdfType() = self.URI);
 
-helper context RDF!Resource def: listTypes(): Sequence(String) = 
+helper context RDF!Resource def: getTypes(): Set(String) = 
 	self.subjectOf->select(e | e.predicate.URI = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type')->collect(e | 
-		e.object)->select(e | e.oclIsKindOf(RDF!Resource))->collect(e | e.URI);
+		e.object)->select(e | e.oclIsKindOf(RDF!Resource))->collect(e | e.URI)->flatten()->asSet();
 
 helper context RDF!Resource def: isTypeOf(uri: String): Boolean =
 	self.listTypes()->exists(e | e = uri);
 
 helper context Ecore!EClass def: isValidObject(res: RDF!Resource): Boolean =
+	if (res.oclIsKindOf(RDF!Resource)) then
+		if thisModule.OPTION_USE_STRICT_VALIDATION() then
+			self.strictValidationOf(res)
+		else self.relaxValidationOf(res) endif
+	else false endif;
+
+helper context Ecore!EClass def: relaxValidationOf(res: RDF!Resource): Boolean =
+	self.getAllRdfTypes().symetricDifference(res.getTypes()).isEmpty();
+
+helper context Ecore!EClass def: strictValidationOf(res: RDF!Resource): Boolean =
 	-- check rdf types
 	if (not res.isTypeOf(self.getRdfType())) then false
 	else

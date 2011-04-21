@@ -20,3 +20,4 @@ Import-Package: com.atl.common.models,
  org.eclipse.m2m.atl.core.emf,
  org.eclipse.m2m.atl.engine.emfvm,
  org.eclipse.m2m.atl.engine.emfvm.lib
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.6.1"
