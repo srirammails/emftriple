@@ -28,6 +28,7 @@ import com.emf4sw.rdf.RDFFactory;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.RDFPackage;
 import com.emf4sw.rdf.Resource;
+import com.emf4sw.rdf.SubjectNode;
 import com.emf4sw.rdf.Triple;
 
 /**
@@ -161,7 +162,7 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated NOT
 	 */
 	public boolean isEquivalentTo(RDFGraph graph) {
 		return false;
@@ -171,14 +172,14 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated NOT
 	 */
 	public abstract void add(RDFGraph graph);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated NOT
 	 */
 	public RDFGraph union(RDFGraph graph) {
 		return graph;
@@ -188,7 +189,7 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated NOT
 	 */
 	public RDFGraph diff(RDFGraph graph) {
 		return graph;
@@ -198,13 +199,13 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated NOT
 	 */
 	public Triple addTriple(Node subject, Property property, Node object) {
 		Triple triple = null;
 		if (subject != null && property != null && object != null) {
 			 triple = RDFFactory.eINSTANCE.createTriple();
-			 triple.setSubject(subject);
+			 triple.setSubject((SubjectNode) subject);
 			 triple.setPredicate(property);
 			 triple.setObject(object);
 			 this.getTriples().add(triple);
@@ -215,9 +216,9 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated NOT
 	 */
-	public Node listSubjectsWithProperty(Property property, Node object) {
+	public SubjectNode listSubjectsWithProperty(Property property, Node object) {
 		for (Triple triple: listAllTriples()) {
 			if (triple.getPredicate().equals(property) && triple.getObject().equals(object)) {
 				return triple.getSubject();
@@ -229,21 +230,21 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated NOT
 	 */
 	public abstract EList<Triple> listAllTriples();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated NOT
 	 */
 	public abstract EList<Resource> listAllResources();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 * @generated NOT
 	 */
 	public abstract EList<Property> listAllProperties();
 
@@ -252,8 +253,8 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<Node> listSubjects() {
-		final EList<Node> subjects = new BasicEList<Node>();
+	public EList<SubjectNode> listSubjects() {
+		final EList<SubjectNode> subjects = new BasicEList<SubjectNode>();
 		for (Triple aTriple: getTriples()) {
 			if (!subjects.contains(aTriple.getSubject())) {
 				subjects.add(aTriple.getSubject());

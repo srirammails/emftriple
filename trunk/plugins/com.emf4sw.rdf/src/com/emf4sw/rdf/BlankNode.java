@@ -24,7 +24,7 @@ package com.emf4sw.rdf;
  * @model
  * @generated
  */
-public interface BlankNode extends Node {
+public interface BlankNode extends SubjectNode {
 	/**
 	 * Returns the value of the '<em><b>Node ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -7,7 +7,6 @@
 package com.emf4sw.rdf.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -146,16 +145,9 @@ public abstract class URIElementImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public String getLocalName() {
-		if (getNamespace() == null) {
-			URI uri = URI.createURI(getURI());
-			if (uri.hasFragment()) {
-				return uri.fragment();
-			} else {
-				return uri.lastSegment();
-			}
-		} else {
-			return getURI().substring(0, getNamespace().getURI().length());
-		}
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

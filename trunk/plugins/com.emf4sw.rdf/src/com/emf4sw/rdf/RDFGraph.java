@@ -204,7 +204,7 @@ public interface RDFGraph extends URIElement {
 	 * @model
 	 * @generated
 	 */
-	Node listSubjectsWithProperty(Property property, Node object);
+	SubjectNode listSubjectsWithProperty(Property property, Node object);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,7 +236,7 @@ public interface RDFGraph extends URIElement {
 	 * @model
 	 * @generated
 	 */
-	EList<Node> listSubjects();
+	EList<SubjectNode> listSubjects();
 
 	/**
 	 * <!-- begin-user-doc -->

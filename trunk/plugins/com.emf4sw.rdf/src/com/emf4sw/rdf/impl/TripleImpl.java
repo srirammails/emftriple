@@ -18,6 +18,7 @@ import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Property;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.RDFPackage;
+import com.emf4sw.rdf.SubjectNode;
 import com.emf4sw.rdf.Triple;
 
 /**
@@ -45,7 +46,7 @@ public class TripleImpl extends MinimalEObjectImpl.Container implements Triple {
 	 * @generated
 	 * @ordered
 	 */
-	protected Node subject;
+	protected SubjectNode subject;
 
 	/**
 	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' reference.
@@ -91,10 +92,10 @@ public class TripleImpl extends MinimalEObjectImpl.Container implements Triple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getSubject() {
+	public SubjectNode getSubject() {
 		if (subject != null && subject.eIsProxy()) {
 			InternalEObject oldSubject = (InternalEObject)subject;
-			subject = (Node)eResolveProxy(oldSubject);
+			subject = (SubjectNode)eResolveProxy(oldSubject);
 			if (subject != oldSubject) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RDFPackage.TRIPLE__SUBJECT, oldSubject, subject));
@@ -108,7 +109,7 @@ public class TripleImpl extends MinimalEObjectImpl.Container implements Triple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node basicGetSubject() {
+	public SubjectNode basicGetSubject() {
 		return subject;
 	}
 
@@ -117,8 +118,8 @@ public class TripleImpl extends MinimalEObjectImpl.Container implements Triple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubject(Node newSubject, NotificationChain msgs) {
-		Node oldSubject = subject;
+	public NotificationChain basicSetSubject(SubjectNode newSubject, NotificationChain msgs) {
+		SubjectNode oldSubject = subject;
 		subject = newSubject;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RDFPackage.TRIPLE__SUBJECT, oldSubject, newSubject);
@@ -132,13 +133,13 @@ public class TripleImpl extends MinimalEObjectImpl.Container implements Triple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubject(Node newSubject) {
+	public void setSubject(SubjectNode newSubject) {
 		if (newSubject != subject) {
 			NotificationChain msgs = null;
 			if (subject != null)
-				msgs = ((InternalEObject)subject).eInverseRemove(this, RDFPackage.NODE__SUBJECT_OF, Node.class, msgs);
+				msgs = ((InternalEObject)subject).eInverseRemove(this, RDFPackage.SUBJECT_NODE__SUBJECT_OF, SubjectNode.class, msgs);
 			if (newSubject != null)
-				msgs = ((InternalEObject)newSubject).eInverseAdd(this, RDFPackage.NODE__SUBJECT_OF, Node.class, msgs);
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, RDFPackage.SUBJECT_NODE__SUBJECT_OF, SubjectNode.class, msgs);
 			msgs = basicSetSubject(newSubject, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -317,8 +318,8 @@ public class TripleImpl extends MinimalEObjectImpl.Container implements Triple {
 		switch (featureID) {
 			case RDFPackage.TRIPLE__SUBJECT:
 				if (subject != null)
-					msgs = ((InternalEObject)subject).eInverseRemove(this, RDFPackage.NODE__SUBJECT_OF, Node.class, msgs);
-				return basicSetSubject((Node)otherEnd, msgs);
+					msgs = ((InternalEObject)subject).eInverseRemove(this, RDFPackage.SUBJECT_NODE__SUBJECT_OF, SubjectNode.class, msgs);
+				return basicSetSubject((SubjectNode)otherEnd, msgs);
 			case RDFPackage.TRIPLE__PREDICATE:
 				if (predicate != null)
 					msgs = ((InternalEObject)predicate).eInverseRemove(this, RDFPackage.PROPERTY__PREDICATE_OF, Property.class, msgs);
@@ -401,7 +402,7 @@ public class TripleImpl extends MinimalEObjectImpl.Container implements Triple {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RDFPackage.TRIPLE__SUBJECT:
-				setSubject((Node)newValue);
+				setSubject((SubjectNode)newValue);
 				return;
 			case RDFPackage.TRIPLE__PREDICATE:
 				setPredicate((Property)newValue);
@@ -425,7 +426,7 @@ public class TripleImpl extends MinimalEObjectImpl.Container implements Triple {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RDFPackage.TRIPLE__SUBJECT:
-				setSubject((Node)null);
+				setSubject((SubjectNode)null);
 				return;
 			case RDFPackage.TRIPLE__PREDICATE:
 				setPredicate((Property)null);

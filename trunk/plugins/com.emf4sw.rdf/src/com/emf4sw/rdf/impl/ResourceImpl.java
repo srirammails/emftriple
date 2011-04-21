@@ -12,14 +12,14 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.emf4sw.rdf.Literal;
+import com.emf4sw.rdf.Namespace;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.RDFPackage;
@@ -35,76 +35,44 @@ import com.emf4sw.rdf.vocabulary.RDF;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getComment <em>Comment</em>}</li>
- *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getSubjectOf <em>Subject Of</em>}</li>
- *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getObjectOf <em>Object Of</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getURI <em>URI</em>}</li>
+ *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link com.emf4sw.rdf.impl.ResourceImpl#getGraph <em>Graph</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ResourceImpl extends URIElementImpl implements Resource {
+public class ResourceImpl extends SubjectNodeImpl implements Resource {
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The default value of the '{@link #getURI() <em>URI</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getURI()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LABEL_EDEFAULT = null;
+	protected static final String URI_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The cached value of the '{@link #getURI() <em>URI</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getURI()
 	 * @generated
 	 * @ordered
 	 */
-	protected String label = LABEL_EDEFAULT;
+	protected String uri = URI_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComment()
+	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String COMMENT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComment()
-	 * @generated
-	 * @ordered
-	 */
-	protected String comment = COMMENT_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSubjectOf() <em>Subject Of</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubjectOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Triple> subjectOf;
-
-	/**
-	 * The cached value of the '{@link #getObjectOf() <em>Object Of</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getObjectOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Triple> objectOf;
+	protected Namespace namespace;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,8 +98,8 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLabel() {
-		return label;
+	public String getURI() {
+		return uri;
 	}
 
 	/**
@@ -139,11 +107,11 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabel(String newLabel) {
-		String oldLabel = label;
-		label = newLabel;
+	public void setURI(String newURI) {
+		String oldURI = uri;
+		uri = newURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.RESOURCE__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.RESOURCE__URI, oldURI, uri));
 	}
 
 	/**
@@ -151,8 +119,16 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getComment() {
-		return comment;
+	public Namespace getNamespace() {
+		if (namespace != null && namespace.eIsProxy()) {
+			InternalEObject oldNamespace = (InternalEObject)namespace;
+			namespace = (Namespace)eResolveProxy(oldNamespace);
+			if (namespace != oldNamespace) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RDFPackage.RESOURCE__NAMESPACE, oldNamespace, namespace));
+			}
+		}
+		return namespace;
 	}
 
 	/**
@@ -160,35 +136,20 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setComment(String newComment) {
-		String oldComment = comment;
-		comment = newComment;
+	public Namespace basicGetNamespace() {
+		return namespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNamespace(Namespace newNamespace) {
+		Namespace oldNamespace = namespace;
+		namespace = newNamespace;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.RESOURCE__COMMENT, oldComment, comment));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Triple> getSubjectOf() {
-		if (subjectOf == null) {
-			subjectOf = new EObjectWithInverseResolvingEList<Triple>(Triple.class, this, RDFPackage.RESOURCE__SUBJECT_OF, RDFPackage.TRIPLE__SUBJECT);
-		}
-		return subjectOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Triple> getObjectOf() {
-		if (objectOf == null) {
-			objectOf = new EObjectWithInverseResolvingEList<Triple>(Triple.class, this, RDFPackage.RESOURCE__OBJECT_OF, RDFPackage.TRIPLE__OBJECT);
-		}
-		return objectOf;
+			eNotify(new ENotificationImpl(this, Notification.SET, RDFPackage.RESOURCE__NAMESPACE, oldNamespace, namespace));
 	}
 
 	/**
@@ -237,6 +198,18 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public String getLocalName() {
+		final URI uri = URI.createURI(getURI());
+		if (uri.hasFragment()) return uri.fragment();
+		else 
+			return uri.lastSegment();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public boolean isTypeOf(String uri) {
 		for (Node resource: getTypes()) {
 			if (resource instanceof Resource && 
@@ -252,8 +225,8 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<Node> getTypes() {
-		final EList<Node> types = new BasicEList<Node>();
+	public EList<Resource> getTypes() {
+		final EList<Resource> types = new BasicEList<Resource>();
 		for (Triple triple: getSubjectOf()) {
 			if (triple.getPredicate().getURI().equals(RDF.type)) {
 				types.add((Resource) triple.getObject());
@@ -337,16 +310,11 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RDFPackage.RESOURCE__SUBJECT_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubjectOf()).basicAdd(otherEnd, msgs);
-			case RDFPackage.RESOURCE__OBJECT_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getObjectOf()).basicAdd(otherEnd, msgs);
 			case RDFPackage.RESOURCE__GRAPH:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -363,10 +331,6 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RDFPackage.RESOURCE__SUBJECT_OF:
-				return ((InternalEList<?>)getSubjectOf()).basicRemove(otherEnd, msgs);
-			case RDFPackage.RESOURCE__OBJECT_OF:
-				return ((InternalEList<?>)getObjectOf()).basicRemove(otherEnd, msgs);
 			case RDFPackage.RESOURCE__GRAPH:
 				return basicSetGraph(null, msgs);
 		}
@@ -395,14 +359,11 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RDFPackage.RESOURCE__LABEL:
-				return getLabel();
-			case RDFPackage.RESOURCE__COMMENT:
-				return getComment();
-			case RDFPackage.RESOURCE__SUBJECT_OF:
-				return getSubjectOf();
-			case RDFPackage.RESOURCE__OBJECT_OF:
-				return getObjectOf();
+			case RDFPackage.RESOURCE__URI:
+				return getURI();
+			case RDFPackage.RESOURCE__NAMESPACE:
+				if (resolve) return getNamespace();
+				return basicGetNamespace();
 			case RDFPackage.RESOURCE__GRAPH:
 				return getGraph();
 		}
@@ -414,23 +375,14 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RDFPackage.RESOURCE__LABEL:
-				setLabel((String)newValue);
+			case RDFPackage.RESOURCE__URI:
+				setURI((String)newValue);
 				return;
-			case RDFPackage.RESOURCE__COMMENT:
-				setComment((String)newValue);
-				return;
-			case RDFPackage.RESOURCE__SUBJECT_OF:
-				getSubjectOf().clear();
-				getSubjectOf().addAll((Collection<? extends Triple>)newValue);
-				return;
-			case RDFPackage.RESOURCE__OBJECT_OF:
-				getObjectOf().clear();
-				getObjectOf().addAll((Collection<? extends Triple>)newValue);
+			case RDFPackage.RESOURCE__NAMESPACE:
+				setNamespace((Namespace)newValue);
 				return;
 			case RDFPackage.RESOURCE__GRAPH:
 				setGraph((RDFGraph)newValue);
@@ -447,17 +399,11 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RDFPackage.RESOURCE__LABEL:
-				setLabel(LABEL_EDEFAULT);
+			case RDFPackage.RESOURCE__URI:
+				setURI(URI_EDEFAULT);
 				return;
-			case RDFPackage.RESOURCE__COMMENT:
-				setComment(COMMENT_EDEFAULT);
-				return;
-			case RDFPackage.RESOURCE__SUBJECT_OF:
-				getSubjectOf().clear();
-				return;
-			case RDFPackage.RESOURCE__OBJECT_OF:
-				getObjectOf().clear();
+			case RDFPackage.RESOURCE__NAMESPACE:
+				setNamespace((Namespace)null);
 				return;
 			case RDFPackage.RESOURCE__GRAPH:
 				setGraph((RDFGraph)null);
@@ -474,14 +420,10 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RDFPackage.RESOURCE__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-			case RDFPackage.RESOURCE__COMMENT:
-				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
-			case RDFPackage.RESOURCE__SUBJECT_OF:
-				return subjectOf != null && !subjectOf.isEmpty();
-			case RDFPackage.RESOURCE__OBJECT_OF:
-				return objectOf != null && !objectOf.isEmpty();
+			case RDFPackage.RESOURCE__URI:
+				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+			case RDFPackage.RESOURCE__NAMESPACE:
+				return namespace != null;
 			case RDFPackage.RESOURCE__GRAPH:
 				return getGraph() != null;
 		}
@@ -495,12 +437,10 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Node.class) {
+		if (baseClass == URIElement.class) {
 			switch (derivedFeatureID) {
-				case RDFPackage.RESOURCE__LABEL: return RDFPackage.NODE__LABEL;
-				case RDFPackage.RESOURCE__COMMENT: return RDFPackage.NODE__COMMENT;
-				case RDFPackage.RESOURCE__SUBJECT_OF: return RDFPackage.NODE__SUBJECT_OF;
-				case RDFPackage.RESOURCE__OBJECT_OF: return RDFPackage.NODE__OBJECT_OF;
+				case RDFPackage.RESOURCE__URI: return RDFPackage.URI_ELEMENT__URI;
+				case RDFPackage.RESOURCE__NAMESPACE: return RDFPackage.URI_ELEMENT__NAMESPACE;
 				default: return -1;
 			}
 		}
@@ -514,12 +454,10 @@ public class ResourceImpl extends URIElementImpl implements Resource {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Node.class) {
+		if (baseClass == URIElement.class) {
 			switch (baseFeatureID) {
-				case RDFPackage.NODE__LABEL: return RDFPackage.RESOURCE__LABEL;
-				case RDFPackage.NODE__COMMENT: return RDFPackage.RESOURCE__COMMENT;
-				case RDFPackage.NODE__SUBJECT_OF: return RDFPackage.RESOURCE__SUBJECT_OF;
-				case RDFPackage.NODE__OBJECT_OF: return RDFPackage.RESOURCE__OBJECT_OF;
+				case RDFPackage.URI_ELEMENT__URI: return RDFPackage.RESOURCE__URI;
+				case RDFPackage.URI_ELEMENT__NAMESPACE: return RDFPackage.RESOURCE__NAMESPACE;
 				default: return -1;
 			}
 		}

@@ -31,7 +31,7 @@ import com.emf4sw.rdf.RDFPackage;
  *
  * @generated
  */
-public class BlankNodeImpl extends NodeImpl implements BlankNode {
+public class BlankNodeImpl extends SubjectNodeImpl implements BlankNode {
 	/**
 	 * The default value of the '{@link #getNodeID() <em>Node ID</em>}' attribute.
 	 * <!-- begin-user-doc -->

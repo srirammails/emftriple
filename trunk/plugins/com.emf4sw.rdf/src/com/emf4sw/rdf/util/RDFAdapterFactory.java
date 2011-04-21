@@ -27,6 +27,7 @@ import com.emf4sw.rdf.RDFPackage;
 import com.emf4sw.rdf.RDFSContainer;
 import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Resource;
+import com.emf4sw.rdf.SubjectNode;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.TripleNode;
 import com.emf4sw.rdf.URIElement;
@@ -110,6 +111,10 @@ public class RDFAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNode(Node object) {
 				return createNodeAdapter();
+			}
+			@Override
+			public Adapter caseSubjectNode(SubjectNode object) {
+				return createSubjectNodeAdapter();
 			}
 			@Override
 			public Adapter caseNamedGraph(NamedGraph object) {
@@ -274,6 +279,20 @@ public class RDFAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.SubjectNode <em>Subject Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.emf4sw.rdf.SubjectNode
+	 * @generated
+	 */
+	public Adapter createSubjectNodeAdapter() {
 		return null;
 	}
 

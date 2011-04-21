@@ -27,6 +27,7 @@ import com.emf4sw.rdf.RDFPackage;
 import com.emf4sw.rdf.RDFSContainer;
 import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Resource;
+import com.emf4sw.rdf.SubjectNode;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.TripleNode;
 import com.emf4sw.rdf.URIElement;
@@ -145,6 +146,13 @@ public class RDFSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RDFPackage.SUBJECT_NODE: {
+				SubjectNode subjectNode = (SubjectNode)theEObject;
+				T result = caseSubjectNode(subjectNode);
+				if (result == null) result = caseNode(subjectNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RDFPackage.NAMED_GRAPH: {
 				NamedGraph namedGraph = (NamedGraph)theEObject;
 				T result = caseNamedGraph(namedGraph);
@@ -157,6 +165,7 @@ public class RDFSwitch<T> {
 			case RDFPackage.BLANK_NODE: {
 				BlankNode blankNode = (BlankNode)theEObject;
 				T result = caseBlankNode(blankNode);
+				if (result == null) result = caseSubjectNode(blankNode);
 				if (result == null) result = caseNode(blankNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -164,14 +173,17 @@ public class RDFSwitch<T> {
 			case RDFPackage.TRIPLE_NODE: {
 				TripleNode tripleNode = (TripleNode)theEObject;
 				T result = caseTripleNode(tripleNode);
-				if (result == null) result = caseNode(tripleNode);
+				if (result == null) result = caseResource(tripleNode);
+				if (result == null) result = caseSubjectNode(tripleNode);
 				if (result == null) result = caseURIElement(tripleNode);
+				if (result == null) result = caseNode(tripleNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RDFPackage.RESOURCE: {
 				Resource resource = (Resource)theEObject;
 				T result = caseResource(resource);
+				if (result == null) result = caseSubjectNode(resource);
 				if (result == null) result = caseURIElement(resource);
 				if (result == null) result = caseNode(resource);
 				if (result == null) result = defaultCase(theEObject);
@@ -181,6 +193,7 @@ public class RDFSwitch<T> {
 				Property property = (Property)theEObject;
 				T result = caseProperty(property);
 				if (result == null) result = caseResource(property);
+				if (result == null) result = caseSubjectNode(property);
 				if (result == null) result = caseURIElement(property);
 				if (result == null) result = caseNode(property);
 				if (result == null) result = defaultCase(theEObject);
@@ -190,6 +203,7 @@ public class RDFSwitch<T> {
 				Datatype datatype = (Datatype)theEObject;
 				T result = caseDatatype(datatype);
 				if (result == null) result = caseResource(datatype);
+				if (result == null) result = caseSubjectNode(datatype);
 				if (result == null) result = caseURIElement(datatype);
 				if (result == null) result = caseNode(datatype);
 				if (result == null) result = defaultCase(theEObject);
@@ -206,6 +220,7 @@ public class RDFSwitch<T> {
 				RDFSContainer rdfsContainer = (RDFSContainer)theEObject;
 				T result = caseRDFSContainer(rdfsContainer);
 				if (result == null) result = caseBlankNode(rdfsContainer);
+				if (result == null) result = caseSubjectNode(rdfsContainer);
 				if (result == null) result = caseNode(rdfsContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -215,6 +230,7 @@ public class RDFSwitch<T> {
 				T result = caseRDFBag(rdfBag);
 				if (result == null) result = caseRDFSContainer(rdfBag);
 				if (result == null) result = caseBlankNode(rdfBag);
+				if (result == null) result = caseSubjectNode(rdfBag);
 				if (result == null) result = caseNode(rdfBag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -224,6 +240,7 @@ public class RDFSwitch<T> {
 				T result = caseRDFAlt(rdfAlt);
 				if (result == null) result = caseRDFSContainer(rdfAlt);
 				if (result == null) result = caseBlankNode(rdfAlt);
+				if (result == null) result = caseSubjectNode(rdfAlt);
 				if (result == null) result = caseNode(rdfAlt);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -233,6 +250,7 @@ public class RDFSwitch<T> {
 				T result = caseRDFSeq(rdfSeq);
 				if (result == null) result = caseRDFSContainer(rdfSeq);
 				if (result == null) result = caseBlankNode(rdfSeq);
+				if (result == null) result = caseSubjectNode(rdfSeq);
 				if (result == null) result = caseNode(rdfSeq);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -241,6 +259,7 @@ public class RDFSwitch<T> {
 				RDFList rdfList = (RDFList)theEObject;
 				T result = caseRDFList(rdfList);
 				if (result == null) result = caseBlankNode(rdfList);
+				if (result == null) result = caseSubjectNode(rdfList);
 				if (result == null) result = caseNode(rdfList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -351,6 +370,21 @@ public class RDFSwitch<T> {
 	 * @generated
 	 */
 	public T caseNode(Node object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Subject Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Subject Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubjectNode(SubjectNode object) {
 		return null;
 	}
 

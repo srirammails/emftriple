@@ -23,7 +23,7 @@ package com.emf4sw.rdf;
  * @model
  * @generated
  */
-public interface Resource extends URIElement, Node {
+public interface Resource extends SubjectNode, URIElement {
 
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' container reference.

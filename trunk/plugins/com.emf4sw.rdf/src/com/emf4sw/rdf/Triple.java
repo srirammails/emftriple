@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Triple extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.emf4sw.rdf.Node#getSubjectOf <em>Subject Of</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.emf4sw.rdf.SubjectNode#getSubjectOf <em>Subject Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Subject</em>' reference isn't clear,
@@ -38,13 +38,13 @@ public interface Triple extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subject</em>' reference.
-	 * @see #setSubject(Node)
+	 * @see #setSubject(SubjectNode)
 	 * @see com.emf4sw.rdf.RDFPackage#getTriple_Subject()
-	 * @see com.emf4sw.rdf.Node#getSubjectOf
+	 * @see com.emf4sw.rdf.SubjectNode#getSubjectOf
 	 * @model opposite="subjectOf" required="true"
 	 * @generated
 	 */
-	Node getSubject();
+	SubjectNode getSubject();
 
 	/**
 	 * Sets the value of the '{@link com.emf4sw.rdf.Triple#getSubject <em>Subject</em>}' reference.
@@ -54,7 +54,7 @@ public interface Triple extends EObject {
 	 * @see #getSubject()
 	 * @generated
 	 */
-	void setSubject(Node value);
+	void setSubject(SubjectNode value);
 
 	/**
 	 * Returns the value of the '<em><b>Predicate</b></em>' reference.

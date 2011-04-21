@@ -377,7 +377,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getNamedGraph()
 	 * @generated
 	 */
-	int NAMED_GRAPH = 6;
+	int NAMED_GRAPH = 7;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.TripleImpl <em>Triple</em>}' class.
@@ -463,22 +463,13 @@ public interface RDFPackage extends EPackage {
 	int NODE__COMMENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__SUBJECT_OF = 2;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__OBJECT_OF = 3;
+	int NODE__OBJECT_OF = 2;
 
 	/**
 	 * The number of structural features of the '<em>Node</em>' class.
@@ -487,7 +478,62 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = 4;
+	int NODE_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link com.emf4sw.rdf.impl.SubjectNodeImpl <em>Subject Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.emf4sw.rdf.impl.SubjectNodeImpl
+	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getSubjectNode()
+	 * @generated
+	 */
+	int SUBJECT_NODE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_NODE__LABEL = NODE__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_NODE__COMMENT = NODE__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_NODE__OBJECT_OF = NODE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_NODE__SUBJECT_OF = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Subject Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>URI</b></em>' attribute.
@@ -589,22 +635,13 @@ public interface RDFPackage extends EPackage {
 	int NAMED_GRAPH__COMMENT = RDF_GRAPH_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_GRAPH__SUBJECT_OF = RDF_GRAPH_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GRAPH__OBJECT_OF = RDF_GRAPH_FEATURE_COUNT + 3;
+	int NAMED_GRAPH__OBJECT_OF = RDF_GRAPH_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Document</b></em>' reference.
@@ -613,7 +650,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GRAPH__DOCUMENT = RDF_GRAPH_FEATURE_COUNT + 4;
+	int NAMED_GRAPH__DOCUMENT = RDF_GRAPH_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Named Graph</em>' class.
@@ -622,7 +659,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_GRAPH_FEATURE_COUNT = RDF_GRAPH_FEATURE_COUNT + 5;
+	int NAMED_GRAPH_FEATURE_COUNT = RDF_GRAPH_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.BlankNodeImpl <em>Blank Node</em>}' class.
@@ -632,7 +669,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getBlankNode()
 	 * @generated
 	 */
-	int BLANK_NODE = 7;
+	int BLANK_NODE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -641,7 +678,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLANK_NODE__LABEL = NODE__LABEL;
+	int BLANK_NODE__LABEL = SUBJECT_NODE__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -650,16 +687,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLANK_NODE__COMMENT = NODE__COMMENT;
-
-	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLANK_NODE__SUBJECT_OF = NODE__SUBJECT_OF;
+	int BLANK_NODE__COMMENT = SUBJECT_NODE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
@@ -668,7 +696,16 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLANK_NODE__OBJECT_OF = NODE__OBJECT_OF;
+	int BLANK_NODE__OBJECT_OF = SUBJECT_NODE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLANK_NODE__SUBJECT_OF = SUBJECT_NODE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Node ID</b></em>' attribute.
@@ -677,7 +714,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLANK_NODE__NODE_ID = NODE_FEATURE_COUNT + 0;
+	int BLANK_NODE__NODE_ID = SUBJECT_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -686,7 +723,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLANK_NODE__GRAPH = NODE_FEATURE_COUNT + 1;
+	int BLANK_NODE__GRAPH = SUBJECT_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Blank Node</em>' class.
@@ -695,7 +732,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLANK_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 2;
+	int BLANK_NODE_FEATURE_COUNT = SUBJECT_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.TripleNodeImpl <em>Triple Node</em>}' class.
@@ -705,79 +742,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getTripleNode()
 	 * @generated
 	 */
-	int TRIPLE_NODE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIPLE_NODE__LABEL = NODE__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Comment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIPLE_NODE__COMMENT = NODE__COMMENT;
-
-	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIPLE_NODE__SUBJECT_OF = NODE__SUBJECT_OF;
-
-	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIPLE_NODE__OBJECT_OF = NODE__OBJECT_OF;
-
-	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIPLE_NODE__URI = NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIPLE_NODE__NAMESPACE = NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Triple</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIPLE_NODE__TRIPLE = NODE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Triple Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIPLE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+	int TRIPLE_NODE = 9;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.ResourceImpl <em>Resource</em>}' class.
@@ -787,25 +752,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 9;
-
-	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__URI = URI_ELEMENT__URI;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__NAMESPACE = URI_ELEMENT__NAMESPACE;
+	int RESOURCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -814,7 +761,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__LABEL = URI_ELEMENT_FEATURE_COUNT + 0;
+	int RESOURCE__LABEL = SUBJECT_NODE__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -823,16 +770,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__COMMENT = URI_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__SUBJECT_OF = URI_ELEMENT_FEATURE_COUNT + 2;
+	int RESOURCE__COMMENT = SUBJECT_NODE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
@@ -841,7 +779,34 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__OBJECT_OF = URI_ELEMENT_FEATURE_COUNT + 3;
+	int RESOURCE__OBJECT_OF = SUBJECT_NODE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__SUBJECT_OF = SUBJECT_NODE__SUBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__URI = SUBJECT_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__NAMESPACE = SUBJECT_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -850,7 +815,7 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__GRAPH = URI_ELEMENT_FEATURE_COUNT + 4;
+	int RESOURCE__GRAPH = SUBJECT_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
@@ -859,7 +824,88 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = URI_ELEMENT_FEATURE_COUNT + 5;
+	int RESOURCE_FEATURE_COUNT = SUBJECT_NODE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE__LABEL = RESOURCE__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE__COMMENT = RESOURCE__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE__OBJECT_OF = RESOURCE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE__SUBJECT_OF = RESOURCE__SUBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE__URI = RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE__NAMESPACE = RESOURCE__NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE__GRAPH = RESOURCE__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Triple</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE__TRIPLE = RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Triple Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIPLE_NODE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.rdf.impl.PropertyImpl <em>Property</em>}' class.
@@ -869,25 +915,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 10;
-
-	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__URI = RESOURCE__URI;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__NAMESPACE = RESOURCE__NAMESPACE;
+	int PROPERTY = 11;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -908,6 +936,15 @@ public interface RDFPackage extends EPackage {
 	int PROPERTY__COMMENT = RESOURCE__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OBJECT_OF = RESOURCE__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,13 +954,22 @@ public interface RDFPackage extends EPackage {
 	int PROPERTY__SUBJECT_OF = RESOURCE__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__OBJECT_OF = RESOURCE__OBJECT_OF;
+	int PROPERTY__URI = RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAMESPACE = RESOURCE__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -960,25 +1006,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getDatatype()
 	 * @generated
 	 */
-	int DATATYPE = 11;
-
-	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATATYPE__URI = RESOURCE__URI;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATATYPE__NAMESPACE = RESOURCE__NAMESPACE;
+	int DATATYPE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -999,6 +1027,15 @@ public interface RDFPackage extends EPackage {
 	int DATATYPE__COMMENT = RESOURCE__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATATYPE__OBJECT_OF = RESOURCE__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1008,13 +1045,22 @@ public interface RDFPackage extends EPackage {
 	int DATATYPE__SUBJECT_OF = RESOURCE__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATATYPE__OBJECT_OF = RESOURCE__OBJECT_OF;
+	int DATATYPE__URI = RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATATYPE__NAMESPACE = RESOURCE__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -1042,7 +1088,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getLiteral()
 	 * @generated
 	 */
-	int LITERAL = 12;
+	int LITERAL = 13;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1061,15 +1107,6 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL__COMMENT = NODE__COMMENT;
-
-	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LITERAL__SUBJECT_OF = NODE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
@@ -1133,7 +1170,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getRDFSContainer()
 	 * @generated
 	 */
-	int RDF_SCONTAINER = 13;
+	int RDF_SCONTAINER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1154,15 +1191,6 @@ public interface RDFPackage extends EPackage {
 	int RDF_SCONTAINER__COMMENT = BLANK_NODE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_SCONTAINER__SUBJECT_OF = BLANK_NODE__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1170,6 +1198,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SCONTAINER__OBJECT_OF = BLANK_NODE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SCONTAINER__SUBJECT_OF = BLANK_NODE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Node ID</b></em>' attribute.
@@ -1206,7 +1243,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getRDFBag()
 	 * @generated
 	 */
-	int RDF_BAG = 14;
+	int RDF_BAG = 15;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1227,15 +1264,6 @@ public interface RDFPackage extends EPackage {
 	int RDF_BAG__COMMENT = RDF_SCONTAINER__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_BAG__SUBJECT_OF = RDF_SCONTAINER__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1243,6 +1271,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_BAG__OBJECT_OF = RDF_SCONTAINER__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_BAG__SUBJECT_OF = RDF_SCONTAINER__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Node ID</b></em>' attribute.
@@ -1288,7 +1325,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getRDFAlt()
 	 * @generated
 	 */
-	int RDF_ALT = 15;
+	int RDF_ALT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1309,15 +1346,6 @@ public interface RDFPackage extends EPackage {
 	int RDF_ALT__COMMENT = RDF_SCONTAINER__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_ALT__SUBJECT_OF = RDF_SCONTAINER__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1325,6 +1353,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_ALT__OBJECT_OF = RDF_SCONTAINER__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_ALT__SUBJECT_OF = RDF_SCONTAINER__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Node ID</b></em>' attribute.
@@ -1370,7 +1407,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getRDFSeq()
 	 * @generated
 	 */
-	int RDF_SEQ = 16;
+	int RDF_SEQ = 17;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1391,15 +1428,6 @@ public interface RDFPackage extends EPackage {
 	int RDF_SEQ__COMMENT = RDF_SCONTAINER__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_SEQ__SUBJECT_OF = RDF_SCONTAINER__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1407,6 +1435,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SEQ__OBJECT_OF = RDF_SCONTAINER__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SEQ__SUBJECT_OF = RDF_SCONTAINER__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Node ID</b></em>' attribute.
@@ -1452,7 +1489,7 @@ public interface RDFPackage extends EPackage {
 	 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getRDFList()
 	 * @generated
 	 */
-	int RDF_LIST = 17;
+	int RDF_LIST = 18;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1473,15 +1510,6 @@ public interface RDFPackage extends EPackage {
 	int RDF_LIST__COMMENT = BLANK_NODE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_LIST__SUBJECT_OF = BLANK_NODE__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1489,6 +1517,15 @@ public interface RDFPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_LIST__OBJECT_OF = BLANK_NODE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LIST__SUBJECT_OF = BLANK_NODE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Node ID</b></em>' attribute.
@@ -1817,17 +1854,6 @@ public interface RDFPackage extends EPackage {
 	EAttribute getNode_Comment();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.emf4sw.rdf.Node#getSubjectOf <em>Subject Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Subject Of</em>'.
-	 * @see com.emf4sw.rdf.Node#getSubjectOf()
-	 * @see #getNode()
-	 * @generated
-	 */
-	EReference getNode_SubjectOf();
-
-	/**
 	 * Returns the meta object for the reference list '{@link com.emf4sw.rdf.Node#getObjectOf <em>Object Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1837,6 +1863,27 @@ public interface RDFPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNode_ObjectOf();
+
+	/**
+	 * Returns the meta object for class '{@link com.emf4sw.rdf.SubjectNode <em>Subject Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Subject Node</em>'.
+	 * @see com.emf4sw.rdf.SubjectNode
+	 * @generated
+	 */
+	EClass getSubjectNode();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.emf4sw.rdf.SubjectNode#getSubjectOf <em>Subject Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Subject Of</em>'.
+	 * @see com.emf4sw.rdf.SubjectNode#getSubjectOf()
+	 * @see #getSubjectNode()
+	 * @generated
+	 */
+	EReference getSubjectNode_SubjectOf();
 
 	/**
 	 * Returns the meta object for class '{@link com.emf4sw.rdf.BlankNode <em>Blank Node</em>}'.
@@ -2344,20 +2391,30 @@ public interface RDFPackage extends EPackage {
 		EAttribute NODE__COMMENT = eINSTANCE.getNode_Comment();
 
 		/**
-		 * The meta object literal for the '<em><b>Subject Of</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NODE__SUBJECT_OF = eINSTANCE.getNode_SubjectOf();
-
-		/**
 		 * The meta object literal for the '<em><b>Object Of</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference NODE__OBJECT_OF = eINSTANCE.getNode_ObjectOf();
+
+		/**
+		 * The meta object literal for the '{@link com.emf4sw.rdf.impl.SubjectNodeImpl <em>Subject Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.emf4sw.rdf.impl.SubjectNodeImpl
+		 * @see com.emf4sw.rdf.impl.RDFPackageImpl#getSubjectNode()
+		 * @generated
+		 */
+		EClass SUBJECT_NODE = eINSTANCE.getSubjectNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Subject Of</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT_NODE__SUBJECT_OF = eINSTANCE.getSubjectNode_SubjectOf();
 
 		/**
 		 * The meta object literal for the '{@link com.emf4sw.rdf.impl.BlankNodeImpl <em>Blank Node</em>}' class.
