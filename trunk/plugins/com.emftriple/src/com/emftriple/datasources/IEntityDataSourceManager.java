@@ -60,7 +60,7 @@ public interface IEntityDataSourceManager extends ITransactionProvider, IEntityM
 	 * @param subjects
 	 * @return
 	 */
-	List<?> findNodes(List<Node> subjects);
+	List<?> findNodes(List<? extends Node> subjects);
 	
 	/**
 	 * 

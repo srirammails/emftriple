@@ -177,7 +177,7 @@ public class NativeQueryImpl implements Query {
 		}
 		else if (type.equals(TYPE.CONSTRUCT)) 
 		{
-			final List<Node> subjects = doExecuteConstructQuery(query);
+			final List<? extends Node> subjects = doExecuteConstructQuery(query);
 			
 			return subjects == null ? Lists.newArrayList() : getDataSourceManager().findNodes(subjects);	
 		}
@@ -298,7 +298,7 @@ public class NativeQueryImpl implements Query {
 		return null;
 	}
 	
-	private List<Node> doExecuteConstructQuery(String query) {
+	private List<? extends Node> doExecuteConstructQuery(String query) {
 		final String queryFinal = finalize(query, parameters, maxResults);
 		final RDFGraph resultGraph = getDataSourceManager().executeConctructQuery(queryFinal);
 

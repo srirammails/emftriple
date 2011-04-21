@@ -106,7 +106,7 @@ public class SparqlQuery implements Query {
 		}
 		else if (theQuery instanceof ConstructQuery) 
 		{
-			List<Node> subjects = doExecuteConstructQuery((ConstructQuery) theQuery);
+			List<? extends Node> subjects = doExecuteConstructQuery((ConstructQuery) theQuery);
 			if (subjects == null)
 			{
 				return null;
@@ -120,7 +120,7 @@ public class SparqlQuery implements Query {
 		}
 	}
 
-	private List<Node> doExecuteConstructQuery(ConstructQuery query) {
+	private List<? extends Node> doExecuteConstructQuery(ConstructQuery query) {
 		final ConstructQuery queryFinal = (ConstructQuery) SparqlBuilder.finalize(query, parameters, maxResults);
 		final RDFGraph resultGraph = getDataSourceManager().executeConctructQuery(SparqlBuilder.extract(queryFinal));
 
