@@ -6,9 +6,9 @@
  */
 package com.emf4sw.owl;
 
-import com.emf4sw.rdf.BlankNode;
 import org.eclipse.emf.common.util.EList;
 
+import com.emf4sw.rdf.BlankNode;
 import com.emf4sw.rdf.Resource;
 
 /**

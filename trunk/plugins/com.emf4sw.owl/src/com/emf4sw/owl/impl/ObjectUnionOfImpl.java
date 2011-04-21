@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import com.emf4sw.owl.ClassExpression;
 import com.emf4sw.owl.OWLPackage;
 import com.emf4sw.owl.ObjectUnionOf;

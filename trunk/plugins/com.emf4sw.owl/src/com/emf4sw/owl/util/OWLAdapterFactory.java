@@ -58,6 +58,7 @@ import com.emf4sw.rdf.DocumentGraph;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.Resource;
+import com.emf4sw.rdf.SubjectNode;
 import com.emf4sw.rdf.URIElement;
 
 /**
@@ -291,6 +292,10 @@ public class OWLAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNode(Node object) {
 				return createNodeAdapter();
+			}
+			@Override
+			public Adapter caseSubjectNode(SubjectNode object) {
+				return createSubjectNodeAdapter();
 			}
 			@Override
 			public Adapter caseResource(Resource object) {
@@ -937,6 +942,20 @@ public class OWLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.emf4sw.rdf.SubjectNode <em>Subject Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.emf4sw.rdf.SubjectNode
+	 * @generated
+	 */
+	public Adapter createSubjectNodeAdapter() {
 		return null;
 	}
 

@@ -11,8 +11,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import com.emf4sw.owl.OWLPackage;
 import com.emf4sw.owl.ObjectProperty;
 import com.emf4sw.owl.ObjectPropertyRestriction;

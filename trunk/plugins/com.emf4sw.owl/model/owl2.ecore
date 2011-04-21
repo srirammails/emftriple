@@ -58,7 +58,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
         eType="#//Annotation" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassExpression" abstract="true" eSuperTypes="../../com.emf4sw.rdf/model/rdf.ecore#//Node #//AnnotatedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ClassExpression" abstract="true" eSuperTypes="../../com.emf4sw.rdf/model/rdf.ecore#//SubjectNode #//AnnotatedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="keys" upperBound="-1" eType="#//OWLProperty"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subClassOf" upperBound="-1"
         eType="#//ClassExpression" eOpposite="#//ClassExpression/superClass"/>
@@ -307,7 +307,7 @@
         eType="#//ObjectProperty"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnnotationProperty" eSuperTypes="#//OWLProperty"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataRange" abstract="true" eSuperTypes="../../com.emf4sw.rdf/model/rdf.ecore#//Node #//AnnotatedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataRange" abstract="true" eSuperTypes="../../com.emf4sw.rdf/model/rdf.ecore#//SubjectNode #//AnnotatedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="OWLDatatype" eSuperTypes="../../com.emf4sw.rdf/model/rdf.ecore#//Datatype #//DataRange"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataComplementOf" eSuperTypes="#//DataRange">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataRange" eType="#//DataRange"/>

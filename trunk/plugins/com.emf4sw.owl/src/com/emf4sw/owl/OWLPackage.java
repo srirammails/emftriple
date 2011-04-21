@@ -81,6 +81,15 @@ public interface OWLPackage extends EPackage {
 	int ONTOLOGY__URI = RDFPackage.DOCUMENT_GRAPH__URI;
 
 	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONTOLOGY__NAMESPACE = RDFPackage.DOCUMENT_GRAPH__NAMESPACE;
+
+	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -278,7 +287,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION__LABEL = RDFPackage.NODE__LABEL;
+	int CLASS_EXPRESSION__LABEL = RDFPackage.SUBJECT_NODE__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -287,16 +296,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION__COMMENT = RDFPackage.NODE__COMMENT;
-
-	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_EXPRESSION__SUBJECT_OF = RDFPackage.NODE__SUBJECT_OF;
+	int CLASS_EXPRESSION__COMMENT = RDFPackage.SUBJECT_NODE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
@@ -305,7 +305,16 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION__OBJECT_OF = RDFPackage.NODE__OBJECT_OF;
+	int CLASS_EXPRESSION__OBJECT_OF = RDFPackage.SUBJECT_NODE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_EXPRESSION__SUBJECT_OF = RDFPackage.SUBJECT_NODE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -314,7 +323,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION__ANNOTATIONS = RDFPackage.NODE_FEATURE_COUNT + 0;
+	int CLASS_EXPRESSION__ANNOTATIONS = RDFPackage.SUBJECT_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Keys</b></em>' reference list.
@@ -323,7 +332,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION__KEYS = RDFPackage.NODE_FEATURE_COUNT + 1;
+	int CLASS_EXPRESSION__KEYS = RDFPackage.SUBJECT_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Sub Class Of</b></em>' reference list.
@@ -332,7 +341,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION__SUB_CLASS_OF = RDFPackage.NODE_FEATURE_COUNT + 2;
+	int CLASS_EXPRESSION__SUB_CLASS_OF = RDFPackage.SUBJECT_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Super Class</b></em>' reference list.
@@ -341,7 +350,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION__SUPER_CLASS = RDFPackage.NODE_FEATURE_COUNT + 3;
+	int CLASS_EXPRESSION__SUPER_CLASS = RDFPackage.SUBJECT_NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Disjoint Classes</b></em>' reference list.
@@ -350,7 +359,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION__DISJOINT_CLASSES = RDFPackage.NODE_FEATURE_COUNT + 4;
+	int CLASS_EXPRESSION__DISJOINT_CLASSES = RDFPackage.SUBJECT_NODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Equivalent Classes</b></em>' reference list.
@@ -359,7 +368,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION__EQUIVALENT_CLASSES = RDFPackage.NODE_FEATURE_COUNT + 5;
+	int CLASS_EXPRESSION__EQUIVALENT_CLASSES = RDFPackage.SUBJECT_NODE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Class Expression</em>' class.
@@ -368,7 +377,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_EXPRESSION_FEATURE_COUNT = RDFPackage.NODE_FEATURE_COUNT + 6;
+	int CLASS_EXPRESSION_FEATURE_COUNT = RDFPackage.SUBJECT_NODE_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.owl.impl.OWLClassImpl <em>Class</em>}' class.
@@ -379,15 +388,6 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 */
 	int OWL_CLASS = 3;
-
-	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWL_CLASS__URI = RDFPackage.RESOURCE__URI;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -408,6 +408,15 @@ public interface OWLPackage extends EPackage {
 	int OWL_CLASS__COMMENT = RDFPackage.RESOURCE__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWL_CLASS__OBJECT_OF = RDFPackage.RESOURCE__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,13 +426,22 @@ public interface OWLPackage extends EPackage {
 	int OWL_CLASS__SUBJECT_OF = RDFPackage.RESOURCE__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OWL_CLASS__OBJECT_OF = RDFPackage.RESOURCE__OBJECT_OF;
+	int OWL_CLASS__URI = RDFPackage.RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWL_CLASS__NAMESPACE = RDFPackage.RESOURCE__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -526,15 +544,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_UNION_OF__COMMENT = CLASS_EXPRESSION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_UNION_OF__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -542,6 +551,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_UNION_OF__OBJECT_OF = CLASS_EXPRESSION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_UNION_OF__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -662,15 +680,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_INTERSECTION_OF__COMMENT = CLASS_EXPRESSION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_INTERSECTION_OF__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -678,6 +687,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_INTERSECTION_OF__OBJECT_OF = CLASS_EXPRESSION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_INTERSECTION_OF__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -798,15 +816,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_COMPLEMENT_OF__COMMENT = CLASS_EXPRESSION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_COMPLEMENT_OF__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -814,6 +823,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_COMPLEMENT_OF__OBJECT_OF = CLASS_EXPRESSION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_COMPLEMENT_OF__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -934,15 +952,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_ONE_OF__COMMENT = CLASS_EXPRESSION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_ONE_OF__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -950,6 +959,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_ONE_OF__OBJECT_OF = CLASS_EXPRESSION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_ONE_OF__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1070,15 +1088,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_PROPERTY_RESTRICTION__COMMENT = CLASS_EXPRESSION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1086,6 +1095,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_PROPERTY_RESTRICTION__OBJECT_OF = CLASS_EXPRESSION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1206,15 +1224,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_SOME_VALUES_FROM__COMMENT = OBJECT_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_SOME_VALUES_FROM__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1222,6 +1231,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_SOME_VALUES_FROM__OBJECT_OF = OBJECT_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SOME_VALUES_FROM__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1351,15 +1369,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_ALL_VALUES_FROM__COMMENT = OBJECT_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_ALL_VALUES_FROM__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1367,6 +1376,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_ALL_VALUES_FROM__OBJECT_OF = OBJECT_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_ALL_VALUES_FROM__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1496,15 +1514,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_HAS_VALUE__COMMENT = OBJECT_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_HAS_VALUE__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1512,6 +1521,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_HAS_VALUE__OBJECT_OF = OBJECT_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_HAS_VALUE__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1641,15 +1659,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_HAS_SELF__COMMENT = OBJECT_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_HAS_SELF__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1657,6 +1666,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_HAS_SELF__OBJECT_OF = OBJECT_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_HAS_SELF__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1777,15 +1795,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_EXACT_CARDINALITY__COMMENT = OBJECT_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_EXACT_CARDINALITY__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1793,6 +1802,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_EXACT_CARDINALITY__OBJECT_OF = OBJECT_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_EXACT_CARDINALITY__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1931,15 +1949,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_MAX_CARDINALITY__COMMENT = OBJECT_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_MAX_CARDINALITY__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1947,6 +1956,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_MAX_CARDINALITY__OBJECT_OF = OBJECT_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_MAX_CARDINALITY__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2085,15 +2103,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_MIN_CARDINALITY__COMMENT = OBJECT_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_MIN_CARDINALITY__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2101,6 +2110,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_MIN_CARDINALITY__OBJECT_OF = OBJECT_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_MIN_CARDINALITY__SUBJECT_OF = OBJECT_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2239,15 +2257,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_PROPERTY_RESTRICTION__COMMENT = CLASS_EXPRESSION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_PROPERTY_RESTRICTION__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2255,6 +2264,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_PROPERTY_RESTRICTION__OBJECT_OF = CLASS_EXPRESSION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROPERTY_RESTRICTION__SUBJECT_OF = CLASS_EXPRESSION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2366,15 +2384,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_SOME_VALUES_FROM__COMMENT = DATA_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOME_VALUES_FROM__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2382,6 +2391,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOME_VALUES_FROM__OBJECT_OF = DATA_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOME_VALUES_FROM__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2511,15 +2529,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_ALL_VALUES_FROM__COMMENT = DATA_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ALL_VALUES_FROM__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2527,6 +2536,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_ALL_VALUES_FROM__OBJECT_OF = DATA_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ALL_VALUES_FROM__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2656,15 +2674,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_HAS_VALUE__COMMENT = DATA_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_HAS_VALUE__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2672,6 +2681,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_HAS_VALUE__OBJECT_OF = DATA_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_HAS_VALUE__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2801,15 +2819,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_EXACT_CARDINALITY__COMMENT = DATA_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_EXACT_CARDINALITY__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2817,6 +2826,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_EXACT_CARDINALITY__OBJECT_OF = DATA_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_EXACT_CARDINALITY__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -2955,15 +2973,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_MAX_CARDINALITY__COMMENT = DATA_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_MAX_CARDINALITY__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2971,6 +2980,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_MAX_CARDINALITY__OBJECT_OF = DATA_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_MAX_CARDINALITY__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -3109,15 +3127,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_MIN_CARDINALITY__COMMENT = DATA_PROPERTY_RESTRICTION__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_MIN_CARDINALITY__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3125,6 +3134,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_MIN_CARDINALITY__OBJECT_OF = DATA_PROPERTY_RESTRICTION__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_MIN_CARDINALITY__SUBJECT_OF = DATA_PROPERTY_RESTRICTION__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -3245,15 +3263,6 @@ public interface OWLPackage extends EPackage {
 	int OWL_PROPERTY = 23;
 
 	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWL_PROPERTY__URI = RDFPackage.RESOURCE__URI;
-
-	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3272,6 +3281,15 @@ public interface OWLPackage extends EPackage {
 	int OWL_PROPERTY__COMMENT = RDFPackage.RESOURCE__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWL_PROPERTY__OBJECT_OF = RDFPackage.RESOURCE__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3281,13 +3299,22 @@ public interface OWLPackage extends EPackage {
 	int OWL_PROPERTY__SUBJECT_OF = RDFPackage.RESOURCE__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OWL_PROPERTY__OBJECT_OF = RDFPackage.RESOURCE__OBJECT_OF;
+	int OWL_PROPERTY__URI = RDFPackage.RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWL_PROPERTY__NAMESPACE = RDFPackage.RESOURCE__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -3327,15 +3354,6 @@ public interface OWLPackage extends EPackage {
 	int CLASS_PROPERTY = 24;
 
 	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_PROPERTY__URI = OWL_PROPERTY__URI;
-
-	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3354,6 +3372,15 @@ public interface OWLPackage extends EPackage {
 	int CLASS_PROPERTY__COMMENT = OWL_PROPERTY__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_PROPERTY__OBJECT_OF = OWL_PROPERTY__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3363,13 +3390,22 @@ public interface OWLPackage extends EPackage {
 	int CLASS_PROPERTY__SUBJECT_OF = OWL_PROPERTY__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_PROPERTY__OBJECT_OF = OWL_PROPERTY__OBJECT_OF;
+	int CLASS_PROPERTY__URI = OWL_PROPERTY__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_PROPERTY__NAMESPACE = OWL_PROPERTY__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -3427,15 +3463,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_PROPERTY = 25;
 
 	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_PROPERTY__URI = CLASS_PROPERTY__URI;
-
-	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3454,6 +3481,15 @@ public interface OWLPackage extends EPackage {
 	int DATA_PROPERTY__COMMENT = CLASS_PROPERTY__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROPERTY__OBJECT_OF = CLASS_PROPERTY__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3463,13 +3499,22 @@ public interface OWLPackage extends EPackage {
 	int DATA_PROPERTY__SUBJECT_OF = CLASS_PROPERTY__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PROPERTY__OBJECT_OF = CLASS_PROPERTY__OBJECT_OF;
+	int DATA_PROPERTY__URI = CLASS_PROPERTY__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROPERTY__NAMESPACE = CLASS_PROPERTY__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -3563,15 +3608,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_PROPERTY = 26;
 
 	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_PROPERTY__URI = CLASS_PROPERTY__URI;
-
-	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3590,6 +3626,15 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_PROPERTY__COMMENT = CLASS_PROPERTY__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_PROPERTY__OBJECT_OF = CLASS_PROPERTY__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3599,13 +3644,22 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_PROPERTY__SUBJECT_OF = CLASS_PROPERTY__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_PROPERTY__OBJECT_OF = CLASS_PROPERTY__OBJECT_OF;
+	int OBJECT_PROPERTY__URI = CLASS_PROPERTY__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_PROPERTY__NAMESPACE = CLASS_PROPERTY__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -3762,15 +3816,6 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_PROPERTY_CHAIN = 27;
 
 	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_PROPERTY_CHAIN__URI = OBJECT_PROPERTY__URI;
-
-	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3789,6 +3834,15 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_PROPERTY_CHAIN__COMMENT = OBJECT_PROPERTY__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_PROPERTY_CHAIN__OBJECT_OF = OBJECT_PROPERTY__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3798,13 +3852,22 @@ public interface OWLPackage extends EPackage {
 	int OBJECT_PROPERTY_CHAIN__SUBJECT_OF = OBJECT_PROPERTY__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_PROPERTY_CHAIN__OBJECT_OF = OBJECT_PROPERTY__OBJECT_OF;
+	int OBJECT_PROPERTY_CHAIN__URI = OBJECT_PROPERTY__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_PROPERTY_CHAIN__NAMESPACE = OBJECT_PROPERTY__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -3970,15 +4033,6 @@ public interface OWLPackage extends EPackage {
 	int ANNOTATION_PROPERTY = 28;
 
 	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_PROPERTY__URI = OWL_PROPERTY__URI;
-
-	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3997,6 +4051,15 @@ public interface OWLPackage extends EPackage {
 	int ANNOTATION_PROPERTY__COMMENT = OWL_PROPERTY__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_PROPERTY__OBJECT_OF = OWL_PROPERTY__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4006,13 +4069,22 @@ public interface OWLPackage extends EPackage {
 	int ANNOTATION_PROPERTY__SUBJECT_OF = OWL_PROPERTY__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_PROPERTY__OBJECT_OF = OWL_PROPERTY__OBJECT_OF;
+	int ANNOTATION_PROPERTY__URI = OWL_PROPERTY__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_PROPERTY__NAMESPACE = OWL_PROPERTY__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -4058,7 +4130,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_RANGE__LABEL = RDFPackage.NODE__LABEL;
+	int DATA_RANGE__LABEL = RDFPackage.SUBJECT_NODE__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -4067,16 +4139,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_RANGE__COMMENT = RDFPackage.NODE__COMMENT;
-
-	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_RANGE__SUBJECT_OF = RDFPackage.NODE__SUBJECT_OF;
+	int DATA_RANGE__COMMENT = RDFPackage.SUBJECT_NODE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
@@ -4085,7 +4148,16 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_RANGE__OBJECT_OF = RDFPackage.NODE__OBJECT_OF;
+	int DATA_RANGE__OBJECT_OF = RDFPackage.SUBJECT_NODE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_RANGE__SUBJECT_OF = RDFPackage.SUBJECT_NODE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4094,7 +4166,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_RANGE__ANNOTATIONS = RDFPackage.NODE_FEATURE_COUNT + 0;
+	int DATA_RANGE__ANNOTATIONS = RDFPackage.SUBJECT_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Data Range</em>' class.
@@ -4103,7 +4175,7 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_RANGE_FEATURE_COUNT = RDFPackage.NODE_FEATURE_COUNT + 1;
+	int DATA_RANGE_FEATURE_COUNT = RDFPackage.SUBJECT_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.emf4sw.owl.impl.OWLDatatypeImpl <em>Datatype</em>}' class.
@@ -4114,15 +4186,6 @@ public interface OWLPackage extends EPackage {
 	 * @generated
 	 */
 	int OWL_DATATYPE = 30;
-
-	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWL_DATATYPE__URI = RDFPackage.DATATYPE__URI;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -4143,6 +4206,15 @@ public interface OWLPackage extends EPackage {
 	int OWL_DATATYPE__COMMENT = RDFPackage.DATATYPE__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWL_DATATYPE__OBJECT_OF = RDFPackage.DATATYPE__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4152,13 +4224,22 @@ public interface OWLPackage extends EPackage {
 	int OWL_DATATYPE__SUBJECT_OF = RDFPackage.DATATYPE__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OWL_DATATYPE__OBJECT_OF = RDFPackage.DATATYPE__OBJECT_OF;
+	int OWL_DATATYPE__URI = RDFPackage.DATATYPE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWL_DATATYPE__NAMESPACE = RDFPackage.DATATYPE__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -4216,15 +4297,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_COMPLEMENT_OF__COMMENT = DATA_RANGE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_COMPLEMENT_OF__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4232,6 +4304,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_COMPLEMENT_OF__OBJECT_OF = DATA_RANGE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_COMPLEMENT_OF__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4289,15 +4370,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_UNION_OF__COMMENT = DATA_RANGE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_UNION_OF__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4305,6 +4377,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_UNION_OF__OBJECT_OF = DATA_RANGE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_UNION_OF__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4362,15 +4443,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_INTERSECTION_OF__COMMENT = DATA_RANGE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_INTERSECTION_OF__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4378,6 +4450,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_INTERSECTION_OF__OBJECT_OF = DATA_RANGE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_INTERSECTION_OF__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4435,15 +4516,6 @@ public interface OWLPackage extends EPackage {
 	int DATA_ONE_OF__COMMENT = DATA_RANGE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_ONE_OF__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4451,6 +4523,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_ONE_OF__OBJECT_OF = DATA_RANGE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ONE_OF__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4508,15 +4589,6 @@ public interface OWLPackage extends EPackage {
 	int DATATYPE_RESTRICTION__COMMENT = DATA_RANGE__COMMENT;
 
 	/**
-	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATATYPE_RESTRICTION__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4524,6 +4596,15 @@ public interface OWLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATATYPE_RESTRICTION__OBJECT_OF = DATA_RANGE__OBJECT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATATYPE_RESTRICTION__SUBJECT_OF = DATA_RANGE__SUBJECT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -4692,15 +4773,6 @@ public interface OWLPackage extends EPackage {
 	int INDIVIDUAL = 39;
 
 	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDIVIDUAL__URI = RDFPackage.RESOURCE__URI;
-
-	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4719,6 +4791,15 @@ public interface OWLPackage extends EPackage {
 	int INDIVIDUAL__COMMENT = RDFPackage.RESOURCE__COMMENT;
 
 	/**
+	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDIVIDUAL__OBJECT_OF = RDFPackage.RESOURCE__OBJECT_OF;
+
+	/**
 	 * The feature id for the '<em><b>Subject Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4728,13 +4809,22 @@ public interface OWLPackage extends EPackage {
 	int INDIVIDUAL__SUBJECT_OF = RDFPackage.RESOURCE__SUBJECT_OF;
 
 	/**
-	 * The feature id for the '<em><b>Object Of</b></em>' reference list.
+	 * The feature id for the '<em><b>URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INDIVIDUAL__OBJECT_OF = RDFPackage.RESOURCE__OBJECT_OF;
+	int INDIVIDUAL__URI = RDFPackage.RESOURCE__URI;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDIVIDUAL__NAMESPACE = RDFPackage.RESOURCE__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.

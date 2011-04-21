@@ -58,6 +58,7 @@ import com.emf4sw.rdf.DocumentGraph;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.Resource;
+import com.emf4sw.rdf.SubjectNode;
 import com.emf4sw.rdf.URIElement;
 
 /**
@@ -153,8 +154,9 @@ public class OWLSwitch<T> {
 			case OWLPackage.CLASS_EXPRESSION: {
 				ClassExpression classExpression = (ClassExpression)theEObject;
 				T result = caseClassExpression(classExpression);
-				if (result == null) result = caseNode(classExpression);
+				if (result == null) result = caseSubjectNode(classExpression);
 				if (result == null) result = caseAnnotatedElement(classExpression);
+				if (result == null) result = caseNode(classExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,9 +165,10 @@ public class OWLSwitch<T> {
 				T result = caseOWLClass(owlClass);
 				if (result == null) result = caseResource(owlClass);
 				if (result == null) result = caseClassExpression(owlClass);
+				if (result == null) result = caseSubjectNode(owlClass);
 				if (result == null) result = caseURIElement(owlClass);
-				if (result == null) result = caseNode(owlClass);
 				if (result == null) result = caseAnnotatedElement(owlClass);
+				if (result == null) result = caseNode(owlClass);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -174,8 +177,9 @@ public class OWLSwitch<T> {
 				T result = caseObjectUnionOf(objectUnionOf);
 				if (result == null) result = caseClassExpression(objectUnionOf);
 				if (result == null) result = caseBlankNode(objectUnionOf);
-				if (result == null) result = caseNode(objectUnionOf);
+				if (result == null) result = caseSubjectNode(objectUnionOf);
 				if (result == null) result = caseAnnotatedElement(objectUnionOf);
+				if (result == null) result = caseNode(objectUnionOf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -184,8 +188,9 @@ public class OWLSwitch<T> {
 				T result = caseObjectIntersectionOf(objectIntersectionOf);
 				if (result == null) result = caseClassExpression(objectIntersectionOf);
 				if (result == null) result = caseBlankNode(objectIntersectionOf);
-				if (result == null) result = caseNode(objectIntersectionOf);
+				if (result == null) result = caseSubjectNode(objectIntersectionOf);
 				if (result == null) result = caseAnnotatedElement(objectIntersectionOf);
+				if (result == null) result = caseNode(objectIntersectionOf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,8 +199,9 @@ public class OWLSwitch<T> {
 				T result = caseObjectComplementOf(objectComplementOf);
 				if (result == null) result = caseClassExpression(objectComplementOf);
 				if (result == null) result = caseBlankNode(objectComplementOf);
-				if (result == null) result = caseNode(objectComplementOf);
+				if (result == null) result = caseSubjectNode(objectComplementOf);
 				if (result == null) result = caseAnnotatedElement(objectComplementOf);
+				if (result == null) result = caseNode(objectComplementOf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -204,8 +210,9 @@ public class OWLSwitch<T> {
 				T result = caseObjectOneOf(objectOneOf);
 				if (result == null) result = caseClassExpression(objectOneOf);
 				if (result == null) result = caseBlankNode(objectOneOf);
-				if (result == null) result = caseNode(objectOneOf);
+				if (result == null) result = caseSubjectNode(objectOneOf);
 				if (result == null) result = caseAnnotatedElement(objectOneOf);
+				if (result == null) result = caseNode(objectOneOf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -214,8 +221,9 @@ public class OWLSwitch<T> {
 				T result = caseObjectPropertyRestriction(objectPropertyRestriction);
 				if (result == null) result = caseClassExpression(objectPropertyRestriction);
 				if (result == null) result = caseBlankNode(objectPropertyRestriction);
-				if (result == null) result = caseNode(objectPropertyRestriction);
+				if (result == null) result = caseSubjectNode(objectPropertyRestriction);
 				if (result == null) result = caseAnnotatedElement(objectPropertyRestriction);
+				if (result == null) result = caseNode(objectPropertyRestriction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -225,8 +233,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseObjectPropertyRestriction(objectSomeValuesFrom);
 				if (result == null) result = caseClassExpression(objectSomeValuesFrom);
 				if (result == null) result = caseBlankNode(objectSomeValuesFrom);
-				if (result == null) result = caseNode(objectSomeValuesFrom);
+				if (result == null) result = caseSubjectNode(objectSomeValuesFrom);
 				if (result == null) result = caseAnnotatedElement(objectSomeValuesFrom);
+				if (result == null) result = caseNode(objectSomeValuesFrom);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -236,8 +245,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseObjectPropertyRestriction(objectAllValuesFrom);
 				if (result == null) result = caseClassExpression(objectAllValuesFrom);
 				if (result == null) result = caseBlankNode(objectAllValuesFrom);
-				if (result == null) result = caseNode(objectAllValuesFrom);
+				if (result == null) result = caseSubjectNode(objectAllValuesFrom);
 				if (result == null) result = caseAnnotatedElement(objectAllValuesFrom);
+				if (result == null) result = caseNode(objectAllValuesFrom);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -247,8 +257,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseObjectPropertyRestriction(objectHasValue);
 				if (result == null) result = caseClassExpression(objectHasValue);
 				if (result == null) result = caseBlankNode(objectHasValue);
-				if (result == null) result = caseNode(objectHasValue);
+				if (result == null) result = caseSubjectNode(objectHasValue);
 				if (result == null) result = caseAnnotatedElement(objectHasValue);
+				if (result == null) result = caseNode(objectHasValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -258,8 +269,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseObjectPropertyRestriction(objectHasSelf);
 				if (result == null) result = caseClassExpression(objectHasSelf);
 				if (result == null) result = caseBlankNode(objectHasSelf);
-				if (result == null) result = caseNode(objectHasSelf);
+				if (result == null) result = caseSubjectNode(objectHasSelf);
 				if (result == null) result = caseAnnotatedElement(objectHasSelf);
+				if (result == null) result = caseNode(objectHasSelf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -269,8 +281,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseObjectPropertyRestriction(objectExactCardinality);
 				if (result == null) result = caseClassExpression(objectExactCardinality);
 				if (result == null) result = caseBlankNode(objectExactCardinality);
-				if (result == null) result = caseNode(objectExactCardinality);
+				if (result == null) result = caseSubjectNode(objectExactCardinality);
 				if (result == null) result = caseAnnotatedElement(objectExactCardinality);
+				if (result == null) result = caseNode(objectExactCardinality);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -280,8 +293,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseObjectPropertyRestriction(objectMaxCardinality);
 				if (result == null) result = caseClassExpression(objectMaxCardinality);
 				if (result == null) result = caseBlankNode(objectMaxCardinality);
-				if (result == null) result = caseNode(objectMaxCardinality);
+				if (result == null) result = caseSubjectNode(objectMaxCardinality);
 				if (result == null) result = caseAnnotatedElement(objectMaxCardinality);
+				if (result == null) result = caseNode(objectMaxCardinality);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -291,8 +305,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseObjectPropertyRestriction(objectMinCardinality);
 				if (result == null) result = caseClassExpression(objectMinCardinality);
 				if (result == null) result = caseBlankNode(objectMinCardinality);
-				if (result == null) result = caseNode(objectMinCardinality);
+				if (result == null) result = caseSubjectNode(objectMinCardinality);
 				if (result == null) result = caseAnnotatedElement(objectMinCardinality);
+				if (result == null) result = caseNode(objectMinCardinality);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -301,8 +316,9 @@ public class OWLSwitch<T> {
 				T result = caseDataPropertyRestriction(dataPropertyRestriction);
 				if (result == null) result = caseClassExpression(dataPropertyRestriction);
 				if (result == null) result = caseBlankNode(dataPropertyRestriction);
-				if (result == null) result = caseNode(dataPropertyRestriction);
+				if (result == null) result = caseSubjectNode(dataPropertyRestriction);
 				if (result == null) result = caseAnnotatedElement(dataPropertyRestriction);
+				if (result == null) result = caseNode(dataPropertyRestriction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -312,8 +328,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseDataPropertyRestriction(dataSomeValuesFrom);
 				if (result == null) result = caseClassExpression(dataSomeValuesFrom);
 				if (result == null) result = caseBlankNode(dataSomeValuesFrom);
-				if (result == null) result = caseNode(dataSomeValuesFrom);
+				if (result == null) result = caseSubjectNode(dataSomeValuesFrom);
 				if (result == null) result = caseAnnotatedElement(dataSomeValuesFrom);
+				if (result == null) result = caseNode(dataSomeValuesFrom);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -323,8 +340,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseDataPropertyRestriction(dataAllValuesFrom);
 				if (result == null) result = caseClassExpression(dataAllValuesFrom);
 				if (result == null) result = caseBlankNode(dataAllValuesFrom);
-				if (result == null) result = caseNode(dataAllValuesFrom);
+				if (result == null) result = caseSubjectNode(dataAllValuesFrom);
 				if (result == null) result = caseAnnotatedElement(dataAllValuesFrom);
+				if (result == null) result = caseNode(dataAllValuesFrom);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -334,8 +352,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseDataPropertyRestriction(dataHasValue);
 				if (result == null) result = caseClassExpression(dataHasValue);
 				if (result == null) result = caseBlankNode(dataHasValue);
-				if (result == null) result = caseNode(dataHasValue);
+				if (result == null) result = caseSubjectNode(dataHasValue);
 				if (result == null) result = caseAnnotatedElement(dataHasValue);
+				if (result == null) result = caseNode(dataHasValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -345,8 +364,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseDataPropertyRestriction(dataExactCardinality);
 				if (result == null) result = caseClassExpression(dataExactCardinality);
 				if (result == null) result = caseBlankNode(dataExactCardinality);
-				if (result == null) result = caseNode(dataExactCardinality);
+				if (result == null) result = caseSubjectNode(dataExactCardinality);
 				if (result == null) result = caseAnnotatedElement(dataExactCardinality);
+				if (result == null) result = caseNode(dataExactCardinality);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -356,8 +376,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseDataPropertyRestriction(dataMaxCardinality);
 				if (result == null) result = caseClassExpression(dataMaxCardinality);
 				if (result == null) result = caseBlankNode(dataMaxCardinality);
-				if (result == null) result = caseNode(dataMaxCardinality);
+				if (result == null) result = caseSubjectNode(dataMaxCardinality);
 				if (result == null) result = caseAnnotatedElement(dataMaxCardinality);
+				if (result == null) result = caseNode(dataMaxCardinality);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -367,8 +388,9 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseDataPropertyRestriction(dataMinCardinality);
 				if (result == null) result = caseClassExpression(dataMinCardinality);
 				if (result == null) result = caseBlankNode(dataMinCardinality);
-				if (result == null) result = caseNode(dataMinCardinality);
+				if (result == null) result = caseSubjectNode(dataMinCardinality);
 				if (result == null) result = caseAnnotatedElement(dataMinCardinality);
+				if (result == null) result = caseNode(dataMinCardinality);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -377,6 +399,7 @@ public class OWLSwitch<T> {
 				T result = caseOWLProperty(owlProperty);
 				if (result == null) result = caseResource(owlProperty);
 				if (result == null) result = caseAnnotatedElement(owlProperty);
+				if (result == null) result = caseSubjectNode(owlProperty);
 				if (result == null) result = caseURIElement(owlProperty);
 				if (result == null) result = caseNode(owlProperty);
 				if (result == null) result = defaultCase(theEObject);
@@ -388,6 +411,7 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseOWLProperty(classProperty);
 				if (result == null) result = caseResource(classProperty);
 				if (result == null) result = caseAnnotatedElement(classProperty);
+				if (result == null) result = caseSubjectNode(classProperty);
 				if (result == null) result = caseURIElement(classProperty);
 				if (result == null) result = caseNode(classProperty);
 				if (result == null) result = defaultCase(theEObject);
@@ -400,6 +424,7 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseOWLProperty(dataProperty);
 				if (result == null) result = caseResource(dataProperty);
 				if (result == null) result = caseAnnotatedElement(dataProperty);
+				if (result == null) result = caseSubjectNode(dataProperty);
 				if (result == null) result = caseURIElement(dataProperty);
 				if (result == null) result = caseNode(dataProperty);
 				if (result == null) result = defaultCase(theEObject);
@@ -412,6 +437,7 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseOWLProperty(objectProperty);
 				if (result == null) result = caseResource(objectProperty);
 				if (result == null) result = caseAnnotatedElement(objectProperty);
+				if (result == null) result = caseSubjectNode(objectProperty);
 				if (result == null) result = caseURIElement(objectProperty);
 				if (result == null) result = caseNode(objectProperty);
 				if (result == null) result = defaultCase(theEObject);
@@ -425,6 +451,7 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseOWLProperty(objectPropertyChain);
 				if (result == null) result = caseResource(objectPropertyChain);
 				if (result == null) result = caseAnnotatedElement(objectPropertyChain);
+				if (result == null) result = caseSubjectNode(objectPropertyChain);
 				if (result == null) result = caseURIElement(objectPropertyChain);
 				if (result == null) result = caseNode(objectPropertyChain);
 				if (result == null) result = defaultCase(theEObject);
@@ -436,6 +463,7 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseOWLProperty(annotationProperty);
 				if (result == null) result = caseResource(annotationProperty);
 				if (result == null) result = caseAnnotatedElement(annotationProperty);
+				if (result == null) result = caseSubjectNode(annotationProperty);
 				if (result == null) result = caseURIElement(annotationProperty);
 				if (result == null) result = caseNode(annotationProperty);
 				if (result == null) result = defaultCase(theEObject);
@@ -444,8 +472,9 @@ public class OWLSwitch<T> {
 			case OWLPackage.DATA_RANGE: {
 				DataRange dataRange = (DataRange)theEObject;
 				T result = caseDataRange(dataRange);
-				if (result == null) result = caseNode(dataRange);
+				if (result == null) result = caseSubjectNode(dataRange);
 				if (result == null) result = caseAnnotatedElement(dataRange);
+				if (result == null) result = caseNode(dataRange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -456,6 +485,7 @@ public class OWLSwitch<T> {
 				if (result == null) result = caseDataRange(owlDatatype);
 				if (result == null) result = caseResource(owlDatatype);
 				if (result == null) result = caseAnnotatedElement(owlDatatype);
+				if (result == null) result = caseSubjectNode(owlDatatype);
 				if (result == null) result = caseURIElement(owlDatatype);
 				if (result == null) result = caseNode(owlDatatype);
 				if (result == null) result = defaultCase(theEObject);
@@ -465,8 +495,9 @@ public class OWLSwitch<T> {
 				DataComplementOf dataComplementOf = (DataComplementOf)theEObject;
 				T result = caseDataComplementOf(dataComplementOf);
 				if (result == null) result = caseDataRange(dataComplementOf);
-				if (result == null) result = caseNode(dataComplementOf);
+				if (result == null) result = caseSubjectNode(dataComplementOf);
 				if (result == null) result = caseAnnotatedElement(dataComplementOf);
+				if (result == null) result = caseNode(dataComplementOf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -474,8 +505,9 @@ public class OWLSwitch<T> {
 				DataUnionOf dataUnionOf = (DataUnionOf)theEObject;
 				T result = caseDataUnionOf(dataUnionOf);
 				if (result == null) result = caseDataRange(dataUnionOf);
-				if (result == null) result = caseNode(dataUnionOf);
+				if (result == null) result = caseSubjectNode(dataUnionOf);
 				if (result == null) result = caseAnnotatedElement(dataUnionOf);
+				if (result == null) result = caseNode(dataUnionOf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -483,8 +515,9 @@ public class OWLSwitch<T> {
 				DataIntersectionOf dataIntersectionOf = (DataIntersectionOf)theEObject;
 				T result = caseDataIntersectionOf(dataIntersectionOf);
 				if (result == null) result = caseDataRange(dataIntersectionOf);
-				if (result == null) result = caseNode(dataIntersectionOf);
+				if (result == null) result = caseSubjectNode(dataIntersectionOf);
 				if (result == null) result = caseAnnotatedElement(dataIntersectionOf);
+				if (result == null) result = caseNode(dataIntersectionOf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -492,8 +525,9 @@ public class OWLSwitch<T> {
 				DataOneOf dataOneOf = (DataOneOf)theEObject;
 				T result = caseDataOneOf(dataOneOf);
 				if (result == null) result = caseDataRange(dataOneOf);
-				if (result == null) result = caseNode(dataOneOf);
+				if (result == null) result = caseSubjectNode(dataOneOf);
 				if (result == null) result = caseAnnotatedElement(dataOneOf);
+				if (result == null) result = caseNode(dataOneOf);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -501,8 +535,9 @@ public class OWLSwitch<T> {
 				DatatypeRestriction datatypeRestriction = (DatatypeRestriction)theEObject;
 				T result = caseDatatypeRestriction(datatypeRestriction);
 				if (result == null) result = caseDataRange(datatypeRestriction);
-				if (result == null) result = caseNode(datatypeRestriction);
+				if (result == null) result = caseSubjectNode(datatypeRestriction);
 				if (result == null) result = caseAnnotatedElement(datatypeRestriction);
+				if (result == null) result = caseNode(datatypeRestriction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -529,6 +564,7 @@ public class OWLSwitch<T> {
 				Individual individual = (Individual)theEObject;
 				T result = caseIndividual(individual);
 				if (result == null) result = caseResource(individual);
+				if (result == null) result = caseSubjectNode(individual);
 				if (result == null) result = caseURIElement(individual);
 				if (result == null) result = caseNode(individual);
 				if (result == null) result = defaultCase(theEObject);
@@ -1195,6 +1231,21 @@ public class OWLSwitch<T> {
 	 * @generated
 	 */
 	public T caseNode(Node object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Subject Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Subject Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubjectNode(SubjectNode object) {
 		return null;
 	}
 

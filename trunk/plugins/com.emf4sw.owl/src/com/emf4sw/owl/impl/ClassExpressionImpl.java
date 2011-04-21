@@ -23,7 +23,7 @@ import com.emf4sw.owl.AnnotationProperty;
 import com.emf4sw.owl.ClassExpression;
 import com.emf4sw.owl.OWLPackage;
 import com.emf4sw.owl.OWLProperty;
-import com.emf4sw.rdf.impl.NodeImpl;
+import com.emf4sw.rdf.impl.SubjectNodeImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ import com.emf4sw.rdf.impl.NodeImpl;
  *
  * @generated
  */
-public abstract class ClassExpressionImpl extends NodeImpl implements ClassExpression {
+public abstract class ClassExpressionImpl extends SubjectNodeImpl implements ClassExpression {
 	/**
 	 * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

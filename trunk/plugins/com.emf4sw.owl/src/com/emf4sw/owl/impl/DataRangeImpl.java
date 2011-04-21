@@ -20,7 +20,7 @@ import com.emf4sw.owl.Annotation;
 import com.emf4sw.owl.AnnotationProperty;
 import com.emf4sw.owl.DataRange;
 import com.emf4sw.owl.OWLPackage;
-import com.emf4sw.rdf.impl.NodeImpl;
+import com.emf4sw.rdf.impl.SubjectNodeImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ import com.emf4sw.rdf.impl.NodeImpl;
  *
  * @generated
  */
-public abstract class DataRangeImpl extends NodeImpl implements DataRange {
+public abstract class DataRangeImpl extends SubjectNodeImpl implements DataRange {
 	/**
 	 * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
