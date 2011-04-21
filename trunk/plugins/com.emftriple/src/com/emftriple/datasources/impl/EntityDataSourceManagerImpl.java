@@ -138,7 +138,7 @@ public class EntityDataSourceManagerImpl extends EntityManagerDelegateImpl imple
 	}
 
 	@Override
-	public List<?> findNodes(List<Node> nodes) {
+	public List<?> findNodes(List<? extends Node> nodes) {
 		final List<Object> list = Lists.newArrayList();
 		for (Node node: nodes) 
 		{
