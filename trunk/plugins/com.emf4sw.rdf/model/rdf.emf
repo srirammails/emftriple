@@ -19,13 +19,16 @@ abstract class RDFGraph extends URIElement {
   op void add(RDFGraph graph);
   op RDFGraph union(RDFGraph graph);
   op RDFGraph diff(RDFGraph graph);
+  
   op Triple addTriple(Node subject, Property property, Node object);
-  op Node listSubjectsWithProperty(Property property, Node object);
-  op Node[*] listSubjects();
+  op SubjectNode listSubjectsWithProperty(Property property, Node object);
+  op SubjectNode[*] listSubjects();
+  
   op Resource getResource(String uri);
   op Property getProperty(String uri);
   op Datatype getDatatype(String uri);
   op BlankNode getBlankNode(String nodeID);
+  
   op Triple[*] listAllTriples();
   op Resource[*] listAllResources();
   op Property[*] listAllProperties();
@@ -57,41 +60,44 @@ class DocumentGraph extends RDFGraph {
 }
 
 class Triple {
-  ref Node[1]#subjectOf subject;
+  ref SubjectNode[1]#subjectOf subject;
   ref Property[1]#predicateOf predicate;
   ref Node[1]#objectOf object;
   ref RDFGraph[1]#triples graph;
 }
 
 abstract class Node {
-  op boolean isTypeOf(String uri);
-  op Node[*] getTypes();
-  op String[1] getStringValue(String uri);
-  op Node[*] getValues(String uri);
-  op String[*] getURIValues(String uri);
-  op Node[*] getObject(String uri);
-  
   attr String[?] label;
   attr String[?] comment;
-  
-  ref Triple[*]#subject subjectOf;
+
   ref Triple[*]#object objectOf;
+}
+
+abstract class SubjectNode extends Node {
+    op boolean isTypeOf(String uri);
+    op Resource[*] getTypes();
+    op String[1] getStringValue(String uri);
+    op Node[*] getValues(String uri);
+    op String[*] getURIValues(String uri);
+    op Node[*] getObject(String uri);
+  
+	ref Triple[*]#subject subjectOf;   
 }
 
 class NamedGraph extends RDFGraph, Node {
   ref DocumentGraph[1]#subGraphs document;
 }
 
-class BlankNode extends Node {
+class BlankNode extends SubjectNode {
   id attr String[1] nodeID;
   ref RDFGraph#blankNodes graph;
 }
 
-class TripleNode extends Node, URIElement {
+class TripleNode extends Resource {
   ref Triple[1] triple;
 }
 
-class Resource extends URIElement, Node {
+class Resource extends SubjectNode, URIElement {
   op boolean isTypeOf(String uri);
   transient ref RDFGraph#resources graph;
 }

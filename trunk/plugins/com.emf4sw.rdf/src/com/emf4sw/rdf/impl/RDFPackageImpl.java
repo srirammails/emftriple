@@ -30,6 +30,7 @@ import com.emf4sw.rdf.RDFPackage;
 import com.emf4sw.rdf.RDFSContainer;
 import com.emf4sw.rdf.RDFSeq;
 import com.emf4sw.rdf.Resource;
+import com.emf4sw.rdf.SubjectNode;
 import com.emf4sw.rdf.Triple;
 import com.emf4sw.rdf.TripleNode;
 import com.emf4sw.rdf.URIElement;
@@ -89,6 +90,13 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * @generated
 	 */
 	private EClass nodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass subjectNodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -476,7 +484,7 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_SubjectOf() {
+	public EReference getNode_ObjectOf() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -485,8 +493,17 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_ObjectOf() {
-		return (EReference)nodeEClass.getEStructuralFeatures().get(3);
+	public EClass getSubjectNode() {
+		return subjectNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubjectNode_SubjectOf() {
+		return (EReference)subjectNodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -763,8 +780,10 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		nodeEClass = createEClass(NODE);
 		createEAttribute(nodeEClass, NODE__LABEL);
 		createEAttribute(nodeEClass, NODE__COMMENT);
-		createEReference(nodeEClass, NODE__SUBJECT_OF);
 		createEReference(nodeEClass, NODE__OBJECT_OF);
+
+		subjectNodeEClass = createEClass(SUBJECT_NODE);
+		createEReference(subjectNodeEClass, SUBJECT_NODE__SUBJECT_OF);
 
 		namedGraphEClass = createEClass(NAMED_GRAPH);
 		createEReference(namedGraphEClass, NAMED_GRAPH__DOCUMENT);
@@ -836,13 +855,13 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		namespaceEClass.getESuperTypes().add(this.getURIElement());
 		rdfGraphEClass.getESuperTypes().add(this.getURIElement());
 		documentGraphEClass.getESuperTypes().add(this.getRDFGraph());
+		subjectNodeEClass.getESuperTypes().add(this.getNode());
 		namedGraphEClass.getESuperTypes().add(this.getRDFGraph());
 		namedGraphEClass.getESuperTypes().add(this.getNode());
-		blankNodeEClass.getESuperTypes().add(this.getNode());
-		tripleNodeEClass.getESuperTypes().add(this.getNode());
-		tripleNodeEClass.getESuperTypes().add(this.getURIElement());
+		blankNodeEClass.getESuperTypes().add(this.getSubjectNode());
+		tripleNodeEClass.getESuperTypes().add(this.getResource());
+		resourceEClass.getESuperTypes().add(this.getSubjectNode());
 		resourceEClass.getESuperTypes().add(this.getURIElement());
-		resourceEClass.getESuperTypes().add(this.getNode());
 		propertyEClass.getESuperTypes().add(this.getResource());
 		datatypeEClass.getESuperTypes().add(this.getResource());
 		literalEClass.getESuperTypes().add(this.getNode());
@@ -889,11 +908,11 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		addEParameter(op, this.getProperty(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNode(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(rdfGraphEClass, this.getNode(), "listSubjectsWithProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(rdfGraphEClass, this.getSubjectNode(), "listSubjectsWithProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getProperty(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNode(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(rdfGraphEClass, this.getNode(), "listSubjects", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(rdfGraphEClass, this.getSubjectNode(), "listSubjects", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(rdfGraphEClass, this.getResource(), "getResource", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -921,7 +940,7 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(tripleEClass, Triple.class, "Triple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTriple_Subject(), this.getNode(), this.getNode_SubjectOf(), "subject", null, 1, 1, Triple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTriple_Subject(), this.getSubjectNode(), this.getSubjectNode_SubjectOf(), "subject", null, 1, 1, Triple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTriple_Predicate(), this.getProperty(), this.getProperty_PredicateOf(), "predicate", null, 1, 1, Triple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTriple_Object(), this.getNode(), this.getNode_ObjectOf(), "object", null, 1, 1, Triple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTriple_Graph(), this.getRDFGraph(), this.getRDFGraph_Triples(), "graph", null, 1, 1, Triple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -929,24 +948,26 @@ public class RDFPackageImpl extends EPackageImpl implements RDFPackage {
 		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNode_Label(), ecorePackage.getEString(), "label", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNode_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_SubjectOf(), this.getTriple(), this.getTriple_Subject(), "subjectOf", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_ObjectOf(), this.getTriple(), this.getTriple_Object(), "objectOf", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(nodeEClass, ecorePackage.getEBoolean(), "isTypeOf", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(subjectNodeEClass, SubjectNode.class, "SubjectNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSubjectNode_SubjectOf(), this.getTriple(), this.getTriple_Subject(), "subjectOf", null, 0, -1, SubjectNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(subjectNodeEClass, ecorePackage.getEBoolean(), "isTypeOf", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(nodeEClass, this.getNode(), "getTypes", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(subjectNodeEClass, this.getResource(), "getTypes", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(nodeEClass, ecorePackage.getEString(), "getStringValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(subjectNodeEClass, ecorePackage.getEString(), "getStringValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(nodeEClass, this.getNode(), "getValues", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(subjectNodeEClass, this.getNode(), "getValues", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(nodeEClass, ecorePackage.getEString(), "getURIValues", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(subjectNodeEClass, ecorePackage.getEString(), "getURIValues", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(nodeEClass, this.getNode(), "getObject", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(subjectNodeEClass, this.getNode(), "getObject", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(namedGraphEClass, NamedGraph.class, "NamedGraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.emf4sw.rdf.DocumentGraph;
-import com.emf4sw.rdf.Literal;
 import com.emf4sw.rdf.NamedGraph;
 import com.emf4sw.rdf.Node;
 import com.emf4sw.rdf.Property;
@@ -28,9 +27,7 @@ import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.RDFPackage;
 import com.emf4sw.rdf.Resource;
 import com.emf4sw.rdf.Triple;
-import com.emf4sw.rdf.URIElement;
 import com.emf4sw.rdf.operations.RDFUtil;
-import com.emf4sw.rdf.vocabulary.RDF;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +38,6 @@ import com.emf4sw.rdf.vocabulary.RDF;
  * <ul>
  *   <li>{@link com.emf4sw.rdf.impl.NamedGraphImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link com.emf4sw.rdf.impl.NamedGraphImpl#getComment <em>Comment</em>}</li>
- *   <li>{@link com.emf4sw.rdf.impl.NamedGraphImpl#getSubjectOf <em>Subject Of</em>}</li>
  *   <li>{@link com.emf4sw.rdf.impl.NamedGraphImpl#getObjectOf <em>Object Of</em>}</li>
  *   <li>{@link com.emf4sw.rdf.impl.NamedGraphImpl#getDocument <em>Document</em>}</li>
  * </ul>
@@ -89,16 +85,6 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 	 * @ordered
 	 */
 	protected String comment = COMMENT_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSubjectOf() <em>Subject Of</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubjectOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Triple> subjectOf;
 
 	/**
 	 * The cached value of the '{@link #getObjectOf() <em>Object Of</em>}' reference list.
@@ -229,18 +215,6 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Triple> getSubjectOf() {
-		if (subjectOf == null) {
-			subjectOf = new EObjectWithInverseResolvingEList<Triple>(Triple.class, this, RDFPackage.NAMED_GRAPH__SUBJECT_OF, RDFPackage.TRIPLE__SUBJECT);
-		}
-		return subjectOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Triple> getObjectOf() {
 		if (objectOf == null) {
 			objectOf = new EObjectWithInverseResolvingEList<Triple>(Triple.class, this, RDFPackage.NAMED_GRAPH__OBJECT_OF, RDFPackage.TRIPLE__OBJECT);
@@ -311,114 +285,12 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 */
-	public boolean isTypeOf(String uri) {
-		for (Node resource: getTypes()) {
-			if (resource instanceof Resource && 
-					uri.equals( ((Resource)resource).getURI())) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 */
-	public EList<Node> getTypes() {
-		EList<Node> types = new BasicEList<Node>();
-		for (Triple triple: getSubjectOf()) {
-			if (triple.getPredicate().getURI().equals(RDF.type)) {
-				types.add((Resource) triple.getObject());
-			}
-		}
-		return types;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 */
-	public String getStringValue(String uri) {
-		Literal aLiteral = 
-			(Literal) EcoreUtil.getObjectByType(getValues(uri), RDFPackage.eINSTANCE.getLiteral());
-		return aLiteral != null ? aLiteral.getLexicalForm() : null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 */
-	public EList<Node> getValues(String uri) {
-		EList<Node> aList = new BasicEList<Node>();
-		for (Node aNode: getObject(uri)) {
-			aList.add(aNode);
-		}
-		return aList;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 */
-	public EList<String> getURIValues(String uri) {
-		EList<String> aList = new BasicEList<String>();
-		for (Node aNode: getObject(uri)) {
-			if (aNode instanceof URIElement) {
-				aList.add(((URIElement) aNode).getURI());
-			}
-		}
-		return aList;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 */
-	public EList<Node> getObject(String uri) {
-		EList<Node> objects = new BasicEList<Node>();
-		for (Triple triple: getSubjectOf()) {
-			if (triple.getPredicate().getURI().equals(uri)) {
-				objects.add(triple.getObject());
-			}
-		}
-		return objects;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public EList<String> getStringValues(String uri) {
-		final EList<String> values = new BasicEList<String>();
-		final Collection<Literal> literals = 
-			EcoreUtil.getObjectsByType(getValues(uri), RDFPackage.eINSTANCE.getLiteral());
-		
-		for (Literal literal: literals) {
-			values.add(literal.getLexicalForm());
-		}
-		return values;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RDFPackage.NAMED_GRAPH__SUBJECT_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubjectOf()).basicAdd(otherEnd, msgs);
 			case RDFPackage.NAMED_GRAPH__OBJECT_OF:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getObjectOf()).basicAdd(otherEnd, msgs);
 			case RDFPackage.NAMED_GRAPH__DOCUMENT:
@@ -437,8 +309,6 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RDFPackage.NAMED_GRAPH__SUBJECT_OF:
-				return ((InternalEList<?>)getSubjectOf()).basicRemove(otherEnd, msgs);
 			case RDFPackage.NAMED_GRAPH__OBJECT_OF:
 				return ((InternalEList<?>)getObjectOf()).basicRemove(otherEnd, msgs);
 			case RDFPackage.NAMED_GRAPH__DOCUMENT:
@@ -459,8 +329,6 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 				return getLabel();
 			case RDFPackage.NAMED_GRAPH__COMMENT:
 				return getComment();
-			case RDFPackage.NAMED_GRAPH__SUBJECT_OF:
-				return getSubjectOf();
 			case RDFPackage.NAMED_GRAPH__OBJECT_OF:
 				return getObjectOf();
 			case RDFPackage.NAMED_GRAPH__DOCUMENT:
@@ -484,10 +352,6 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 				return;
 			case RDFPackage.NAMED_GRAPH__COMMENT:
 				setComment((String)newValue);
-				return;
-			case RDFPackage.NAMED_GRAPH__SUBJECT_OF:
-				getSubjectOf().clear();
-				getSubjectOf().addAll((Collection<? extends Triple>)newValue);
 				return;
 			case RDFPackage.NAMED_GRAPH__OBJECT_OF:
 				getObjectOf().clear();
@@ -514,9 +378,6 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 			case RDFPackage.NAMED_GRAPH__COMMENT:
 				setComment(COMMENT_EDEFAULT);
 				return;
-			case RDFPackage.NAMED_GRAPH__SUBJECT_OF:
-				getSubjectOf().clear();
-				return;
 			case RDFPackage.NAMED_GRAPH__OBJECT_OF:
 				getObjectOf().clear();
 				return;
@@ -539,8 +400,6 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case RDFPackage.NAMED_GRAPH__COMMENT:
 				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
-			case RDFPackage.NAMED_GRAPH__SUBJECT_OF:
-				return subjectOf != null && !subjectOf.isEmpty();
 			case RDFPackage.NAMED_GRAPH__OBJECT_OF:
 				return objectOf != null && !objectOf.isEmpty();
 			case RDFPackage.NAMED_GRAPH__DOCUMENT:
@@ -560,7 +419,6 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 			switch (derivedFeatureID) {
 				case RDFPackage.NAMED_GRAPH__LABEL: return RDFPackage.NODE__LABEL;
 				case RDFPackage.NAMED_GRAPH__COMMENT: return RDFPackage.NODE__COMMENT;
-				case RDFPackage.NAMED_GRAPH__SUBJECT_OF: return RDFPackage.NODE__SUBJECT_OF;
 				case RDFPackage.NAMED_GRAPH__OBJECT_OF: return RDFPackage.NODE__OBJECT_OF;
 				default: return -1;
 			}
@@ -579,7 +437,6 @@ public class NamedGraphImpl extends RDFGraphImpl implements NamedGraph {
 			switch (baseFeatureID) {
 				case RDFPackage.NODE__LABEL: return RDFPackage.NAMED_GRAPH__LABEL;
 				case RDFPackage.NODE__COMMENT: return RDFPackage.NAMED_GRAPH__COMMENT;
-				case RDFPackage.NODE__SUBJECT_OF: return RDFPackage.NAMED_GRAPH__SUBJECT_OF;
 				case RDFPackage.NODE__OBJECT_OF: return RDFPackage.NAMED_GRAPH__OBJECT_OF;
 				default: return -1;
 			}

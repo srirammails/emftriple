@@ -23,7 +23,7 @@ package com.emf4sw.rdf;
  * @model
  * @generated
  */
-public interface TripleNode extends Node, URIElement {
+public interface TripleNode extends Resource {
 	/**
 	 * Returns the value of the '<em><b>Triple</b></em>' reference.
 	 * <!-- begin-user-doc -->
