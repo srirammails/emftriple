@@ -8,7 +8,7 @@ package com.emf4sw.owl;
 
 import org.eclipse.emf.common.util.EList;
 
-import com.emf4sw.rdf.Node;
+import com.emf4sw.rdf.SubjectNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ import com.emf4sw.rdf.Node;
  * @model abstract="true"
  * @generated
  */
-public interface ClassExpression extends Node, AnnotatedElement {
+public interface ClassExpression extends SubjectNode, AnnotatedElement {
 	/**
 	 * Returns the value of the '<em><b>Keys</b></em>' reference list.
 	 * The list contents are of type {@link com.emf4sw.owl.OWLProperty}.

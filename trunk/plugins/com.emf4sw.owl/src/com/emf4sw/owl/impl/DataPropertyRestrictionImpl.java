@@ -6,18 +6,18 @@
  */
 package com.emf4sw.owl.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import com.emf4sw.owl.DataPropertyRestriction;
 import com.emf4sw.owl.OWLPackage;
 import com.emf4sw.rdf.BlankNode;
 import com.emf4sw.rdf.RDFGraph;
 import com.emf4sw.rdf.RDFPackage;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 /**
  * <!-- begin-user-doc -->

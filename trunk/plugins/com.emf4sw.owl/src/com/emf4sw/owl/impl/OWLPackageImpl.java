@@ -1640,7 +1640,7 @@ public class OWLPackageImpl extends EPackageImpl implements OWLPackage {
 		// Add supertypes to classes
 		ontologyEClass.getESuperTypes().add(theRDFPackage.getDocumentGraph());
 		ontologyEClass.getESuperTypes().add(this.getAnnotatedElement());
-		classExpressionEClass.getESuperTypes().add(theRDFPackage.getNode());
+		classExpressionEClass.getESuperTypes().add(theRDFPackage.getSubjectNode());
 		classExpressionEClass.getESuperTypes().add(this.getAnnotatedElement());
 		owlClassEClass.getESuperTypes().add(theRDFPackage.getResource());
 		owlClassEClass.getESuperTypes().add(this.getClassExpression());
@@ -1676,7 +1676,7 @@ public class OWLPackageImpl extends EPackageImpl implements OWLPackage {
 		objectPropertyEClass.getESuperTypes().add(this.getClassProperty());
 		objectPropertyChainEClass.getESuperTypes().add(this.getObjectProperty());
 		annotationPropertyEClass.getESuperTypes().add(this.getOWLProperty());
-		dataRangeEClass.getESuperTypes().add(theRDFPackage.getNode());
+		dataRangeEClass.getESuperTypes().add(theRDFPackage.getSubjectNode());
 		dataRangeEClass.getESuperTypes().add(this.getAnnotatedElement());
 		owlDatatypeEClass.getESuperTypes().add(theRDFPackage.getDatatype());
 		owlDatatypeEClass.getESuperTypes().add(this.getDataRange());

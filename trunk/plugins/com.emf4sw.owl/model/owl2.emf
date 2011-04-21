@@ -25,7 +25,7 @@ abstract class AnnotatedElement {
    op void addAnnotation(AnnotationProperty property, Object value);
 }
 
-abstract class ClassExpression extends rdf.Node, AnnotatedElement {
+abstract class ClassExpression extends rdf.SubjectNode, AnnotatedElement {
 	ref OWLProperty[*] keys;
 	ref ClassExpression[*]#superClass subClassOf;
 	ref ClassExpression[*]#subClassOf superClass;
@@ -209,7 +209,7 @@ class AnnotationProperty extends OWLProperty {
    
 }
 
-abstract class DataRange extends rdf.Node, AnnotatedElement {
+abstract class DataRange extends rdf.SubjectNode, AnnotatedElement {
    
 }
 

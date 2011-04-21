@@ -6,7 +6,7 @@
  */
 package com.emf4sw.owl;
 
-import com.emf4sw.rdf.Node;
+import com.emf4sw.rdf.SubjectNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,5 +18,5 @@ import com.emf4sw.rdf.Node;
  * @model abstract="true"
  * @generated
  */
-public interface DataRange extends Node, AnnotatedElement {
+public interface DataRange extends SubjectNode, AnnotatedElement {
 } // DataRange
