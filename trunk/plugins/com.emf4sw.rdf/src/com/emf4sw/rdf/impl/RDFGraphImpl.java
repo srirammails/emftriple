@@ -78,6 +78,7 @@ public abstract class RDFGraphImpl extends URIElementImpl implements RDFGraph {
 	 */
 	protected RDFGraphImpl() {
 		super();
+//		eAdapters().add(new ModelAdapterImpl());
 	}
 
 	/**
