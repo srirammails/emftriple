@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://www.emftriple.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	
+	<persistence-unit name="employee">
+
+		<package>http://www.example.com/Employee</package>
+
+		<datasources>
+			<datasource name="employee-db">
+				<factory>com.emftriple.jena.JenaDataSourceFactory</factory>
+				<class>com.emftriple.jena.JenaFile</class>
+				<url>data.ttl</url>
+			</datasource>
+		</datasources>
+		
+	</persistence-unit>
+	
+</persistence>

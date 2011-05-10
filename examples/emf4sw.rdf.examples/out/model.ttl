@@ -1,0 +1,29 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix network:  <http://eclipselabs.org/network#> .
+
+<http://eclipselabs.org/social/people/2>
+      a       network:Person ;
+      network:firstName "Paul"^^xsd:string ;
+      network:id "2"^^xsd:long ;
+      network:knows <http://eclipselabs.org/social/people/1> ;
+      network:lastName "Robert"^^xsd:string ;
+      <http://www.eclipselabs.org/emf4sw/rdf-ecore#etype>
+              network:Person .
+
+<http://eclipselabs.org/social/people/1>
+      a       network:Person ;
+      network:firstName "John"^^xsd:string ;
+      network:id "1"^^xsd:long ;
+      network:lastName "Smith"^^xsd:string ;
+      <http://www.eclipselabs.org/emf4sw/rdf-ecore#etype>
+              network:Person .
+
+<http://eclipselabs.org/social/sc>
+      a       network:SocialNetwork ;
+      network:members <http://eclipselabs.org/social/people/2> , <http://eclipselabs.org/social/people/1> ;
+      network:name "sc"^^xsd:string ;
+      <http://www.eclipselabs.org/emf4sw/rdf-ecore#etype>
+              network:SocialNetwork .

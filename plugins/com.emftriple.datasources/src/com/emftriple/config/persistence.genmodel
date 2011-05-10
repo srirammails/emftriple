@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.emftriple.datasources/src"
+    editorDirectory="/com.emftriple.datasources.editor/src" modelPluginID="com.emftriple.datasources"
+    modelName="Persistence" editPluginClass="com.emftriple.datasources.config.persistence.provider.PersistenceEditPlugin"
+    editorPluginClass="com.emftriple.datasources.config.persistence.presentation.PersistenceEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="com.emftriple.datasources.config.persistence.tests.PersistenceAllTests"
+    importerID="org.eclipse.emf.importer.ecore" bundleManifest="false" complianceLevel="6.0"
+    copyrightFields="false" editPluginID="com.emftriple.datasources.edit" editorPluginID="com.emftriple.datasources.editor">
+  <foreignModel>persistence.ecore</foreignModel>
+  <genPackages prefix="Persistence" basePackage="com.emftriple.config" resource="XML"
+      disposableProviderFactory="true" ecorePackage="persistence.ecore#/">
+    <genDataTypes ecoreDataType="persistence.ecore#//VersionType"/>
+    <genClasses ecoreClass="persistence.ecore#//PersistenceConfig">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference persistence.ecore#//PersistenceConfig/persistenceUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//PersistenceConfig/version"/>
+    </genClasses>
+    <genClasses ecoreClass="persistence.ecore#//PersistenceUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//PersistenceUnit/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//PersistenceUnit/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//PersistenceUnit/provider"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//PersistenceUnit/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference persistence.ecore#//PersistenceUnit/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference persistence.ecore#//PersistenceUnit/dataSources"/>
+    </genClasses>
+    <genClasses ecoreClass="persistence.ecore#//DataSources">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference persistence.ecore#//DataSources/dataSources"/>
+    </genClasses>
+    <genClasses ecoreClass="persistence.ecore#//DataSourceConfig">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//DataSourceConfig/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//DataSourceConfig/factory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//DataSourceConfig/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//DataSourceConfig/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//DataSourceConfig/graphs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference persistence.ecore#//DataSourceConfig/property"/>
+    </genClasses>
+    <genClasses ecoreClass="persistence.ecore#//Properties">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference persistence.ecore#//Properties/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="persistence.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute persistence.ecore#//Property/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

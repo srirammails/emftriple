@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ASCII"?>
+<employee:Organization xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:employee="http://www.example.com/Employee" name="Acme">
+  <employees firstName="Bob" lastName="Smith" salary="35000.0" jobTitle="//@jobs.3" manager="//@employees.1" managedEmployees="//@employees.2 //@employees.3 //@employees.4" projects="//@projects.0 //@projects.1 //@projects.2">
+    <responsibilities>Water the office plants.</responsibilities>
+    <responsibilities>Maintain the kitchen facilities.</responsibilities>
+    <period id="1" startDate="1993-01-01T00:00:00.000+0000" endDate="1996-01-01T00:00:00.000+0000"/>
+    <address id="1" city="Toronto" country="Canada" province="ONT" postalCode="L5J2B5" street="1450 Acme Cr., Suite 4"/>
+    <phoneNumbers number="5558812" type="Work" areaCode="613"/>
+  </employees>
+  <employees firstName="John" lastName="Way" salary="53000.0" jobTitle="//@jobs.2" manager="//@employees.11" managedEmployees="//@employees.5 //@employees.0" projects="//@projects.3 //@projects.4 //@projects.0">
+    <responsibilities>Hire people when more people are required.</responsibilities>
+    <responsibilities>Lay off employees when less people are required.</responsibilities>
+    <period id="2" startDate="1991-10-11T00:00:00.000+0100"/>
+    <address id="2" city="Ottawa" country="Canada" province="ONT" postalCode="K5J2B5" street="12 Merivale Rd., Suite 5"/>
+    <phoneNumbers number="5558812" type="Work" areaCode="613"/>
+    <phoneNumbers number="5553691" type="ISDN" areaCode="905"/>
+    <emailAddresses id="2" name="Work" address="john.way@acme.com"/>
+  </employees>
+  <employees firstName="Charles" lastName="Chanley" salary="43000.0" manager="//@employees.0" projects="//@projects.3 //@projects.13 //@projects.14">
+    <responsibilities>Perform code reviews as required.</responsibilities>
+    <period id="3" startDate="1995-01-01T00:00:00.000+0000" endDate="2001-12-01T00:00:00.000+0000"/>
+    <address id="3" city="Montreal" country="Canada" province="QUE" postalCode="Q2S5Z5" street="1 Canadien Place"/>
+    <phoneNumbers number="5556666" type="Pager" areaCode="976"/>
+    <phoneNumbers number="5553691" type="ISDN" areaCode="905"/>
+    <emailAddresses id="3" name="Work" address="charles.chanley@acme.com"/>
+  </employees>
+  <employees firstName="Emanual" lastName="Smith" salary="49631.0" manager="//@employees.0">
+    <responsibilities>Have to fix the Database problem.</responsibilities>
+    <period id="4" startDate="1995-01-01T00:00:00.000+0000" endDate="2001-12-01T00:00:00.000+0000"/>
+    <address id="4" city="Vancouver" country="Canada" province="BC" postalCode="N5J2N5" street="20 Mountain Blvd., Floor 53, Suite 6"/>
+    <phoneNumbers number="5555943" type="Work Fax" areaCode="613"/>
+    <phoneNumbers number="5551111" type="Cellular" areaCode="416"/>
+    <phoneNumbers number="5556666" type="Pager" areaCode="976"/>
+    <phoneNumbers number="5553691" type="ISDN" areaCode="905"/>
+    <emailAddresses id="4" name="Work" address="emanual.smith@acme.com"/>
+  </employees>
+  <employees firstName="Sarah" lastName="Way" gender="Female" salary="87000.0" manager="//@employees.0" projects="//@projects.3 //@projects.1 //@projects.12 //@projects.14">
+    <responsibilities>Write code documentation.</responsibilities>
+    <period id="5" startDate="1995-04-01T00:00:00.000+0100" endDate="2001-07-01T00:00:00.000+0100"/>
+    <address id="5" city="Prince Rupert" country="Canada" province="BC" postalCode="K3K5D5" street="3254 Parkway Place"/>
+    <phoneNumbers number="5558812" type="Work" areaCode="613"/>
+    <phoneNumbers number="5553691" type="ISDN" areaCode="905"/>
+    <phoneNumbers number="5551234" type="Home" areaCode="613"/>
+    <emailAddresses id="5" name="Work" address="sarah.way@acme.com"/>
+  </employees>
+  <employees firstName="Marcus" lastName="Saunders" salary="54300.0" jobTitle="//@jobs.4" manager="//@employees.1" projects="//@projects.11">
+    <responsibilities>Write user specifications.</responsibilities>
+    <period id="6" startDate="1995-01-12T00:00:00.000+0000" endDate="2001-12-01T00:00:00.000+0000"/>
+    <address id="6" city="Perth" country="Canada" province="ONT" postalCode="Y3Q2N9" street="234 Caledonia Lane"/>
+    <phoneNumbers number="5553691" type="ISDN" areaCode="905"/>
+    <phoneNumbers number="5558812" type="Work" areaCode="613"/>
+    <emailAddresses id="6" name="Work" address="marcus.saunders@acme.com"/>
+  </employees>
+  <employees firstName="Nancy" lastName="White" gender="Female" salary="31000.0" jobTitle="//@jobs.4" manager="//@employees.10" projects="//@projects.11">
+    <period id="7" startDate="1993-01-01T00:00:00.000+0000" endDate="1996-01-01T00:00:00.000+0000"/>
+    <address id="7" city="Metcalfe" country="Canada" province="ONT" postalCode="Y4F7V6" street="2 Anderson Rd."/>
+    <phoneNumbers number="5551234" type="Home" areaCode="613"/>
+    <emailAddresses id="7" name="Work" address="nancy.white@acme.com"/>
+  </employees>
+  <employees firstName="Fred" lastName="Jones" salary="500000.0" jobTitle="//@jobs.1" manager="//@employees.9">
+    <period id="8" startDate="1995-01-01T00:00:00.000+0000" endDate="2001-12-01T00:00:00.000+0000"/>
+    <address id="8" city="Victoria" country="Canada" province="BC" postalCode="Z5J2N5" street="382 Hyde Park Blvd."/>
+    <phoneNumbers number="5551111" type="Cellular" areaCode="416"/>
+    <phoneNumbers number="5553691" type="ISDN" areaCode="905"/>
+    <emailAddresses id="8" name="Work" address="fred.jones@acme.com"/>
+  </employees>
+  <employees firstName="Betty" lastName="Jones" gender="Female" salary="500001.0" jobTitle="//@jobs.4" manager="//@employees.9">
+    <period id="9" startDate="2001-12-01T00:00:00.000+0000" endDate="1995-01-01T00:00:00.000+0000"/>
+    <address id="9" city="Smith Falls" country="Canada" province="ONT" postalCode="C6C6C6" street="89 Chocolate Drive"/>
+    <phoneNumbers number="5558812" type="Work" areaCode="613"/>
+    <phoneNumbers number="5553691" type="ISDN" areaCode="905"/>
+    <emailAddresses id="9" name="Work" address="betty.jones@acme.com"/>
+    <emailAddresses id="10" name="Home" address="betty.cleo.jones@rogers.com"/>
+  </employees>
+  <employees firstName="Jill" lastName="May" gender="Female" salary="56232.0" jobTitle="//@jobs.0" managedEmployees="//@employees.7 //@employees.8 //@employees.10 //@employees.11">
+    <period id="10" startDate="1991-10-11T00:00:00.000+0100"/>
+    <address id="10" city="Calgary" country="Canada" province="AB" postalCode="J5J2B5" street="1111 Mooseland Rd."/>
+    <phoneNumbers number="5558812" type="Work" areaCode="613"/>
+    <phoneNumbers number="5555943" type="Work Fax" areaCode="613"/>
+    <emailAddresses id="11" name="Work" address="jill.may@acme.com"/>
+    <emailAddresses id="12" name="Mobile" address="jill.lewis.may@sprint.com"/>
+  </employees>
+  <employees firstName="Sarah-Lou" lastName="Smitty" gender="Female" salary="75000.0" jobTitle="//@jobs.1" manager="//@employees.9" managedEmployees="//@employees.6">
+    <period id="11" startDate="1993-01-01T00:00:00.000+0000" endDate="1996-01-01T00:00:00.000+0000"/>
+    <address id="11" city="Arnprior" country="Canada" province="ONT" postalCode="W1A2B5" street="1 Hawthorne Drive"/>
+    <phoneNumbers number="5555943" type="Work Fax" areaCode="613"/>
+    <phoneNumbers number="5551234" type="Home" areaCode="613"/>
+    <phoneNumbers number="5551111" type="Cellular" areaCode="416"/>
+    <emailAddresses id="13" name="Home" address="sarah-lou.smitty@rogers.com"/>
+  </employees>
+  <employees firstName="Jim-Bob" lastName="Jefferson" salary="50000.0" jobTitle="//@jobs.1" manager="//@employees.9" managedEmployees="//@employees.1">
+    <period id="12" startDate="1995-01-12T00:00:00.000+0000" endDate="2001-12-01T00:00:00.000+0000"/>
+    <address id="12" city="Yellowknife" country="Canada" province="YK" postalCode="Y5J2N5" street="1112 Gold Rush Rd."/>
+    <phoneNumbers number="5551234" type="Home" areaCode="613"/>
+    <phoneNumbers number="5551111" type="Cellular" areaCode="416"/>
+    <emailAddresses id="14" name="Home" address="jim-bob@jim-bob.com"/>
+  </employees>
+  <employees firstName="John" lastName="Smith" salary="45000.0">
+    <period id="124" endDate="2004-12-01T00:00:00.000+0000"/>
+    <address id="134" city="CityLand" country="Ireland" province="Westmeath" postalCode="4833" street="34, street of Bel Air"/>
+    <phoneNumbers number="43235563" type="mobile" areaCode="435"/>
+    <emailAddresses id="15" name="work" address="john.smith@foo.bar"/>
+  </employees>
+  <employees firstName="Gill" lastName="Williams" gender="Female" salary="65000.0">
+    <period id="125" endDate="2002-09-21T00:00:00.000+0100"/>
+    <address id="144" city="Waste" country="Colombia" province="Stock" postalCode="4343" street="12, av wonderland"/>
+    <phoneNumbers number="56364212" type="mobile" areaCode="232"/>
+    <emailAddresses id="16" name="work" address="gill.williams@gggg.com"/>
+  </employees>
+  <employees firstName="Paul" lastName="Smith" salary="45000.0">
+    <period id="126" endDate="2001-05-01T00:00:00.000+0100"/>
+    <address id="134" city="CityLand" country="Ireland" province="Westmeath" postalCode="3833" street="33, street of Bel Air"/>
+    <phoneNumbers number="4689563" type="mobile" areaCode="432"/>
+    <emailAddresses id="17" name="work" address="paul.smith@foo.bar"/>
+  </employees>
+  <projects xsi:type="employee:SmallProject" name="Enterprise" description="A enterprise wide application to report on the corporations database through TopLink." teamLeader="//@employees.2"/>
+  <projects xsi:type="employee:SmallProject" name="Sales Reporter" description="A reporting application using JDK to report on the corporations database through TopLink."/>
+  <projects xsi:type="employee:SmallProject" name="TOP-Employee Manager" description="A management application to report on the corporations database through TopLink."/>
+  <projects xsi:type="employee:SmallProject" name="Problem Reporter" description="A PRS application to report on the corporations database through TopLink."/>
+  <projects xsi:type="employee:SmallProject" name="Feather Reporter" description="An extremely lightweight application to report on the corporations database through TopLink."/>
+  <projects xsi:type="employee:SmallProject" name="Makework" description="A makework project."/>
+  <projects xsi:type="employee:SmallProject" name="Marketing Query Tool" description="A tool to help marketing query various things."/>
+  <projects xsi:type="employee:SmallProject" name="Shipping Query Tool" description="A tool to help shipping query various things."/>
+  <projects xsi:type="employee:SmallProject" name="Accounting Query Tool" description="A tool to help accounting query various things."/>
+  <projects xsi:type="employee:SmallProject" name="Staff Query Tool" description="A tool to help staff query various things."/>
+  <projects xsi:type="employee:LargeProject" name="Sales Reporting" description="A reporting application to report on the corporations database through TopLink." teamLeader="//@employees.1" budget="5000.0" milestone="1991-10-11T00:00:00.000+0100"/>
+  <projects xsi:type="employee:LargeProject" name="Light Reporter" description="A lightweight application to report on the corporations database through TopLink." budget="100.98" milestone="1999-11-25T00:00:00.000+0000"/>
+  <projects xsi:type="employee:LargeProject" name="TOPEmployee Management" description="A management application to report on the corporations database through TopLink." budget="4000.98" milestone="1997-10-12T00:00:00.000+0100"/>
+  <projects xsi:type="employee:LargeProject" name="Enterprise System" description="A enterprise wide application to report on the corporations database through TopLink." teamLeader="//@employees.2" budget="40.98" milestone="1996-08-06T00:00:00.000+0100"/>
+  <projects xsi:type="employee:LargeProject" name="Problem Reporting System" description="A PRS application to report on the corporations database through TopLink." teamLeader="//@employees.2" budget="101.98" milestone="1997-09-06T00:00:00.000+0100"/>
+  <jobs title="CEO"/>
+  <jobs title="VP"/>
+  <jobs title="Manager"/>
+  <jobs title="Developer"/>
+  <jobs title="Admin"/>
+</employee:Organization>

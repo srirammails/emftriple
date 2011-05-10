@@ -1,0 +1,37 @@
+<#include "/header.ftl"/>
+<#global content>
+<div id="jobs-content">
+	<div class=main>
+		<div class="jobsheader"><h1 class="title">${company.name}</h1>
+		</div>
+		<div class="item">
+			<div>
+				<p class="description"><a href="http://en.wikipedia.org/wiki/${company.name!}">wikipedia</a></p>
+				<p class="description"><a href="http://dbpedia.org/page/${company.name!}">see also</a></p>
+			</div>
+			<#if company.location??>
+				<p class="description">located in <a href="${rootRef}/locations/${company.location.name!}">${company.location.name!}</a></p>
+			</#if>
+			<p class="description">${company.description}</p>
+			<#if company.formationYear??>
+				<p class="description">created in : ${company.formationYear?date}</p>
+			</#if>
+			<#if company.revenue??>
+				<p class="description">revenue : ${company.revenue}</p>
+			</#if>
+			<#if company.numEmployees??>
+				<p class="description">nb of employees : ${company.numEmployees!}</p>
+			</#if>
+			<#if company.products??>
+				<#list company.products as p>
+					<p>products : <a href="${p}"> ${p}</a></p>
+				</#list>
+			</#if>
+		</div>
+		<div>
+			<a href="${resourceRef}.rdf">rdf</a> | <a href="${resourceRef}.ttl">ttl</a>
+		</div>
+	</div>
+</div>
+</#global>
+<#include "/footer.ftl"/>

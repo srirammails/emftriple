@@ -1,0 +1,49 @@
+<#include "/header.ftl"/>
+<#global content>
+<div id="jobs-content">
+	<div class="main">
+		<div class="jobsheader"><#if jobs??><h1 class="title">${jobs?size!} Jobs</h1></#if>
+		</div>
+		<#if jobs??>
+			<#list jobs as job> 
+				<div class="listitem">
+					<div class="right">
+						<p class="posted">2 days ago<br/></p>
+					</div>
+			        <div class="one-line">
+			        	<a class="title" href="${rootRef}/jobs/${job.id}" title="${job.title!}">${job.title!}</a>
+			        	<#assign org=job.organisation!>
+						<a class="employer" href="${rootRef}/organisations/${org.name}" title="${org.name}">${org.name}</a>
+			        </div>
+						<a class="location" href="${rootRef}/locations/${job.location.name!}" title="${job.location.name!}">
+							${job.location.name!}
+						</a>
+						<p class="description">${job.summary!}</p>
+				</div>
+			</#list>
+		</#if>
+		<div>
+			<a href="${rootRef}/jobs.rdf">rdf</a> | <a href="${rootRef}/jobs.ttl">ttl</a>
+		</div>
+	</div>
+	<div class="sidebar">
+		<div class="jobsheader">
+			<h1 class="title">search jobs</h1>
+		</div>
+		<div>
+			<form action="${rootRef}/jobs" class="searchform" method="get">
+				<label for="searchTerm">what</label>
+				<input id="searchTerm" name="searchTerm" placeholder="keyword or company" type="text" value="" title="keyword or company">
+				<br class="clear">
+				<label for="location">where</label>
+				<input id="location" name="location" placeholder="city" type="text" value="" title="city">
+				<br class="clear">
+				<a href="${rootRef}/jobs" id="viewall">view all</a>
+				<input type="submit" value="search">
+				<br class="clear">
+			</form>
+		</div>
+	</div>
+</div>
+</#global>
+<#include "/footer.ftl"/>

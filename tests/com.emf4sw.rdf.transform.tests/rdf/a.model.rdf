@@ -1,0 +1,17 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix a:       <http://tests/a#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://tests/a/foo>
+      a       a:A ;
+      <http://eclipselabs.org/emf4sw#etype>
+              a:A ;
+      a:name  "foo"^^xsd:string .
+
+<http://tests/a/bar>
+      a       a:A ;
+      <http://eclipselabs.org/emf4sw#etype>
+              a:A ;
+      a:name  "bar"^^xsd:string .

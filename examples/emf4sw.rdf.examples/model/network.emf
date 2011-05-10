@@ -1,0 +1,19 @@
+@namespace(uri="http://eclipselabs.org/network", prefix="network")
+package network;
+
+class SocialNetwork {
+
+  @Id(base="http://eclipselabs.org/social/")
+  attr String name;
+  val Person[*] members;
+}
+
+class Person {
+
+  @Id(base="http://eclipselabs.org/social/people/")
+  attr long ~id;
+  attr String firstName;
+  attr String lastName;
+  ref Person[*] knows;
+}
+

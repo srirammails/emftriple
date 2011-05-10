@@ -1,0 +1,7 @@
+@namespace(uri="http://tests/a", prefix="a")
+package a;
+
+class A {
+	@Id(base="http://tests/a/")	
+	attr String name;
+}

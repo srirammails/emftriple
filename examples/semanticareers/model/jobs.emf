@@ -1,0 +1,78 @@
+@namespace(uri="http://www.semweb.com/jobs#", prefix="jobs")
+package jobs;
+
+@DataSet(name="http://default")
+@Entity(uri="http://www.semweb.com/jobs#Job")
+class Job {
+   @Id(base="http://www.semweb.com/jobs/")
+   @GeneratedValue(strategy=DEFAULT)
+   attr String[1] ~id;
+   
+   @rdf(uri="http://purl.org/dc/elements/1.1/title")
+   attr String title;
+   attr String[1] summary;
+   attr EDate[1] posted;
+   
+   @rdf(uri="http://www.semweb.com/jobs#organisation")
+   ref Organisation[1] organisation;
+   
+   @rdf(uri="http://www.semweb.com/jobs#location")
+   ref Place[1] location;
+}
+
+@rdf.seeAlsoSeeAlso(base="http://dbpedia.org/resource/[name]")
+@SameAs(base="http://dbpedia.org/resource/[name]")
+abstract class ExternalElement {
+   @Id(base="http://dbpedia.org/resource/")
+   attr String[1] name;
+   
+   @rdf(uri="http://www.w3.org/2000/01/rdf-schema#comment", lang="en")
+   attr String description;
+   
+   @rdf(uri="http://xmlns.com/foaf/0.1/page")
+   attr String wikiPage;
+} 
+
+@DataSet(name="http://lod.openlinksw.com/sparql")
+@Entity(uri="http://dbpedia.org/ontology/Organisation")
+class Organisation extends ExternalElement {
+   
+   @rdf(uri="http://dbpedia.org/property/companyLogo")
+   attr String logo;
+   
+   @rdf(uri="http://dbpedia.org/ontology/revenue")
+   attr String revenue;
+   
+   @rdf(uri="http://dbpedia.org/ontology/product")
+   attr String[*] products;
+   
+   @rdf(uri="http://dbpedia.org/ontology/formationYear")
+   attr EDate formationYear;
+   
+   @rdf(uri="http://dbpedia.org/ontology/location")
+   ref Place location;
+   
+   @rdf(uri="http://dbpedia.org/property/numEmployees")
+   attr String numEmployees;
+}
+
+@DataSet(name="http://lod.openlinksw.com/sparql")
+@Entity(uri="http://dbpedia.org/ontology/Place")
+@Entity(uri="http://dbpedia.org/ontology/City")
+class Place extends ExternalElement {
+   
+   @rdf(uri="http://xmlns.com/foaf/0.1/depiction")
+   attr String[?] depiction;
+   
+   @rdf(uri="http://xmlns.com/foaf/0.1/homepage")
+   attr String[?] homePage;
+   
+   @rdf(uri="http://dbpedia.org/ontology/populationTotal")
+   attr String[?] population;
+   
+   @rdf(uri="http://www.georss.org/georss/point")
+   attr String[?] points;
+   
+   @rdf(uri="http://dbpedia.org/ontology/abstract", lang="en")
+   attr String[?] ~abstract;
+}

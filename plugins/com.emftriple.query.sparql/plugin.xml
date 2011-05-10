@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="com.emftriple.query.sparql.SparqlPackage" genModel="com/emftriple/query/Sparql.genmodel" uri="http://www.emftriple.com/2009/Sparql"/> 
+	
+  </extension>
+
+</plugin>
