@@ -1,6 +1,0 @@
-#summary EMF Triple
-#sidebar StoreTableOfContents
-
-= Introduction =
-
-EMFTriple provides an Object Triple Mapping solution for EMF Models. EMF Triple lets you store and retrieve your models from RDF stores like Jena (TDB, SDB), Sesame or any SPARQL endpoints.
