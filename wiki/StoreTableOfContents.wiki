@@ -10,6 +10,5 @@
       * [EMFTripleSetup  Quick Start]
       * [EMFTripleOverview Configuration]
       * [EMFTripleModel Model annotations]
-      * [EMFTripleJPA JPA interfaces]
       * [EMFTripleAdapters RDF Store Adapters]
       * [EMFTripleExtensions Extensions]
