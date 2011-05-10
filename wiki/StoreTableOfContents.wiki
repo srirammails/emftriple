@@ -1,9 +1,9 @@
 #summary Table of Contents
 #labels Featured
- * [GettingStarted  Getting Started]
+ * [Getting Started]
    * [Setup Setup]
    * [BasicUsage Basic Usage]
- * [UserGuide User Guide]
+ * [User Guide]
    * [ModelSetup Prepare Models]
    * [WorkingWithResource Working With Resource]
    * [RdfStores Available Adapters]
