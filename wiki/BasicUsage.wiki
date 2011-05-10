@@ -5,7 +5,12 @@ This page presents the basic usage of emftriple.
 
 = Basic Usage =
 
+Register the model package and the resource factory that will hold the connection to the RDF store.
+
+{{{
+EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI, ModelPackage.eINSTANCE);
 Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().put("emftriple", new TDBResourceFactory());
+}}}
 
 Storing objects:
 
