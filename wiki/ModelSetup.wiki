@@ -1,14 +1,37 @@
-#summary One-sentence summary of this page.
 #sidebar StoreTableOfContents
 
-= Introduction =
+=Introduction=
+This page introduces the concepts behind emftriple, how models are stored and how models should be prepared before being store in a RDF store.
 
-Add your content here.
+=Annotations=
+EMFTriple provides a set of annotations to be defined over EMF Models. These annotations help to define how and where EMF Models are stored and retrieved. 
+(To ease the use of annotations, please consider to install [http://wiki.eclipse.org/Emfatic emfatic])
 
+{{{
+@namespace(prefix="conf", uri="http://eclipse.org/conferences")
+package Conferences;
 
-= Details =
+@OWLClass(uri="http://eclipse.org/conferences#Entity")
+class Conference {
+	@Id(base="http://www.example.org/entities/")
+	@rdf(uri="http://eclipse.org/conferences#name")
+	attr String[1] name;
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+	@rdf(uri="http://eclipse.org/conferences#properties")	
+	@ObjectProperty
+	val Property[*] properties;
+}
+}}}
+
+{{{@Id}}}
+Tells which property will be used as an Id for a given class. If there is no @Id annotation, the tool will look for a property marked as isId equals true (see emf features), or will look for a property call name. If none of these can be identified, then the URI of the instance, according to its current Resource, will be use as its Id.
+ * Model element: EAttribute
+ * Properties Base: set the namespace for the Id.
+
+{{{@OWLClass}}}
+ * Model element: EClass
+ * Properties uri: set the URI of the class, will be use when asserting types for instances.
+
+{{{@rdf}}}
+ * Model element EReference and EAttribute
+ * Properties uri: set the URI of the property
