@@ -1,4 +1,5 @@
 #summary Installation and Setup.
+#labels Featured
 #sidebar StoreTableOfContents
 
 = Introduction =
