@@ -1,5 +1,4 @@
 #summary Table of Contents
-#labels Featured
  * [Getting Started]
    * [Setup Setup]
    * [BasicUsage Basic Usage]
