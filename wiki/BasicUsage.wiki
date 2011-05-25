@@ -17,6 +17,7 @@ Storing objects:
 
 {{{
 ResourceSet resourceSet = new ResourceSetImpl();
+resourceSet.getLoadOptions().put(ETripleOptions.OPTION_DATASOURCE_LOCATION, "data");
 Resource resource = resourceSet.createResource(URI.createURI("emftriple://data?graph=http://graph"));
 
 Person person = ModelFactory.eINSTANCE.createPerson();
