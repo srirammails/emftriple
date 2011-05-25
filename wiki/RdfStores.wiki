@@ -18,3 +18,7 @@ This page presents the adapters available in emftriple. The adapters are used to
 == Tinkerpop ==
 
 = Sesame = 
+
+== Native Store ==
+
+== HTTP repository ==
