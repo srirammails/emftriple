@@ -1,9 +1,8 @@
-
  * [Getting Started]
    * [Setup Setup]
    * [BasicUsage Basic Usage]
  * [User Guide]
    * [ModelSetup Prepare Models]
-   * [WorkingWithResource Working With Resource]
-   * [RdfStores Available Adapters]
+   * [WorkingWithResource Working with Resource]
+   * [RdfStores RDF Stores adapters]
    * [Extensions Extensions]
