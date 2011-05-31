@@ -36,7 +36,7 @@ To create a resource we need to set its URI, starting with emftriple. The URI ca
 Resource resource = resourceSet.createResource(URI.createURI("emftriple://data?graph=http://graph"));
 }}}
 
-===Store===
+==Store==
 
 We will now store some objects in the RDF store. We first create a resource, corresponding to the named graph http://graph.
 
@@ -58,7 +58,7 @@ resource.getContents().add(person);
 resource.save(null);
 }}}
 
-===Load===
+==Load==
 
 Now that we have store some objects, we sure liked to load them. To do that, create an EMF resource with the same URI as previously.
 Then simply call the load method.
@@ -73,7 +73,7 @@ The objects can be now accessed via the method getContents on the EMF resource o
 Person obj = (Person) EcoreUtil.getObjectByType(resource.getContents(), ModelPackage.eINSTANCE.getPerson());
 }}}
 
-===Delete===
+==Delete==
 
 You can delete the contents of the RDF store or the content of a particular graph by calling the method delete.
 {{{
@@ -81,7 +81,7 @@ Resource resource = resourceSet.createResource(URI.createURI("emftriple://data?g
 resource.delete(null);
 }}}
 
-===Query===
+==Query==
 
 A Query API is provided in emftriple to query RDF stores. The API lets you easily write SPARQL queries. 
 EClass and EStructuralFeature can be use in the query instead of RDF types.
