@@ -7,7 +7,7 @@ This page presents the implementation of Sparql available in emftriple.
 
 =Query=
 ==Sparql==
-==SparqlString==
+==Sparql String==
 
 =Result=
 
