@@ -2,9 +2,12 @@
 #sidebar StoreTableOfContents
 
 = Introduction =
+emftriple lets you store and load EMF models from RDF data sources. It supports various RDF stores, including Jena TDB, SDB, Joseki, Sesame, sparql endpoints (read only). It also supports various graph databases (Neo4J, OrientDB, Dex, Rexster) through the sail implementations provided by [https://github.com/tinkerpop tinkerpop blueprints].
+
 This page presents the basic usage of emftriple.
 
 = Basic Usage =
+
 
 Register the model package and the resource factory that will hold the connection to the RDF store.
 
