@@ -4,23 +4,34 @@
 = Introduction =
 emftriple lets you store and load EMF models from RDF data sources. It supports various RDF stores, including Jena TDB, SDB, Joseki, Sesame, sparql endpoints (read only). It also supports various graph databases (Neo4J, OrientDB, Dex, Rexster) through the sail implementations provided by [https://github.com/tinkerpop tinkerpop blueprints].
 
-This page presents the basic usage of emftriple.
+This page presents the basic usage of emftriple, if you want to install emftriple, read [Setup this.]
 
 = Basic Usage =
 
+emftriple can work on any EMF model. It does not need annotations, whether some annotations can be provided to tune the transformations. It this basic usage, we will see how to use emftriple on the RDF store Jena TDB.
 
-Register the model package and the resource factory that will hold the connection to the RDF store.
-
+First we start by registering the metamodel. If the project is an eclipse plugin running inside the eclipse environment, the registration is not necessary only if the metamodel is registered via an extension point. The registration of the metamodel EPackage is done like this :
 {{{
 EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI, ModelPackage.eINSTANCE);
+}}
+
+The next step involves the registration of a EMF Factory. This Factory will be used to create EMF resource specific to emftriple. This is done by registering the TDBResourceFactory to the protocol emftriple. Now every resources with a URI that starts with emftriple:// will be able to load EObjects from RDF.
+The TDBResourceFactory is a specific Factory to Jena TDB. A specific Factory is provided for each kind of RDF store.
+
+{{
 Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().put("emftriple", new TDBResourceFactory());
+}}}
+
+Now that we have a Factory, we need to create a ResourceSet. A ResourceSet allows to create EMF resources with a given URI.
+Note that we put some load options to the resource set. The options are specific to the RDF stores. Here TDB only requires to know the location of the store.
+{{{
+ResourceSet resourceSet = new ResourceSetImpl();
+resourceSet.getLoadOptions().put(ETripleOptions.OPTION_DATASOURCE_LOCATION, "data");
 }}}
 
 Storing objects:
 
 {{{
-ResourceSet resourceSet = new ResourceSetImpl();
-resourceSet.getLoadOptions().put(ETripleOptions.OPTION_DATASOURCE_LOCATION, "data");
 Resource resource = resourceSet.createResource(URI.createURI("emftriple://data?graph=http://graph"));
 
 Person person = ModelFactory.eINSTANCE.createPerson();
