@@ -30,44 +30,84 @@ ResourceSet resourceSet = new ResourceSetImpl();
 resourceSet.getLoadOptions().put(ETripleOptions.OPTION_DATASOURCE_LOCATION, "data");
 }}}
 
-===Store===
+To create a resource we need to set its URI, starting with emftriple. The URI can contains queries. For example the query ?graph=http://graph tells us that the requested resource corresponds to a specific RDF graph. Note that the majority of RDF stores supports the notion of named graphs.
 
 {{{
 Resource resource = resourceSet.createResource(URI.createURI("emftriple://data?graph=http://graph"));
+}}}
 
+===Store===
+
+We will now store some objects in the RDF store. We first create a resource, corresponding to the named graph http://graph.
+
+{{{
+Resource resource = resourceSet.createResource(URI.createURI("emftriple://data?graph=http://graph"));
+}}}
+
+Then we create a single object Person via the ModelFactory.
+
+{{{
 Person person = ModelFactory.eINSTANCE.createPerson();
 person.setName("John Doe");
+}}}
 
+To store the object, simply add it to the content of the EMF resource and then call the method save. The object is now saved in the RDF store.
+
+{{{
 resource.getContents().add(person);
 resource.save(null);
 }}}
 
 ===Load===
 
+Now that we have store some objects, we sure liked to load them. To do that, create an EMF resource with the same URI as previously.
+Then simply call the load method.
+
 {{{
-ResourceSet resourceSet = new ResourceSetImpl();
 Resource resource = resourceSet.createResource(URI.createURI("emftriple://data?graph=http://graph"));
 resource.load(null);
+}}}
 
+The objects can be now accessed via the method getContents on the EMF resource on via EMF utility classes.
+{{{
 Person obj = (Person) EcoreUtil.getObjectByType(resource.getContents(), ModelPackage.eINSTANCE.getPerson());
 }}}
 
 ===Delete===
 
+You can delete the contents of the RDF store or the content of a particular graph by calling the method delete.
+{{{
+Resource resource = resourceSet.createResource(URI.createURI("emftriple://data?graph=http://graph"));
+resource.delete(null);
+}}}
+
 ===Query===
+
+A Query API is provided in emftriple to query RDF stores. The API lets you easily write SPARQL queries. 
+EClass and EStructuralFeature can be use in the query instead of RDF types.
 
 {{{
 EClass person = ModelPackage.eINSTANCE.getPerson();
 Sparql sparql = new Sparql()
-				.where( triple(var("s"), iri(RDF.type), person) );
+                        .where(
+                           triple(var("s"), iri(RDF.type), person)
+                        );
+}}}
 
+The query is executed by loading an EMF Resource. The resource needs to have the query in its URI. For that we use the method toURI that takes the base resource URI as parameter.
+
+{{{
 Resource query = resourceSet.createResource(sparql.toURI(URI.createURI("emftriple://data?graph=http//graph")));
 query.load(null);
 }}}
 
+The result of a query is a resource having for root object a ListResult. This object contains the tree of objects loaded by the query.
+ 
 {{{
 ListResult result = (ListResult) query.getContents().get(0);
 }}}
+
+The resulting objects can be obtained like this:
 
 {{{
 Person p = (Person) result.getResult().get(0);
