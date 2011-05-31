@@ -54,12 +54,18 @@ Person obj = (Person) EcoreUtil.getObjectByType(resource.getContents(), ModelPac
 Query:
 
 {{{
-Sparql sparql = 
-    new Sparql()
-    .select("?s")
-    .where(triple("?s","a",":Person"));
+EClass person = ModelPackage.eINSTANCE.getPerson();
+Sparql sparql = new Sparql()
+				.where( triple(var("s"), iri(RDF.type), person) );
 
-Resource resource = resourceSet.createResource(
-    sparql.toURI(URI.createURI("emftriple://data?graph=http://graph")));
-resource.load(null);
+Resource query = resourceSet.createResource(sparql.toURI(URI.createURI("emftriple://data?graph=http//graph")));
+query.load(null);
+}}}
+
+{{{
+ListResult result = (ListResult) query.getContents().get(0);
+}}}
+
+{{{
+Person p = (Person) result.getResult().get(0);
 }}}
