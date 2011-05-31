@@ -13,12 +13,12 @@ emftriple can work on any EMF model. It does not need annotations, whether some 
 First we start by registering the metamodel. If the project is an eclipse plugin running inside the eclipse environment, the registration is not necessary only if the metamodel is registered via an extension point. The registration of the metamodel EPackage is done like this :
 {{{
 EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI, ModelPackage.eINSTANCE);
-}}
+}}}
 
 The next step involves the registration of a EMF Factory. This Factory will be used to create EMF resource specific to emftriple. This is done by registering the TDBResourceFactory to the protocol emftriple. Now every resources with a URI that starts with emftriple:// will be able to load EObjects from RDF.
 The TDBResourceFactory is a specific Factory to Jena TDB. A specific Factory is provided for each kind of RDF store.
 
-{{
+{{{
 Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().put("emftriple", new TDBResourceFactory());
 }}}
 
