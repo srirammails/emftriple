@@ -29,7 +29,7 @@ ResourceSet resourceSet = new ResourceSetImpl();
 resourceSet.getLoadOptions().put(ETripleOptions.OPTION_DATASOURCE_LOCATION, "data");
 }}}
 
-Storing objects:
+===Store===
 
 {{{
 Resource resource = resourceSet.createResource(URI.createURI("emftriple://data?graph=http://graph"));
@@ -41,7 +41,7 @@ resource.getContents().add(person);
 resource.save(null);
 }}}
 
-Loading objects:
+===Load===
 
 {{{
 ResourceSet resourceSet = new ResourceSetImpl();
@@ -51,7 +51,9 @@ resource.load(null);
 Person obj = (Person) EcoreUtil.getObjectByType(resource.getContents(), ModelPackage.eINSTANCE.getPerson());
 }}}
 
-Query:
+===Delete===
+
+===Query===
 
 {{{
 EClass person = ModelPackage.eINSTANCE.getPerson();
