@@ -1,0 +1,55 @@
+#sidebar StoreTableOfContents
+<wiki:toc max_depth="3" />
+
+= Introduction =
+
+This page presents the implementation of Sparql available in emftriple.
+
+=Query=
+==Sparql==
+==SparqlString==
+
+=Result=
+
+
+=Sparql API Guide=
+
+==Sparql object==
+A Query API is provided in emftriple to query RDF stores. The API lets you easily write SPARQL queries. 
+EClass and EStructuralFeature can be use in the query instead of RDF types.
+
+{{{
+EClass person = ModelPackage.eINSTANCE.getPerson();
+Sparql sparql = new Sparql()
+                        .where(
+                           triple(var("s"), iri(RDF.type), person)
+                        );
+}}}
+
+==Variables==
+
+==Literal==
+
+==Triple==
+
+==Union==
+
+==Filter==
+The query is executed by loading an EMF Resource. The resource needs to have the query in its URI. For that we use the method toURI that takes the base resource URI as parameter.
+
+{{{
+Resource query = resourceSet.createResource(sparql.toURI(URI.createURI("emftriple://data?graph=http//graph")));
+query.load(null);
+}}}
+
+The result of a query is a resource having for root object a ListResult. This object contains the tree of objects loaded by the query.
+ 
+{{{
+ListResult result = (ListResult) query.getContents().get(0);
+}}}
+
+The resulting objects can be obtained like this:
+
+{{{
+Person p = (Person) result.getResult().get(0);
+}}}
