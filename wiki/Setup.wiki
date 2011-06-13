@@ -4,12 +4,22 @@
 
 = Introduction =
 
-Add your content here.
+This page describes how to install emftriple.
 
+= Installation =
 
-= Details =
+== Install From Update Site ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Add these update sites via eclipse update manager:
+
+jena and sesame/sail osgi bundles: 
+  * http://svn.codespot.com/a/eclipselabs.org/emf4sw/dependencies/
+
+emftriple: 
+  * http://svn.codespot.com/a/eclipselabs.org/emftriple/snapshots/
+
+== Download binaries ==
+
+== Install from source ==
+
+https://github.com/ghillairet/emftriple
