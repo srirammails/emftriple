@@ -34,18 +34,29 @@ data:f68b5b7c-1c67-455b-860c-6fd000348434
 
 The problem is that emftriple creates EObject proxies when it creates EObject during the load of RDF data. EObject proxies are assigned a URI, that is used to reload the content of the object, thanks to a SPARQL query, when it is ask to. But this technique cannot be used with blank nodes since they are treated as non-distinguished variables by SPARQL (see [http://www.w3.org/TR/rdf-sparql-query/#QSynBlankNodes this]).
 
+To enable handling of blank nodes in emftriple, you first need to mark which classes of your model will create blank nodes. This is done by adding annotations. The easiest way to add annotations on an EMF model is to use a textual syntax like [http://wiki.eclipse.org/Emfatic emfatic].
 
-
+In emfatic, we can write the following classes. The class Book has an annotation @BlankNode. This annotation will tell emftriple that instances of this class are blank nodes. Thus emftriple will create specific queries to load these objects. 
 
 {{{
 class Person {
   attr String name;
-  val Book[*] books;	   
+  val Book[*] books; // important !!! blank nodes can only be used in containment references.
 }
 
 @BlankNode(foo=bar)
 class Book {
    attr String title;
    ref Person[*] authors;
+}
+}}}
+
+If you don't want all the instances of a class to be blank nodes, you can use the annotation @BlankNode on a reference. Thus only instances contained in the reference will be loaded and saved as blank nodes.
+
+{{{
+class Person {
+  attr String name;
+  @BlankNode
+  val Book[*] books; // important !!! blank nodes can only be used in containment references.
 }
 }}}
