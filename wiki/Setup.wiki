@@ -1,10 +1,6 @@
 #labels Featured
 #sidebar StoreTableOfContents
 
-= Introduction =
-
-This page describes how to install emftriple.
-
 = Installation =
 
 == Install From Update Site ==
