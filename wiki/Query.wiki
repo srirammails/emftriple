@@ -10,9 +10,11 @@ This page presents the implementation of Sparql available in emftriple.
 ==Sparql==
 
 {{{
-Sparql sparql = new Sparql().select("s").where(
-				triple(var("s"), var("name"), literal("Foo"))
-			);
+Sparql sparql = new Sparql()
+    .select("s")
+    .where(
+        triple(var("s"), var("name"), literal("Foo"))
+    );
 }}}
 
 ==Sparql Native==
