@@ -19,6 +19,10 @@ A Query API is provided in emftriple to query RDF stores. The API lets you easil
 EClass and EStructuralFeature can be use in the query instead of RDF types.
 
 {{{
+import static com.emftriple.query.Sparql.iri;
+import static com.emftriple.query.Sparql.triple;
+import static com.emftriple.query.Sparql.var;
+
 EClass person = ModelPackage.eINSTANCE.getPerson();
 Sparql sparql = new Sparql()
                         .where(
@@ -28,6 +32,12 @@ Sparql sparql = new Sparql()
 
 ==Variables==
 
+{{{
+import static com.emftriple.query.Sparql.var;
+
+triple( var("s"), var("p"), var("o"))
+}}}
+
 ==Literal==
 
 ==Triple==
@@ -36,6 +46,9 @@ Sparql sparql = new Sparql()
 
 ==Filter==
 The query is executed by loading an EMF Resource. The resource needs to have the query in its URI. For that we use the method toURI that takes the base resource URI as parameter.
+
+
+=Result=
 
 {{{
 Resource query = resourceSet.createResource(sparql.toURI(URI.createURI("emftriple://data?graph=http//graph")));
