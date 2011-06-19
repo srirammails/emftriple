@@ -1,0 +1,40 @@
+#summary Installation and Setup.
+#sidebar StoreTableOfContents
+
+= Introduction =
+
+[http://www.w3.org/TR/rdf-mt/#unlabel Blank nodes] are supported in emftriple, but under certain constraints. This page presents the solution of blank node handling in emftriple, and how your model should be configured in order to support this type of RDF nodes.
+
+= Details =
+
+{{{
+@prefix model: <http://www.eclipselabs.org/emf/junit#> .
+@prefix data: <http://www.eclipselabs.org/emf/junit/person/> .
+
+model:f68b5b7c-1c67-455b-860c-6fd000348434
+      a       model:Person ;
+      model:books [
+	      	a       model:Book ;
+	      	model:authors data:f68b5b7c-1c67-455b-860c-6fd000348434> ;
+	      	modeL:title "Book of Things"^^<http://www.w3.org/2001/XMLSchema#string> 
+      ] ;
+      model:books [              
+	      a       model:Book ;
+	      model:authors data:f68b5b7c-1c67-455b-860c-6fd000348434 ;
+              model:title "Valley Of Thing"^^<http://www.w3.org/2001/XMLSchema#string> 
+      ] ;
+      model:name "John Doe"^^<http://www.w3.org/2001/XMLSchema#string> .
+}}}
+
+{{{
+class Person {
+  attr String name;
+  val Book[*] books;	   
+}
+
+@BlankNode(foo=bar)
+class Book {
+   attr String title;
+   ref Person[*] authors;
+}
+}}}
