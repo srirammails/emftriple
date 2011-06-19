@@ -6,11 +6,23 @@
 This page presents the implementation of Sparql available in emftriple.
 
 =Query=
+
 ==Sparql==
-==Sparql String==
 
-=Result=
+{{{
+Sparql sparql = new Sparql().select("s").where(
+				triple(var("s"), var("name"), literal("Foo"))
+			);
+}}}
 
+==Sparql Native==
+
+{{{
+SparqlNative sparql = new SparqlNative(
+    "prefix xsd: <"+XSD.NS+"> "+
+    "select ?s where { " +
+	?s ?name \"Foo\"^^xsd:string }");
+}}}
 
 =Sparql API Guide=
 
