@@ -44,7 +44,7 @@ class Person {
   val Book[*] books; // important !!! blank nodes can only be used in containment references.
 }
 
-@BlankNode(foo=bar)
+@BlankNode(foo=bar) // setting a key/value in the annotation is made mandatory by emfatic.
 class Book {
    attr String title;
    ref Person[*] authors;
@@ -56,7 +56,7 @@ If you don't want all the instances of a class to be blank nodes, you can use th
 {{{
 class Person {
   attr String name;
-  @BlankNode
+  @BlankNode(foo=bar)
   val Book[*] books; // important !!! blank nodes can only be used in containment references.
 }
 }}}
