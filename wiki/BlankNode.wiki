@@ -8,8 +8,11 @@
 = Details =
 
 Blank nodes in RDF indicates the existence of a thing without saying anything about the name of this thing. Thus a blank node cannot be uniquely identified like the other kind of RDF nodes (URI Resource). The example below shows the use of blank nodes. This example is written in the Turtle syntax, which makes reading blank nodes simpler than in RDF/XML.
+
 Here we have a URI Resource acting as the subject. This URI denotes a thing of type Person. This Person has a name, and is link to two other things by a property books. Those two things are instance of the class Book, but are also blank nodes (identified by [] in turtle syntax).
- 
+
+While it is not a so good practice to really on blank nodes, this can be find in many RDF data available on the Web.
+
 {{{
 @prefix model: <http://www.eclipselabs.org/emf/junit#> .
 @prefix data: <http://www.eclipselabs.org/emf/junit/person/> .
@@ -28,6 +31,11 @@ data:f68b5b7c-1c67-455b-860c-6fd000348434
       ] ;
       model:name "John Doe"^^<http://www.w3.org/2001/XMLSchema#string> .
 }}}
+
+The problem is that emftriple creates EObject proxies when it creates EObject during the load of RDF data. EObject proxies are assigned a URI, that is used to reload the content of the object, thanks to a SPARQL query, when it is ask to. But this technique cannot be used with blank nodes since they are treated as non-distinguished variables by SPARQL (see [http://www.w3.org/TR/rdf-sparql-query/#QSynBlankNodes this]).
+
+
+
 
 {{{
 class Person {
