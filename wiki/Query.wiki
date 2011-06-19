@@ -22,8 +22,7 @@ Sparql sparql = new Sparql()
 {{{
 SparqlNative sparql = new SparqlNative(
     "prefix xsd: <"+XSD.NS+"> "+
-    "select ?s where { " +
-	?s ?name \"Foo\"^^xsd:string }");
+    "select ?s where { ?s ?name \"Foo\"^^xsd:string }");
 }}}
 
 =Sparql API Guide=
