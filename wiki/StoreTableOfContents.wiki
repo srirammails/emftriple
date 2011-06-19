@@ -3,6 +3,7 @@
    * [BasicUsage Basic Usage]
  * [User Guide]
    * [Concept Concepts]
+   * [BlankNode BlankNodes]
    * [Query Query]
    * [RdfStores RDF Stores]
    * [Extensions Extensions]
